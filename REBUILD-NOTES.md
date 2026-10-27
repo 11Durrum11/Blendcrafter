@@ -1236,3 +1236,249 @@ to the recovered data whenever Shaun wants it.
 - NOT pushed to GitHub and NOT deployed in this pass — the
   parent agent verifies, pushes (which auto-deploys via the
   Pages workflow), and reports.
+
+# Addendum 2026-10-27 — Batch 4 of the "everything" program: Frostburn + Sandstorm + Miniatures Handbook
+
+Batch 4 of the program Shaun set on 2026-10-27 ("add all the
+different books that were in the original... bring in everything
+and sort it right"). Sources are Shaun's own PDFs in his durrum1
+Dropbox: `/A POC PC related/5.Splat/Frostburn.pdf` (7.8 MB),
+`/A POC PC related/5.Splat/Sandstorm.pdf` (24.7 MB), and
+`/A POC DM related/Desktop/Sourcebooks/Miniatures
+Handbook.pdf` (7.2 MB). All three books are generic official
+D&D 3.5 supplements, so every record carries ruleset "core".
+Every record cites book + printed page in `source` and the
+Dropbox path in `sourceUrl`. Short mechanical summaries in our
+own words throughout; no book text reproduced beyond short
+mechanical facts. NOT pushed or deployed in this pass — the
+parent agent pushes.
+
+## What was added (all NEW files)
+
+- **`src/data/frostburn/races.ts`** — 5 races: Neanderthal,
+  Uldra (Chapter 2), and Frost Folk, Glacier Dwarf, and Snow
+  Goblin (Chapter 6 "as characters" sections, which print
+  complete standalone trait lists).
+- **`src/data/frostburn/prestige-classes.ts`** — 10 prestige
+  classes, every one in the book's Chapter 3, with
+  progressions read from the printed Tables 3–2…3–11: Cloud
+  Anchorite, Cryokineticist, Disciple of Thrym, Frost Mage,
+  Frostrager, Knight of the Iron Glacier, Primeval, Rimefire
+  Witch, Stormsinger, Winterhaunt of Iborighu.
+- **`src/data/frostburn/feats.ts`** — 32 feats, all of
+  Table 2–7 (p. 46): Altitude Adaptation, Arctic Priest,
+  Beckon the Frozen, Chosen of Iborighu, Cold Endurance,
+  Cold Focus, Cold Spell Specialization, Craft Skull
+  Talisman, Faith in the Frost, Frostfell Prodigy, Frozen
+  Berserker, Frozen Magic, Frozen Wild Shape, Greater Cold
+  Focus, Icy Calling, Ice Harmonics, Improved Cold Endurance,
+  Improved Frosty Touch, Mark of Hleid, Mountaineer, Piercing
+  Cold, Primeval Wild Shape, Primitive Caster, Sea Legs,
+  Smite Fiery Foe, Snowcasting, Snowrunner, Snowflake
+  Wardance, Storm Magic, Sugliin Mastery, Winter's Champion,
+  Winter's Mount.
+- **`src/data/sandstorm/races.ts`** — 2 races: Asherati,
+  Bhuka (Chapter 2).
+- **`src/data/sandstorm/prestige-classes.ts`** — 6 prestige
+  classes, every one in the book's Chapter 3, with
+  progressions read from the printed Tables 3–2…3–7: Ashworm
+  Dragoon, Lord of Tides, Sand Shaper, Scion of Tem-Et-Nu,
+  Scorpion Heritor, Walker in the Waste.
+- **`src/data/sandstorm/feats.ts`** — 24 feats, all of
+  Chapter 2 (printed pp. 49–53): Blazing Berserker, Blessed
+  by Tem-Et-Nu, Drift Magic, Eagle's Fury, Fiery Spell, Heat
+  Endurance, Improved Heat Endurance, Judged by Aurifar,
+  Light of Aurifar, Pharaoh's Fist, Priest of the Waste,
+  Rattlesnake Strike, Sand Camouflage, Sand Dancer, Sand
+  Snare, Sand Spinner, Sandskimmer, Scorpion's Grasp,
+  Scorpion's Instincts, Scorpion's Resolve, Scorpion's Sense,
+  Searing Spell, Serpent Fang, Touchstone.
+- **`src/data/sandstorm/templates.ts`** — 3 templates:
+  Half-Janni (CR +1, LA +3), Dry Lich (CR +3, LA +5),
+  Dustform Creature (CR +2, LA +2), following the
+  Book of Exalted Deeds / core template record pattern
+  (top-level ability modifiers, structural patches, natural
+  armor as an "improve" modifier).
+- **`src/data/miniatures-handbook/classes.ts`** — 1 base
+  class: Healer (see the base-class section below).
+- **`src/data/miniatures-handbook/prestige-classes.ts`** —
+  7 prestige classes, every one in the book's Chapter 1, with
+  progressions read from the printed Tables 1–7…1–13: Bonded
+  Summoner, Dragon Samurai, Havoc Mage, Skullclan Hunter,
+  Tactical Soldier, War Hulk, Warchief.
+- **`src/data/miniatures-handbook/feats.ts`** — 20 feats
+  (see the duplicates note below): Battlefield Inspiration,
+  Deft Opportunist, Distracting Attack, Double Hit, Energy
+  Affinity, Extra Domain Spell, Foe Specialist, Greater
+  Powerful Charge, Hurling Charge, Improved Shieldmate,
+  Martial Throw, Mounted Casting, Powerful Charge, Pushback,
+  Reckless Charge, Second Wind, Shieldmate, Sidestep,
+  Sudden Energy Affinity.
+- **`src/data/index.ts`** (modified, as permitted) — barrel
+  header note plus imports, ALL_* merges, and re-exports for
+  all ten new pack files.
+
+## Base classes — three already existed; verified against the Miniatures Handbook originals; one was missing and is added
+
+Miniatures Handbook is the original printing of Favored Soul
+(p. 5), Healer (p. 8), Marshal (p. 11), and Warmage (p. 14);
+Frostburn and Sandstorm have no base classes. The recovered
+records (fan-index sourced, in `src/data/core/new-base-classes.ts`)
+were compared field by field against the printed tables.
+Recovered records were NOT modified.
+
+- **Favored Soul — record MATCHES the Miniatures Handbook
+  original** (Table 1–2, p. 6): d8, 2 + Int, three-quarter
+  BAB, all three saves good (rows identical for levels 1–10),
+  and the same nine class skills (Concentration, Craft,
+  Diplomacy, Heal, Jump, Knowledge (arcana), Profession,
+  Sense Motive, Spellcraft). The record cites the Complete
+  Divine reprint (p. 6), whose content is the same. No
+  discrepancy.
+- **Warmage — record MATCHES the Miniatures Handbook
+  original** (Table 1–6, p. 15): d6, 2 + Int, half BAB, Will
+  good only, and the same seven class skills (Concentration,
+  Craft, Intimidate, Knowledge (arcana), Knowledge (history),
+  Profession, Spellcraft). The record cites the Complete
+  Arcane reprint (p. 10). No discrepancy.
+- **Marshal — record DISAGREES with the book in two ways**
+  (Table 1–5, p. 12; class text p. 11). Reported, not fixed:
+  1. **Base attack bonus.** The record has
+     `babProgression: "full"` with rows +1…+10. The printed
+     table is three-quarter: +0, +1, +2, +3, +3, +4, +5,
+     +6/+1, +6/+1, +7/+2 for levels 1–10.
+  2. **Class skills.** The book lists thirteen: Bluff,
+     Diplomacy, Handle Animal, Intimidate, Knowledge (all),
+     Listen, Perform, Ride, Sense Motive, Speak Language,
+     Spot, Survival, Swim. The record lists twelve: it
+     includes **Profession**, which the book does not list,
+     and omits **Speak Language** and **Survival**, which
+     the book does list.
+  The record's d8, 4 + Int skill points, and Fort/Will good
+  saves do match the book.
+- **Healer — NO recovered record exists.** This batch's
+  premise said all four Miniatures Handbook classes had
+  recovered records; that is wrong for the Healer (a search
+  of `src/data/` finds no Healer record anywhere). Following
+  the Batch 3 precedent for the missing Wu Jen and Shugenja,
+  the Healer is ADDED as a new base-class record in
+  `src/data/miniatures-handbook/classes.ts`: d8, 4 + Int,
+  half BAB, Fortitude and Will good, eleven class skills,
+  progression rows from Table 1–4 (p. 9). Printed quirk kept
+  and noted in the record: her spell save DCs are
+  Charisma-based while her casting is Wisdom-based.
+
+## Judgment calls and deliberate omissions (plain notes)
+
+- **Miniatures Handbook feat duplicates — 12 of 32 skipped.**
+  The Complete books reprinted a dozen of this book's feats,
+  and the earlier batches' records stand (dedupe is by id,
+  first pack wins, so these are recorded as skips rather than
+  shadow records): Goad (= Races of Stone `goad-ros`),
+  Mage Slayer, Sudden Empower, Sudden Extend, Sudden
+  Maximize, Sudden Quicken, Sudden Silent, Sudden Still,
+  Sudden Widen (= Complete Arcane), Danger Sense, Deft
+  Opportunist (= Complete Adventurer), Dash (= Complete
+  Warrior). Sudden Energy Affinity was NOT reprinted by
+  Complete Arcane and is included. The feat-pack header in
+  `miniatures-handbook/feats.ts` lists all twelve.
+- **Sandstorm's Light of Aurifar / Pharaoh's Fist heading
+  swap.** The book prints the stunning-fist text under the
+  "Light of Aurifar" heading (its own Special line names
+  Pharaoh's Fist) and the turn-undead immolation text
+  without its heading. The records follow each feat's
+  mechanics and internal naming, and the swap is noted in
+  the feat-pack header.
+- **Frostburn variant races not converted.** The tundra
+  halfling (p. 36) is printed only as a delta on the PHB
+  halfling ("same racial traits ... but with the following
+  exceptions"), not a standalone trait list, so it is not
+  converted; glacier dwarf and snow goblin ARE converted
+  because their "as characters" sections print complete
+  trait lists. Snow goblin's +1 natural armor is taken from
+  its stat block (the trait list does not restate it) and is
+  flagged in the record. Frostburn's Chapter 2 treatments of
+  the PHB races describe the core races and are not
+  duplicated; the Catfolk in Miniatures Handbook Ch. 3 is
+  already in the dataset from Races of the Wild and is not
+  duplicated.
+- **Crucian (Miniatures Handbook, p. 59) not converted.**
+  The entry is a monster stat block with Level Adjustment
+  +2 and 3 racial Hit Dice but no "Crucians as Characters"
+  trait list; deriving racial traits would mean inventing
+  values, so it is omitted and noted here.
+- **Frostfell Ghost (Frostburn, pp. 132–133) not converted
+  as a separate template.** "Creating a Frostfell Ghost" is
+  the Monster Manual ghost template (already in the core
+  data) plus optional frostfell powers (chill ray, coldfire
+  radiance, frigid touch; optional cold immunity or spell
+  resistance); the sample's LA +5 equals the standard
+  ghost's. Ice Beast (LA "—") is not playable. Sandstorm's
+  remaining Chapter 6 "as characters" entries are monsters
+  and cohorts, not templates.
+- **War Hulk's zero BAB.** Table 1–12 prints +0 base attack
+  bonus at every level (the class trades BAB for +2 Strength
+  per level). The record carries the printed rows; the
+  `babProgression` label is nominal ("half", the closest of
+  the app's three kinds) and the record's feature text says
+  so plainly.
+- **Printed quirks kept as printed and noted in the
+  records:** Cloud Anchorite's requirements list "Improved
+  Unarmed Combat" (the feat is Improved Unarmed Strike);
+  Knight of the Iron Glacier's skill list prints "Craft
+  (Wis)"; Cryokineticist's requirement names the power
+  "energy emanation" (the Expanded Psionics Handbook list
+  calls it energy burst); Frostburn's fighter text misprints
+  Sugliin Mastery as "Sugliin Master" (the feat's own name
+  is used). Knowledge (psionics) and Psicraft in the
+  Cryokineticist's skill list are Expanded Psionics Handbook
+  skill names kept as printed strings, as in earlier packs.
+- **New skills: none in any of the three books** — none of
+  them introduces a skill that fits the app's skill list.
+- **Out of scope, deliberately omitted:** all three books'
+  spells, equipment and magic-item chapters, monsters beyond
+  the playable race/template entries above, environmental
+  and hazard rules (Frostburn's frostfell hazards, Sandstorm's
+  waste hazards and touchstone sites as a system — the
+  Touchstone feat itself is included), and Miniatures
+  Handbook's skirmish and mass-battle rules (Chapters 2, 5,
+  and 6). The equipment/magic chapters are future
+  equipment-shelf material for a later batch.
+- **Extraction method:** Frostburn and Miniatures Handbook
+  have full text layers (Frostburn PDF page = printed page;
+  Miniatures Handbook PDF page = printed page, verified
+  against the qxd folio stamps). Sandstorm's printed page is
+  the PDF page minus one (indd stamps), and its PDF pages
+  138–165 (printed 137–164, most of Chapter 6) are
+  image-only: the Dry Lich and Dustform Creature template
+  pages were rendered at 200 dpi and read by OCR (RapidOCR),
+  with the template values (ability modifiers, CR, LA)
+  checked against the page images.
+
+## Verification
+
+- `npm run check` (tsc): 0 errors. `npm run build`: succeeds.
+- `vite preview`: HTTP 200; server stopped afterward.
+- Resolver smoke test (esbuild bundle of a temporary script
+  against the real modules, script deleted after the run):
+  four builds, one per book plus one extra for the
+  templates, all with zero validation errors and zero
+  warnings. Uldra Wizard 5 / Frost Mage 3 (Frostburn): BAB 3,
+  ECL 9. Bhuka Druid 6 / Lord of Tides 4 (Sandstorm): BAB 7,
+  ECL 10. Asherati Cleric 8 / Walker in the Waste 2 with the
+  Dry Lich template (Sandstorm): BAB 7, ECL 15, type Undead
+  applied by the template's patch. Human Healer 6 / Tactical
+  Soldier 2 (Miniatures Handbook): BAB 5, ECL 8.
+- Id-collision check: before this batch the aggregates held
+  ALL_RACES 30, ALL_CLASSES 36, ALL_PRESTIGE_CLASSES 181,
+  ALL_TEMPLATES 7, ALL_FEATS 572, ALL_SKILLS 55; a pre-merge
+  scan of the new packs' ids found no collisions except the
+  twelve Miniatures Handbook duplicate feats documented
+  above, which were removed from the pack before merging.
+  After the merge: ALL_RACES 37 (+7), ALL_CLASSES 37 (+1),
+  ALL_PRESTIGE_CLASSES 204 (+23), ALL_TEMPLATES 10 (+3),
+  ALL_FEATS 648 (+76), ALL_SKILLS 55 (+0) — every new record
+  present exactly once.
+- NOT pushed to GitHub and NOT deployed in this pass — the
+  parent agent verifies, pushes (which auto-deploys via the
+  Pages workflow), and reports.
