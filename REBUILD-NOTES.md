@@ -630,3 +630,148 @@ addendum.
 - NOT pushed to GitHub and NOT deployed in this pass — the
   parent agent verifies, pushes (which auto-deploys via the
   Pages workflow), and reports.
+
+# Addendum 2026-10-27 — Batch 1.5 of the "everything" program: Shaun's uploaded documents (firearms, alchemy, prosthetics)
+
+Shaun uploaded three documents on 2026-10-27 and directed they be
+brought in with everything else. All records carry ruleset
+"sorcery_steam" (equipment/magic) or "dessarin" (prosthetics; see
+below), cite the document in `source`, and carry the uploaded file
+path in `sourceUrl`. NOT pushed or deployed in this pass.
+
+## What was added
+
+- **`src/data/sorcery-steam/firearms-equipment.ts`** — 45
+  EquipmentItem records from `workspace/user/files/fire_arms.docx`
+  (the document's tables carry Pathfinder Ultimate Combat stats,
+  source tag "UC"): 19 firearms (9 one-handed + 10 two-handed,
+  full printed stat lines), 17 ammunition/gear rows (5 alchemical
+  cartridges, black powder dose/keg, bullets incl. adamantine and
+  silver, gunsmith's kit, metal cartridge, pellets, powder horn),
+  and the document's 9 tail items (musket ball, flechette,
+  quickshot musket ball, thunderball, Krakling Spear, Dwarven
+  Thunderhammer, Cannon, Ship's Cannon, Dragon Ballista).
+- **`src/data/sorcery-steam/alchemical-equipment.ts`** — 155
+  EquipmentItem records from
+  `workspace/user/files/Alchemical_stuff.docx`: 152 rows of the
+  document's eight tables (156 rows in all: Reagents 15, Oils
+  and Flammables 5 of 6, Tools/Devices/Kits 10, Misc. Substances
+  77 of 80, Balms/Medicines/Tonics 17, Hunting Aids 4, Herbs and
+  Plants 15, Special Equipment 9) plus 3 items that appear only in the
+  document's descriptions with prices (Dark wood, Oil stink,
+  Censer Celestial), each marked as description-only in its
+  notes. Each record keeps the row's Craft DC, price, weight, and
+  source tag (CRB/APG/UE/AA/ARG/AM/DHB/DDR/KoG/AnA/PSFG/PCS/SoS/
+  PoIS/RotRLPG) verbatim.
+- **`src/data/sorcery-steam/firearm-magic-items.ts`** — 13
+  MagicItemDefinition records from the firearms document's magic
+  sections: Dry Load ammunition ability, Burrowing Bullet,
+  Tracer Bullet, Lucky / Lucky Greater / Reliable / Reliable
+  Greater firearm abilities, and the 6 wondrous items (Amulet of
+  Bullet Protection, Dry Load Powder Horn, Far-Reaching Sight,
+  Figurine of Wondrous Power (Slate Spider), Oil of Silence, See
+  Invisibility Sight).
+- **`src/data/body-modifications.ts`** — 18 records appended
+  (ids `prosthetic-*`; index total 165 → 183) from
+  `workspace/user/files/AI_imagined_steampunk_prothetics.docx`:
+  families "Steampunk prosthetics" (9) and "Arcane prosthetics"
+  (9), each with the document's market price in `cost` and its
+  craft cost/XP/caster level/prerequisites folded into the
+  summary.
+- **`src/data/index.ts`** — the three new packs are merged into
+  ALL_EQUIPMENT (+200) and ALL_MAGIC_ITEMS (+13) and re-exported.
+
+## Judgment calls and deliberate omissions (plain notes)
+
+- **Firearm stats live in `notes`.** EquipmentItem has no
+  weapon-stat structure; following the core pack's convention
+  (damage in notes), each firearm's full printed line — damage
+  by size, crit, range increment, misfire with its radius,
+  capacity, damage type — is transcribed into notes, scatter
+  weapons getting the document's scatter-quality summary
+  appended. Siege engines are category "weapon" (weight "—";
+  the document prints none) with crew, loading, and space in
+  notes. The gunsmith's kit is category "tool" and the three
+  labs in the alchemical file are "tool" as well, matching the
+  core pack's kits; all other alchemical rows are "gear".
+- **Duplicate rows skipped (2):** Alchemist's fire (1 flask)
+  and Acid (1 flask) duplicate existing core records
+  (`alchemist-s-fire`, `acid-flask`) at identical statistics
+  (20 gp / 1 lb.; 10 gp / 1 lb.), so they were not re-added
+  under the Sorcery & Steam tag.
+- **Unknown rows omitted (2):** Spell scorch and Spider Sac
+  have price and weight literally "?? gp" / "?? lb." in the
+  document; no faithful record can be made. The document's
+  Thurible (descriptions only) likewise has no price or weight
+  anywhere in the document and was omitted.
+- **Blank/odd cells transcribed, not repaired:** Gel,
+  phosphorescent and Powder, insomnia have blank Craft DCs
+  (noted as blank); Paste, bone and Paste, shrieking have DC
+  "?"; Silver sheen (price "+750 gp", DC "see text") and Healy
+  myrrh (DC "see text", no source tag) are kept as printed.
+  Poppy tears is priced 20 gp in the table but 15 gp in its
+  description; the table value was used.
+- **Black powder appears twice, deliberately:** the firearms
+  document's "Black powder (dose)" (10 gp) and the alchemical
+  document's reagent "Powder, Black" (10 gp) are separate rows
+  of separate documents; both are kept under distinct ids.
+- **Magic-item categories:** the four firearm weapon abilities
+  use the core pack's "armor-or-weapon-special-ability"
+  category, priced as printed ("+1 bonus" / "+3 bonus"); Dry
+  Load is filed with them (it is an ability, not an item) with
+  its ammunition-only scope stated in the summary; the two
+  specific magic bullets form an "ammunition" category; the
+  document's own "Wondrous Items" section maps to "wondrous".
+  Aura/CL are folded into summaries. No `modifiers` were
+  modeled — none of these effects map onto the resolver's
+  modifier targets honestly (they act on misfire/grit/AC-vs-
+  firearms, which the engine does not track).
+- **Prosthetics kind:** BodyModificationKind is "graft" |
+  "symbiont" | "warforged-component" — there is no "prosthetic"
+  kind and the engine types were off-limits for this batch.
+  The prosthetics are filed under kind "graft" (the source
+  document itself frames 3.5 prosthetics under the graft rules
+  and the Graft Flesh feat), with the filing stated in every
+  record's `source`. If a "prosthetic" kind is ever wanted,
+  it is a one-word union addition in src/engine/types.ts plus
+  re-tagging these 18 records.
+- **Prosthetics ruleset "dessarin":** the 165 published-book
+  index records tag by book origin ("core" / "eberron"); the
+  prosthetics are Shaun's own homebrew curation, so they take
+  the homebrew tag "dessarin" rather than masquerading as a
+  published "core" family. (This is a tag-only choice; the
+  index merges into no picker.)
+- **No house-rule, toggle-default, engine, or component file
+  was touched** — new data files, the body-modifications data
+  file, the barrel, and these notes only.
+
+## Verification
+
+- `npm run check` (tsc strict): 0 errors.
+- `npm run build`: succeeded — dist JS 975,274 bytes, up from
+  873.16 kB before this batch; only the pre-existing >500 kB
+  chunk-size warning.
+- `vite preview` on port 5000: HTTP 200, title "Blendcrafter —
+  Template Blending Character Builder for d20 3.5 SRD"; new
+  names (Pepperbox, Clockwork Piston Arm, Lucky Firearm,
+  Alchemical cartridge, Steam-Vented Grapple Leg, Thunderstone)
+  confirmed present in the built bundle; server stopped
+  afterward.
+- Resolver smoke test (tsx against the real modules, script
+  deleted after the run): **33/33 passed**. Collection
+  invariants: pack sizes 45 / 155 / 13; ALL_EQUIPMENT grew by
+  exactly 200 and ALL_MAGIC_ITEMS by exactly 13 with every new
+  id present; body-mod index 165 → 183 with exactly 18
+  `prosthetic-*` records (9 Steampunk + 9 Arcane, all
+  dessarin/graft, all with cost and summary); no duplicate ids
+  inside any ALL_* collection and no new id colliding with any
+  of the 965 pre-existing ids or across collections; spot
+  transcriptions verified (pistol stat line, blunderbuss
+  scatter note, cannon crew); the omitted "??" rows are absent
+  and Alchemist's Fire still appears exactly once. End-to-end:
+  a Human Fighter 1 carrying a pistol, paper cartridges, and an
+  oil of silence resolved with zero validation errors and all
+  three inventory items resolved.
+- NOT pushed to GitHub and NOT deployed in this pass — the
+  parent agent verifies, pushes (which auto-deploys via the
+  Pages workflow), and reports.

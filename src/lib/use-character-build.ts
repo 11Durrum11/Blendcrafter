@@ -51,7 +51,10 @@ export function normalizeBuild(input: CharacterBuild): CharacterBuild {
     ...base,
     ...input,
     baseAbilityScores: { ...base.baseAbilityScores, ...(input.baseAbilityScores ?? {}) },
-    houseRules: { ...base.houseRules, ...(input.houseRules ?? {}) },
+    // Shaun's permanent lock (2026-10-27): cross-class skills never cost
+    // double — forced off on every load, even for builds saved while it
+    // was on. Stays off until Shaun asks to turn it on.
+    houseRules: { ...base.houseRules, ...(input.houseRules ?? {}), crossClassSkillDoubleCost: false },
     personality: { ...base.personality, ...(input.personality ?? {}), weights: { ...base.personality.weights, ...(input.personality?.weights ?? {}) } },
   };
 }
@@ -212,6 +215,9 @@ export function useCharacterBuild(initial?: CharacterBuild): UseCharacterBuild {
     });
   }, []);
   const toggleHouseRule = useCallback((id: keyof CharacterBuild["houseRules"], enabled: boolean) => {
+    // Permanent lock (Shaun, 2026-10-27): the cross-class double-cost rule
+    // cannot be switched on. Off until Shaun asks to turn it on.
+    if (id === "crossClassSkillDoubleCost" && enabled) return;
     setBuildState((b) => ({ ...b, houseRules: { ...b.houseRules, [id]: enabled } }));
   }, []);
 

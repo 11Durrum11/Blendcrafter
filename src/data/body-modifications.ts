@@ -25,6 +25,17 @@
  *   generic 3.5 families (Fiend Folio, Lords of Madness, Libris
  *   Mortis, Races of the Dragon, Serpent Kingdoms) are tagged "core"
  *   in the same spirit as the core pack's generic SRD-adjacent index.
+ * - Extended 2026-10-27 (Batch 1.5) with 18 prosthetics from
+ *   Shaun's uploaded AI-imagined prosthetics document (ids prefixed
+ *   "prosthetic-"): 9 "Steampunk prosthetics" and 9 "Arcane
+ *   prosthetics". The BodyModificationKind union has no
+ *   "prosthetic" value, so they are filed under kind "graft" (the
+ *   document itself frames prosthetics under the graft rules) with
+ *   the filing stated in each record's source; as Shaun's homebrew
+ *   curation they carry ruleset "dessarin", unlike the published-
+ *   book records above. Summaries carry the document's market
+ *   price (also in cost), craft cost/XP, caster level, and
+ *   prerequisites. See REBUILD-NOTES.md Batch 1.5 addendum.
  */
 import type { BodyModificationDefinition } from "@/engine/types";
 
@@ -1600,5 +1611,203 @@ export const BODY_MODIFICATIONS: BodyModificationDefinition[] = [
     "ruleset": "eberron",
     "source": "Races of Eberron / Magic of Eberron / Forge of War / Explorer's Handbook",
     "sourceUrl": "workspace/your_files/dnd-35-grafts-symbionts-components-list.md"
+  },
+  {
+    "id": "prosthetic-clockwork-piston-arm",
+    "name": "Clockwork Piston Arm",
+    "kind": "graft",
+    "family": "Steampunk prosthetics",
+    "ruleset": "dessarin",
+    "cost": "8,000 gp",
+    "summary": "Brass replacement arm driven by steam pistons: +2 or +4 inherent bonus on Strength checks made with that arm, −2 on Sleight of Hand from the jerky motion. Craft: 4,000 gp + 320 XP, CL 6th; Craft Wondrous Item, Bull's Strength, 5 ranks Craft (clockwork).",
+    "source": "AI_imagined_steampunk_prothetics.docx — Shaun Bradley's homebrew prosthetics document (a prosthetic; filed under kind \"graft\" — the body-modification type has no \"prosthetic\" kind)",
+    "sourceUrl": "workspace/user/files/AI_imagined_steampunk_prothetics.docx"
+  },
+  {
+    "id": "prosthetic-gondian-multi-tool-hand",
+    "name": "Gondian Multi-Tool Hand",
+    "kind": "graft",
+    "family": "Steampunk prosthetics",
+    "ruleset": "dessarin",
+    "cost": "2,500 gp",
+    "summary": "Replacement hand whose fingers fold back to reveal thieves' tools, a magnifying glass, a blowtorch, or a wrench; counts as masterwork tools for Disable Device and Open Lock. Craft: 1,250 gp + 100 XP, CL 3rd; Craft Wondrous Item, Fabricate or Fox's Cunning, masterwork thieves' tools.",
+    "source": "AI_imagined_steampunk_prothetics.docx — Shaun Bradley's homebrew prosthetics document (a prosthetic; filed under kind \"graft\" — the body-modification type has no \"prosthetic\" kind)",
+    "sourceUrl": "workspace/user/files/AI_imagined_steampunk_prothetics.docx"
+  },
+  {
+    "id": "prosthetic-spring-loaded-dagger-forearm",
+    "name": "Spring-Loaded Dagger Forearm",
+    "kind": "graft",
+    "family": "Steampunk prosthetics",
+    "ruleset": "dessarin",
+    "cost": "2,000 gp",
+    "summary": "Forearm with a hidden spring blade; extending or retracting it is a free action, and it gives +4 on Sleight of Hand checks to conceal the weapon. Craft: 1,000 gp + 80 XP, CL 3rd; Craft Wondrous Item, Cat's Grace, handy dagger.",
+    "source": "AI_imagined_steampunk_prothetics.docx — Shaun Bradley's homebrew prosthetics document (a prosthetic; filed under kind \"graft\" — the body-modification type has no \"prosthetic\" kind)",
+    "sourceUrl": "workspace/user/files/AI_imagined_steampunk_prothetics.docx"
+  },
+  {
+    "id": "prosthetic-pneumatic-shield-arm",
+    "name": "Pneumatic Shield Arm",
+    "kind": "graft",
+    "family": "Steampunk prosthetics",
+    "ruleset": "dessarin",
+    "cost": "4,150 gp",
+    "summary": "Forearm fitted with a folded segmented plate that snaps open as an immediate action to serve as a heavy shield (+2 AC); the hand is unusable while deployed. Craft: 2,075 gp + 166 XP, CL 5th; Craft Wondrous Item, Shield, heavy steel shield.",
+    "source": "AI_imagined_steampunk_prothetics.docx — Shaun Bradley's homebrew prosthetics document (a prosthetic; filed under kind \"graft\" — the body-modification type has no \"prosthetic\" kind)",
+    "sourceUrl": "workspace/user/files/AI_imagined_steampunk_prothetics.docx"
+  },
+  {
+    "id": "prosthetic-piston-heel-pegleg",
+    "name": "Piston-Heel Pegleg",
+    "kind": "graft",
+    "family": "Steampunk prosthetics",
+    "ruleset": "dessarin",
+    "cost": "2,000 gp",
+    "summary": "Heavy brass pegleg with a compression spring: +10 competence bonus on a single Jump check, then a move action to reset the spring by hand. Craft: 1,000 gp + 80 XP, CL 3rd; Craft Wondrous Item, Jump, 5 ranks Craft (clockwork).",
+    "source": "AI_imagined_steampunk_prothetics.docx — Shaun Bradley's homebrew prosthetics document (a prosthetic; filed under kind \"graft\" — the body-modification type has no \"prosthetic\" kind)",
+    "sourceUrl": "workspace/user/files/AI_imagined_steampunk_prothetics.docx"
+  },
+  {
+    "id": "prosthetic-clockwork-braced-leg",
+    "name": "Clockwork Braced Leg",
+    "kind": "graft",
+    "family": "Steampunk prosthetics",
+    "ruleset": "dessarin",
+    "cost": "5,000 gp",
+    "summary": "Full leg of articulated steel rods and gears that locks instantly into place when the wearer stands still: +4 bonus to resist bull rush and trip attempts. Craft: 2,500 gp + 200 XP, CL 5th; Craft Wondrous Item, Bull's Strength, Enlarge Person.",
+    "source": "AI_imagined_steampunk_prothetics.docx — Shaun Bradley's homebrew prosthetics document (a prosthetic; filed under kind \"graft\" — the body-modification type has no \"prosthetic\" kind)",
+    "sourceUrl": "workspace/user/files/AI_imagined_steampunk_prothetics.docx"
+  },
+  {
+    "id": "prosthetic-steam-vented-grapple-leg",
+    "name": "Steam-Vented Grapple Leg",
+    "kind": "graft",
+    "family": "Steampunk prosthetics",
+    "ruleset": "dessarin",
+    "cost": "3,500 gp",
+    "summary": "Prosthetic calf that fires its foot out on compressed air as a grappling hook attached to 50 ft. of steel cable, letting the wearer winch themselves up walls. Craft: 1,750 gp + 140 XP, CL 5th; Craft Wondrous Item, Telekinesis or Levitate, 50 ft. silk rope/wire.",
+    "source": "AI_imagined_steampunk_prothetics.docx — Shaun Bradley's homebrew prosthetics document (a prosthetic; filed under kind \"graft\" — the body-modification type has no \"prosthetic\" kind)",
+    "sourceUrl": "workspace/user/files/AI_imagined_steampunk_prothetics.docx"
+  },
+  {
+    "id": "prosthetic-gondian-monocle-eye",
+    "name": "Gondian Monocle Eye",
+    "kind": "graft",
+    "family": "Steampunk prosthetics",
+    "ruleset": "dessarin",
+    "cost": "4,000 gp",
+    "summary": "Brass eye socket with rotating multi-layered lenses: +4 competence bonus on Search or Appraise checks, −2 on Spot checks beyond 30 ft. Craft: 2,000 gp + 160 XP, CL 3rd; Craft Wondrous Item, True Seeing or Fox's Cunning, spyglass lenses.",
+    "source": "AI_imagined_steampunk_prothetics.docx — Shaun Bradley's homebrew prosthetics document (a prosthetic; filed under kind \"graft\" — the body-modification type has no \"prosthetic\" kind)",
+    "sourceUrl": "workspace/user/files/AI_imagined_steampunk_prothetics.docx"
+  },
+  {
+    "id": "prosthetic-acoustic-brass-ear",
+    "name": "Acoustic Brass Ear",
+    "kind": "graft",
+    "family": "Steampunk prosthetics",
+    "ruleset": "dessarin",
+    "cost": "4,000 gp",
+    "summary": "Brass funnel ear with a mechanical drum that filters wind noise: +2 bonus on Listen checks, but −2 on saving throws against sonic attacks. Craft: 2,000 gp + 160 XP, CL 3rd; Craft Wondrous Item, Clairaudience/Clairvoyance, brass trumpet.",
+    "source": "AI_imagined_steampunk_prothetics.docx — Shaun Bradley's homebrew prosthetics document (a prosthetic; filed under kind \"graft\" — the body-modification type has no \"prosthetic\" kind)",
+    "sourceUrl": "workspace/user/files/AI_imagined_steampunk_prothetics.docx"
+  },
+  {
+    "id": "prosthetic-gilded-mage-hand",
+    "name": "Gilded Mage-Hand",
+    "kind": "graft",
+    "family": "Arcane prosthetics",
+    "ruleset": "dessarin",
+    "cost": "10,000 gp",
+    "summary": "Solid gold or silver hand etched with runes tied to the Weave; works as a permanent Mage Hand — the wearer can detach it and float it up to 30 ft. away under mental control. Craft: 5,000 gp + 400 XP, CL 5th; Craft Wondrous Item or Graft Flesh, Mage Hand, Animate Objects.",
+    "source": "AI_imagined_steampunk_prothetics.docx — Shaun Bradley's homebrew prosthetics document (a prosthetic; filed under kind \"graft\" — the body-modification type has no \"prosthetic\" kind)",
+    "sourceUrl": "workspace/user/files/AI_imagined_steampunk_prothetics.docx"
+  },
+  {
+    "id": "prosthetic-elemental-forge-arm",
+    "name": "Elemental Forge-Arm",
+    "kind": "graft",
+    "family": "Arcane prosthetics",
+    "ruleset": "dessarin",
+    "cost": "18,000 gp",
+    "summary": "Volcanic obsidian arm bound with an imprisoned fire elemental: unarmed strikes deal +1d6 fire damage and the wearer gains fire resistance 5. Craft: 9,000 gp + 720 XP, CL 7th; Craft Wondrous Item or Graft Flesh, Produce Flame or Fire Shield, planar binding (fire).",
+    "source": "AI_imagined_steampunk_prothetics.docx — Shaun Bradley's homebrew prosthetics document (a prosthetic; filed under kind \"graft\" — the body-modification type has no \"prosthetic\" kind)",
+    "sourceUrl": "workspace/user/files/AI_imagined_steampunk_prothetics.docx"
+  },
+  {
+    "id": "prosthetic-alchemical-toxin-claw",
+    "name": "Alchemical Toxin Claw",
+    "kind": "graft",
+    "family": "Arcane prosthetics",
+    "ruleset": "dessarin",
+    "cost": "12,000 gp",
+    "summary": "Green-veined glass and ceramic arm filled with shifting alchemical fluid: once per day, a touch attack replicating Ghoul Touch or Poison. Craft: 6,000 gp + 480 XP, CL 5th; Craft Wondrous Item or Graft Flesh, Ghoul Touch or Poison, 5 ranks Craft (alchemy).",
+    "source": "AI_imagined_steampunk_prothetics.docx — Shaun Bradley's homebrew prosthetics document (a prosthetic; filed under kind \"graft\" — the body-modification type has no \"prosthetic\" kind)",
+    "sourceUrl": "workspace/user/files/AI_imagined_steampunk_prothetics.docx"
+  },
+  {
+    "id": "prosthetic-living-wood-arm",
+    "name": "Living Wood Arm",
+    "kind": "graft",
+    "family": "Arcane prosthetics",
+    "ruleset": "dessarin",
+    "cost": "6,000 gp",
+    "summary": "Arm grown from living treant or twilight-grove wood: behaves exactly like a real arm, heals itself naturally over time, and can cast Goodberry or Entangle once per day. Craft: 3,000 gp + 240 XP, CL 5th; Craft Wondrous Item or Graft Flesh, Plant Growth, Goodberry (druids can craft it).",
+    "source": "AI_imagined_steampunk_prothetics.docx — Shaun Bradley's homebrew prosthetics document (a prosthetic; filed under kind \"graft\" — the body-modification type has no \"prosthetic\" kind)",
+    "sourceUrl": "workspace/user/files/AI_imagined_steampunk_prothetics.docx"
+  },
+  {
+    "id": "prosthetic-gust-stride-greave",
+    "name": "Gust-Stride Greave",
+    "kind": "graft",
+    "family": "Arcane prosthetics",
+    "ruleset": "dessarin",
+    "cost": "11,000 gp",
+    "summary": "Hollow translucent marble leg swirling with elemental air: the wearer's weight is halved and base land speed increases by +10 ft. Craft: 5,500 gp + 440 XP, CL 5th; Craft Wondrous Item or Graft Flesh, Expeditious Retreat, Feather Fall.",
+    "source": "AI_imagined_steampunk_prothetics.docx — Shaun Bradley's homebrew prosthetics document (a prosthetic; filed under kind \"graft\" — the body-modification type has no \"prosthetic\" kind)",
+    "sourceUrl": "workspace/user/files/AI_imagined_steampunk_prothetics.docx"
+  },
+  {
+    "id": "prosthetic-shadow-stitched-leg",
+    "name": "Shadow-Stitched Leg",
+    "kind": "graft",
+    "family": "Arcane prosthetics",
+    "ruleset": "dessarin",
+    "cost": "20,000 gp",
+    "summary": "Leg woven from raw shadow-stuff: makes no sound when touching the ground (+4 competence bonus on Move Silently) and allows a short Dimension Door between shadows once per day. Craft: 10,000 gp + 800 XP, CL 7th; Craft Wondrous Item or Graft Flesh, Dimension Door, Silence, Shadow Weave Magic feat.",
+    "source": "AI_imagined_steampunk_prothetics.docx — Shaun Bradley's homebrew prosthetics document (a prosthetic; filed under kind \"graft\" — the body-modification type has no \"prosthetic\" kind)",
+    "sourceUrl": "workspace/user/files/AI_imagined_steampunk_prothetics.docx"
+  },
+  {
+    "id": "prosthetic-stonemeld-prosthetic",
+    "name": "Stonemeld Prosthetic",
+    "kind": "graft",
+    "family": "Arcane prosthetics",
+    "ruleset": "dessarin",
+    "cost": "8,000 gp",
+    "summary": "Leg carved from solid granite that merges with the wearer's flesh: when standing on unworked stone, the wearer gains the dwarf's Stability trait and cannot be knocked prone. Craft: 4,000 gp + 320 XP, CL 5th; Craft Wondrous Item or Graft Flesh, Meld into Stone, solid granite block.",
+    "source": "AI_imagined_steampunk_prothetics.docx — Shaun Bradley's homebrew prosthetics document (a prosthetic; filed under kind \"graft\" — the body-modification type has no \"prosthetic\" kind)",
+    "sourceUrl": "workspace/user/files/AI_imagined_steampunk_prothetics.docx"
+  },
+  {
+    "id": "prosthetic-magisters-sapphire-eye",
+    "name": "Magister's Sapphire Eye",
+    "kind": "graft",
+    "family": "Arcane prosthetics",
+    "ruleset": "dessarin",
+    "cost": "15,000 gp",
+    "summary": "Flawless sapphire set into the eye socket, tapping the Weave to grant continuous Detect Magic or See Invisibility out to 60 ft. Craft: 7,500 gp + 600 XP, CL 3rd; Craft Wondrous Item or Graft Flesh, See Invisibility or Detect Magic, sapphire worth 1,000 gp.",
+    "source": "AI_imagined_steampunk_prothetics.docx — Shaun Bradley's homebrew prosthetics document (a prosthetic; filed under kind \"graft\" — the body-modification type has no \"prosthetic\" kind)",
+    "sourceUrl": "workspace/user/files/AI_imagined_steampunk_prothetics.docx"
+  },
+  {
+    "id": "prosthetic-chitinous-tremor-ear",
+    "name": "Chitinous Tremor-Ear",
+    "kind": "graft",
+    "family": "Arcane prosthetics",
+    "ruleset": "dessarin",
+    "cost": "12,000 gp",
+    "summary": "Insectoid segmented internal ear adapted from Underdark monsters: tremorsense out to 30 ft., pinpointing creatures touching the ground, but normal spoken language comes through unclearly. Craft: 6,000 gp + 480 XP, CL 5th; Craft Wondrous Item or Graft Flesh feat, umber hulk or destrachan tissue.",
+    "source": "AI_imagined_steampunk_prothetics.docx — Shaun Bradley's homebrew prosthetics document (a prosthetic; filed under kind \"graft\" — the body-modification type has no \"prosthetic\" kind)",
+    "sourceUrl": "workspace/user/files/AI_imagined_steampunk_prothetics.docx"
   }
 ];

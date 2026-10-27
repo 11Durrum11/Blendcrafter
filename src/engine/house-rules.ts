@@ -23,7 +23,9 @@ export const HOUSE_RULE_DEFS: HouseRuleDef[] = [
     description:
       "RAW: buying a rank in a cross-class skill costs 2 skill points. Turn off to charge 1 point per rank for every skill.",
     category: "Skills",
-    defaultValue: true,
+    // Shaun's standing choice (2026-10-27): OFF and keep off — cross-class
+    // ranks cost 1 point in his games.
+    defaultValue: false,
     ruleReference: "https://www.d20srd.org/srd/skills/skillsSummary.htm",
   },
   {
@@ -47,7 +49,7 @@ export const HOUSE_RULE_DEFS: HouseRuleDef[] = [
 ];
 
 export const DEFAULT_HOUSE_RULES: HouseRules = {
-  crossClassSkillDoubleCost: true,
+  crossClassSkillDoubleCost: false,
   crossClassSkillHalfCap: true,
   levelAdjustmentBuyoff: false,
 };
