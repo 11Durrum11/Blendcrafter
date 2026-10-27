@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light theme: warm parchment */
+    --background: 42 44% 92%;
+    --foreground: 30 25% 14%;
+    --card: 44 52% 96%;
+    --card-foreground: 30 25% 14%;
+    --card-border: 36 32% 78%;
+    --popover: 44 52% 96%;
+    --popover-foreground: 30 25% 14%;
+    --primary: 33 88% 38%;
+    --primary-foreground: 45 80% 97%;
+    --secondary: 40 30% 85%;
+    --secondary-foreground: 30 25% 20%;
+    --muted: 40 30% 85%;
+    --muted-foreground: 32 14% 38%;
+    --accent: 38 55% 84%;
+    --accent-foreground: 30 30% 18%;
+    --destructive: 0 72% 42%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 36 32% 74%;
+    --input: 36 32% 74%;
+    --ring: 33 88% 38%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Dark theme: dark slate + parchment/amber (default) */
+    --background: 222 22% 10%;
+    --foreground: 42 38% 88%;
+    --card: 222 20% 14%;
+    --card-foreground: 42 38% 88%;
+    --card-border: 220 16% 24%;
+    --popover: 222 20% 13%;
+    --popover-foreground: 42 38% 88%;
+    --primary: 38 92% 50%;
+    --primary-foreground: 30 40% 10%;
+    --secondary: 220 16% 20%;
+    --secondary-foreground: 42 38% 88%;
+    --muted: 220 16% 20%;
+    --muted-foreground: 220 12% 62%;
+    --accent: 222 18% 22%;
+    --accent-foreground: 42 38% 90%;
+    --destructive: 0 62% 46%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 16% 24%;
+    --input: 220 16% 26%;
+    --ring: 38 92% 50%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+@layer utilities {
+  /* Subtle hover/active elevation used across the pickers (hover-elevate,
+     active-elevate-2 in the recovered components): a translucent overlay that
+     lightens the element without changing layout. */
+  .hover-elevate {
+    position: relative;
+  }
+  .hover-elevate::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background-color: currentColor;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+  }
+  .hover-elevate:hover::after {
+    opacity: 0.06;
+  }
+  .active-elevate-2:active::after {
+    opacity: 0.12;
+  }
+}
