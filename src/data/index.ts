@@ -30,6 +30,16 @@
  * and the AI-imagined steampunk prosthetics
  * (AI_imagined_steampunk_prothetics.docx) as 18 records appended
  * to the body-modification index in body-modifications.ts.
+ *
+ * Also merged 2026-10-27 (Batch 2 of the "all original books"
+ * program): the Complete Warrior and Complete Adventurer packs.
+ * Both books are generic D&D 3.5 supplements whose records carry
+ * ruleset "core". Their six base classes (Hexblade, Samurai,
+ * Swashbuckler; Ninja, Scout, Spellthief) already existed in the
+ * recovered core data, so the packs add prestige classes and feats
+ * only (see the REBUILD-NOTES.md Batch 2 addendum for the
+ * verification of the recovered base classes, including the
+ * discrepancies found).
  */
 import type {
   BodyModificationDefinition,
@@ -76,6 +86,10 @@ import { RACES_OF_STONE_FEATS } from "./races-of-stone/feats";
 import { RACES_OF_THE_WILD_RACES } from "./races-of-the-wild/races";
 import { RACES_OF_THE_WILD_PRESTIGE_CLASSES } from "./races-of-the-wild/prestige-classes";
 import { RACES_OF_THE_WILD_FEATS } from "./races-of-the-wild/feats";
+import { COMPLETE_ADVENTURER_PRESTIGE_CLASSES } from "./complete-adventurer/prestige-classes";
+import { COMPLETE_ADVENTURER_FEATS } from "./complete-adventurer/feats";
+import { COMPLETE_WARRIOR_PRESTIGE_CLASSES } from "./complete-warrior/prestige-classes";
+import { COMPLETE_WARRIOR_FEATS } from "./complete-warrior/feats";
 
 function dedupeById<T extends { id: string }>(items: T[]): T[] {
   const seen = new Set<string>();
@@ -105,6 +119,8 @@ export const ALL_PRESTIGE_CLASSES: PrestigeClassDefinition[] = dedupeById([
   ...SORCERY_STEAM_PRESTIGE_CLASSES,
   ...RACES_OF_STONE_PRESTIGE_CLASSES,
   ...RACES_OF_THE_WILD_PRESTIGE_CLASSES,
+  ...COMPLETE_ADVENTURER_PRESTIGE_CLASSES,
+  ...COMPLETE_WARRIOR_PRESTIGE_CLASSES,
 ]);
 
 export const ALL_TEMPLATES: TemplateDefinition[] = dedupeById([...TEMPLATES, ...DESSARIN_TEMPLATES]);
@@ -115,10 +131,10 @@ export const ALL_BODY_MODIFICATIONS: BodyModificationDefinition[] = dedupeById([
 
 export const ALL_SKILLS: SkillDefinition[] = dedupeById([...CORE_SKILLS, ...SORCERY_STEAM_SKILLS]);
 
-export const ALL_FEATS: FeatDefinition[] = dedupeById([...CORE_FEATS, ...EBERRON_FEATS, ...IRON_KINGDOMS_FEATS, ...SORCERY_STEAM_FEATS, ...RACES_OF_STONE_FEATS, ...RACES_OF_THE_WILD_FEATS]);
+export const ALL_FEATS: FeatDefinition[] = dedupeById([...CORE_FEATS, ...EBERRON_FEATS, ...IRON_KINGDOMS_FEATS, ...SORCERY_STEAM_FEATS, ...RACES_OF_STONE_FEATS, ...RACES_OF_THE_WILD_FEATS, ...COMPLETE_ADVENTURER_FEATS, ...COMPLETE_WARRIOR_FEATS]);
 
 export const ALL_EQUIPMENT: EquipmentItem[] = dedupeById([...CORE_EQUIPMENT, ...NEW_EQUIPMENT, ...SORCERY_STEAM_FIREARM_EQUIPMENT, ...SORCERY_STEAM_ALCHEMICAL_EQUIPMENT]);
 
 export const ALL_MAGIC_ITEMS: MagicItemDefinition[] = dedupeById([...CORE_MAGIC_ITEMS, ...SORCERY_STEAM_FIREARM_MAGIC_ITEMS]);
 
-export { RACES, TEMPLATES, LEGACY_CLASSES, CORE_CLASSES, NEW_BASE_CLASSES, CORE_PRESTIGE_CLASSES, CORE_SKILLS, CORE_FEATS, CORE_EQUIPMENT, NEW_EQUIPMENT, CORE_MAGIC_ITEMS, EBERRON_RACES, EBERRON_PRESTIGE_CLASSES, EBERRON_FEATS, IRON_KINGDOMS_RACES, IRON_KINGDOMS_FEATS, SORCERY_STEAM_CLASSES, SORCERY_STEAM_PRESTIGE_CLASSES, SORCERY_STEAM_SKILLS, SORCERY_STEAM_FEATS, SORCERY_STEAM_FIREARM_EQUIPMENT, SORCERY_STEAM_ALCHEMICAL_EQUIPMENT, SORCERY_STEAM_FIREARM_MAGIC_ITEMS, DESSARIN_TEMPLATES, DESSARIN_TABLES, BODY_MODIFICATIONS, RACES_OF_STONE_RACES, RACES_OF_STONE_PRESTIGE_CLASSES, RACES_OF_STONE_FEATS, RACES_OF_THE_WILD_RACES, RACES_OF_THE_WILD_PRESTIGE_CLASSES, RACES_OF_THE_WILD_FEATS };
+export { RACES, TEMPLATES, LEGACY_CLASSES, CORE_CLASSES, NEW_BASE_CLASSES, CORE_PRESTIGE_CLASSES, CORE_SKILLS, CORE_FEATS, CORE_EQUIPMENT, NEW_EQUIPMENT, CORE_MAGIC_ITEMS, EBERRON_RACES, EBERRON_PRESTIGE_CLASSES, EBERRON_FEATS, IRON_KINGDOMS_RACES, IRON_KINGDOMS_FEATS, SORCERY_STEAM_CLASSES, SORCERY_STEAM_PRESTIGE_CLASSES, SORCERY_STEAM_SKILLS, SORCERY_STEAM_FEATS, SORCERY_STEAM_FIREARM_EQUIPMENT, SORCERY_STEAM_ALCHEMICAL_EQUIPMENT, SORCERY_STEAM_FIREARM_MAGIC_ITEMS, DESSARIN_TEMPLATES, DESSARIN_TABLES, BODY_MODIFICATIONS, RACES_OF_STONE_RACES, RACES_OF_STONE_PRESTIGE_CLASSES, RACES_OF_STONE_FEATS, RACES_OF_THE_WILD_RACES, RACES_OF_THE_WILD_PRESTIGE_CLASSES, RACES_OF_THE_WILD_FEATS, COMPLETE_ADVENTURER_PRESTIGE_CLASSES, COMPLETE_ADVENTURER_FEATS, COMPLETE_WARRIOR_PRESTIGE_CLASSES, COMPLETE_WARRIOR_FEATS };

@@ -775,3 +775,206 @@ path in `sourceUrl`. NOT pushed or deployed in this pass.
 - NOT pushed to GitHub and NOT deployed in this pass — the
   parent agent verifies, pushes (which auto-deploys via the
   Pages workflow), and reports.
+
+# Addendum 2026-10-27 — Batch 2 of the "everything" program: Complete Warrior + Complete Adventurer
+
+Batch 2 of the program Shaun set on 2026-10-27 ("add all the
+different books that were in the original... bring in everything
+and sort it right"). Sources are Shaun's own PDFs in his durrum1
+Dropbox, folder `/A POC PC related/5.Splat/Complete sereies/`
+(the folder's spelling is the book's own): `D&D 3.5 - Complete
+Warrior.pdf` (56.1 MB) and `D&D 3.5 - Complete Adventurer.pdf`
+(20.5 MB). Both books are generic official D&D 3.5 supplements,
+so every record carries ruleset "core". Every record cites book
++ printed page in `source` and the Dropbox path in `sourceUrl`.
+Short mechanical summaries in our own words throughout; no book
+text reproduced beyond short mechanical facts. NOT pushed or
+deployed in this pass — the parent agent pushes.
+
+## What was added (all NEW files)
+
+- **`src/data/complete-warrior/prestige-classes.ts`** — 36
+  prestige classes, every one in the book's Chapter 2, with
+  progressions read from the printed Tables 2-2…2-37: Bear
+  Warrior, Bladesinger, Cavalier, Dark Hunter (5 levels),
+  Darkwood Stalker, Dervish, Drunken Master, Exotic Weapon
+  Master (3 levels), Eye of Gruumsh, Frenzied Berserker, Gnome
+  Giant-Slayer, Halfling Outrider, Hulking Hurler (3 levels),
+  Hunter of the Dead, Invisible Blade (5 levels), Justiciar,
+  Kensai, Knight of the Chalice, Knight Protector, Master
+  Thrower (5 levels), Master of the Unseen Hand (5 levels),
+  Mindspy (5 levels), Nature's Warrior (5 levels), Occult Slayer
+  (5 levels), Order of the Bow Initiate, Purple Dragon Knight
+  (5 levels), Rage Mage, Ravager, Reaping Mauler (5 levels),
+  Ronin, Spellsword, Stonelord, Tattooed Monk, Thayan Knight
+  (5 levels), War Chanter, Warshaper (5 levels).
+- **`src/data/complete-warrior/feats.ts`** — 81 feats from
+  Chapter 3: 57 general feats from Table 3-1 (pp. 94–95;
+  descriptions pp. 96–107), 6 divine feats from Table 3-2
+  (p. 108), 8 tactical feats from Table 3-3 (p. 110), and 10
+  weapon style feats from Table 3-4 (p. 113). General: Arcane
+  Strike, Arterial Strike, Axiomatic Strike, Clever Wrestling,
+  Close-Quarters Fighting, Dash, Defensive Strike, Defensive
+  Throw, Destructive Rage, Earth's Embrace, Eagle Claw Attack,
+  Extend Rage, Extra Rage, Extra Smiting, Extra Stunning, Eyes
+  in the Back of Your Head, Faster Healing, Favored Power
+  Attack, Fists of Iron, Fleet of Foot, Flying Kick, Freezing
+  the Lifeblood, Greater Resiliency, Greater Two-Weapon Defense,
+  Hamstring, Hold the Line, Improved Buckler Defense, Improved
+  Combat Expertise, Improved Familiar, Improved Favored Enemy,
+  Improved Mounted Archery, Improved Rapid Shot, Improved
+  Toughness, Improved Two-Weapon Defense, Instantaneous Rage,
+  Intimidating Rage, Karmic Strike, Kiai Shout, Greater Kiai
+  Shout, Monkey Grip, Pain Touch, Phalanx Fighting, Pin Shield,
+  Power Critical, Prone Attack, Ranged Disarm, Ranged Pin,
+  Ranged Sunder, Rapid Stunning, Roundabout Kick,
+  Sharp-Shooting, Shield Charge, Shield Slam, Swarmfighting,
+  Throw Anything, Weakening Touch, Zen Archery. Divine: Divine
+  Cleansing, Divine Resistance, Divine Might, Divine Shield,
+  Divine Vigor, Sacred Vengeance. Tactical: Cavalry Charger,
+  Combat Brute, Elusive Target, Formation Expert, Giantbane,
+  Raptor School, Shock Trooper, Sun School. Style: Anvil of
+  Thunder, Bear Fang, Crescent Moon, Hammer's Edge, High Sword
+  Low Axe, Lightning Mace, Net and Trident, Quick Staff,
+  Spinning Halberd, Three Mountains.
+- **`src/data/complete-adventurer/prestige-classes.ts`** — 26
+  prestige classes, every one in the book's Chapter 2, verified
+  class-by-class against its printed block and table: Animal
+  Lord, Beastmaster, Bloodhound, Daggerspell Mage, Daggerspell
+  Shaper, Dread Pirate, Dungeon Delver, Exemplar, Fochlucan
+  Lyrist, Ghost-Faced Killer, Highland Stalker, Maester, Master
+  of Many Forms, Nightsong Enforcer, Nightsong Infiltrator,
+  Ollam, Shadowbane Inquisitor, Shadowbane Stalker, Shadowmind,
+  Spymaster, Streetfighter, Tempest, Thief-Acrobat, Vigilante,
+  Virtuoso, Wild Plains Outrider.
+- **`src/data/complete-adventurer/feats.ts`** — 52 feats from
+  Table 3-2 (pp. 104–105; descriptions pp. 105–119): 44 general
+  feats plus the table's 3 bardic music feats (Chant of
+  Fortitude, Ironskin Chant, Lyric Spell) and 6 wild feats
+  (Blindsense, Climb Like an Ape, Cougar's Vision, Hawk's
+  Vision, Savage Grapple, Scent) — the app has no bardic/wild
+  feat categories, so those carry category "general" with the
+  grouping named in `special`, following the house pattern.
+  Feats the table marks as fighter bonus feats carry category
+  "combat" (Brutal Throw, Power Throw, Combat Intuition, Dual
+  Strike, Improved Diversion, Oversized Two-Weapon Fighting).
+- **`src/data/index.ts`** — both packs merged into
+  ALL_PRESTIGE_CLASSES (+62) and ALL_FEATS (+133) and
+  re-exported; barrel header comment extended for Batch 2.
+
+## Base classes — all six already existed; verified, not duplicated
+
+Both books' base classes were already present in the recovered
+core data (`src/data/core/new-base-classes.ts`, sourced from the
+crystalkeep fan index with progressions capped at 10 rows per
+app convention), so none were re-added. Each was verified
+against its printed class block:
+
+- **Ninja (CAdv p. 7) — verified match:** d6, 6+Int, Ref good
+  only, three-quarter BAB; all 20 printed class skills match.
+- **Samurai (CW pp. 8–10) — fully verified:** d10, 2+Int, full
+  BAB, Fort good only; skills and specials match the printed
+  Table 1-3 and text.
+- **Swashbuckler (CW pp. 11–12) — fully verified:** d10, 4+Int,
+  full BAB, Fort good only; all 12 skills and specials match.
+- **Hexblade (CW p. 5) — TWO discrepancies in the recovered
+  record:** (1) the record gives a good Fortitude save, but the
+  book prints Fortitude poor (Will good only); (2) the record's
+  `source` wrongly cites "Complete Arcane, p. 5" — the Hexblade
+  is Complete Warrior p. 5. Skills, d10, 2+Int, and the
+  any-nongood alignment match.
+- **Scout (CAdv p. 11) — skill-list discrepancy:** the book's
+  20 class skills include Speak Language and Survival; the
+  recovered record instead lists Disable Device and Spellcraft
+  and lacks those two. Hit die (d8), 8+Int, and Ref good match.
+- **Spellthief (CAdv p. 15) — skill-list discrepancy:** the
+  book's 22 class skills include Appraise, Concentration, Speak
+  Language, and Spellcraft; the recovered record lacks those
+  four and instead lists Sense Motive. Hit die (d6), 6+Int, and
+  Will good match.
+
+Per the batch constraints the recovered files were NOT
+modified; the three discrepancy reports above are the record of
+what differs. Fixing them is a separate, deliberate edit to the
+recovered data whenever Shaun wants it.
+
+## Judgment calls and deliberate omissions (plain notes)
+
+- **Printed quirks kept as printed** (each noted in its
+  record): Fochlucan Lyrist has full BAB exactly as its Table
+  2-10 prints (a known book quirk) with dual +1 arcane/+1 divine
+  casting every level; Spymaster is a 7-level class, as its
+  Table 2-21 ends at 7th (confirmed on the page image); Exemplar
+  is three-quarter BAB and its class skills are literally all
+  skills, so the record lists every SRD skill with a note;
+  Master of the Unseen Hand has a full BAB progression as
+  printed despite its d4 Hit Die; Dervish's Fortitude column is
+  poor, verified from the table image after OCR ambiguity.
+- **Animal Lord id:** the CAdv prestige class is
+  `animal-lord-cadv`, distinct from the unrelated Sorcery &
+  Steam base class `animal-lord`. CAdv's two wild feats whose
+  names collide with SRD abilities are `blindsense-wild` and
+  `scent-wild`.
+- **Duplicates skipped (4):** CAdv's Goad (already in the
+  dataset as Races of Stone's `goad-ros`) and Improved Flight
+  (already present from Races of the Wild); CW's Flick of the
+  Wrist (already present from Races of the Wild) and Improved
+  Weapon Familiarity (already present from Races of Stone).
+- **"Knowledge" with no specialty:** Justiciar, Stonelord, and
+  Tattooed Monk print their Knowledge class skill with no
+  specialty specified; the records enter it as printed, with a
+  note. Spellsword prints the same bare "Knowledge"; its record
+  enters Knowledge (arcana), matching the class's own
+  requirement, with a note.
+- **Invisible Blade** lists the 3.0-era skill Innuendo among its
+  class skills, exactly as printed, and — also as printed — has
+  no base attack bonus requirement (only skill ranks, feats,
+  and the rite-of-passage combat). Both are noted in the record.
+- **Setting-flavored classes:** Purple Dragon Knight (Cormyr)
+  and Thayan Knight (Red Wizards of Thay) are Forgotten Realms
+  classes that Complete Warrior itself reprints as part of the
+  book; following the batch's sorting rule (official supplement
+  → "core") they carry ruleset "core", with their setting ties
+  kept verbatim in their prerequisites.
+- **Skills: none new in either book.** Complete Adventurer adds
+  new uses for existing skills only; Complete Warrior's Chapter
+  3 covers feat selection and skill uses only. No templates or
+  races appear in either book.
+- **Out of scope, deliberately omitted:** both books' spells,
+  the equipment and magic-item chapters of both books, and
+  Complete Adventurer's organizations chapter and Complete
+  Warrior's Chapter 4 warfare material (missions, epic
+  progressions, exotic-weapon equipment). The equipment/magic
+  chapters are future equipment-shelf material for a later
+  batch. Complete Warrior's Chapter 1 variant paladin/ranger
+  are variants of core classes, not new base classes.
+- **Extraction method:** the Complete Adventurer PDF has a text
+  layer but is scanned as mixed single pages and two-page
+  spreads; every class was verified against its own printed
+  block rather than trusting the raw flow. The Complete Warrior
+  PDF is scanned images only (no text layer), so it was read by
+  OCR (RapidOCR) at 200 dpi with progressions taken from the
+  printed tables; every ambiguous cell (save columns, skill
+  points, short tables) was settled against the page image.
+
+## Verification
+
+- `npm run check` (tsc): 0 errors. `npm run build`: succeeds.
+- `vite preview` on port 5000: HTTP 200, title "Blendcrafter —
+  Template Blending Character Builder for d20 3.5 SRD"; server
+  stopped afterward.
+- Resolver smoke test (esbuild bundle of a temporary script
+  against the real modules, script deleted after the run): all
+  assertions passed. Rogue 5 / Daggerspell Mage 5 (Complete
+  Adventurer): zero validation errors, BAB 6, Fort 3 / Ref 10 /
+  Will 5, Hide total 10 (8 ranks + Dex). Fighter 6 / Dervish 4
+  (Complete Warrior): zero validation errors, BAB 10, Fort 7 /
+  Ref 8 / Will 6, Tumble total 9 (7 ranks + Dex).
+- Id-collision check: ALL_PRESTIGE_CLASSES, ALL_FEATS,
+  ALL_CLASSES, and ALL_SKILLS ids are unique across the whole
+  dataset, and all 62 new prestige classes and 133 new feats are
+  present exactly once in their aggregates. Dataset totals after
+  Batch 2: ALL_PRESTIGE_CLASSES 116, ALL_FEATS 420.
+- NOT pushed to GitHub and NOT deployed in this pass — the
+  parent agent verifies, pushes (which auto-deploys via the
+  Pages workflow), and reports.
