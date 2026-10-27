@@ -38,8 +38,8 @@ export function StepSkills({ skillRanks, enabledRulesets, disabledSkillIds, reso
           <CardTitle className="font-display text-xl">Skills</CardTitle>
           <CardDescription>
             Allocate skill ranks earned from class levels and Intelligence modifier. Class skills cap at level + 3
-            ranks; cross-class skill costs and caps follow the House Rules toggles above (RAW by default: half the
-            rank cap and 2 points per rank). Source:{" "}
+            ranks. Every skill costs 1 point per rank — the cross-class double-cost rule is LOCKED OFF at Shaun's
+            direction. The cross-class rank cap follows the House Rules toggle above. Source:{" "}
             <a href="https://www.d20srd.org/srd/skills/skillsSummary.htm" target="_blank" rel="noreferrer" className="text-primary underline underline-offset-2">
               d20 SRD Skills
             </a>

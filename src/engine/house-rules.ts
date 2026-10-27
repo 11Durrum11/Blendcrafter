@@ -14,6 +14,8 @@ export interface HouseRuleDef {
   defaultValue: boolean;
   /** Link to the SRD page that states the RAW rule. */
   ruleReference: string;
+  /** When true, the toggle is permanently locked off in the UI and the engine. */
+  lockedOff?: boolean;
 }
 
 export const HOUSE_RULE_DEFS: HouseRuleDef[] = [
@@ -21,11 +23,12 @@ export const HOUSE_RULE_DEFS: HouseRuleDef[] = [
     id: "crossClassSkillDoubleCost",
     label: "Cross-class skills cost 2 points per rank",
     description:
-      "RAW: buying a rank in a cross-class skill costs 2 skill points. Turn off to charge 1 point per rank for every skill.",
+      "LOCKED OFF by Shaun (2026-10-27) — every skill costs 1 point per rank, class or cross-class. The RAW rule (2 points per cross-class rank) stays off until Shaun asks to turn it on.",
     category: "Skills",
     // Shaun's standing choice (2026-10-27): OFF and keep off — cross-class
     // ranks cost 1 point in his games.
     defaultValue: false,
+    lockedOff: true,
     ruleReference: "https://www.d20srd.org/srd/skills/skillsSummary.htm",
   },
   {

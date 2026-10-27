@@ -134,7 +134,7 @@ export function describeSkill(skill: SkillDefinition): EntityDetail {
     badges: ["Skill", `Key ability: ${ABILITY_LABEL[skill.keyAbility]}`, ...(skill.trainedOnly ? ["Trained only"] : []), ...(skill.armorCheckPenalty ? ["Armor check penalty applies"] : [])],
     summary:
       skill.description ??
-      `${skill.name} is a ${ABILITY_LABEL[skill.keyAbility]}-based skill.${skill.trainedOnly ? " It cannot be used untrained." : " It can be used untrained."} Class skills cap at level + 3 ranks; cross-class ranks cost double and cap at half (RAW).`,
+      `${skill.name} is a ${ABILITY_LABEL[skill.keyAbility]}-based skill.${skill.trainedOnly ? " It cannot be used untrained." : " It can be used untrained."} Class skills cap at level + 3 ranks; cross-class ranks cost 1 point per rank (the double-cost rule is locked off at Shaun's direction) and cap at half while that cap toggle is on.`,
     sections: [],
     source: skill.source,
     sourceUrl: skill.sourceUrl,

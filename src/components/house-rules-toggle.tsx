@@ -35,21 +35,32 @@ export function HouseRulesToggle({ houseRules, onToggle }: HouseRulesToggleProps
             <h3 className="font-display text-sm font-semibold">House Rules</h3>
             <p className="text-xs text-muted-foreground">
               Toggle individual rule mechanics on or off. Defaults match RAW (Rules As Written) — turn any off to use a
-              simplified variant at your table.
+              simplified variant at your table. One rule is locked off at Shaun's direction and cannot be switched on.
             </p>
           </div>
           {categories.map((category) => (
             <div key={category} className="space-y-2.5">
               <h4 className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">{category}</h4>
               {HOUSE_RULE_DEFS.filter((r) => r.category === category).map((rule) => (
-                <label key={rule.id} className="flex items-start gap-2.5 text-sm cursor-pointer">
+                <label
+                  key={rule.id}
+                  className={`flex items-start gap-2.5 text-sm ${rule.lockedOff ? "cursor-not-allowed opacity-80" : "cursor-pointer"}`}
+                >
                   <Checkbox
-                    checked={houseRules[rule.id]}
+                    checked={rule.lockedOff ? false : houseRules[rule.id]}
+                    disabled={rule.lockedOff}
                     onCheckedChange={(checked) => onToggle(rule.id, checked === true)}
                     data-testid={`checkbox-house-rule-${rule.id}`}
                   />
                   <span>
-                    <span className="font-medium">{rule.label}</span>
+                    <span className="font-medium">
+                      {rule.label}
+                      {rule.lockedOff && (
+                        <span className="ml-2 rounded-full bg-destructive px-1.5 py-0.5 text-[10px] font-semibold uppercase text-destructive-foreground">
+                          Locked off
+                        </span>
+                      )}
+                    </span>
                     <span className="block text-xs text-muted-foreground">{rule.description}</span>
                     <a
                       href={rule.ruleReference}
