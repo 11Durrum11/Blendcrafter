@@ -1482,3 +1482,321 @@ Recovered records were NOT modified.
 - NOT pushed to GitHub and NOT deployed in this pass — the
   parent agent verifies, pushes (which auto-deploys via the
   Pages workflow), and reports.
+
+
+# Addendum 2026-10-27 — Batch 5 of the "everything" program: Player's Handbook II + Races of the Dragon + Races of Eberron (+ Fiendish Codex I templates check)
+
+Batch 5 of the program Shaun set on 2026-10-27 ("add all the
+books"), built the same day. Three new packs —
+`src/data/players-handbook-ii/`, `src/data/races-of-the-dragon/`,
+`src/data/races-of-eberron/` — merged into `src/data/index.ts`
+behind the existing id dedupe. Player's Handbook II and Races
+of the Dragon records carry ruleset "core" (both are core
+supplements); Races of Eberron records carry ruleset "eberron"
+(the book belongs under the Eberron toggle, like the Eberron
+Campaign Setting pack). Fiendish Codex I was checked for a
+playable template and has none, so no `fiendish-codex-i/` pack
+exists (details below). Sources are the copies in Shaun's
+durrum1 Dropbox library:
+`/A POC PC related/4.Core books/Player's Handbook II.pdf`,
+`/A POC PC related/5.Splat/Races of series/Races of the Dragon.pdf`,
+`/A POC PC related/5.Splat/Races of series/Races of Eberron.pdf`,
+and `/A POC PC related/4.core books/monster manuals/Fiendish Codex I - Hordes of the Abyss.pdf`.
+Printed page numbers are used throughout: Races of the Dragon
+printed page = PDF page; Races of Eberron and Player's Handbook
+II printed page = PDF page − 1 (both verified against the
+folios). The Player's Handbook II PDF is an image-only scan —
+all 224 pages were rendered and read directly from the page
+images (RapidOCR output was kept only as a cross-check).
+
+## Player's Handbook II (`src/data/players-handbook-ii/feats.ts`)
+
+**105 feats, no classes, no prestige classes.** The book
+contains NO prestige classes — confirmed from its table of
+contents (Chapter 1 is the four base classes, Chapter 2 is
+expanded options for existing classes, and no prestige class
+appears anywhere in the book). Its four base classes already
+exist in the recovered core data, so — following the Wu Jen /
+Shugenja / Healer precedent in reverse — no `classes.ts` was
+created; the classes were instead verified against the printed
+tables (below).
+
+The 105 feats are all of Chapter 3: the 69 general feats of
+Table 3–1 (pp. 72–73) — Acrobatic Strike, Arcane Flourish,
+Arcane Accompaniment, Arcane Thesis, Arcane Toughness, Arcane
+Consumption, Armor Specialization, Battle Dancer, Bonded
+Familiar, Bounding Assault, Rapid Blitz, Brutal Strike, Combat
+Acrobat, Combat Familiar, Lurking Familiar, Combat Tactician,
+Cometary Collision, Companion Spellbond, Crossbow Sniper,
+Cunning Evasion, Dampen Spell, Deadeye Shot, Defensive Sweep,
+Elven Spell Lore, Fade into Violence, Fiery Fist, Fiery Ki
+Defense, Ki Blast, Flay, Grenadier, Hindering Opportunist,
+Stalwart Defense, Indomitable Soul, Intimidating Strike,
+Keen-Eared Scout, Leap of the Heavens, Lunging Strike, Mad
+Foam Rager, Master Manipulator, Melee Evasion, Melee Weapon
+Mastery, Crushing Strike, Driving Attack, Slashing Flurry,
+Weapon Supremacy, Overwhelming Assault, Penetrating Shot,
+Ranged Weapon Mastery, Robilar's Gambit, Shield Specialization,
+Active Shield Defense, Agile Shield Fighter, Shield Sling,
+Shield Ward, Short Haft, Spectral Skirmisher, Spell-Linked
+Familiar, Steadfast Determination, Telling Blow, Trophy
+Collector, Tumbling Feint, Two-Weapon Pounce, Two-Weapon Rend,
+Vatic Gaze, Versatile Unarmed Strike, Vexing Flanker, Adaptable
+Flanker, Wanderer's Diplomacy, Water Splitting Stone — plus
+Ritual Blessing and Ritual Blood Bonds (ceremony, Table 3–2,
+p. 87); Combat Focus, Combat Stability, Combat Defense, Combat
+Vigor, Combat Awareness, and Combat Strike (combat form, Table
+3–3, p. 87); Divine Armor, Divine Fortune, Divine Justice,
+Divine Ward, Profane Aura, Sacred Healing, Sacred Purification,
+and Sacred Radiance (divine, Table 3–4, p. 89); Celestial
+Sorcerer Heritage, Celestial Sorcerer Aura, Celestial Sorcerer
+Lance, Celestial Sorcerer Wings, Celestial Sorcerer Lore,
+Infernal Sorcerer Heritage, Infernal Sorcerer Eyes, Infernal
+Sorcerer Howl, and Infernal Sorcerer Resistance (heritage,
+Table 3–5, p. 90); Blistering Spell, Earthbound Spell, Flash
+Frost Spell, Imbued Summoning, and Smiting Spell (metamagic,
+Table 3–6, p. 92); and Blood-Spiked Charger, Combat Cloak
+Expert, Combat Panache, Einhander, Mad Alchemist, and Shadow
+Striker (tactical, Table 3–7, p. 92).
+
+### Base-class verification (recovered records NOT modified)
+
+All four classes were checked line by line against the printed
+Chapter 1 tables and class-skill lists. All four source
+citations in the recovered records are the correct starting
+pages (Beguiler p. 6, Dragon Shaman p. 11, Duskblade p. 19,
+Knight p. 24), and hit dice, skill points, BAB, saves, and all
+ten recorded progression rows match the printed tables for all
+four classes. Three discrepancies were found, all in class
+skills; they are reported here precisely and deliberately NOT
+fixed (the records are recovered data):
+
+- **Beguiler** (Table 1–1, printed p. 7): the printed
+  class-skill list has 29 skills and includes Speak Language;
+  the recovered record lists 28 — it omits Speak Language.
+- **Duskblade** (Table 1–3, printed p. 21): the printed list
+  has 10 skills and includes Decipher Script; the recovered
+  record lists 9 — it omits Decipher Script.
+- **Dragon Shaman** (Table 1–2, printed p. 12): a modeling
+  discrepancy. The book's fixed class-skill list is only 5
+  skills — Climb, Craft, Intimidate, Knowledge (nature),
+  Search — "plus others depending on the chosen totem dragon."
+  The recovered record lists 14 fixed skills: the 5 universal
+  ones plus 9 that are actually totem-granted (Bluff, Disguise,
+  Gather Information, Hide, Jump, Move Silently, Spellcraft,
+  Survival, Swim), and it omits Appraise and Heal, which are
+  also totem skills (Red and Gold respectively). Totem table
+  (printed p. 13): Black — Hide, Move Silently, Swim; Blue —
+  Bluff, Hide, Spellcraft; Brass — Bluff, Gather Information,
+  Survival; Bronze — Disguise, Survival, Swim; Copper — Bluff,
+  Hide, Jump; Gold — Disguise, Heal, Swim; Green — Bluff, Hide,
+  Move Silently; Red — Appraise, Bluff, Jump; Silver — Bluff,
+  Disguise, Jump; White — Hide, Move Silently, Swim. Net
+  effect: the record treats most totem skills as always-on
+  class skills regardless of the chosen totem.
+- **Knight** (Table 1–4, printed p. 26): the recovered record
+  is completely correct — d12, 2+Int, full BAB, Fort/Ref poor,
+  Will good, all rows, and all 7 class skills.
+
+### Printed quirks and id collisions (PHB II)
+
+- Table 3–1 prints Acrobatic Strike's benefit as "+6 on next
+  attack," but the feat text (p. 71) grants +4. The record
+  follows the feat text; the table value is noted in the
+  record and the pack header.
+- Two of this book's feats collide by id with genuinely
+  different feats of the same name already in the aggregates,
+  so this book's records carry suffixed ids and both printings
+  coexist (each record's summary notes the other): **Grenadier**
+  is id `grenadier-phb2` (+1 attack/damage with splash weapons,
+  no prerequisites) because Sorcery & Steam's Grenadier (id
+  `grenadier`, Precise Shot prerequisite, grenades/alchemical
+  weapons) is a different feat — note that Mad Alchemist's
+  "Grenadier" prerequisite in this book means this book's
+  Grenadier. **Sacred Healing** is id `sacred-healing-phb2`
+  because Complete Divine's Sacred Healing (id
+  `sacred-healing`, a fast-healing aura) predates it; this
+  book's reprint (swift action, +5 Heal and +2 per die on
+  healing spells) has entirely different mechanics, and Sacred
+  Purification's prerequisite refers to this book's version.
+
+### Not converted from PHB II (shelf material)
+
+Chapter 2's alternate class features (no app mechanism for
+swapping class features), Chapter 4 spells, Chapter 5 identity
+material, Chapter 6 teamwork benefits, Chapter 7 affiliations,
+Chapter 8 rebuilding rules, and the Appendix. Equipment
+noticed along the way (e.g. the Twilight armor special ability,
+printed p. 21) is likewise shelf material.
+
+## Races of the Dragon (`src/data/races-of-the-dragon/`)
+
+**2 races** (`races.ts`): Spellscale (traits p. 23; +2 Cha,
+−2 Con, Humanoid (Dragonblood), Blood Quickening meditations
+per the p. 25 sidebar) and Kobold (traits p. 39, favored class
+p. 40; −4 Str, +2 Dex, −2 Con, Small, natural armor +1,
+darkvision 60 ft., light sensitivity). The kobold's +2 racial
+bonuses to Craft (trapmaking) and Profession (miner) are
+carried in the trait text, not `skillBonuses`, because the
+app's skill list has no trapmaking/miner subskills and the
+bonuses must not generalize to all Craft/Profession checks;
+only the +2 Search bonus is in `skillBonuses`. The kobold web
+enhancement is NOT used — book only, per instructions.
+
+**2 templates** (`templates.ts`): Dragonborn of Bahamut
+(pp. 8–10) and Draconic Creature (p. 74). Judgment call:
+dragonborn is modeled as an **acquired template**, not a race —
+the Rite of Rebirth transforms an existing character, and the
+app's template + forms model fits it the way it fits the
+half-dragon. One record with three forms for the draconic
+aspects: `heart` (breath weapon), `mind` (senses/immunities),
+`wings` (glide/flight). It keeps the original race's type,
+subtypes (adding Dragonblood), size, speed, racial HD, and LA
+per the Mechanics of Rebirth sidebar (p. 10); documented
+limitation: the book strips the base race's other racial
+traits, which the app cannot do — the template summary says
+so, and the removed traits must be honored by hand. Draconic
+Creature is the printed inherited template (LA +1, CR +1,
+natural armor +1 via an "improve" modifier, claw attacks,
+Str/Con/Cha +2); the note that a dragon devotee gains it
+without the LA is in the record.
+
+**5 prestige classes** (`prestige-classes.ts`): Disciple of
+the Eye (p. 75), Dracolexi (p. 79), Dragon Devotee (p. 84),
+Dragonheart Mage (p. 88), Singer of Concordance (p. 91).
+Printed quirks kept as printed and noted per record: Dragon
+Devotee's Hit Die is **d6** (Table 5–4 header, verified against
+the p. 85 page image — most devotee-style classes are d8, but
+the book prints d6), and Disciple of the Eye has all three
+saves good (Table 5–2).
+
+**25 feats** (`feats.ts`, Table 6–3, p. 99): Accelerate
+Metamagic, Dragon Breath, Dragon Tail, Dragon Trainer, Dragon
+Wings, Dragonwrought, Extraordinary Trapsmith, Heavyweight
+Wings, Improved Dragon Wings, Kobold Endurance, Kobold Foe
+Strike, Practical Metamagic, Reinforced Wings, Versatile
+Spellcaster, Wyrmgrafter, Entangling Exhalation, Exhaled
+Barrier, Exhaled Immunity, Extra Exhalation, Furious Inhalation
+(breath channeling), Draconic Arcane Grace, Draconic
+Persuasion, Draconic Toughness (draconic), Spell Rehearsal,
+and Wing Expert (tactical). **Nine duplicates skipped** — the
+book reprints draconic feats that Complete Arcane already
+records, and the earlier records win the dedupe: Draconic
+Breath, Draconic Claw, Draconic Flight, Draconic Heritage,
+Draconic Legacy, Draconic Power, Draconic Presence, Draconic
+Resistance, Draconic Skin. Not converted: the book's spells,
+equipment and dragon grafts (Wyrmgrafter's record notes grafts
+are equipment), monster content, and racial substitution
+levels (no app mechanism).
+
+## Races of Eberron (`src/data/races-of-eberron/`)
+
+**5 races** (`races.ts`), all ruleset "eberron": Drow
+(pp. 76–79; +2 Dex, −2 Con, +2 Int, +2 Cha, darkvision 120 ft.,
+spell resistance 11 + class level, light blindness, LA +2),
+Goblin (pp. 85–88), Hobgoblin (LA +1 as stated in the book),
+Bugbear (3 racial HD d8 with the printed BAB/saves, natural
+armor +3, scent, LA +1 as stated), and Orc (pp. 102–103,
+presented as the Shadow Marches / Gatekeeper orcs). Chapter 5
+("Other Races") reprints no full trait lists, so values are
+the standard ones the book's own text and stat blocks use
+(e.g. the sample drow scout's spell resistance works out to
+11 + class level). Judgment calls: the **Inspired are
+deliberately excluded** — the book states verbatim "Inspired
+are not intended for use as player characters" (printed
+p. 100) — and the Player's Handbook races' cultural sections
+are not converted (Races of Stone / Races of the Wild
+precedent). Chapters 1–4's updates to the four Eberron
+Campaign Setting races were compared against the existing ECS
+records and match in substance (ability modifiers, skill
+bonuses, favored classes) — no duplicates added, no records
+modified. One nuance worth recording: this book words the
+kalashtar +2 Disguise bonus as applying only "to impersonate a
+human," while the existing ECS record applies it
+unconditionally — an existing modeling choice, left as is.
+
+**8 prestige classes** (`prestige-classes.ts`): Atavist
+(p. 133), Cabinet Trickster (p. 138), Moonspeaker (p. 143),
+Quori Nightmare (p. 148), Reachrunner (p. 153), Recaster
+(p. 157), Reforged (p. 161), Spellcarved Soldier (p. 166).
+Moonspeaker is a 12-level class as printed; per the app's
+10-row cap (Void Disciple precedent), levels 1–10 are recorded
+and levels 11–12 are noted in the feature text. Expanded
+Psionics Handbook skills the book lists (Autohypnosis,
+Knowledge (psionics), Psicraft) are named in class-skill lists
+even though the app's skill list has no records for them; no
+skill records were added.
+
+**62 feats** (`feats.ts`, Table 6–1, printed pp. 105–106):
+Aerenal Beastmaster, Ancestral Guidance, Bladebearer of the
+Valenar, Boomerang Daze, Boomerang Ricochet, Call of the
+Undying, Darguun Mauler, Daylight Adaptation, Dinosaur Hunter,
+Dinosaur Wrangler, Drow Skirmisher, Heroic Metamagic, Master
+Linguist, Mror Stalwart, Mutable Body, Path of Shadows, Persona
+Immersion, Quick Change, Racial Emulation, Relic Hunter,
+Shadow Marches Warmonger, Shaped Splash, Ship Savvy, Soulblade
+Warrior, Stable Footing, Talenta Warrior, White Scorpion
+Strike; the psionic feats Gestalt Anchor, Shield of Thought,
+Spiritual Force, Strength of Two; the shifter feats Cliffwalk
+Elite, Dreamsight Elite, Extra Shifter Trait, Gorebrute Elite,
+Longstride Elite, Longtooth Elite, Razorclaw Elite, Reactive
+Shifting, Shifter Agility, Shifter Ferocity, Shifter
+Instincts, Shifter Savagery, Shifter Stamina, Swiftwing Elite,
+Truedive Elite, Wildhunt Elite; the tactical feats
+Battleshifter Training, Brute Fighting, Dancing with Shadows,
+Disturbing Visage, Kalashtar Thoughtshifter, Ragewild Fighting
+(maneuver names taken from the feat texts, pp. 116–118); and
+the warforged feats Cold Iron Tracery, Construct Lock,
+Improved Resiliency, Ironwood Body, Jaws of Death, Second
+Slam, Silver Tracery, Spiked Body, Unarmored Body. **Two
+duplicates skipped**: Adamantine Body and Mithral Body, which
+the Eberron Campaign Setting pack already records. Not
+converted: equipment, infusions, and racial substitution
+levels (no app mechanism).
+
+## Fiendish Codex I — templates check: NONE
+
+Fiendish Codex I: Hordes of the Abyss prints **no
+character-playable template**: the text contains no "Level
+Adjustment" entries and no "Creating a …" template section,
+and its contents are demons, demon lords, and Abyssal lore.
+The half-fiend is only *referenced* (e.g. Aldinach's Egg,
+printed p. 115) and appears in NPC stat blocks; the template
+itself is a Monster Manual template and is not printed here.
+No `src/data/fiendish-codex-i/` files were created. Out of the
+assigned scope but worth noting as future material: the book
+does print Abyssal Heritor and vile feats (Chapter 4,
+pp. 82–87), which a later batch could add as feats.
+
+## Verification
+
+- `npm run check` (tsc): 0 errors. `npm run build`: succeeds.
+- `vite preview`: HTTP 200; server stopped afterward.
+- Resolver smoke test (esbuild bundle of a temporary script
+  against the real modules, script deleted after the run):
+  seven builds, covering all three books, all with zero
+  validation errors. Human Duskblade 5 / Knight 3 with PHB II
+  feats; Spellscale Sorcerer 4 / Dragonheart Mage 2; Human
+  Fighter 6 with the Dragonborn of Bahamut template (wings
+  form — Humanoid, subtypes Human/Dragonblood); Kobold Rogue 3
+  with the Draconic Creature template; Drow Ranger 3 (LA +2
+  race); Warforged Fighter 6 / Spellcarved Soldier 2; Kalashtar
+  Psion 5 / Atavist 3. (Three builds also carried a
+  feat-count warning because the test builds deliberately took
+  one feat more than their slots allowed — a test artifact, not
+  a data problem.)
+- Id-collision check: before this batch the aggregates held
+  ALL_RACES 37, ALL_CLASSES 37, ALL_PRESTIGE_CLASSES 204,
+  ALL_TEMPLATES 10, ALL_FEATS 648, ALL_SKILLS 55. A post-merge
+  scan found that two PHB II feats initially collided with
+  genuinely different same-name feats (Grenadier vs Sorcery &
+  Steam, Sacred Healing vs Complete Divine); they were given
+  suffixed ids as documented above rather than dropped, so no
+  new record was lost to the dedupe. After the merge:
+  ALL_RACES 44 (+7), ALL_CLASSES 37 (+0),
+  ALL_PRESTIGE_CLASSES 217 (+13), ALL_TEMPLATES 12 (+2),
+  ALL_FEATS 840 (+192), ALL_SKILLS 55 (+0) — every new record
+  present exactly once, no internal duplicates in any new pack.
+- NOT pushed to GitHub and NOT deployed in this pass — the
+  parent agent verifies, pushes (which auto-deploys via the
+  Pages workflow), and reports.

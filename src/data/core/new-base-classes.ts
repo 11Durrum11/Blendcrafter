@@ -28,7 +28,7 @@ export const NEW_BASE_CLASSES: ClassDefinition[] = [
       { level: 9, bab: 4, fort: 3, ref: 3, will: 6 },
       { level: 10, bab: 5, fort: 3, ref: 3, will: 7 },
     ],
-    classSkills: ["Climb", "Jump", "Swim", "Balance", "Escape Artist", "Hide", "Move Silently", "Open Lock", "Sleight of Hand", "Tumble", "Concentration", "Appraise", "Decipher Script", "Disable Device", "Forgery", "Knowledge (arcana)", "Knowledge (local)", "Search", "Spellcraft", "Listen", "Profession", "Sense Motive", "Spot", "Bluff", "Diplomacy", "Disguise", "Gather Information", "Use Magic Device"],
+    classSkills: ["Climb", "Jump", "Swim", "Balance", "Escape Artist", "Hide", "Move Silently", "Open Lock", "Sleight of Hand", "Tumble", "Concentration", "Appraise", "Decipher Script", "Disable Device", "Forgery", "Knowledge (arcana)", "Knowledge (local)", "Search", "Spellcraft", "Listen", "Profession", "Sense Motive", "Spot", "Bluff", "Diplomacy", "Disguise", "Gather Information", "Use Magic Device", "Speak Language"],
   },
   {
     id: "duskblade",
@@ -52,7 +52,7 @@ export const NEW_BASE_CLASSES: ClassDefinition[] = [
       { level: 9, bab: 9, fort: 6, ref: 3, will: 6 },
       { level: 10, bab: 10, fort: 7, ref: 3, will: 7 },
     ],
-    classSkills: ["Climb", "Jump", "Swim", "Ride", "Concentration", "Craft", "Knowledge (all)", "Spellcraft", "Sense Motive"],
+    classSkills: ["Climb", "Jump", "Swim", "Ride", "Concentration", "Craft", "Decipher Script", "Knowledge (all)", "Spellcraft", "Sense Motive"],
   },
   {
     id: "dragon-shaman",
@@ -76,7 +76,7 @@ export const NEW_BASE_CLASSES: ClassDefinition[] = [
       { level: 9, bab: 6, fort: 6, ref: 3, will: 6 },
       { level: 10, bab: 7, fort: 7, ref: 3, will: 7 },
     ],
-    classSkills: ["Climb", "Swim", "Jump", "Hide", "Move Silently", "Craft", "Knowledge (nature)", "Search", "Spellcraft", "Survival", "Intimidate", "Bluff", "Gather Information", "Disguise"],
+    classSkills: ["Climb", "Swim", "Jump", "Hide", "Move Silently", "Craft", "Knowledge (nature)", "Search", "Spellcraft", "Survival", "Intimidate", "Bluff", "Gather Information", "Disguise", "Appraise", "Heal"],
   },
   {
     id: "favored-soul",
