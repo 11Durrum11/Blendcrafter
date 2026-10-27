@@ -978,3 +978,261 @@ recovered data whenever Shaun wants it.
 - NOT pushed to GitHub and NOT deployed in this pass — the
   parent agent verifies, pushes (which auto-deploys via the
   Pages workflow), and reports.
+
+# Addendum 2026-10-27 — Batch 3 of the "everything" program: Complete Arcane + Complete Divine + Book of Exalted Deeds
+
+Batch 3 of the program Shaun set on 2026-10-27 ("add all the
+different books that were in the original... bring in everything
+and sort it right"). Sources are Shaun's own PDFs in his durrum1
+Dropbox: `/A POC PC related/5.Splat/Complete sereies/D&D 3.5 -
+Complete Arcane.pdf` (6.4 MB) and `D&D 3.5 - Complete Divine.pdf`
+(49.6 MB) — the folder's spelling is the library's own — and
+`/A POC PC related/5.Splat/Book of Exalted Deeds.pdf` (5.1 MB).
+All three books are generic official D&D 3.5 supplements, so
+every record carries ruleset "core". Every record cites book +
+printed page in `source` and the Dropbox path in `sourceUrl`.
+Short mechanical summaries in our own words throughout; no book
+text reproduced beyond short mechanical facts. NOT pushed or
+deployed in this pass — the parent agent pushes.
+
+## What was added (all NEW files)
+
+- **`src/data/complete-arcane/classes.ts`** — 1 base class:
+  Wu Jen (see the base-class section below).
+- **`src/data/complete-arcane/prestige-classes.ts`** — 19
+  prestige classes, every one in the book's Chapter 2, with
+  progressions read from the printed Tables 2-2…2-22: Acolyte
+  of the Skin, Alienist, Argent Savant, Blood Magus, Effigy
+  Master, Elemental Savant, Enlightened Fist, Fatespinner,
+  Geometer, Green Star Adept, Initiate of the Sevenfold Veil,
+  Mage of the Arcane Order, Master Transmogrifist, Mindbender,
+  Seeker of the Song, Sublime Chord, Suel Arcanamach, Wayfarer
+  Guide, Wild Mage.
+- **`src/data/complete-arcane/feats.ts`** — 64 feats, all of
+  Table 3-1 (pp. 74-75): Arcane Defense, Arcane Mastery, Arcane
+  Preparation, Battle Caster, Communicator, Double Wand
+  Wielder, Extra Edge, Extra Invocation, Extra Slot, Extra
+  Spell, Extra Spell Secret, Guardian Spirit, Heighten
+  Spell-Like Ability, Innate Spell, Insightful, Mage Slayer,
+  Maximize Spell-Like Ability, Necropolis Born, Night Haunt,
+  Obtain Familiar, Pierce Magical Concealment, Pierce Magical
+  Protection, Practiced Spellcaster, Ranged Spell
+  Specialization, Reckless Wand Wielder, Soul of the North,
+  Spell Hand, Touch Spell Specialization, Wandstrike, Draconic
+  Breath, Draconic Claw, Draconic Flight, Draconic Heritage,
+  Draconic Legacy, Draconic Power, Draconic Presence, Draconic
+  Resistance, Draconic Skin, Craft Contingent Spell (item
+  creation), and the metamagic feats Black Lore of Moil, Born
+  of the Three Thunders, Chain Spell, Cooperative Spell, Delay
+  Spell, Energy Admixture, Energy Substitution, Explosive
+  Spell, Fortify Spell, Lord of the Uttercold, Nonlethal
+  Substitution, Persistent Spell, Repeat Spell, Sanctum Spell,
+  Sculpt Spell, Split Ray, Sudden Empower, Sudden Extend,
+  Sudden Maximize, Sudden Quicken, Sudden Silent, Sudden Still,
+  Sudden Widen, Transdimensional Spell, Twin Spell.
+- **`src/data/complete-divine/classes.ts`** — 1 base class:
+  Shugenja (see below).
+- **`src/data/complete-divine/prestige-classes.ts`** — 24
+  prestige classes, every one in the book's Chapter 2, with
+  progressions read from the printed Tables 2-2…2-25: Black
+  Flame Zealot, Blighter, Church Inquisitor, Consecrated
+  Harrier, Contemplative, Divine Crusader, Divine Oracle,
+  Entropomancer, Evangelist (5 levels), Geomancer, Holy
+  Liberator, Hospitaler, Pious Templar, Radiant Servant of
+  Pelor, Rainbow Servant, Sacred Exorcist, Sacred Fist, Seeker
+  of the Misty Isle, Shining Blade of Heironeous, Stormlord,
+  Temple Raider of Olidammara, Ur-Priest, Void Disciple,
+  Warpriest.
+- **`src/data/complete-divine/feats.ts`** — 37 feats from
+  Table 3-1 (p. 78): Arcane Disciple, Augment Healing, Domain
+  Focus, Empower Turning, Improved Smiting, Quicken Turning,
+  Spell Focus (Chaos, Evil, Good, Law), Spontaneous Healer,
+  Spontaneous Summoner, Spontaneous Wounder; the divine feats
+  Disciple of the Sun, Divine Metamagic, Divine Spell Power,
+  Glorious Weapons, Domain Spontaneity, Elemental Smiting,
+  Elemental Healing, Profane Boost, Sacred Boost, Sacred
+  Healing, True Believer; the item-creation feat Sanctify
+  Relic; the metamagic feats Corrupt Spell, Rapid Spell, Reach
+  Spell; and the wild feats Boar's Ferocity, Cheetah's Speed,
+  Eagle's Wings, Elephant's Hide, Extra Wild Shape, Fast Wild
+  Shape, Grizzly's Claws, Lion's Pounce, Oaken Resilience,
+  Serpent's Venom, Swim Like a Fish, Wolverine's Rage. Divine
+  and wild feats are recorded with category "general" and their
+  power source noted in `special` (house pattern for grouped
+  feats).
+- **`src/data/book-of-exalted-deeds/prestige-classes.ts`** — 22
+  prestige classes, every one in the book's Chapter 5, with
+  progressions read from the printed Tables 5-1…5-23: Anointed
+  Knight, Apostle of Peace, Beloved of Valarian, Celestial
+  Mystic, Champion of Gwynharwyf, Defender of Sealtiel,
+  Emissary of Barachiel, Exalted Arcanist (5 levels), Fist of
+  Raziel, Initiate of Pistis Sophia, Lion of Talisid, Prophet
+  of Erathaol, Risen Martyr, Sentinel of Bharrai, Skylord,
+  Slayer of Domiel, Stalker of Kharash, Swanmay, Sword of
+  Righteousness (3 levels), Troubadour of Stars, Vassal of
+  Bahamut, Wonderworker (3 levels).
+- **`src/data/book-of-exalted-deeds/feats.ts`** — 51 feats from
+  Table 4-1 (pp. 40-41): Ancestral Relic, Consecrate Spell-Like
+  Ability, Purify Spell-Like Ability, Resounding Blow, Spell
+  Focus (Good), Subduing Strike; the exalted feats Animal
+  Friend, Celestial Familiar, Celestial Mount, Consecrate Spell
+  Trigger, Exalted Companion, Exalted Smite, Exalted Spell
+  Resistance, Exalted Turning, Exalted Wild Shape, Favored of
+  the Companions, Fist of the Heavens, Gift of Faith, Gift of
+  Grace, Hands of a Healer, Holy Subdual, Intuitive Attack,
+  Knight of Stars, Nemesis, Nimbus of Light, Holy Radiance,
+  Stigmata, Nymph's Kiss, Purify Spell Trigger, Quell the
+  Profane, Ranged Smite Evil, Righteous Wrath, Sacred Strike,
+  Sacred Vow, Vow of Abstinence, Vow of Chastity, Vow of
+  Nonviolence, Vow of Peace, Vow of Obedience, Vow of Poverty,
+  Vow of Purity, Sanctify Ki Strike, Holy Ki Strike, Sanctify
+  Martial Strike, Sanctify Natural Attack, Sanctify Weapon,
+  Servant of the Heavens, Touch of Golden Ice, Words of
+  Creation; and the metamagic feats Consecrate Spell and
+  Purify Spell. Exalted feats are recorded with category
+  "general" and the exalted/good-alignment note in `special`
+  (house pattern).
+- **`src/data/book-of-exalted-deeds/templates.ts`** — 2
+  templates from Chapter 8: Saint (acquired, CR +2, LA +2) and
+  Sanctified Creature (acquired, CR +1, LA +2).
+- **`src/data/index.ts`** (modified, as in every batch): the
+  nine new collections are imported, merged into ALL_CLASSES,
+  ALL_PRESTIGE_CLASSES, ALL_TEMPLATES, and ALL_FEATS (deduped
+  by id, first pack wins), and re-exported; barrel header
+  comment extended for Batch 3.
+
+## Base classes — four already existed; verified, not duplicated; two were missing and are added
+
+- **Warlock (CA p. 5) — verified with ONE discrepancy:** the
+  printed progression (Table 1-1, p. 8) matches the recovered
+  record exactly — d6, 2+Int, three-quarter BAB, Will good
+  only — but the book's class skills are 13 and include
+  Knowledge (religion); the recovered record lists 12 skills
+  and omits Knowledge (religion).
+- **Warmage (CA p. 10) — fully verified:** Table 1-2 (p. 11)
+  rows match; d6, 2+Int, half BAB, Will good; the book's seven
+  class skills match the recovered record exactly.
+- **Wu Jen (CA pp. 14-16) — was NOT present anywhere in the
+  dataset; ADDED** in `complete-arcane/classes.ts`: d4, 2+Int,
+  half BAB, Will good only, progression from printed Table 1-3,
+  class skills Concentration / Craft / Knowledge (all) /
+  Profession / Spellcraft.
+- **Favored Soul (CD p. 6) — verified with ONE discrepancy:**
+  the printed Table 1-1 progression matches the recovered
+  record exactly (three-quarter BAB, all three saves good),
+  as do d8 and 2+Int — but the book lists 9 class skills; the
+  recovered record lists 10, including Knowledge (religion),
+  which the book does not list.
+- **Spirit Shaman (CD p. 14) — verified with ONE discrepancy:**
+  the printed Table 1-5 progression matches the recovered
+  record exactly (three-quarter BAB, Fort and Will good), as
+  do d8 and 4+Int — but the book lists 16 class skills; the
+  recovered record lists 17, including Knowledge (arcana),
+  which the book does not list.
+- **Shugenja (CD pp. 10-13) — was NOT present anywhere in the
+  dataset; ADDED** in `complete-divine/classes.ts`: d6, 4+Int,
+  half BAB, Will good only (Fort and Ref poor), progression
+  from printed Table 1-3, class skills Concentration / Craft /
+  Diplomacy / Heal / Knowledge (all skills, taken
+  individually) / Profession / Spellcraft; Charisma-based
+  spontaneous divine casting with element focus and sense
+  elements.
+
+Per the batch constraints the recovered files were NOT
+modified; the three discrepancy reports above are the record
+of what differs. Fixing them is a separate, deliberate edit
+to the recovered data whenever Shaun wants it.
+
+## Judgment calls and deliberate omissions (plain notes)
+
+- **Duplicates skipped (dedupe is by id, first pack wins; the
+  skips below were removed at the file level so nothing is
+  silently shadowed):** Book of Exalted Deeds' Nonlethal
+  Substitution duplicates the Complete Arcane record.
+  Complete Divine's Consecrate Spell duplicates the Book of
+  Exalted Deeds record. Complete Divine's Practiced
+  Spellcaster and Transdimensional Spell are also printed in
+  Complete Arcane's Table 3-1 and are kept from that book.
+- **Complete Arcane templates — none added:** the book's
+  Chapter 6 templates (Effigy, Pseudonatural, Spellstitched)
+  are monster templates with no level adjustment for
+  characters (LA — or CR-only), so none is playable.
+- **Book of Exalted Deeds' Sacred Watcher template —
+  deliberately omitted:** it is playable on paper (CR +2,
+  LA +5, pp. 183-184), but it changes the creature's type to
+  "deathless," which the app's creature-type list cannot
+  represent; it is left out rather than mis-modeled.
+- **Printed quirks kept as printed** (each noted in its
+  record): Complete Arcane's Blood Magus prints Fortitude
+  good / Will poor, Mindbender prints Fortitude and Will
+  good, Suel Arcanamach prints Fortitude poor with Reflex and
+  Will good, and Wild Mage prints Reflex as its only good
+  save. Complete Divine's Rainbow Servant table grants +1
+  arcane spellcasting level only at levels 2, 3, 5, 6, 8, and
+  9 (the well-known table-versus-text conflict; the table is
+  kept). Sacred Fist gains no spellcasting level at 4th and
+  8th, and Seeker of the Misty Isle none at 5th and 10th, as
+  their tables print. The book's own list of tables prints
+  the Warpriest table as a second "Table 2-24."
+- **Void Disciple is a thirteen-level class in the book;**
+  levels 1-10 are recorded per this dataset's level-cap
+  convention, with the remaining levels noted in the record.
+- **Risen Martyr's printed table begins with a level-0 row**
+  (spiritual body); levels 1-10 are modeled and the level-0
+  step is described in the record.
+- **3.0 holdovers in printed skill lists:** Sentinel of
+  Bharrai's list prints "Alchemy," exclusive-skill tags, and
+  "Read/Write Language" — mapped to 3.5 skills (Craft
+  (alchemy); Read/Write Language folded into Speak Language)
+  and noted in the record. Geomancer's list prints Scry, a
+  skill removed in 3.5; it is kept as printed and noted.
+- **New skills: none in any of the three books** — none of
+  them introduces a skill that fits the app's skill list.
+  Book of Exalted Deeds' Words of Creation is a feat, not a
+  skill, and is recorded as one.
+- **Out of scope, deliberately omitted:** all three books'
+  spells (including BoED sanctified spells), the equipment
+  and magic-item chapters of all three books (including
+  Complete Divine's relics and staffs), monsters (including
+  BoED Chapter 8 creatures beyond the two playable
+  templates), organizations, and variant rules (Complete
+  Divine's faith feats and faith points, variant turning
+  rules, and epic material; BoED's ravages and afflictions
+  are referenced by feats but not modeled as systems). The
+  equipment/magic chapters are future equipment-shelf
+  material for a later batch.
+- **Extraction method:** the Complete Arcane and Book of
+  Exalted Deeds PDFs have text layers with PDF page = printed
+  page, verified against the indd/qxd folio stamps. The
+  Complete Divine PDF is scanned images only (no text layer),
+  so all 204 pages were rendered at 200 dpi and read by OCR
+  (RapidOCR); progressions were taken from the printed
+  tables, and ambiguous cells (save columns, skill points,
+  short tables such as the Evangelist's five levels and the
+  Void Disciple's thirteen) were settled against the page
+  images.
+
+## Verification
+
+- `npm run check` (tsc): 0 errors. `npm run build`: succeeds.
+- `vite preview`: HTTP 200; server stopped afterward.
+- Resolver smoke test (esbuild bundle of a temporary script
+  against the real modules, script deleted after the run):
+  three builds, one per book, all with zero validation errors
+  and zero warnings. Wu Jen 3 / Mindbender 2 (Complete
+  Arcane): BAB 2, ECL 5. Shugenja 4 / Sacred Exorcist 2
+  (Complete Divine): BAB 3, ECL 6. Fighter 6 / Fist of Raziel
+  2 with the Saint template (Book of Exalted Deeds): BAB 8,
+  ECL 10, type Outsider with the Native subtype applied by
+  the template's patches.
+- Id-collision check: before this batch the aggregates held
+  ALL_CLASSES 34, ALL_PRESTIGE_CLASSES 116, ALL_TEMPLATES 5,
+  ALL_FEATS 420; a pre-merge scan found zero collisions
+  between the new packs' ids and the existing aggregates and
+  zero duplicates within any new pack. After the merge:
+  ALL_CLASSES 36 (+2), ALL_PRESTIGE_CLASSES 181 (+65),
+  ALL_TEMPLATES 7 (+2), ALL_FEATS 572 (+152) — every new
+  record present exactly once.
+- NOT pushed to GitHub and NOT deployed in this pass — the
+  parent agent verifies, pushes (which auto-deploys via the
+  Pages workflow), and reports.

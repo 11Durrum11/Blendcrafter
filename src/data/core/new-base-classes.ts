@@ -100,7 +100,7 @@ export const NEW_BASE_CLASSES: ClassDefinition[] = [
       { level: 9, bab: 6, fort: 6, ref: 6, will: 6 },
       { level: 10, bab: 7, fort: 7, ref: 7, will: 7 },
     ],
-    classSkills: ["Jump", "Concentration", "Craft", "Knowledge (arcana)", "Knowledge (religion)", "Spellcraft", "Heal", "Profession", "Sense Motive", "Diplomacy"],
+    classSkills: ["Jump", "Concentration", "Craft", "Knowledge (arcana)", "Spellcraft", "Heal", "Profession", "Sense Motive", "Diplomacy"],
   },
   {
     id: "hexblade",
@@ -292,7 +292,7 @@ export const NEW_BASE_CLASSES: ClassDefinition[] = [
       { level: 9, bab: 6, fort: 6, ref: 3, will: 6 },
       { level: 10, bab: 7, fort: 7, ref: 3, will: 7 },
     ],
-    classSkills: ["Swim", "Ride", "Concentration", "Craft", "Knowledge (arcana)", "Knowledge (geography)", "Knowledge (history)", "Knowledge (local)", "Knowledge (nature)", "Spellcraft", "Heal", "Listen", "Profession", "Spot", "Survival", "Diplomacy", "Handle Animal"],
+    classSkills: ["Swim", "Ride", "Concentration", "Craft", "Knowledge (geography)", "Knowledge (history)", "Knowledge (local)", "Knowledge (nature)", "Spellcraft", "Heal", "Listen", "Profession", "Spot", "Survival", "Diplomacy", "Handle Animal"],
   },
   {
     id: "swashbuckler",
@@ -340,7 +340,7 @@ export const NEW_BASE_CLASSES: ClassDefinition[] = [
       { level: 9, bab: 6, fort: 3, ref: 3, will: 6 },
       { level: 10, bab: 7, fort: 3, ref: 3, will: 7 },
     ],
-    classSkills: ["Jump", "Concentration", "Craft", "Knowledge (arcana)", "Knowledge (the planes)", "Spellcraft", "Profession", "Sense Motive", "Bluff", "Disguise", "Intimidate", "Use Magic Device"],
+    classSkills: ["Jump", "Concentration", "Craft", "Knowledge (arcana)", "Knowledge (the planes)", "Knowledge (religion)", "Spellcraft", "Profession", "Sense Motive", "Bluff", "Disguise", "Intimidate", "Use Magic Device"],
   },
   {
     id: "warmage",

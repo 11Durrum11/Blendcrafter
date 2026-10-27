@@ -40,6 +40,20 @@
  * only (see the REBUILD-NOTES.md Batch 2 addendum for the
  * verification of the recovered base classes, including the
  * discrepancies found).
+ *
+ * Also merged 2026-10-27 (Batch 3 of the "all original books"
+ * program): the Complete Arcane, Complete Divine, and Book of
+ * Exalted Deeds packs. All three books are generic D&D 3.5
+ * supplements whose records carry ruleset "core". Complete Arcane
+ * adds the Wu Jen base class (Warlock and Warmage already existed
+ * in the recovered core data), 19 prestige classes, and 64 feats;
+ * Complete Divine adds the Shugenja base class (Favored Soul and
+ * Spirit Shaman already existed), 24 prestige classes, and 37
+ * feats; Book of Exalted Deeds adds 22 prestige classes, 51 feats,
+ * and 2 templates (Saint and Sanctified Creature). See the
+ * REBUILD-NOTES.md Batch 3 addendum for the base-class verification
+ * results (including the discrepancies found) and the duplicates
+ * skipped.
  */
 import type {
   BodyModificationDefinition,
@@ -90,6 +104,15 @@ import { COMPLETE_ADVENTURER_PRESTIGE_CLASSES } from "./complete-adventurer/pres
 import { COMPLETE_ADVENTURER_FEATS } from "./complete-adventurer/feats";
 import { COMPLETE_WARRIOR_PRESTIGE_CLASSES } from "./complete-warrior/prestige-classes";
 import { COMPLETE_WARRIOR_FEATS } from "./complete-warrior/feats";
+import { COMPLETE_ARCANE_CLASSES } from "./complete-arcane/classes";
+import { COMPLETE_ARCANE_PRESTIGE_CLASSES } from "./complete-arcane/prestige-classes";
+import { COMPLETE_ARCANE_FEATS } from "./complete-arcane/feats";
+import { COMPLETE_DIVINE_CLASSES } from "./complete-divine/classes";
+import { COMPLETE_DIVINE_PRESTIGE_CLASSES } from "./complete-divine/prestige-classes";
+import { COMPLETE_DIVINE_FEATS } from "./complete-divine/feats";
+import { BOOK_OF_EXALTED_DEEDS_PRESTIGE_CLASSES } from "./book-of-exalted-deeds/prestige-classes";
+import { BOOK_OF_EXALTED_DEEDS_FEATS } from "./book-of-exalted-deeds/feats";
+import { BOOK_OF_EXALTED_DEEDS_TEMPLATES } from "./book-of-exalted-deeds/templates";
 
 function dedupeById<T extends { id: string }>(items: T[]): T[] {
   const seen = new Set<string>();
@@ -111,6 +134,8 @@ export const ALL_CLASSES: ClassDefinition[] = dedupeById([
   ...CORE_CLASSES,
   ...NEW_BASE_CLASSES,
   ...SORCERY_STEAM_CLASSES,
+  ...COMPLETE_ARCANE_CLASSES,
+  ...COMPLETE_DIVINE_CLASSES,
 ]);
 
 export const ALL_PRESTIGE_CLASSES: PrestigeClassDefinition[] = dedupeById([
@@ -121,9 +146,12 @@ export const ALL_PRESTIGE_CLASSES: PrestigeClassDefinition[] = dedupeById([
   ...RACES_OF_THE_WILD_PRESTIGE_CLASSES,
   ...COMPLETE_ADVENTURER_PRESTIGE_CLASSES,
   ...COMPLETE_WARRIOR_PRESTIGE_CLASSES,
+  ...COMPLETE_ARCANE_PRESTIGE_CLASSES,
+  ...COMPLETE_DIVINE_PRESTIGE_CLASSES,
+  ...BOOK_OF_EXALTED_DEEDS_PRESTIGE_CLASSES,
 ]);
 
-export const ALL_TEMPLATES: TemplateDefinition[] = dedupeById([...TEMPLATES, ...DESSARIN_TEMPLATES]);
+export const ALL_TEMPLATES: TemplateDefinition[] = dedupeById([...TEMPLATES, ...DESSARIN_TEMPLATES, ...BOOK_OF_EXALTED_DEEDS_TEMPLATES]);
 
 export const ALL_RANDOM_TABLES: RandomTableDefinition[] = dedupeById([...DESSARIN_TABLES]);
 
@@ -131,10 +159,10 @@ export const ALL_BODY_MODIFICATIONS: BodyModificationDefinition[] = dedupeById([
 
 export const ALL_SKILLS: SkillDefinition[] = dedupeById([...CORE_SKILLS, ...SORCERY_STEAM_SKILLS]);
 
-export const ALL_FEATS: FeatDefinition[] = dedupeById([...CORE_FEATS, ...EBERRON_FEATS, ...IRON_KINGDOMS_FEATS, ...SORCERY_STEAM_FEATS, ...RACES_OF_STONE_FEATS, ...RACES_OF_THE_WILD_FEATS, ...COMPLETE_ADVENTURER_FEATS, ...COMPLETE_WARRIOR_FEATS]);
+export const ALL_FEATS: FeatDefinition[] = dedupeById([...CORE_FEATS, ...EBERRON_FEATS, ...IRON_KINGDOMS_FEATS, ...SORCERY_STEAM_FEATS, ...RACES_OF_STONE_FEATS, ...RACES_OF_THE_WILD_FEATS, ...COMPLETE_ADVENTURER_FEATS, ...COMPLETE_WARRIOR_FEATS, ...COMPLETE_ARCANE_FEATS, ...COMPLETE_DIVINE_FEATS, ...BOOK_OF_EXALTED_DEEDS_FEATS]);
 
 export const ALL_EQUIPMENT: EquipmentItem[] = dedupeById([...CORE_EQUIPMENT, ...NEW_EQUIPMENT, ...SORCERY_STEAM_FIREARM_EQUIPMENT, ...SORCERY_STEAM_ALCHEMICAL_EQUIPMENT]);
 
 export const ALL_MAGIC_ITEMS: MagicItemDefinition[] = dedupeById([...CORE_MAGIC_ITEMS, ...SORCERY_STEAM_FIREARM_MAGIC_ITEMS]);
 
-export { RACES, TEMPLATES, LEGACY_CLASSES, CORE_CLASSES, NEW_BASE_CLASSES, CORE_PRESTIGE_CLASSES, CORE_SKILLS, CORE_FEATS, CORE_EQUIPMENT, NEW_EQUIPMENT, CORE_MAGIC_ITEMS, EBERRON_RACES, EBERRON_PRESTIGE_CLASSES, EBERRON_FEATS, IRON_KINGDOMS_RACES, IRON_KINGDOMS_FEATS, SORCERY_STEAM_CLASSES, SORCERY_STEAM_PRESTIGE_CLASSES, SORCERY_STEAM_SKILLS, SORCERY_STEAM_FEATS, SORCERY_STEAM_FIREARM_EQUIPMENT, SORCERY_STEAM_ALCHEMICAL_EQUIPMENT, SORCERY_STEAM_FIREARM_MAGIC_ITEMS, DESSARIN_TEMPLATES, DESSARIN_TABLES, BODY_MODIFICATIONS, RACES_OF_STONE_RACES, RACES_OF_STONE_PRESTIGE_CLASSES, RACES_OF_STONE_FEATS, RACES_OF_THE_WILD_RACES, RACES_OF_THE_WILD_PRESTIGE_CLASSES, RACES_OF_THE_WILD_FEATS, COMPLETE_ADVENTURER_PRESTIGE_CLASSES, COMPLETE_ADVENTURER_FEATS, COMPLETE_WARRIOR_PRESTIGE_CLASSES, COMPLETE_WARRIOR_FEATS };
+export { RACES, TEMPLATES, LEGACY_CLASSES, CORE_CLASSES, NEW_BASE_CLASSES, CORE_PRESTIGE_CLASSES, CORE_SKILLS, CORE_FEATS, CORE_EQUIPMENT, NEW_EQUIPMENT, CORE_MAGIC_ITEMS, EBERRON_RACES, EBERRON_PRESTIGE_CLASSES, EBERRON_FEATS, IRON_KINGDOMS_RACES, IRON_KINGDOMS_FEATS, SORCERY_STEAM_CLASSES, SORCERY_STEAM_PRESTIGE_CLASSES, SORCERY_STEAM_SKILLS, SORCERY_STEAM_FEATS, SORCERY_STEAM_FIREARM_EQUIPMENT, SORCERY_STEAM_ALCHEMICAL_EQUIPMENT, SORCERY_STEAM_FIREARM_MAGIC_ITEMS, DESSARIN_TEMPLATES, DESSARIN_TABLES, BODY_MODIFICATIONS, RACES_OF_STONE_RACES, RACES_OF_STONE_PRESTIGE_CLASSES, RACES_OF_STONE_FEATS, RACES_OF_THE_WILD_RACES, RACES_OF_THE_WILD_PRESTIGE_CLASSES, RACES_OF_THE_WILD_FEATS, COMPLETE_ADVENTURER_PRESTIGE_CLASSES, COMPLETE_ADVENTURER_FEATS, COMPLETE_WARRIOR_PRESTIGE_CLASSES, COMPLETE_WARRIOR_FEATS, COMPLETE_ARCANE_CLASSES, COMPLETE_ARCANE_PRESTIGE_CLASSES, COMPLETE_ARCANE_FEATS, COMPLETE_DIVINE_CLASSES, COMPLETE_DIVINE_PRESTIGE_CLASSES, COMPLETE_DIVINE_FEATS, BOOK_OF_EXALTED_DEEDS_PRESTIGE_CLASSES, BOOK_OF_EXALTED_DEEDS_FEATS, BOOK_OF_EXALTED_DEEDS_TEMPLATES };
