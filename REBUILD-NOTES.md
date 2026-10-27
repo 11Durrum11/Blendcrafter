@@ -378,3 +378,255 @@ field; the book lives in Shaun's Dropbox (durrum1 account) at:
   gunsmithing / steamcraft, and similar Chapter 3 sections): the
   core skill records already cover those skills, and the new uses
   are setting rules text, not new skills.
+
+# Addendum 2026-10-27 — Dessarin homebrew pack + body-modification index
+
+Requested by Shaun in the "D&D 3.5 implants and attachments" side chat:
+fold in BOTH (a) the grafts/symbionts/warforged-components list compiled
+2026-10-25 and (b) his wild magic chart, then archive that chat.
+
+## What was added
+
+- **New ruleset tag `dessarin`** (`src/engine/types.ts` Ruleset union;
+  label "Dessarin Valley (Homebrew)" + toggle entry in
+  `src/components/ruleset-toggle.tsx`). Shaun's own setting content is
+  opt-in like the other non-core packs.
+- **`src/data/dessarin/templates.ts`** — Steampunk-Augmented Undead as a
+  real `TemplateDefinition`, merged into `ALL_TEMPLATES` so it appears
+  in the template picker when the Dessarin ruleset is enabled.
+  Source: Shaun's own "DESSARIN VALLEY WILD-MAGIC SURGE TABLE (D&D
+  3.5).docx" (Google Drive, modified 2026-10-06). Modeled per the core
+  template pack: add-subtype Construct patch (type stays Undead; HD /
+  BAB / saves not recalculated), natural armor +4 as an "improve"
+  modifier, Str +4 / Dex -2, CR +1, prerequisite corporeal Undead.
+  The -5 ft speed penalty is a trait feature (no relative-speed patch
+  exists in the resolver); levelAdjustment 0 (the document gives none;
+  it is written for NPC/monster thralls). Features: Piston Slam, Steam
+  Charge, Boiler Explosion, Alchemical Fortification, Vulnerability to
+  Electricity, Heavy Plating.
+- **`src/data/dessarin/tables.ts`** — the document's three random
+  tables as a new `RandomTableDefinition` data type, exported as
+  `ALL_RANDOM_TABLES`: Dessarin Valley surge table (d20, 8 bands),
+  Marketplace Chaos (d10, 10 entries), Defilement Zone surge table
+  (d100, entries strictly 1-100 from the document's cleaned second
+  pass). Effect text condensed to one line per entry in house style;
+  full prose remains in Shaun's source document. No table-roller UI
+  exists in the app, so — per the precedent of shipping data ahead of
+  pickers — the tables are data-only exports for now.
+- **`src/data/body-modifications.ts`** — new `BodyModificationDefinition`
+  index type; 165 records from the 2026-10-25 compiled list
+  (~/workspace/your_files/dnd-35-grafts-symbionts-components-list.md):
+  123 grafts (14 families: Aboleth 8, Beholder 6, Fiendish 17, Illithid
+  15, Maug 6, Undead 14 + 3 Forgotten Realms, Yuan-ti 5, Silthilar 9,
+  Draconic 10, Deathless 5, Elemental 13, Plant 7, Construct 5),
+  21 symbionts (Cerebral 3, Fiendish 3, Undead 1, Daelkyr 14),
+  21 warforged components (6 core + 15 expanded, with attached/embedded
+  installation and prices where published). Exported as
+  `ALL_BODY_MODIFICATIONS`. INDEX ONLY, deliberately: records carry
+  name, family, price where the list recorded one, and a book
+  citation — full mechanics were not reproduced or invented, because
+  the core books for most of this content (Fiend Folio, Lords of
+  Madness, Libris Mortis, Magic of Eberron) are not in Shaun's
+  library. Eberron-book families are tagged "eberron"; generic 3.5
+  families are tagged "core". There is no picker/step for body
+  modifications yet; adding one is a UI build for another day.
+
+## Verification
+
+- `npx tsc --noEmit`: 0 errors.
+- `npm run build`: succeeded (pre-existing >500 kB chunk-size warning
+  only).
+- Data smoke test (tsx against the real modules, script deleted after
+  the run): **22/22 passed** — family/kind counts (123/21/21 = 165),
+  every record cited, d100 rolls exactly 1..100, template fields
+  (ruleset, CR, ability modifiers, subtype patch, natural-armor
+  modifier, Undead prerequisite, 6 features) all as modeled.
+- NOT pushed to GitHub and NOT deployed in this pass (the earlier
+  packs were pushed 2026-10-27 as commit a89ba425; this addendum is
+  local until Shaun says push).
+
+# Addendum 2026-10-27 — Batch 1 of the "all original books" program: Races of Stone + Races of the Wild
+
+Shaun's instruction (2026-10-27): "Add all the different books that
+were in the original." Batch 1 covers the two generic "Races of"
+supplements from his Dropbox library. Both books are official
+D&D 3.5 supplements, not separate settings, so — by the decision
+recorded before this build — their records carry
+`ruleset: "core"` (the original app's own data cited these books
+under its core data; the only ruleset toggles remain eberron /
+iron_kingdoms / sorcery_steam / dessarin). No Ruleset type,
+toggle, engine, component, or recovered file was modified: new
+files only, plus the barrel `src/data/index.ts`, plus this
+addendum.
+
+## What was added (all NEW files)
+
+- **`src/data/races-of-stone/races.ts`** — 6 races: Goliath
+  (traits p. 56), Chaos Gnome (pp. 87–88), Dream Dwarf
+  (pp. 88–89), Feral Gargun (pp. 91–92), Stonechild (pp. 93–94),
+  Whisper Gnome (pp. 95–96).
+- **`src/data/races-of-stone/prestige-classes.ts`** — all 15
+  Chapter 5 prestige classes: Battlesmith (p. 97), Blade Bravo
+  (p. 99), Cragtop Archer (p. 101), Dawncaller (p. 103),
+  Deepwarden (p. 105), Divine Prankster (p. 107), Earth Dreamer
+  (p. 110), Goliath Liberator (p. 112), Iron Mind (p. 114),
+  Peregrine Runner (p. 116), Runesmith (p. 118), Shadowcraft
+  Mage (p. 120), Stoneblessed (p. 122), Stonedeath Assassin
+  (p. 124), Stonespeaker Guardian (p. 127). Progressions are the
+  printed tables (Table 5-1 through 5-15).
+- **`src/data/races-of-stone/feats.ts`** — all 69 feats of
+  Table 6–1 (pp. 134–135): 26 general, 21 racial, 4 bardic
+  music, 5 divine, 1 item creation (Craft Rune Circle),
+  6 psionic, 4 weapon style, 2 wild.
+- **`src/data/races-of-the-wild/races.ts`** — 5 races: Raptoran
+  (traits p. 68), Catfolk (p. 93), Centaur (p. 95), Gnoll
+  (summary p. 102), Killoren (p. 103).
+- **`src/data/races-of-the-wild/prestige-classes.ts`** — all 8
+  Chapter 5 prestige classes: Arcane Hierophant (p. 108),
+  Champion of Corellon Larethian (p. 113), Luckstealer (p. 118),
+  Ruathar (p. 122), Skypledged (p. 126), Stormtalon (p. 131),
+  Whisperknife (p. 135), Wildrunner (p. 139). Progressions are
+  the printed tables (Table 5-1 through 5-8).
+- **`src/data/races-of-the-wild/feats.ts`** — all 31 feats of
+  Table 6–1 (pp. 148–149): 27 general + 4 tactical.
+- **`src/data/index.ts`** — the six new collections are merged
+  into ALL_RACES / ALL_PRESTIGE_CLASSES / ALL_FEATS and
+  re-exported. No new skills, templates, or base classes: neither
+  book contains any that fit those types (see omissions).
+
+## Sources — every new entry cites its book and page in its `source` field
+
+- Races of Stone: `/A POC PC related/5.Splat/Races of
+  series/Races of Stone.pdf` (8,162,629 bytes, full text layer;
+  PDF page = printed page throughout, verified against folios
+  and the TOC).
+- Races of the Wild: `/A POC PC related/5.Splat/Races of
+  series/Races of the Wild.pdf` (23,243,664 bytes, full text
+  layer). **This PDF is a two-page-spread scan**: after the front
+  matter, most PDF pages contain a full two-page spread and are
+  duplicated in pairs, so PDF page index does NOT equal printed
+  page in Chapter 4 onward. All citations are the book's printed
+  folios, read from the page footers (e.g. catfolk traits on
+  printed p. 93, centaur on p. 95, gnoll summary on p. 102,
+  killoren traits on p. 103). Plain `pdftotext -layout` also
+  interleaves the four columns of a spread; `pdftotext -raw`
+  and column crops read them cleanly.
+
+## Judgment calls and deliberate omissions (plain notes)
+
+- **Standard races not duplicated.** RoS Chapters 1–2 (dwarves,
+  gnomes) and RotW Chapters 1–2 (elves, halflings) describe the
+  Player's Handbook races with no new variants; the core SRD
+  records already cover them.
+- **Monster classes not converted.** RoS Tables 4–4/4–5 (feral
+  gargun, stonechild) and the RotW centaur and gnoll monster
+  classes spread a race over several levels; the app has no
+  mechanism for that, so the race records carry the full adult
+  traits + racial Hit Dice + level adjustment (feral gargun
+  2 RHD/LA +2, stonechild 2 RHD/LA +4, centaur 4 RHD/LA +2,
+  gnoll 2 RHD/LA +1). For the gnoll, the printed trait summary
+  lists only the monster class's *starting* adjustments
+  (+2 Str, –2 Int, –2 Cha); the record uses the full-grown
+  totals the class builds to (+4 Str, +2 Con, –2 Int, –2 Cha,
+  matching the Monster Manual gnoll).
+- **Centaur ability adjustments follow the book, not the
+  Monster Manual**: RotW's printed traits give +8 Str, +4 Dex,
+  +4 Con, –2 Int, +2 Wis and NO Charisma adjustment (the MM
+  centaur has –2 Cha; the book omits it, so the record does).
+- **Goliaths get no darkvision trait**, although monstrous
+  humanoids normally have it: the book's trait list omits it,
+  and the dawncaller prestige class granting "darkvision 60 ft."
+  at 1st level confirms the omission is deliberate.
+- **Raptoran and killoren ability adjustments are empty** — both
+  books print none (raptoran flight instead scales with Hit
+  Dice: glide from 1st, true flight at 5 HD, unlimited at
+  10 HD; modeled as trait text, since the app has no
+  HD-triggered movement mechanism).
+- **Dream dwarf and whisper gnome level adjustment +0** — no
+  LA line is printed for either (contrast chaos gnome +1,
+  printed immediately before the dream dwarf section).
+- **Conditional racial skill bonuses are trait text, not
+  `skillBonuses`**: dream dwarf Search (+2, stonework only) and
+  Diplomacy (+2, earth subtype only) follow the core dwarf
+  record's precedent. Unconditional bonuses (goliath Sense
+  Motive, chaos gnome Listen, whisper gnome Hide/Move
+  Silently/Listen/Spot, raptoran Climb/Spot/Jump, catfolk
+  Listen/Move Silently, killoren Handle Animal/Survival) are
+  modeled in `skillBonuses` and flow into resolved totals
+  (verified in the smoke test).
+- **No new skills.** Both books' Chapter 6 skills sections
+  present new *uses* for Player's Handbook skills only (RoS
+  p. 129 says so in terms); no SkillDefinition was created for
+  either book, so there is no `skills.ts` in either pack.
+- **No templates or base classes** — neither book contains any.
+- **Racial substitution levels not converted** (RoS Ch. 6 and
+  RotW pp. 154–162): no app mechanism exists for them.
+- **Chapter 7+ material not converted**: equipment, magic
+  items, spells, psionic powers, rune circles as items, and
+  campaign/creature chapters are outside the Batch 1 type list
+  (Race/Template/Class/PrestigeClass/Feat/Skill).
+- **Feat category mapping**: the app has no bardic-music,
+  divine, psionic, weapon-style, wild, or tactical categories;
+  those feats are filed as "general" (weapon styles and
+  tactical feats as "combat") with the book's grouping named in
+  the record's `special` field. Fighter-bonus-feat eligibility
+  (superscript 1 in RoS Table 6–1) is likewise noted in
+  `special`.
+- **Goad feat id is `goad-ros`**: the bare id `goad` already
+  belongs to a weapon in `src/data/core/new-equipment.json`.
+  Collections dedupe separately so it would not have clashed,
+  but a unique id avoids cross-collection ambiguity; the reason
+  is recorded in the feat's `special` field.
+- **Prestige class feature text is one summary entry per
+  class**, following the Sorcery & Steam pattern, and only
+  states mechanics read from the printed table or feature text;
+  where a table entry's mechanics were not read in full, the
+  summary gives the feature's name and level only rather than
+  inventing an effect. Tactical feats' benefits likewise read
+  "See the feat description", exactly as RotW Table 6–1 prints
+  them.
+- **Iron Mind manifesting advancement** (levels 2–5 and 7–10,
+  per its printed table) and **Luckstealer spellcasting
+  advancement** (levels 2–6, 8, 9) are irregular, so they are
+  stated in the prerequisites text, following the S&S pattern
+  for spellcasting-advancement notes. Arcane Hierophant's dual
+  +1 arcane AND +1 divine advancement is stated the same way.
+- **Stoneblessed class skills list only the base skills**
+  (Climb, Craft, Jump, Profession); the bond-specific added
+  skills are described in the stonebond feature summary (the
+  class's skills genuinely depend on a player choice the data
+  model cannot branch on).
+
+## Verification
+
+- `npm run check` (tsc strict): 0 errors.
+- `npm run build`: succeeded — dist JS 873.16 kB (gzip
+  221.86 kB), up from 733.7 kB before this batch; only the
+  pre-existing >500 kB chunk-size warning.
+- `vite preview` on port 5000: HTTP 200, title "Blendcrafter —
+  Template Blending Character Builder for d20 3.5 SRD"; new
+  names (Whisper Gnome, Stonechild, Arcane Hierophant, Dallah
+  Thaun's Luck, Stonedeath Assassin, Killoren) confirmed present
+  in the built bundle; server stopped afterward.
+- Resolver smoke test (tsx against the real modules, script
+  deleted after the run): **60/60 passed**. Collection
+  invariants: counts (6/5 races, 15/8 prestige classes, 69/31
+  feats = 134 records), every record cited with its Dropbox
+  source path, all ruleset "core", all ids present in the ALL_*
+  aggregates, no id collisions with the 831 pre-existing ids.
+  End-to-end builds: Goliath Barbarian 5 (Str 19/Dex 11/Con 16
+  after racial mods, LA 1, ECL 6, Sense Motive 6 = 3 ranks + 1
+  Wis + 2 racial); Whisper Gnome Rogue 3 (Hide/Move Silently
+  totals include the +4 racial bonuses, Listen 2 from the racial
+  bonus alone, ECL 3); Stonechild Fighter 2 (Str/Con 18, 2 RHD,
+  ECL 8, +4 natural armor in AC); Dwarf Fighter 5/Battlesmith 2
+  (BAB 7); Raptoran Cleric 5 (no ability mods, Jump 13 = 2 + 1 +
+  10 racial, ECL 5); Centaur Ranger 2 (Str 18/Dex 16/Wis 13,
+  6 total HD, ECL 8, Large, speed 50); Gnoll Barbarian 1
+  (Str 18, ECL 4); Killoren Druid 4 (Handle Animal 6 and
+  Survival 6 including +2 racial each, Fey type); Elf Wizard
+  3/Druid 3/Arcane Hierophant 2 (BAB 4). Zero validation errors
+  on every build that expected none.
+- NOT pushed to GitHub and NOT deployed in this pass — the
+  parent agent verifies, pushes (which auto-deploys via the
+  Pages workflow), and reports.

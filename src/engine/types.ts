@@ -21,7 +21,7 @@ export const ABILITY_LABEL: Record<AbilityKey, string> = {
   cha: "Charisma",
 };
 
-export type Ruleset = "core" | "eberron" | "iron_kingdoms" | "sorcery_steam";
+export type Ruleset = "core" | "eberron" | "iron_kingdoms" | "sorcery_steam" | "dessarin";
 
 export type CreatureType =
   | "Aberration"
@@ -260,6 +260,67 @@ export interface MagicItemDefinition {
   sourceUrl: string;
   ruleset: Ruleset;
   modifiers?: Modifier[];
+}
+
+/* ------------------------------------------------------------------ */
+/* Body modifications: grafts, symbionts, warforged components         */
+/* ------------------------------------------------------------------ */
+
+/**
+ * The three D&D 3.5 "implant" systems, which are NOT ordinary items:
+ * - graft: harvested/grown body parts fused onto a creature. Not sentient,
+ *   not magical once complete, ruined if removed; each family needs its
+ *   own grafter feat.
+ * - symbiont: a living, sentient organism that attaches to a host, with
+ *   an Ego score and telepathy; it can attempt to dominate its host.
+ * - warforged component: a magic item built into a warforged body —
+ *   "attached" components sit on the surface and use a slot, "embedded"
+ *   components sit inside the body, hidden or retractable.
+ *
+ * These records are a named-item reference index (name, family, price
+ * where published, source citation), folded in 2026-10-27 from the list
+ * compiled in ~/workspace/your_files/dnd-35-grafts-symbionts-components-list.md.
+ * Full mechanics live in the cited books; nothing here invents them.
+ */
+export type BodyModificationKind = "graft" | "symbiont" | "warforged-component";
+
+export interface BodyModificationDefinition {
+  id: string;
+  name: string;
+  kind: BodyModificationKind;
+  /** Family within the kind, e.g. "Aboleth grafts", "Daelkyr symbionts". */
+  family: string;
+  ruleset: Ruleset;
+  /** Published price, where the source list recorded one. */
+  cost?: string;
+  /** For warforged components: "attached" or "embedded" (some are either). */
+  installation?: string;
+  /** Short factual note, only where the compiled list stated one. */
+  summary?: string;
+  source: string;
+  sourceUrl: string;
+}
+
+/* ------------------------------------------------------------------ */
+/* Random tables (setting reference data)                              */
+/* ------------------------------------------------------------------ */
+
+export interface RandomTableEntry {
+  /** Die result or band, e.g. "1", "2-4", "20". */
+  roll: string;
+  title: string;
+  effect: string;
+}
+
+export interface RandomTableDefinition {
+  id: string;
+  name: string;
+  ruleset: Ruleset;
+  /** Die expression rolled on the table, e.g. "d20", "d100". */
+  die: string;
+  source: string;
+  sourceUrl: string;
+  entries: RandomTableEntry[];
 }
 
 /* ------------------------------------------------------------------ */

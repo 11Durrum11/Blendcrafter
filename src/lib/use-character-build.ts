@@ -31,7 +31,9 @@ export function createDefaultBuild(): CharacterBuild {
     skillRanks: {},
     featIds: [],
     inventory: [],
-    enabledRulesets: ["core"],
+    // Standard set (Shaun's live choice, made the default 2026-10-27):
+    // every toggleable ruleset on.
+    enabledRulesets: ["core", "eberron", "iron_kingdoms", "sorcery_steam", "dessarin"],
     houseRules: { ...DEFAULT_HOUSE_RULES },
     disabledRaceIds: [],
     disabledClassIds: [],

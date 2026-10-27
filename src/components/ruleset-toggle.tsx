@@ -9,9 +9,10 @@ export const RULESET_LABELS: Record<Ruleset, string> = {
   eberron: "Eberron",
   iron_kingdoms: "Iron Kingdoms",
   sorcery_steam: "Sorcery & Steam",
+  dessarin: "Dessarin Valley (Homebrew)",
 };
 
-const TOGGLEABLE_RULESETS: Ruleset[] = ["eberron", "iron_kingdoms", "sorcery_steam"];
+const TOGGLEABLE_RULESETS: Ruleset[] = ["eberron", "iron_kingdoms", "sorcery_steam", "dessarin"];
 
 interface RulesetToggleProps {
   enabledRulesets: Ruleset[];
