@@ -3117,3 +3117,351 @@ their own books.
 - NOT pushed to GitHub and NOT deployed in this pass —
   the parent agent verifies, pushes (which auto-deploys
   via the Pages workflow), and reports.
+
+# Batch 9 addendum (2026-10-28): the monster books — Monster Manual II, III, IV, V; Fiendish Codex I & II; Monsternomicon vols. 1 & 2
+
+Batch 9 of the "all original books" program: the monster
+books. New packs: src/data/monster-manual-iii/,
+src/data/monster-manual-iv/, src/data/monster-manual-v/,
+src/data/fiendish-codex-i/, src/data/fiendish-codex-ii/,
+and additions to src/data/monsternomicon/ (mn1-feats.ts,
+mn1-prestige-classes.ts). Monster Manual II
+yields no records and gets no folder. Sources are Shaun's
+PDFs in the durrum1 Dropbox (monster manuals folder;
+Monsternomicon vol. 1 came from the /transfer/DnD-3.5/
+folder — the copy inside the monster-manuals folder is a
+corrupt non-PDF). MM IV, MM V, and Monsternomicon vol. 1
+are image-only scans and were read via OCR with page-image
+verification of every table and ambiguous cell. Only
+creatures the books present as playable were converted —
+a printed "X Characters" section, a printed trait list, or
+a printed level adjustment — and only templates with a
+printed level adjustment; monster entries themselves are
+never converted.
+
+## Monster Manual II — 0 records
+
+The book (3.0-era) prints no level adjustment anywhere:
+no "X Characters" sections, no feat chapter, and its
+introduction's one PC example (an avolakia with LA +5) is
+intro prose, not a race entry, so it is not converted.
+The appendix's 9 templates (Captured One, Chimeric
+Creature, Death Knight, Half-Golem, Monster of Legend,
+Spellstitched Creature, Tauric Creature, Titanic
+Creature, Warbeast) print no LA and are omitted. The
+~216 monster entries are omitted as monsters.
+
+## Monster Manual III — 18 races, 3 templates, 3 feats
+
+Races (each from its printed trait list): Armand,
+Dracotaur, Flind, Forestkith Goblin, Goatfolk (Ibixian),
+Harssaf, Kenku, Lumi, Nycter, Poison Dusk Lizardfolk,
+Quaraphon, Sand Giant, Skullcrusher Ogre, Crystalline
+Troll, Naztharune Rakshasa, Warforged Charger, Warforged
+Scout, Witchknife.
+
+Duplicates skipped: Changeling, Shifter, Warforged —
+already in from the Eberron Campaign Setting pack.
+
+Templates (all LA +3): Spellwarped, Voidmind, Woodling.
+Omitted: Living Spell (LA —) and Bonedrinker (a created
+undead creature, not a template; LA —).
+
+Feats: Shifter Defense, Improved Fortification, Mithral
+Fluidity. Duplicates skipped: Extra Shifter Trait,
+Healing Factor, Shifter Instincts, Adamantine Body,
+Mithral Body.
+
+Judgment calls: Nycter's natural armor (+3) is taken
+from its stat blocks because its trait list omits it;
+Warforged Charger's LA (+4) comes from its stat block
+and its favored class from its entry text; Quaraphon's
+speed is 40 ft per its trait list (its sample stat block
+says 50 ft — the trait list governs, noted on the
+record); Crystalline Troll's –4 Intelligence is kept as
+printed; Spellwarped's CR modifier is recorded as the
+printed schedule's middle step (+1 for 4–10 HD; +0 for
+3 HD or fewer, +2 for 11+) because the schema takes a
+single number, with the schedule spelled out on the
+record. The remaining monster entries are omitted as
+monsters.
+
+## Monster Manual IV — 1 race, 1 template, 10 feats
+
+Race: Varag (pp. 168–171), the book's one full PC
+presentation ("For Player Characters: The Varag Racial
+Class"), totals combined from the printed Base Traits
+list and the racial-class increments. Printed quirk
+kept and noted on the record: the trait list gives base
+land speed 40 ft while the monster stat block (p. 168)
+lists 60 ft; 40 ft is recorded, following the trait
+list.
+
+Template: Lolth-Touched (LA +1). Omitted: Web Mummy —
+its block prints "Level Adjustment: —".
+
+Feats (Monster Feats appendix, pp. 202–203): Ability
+Focus, Awesome Blow, Clinging Breath, Craft Construct,
+Flyby Attack, Githyanki Battlecaster, Githyanki
+Dragonrider, Improved Natural Attack, Lingering Breath,
+Multiattack. Duplicates skipped: Improved Toughness,
+Powerful Charge, Quicken Spell-Like Ability (already in
+the dataset).
+
+Omitted: every other ECL-listed creature (the spawn of
+Tiamat and others, listed on p. 204) prints only a
+favored class and an LA in a "with class levels"
+sidebar — no trait list — so none is converted (no
+deriving traits from stat blocks). The remaining
+monster entries and sample encounters are omitted as
+monsters.
+
+## Monster Manual V — 1 race, 7 templates, 7 feats
+
+Race: Jaebrin (pp. 92–93), from its printed "Jaebrins as
+Characters" trait list. The book's other ECL-listed
+creatures (arcadian avenger, banshrae, elemental magi,
+ethereal defiler, greenspawn zealot, shaedling, ushemoi,
+the kuo-toa and hobgoblin variants, and the rest of the
+p. 4 list) print no trait lists and are omitted.
+
+Templates: the six god-blooded templates (Gruumsh-,
+Imix-, Kord-, Orcus-, Vecna-, and Yeenoghu-Blooded; all
+CR +1, LA +1, sharing the printed Divine Endurance
+frame — free-action DR 10/— until it has prevented 40
+points total, after which the template's benefits are
+lost, Vecna's Cloak of Mystery expressly excepted) and
+the Xorvintaal Exarch (p. 47; CR +1, LA +2, with its own
+"PCs as Exarchs" sidebar). Omitted: Phantom and Thoon
+Thrall (both print "Level Adjustment: —", verified on
+the pages) and the Xorvintaal Dragon template itself
+(prints no level adjustment).
+
+Feats: Hover, Snatch, Wingover (Monster Feats appendix,
+pp. 204–205), Battle Magic Tactics (hobgoblin section,
+p. 84), Kuo-Toan Monasticism and Mind-Shattering Strike
+(kuo-toa monitor entry, p. 97), Sense Quintessence
+(Thoon infiltrator entry, p. 110). Duplicates skipped:
+the appendix's Ability Focus, Awesome Blow, Flyby
+Attack, Improved Natural Attack, Improved Toughness,
+Multiattack, Powerful Charge, and Quicken Spell-Like
+Ability (recorded from Monster Manual IV in this same
+batch); the appendix's Empower Spell-Like Ability
+(already in from Book of Vile Darkness — the appendix
+printing allows three uses per day where the older
+printing allows two); and the entry feats Mage Slayer
+(Complete Arcane), Daunting Presence, and Brutal Throw
+(Complete Adventurer). The remaining monster entries
+are omitted as monsters.
+
+## Fiendish Codex I — 13 feats (Abyssal Heritor only)
+
+Per the batch scope, only the Abyssal Heritor feats of
+Chapter 4 (pp. 82–87) were taken: Chaotic Spell Recall,
+Claws of the Beast, Cloak of the Obyrith, Demonic Skin,
+Demonic Sneak Attack, Eyes of the Abyss, Heart of the
+Nabassu, Keeper of Forbidden Lore, Otherworldly
+Countenance, Poison Talons, Precognitive Visions,
+Primordial Scion, Vestigial Wings — each with its
+printed "Special" drawback. The feat text governs over
+Table 4–1 where they conflict, noted on the records:
+Eyes of the Abyss darkvision 30 ft (table: 60 ft);
+Claws of the Beast +1 damage per two heritor feats
+(table: per feat); Vestigial Wings +3 Jump per heritor
+feat (table: +2); Primordial Scion +1d6 damage per
+four heritor feats (table: per two). Out of scope and
+not taken: the chapter's general feats (Demon Mastery,
+Extract Demonic Essence, Ordered Chaos, Poison Healer)
+and vile feats (Dark Speech, Demonic Conduit, Evil
+Brand, Thrall to Demon, Abyss-Bound Soul, Blood War
+Conscript), and the rest of the book.
+
+## Fiendish Codex II — 1 race, 27 feats, 4 prestige classes
+
+Race: Hellbred (pp. 77–78). Its ability modifiers are
+granted by the printed Infernal Aspect choice rather
+than by the race itself, so abilityModifiers is empty
+and both aspects (Body and Spirit, with their scaling
+benefits) are described in full in the traits; size and
+speed come from the sample stat block, noted on the
+record. LA +0; favored class paladin.
+
+Feats (Table 3–1, pp. 81–85): Brand of the Nine Hells
+and the nine layer Marks (Mark of Avernus, Mark of
+Dis, Mark of Minauros, Mark of Phlegethos, Mark of
+Stygia, Mark of Malbolge, Mark of Maladomini, Mark of
+Cania, Mark of Nessus), Dilate Aura, Rapid
+Regeneration, Supernatural Instincts, Undo Resistance,
+Vengeful Surge; the six devil-touched feats (Devil's Aura,
+Devil's Favor, Devil's Flesh, Devil's Sight, Devil's
+Stamina, Devil's Tongue); the five [Divine] feats
+(Divine Armor, Divine Fortune, Divine Justice, Divine
+Resistance, Divine Ward); and one metamagic feat
+(Disrupting Spell). The [Divine] feats are recorded
+with category "general" because the feat schema has no
+"divine" category (Complete Divine pack precedent),
+each tagged "[Divine] feat." in its special field.
+"Persistent Refusal" is spelled per the feat texts;
+Table 3–1 misprints it "Persistant."
+
+Name collision handled per the standing exception:
+this book's Divine Justice is a genuinely different
+feat from the Player's Handbook II Divine Justice
+already in the dataset (spend a turn/rebuke attempt as
+a swift action for +2d6 damage against evil outsiders
+for 1 round plus shaken, versus marking an opponent
+and returning his damage). It is recorded as
+divine-justice-fc2 with a cross-note in its special
+field, and the matching cross-note was appended to
+the existing record's special field.
+
+Prestige classes: Hellbreaker, Hellfire Warlock,
+Hellreaver, Soulguard (the last advances spellcasting
+only from 2nd level, as printed). The book's devils
+are monsters and are omitted as such; the book prints
+no templates.
+
+## Monsternomicon vol. 2 — 1 race, 2 templates, 2 base classes, 1 skill, 1 prestige class
+
+Race: Efaarit (entry p. 62, traits p. 63; 2d8 HD,
+LA +1). Omitted: the Tharn Bloodtrackers (their stat
+block prints LA +2 but no trait list exists anywhere
+in the book — not derived from the stat block) and
+the five Skorne ethnic variants (Kademesh, Kajar,
+Kasortaan, Malzash, Sortaani — delta blocks against
+a base Skorne race printed in neither volume).
+
+Templates: Deathless (CR +3, LA +8) and Genzoul
+(CR +2, LA +4). Omitted: Revenant (CR +2 printed but
+no LA line in its "Creating a Revenant" block,
+verified) and the Quickplates and Skorne Conditioning
+systems (modification systems with no LA).
+
+Base classes: Mortitheurge (pp. 226–231) and Paingiver
+(pp. 222–225) are printed in this book as full 20-level
+base classes and are recorded as printed (progression
+rows capped at levels 1–10 per the app convention);
+in the Iron Kingdoms Character Guide the mortitheurge
+appears as a prestige class instead — noted here
+because the two presentations differ. Paingiver skill
+points are printed as "5 + Int modifier" and recorded
+as printed.
+
+Skill: Profession (Torturer) (p. 225), a full
+standalone skill write-up in the Paingiver section.
+
+Prestige class: Extoller (pp. 232–234; skill points
+2 + Int per the printed text). The rest of the volume
+is monsters and Skorne setting material, omitted as
+such.
+
+## Monsternomicon vol. 1 — 0 races, 1 feat, 3 prestige classes
+
+Races: none added. The Playable Races appendix
+(pp. 236–239) prints full trait lists for Gobber,
+Bogrin (variant traits printed as additions to the
+gobber list in the same appendix), Trollkin, Ogrun,
+and Nyss — but all five duplicate records already in
+the dataset from the Iron Kingdoms pack (the Iron
+Kingdoms Character Guide presentation of the same
+peoples, with identical ability modifiers), so they
+are skipped as duplicates per the standing rule; the
+Batch 9 conversion written for them was removed
+again once the duplication was caught in the totals
+check. One source difference is flagged in the
+Discrepancies section below. The appendix's dwarves
+and elves are presented only as differences from the
+Player's Handbook races ("identical to those in the
+PH, except where noted below"), and its half-elves
+sidebar is the same — delta-only presentations with
+no complete trait list, not converted.
+
+Feat: Stronghammer Smith (ogrun racial feat, p. 239;
+its 3.0-form prerequisites "Str 15+, Int 8+" are
+recorded in modern form and noted on the record).
+
+Prestige classes (appendix): Adventuring Scholar
+(pp. 219–223), Bone Grinder (pp. 224–228), Monster
+Hunter (pp. 229–233). All three progression tables
+were verified against page images. Two printed
+text/table conflicts are recorded as printed, with
+the class-features text followed (this batch's
+convention) and the conflict noted on the record:
+Adventurer's Zeal (text: 3rd level; Table 1-1: 4th)
+and the monster hunter's final improved-tracking
+step (text: 10th level; Table 1-1: 9th). The classes'
+3.0 skill names are recorded with their 3.5
+equivalents (Alchemy = Craft (alchemy); Wilderness
+Lore = Survival; Animal Empathy folded into Handle
+Animal; Intuit Direction dropped in 3.5); the Iron
+Kingdoms skills the book prints (Creature Lore, Lore,
+Craft (bone grinding), Craft (dissection)) stand as
+printed in prerequisites and class-skill lists.
+Omitted: the Legend & Lore appendix's nine creature
+variants (Alpha Hunter, Bloodthirsty, Crafty,
+Deepdweller, Holy, Maligned, Stealthy, Tough, Urban —
+monster variants, no LA printed anywhere in the
+appendix, verified), Quickplates (construct
+modifications, no LA), the monster-hunter gear and
+traps (equipment, out of scope for this batch), the
+Tomes of Lore (lore, not character content), and the
+bestiary entries as monsters.
+
+## Discrepancies in existing data (report-only)
+
+One candidate, beyond the Fiendish Codex II /
+Player's Handbook II Divine Justice name collision
+handled above under the sanctioned cross-note
+exception: level adjustments for three Iron Kingdoms
+races. The existing Iron Kingdoms pack records (from
+the Character Guide) give Gobber, Bogrin, and Nyss
+each a level adjustment of +1. Monsternomicon
+vol. 1's Playable Races appendix prints full trait
+lists for all three with NO level adjustment line
+(which in that appendix's presentation means LA +0 —
+the same appendix expressly prints "Level Adjustment
++1" for Trollkin and Ogrun, matching the existing
+records). The two books genuinely differ (vol. 1 is
+the 2002 3.0 printing; the Character Guide records
+stand as the dataset's source), so nothing was
+changed; the parent may judge whether the existing
+records should note the variant. One caution from the build:
+the PHB II Divine Justice record shares its special
+field's stock "[Divine] feat." text with seven other
+records, so the cross-note edit was aimed with
+full-line context and verified by reading the file
+afterward; the parent may wish to eyeball
+src/data/players-handbook-ii/feats.ts (the
+divine-justice record) when reviewing.
+
+## Verification (2026-10-28)
+
+- `npm run check` (tsc): 0 errors.
+- `npm run build`: succeeds (bundle
+  `dist/assets/index-DKMURtUS.js`, ~2,191 kB); the bundle
+  still contains "LOCKED OFF by Shaun".
+- Vite preview: HTTP 200 (server stopped after the
+  check).
+- Resolver smoke test: one build per yielding book
+  (a Warforged Scout with the Spellwarped template; a
+  Varag with Lolth-Touched; an Abyssal Heritor feat
+  build; a Hellbred Soulguard and a warlock/Hellfire
+  Warlock; a Jaebrin beguiler with Orcus-Blooded and
+  Xorvintaal Exarch templates; an Efaarit Mortitheurge
+  with Extoller levels and a Genzoul template; an
+  Efaarit Paingiver with Profession (torturer) ranks; a
+  Trollkin fighter/Monster Hunter with Stronghammer
+  Smith; a Nyss ranger/Adventuring Scholar) — 0
+  validation errors, 0 warnings across all ten builds.
+- Barrel totals before → after: races 77 → 99 (+22),
+  classes 53 → 55 (+2), prestige classes 341 → 349
+  (+8), templates 15 → 28 (+13), feats 1,579 → 1,640
+  (+61), skills 61 → 62 (+1), equipment 495 → 495,
+  magic items 76 → 76. No duplicate ids in any
+  aggregate (the five Monsternomicon vol. 1 appendix
+  races were caught by exactly this check — they
+  duplicate the Iron Kingdoms pack's records and were
+  removed again before this verification ran).
+- NOT pushed to GitHub and NOT deployed in this pass —
+  the parent agent verifies, pushes (which auto-deploys
+  via the Pages workflow), and reports.
