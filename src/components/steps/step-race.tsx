@@ -130,6 +130,33 @@ export function StepRace({
   );
   };
 
+  // Segregation (Shaun, 2026-10-28): within each race group, turned-off
+  // races sink below the turned-on ones under their own "Turned off"
+  // subheading, so the active picker stays uncluttered. Turning one back
+  // on (its tile switch) moves it back up immediately.
+  const renderRaceSection = (
+    title: string,
+    blurb: string,
+    races: typeof visibleRaces,
+    headingClassName: string
+  ) => {
+    const turnedOn = races.filter((race) => !disabledRaceIds.includes(race.id));
+    const turnedOff = races.filter((race) => disabledRaceIds.includes(race.id));
+    return (
+      <>
+        <h4 className={headingClassName}>{title}</h4>
+        <p className="mb-3 mt-1 text-xs text-muted-foreground">{blurb}</p>
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">{turnedOn.map(renderRaceTile)}</div>
+        {turnedOff.length > 0 && (
+          <>
+            <h5 className="mt-5 font-display text-sm font-semibold text-muted-foreground">Turned off</h5>
+            <div className="mt-2 grid grid-cols-2 gap-3 sm:grid-cols-4">{turnedOff.map(renderRaceTile)}</div>
+          </>
+        )}
+      </>
+    );
+  };
+
   return (
     <div className="space-y-6">
       <Card>
@@ -144,18 +171,19 @@ export function StepRace({
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <h4 className="font-display text-base font-semibold">Playable Character Races</h4>
-          <p className="mb-3 mt-1 text-xs text-muted-foreground">Races the books present for player characters.</p>
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">{playableRaces.map(renderRaceTile)}</div>
-          {monsterRaces.length > 0 && (
-            <>
-              <h4 className="mt-6 font-display text-base font-semibold">Monster Races</h4>
-              <p className="mb-3 mt-1 text-xs text-muted-foreground">
-                From monster-book entries — playable, but they start with racial Hit Dice and level adjustments.
-              </p>
-              <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">{monsterRaces.map(renderRaceTile)}</div>
-            </>
+          {renderRaceSection(
+            "Playable Character Races",
+            "Races the books present for player characters.",
+            playableRaces,
+            "font-display text-base font-semibold"
           )}
+          {monsterRaces.length > 0 &&
+            renderRaceSection(
+              "Monster Races",
+              "From monster-book entries \u2014 playable, but they start with racial Hit Dice and level adjustments.",
+              monsterRaces,
+              "mt-6 font-display text-base font-semibold"
+            )}
         </CardContent>
       </Card>
 
