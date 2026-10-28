@@ -249,7 +249,7 @@ export const MAGIC_ITEM_COMPENDIUM_WEAPON_PROPERTIES: MagicItemDefinition[] = [
     "name": "Deadly Precision Weapon Special Ability",
     "category": "armor-or-weapon-special-ability",
     "cost": "+1 bonus",
-    "summary": "Weapon property (weapon). A deadly precision weapon deals an extra 1d6 points of damage whenever you make a successful sneak attack or sudden strike (CAd 8) with it. The property grants no benefit if you don't already have one of these class features, and its bonus doesn't increase if you have both. (faint transmutation; CL 5th.)",
+    "summary": "Weapon property (weapon). A deadly precision weapon deals an extra 1d6 points of damage whenever you make a successful sneak attack or sudden strike (CAd 8) with it. The property grants no benefit if you don't already have one of these class features, and its bonus doesn't increase if you have both. (faint transmutation; CL 5th.) Cross-note (Batch 11b): the Miniatures Handbook prints a different, stronger Deadly Precision (+2 bonus for +2d6 sneak attack damage), recorded separately as deadly-precision-mh.",
     "source": "Magic Item Compendium — Chapter 2: Weapons — Weapon Properties, p. 32",
     "sourceUrl": "/A POC PC related/5.Splat/D20 - WotC - D&D3.5 - Magic Item Compendium - #OCR#BM#ERRATA.pdf",
     "ruleset": "core"
