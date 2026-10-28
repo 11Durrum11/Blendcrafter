@@ -30,6 +30,55 @@ interface StepRaceProps {
   onToggleAbilityEnabled: (key: AbilityKey, enabled: boolean) => void;
 }
 
+/** One cell of Shaun's dice grid: four dice rolled, the lowest dropped. */
+export interface DiceCell {
+  value: number;
+  dice: number[];
+}
+
+export function rollDiceCell(): DiceCell {
+  const buf = new Uint32Array(4);
+  crypto.getRandomValues(buf);
+  const dice = Array.from(buf, (n) => (n % 6) + 1);
+  const sorted = [...dice].sort((a, b) => a - b);
+  return { dice, value: sorted[1] + sorted[2] + sorted[3] };
+}
+
+export function rollDiceGrid(): DiceCell[][] {
+  return Array.from({ length: 6 }, () => Array.from({ length: 6 }, rollDiceCell));
+}
+
+export interface DiceLine {
+  id: string;
+  group: "Rows" | "Columns" | "Diagonals";
+  label: string;
+  /** [row, col] coordinates of the line's cells, in ability order. */
+  cells: [number, number][];
+  values: number[];
+}
+
+/**
+ * The 14 pickable lines of the 6×6 grid (Shaun's "My Way" method,
+ * 2026-10-28): any row, any column, or either diagonal. Values are in
+ * line order, which maps onto Str, Dex, Con, Int, Wis, Cha.
+ */
+export function diceLines(grid: DiceCell[][]): DiceLine[] {
+  const lines: DiceLine[] = [];
+  for (let r = 0; r < 6; r++) {
+    const cells = grid[r].map((_, c) => [r, c] as [number, number]);
+    lines.push({ id: `row-${r + 1}`, group: "Rows", label: `${r + 1}`, cells, values: cells.map(([rr, cc]) => grid[rr][cc].value) });
+  }
+  for (let c = 0; c < 6; c++) {
+    const cells = grid.map((_, r) => [r, c] as [number, number]);
+    lines.push({ id: `col-${c + 1}`, group: "Columns", label: `${c + 1}`, cells, values: cells.map(([rr, cc]) => grid[rr][cc].value) });
+  }
+  const down = grid.map((_, i) => [i, i] as [number, number]);
+  lines.push({ id: "diag-down", group: "Diagonals", label: "↘", cells: down, values: down.map(([rr, cc]) => grid[rr][cc].value) });
+  const up = grid.map((_, i) => [i, 5 - i] as [number, number]);
+  lines.push({ id: "diag-up", group: "Diagonals", label: "↙", cells: up, values: up.map(([rr, cc]) => grid[rr][cc].value) });
+  return lines;
+}
+
 const POINT_BUY_COST: Record<number, number> = { 8: 0, 9: 1, 10: 2, 11: 3, 12: 4, 13: 5, 14: 6, 15: 8, 16: 10, 17: 13, 18: 16 };
 const POINT_BUY_BUDGET = 25;
 
@@ -45,7 +94,9 @@ export function StepRace({
   onToggleRaceEnabled,
   onToggleAbilityEnabled,
 }: StepRaceProps) {
-  const [mode, setMode] = useState<"standard" | "pointbuy">("standard");
+  const [mode, setMode] = useState<"standard" | "pointbuy" | "myway">("standard");
+  const [diceGrid, setDiceGrid] = useState<DiceCell[][] | null>(null);
+  const [pickedLineId, setPickedLineId] = useState<string | null>(null);
   const [detail, setDetail] = useState<EntityDetail | null>(null);
   const visibleRaces = ALL_RACES.filter((race) => enabledRulesets.includes(race.ruleset));
   // Race grouping (Shaun, 2026-10-28): playable character races first,
@@ -54,6 +105,24 @@ export function StepRace({
   const monsterRaces = visibleRaces.filter((race) => isMonsterRace(race));
 
   const pointsSpent = ABILITY_KEYS.reduce((sum, k) => sum + (POINT_BUY_COST[baseAbilityScores[k]] ?? 0), 0);
+
+  const myWayLines = diceGrid ? diceLines(diceGrid) : [];
+  const pickedLine = myWayLines.find((l) => l.id === pickedLineId) ?? null;
+  const pickedCells = new Set((pickedLine?.cells ?? []).map(([r, c]) => `${r},${c}`));
+
+  function handleRollGrid() {
+    setDiceGrid(rollDiceGrid());
+    setPickedLineId(null);
+  }
+
+  function handlePickLine(line: DiceLine) {
+    setPickedLineId(line.id);
+    const scores = {} as Record<AbilityKey, number>;
+    ABILITY_KEYS.forEach((key, i) => {
+      scores[key] = line.values[i] ?? 10;
+    });
+    onAllAbilitiesChange(scores);
+  }
 
   function assignStandardArray() {
     const scores: Record<AbilityKey, number> = { str: 8, dex: 8, con: 8, int: 8, wis: 8, cha: 8 };
@@ -215,6 +284,15 @@ export function StepRace({
             >
               <Sparkles className="mr-1.5 h-3.5 w-3.5" /> Point Buy
             </Button>
+            <Button
+              type="button"
+              size="sm"
+              variant={mode === "myway" ? "default" : "outline"}
+              onClick={() => setMode("myway")}
+              data-testid="button-my-way"
+            >
+              <Dices className="mr-1.5 h-3.5 w-3.5" /> My Way
+            </Button>
           </div>
         </CardHeader>
         <CardContent className="space-y-4">
@@ -222,6 +300,63 @@ export function StepRace({
             <p className="text-sm text-muted-foreground">
               Budget: <span className={cn("font-mono", pointsSpent > POINT_BUY_BUDGET ? "text-destructive" : "text-foreground")}>{pointsSpent}</span> / {POINT_BUY_BUDGET} points
             </p>
+          )}
+          {mode === "myway" && (
+            <div className="space-y-3">
+              <p className="text-sm text-muted-foreground">
+                Roll 4d6 and drop the lowest, thirty-six times, into a 6×6 grid — then pick any row, any column, or
+                either diagonal. The line you pick fills your abilities in order (Str, Dex, Con, Int, Wis, Cha); you
+                can still adjust them below afterwards.
+              </p>
+              {!diceGrid ? (
+                <Button type="button" size="sm" onClick={handleRollGrid} data-testid="button-roll-my-way">
+                  <Dices className="mr-1.5 h-3.5 w-3.5" /> Roll the grid
+                </Button>
+              ) : (
+                <>
+                  <div className="grid max-w-md grid-cols-6 gap-1.5">
+                    {diceGrid.map((row, r) =>
+                      row.map((cell, c) => (
+                        <div
+                          key={`${r}-${c}`}
+                          title={`Rolled ${cell.dice.join(", ")} — lowest dropped`}
+                          className={cn(
+                            "rounded-md border px-1 py-1.5 text-center font-mono text-sm",
+                            pickedCells.has(`${r},${c}`)
+                              ? "border-primary bg-accent/40 font-bold"
+                              : "border-card-border bg-card"
+                          )}
+                        >
+                          {cell.value}
+                        </div>
+                      ))
+                    )}
+                  </div>
+                  {(["Rows", "Columns", "Diagonals"] as const).map((group) => (
+                    <div key={group} className="flex flex-wrap items-center gap-1.5">
+                      <span className="w-20 shrink-0 text-xs text-muted-foreground">{group}</span>
+                      {myWayLines
+                        .filter((l) => l.group === group)
+                        .map((l) => (
+                          <Button
+                            key={l.id}
+                            type="button"
+                            size="sm"
+                            variant={pickedLineId === l.id ? "default" : "outline"}
+                            onClick={() => handlePickLine(l)}
+                            data-testid={`button-line-${l.id}`}
+                          >
+                            {l.label} · {l.values.reduce((a, b) => a + b, 0)}
+                          </Button>
+                        ))}
+                    </div>
+                  ))}
+                  <Button type="button" size="sm" variant="outline" onClick={handleRollGrid} data-testid="button-reroll-my-way">
+                    <Dices className="mr-1.5 h-3.5 w-3.5" /> Re-roll
+                  </Button>
+                </>
+              )}
+            </div>
           )}
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
             {ABILITY_KEYS.map((key) => {
