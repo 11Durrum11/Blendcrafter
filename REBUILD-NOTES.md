@@ -2114,3 +2114,284 @@ true`, `levelAdjustmentBuyoff: false`.
 - NOT pushed to GitHub and NOT deployed in this pass — the
   parent agent verifies, pushes (which auto-deploys via the
   Pages workflow), and reports.
+
+# Batch 7 addendum (2026-10-27): Races of Destiny, Races of Faerun
+
+Merged into the barrel (`src/data/index.ts`) 2026-10-27 as
+Batch 7 of the "all original books" program: the last two
+books of the Races series. Both books carry ruleset "core".
+Races of Faerun is a Forgotten Realms book, but the app's
+sorting scheme has no Faerun toggle and no new rulesets are
+created by data packs, so it is filed under "core" like the
+other setting-neutral Races books. Races of Faerun is also a
+3.0-era book (first printing March 2003, written against the
+then-upcoming 3.5 revision); where 3.0 and 3.5 conventions
+differ, its entries are recorded in the app's 3.5
+conventions. Sources are the copies in Shaun's durrum1
+Dropbox library, folder
+`/A POC PC related/5.Splat/Races of series/`:
+`Races of Destiny.pdf` and `Races of Faerun.pdf`. Printed
+page = PDF page − 1 in both books (verified against the
+folios). The Races of Destiny PDF has a full text layer. The
+Races of Faerun PDF is an image-only scan — all 193 pages
+were rendered and read by OCR of the page images, with
+ambiguous table cells settled against the page images
+directly. Only new data files plus the barrel were touched;
+Shaun's locked house rules and settings were not touched —
+a post-build check confirmed the default build still starts
+with all five rulesets enabled and
+`crossClassSkillDoubleCost: false`, `crossClassSkillHalfCap:
+true`, `levelAdjustmentBuyoff: false`.
+
+## Races of Destiny (`src/data/races-of-destiny/`)
+
+- 10 races (Chapters 3 and 4): Illumian, Aasimar,
+  Doppelganger, Half-Ogre, Mongrelfolk, Sea Kin, Sharakim,
+  Skulk, Tiefling, Underfolk. Humans, half-elves, and
+  half-orcs are covered by the book but already have core
+  records and were not duplicated. The doppelganger and
+  skulk "monster class" level progressions (Savage
+  Species-style) are not modeled by the app and are noted
+  in the race records instead.
+- 7 prestige classes (Chapter 5): Chameleon, Loredelver,
+  Menacing Brute, Outcast Champion, Scar Enforcer, Shadow
+  Sentinel, Urban Soul.
+- 35 feats (Table 6-1, p. 151; descriptions pp. 150–156):
+  Able Learner, Bright Sigil, Channeled Rage, City Slicker,
+  Complementary Insight, Diverse Background, Enhanced Power
+  Sigils, Heroic Destiny, Protected Destiny, Fearless
+  Destiny, Human Heritage, Improved Sigil (Aesh), Improved
+  Sigil (Hoon), Improved Sigil (Krau), Improved Sigil
+  (Naen), Improved Sigil (Uur), Improved Sigil (Vaul),
+  Inside Connection, Menacing Demeanor, Resourceful Buyer,
+  Smatterings, Sociable Personality, Subtle Sigil, Urban
+  Stealth, Urban Tracking, Arcane Insight, Dread Tyranny,
+  Eternal Strength, Far Horizons, Law Inviolate, Radiant
+  Fire, Undying Fate, Whispered Secrets, Crowd Tactics,
+  Roofwalker. The last eight of the general list are the
+  book's [Initiate] feats (one per god of the racial
+  pantheons); the app has no initiate category, so they are
+  recorded as "general" with the grouping noted in each
+  record's `special`, per the Complete Divine precedent.
+  Crowd Tactics and Roofwalker are the book's two tactical
+  feats, recorded as "combat".
+- No base classes, no templates, no new skills (verified
+  against the book's contents; Chapter 6's skills section
+  presents new uses for existing skills only).
+- Printed quirks kept as printed: the tiefling's trait list
+  in this book (p. 108) does not print the Monster Manual
+  energy resistances — the record follows the book as
+  printed. (Races of Faerun prints no tiefling trait list
+  at all, so this record is the dataset's only tiefling
+  trait list.) The Chameleon's Table 5–2 gives all three
+  saves poor; kept as printed. The Shadow Sentinel lists Weapon Focus under
+  its "Skills" heading in the requirements block; it is
+  recorded as a feat prerequisite and the placement is
+  noted in the file header. Sea kin print no level
+  adjustment line; recorded as +0. The illumian power
+  sigils and all fifteen illumian words are summarized in
+  the Illumian race record.
+- Out of scope (shelf material): Chapter 6's spells, the
+  city magic items and equipment, and the organizations
+  and locations material.
+## Races of Faerun (`src/data/races-of-faerun/`)
+
+- 11 races — only subraces and creatures printed with a
+  complete, standalone "as characters" trait list were
+  converted: Gray Orc, Mountain Orc, Orog, Fey'ri,
+  Tanarukk, Aarakocra, Dekanter Goblin, Kir-Lanan,
+  Lizardfolk, Wemic, Yuan-ti Pureblood. Judgment calls of
+  note: the fey'ri trait list prints no languages line, and
+  the record says so rather than inventing one; the
+  aarakocra entry prints no racial Hit Dice, so the record
+  has none; the gray orc list does not print darkvision, so
+  none is recorded.
+- 2 templates: Shade (an acquired template for humanoids
+  of at least 5th level; nearly all of its benefits apply
+  only in shadow or darkness and are recorded as feature
+  text, and neither template prints a Challenge Rating
+  adjustment in this book's character presentation, so
+  `crModifier` is 0 with that stated in the record) and
+  Yuan-ti Tainted One.
+- 9 prestige classes — the book body has no prestige-class
+  chapter; all nine are in the appendix (Tables A-6 through
+  A-14, pp. 178–189): Battlerager, Bladesinger,
+  Breachgnome, Elven High Mage, Great Rift Skyguard, Orc
+  Warlord, Spellsinger, Warrior Skald, Warsling Sniper.
+  The runecaster named in the gray dwarf entry is not
+  detailed in this book (narrative mentions only). The
+  elven high mage is an epic prestige class: Table A-9
+  prints no base attack or save columns, so its record
+  follows the Epic Level Handbook epic attack/save bonus
+  progressions the book defers to, with that noted in the
+  record. This book's bladesinger is the 3.0-era original
+  with its own spell list and spells-per-day table; the
+  revised 3.5 bladesinger from Complete Warrior already in
+  the dataset is a different record, so the Races of Faerun
+  printing is kept alongside it as `bladesinger-rof` with a
+  cross-reference in its spellcasting feature.
+- 78 feats (Appendix: Feats, pp. 160–170): Aftersight,
+  Ancestral Spirit, Animal Friends, Arachnid Rider, Arctic
+  Adaptation, Azerblood, Batrider, Blood of the Warlord,
+  Breathing Link, Calishite Elementalist, Caravanner,
+  Celestial Bloodline, Chondathan Missionary,
+  Close-Quarter Fighting, Deepening Darkness,
+  Disentangler, Drow Eyes, Duergar Mindshaper, Eldritch
+  Linguist, Elemental Bloodline, Enervative Healing, Eyes
+  of Light, Fiendish Bloodline, Forest Gnome Phantasist,
+  Genie Lore, Gift of Tongues, Gold Dwarf Dweomersmith,
+  Grim Visage, Hammer Fist, Harem Trained, Headlong Rush,
+  Healing Flames, Highborn Drow, Hin Wandermage, Improved
+  Energy Resistance, Improved Levitation, Improved Low
+  Blow, Improved Natural Armor, Infernal Bargainer, Iron
+  Mind, Jotunbrud, Jungle Stamina, Landwalker, Light to
+  Daylight, Lightbringer, Lolth's Blessing, Low Blow,
+  Metallurgy, Might Makes Right, Nobody's Fool, Oral
+  History, Outsider Wings, Plague Resistant, Planetouched
+  Animal Affinity, Rapid Swimming, Reckless Offensive,
+  Rock Gnome Trickster, Runesmith, Sacred Tattoo, Shadow
+  Shield, Shadow Song, Shield Dwarf Warder, Skyrider,
+  Southern Magician, Spell-Like Ability Focus, Spire
+  Walking, Staggering Strike, Stoneblood, Stone Colossus,
+  Stoneshaper, Stone Slide, Stonewalker Fist, Summon
+  Earth Elemental, Svirfneblin Figment Master, Talfirian
+  Song, Tattoo Magic, Theocrat, Water Adaptation. The
+  book's [Fighter, general] tags are recorded as "combat"
+  (fighter bonus feats), race-named prerequisites as
+  "race-specific", Tattoo Magic as "item-creation", and
+  the rest as "general"; the book's printed "Regions:"
+  lines are carried in the prerequisites. Aftersight is
+  easy to miss: it is printed at the end of the equipment
+  pages (p. 160), before the appendix feats chapter
+  heading. Calishite Elementalist prints no prerequisite
+  or region line and is recorded with none, noted in the
+  record.
+- Same-name collision (Batch 5/6 precedent): this book's
+  Staggering Strike (forgo sneak attack dice to stagger a
+  target) is a different feat from Complete Adventurer's
+  Staggering Strike, so it is recorded as
+  `staggering-strike-rof`, with a cross-note added to the
+  Complete Adventurer record's `special` and in the new
+  record. Two feat ids coincide with Races of Stone
+  prestige-class ids — `iron-mind` and `runesmith`; the
+  aggregates are separate, so no dedupe interaction, but
+  the coincidence is flagged here for the parent.
+- Duplicates skipped (earlier records govern): the feats
+  Improved Familiar (this book's entry only adds its
+  Table A-5 familiar options, noted in the file header),
+  Improved Flight (Races of the Wild; this book's
+  prerequisite wording is slightly broader, noted),
+  Primitive Caster (Frostburn), and Swarmfighting
+  (Complete Warrior, identical in substance); the races
+  Aasimar and Tiefling (Races of Destiny records govern —
+  and in any case this book prints no trait lists for
+  them), Goblin, Hobgoblin, and Bugbear (Races of Eberron
+  records; this book's lists are identical in substance),
+  Centaur (Races of the Wild record governs — flagged
+  discrepancy, NOT fixed: this book prints the centaur at
+  level adjustment +3 against Races of the Wild's +2), and
+  the Lycanthrope template (the core SRD record governs —
+  flagged discrepancy, NOT fixed: this book prints the
+  full revised template at pp. 144–146 with level
+  adjustment +1 afflicted / +2 natural plus animal Hit
+  Dice, against the existing record's flat SRD +3/+3
+  simplification).
+- Documented, not converted (the Tundra Halfling / Crucian
+  precedents): most of this book's subraces are printed
+  only as deltas on another race, as a header referring to
+  the Forgotten Realms Campaign Setting, or with no trait
+  list at all. Dwarves — Arctic Dwarf (delta: +4 Str, −2
+  Dex, +2 Con, −2 Cha, Small, immune to cold, favored
+  class ranger, LA +2); Gold Dwarf (no delta block — the
+  Player's Handbook dwarf unchanged); Gray Dwarf (no
+  traits printed; header refers to the FRCS, LA +2);
+  Shield Dwarf (no delta block — PHB unchanged); Urdunnir
+  (delta: +4 racial bonus on saves against poison
+  replacing the dwarf +2, stone walk, stone shape at will,
+  shape metal, favored class expert, LA +4); Wild Dwarf
+  (delta: Small, speed 20, handaxe and blowgun proficiency
+  replacing weapon familiarity, poison use, fire
+  resistance 5, +3 saves against poison, +4 against
+  disease, no stonecunning or stone/metal Craft bonuses,
+  favored class barbarian, LA +0). Elves — Aquatic Elf
+  (delta: +2 Dex/−2 Int replacing +2 Dex/−2 Con,
+  trident/longspear/net proficiency, swim 40, improved
+  low-light vision, gills, favored class fighter, LA +1);
+  Avariel (delta: +4 Dex, −2 Con, +2 Int, +2 Wis, +4 Spot
+  replacing +2, +4 Jump, rapier-or-longsword and
+  lasso/bolas proficiency, fly 50 ft (average), favored
+  class cleric, LA +3); Drow (header only, refers to the
+  FRCS, LA +2; already in the dataset from Races of
+  Eberron); Moon Elf (no delta block — PHB elf); Sun Elf
+  (no trait list or delta printed — mechanics in the
+  FRCS); Wild Elf (block refers to the FRCS, changing only
+  weapon proficiencies); Wood Elf (no block — FRCS).
+  Gnomes — Deep Gnome (header only, FRCS, LA +3); Forest
+  Gnome (delta: +1 racial bonus on attacks against
+  kobolds, orcs, goblinoids, and reptilian humanoids, +4
+  Hide [+8 in forests], pass without trace and speak with
+  animals at will, self only, favored class illusionist,
+  LA +1); Rock Gnome (the PHB gnome). Half-Elves — Common
+  Half-Elf (the PHB record); Half-Aquatic Elf (delta: swim
+  15, sea longing, LA +0); Half-Drow (presented as a delta
+  — darkvision 60 ft and drow blood — not a full list).
+  Half-Orc (the entry states the PHB half-orc features
+  verbatim; the core record governs). Halflings —
+  Ghostwise (no trait list printed in this book — the
+  mechanics are in the FRCS; telepathy appears only in
+  prose), Lightfoot (the PHB halfling), Strongheart (no
+  trait list printed — FRCS mechanics). Planetouched —
+  the air, earth, fire, and water genasi are header and
+  narrative only (LA +1 each), with no trait lists printed
+  in this book. The human ethnic groups of Chapter 7 are
+  region entries (languages, regional feats, equipment)
+  with no racial mechanics. Yuan-ti abominations,
+  halfbloods, and broodguards are stated in the book to be
+  unsuitable as player character races and were not
+  converted.
+- No base classes and no new skills (verified against the
+  book's contents and appendix).
+- Printed quirks kept as printed and noted in the records:
+  the spellsinger's spellsong saving throw DC is printed
+  as "Cha modifier + the enchantment's level + 2" with no
+  base 10; the skyguard's hippogriff steed III grants
+  damage reduction 5/+2 (3.0 notation); the sniper's
+  vision entry says "skiprock sniper" once, a printing
+  slip; the tanarukk's spell resistance is printed as
+  "14 + class level".
+- Out of scope (shelf material): the appendix spells
+  (pp. 189–192), equipment and magic items (including the
+  appendix's), the monsters of the appendix and the
+  creature entries not presented as playable races,
+  substitution and paragon material (none in this book),
+  and the region/setting rules throughout.
+
+## Verification
+
+- `npm run check` (tsc): 0 errors. `npm run build`:
+  succeeds.
+- `vite preview`: HTTP 200; server stopped afterward.
+- Resolver smoke test (esbuild bundle of a temporary
+  script against the real modules, script deleted after
+  the run): eight builds, all with zero validation
+  errors — Illumian Wizard 5 / Loredelver 3 with Heroic
+  Destiny and Skulk Rogue 4 (Races of Destiny); Gray Orc
+  Cleric 5 with Oral History, Fey'ri Sorcerer 4 with
+  Fiendish Bloodline, Lizardfolk Druid 3, Tanarukk
+  Barbarian 2, Elf Wizard 5 / Bladesinger (RoF) 3 with
+  Southern Magician, and Gray Orc Barbarian 4 / Orc
+  Warlord 2 with Might Makes Right (Races of Faerun).
+- Id-collision check: before this batch the aggregates
+  held ALL_RACES 45, ALL_CLASSES 40, ALL_PRESTIGE_CLASSES
+  260, ALL_TEMPLATES 12, ALL_FEATS 1097, ALL_SKILLS 55.
+  After the merge: ALL_RACES 66 (+21), ALL_CLASSES 40
+  (+0), ALL_PRESTIGE_CLASSES 276 (+16), ALL_TEMPLATES 14
+  (+2), ALL_FEATS 1210 (+113), ALL_SKILLS 55 (+0) — every
+  new record present exactly once, reconciling as Races
+  of Destiny +10 races / +7 prestige classes / +35 feats
+  and Races of Faerun +11 races / +2 templates / +9
+  prestige classes / +78 feats, with the skips and the
+  suffix resolution documented above.
+- NOT pushed to GitHub and NOT deployed in this pass —
+  the parent agent verifies, pushes (which auto-deploys
+  via the Pages workflow), and reports.
