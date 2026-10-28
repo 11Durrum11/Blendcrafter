@@ -21,6 +21,7 @@ import { checkPrerequisites, checkTemplateOrdering } from "./prerequisites";
 import { buildPrereqContext, evaluatePrestigeClass } from "./prestige-prerequisites";
 import { validateSelectedSpells } from "./spells";
 import { computeSynergies } from "./skill-synergy";
+import { parseCostToGp } from "./wealth";
 import { resolveModifierStack, formatSigned } from "./stacking";
 import { averageRoll, parseDieFaces, stepDieSize } from "./dice";
 import { progressionRow, SAVE_ABILITY } from "./progression";
@@ -207,11 +208,39 @@ export function resolveCharacter(build: CharacterBuild): ResolvedCharacter {
       entry,
       name: item.name,
       category: item.category,
-      summary: item.summary,
+      summary: `${item.cost} · ${item.summary}`,
       source: item.source,
       sourceUrl: item.sourceUrl,
     }];
   });
+
+  // Wealth: running gold-piece totals for everything carried, recomputed
+  // on every resolve so the Equipment section always shows live numbers.
+  const wealth = (() => {
+    let equipmentGp = 0;
+    let magicItemGp = 0;
+    let pricedCount = 0;
+    let unpricedCount = 0;
+    for (const ri of resolvedInventory) {
+      const def =
+        ri.entry.kind === "equipment" ? EQUIPMENT_BY_ID.get(ri.entry.itemId) : MAGIC_BY_ID.get(ri.entry.itemId);
+      const gp = def ? parseCostToGp(def.cost) : null;
+      if (gp === null) {
+        unpricedCount += 1;
+      } else {
+        pricedCount += 1;
+        if (ri.entry.kind === "equipment") equipmentGp += gp;
+        else magicItemGp += gp;
+      }
+    }
+    return {
+      equipmentGp,
+      magicItemGp,
+      totalGp: Math.round((equipmentGp + magicItemGp) * 100) / 100,
+      pricedCount,
+      unpricedCount,
+    };
+  })();
 
   /* ---------------- Ability scores ---------------------------------- */
   const abilityScores = {} as ResolvedCharacter["abilityScores"];
@@ -682,6 +711,7 @@ export function resolveCharacter(build: CharacterBuild): ResolvedCharacter {
     skillPoints,
     featSlots,
     inventory: resolvedInventory,
+    wealth,
     validation,
   };
 

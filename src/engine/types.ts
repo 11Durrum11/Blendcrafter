@@ -661,5 +661,14 @@ export interface ResolvedCharacter {
   skillPoints: { total: number; spent: number; audit: AuditEntry[] };
   featSlots: { total: number; used: number; audit: AuditEntry[] };
   inventory: ResolvedInventoryItem[];
+  /** Running wealth totals for the Equipment section, recomputed on every resolve. */
+  wealth: {
+    equipmentGp: number;
+    magicItemGp: number;
+    totalGp: number;
+    pricedCount: number;
+    /** Items whose listed price isn't a gold value (e.g. "+1 bonus", "—") and so aren't counted. */
+    unpricedCount: number;
+  };
   validation: ValidationIssue[];
 }

@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { Info, Plus, Search, Shield, Trash2 } from "lucide-react";
+import { Coins, Info, Plus, Search, Shield, Trash2 } from "lucide-react";
 import { ALL_EQUIPMENT, ALL_MAGIC_ITEMS } from "@/data";
 import type { InventoryEntry, ResolvedCharacter, Ruleset } from "@/engine/types";
+import { formatGp, wealthByLevel } from "@/engine/wealth";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -48,8 +49,48 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, onAdd, onR
     (m) => enabledRulesets.includes(m.ruleset) && m.name.toLowerCase().includes(itemQuery.toLowerCase())
   );
 
+  const wealth = resolved.wealth;
+  const wbl = wealthByLevel(resolved.ecl.value);
+  const wblDelta = wbl !== null ? wealth.totalGp - wbl : 0;
+
   return (
     <div className="space-y-6">
+      <Card>
+        <CardHeader>
+          <CardTitle className="font-display text-xl flex items-center gap-2">
+            <Coins className="h-5 w-5 text-primary" /> Wealth
+          </CardTitle>
+          <CardDescription>
+            The gold-piece value of everything in your inventory, kept current as you add and remove items below.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="flex flex-wrap items-baseline gap-x-6 gap-y-2">
+            <div>
+              <span className="font-display text-3xl font-semibold tabular-nums" data-testid="text-wealth-total">
+                {formatGp(wealth.totalGp)} gp
+              </span>
+              <span className="ml-2 text-sm text-muted-foreground">total gear value</span>
+            </div>
+            <div className="text-sm text-muted-foreground">
+              Equipment <span className="font-mono text-foreground">{formatGp(wealth.equipmentGp)} gp</span>
+              {" · "}Magic items <span className="font-mono text-foreground">{formatGp(wealth.magicItemGp)} gp</span>
+            </div>
+          </div>
+          <p className="mt-2 text-sm text-muted-foreground">
+            {wealth.pricedCount} item{wealth.pricedCount === 1 ? "" : "s"} priced.
+            {wealth.unpricedCount > 0 && (
+              <> {wealth.unpricedCount} item{wealth.unpricedCount === 1 ? "" : "s"} {wealth.unpricedCount === 1 ? "has" : "have"} no gold price listed (such as a "+bonus" special ability) and {wealth.unpricedCount === 1 ? "isn't" : "aren't"} counted.</>
+            )}
+            {wbl !== null ? (
+              <> Wealth by level for ECL {resolved.ecl.value}: <span className="font-mono text-foreground">{formatGp(wbl)} gp</span> guideline — you're {formatGp(Math.abs(wblDelta))} gp {wblDelta >= 0 ? "over" : "under"} it.</>
+            ) : (
+              resolved.ecl.value < 2 && <> Level 1 characters use their class's starting gold instead of the wealth-by-level guideline.</>
+            )}
+          </p>
+        </CardContent>
+      </Card>
+
       <Card>
         <CardHeader>
           <CardTitle className="font-display text-xl flex items-center gap-2">
