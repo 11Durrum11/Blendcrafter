@@ -1,6 +1,6 @@
 /**
  * Homebrew random tables: Shaun's own homebrew tables from his
- * "HOMEBREW VALLEY WILD-MAGIC SURGE TABLE (D&D 3.5).docx" (Google Drive,
+ * his wild-magic surge table document (Google Drive,
  * modified 2026-10-06), folded into Blendcrafter 2026-10-27 at his
  * direction alongside the document's template (see ./templates.ts).
  *
