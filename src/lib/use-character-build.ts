@@ -37,7 +37,7 @@ export function createDefaultBuild(): CharacterBuild {
     inventory: [],
     // Standard set (Shaun's live choice, made the default 2026-10-27):
     // every toggleable ruleset on.
-    enabledRulesets: ["core", "eberron", "iron_kingdoms", "sorcery_steam", "dessarin"],
+    enabledRulesets: ["core", "eberron", "iron_kingdoms", "sorcery_steam", "homebrew"],
     houseRules: { ...DEFAULT_HOUSE_RULES },
     disabledRaceIds: [],
     disabledClassIds: [],
@@ -62,6 +62,21 @@ export function normalizeBuild(input: CharacterBuild): CharacterBuild {
     // Batch 12: builds saved before spell selection existed have no
     // selectedSpells field — default to no selections.
     selectedSpells: { ...(input.selectedSpells ?? {}) },
+    // 2026-10-28 rename (Shaun's direction): the homebrew ruleset used to
+    // carry a person's name as its id; it is now "homebrew". Builds saved
+    // before the rename carry that retired id, so any ruleset id this
+    // version does not recognize is migrated to "homebrew" — the only
+    // retired id that ever shipped — keeping saved toggle state and
+    // homebrew content intact without the old name shipping in the app.
+    enabledRulesets: Array.from(
+      new Set(
+        (input.enabledRulesets ?? base.enabledRulesets).map((r) =>
+          (["core", "eberron", "iron_kingdoms", "sorcery_steam", "homebrew"] as string[]).includes(r as string)
+            ? r
+            : ("homebrew" as Ruleset)
+        )
+      )
+    ),
     personality: { ...base.personality, ...(input.personality ?? {}), weights: { ...base.personality.weights, ...(input.personality?.weights ?? {}) } },
   };
 }
