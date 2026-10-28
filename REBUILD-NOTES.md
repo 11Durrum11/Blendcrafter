@@ -379,7 +379,7 @@ field; the book lives in Shaun's Dropbox (durrum1 account) at:
   core skill records already cover those skills, and the new uses
   are setting rules text, not new skills.
 
-# Addendum 2026-10-27 — Dessarin homebrew pack + body-modification index
+# Addendum 2026-10-27 — Homebrew homebrew pack + body-modification index
 
 Requested by Shaun in the "D&D 3.5 implants and attachments" side chat:
 fold in BOTH (a) the grafts/symbionts/warforged-components list compiled
@@ -387,14 +387,14 @@ fold in BOTH (a) the grafts/symbionts/warforged-components list compiled
 
 ## What was added
 
-- **New ruleset tag `dessarin`** (`src/engine/types.ts` Ruleset union;
-  label "Dessarin Valley (Homebrew)" + toggle entry in
+- **New ruleset tag `homebrew`** (`src/engine/types.ts` Ruleset union;
+  label "Homebrew" + toggle entry in
   `src/components/ruleset-toggle.tsx`). Shaun's own setting content is
   opt-in like the other non-core packs.
-- **`src/data/dessarin/templates.ts`** — Steampunk-Augmented Undead as a
+- **`src/data/homebrew/templates.ts`** — Steampunk-Augmented Undead as a
   real `TemplateDefinition`, merged into `ALL_TEMPLATES` so it appears
-  in the template picker when the Dessarin ruleset is enabled.
-  Source: Shaun's own "DESSARIN VALLEY WILD-MAGIC SURGE TABLE (D&D
+  in the template picker when the Homebrew ruleset is enabled.
+  Source: Shaun's own "HOMEBREW VALLEY WILD-MAGIC SURGE TABLE (D&D
   3.5).docx" (Google Drive, modified 2026-10-06). Modeled per the core
   template pack: add-subtype Construct patch (type stays Undead; HD /
   BAB / saves not recalculated), natural armor +4 as an "improve"
@@ -404,9 +404,9 @@ fold in BOTH (a) the grafts/symbionts/warforged-components list compiled
   it is written for NPC/monster thralls). Features: Piston Slam, Steam
   Charge, Boiler Explosion, Alchemical Fortification, Vulnerability to
   Electricity, Heavy Plating.
-- **`src/data/dessarin/tables.ts`** — the document's three random
+- **`src/data/homebrew/tables.ts`** — the document's three random
   tables as a new `RandomTableDefinition` data type, exported as
-  `ALL_RANDOM_TABLES`: Dessarin Valley surge table (d20, 8 bands),
+  `ALL_RANDOM_TABLES`: Homebrew surge table (d20, 8 bands),
   Marketplace Chaos (d10, 10 entries), Defilement Zone surge table
   (d100, entries strictly 1-100 from the document's cleaned second
   pass). Effect text condensed to one line per entry in house style;
@@ -454,7 +454,7 @@ D&D 3.5 supplements, not separate settings, so — by the decision
 recorded before this build — their records carry
 `ruleset: "core"` (the original app's own data cited these books
 under its core data; the only ruleset toggles remain eberron /
-iron_kingdoms / sorcery_steam / dessarin). No Ruleset type,
+iron_kingdoms / sorcery_steam / homebrew). No Ruleset type,
 toggle, engine, component, or recovered file was modified: new
 files only, plus the barrel `src/data/index.ts`, plus this
 addendum.
@@ -635,7 +635,7 @@ addendum.
 
 Shaun uploaded three documents on 2026-10-27 and directed they be
 brought in with everything else. All records carry ruleset
-"sorcery_steam" (equipment/magic) or "dessarin" (prosthetics; see
+"sorcery_steam" (equipment/magic) or "homebrew" (prosthetics; see
 below), cite the document in `source`, and carry the uploaded file
 path in `sourceUrl`. NOT pushed or deployed in this pass.
 
@@ -735,10 +735,10 @@ path in `sourceUrl`. NOT pushed or deployed in this pass.
   record's `source`. If a "prosthetic" kind is ever wanted,
   it is a one-word union addition in src/engine/types.ts plus
   re-tagging these 18 records.
-- **Prosthetics ruleset "dessarin":** the 165 published-book
+- **Prosthetics ruleset "homebrew":** the 165 published-book
   index records tag by book origin ("core" / "eberron"); the
   prosthetics are Shaun's own homebrew curation, so they take
-  the homebrew tag "dessarin" rather than masquerading as a
+  the homebrew tag "homebrew" rather than masquerading as a
   published "core" family. (This is a tag-only choice; the
   index merges into no picker.)
 - **No house-rule, toggle-default, engine, or component file
@@ -763,7 +763,7 @@ path in `sourceUrl`. NOT pushed or deployed in this pass.
   exactly 200 and ALL_MAGIC_ITEMS by exactly 13 with every new
   id present; body-mod index 165 → 183 with exactly 18
   `prosthetic-*` records (9 Steampunk + 9 Arcane, all
-  dessarin/graft, all with cost and summary); no duplicate ids
+  homebrew/graft, all with cost and summary); no duplicate ids
   inside any ALL_* collection and no new id colliding with any
   of the 965 pre-existing ids or across collections; spot
   transcriptions verified (pistol stat line, blunderbuss
