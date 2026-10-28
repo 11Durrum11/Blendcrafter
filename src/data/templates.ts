@@ -219,7 +219,7 @@ export const TEMPLATES: TemplateDefinition[] = [
       {
         key: "vampire-slam",
         name: "Slam Attack / Energy Drain",
-        description: "A vampire's slam attack deals negative levels (1 level, Fortitude negates after 24 hours) in addition to damage.",
+        description: "A vampire's slam attack deals two negative levels in addition to damage (each removable by a Fortitude save after 24 hours).",
         category: "special-attack",
         dcFormula: "10 + 1/2 HD + Cha modifier",
         source: "d20SRD — Monsters: Vampire",
@@ -294,11 +294,11 @@ export const TEMPLATES: TemplateDefinition[] = [
     source: "d20SRD — Monsters: Ghost",
     sourceUrl: `${SRD_MONSTERS}ghost.htm`,
     crModifier: 2,
-    levelAdjustment: 0,
+    levelAdjustment: 5,
     prerequisites: [
       {
-        allowedBaseTypes: ["Aberration", "Animal", "Dragon", "Giant", "Humanoid", "Magical Beast", "Monstrous Humanoid", "Vermin"],
-        note: "Ghost can be applied to most corporeal creatures; constructs, oozes, plants, elementals, outsiders, and existing undead cannot become ghosts.",
+        allowedBaseTypes: ["Aberration", "Animal", "Dragon", "Giant", "Humanoid", "Magical Beast", "Monstrous Humanoid", "Plant"],
+        note: "Ghost can be applied to an aberration, animal, dragon, giant, humanoid, magical beast, monstrous humanoid, or plant; the base creature must have a Charisma score of at least 6.",
       },
     ],
     abilityModifiers: { cha: 4, str: null, con: null },
@@ -318,6 +318,19 @@ export const TEMPLATES: TemplateDefinition[] = [
         bonusType: "untyped",
         note: "Turn resistance +4.",
       },
+      ...(["hide", "listen", "search", "spot"] as const).map(
+        (skill) =>
+          ({
+            id: `ghost-skill-${skill}`,
+            source: "Ghost",
+            sourceUrl: `${SRD_MONSTERS}ghost.htm`,
+            target: `skill.${skill}`,
+            value: 8,
+            mode: "add",
+            bonusType: "racial",
+            note: "Ghosts gain a +8 racial bonus on Hide, Listen, Search, and Spot checks.",
+          }) as const
+      ),
     ],
     features: [
       {
@@ -339,7 +352,7 @@ export const TEMPLATES: TemplateDefinition[] = [
       {
         key: "ghost-special-attacks",
         name: "Ghostly Special Attacks",
-        description: "Gain one special attack per 3 HD (chosen when the template is applied): corrupting gaze, corrupting touch, draining touch, frightful moan, horrific appearance, malevolence, or telekinesis.",
+        description: "Gain one to three special attacks (chosen when the template is applied): corrupting gaze, corrupting touch, draining touch, frightful moan, horrific appearance, malevolence, or telekinesis.",
         category: "special-attack",
         dcFormula: "10 + 1/2 HD + Cha modifier",
         source: "d20SRD — Monsters: Ghost",
@@ -387,9 +400,9 @@ export const TEMPLATES: TemplateDefinition[] = [
       {
         key: "lycanthrope-curse",
         name: "Curse of Lycanthropy",
-        description: "Any humanoid or giant hit by the lycanthrope's bite attack in animal or hybrid form must succeed on a Fortitude save or contract lycanthropy.",
+        description: "Any humanoid or giant hit by the lycanthrope's bite attack in animal or hybrid form must succeed on a DC 15 Fortitude save or contract lycanthropy.",
         category: "special-attack",
-        dcFormula: "10 + 1/2 HD + Con modifier",
+        dcFormula: "15",
         source: "d20SRD — Monsters: Lycanthrope",
         sourceUrl: `${SRD_MONSTERS}lycanthrope.htm`,
       },
