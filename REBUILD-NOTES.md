@@ -2726,3 +2726,394 @@ recovered data file was modified.
 - NOT pushed to GitHub and NOT deployed in this pass —
   the parent agent verifies, pushes (which auto-deploys
   via the Pages workflow), and reports.
+
+# Batch 8b addendum (2026-10-28): Weapons of Legacy, Heroes of Battle, Dragon Magic, Ghostwalk, Book of Vile Darkness, Exemplars of Evil
+
+Merged into the barrel (`src/data/index.ts`) 2026-10-28 as
+Batch 8b of the "all original books" program: the second
+half of the sourcebooks shelf. All six books carry
+ruleset "core". Sources are the copies in Shaun's durrum1
+Dropbox library: Weapons of Legacy
+(`/a poc dm related/desktop/Sourcebooks/Weapons Of Legacy.pdf`),
+Heroes of Battle
+(`/a poc dm related/desktop/Sourcebooks/[D&D 3.5] Heroes of Battle.pdf`),
+Dragon Magic
+(`/a poc dm related/desktop/Sourcebooks/Dragon Magic (oef, act, bm, hq) (WTC953837200).pdf`),
+and Exemplars of Evil
+(`/a poc dm related/desktop/Sourcebooks/Exemplars of Evil (oef, act, bm, hq) (WTC109287200).pdf`)
+from the Sourcebooks folder; Ghostwalk
+(`/A POC PC related/5.Splat/Ghostwalk.pdf`) and Book of
+Vile Darkness
+(`/A POC PC related/5.Splat/D&D 3.5 - Book of Vile Darkness.pdf`)
+from the Splat folder. Printed-page offsets: Weapons of
+Legacy and Heroes of Battle, PDF page = printed + 1; the
+other four, PDF page = printed. Only new data files, the
+barrel, this addendum, and three cross-note `special`
+fields (see Ghostwalk below) were touched; Shaun's locked
+house rules and settings were not touched — the built
+bundle still contains the "LOCKED OFF by Shaun" lock
+text, and no engine, component, house-rules, or recovered
+data file was modified.
+
+Ghostwalk and Book of Vile Darkness are 3.0-era books
+(2003 and 2002). Following the Races of Faerun precedent,
+their records are written in 3.5 conventions: Alchemy →
+Craft (alchemy), Intuit Direction and Wilderness Lore →
+Survival, Pick Pocket → Sleight of Hand, Innuendo dropped
+(folded into Bluff), Scry dropped (folded into
+Spellcraft), Read Lips dropped (folded into Spot),
+Expertise → Combat Expertise. Ghostwalk's PDF appends
+Wizards of the Coast's own official Ghostwalk 3.5 update
+booklet, which WAS used (it supplies the Arboreal
+Guardian's replacement class-skill list, the Bone
+Collector's Craft (Alchemy) requirement, the Deathwarden
+Chanter's Perform (sing) 1 rank, the Ghost Slayer feat
+correction, Empower Turning's +1d6, and the sample
+ghost's type line and LA +0). The Book of Vile Darkness
+PDF appends a fan-compiled FAQ/errata gathering (Sage
+Advice quotes) after the book proper; it is NOT book text
+and was not used as a source.
+
+## Base-class verification (checked first, against the recovered data)
+
+- Dragon Magic: the Dragonfire Adept was MISSING from
+  the recovered dataset — added as a new base class in
+  the Dragon Magic pack. Its draconic invocations and
+  breath effects (Chapter 3) are an unmodeled system,
+  noted on the record.
+- Ghostwalk: Eidolon and Eidoloncer were both MISSING —
+  both added in the Ghostwalk pack. Both are ghost-only
+  classes for the Manifest setting.
+- Weapons of Legacy, Heroes of Battle, Book of Vile
+  Darkness, and Exemplars of Evil present no base
+  classes.
+- No discrepancies were found in recovered records for
+  these books, and no recovered record was modified.
+
+## Weapons of Legacy — 1 prestige class, 11 feats
+
+Prestige class (Chapter 2): Legacy Champion (HD d8, BAB
+three-quarter, Will good, 4 skill points; +1 level of
+existing class features at every level except 1st and
+7th, as printed in Table 2–1).
+
+Feats (Chapter 2, Table 2–1 pp. 14–15, descriptions
+pp. 13–16; Epic Legacy p. 219): Least Legacy, Lesser
+Legacy, Greater Legacy, Channel Legacy, Curative Legacy,
+Empower Legacy, Legacy Focus, Master Legacy, Quicken
+Legacy, Transfer Legacy, Epic Legacy.
+
+Duplicates skipped: none as feats (the Monkey Grip
+sidebar on p. 29 and a Zen Archery mention reference
+Complete Warrior feats already in the data; they are not
+Weapons of Legacy feats).
+
+Omitted systems: the legacy-item system itself — 49
+legacy items (Chapter 3), the legacy rituals, and the
+founding-legacies ability menus — does not fit the app's
+record types and is documented here rather than
+converted, like skill tricks in Batch 6.
+
+Quirk: the book prints two different tables as
+"Table 2–1" — Table 2–1: Legacy Feats (pp. 14–15) and
+Table 2–1: The Legacy Champion (p. 20). Both citations
+are recorded as printed; the duplication is the book's
+own.
+
+## Heroes of Battle — 4 prestige classes, 17 feats
+
+Prestige classes (Chapter 5): Combat Medic (5 levels, d6,
++1 eligible spellcasting at all 5 levels), Dread Commando
+(5 levels, d8), Legendary Leader (5 levels, d8), War
+Weaver (5 levels, d4, +1 arcane spellcasting at levels
+2–5).
+
+Feats (Table 5–1, p. 97; descriptions pp. 96–99):
+Ballista Proficiency, Block Arrow, Coordinated Shot,
+Courageous Rally, Expanded Aura of Courage, Expert Siege
+Engineer, Guerrilla Scout, Guerrilla Warrior, Mounted
+Mobility, Natural Leader, Ready Shot, Shield Wall,
+Veteran Knowledge, and the leader feats Extra Followers,
+Improved Cohort, Inspirational Leadership, Practiced
+Cohort.
+
+Duplicates skipped: Plunging Shot — the identical feat
+(Dex 13, Point Blank Shot; +1d6 damage against a target
+at least 30 feet lower) is already in the data from Races
+of the Wild.
+
+Omitted systems: the 15 teamwork benefits (pp. 117–127;
+the 16th "Benefit:" block in that chapter is the format
+template, not a benefit), the commander ratings and auras
+system, and the Chapter 6 spells (out of scope).
+
+Quirk: Table 5–2 prints the Combat Medic with a poor
+Will save (Fort poor, Ref good, Will poor), unusual for a
+healer class; the table governs and the quirk is noted on
+the record.
+
+## Dragon Magic — 1 base class, 7 prestige classes, 35 feats
+
+Base class: Dragonfire Adept (p. 24; d8, BAB half, Fort
+and Will good, 4 skill points; breath weapon and
+draconic invocations — invocations and breath effects
+are an unmodeled system, noted on the record).
+
+Prestige classes (Chapter 2): Diamond Dragon (+1
+manifesting at every level except 1st and 6th), Dragon
+Descendant (monk stacking), Dragon Lord, Hand of the
+Winged Masters, Pact-Bound Adept (5 levels, +1 arcane at
+2nd, 3rd, 5th), Swift Wing (+1 divine at every level
+except 1st and 5th), Wyrm Wizard (+1 arcane at every
+level except 2nd, 4th, and 6th, traded for spell
+research).
+
+Feats (Table 1–1, pp. 18–19; descriptions pp. 15–22):
+Armor of Scales, Heart of Dragons, Slayer of Dragons,
+Words of Draconic Power (ceremony feats); Dragonfire
+Channeling (divine); Black Dragon Lineage, Blue Dragon
+Lineage, Brass Dragon Lineage, Bronze Dragon Lineage,
+Copper Dragon Lineage, Gold Dragon Lineage, Green Dragon
+Lineage, Red Dragon Lineage, Silver Dragon Lineage,
+White Dragon Lineage, Draconic Armor, Draconic
+Knowledge, Draconic Senses, Draconic Vigor, Dragonfire
+Assault, Dragonfire Inspiration, Dragonfire Strike
+(draconic); Double Draconic Aura, Draconic Aura,
+Dragontouched (general); Initiate of Aasterinian,
+Initiate of Astilabor, Initiate of Bahamut, Initiate of
+Falazure, Initiate of Garyx, Initiate of Hlal, Initiate
+of Io, Initiate of Lendys, Initiate of Tamara, Initiate
+of Tiamat (initiate). Each initiate feat also adds spells
+to the cleric spell list; spells are out of scope and the
+addition is noted on the record rather than converted.
+
+Duplicates skipped: Draconic Heritage — Table 1–1 lists
+36 feats, but the book itself states its Draconic
+Heritage is reproduced "with minor changes introduced in
+Races of the Dragon" from Complete Arcane, and that
+record is already in the data. Parent-verification note:
+the reprint's benefit grants the dragonblood subtype,
+which the Complete Arcane record's summary does not
+mention; flagged here in case the parent wants to amend
+that record (builders do not edit recovered data).
+
+Omitted: the 9 Chapter 1 races (Silverbrow Humans,
+Deepwyrm Drow and Half-Drow, Fireblood Dwarves,
+Forestlord Elves, Glimmerskin Halflings, Stonehunter
+Gnomes, Frostblood Orcs and Half-Orcs, Viletooth
+Lizardfolk) are delta subraces printed as "identical to
+the base race except as noted" — documented, not
+converted, per the Tundra Halfling / Crucian precedent.
+The Draconic Class Features alternate class features
+(p. 11) are an unmodeled system, documented here.
+Chapters 3–5 (spells, invocations, breath effects,
+soulmelds, a vestige, dragon aspects, monsters, campaign
+material) are out of scope.
+
+## Ghostwalk — 2 base classes, 4 prestige classes, 69 feats, 1 template
+
+Base classes: Eidolon (p. 16, Table 1–1; d8, BAB full,
+Will good, 2 skill points, bonus [Ghost] feat at 1st and
+every even level, free multiclassing) and Eidoloncer
+(pp. 17–18, Table 1–2; d6, BAB half, Will good,
++1 spellcasting at every level, bonus [Ghost] feats at
+1st, 5th, 10th, 15th, 20th). Eidolons and eidoloncers
+gain no weapon, armor, or shield proficiency, as printed.
+
+Prestige classes: Arboreal Guardian (+1 divine at even
+levels; class skills are the official update's
+replacement list), Bone Collector (6 levels; own
+Wisdom-based divine spell list, prepared as a cleric),
+Deathwarden Chanter (+1 divine at every level), Ghost
+Slayer (5 levels).
+
+Template: Ghost (Ghostwalk), id `ghost-ghostwalk`
+(pp. 163–165) — CR +1 from the book; the book prints no
+level adjustment, and LA +0 and the outsider (augmented
+humanoid, extraplanar, incorporeal) type line are from
+the official update's replacement sample ghost. It is a
+different template from the Monster Manual ghost in the
+core data (a Ghostwalk ghost is not undead) and is
+cross-referenced in the new record only.
+
+Feats (pp. 28–39): Agony Touch, Circle Magic, Control
+Visage, Corpse Malevolence, Corrupt Arcane Studies,
+Corrupting Touch, Dancing Blade, Divine Energy Focus,
+Ectoplasm, Education, Empower Turning (`empower-turning-gw`),
+Enervating Touch, Ethereal Sidestep, Expanded
+Possession, Extra Favored Enemy, Fade, Foe Hunter,
+Forceful Staff Style, Freezing Touch, Frightful Moan,
+Frightful Presence, Full Manifestation, Ghost Flight,
+Ghost Glide, Ghost Healing, Ghost Hand, Ghost Ride,
+Ghost Smiting, Ghost-Touch Spell, Gift of Tongues
+(`gift-of-tongues-gw`), Grand Malevolence, Greater
+Witchlight, Green Bond, Haunting Appearance, Haunting
+Voice, Heighten Turning, Horrific Appearance, Improved
+Control Visage, Improved Deflection, Improved Ghost
+Flight, Improved Poltergeist Hand, Improved Turn
+Resistance, Incorporeal Form, Incorporeal Spell
+Targeting, Incorporeal Target Fighting, Kihu-Sherem
+Guardian, Malevolence, Militia, Minor Malevolence,
+Nauseating Touch, Poltergeist Hand, Poltergeist Rage,
+Power Lunge, Quicken Turning (`quicken-turning-gw`),
+Rend Ghost, Resist Ghost, Saddleback, Sculpt Ghost Body,
+Shape Ectoplasm, Sherem-Lar Sorcery, Sherezem-Lar
+Sorcery, Shriveling Touch, Solid Visage, Survivor,
+Temper Ectoplasm, Touch Attack Specialization, Twin
+Sword Style, Wise to Your Ways, Witchlight. [Ghost]
+feats carry their path descriptor (Corrupter, Dominator,
+Haunt, Poltergeist, Shaper, Traveler) on the record.
+
+Same-name, genuinely-different feats: Ghostwalk's
+Empower Turning (–2 turning check for +1d6 turning
+damage, as updated) and Quicken Turning (free-action
+turning at a –4 penalty on check and damage) differ from
+the Complete Divine feats of the same names, and its
+Gift of Tongues (Tereppek regional) differs from the
+Races of Faerun feat of the same name. Per the Batch 5
+precedent, the Ghostwalk printings are recorded with
+suffixed ids and cross-notes, and the matching note was
+appended to the existing records' `special` fields in
+`src/data/complete-divine/feats.ts` (Empower Turning,
+Quicken Turning) and `src/data/races-of-faerun/feats.ts`
+(Gift of Tongues) — the one permitted edit outside this
+batch's pack files.
+
+Duplicates skipped: Diehard (the official update itself
+directs readers to the Player's Handbook version, which
+is in the data), Natural Spell (already in the data),
+Extra Slot (Complete Arcane's 3.5 reprint is in the data;
+Ghostwalk's original fixes the slot's level at selection,
+a nuance noted here), Extra Wild Shape and Fast Wild
+Shape (Complete Divine reprints are in the data), and
+the Yuan-Ti Tainted One template printing (duplicates
+the Races of Faerun record from Batch 7).
+
+Omitted: four Chapter 5 templates that do not fit a
+playable template record — Bonesinger (CR +0, no LA
+printed), Broodguard (no LA; near-mindless), Monstrous
+Vampire (no LA printed; the Monster Manual vampire
+widened to non-humanoids), Mumia (CR +1, LA —) — plus
+the Manifest setting material (the Veil of Souls, the
+Manifest Ward, life epiphanies as a campaign rule) and
+Chapter 6 monsters. The Chapter 1 skills section adds
+uses, not skills; Knowledge (ghost lore) is a Knowledge
+specialty appearing in class-skill lists, not a new
+SkillDefinition, so no skills were added.
+
+Quirks: the Ghost Slayer's requirements cite a feat
+"Ghost Fighting" that does not exist anywhere in the
+book — the feat is Incorporeal Target Fighting, and the
+official update corrects the reference; the record
+follows the update. The book prints the Deathwarden
+Chanter's requirement as "Perform (sing)" with no rank;
+the update supplies 1 rank.
+
+## Book of Vile Darkness — 2 races, 17 prestige classes, 26 feats
+
+Races (Chapter 2): Vashar (pp. 12–13; Medium humanoid
+(human), bonus vile feat at 1st level in place of the
+human bonus feat, human skill points, favored class Any)
+and Jerren (pp. 13–14; Small humanoid (halfling), +2 Dex
+/ −2 Str, +2 racial on Intimidate, Bluff, Move Silently,
+and Listen, +1 racial on all saving throws, +2 morale
+against fear, +1 racial on thrown-weapon attacks,
+favored class Rogue). The book prints no level
+adjustment for either race; both are recorded at LA +0.
+
+Prestige classes (Chapter 5, Tables 5–1 through 5–18):
+Cancer Mage, Demonologist (own Charisma-based
+spontaneous list), Diabolist (+1 spellcasting at every
+level), Disciple of Asmodeus (+1 at 1st, 3rd, 5th, 7th,
+9th), Disciple of Baalzebul, Disciple of Dispater,
+Disciple of Mammon, Disciple of Mephistopheles,
+Lifedrinker (vampire-only), Mortal Hunter (outsider-only;
+own Charisma-based spontaneous list), Soul Eater,
+Thrall of Demogorgon (bonus feat or +1 spellcasting at
+1st, 4th, 7th, 10th), Thrall of Graz'zt (+1 at 1st, 3rd,
+5th, 7th, 9th, 10th), Thrall of Juiblex, Thrall of Orcus
+(bonus feat or +1 spellcasting at 1st, 4th, 7th, 10th),
+Vermin Lord (+1 at 1st, 3rd, 5th, 7th, 9th, 10th),
+Warrior of Darkness.
+
+Feats (Table 4–1, p. 48; descriptions pp. 47–50): Boost
+Spell-Like Ability, Boost Spell Resistance, Corrupt
+Spell-Like Ability, Empower Spell-Like Ability, Malign
+Spell Focus, Mortalbane, Poison Immunity, Quicken
+Spell-Like Ability, Violate Spell-Like Ability, Violate
+Spell (metamagic), and the vile feats Dark Speech,
+Disciple of Darkness, Evil Brand, Lichloved, Sacrificial
+Mastery, Thrall to Demon, Verminfriend, Vile Ki Strike,
+Vile Martial Strike, Vile Natural Attack, Willing
+Deformity, Deformity (Clawed Hands), Deformity (Eyes),
+Deformity (Face), Deformity (Gaunt), Deformity (Obese).
+
+Duplicates skipped: Corrupt Spell (Complete Divine's 3.5
+reprint is in the data) and the Ur-Priest prestige class
+(Complete Divine's 3.5 reprint is in the data and
+governs).
+
+Omitted: the Bone Creature and Corpse Creature templates
+(pp. 184–185) — spell-created undead whose entries print
+no level adjustment — plus the archfiend chapters,
+demon/devil monster content, spells, and magic items
+(out of scope / not character-playable).
+
+Quirks: the Disciple of Asmodeus's feature text grants
++1 spellcasting at 1st, 3rd, 5th, 7th, and 9th level,
+while Table 5–4 also prints +1 at 10th; the text governs
+and the conflict is noted on the record. Tables 5–5 and
+5–7 print nonstandard base attack progressions for the
+Disciple of Baalzebul (+7 at 9th, +8 at 10th) and the
+Disciple of Mammon (beginning at +1); both are recorded
+exactly as printed, and several Chapter 5 tables print
+good saves in all three columns (Disciples of Dispater
+and Mephistopheles, Lifedrinker, Soul Eater, Thrall of
+Juiblex) — recorded as written.
+
+## Exemplars of Evil — 16 feats
+
+Feats (Table 1–1, pp. 22–23; descriptions pp. 23–26):
+Divine Denial, Embody Energy, Evasive Maneuvers,
+Generous Sacrifice, Gruesome Finish, Maiming Strike,
+Mask of Gentility, Proteus, Slippery Skin, Strength of
+Conviction, Twist the Knife, Uncanny Forethought,
+Blessing of the Godless [Ceremony, Vile], Fell Conspiracy
+[Ceremony], Beloved of Demons [Vile], Hellsworn [Vile].
+
+Duplicates skipped: Evil Brand — the identical feat is
+in from Book of Vile Darkness in this same batch.
+
+Omitted: the 9 alternative class features in Chapter 1
+(Blasphemous Incantation, Celestial Slayer, Favored of
+the Fiends, Feign Death, Inspire Hatred, Invisible Fist,
+Mimic, Spontaneous Affliction, Unholy Fury) — an
+unmodeled system, documented here; the 7 villain
+write-ups (NPC material, not character-playable); and
+the villainous spells (out of scope). The "Feats from
+Other Sources" sidebar (p. 25) paraphrases other books'
+feats for the villain stat blocks, in places inaccurately;
+it was NOT converted — those feats stand as printed in
+their own books.
+
+## Verification (2026-10-28)
+
+- `npm run check` (tsc): 0 errors.
+- `npm run build`: succeeds (bundle
+  `dist/assets/index-DPDFhRIH.js`, ~2,039 kB); the bundle
+  still contains "LOCKED OFF by Shaun".
+- Vite preview: HTTP 200 (server stopped after the
+  check).
+- Resolver smoke test: one build per book exercising its
+  new records (Legacy Champion; Combat Medic; Dragonfire
+  Adept; an Eidolon with the Ghostwalk ghost template;
+  a Jerren Disciple of Dispater; a rogue with Exemplars
+  of Evil feats) — 0 validation errors across all six.
+- Barrel totals before → after: races 75 → 77 (+2),
+  classes 50 → 53 (+3), prestige classes 308 → 341 (+33),
+  templates 14 → 15 (+1), feats 1,405 → 1,579 (+174),
+  skills 61 → 61, equipment 495 → 495, magic items
+  76 → 76. No duplicate ids in any aggregate.
+- NOT pushed to GitHub and NOT deployed in this pass —
+  the parent agent verifies, pushes (which auto-deploys
+  via the Pages workflow), and reports.
