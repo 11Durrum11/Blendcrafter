@@ -470,6 +470,8 @@ export interface HouseRules {
   crossClassSkillHalfCap: boolean;
   /** Unearthed Arcana variant: buy off level adjustment with XP as you level. */
   levelAdjustmentBuyoff: boolean;
+  /** Superior Skill Synergy (Misfit Studios): synergy benefits at 5/10/15/20 ranks instead of only +2 at 5. */
+  superiorSynergy: boolean;
 }
 
 export type PersonalityWeights = {
@@ -612,6 +614,8 @@ export interface ResolvedSkill {
   maxRanks: number;
   rankCost: number;
   audit: AuditEntry[];
+  /** Superior Synergy: conditional bonuses and special benefits that attach to this skill (house rule). */
+  synergyNotes?: string[];
 }
 
 export interface ResolvedInventoryItem {
@@ -652,6 +656,8 @@ export interface ResolvedCharacter {
   appliedTemplates: TemplateDefinition[];
   selectedFeats: FeatDefinition[];
   skills: ResolvedSkill[];
+  /** Superior Synergy benefits whose target is not a skill total (wild empathy, familiars, …). Empty unless the house rule is on. */
+  synergyNotes: string[];
   skillPoints: { total: number; spent: number; audit: AuditEntry[] };
   featSlots: { total: number; used: number; audit: AuditEntry[] };
   inventory: ResolvedInventoryItem[];

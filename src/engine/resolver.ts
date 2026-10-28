@@ -20,6 +20,7 @@ import { ALL_CLASSES, ALL_EQUIPMENT, ALL_FEATS, ALL_MAGIC_ITEMS, ALL_PRESTIGE_CL
 import { checkPrerequisites, checkTemplateOrdering } from "./prerequisites";
 import { buildPrereqContext, evaluatePrestigeClass } from "./prestige-prerequisites";
 import { validateSelectedSpells } from "./spells";
+import { computeSynergies } from "./skill-synergy";
 import { resolveModifierStack, formatSigned } from "./stacking";
 import { averageRoll, parseDieFaces, stepDieSize } from "./dice";
 import { progressionRow, SAVE_ABILITY } from "./progression";
@@ -534,6 +535,29 @@ export function resolveCharacter(build: CharacterBuild): ResolvedCharacter {
     return { id: skill.id, name: skill.name, ranks, total, isClassSkill: classSkill, maxRanks, rankCost, audit };
   });
 
+  // Superior Synergy (Shaun's house rule): synergy benefits at 5/10/15/20
+  // ranks per Superior Skill Synergy (Misfit Studios, 2005). Unconditional
+  // bonuses join the target skill's total (with an audit entry each);
+  // conditional bonuses and special benefits ride along as notes.
+  let synergyCharacterNotes: string[] = [];
+  if (build.houseRules.superiorSynergy) {
+    const synergy = computeSynergies(new Map(resolvedSkills.map((s) => [s.id, s.ranks])));
+    for (const s of resolvedSkills) {
+      for (const applied of synergy.appliedBonuses.get(s.id) ?? []) {
+        s.total += applied.amount;
+        s.audit.push({
+          source: `Superior Synergy — ${applied.from}`,
+          target: `skill.${s.id}`,
+          operation: `${formatSigned(applied.amount)} synergy bonus`,
+          resultingValue: s.total,
+        });
+      }
+      const notes = synergy.skillNotes.get(s.id);
+      if (notes && notes.length > 0) s.synergyNotes = notes;
+    }
+    synergyCharacterNotes = synergy.characterNotes;
+  }
+
   const skillPoints = { total: skillPointsTotal, spent: skillPointsSpent, audit: skillPointsAudit };
   if (skillPointsSpent > skillPointsTotal) {
     validation.push({
@@ -654,6 +678,7 @@ export function resolveCharacter(build: CharacterBuild): ResolvedCharacter {
     appliedTemplates: appliedDefs.map((a) => a.def),
     selectedFeats,
     skills: resolvedSkills,
+    synergyNotes: synergyCharacterNotes,
     skillPoints,
     featSlots,
     inventory: resolvedInventory,

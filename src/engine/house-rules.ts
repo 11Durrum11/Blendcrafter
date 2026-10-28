@@ -41,6 +41,16 @@ export const HOUSE_RULE_DEFS: HouseRuleDef[] = [
     ruleReference: "https://www.d20srd.org/srd/skills/skillsSummary.htm",
   },
   {
+    id: "superiorSynergy",
+    label: "Superior Synergy (Misfit Studios)",
+    description:
+      "Shaun's house rule (added 2026-10-28): skill synergy keeps growing past 5 ranks — benchmarks at 10, 15, and 20 ranks raise synergy bonuses (+2/+3/+4/+5) and grant special benefits, per Superior Skill Synergy (Misfit Studios, 2005), from Shaun's APOC house-rules folder. Off by default; off means no synergy bonuses are applied at all, matching the builder's prior behavior.",
+    category: "Skills",
+    defaultValue: false,
+    ruleReference:
+      "https://www.dropbox.com/preview/A%20POC%20PC%20related/1.house%20rules%20for%20a%20poc/1.Main%20stuff/Superior%20Skill%20Synergys.pdf",
+  },
+  {
     id: "levelAdjustmentBuyoff",
     label: "Level adjustment buyoff (Unearthed Arcana variant)",
     description:
@@ -55,4 +65,5 @@ export const DEFAULT_HOUSE_RULES: HouseRules = {
   crossClassSkillDoubleCost: false,
   crossClassSkillHalfCap: true,
   levelAdjustmentBuyoff: false,
+  superiorSynergy: false,
 };

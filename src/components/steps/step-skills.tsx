@@ -109,6 +109,13 @@ export function StepSkills({ skillRanks, enabledRulesets, disabledSkillIds, reso
                         <span className="font-mono">{skill.rankCost}/rank</span> · Total:{" "}
                         <span className="font-mono text-foreground">{skill.total >= 0 ? `+${skill.total}` : skill.total}</span>
                       </p>
+                      {skill.synergyNotes && skill.synergyNotes.length > 0 && (
+                        <ul className="mt-1 space-y-0.5" data-testid={`synergy-notes-${skill.id}`}>
+                          {skill.synergyNotes.map((n, i) => (
+                            <li key={i} className="text-xs text-primary/90">Synergy: {n}</li>
+                          ))}
+                        </ul>
+                      )}
                     </div>
                     <div className="flex items-center gap-2">
                       <Button
@@ -149,6 +156,19 @@ export function StepSkills({ skillRanks, enabledRulesets, disabledSkillIds, reso
               })
             )}
           </div>
+          {resolved.synergyNotes.length > 0 && (
+            <div className="mt-4 rounded-md border border-card-border bg-card p-3" data-testid="synergy-character-notes">
+              <h4 className="font-display text-sm font-semibold">Superior Synergy — other benefits</h4>
+              <ul className="mt-1.5 list-disc space-y-1 pl-5 text-sm text-muted-foreground">
+                {resolved.synergyNotes.map((n, i) => (
+                  <li key={i}>{n}</li>
+                ))}
+              </ul>
+              <p className="mt-2 text-xs text-muted-foreground">
+                Per Superior Skill Synergy (Misfit Studios, 2005) — House Rules toggle.
+              </p>
+            </div>
+          )}
         </CardContent>
       </Card>
       <EntityDetailDialog detail={detail} onOpenChange={(open) => !open && setDetail(null)} />
