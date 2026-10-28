@@ -2395,3 +2395,334 @@ true`, `levelAdjustmentBuyoff: false`.
 - NOT pushed to GitHub and NOT deployed in this pass —
   the parent agent verifies, pushes (which auto-deploys
   via the Pages workflow), and reports.
+
+# Batch 8a addendum (2026-10-28): Tome of Battle, Expanded Psionics Handbook, Unearthed Arcana, Tome of Magic
+
+Merged into the barrel (`src/data/index.ts`) 2026-10-28 as
+Batch 8a of the "all original books" program: the first
+half of the sourcebooks shelf. All four books carry
+ruleset "core". Sources are the copies in Shaun's durrum1
+Dropbox library: Tome of Battle, Expanded Psionics
+Handbook, and Unearthed Arcana from
+`/a poc dm related/desktop/Sourcebooks/`; Tome of Magic
+from `/A POC PC related/5.Splat/Tome of Magic.pdf`. The
+first three PDFs have full text layers (Unearthed Arcana
+is an OCR'd scan with a usable text layer). The Tome of
+Magic PDF is image-only, so that pack was built from OCR
+(RapidOCR) of rendered pages, with ambiguous table cells
+settled against the page images directly. Page offsets:
+Tome of Battle citations use the book's printed
+pagination (printed folio = text-extraction split index
++ 1); Tome of Magic printed folio = PDF page − 1. Only
+new data files plus the barrel were touched; Shaun's
+locked house rules and settings were not touched — the
+built bundle still contains the "LOCKED OFF by Shaun"
+lock text, and no engine, component, house-rules, or
+recovered data file was modified.
+
+## Base-class verification (checked first, against the recovered data)
+
+- Tome of Battle: Crusader, Swordsage, and Warblade were
+  all MISSING from the recovered dataset — all three
+  added as new base classes in the Tome of Battle pack.
+- Expanded Psionics Handbook: Psion, Wilder, Psychic
+  Warrior, and Soulknife were ALL missing. The parent
+  brief believed a Psion record already existed — it
+  does not; "Psion" appeared only as the kalashtar
+  favored-class string. All four added in the Expanded
+  Psionics pack. This corrects the brief's assumption.
+- Tome of Magic: Binder, Shadowcaster, and Truenamer
+  were all MISSING — all three added in the Tome of
+  Magic pack.
+- No discrepancies were found in recovered records for
+  these books, because no overlapping records existed to
+  disagree with. No recovered record was modified.
+
+## Tome of Battle (`src/data/tome-of-battle/`)
+
+- 3 base classes: Crusader (pp. 8–14), Swordsage
+  (pp. 15–19), Warblade (pp. 20–26). Progressions and
+  skill lists verified against the printed text
+  (Crusader 10 class skills; Swordsage 20; Warblade 12,
+  including Martial Lore and no Ride). Printed quirk
+  noted on the Swordsage record: some printings read
+  "×6 at 1st level" for the skill-point multiplier.
+- 1 new skill: Martial Lore (p. 28).
+- 8 prestige classes: Bloodclaw Master, Bloodstorm
+  Blade, Deepstone Sentinel, Eternal Blade, Jade
+  Phoenix Mage, Master of Nine, Ruby Knight Vindicator,
+  Shadow Sun Ninja. All eight class-skill lists verified
+  against the printed text.
+- 38 feats: Adaptive Style, Avenging Strike, Blade
+  Meditation, Desert Fire, Desert Wind Dodge, Devoted
+  Bulwark, Evasive Reflexes, Extra Granted Maneuver,
+  Extra Readied Maneuver, Falling Sun Attack, Ironheart
+  Aura, Martial Stance, Martial Study, Rapid Assault,
+  Shadow Blade, Shadow Trickster, Song of the White
+  Raven, Snap Kick, Stone Power, Sudden Recovery,
+  Superior Unarmed Strike, Tiger Blooded, Unnerving
+  Calm, Vital Recovery, White Raven Defense, Divine
+  Spirit [Divine], Scribe Martial Script [item
+  creation], Instant Clarity and Psychic Renewal
+  [Psionic], and the 9 tactical feats filed under the
+  "combat" category: Clarion Commander, Distant
+  Horizon, Faith Unswerving, Gloom Razor, Perfect
+  Clarity of Mind and Body, Reaping Talons, Scorching
+  Sirocco, Shards of Granite, Stormguard Warrior.
+  Citation correction: Table 2–1 is printed on
+  pp. 30–31. Printed table-vs-text conflicts documented
+  on the records (the descriptions govern): White Raven
+  Defense and Shadow Blade prerequisites print "stance"
+  in the description vs "maneuver" in Table 2–1; Shadow
+  Trickster's illusion DC bonus is +2 in the text vs +1
+  in the table.
+- No duplicates against existing feats.
+- Omitted as unmodeled systems: maneuvers and stances
+  (summarized in class feature text), martial scripts
+  and discipline items, monsters.
+
+## Expanded Psionics Handbook (`src/data/expanded-psionics/`)
+
+- 9 races, from the Chapter 1 "as characters" trait
+  blocks: Dromite (p. 7), Duergar (Psionic) (pp. 8–9;
+  id `duergar-psionic` to sit alongside the existing
+  duergar material), Elan (pp. 9–10; explicitly no
+  darkvision as printed), Githyanki (pp. 10–11),
+  Githzerai (p. 11), Half-Giant (pp. 12–13), Maenad
+  (pp. 13–14; no ability modifiers as printed),
+  Thri-Kreen (pp. 14–15; 2 racial HD, recorded with
+  `hitDie: "d8"`), Xeph (pp. 15–16). Vision and racial
+  bonus feats (Dromite: Blind-Fight; Thri-Kreen:
+  Deflect Arrows) are recorded as traits, since the
+  race type has no structured fields for them.
+- 4 base classes: Psion (Table 2–3, p. 20), Psychic
+  Warrior (Table 2–4, p. 25), Soulknife (Table 2–5,
+  p. 27), Wilder (Table 2–6, p. 30). Printed quirk
+  noted on the Soulknife record: Table 3–1 (p. 35)
+  lists soulknife skill points as 2 + Int, contradicting
+  the class entry's 4 + Int; the record follows the
+  class entry.
+- 4 new skills: Autohypnosis (p. 36), Knowledge
+  (psionics) (pp. 35–38), Psicraft (p. 38), Use Psionic
+  Device (p. 38). None existed in the aggregates.
+- 9 prestige classes: Cerebremancer, Elocater, Fist of
+  Zuoken, Illithid Slayer, Metamind, Psion Uncarnate,
+  Pyrokineticist, Thrallherd, War Mind.
+- 84 feats: 18 general (Antipsionic Magic, Autonomous,
+  Chaotic Mind, Cloak Dance, Closed Mind, Deadly
+  Precision, Force of Will, Greater Manyshot, Hostile
+  Mind, Mental Resistance, Mind over Body, Psionic
+  Affinity, Psionic Hole, Rapid Metabolism, Reckless
+  Offense, Sidestep Charge, Stand Still, Wild Talent),
+  40 psionic feats filed "general" with the [Psionic]
+  descriptor noted (Aligned Attack, Boost Construct,
+  Combat Manifestation, Expanded Knowledge, Focused
+  Sunder, Ghost Attack, Inquisitor, Mental Leap,
+  Metamorphic Transfer, Narrow Mind, Overchannel,
+  Talented, Body Fuel, Power Penetration, Greater Power
+  Penetration, Power Specialization, Greater Power
+  Specialization, Psicrystal Affinity, Improved
+  Psicrystal, Psicrystal Containment, Psionic Body,
+  Psionic Dodge, Psionic Endowment, Greater Psionic
+  Endowment, Psionic Fist, Greater Psionic Fist,
+  Unavoidable Strike, Psionic Meditation, Psionic Shot,
+  Greater Psionic Shot, Fell Shot, Return Shot, Psionic
+  Talent, Psionic Weapon, Greater Psionic Weapon, Deep
+  Impact, Speed of Thought, Psionic Charge, Up the
+  Walls, Wounding Attack), 13 metapsionic feats filed
+  "metamagic" per the Complete Psionic precedent
+  (Burrowing Power, Chain Power, Delay Power, Empower
+  Power, Enlarge Power, Extend Power, Maximize Power,
+  Opportunity Power, Quicken Power, Split Psionic Ray,
+  Twin Power, Unconditional Power, Widen Power), 7
+  item-creation feats (Craft Cognizance Crystal, Craft
+  Dorje, Craft Psicrown, Craft Psionic Arms and Armor,
+  Craft Psionic Construct, Craft Universal Item, Scribe
+  Tattoo), and 6 epic feats (Epic Expanded Knowledge,
+  Epic Psionic Focus, Improved Manifestation, Improved
+  Metapsionics, Power Knowledge, Psicrystal Power).
+- Duplicates skipped: exactly one — Open Minded, already
+  in the data from Complete Adventurer (p. 104); the
+  XPH printing (p. 49) is identical in effect. Contrary
+  to the expectation going in, the XPH and Complete
+  Psionic feat lists are almost entirely disjoint;
+  Complete Psionic's in-data feats are its own
+  originals, not XPH reprints.
+- All metapsionic power-point costs verified against
+  page images (Burrowing +2, Chain +6, Delay +2,
+  Empower +2, Enlarge +0 — a printed quirk, noted on
+  the record — Extend +2, Maximize +4, Opportunity +6,
+  Quicken +6, Split Psionic Ray +2, Twin +6,
+  Unconditional Power +8, Widen +4). Unconditional Power
+  and Craft Psicrown appear in the feat descriptions
+  but not in the initial table pass and were caught on
+  the description pass. Printed conflicts noted on the
+  records: Psionic Charge's prerequisite is Dex 13 in
+  its description (p. 50) vs Wis 13 in Table 3–4 (the
+  record follows the description); Sidestep Charge is
+  printed [Psionic] in its description but listed as
+  general in Table 3–4 (filed general per the table).
+- Omitted as unmodeled systems / out of scope: psionic
+  powers, power points and powers known (summarized in
+  class feature text), psionic items and monsters
+  beyond the playable race entries, epic progressions
+  beyond the six epic feats above.
+
+## Unearthed Arcana (`src/data/unearthed-arcana/`)
+
+- 17 feats — the book's only standard-format feats
+  usable outside a variant system: the Spelltouched
+  feats of Table 3–4 (pp. 92–94), filed "general" with
+  the [Spelltouched] descriptor noted: Accurate Jaunt,
+  Bladeproof Skin, Breadth of Knowledge, Conductivity,
+  Controlled Immolation, Eyes to the Sky, False
+  Pretenses, Ineluctable Echo, Life Leech, Live My
+  Nightmare, Momentary Alteration, Naturalized Denizen,
+  Omniscient Whispers, Photosynthetic Skin, Polar
+  Chill, Residual Rebound, Stench of the Dead. Their
+  prerequisites are spell-exposure text, as printed.
+- Omitted systems, documented rather than forced into
+  app types (the book is a variant-rules toolbox):
+  bloodlines — 37 bloodline trait tables (a level-based
+  system, not templates); racial paragon classes — 11
+  three-level classes (Drow, Dwarf, Elf, Gnome,
+  Half-Dragon, Half-Elf, Half-Orc, Halfling, Human,
+  Orc, Tiefling); prestige-class conversions of the
+  bard, paladin, and ranger; generic classes (Expert,
+  Spellcaster, Warrior); character traits — 35 drawback
+  entries; flaws — 13 (Feeble, Frail, Inattentive,
+  Meager Fortitude, Murky-Eyed, Noncombatant, Pathetic,
+  Poor Reflexes, Shaky, Slow, Unreactive, Vulnerable,
+  Weak Will); the Weapon Group proficiency feats — 14
+  (part of the weapon-groups variant; omitted on the
+  same judgment call as the other variant systems,
+  while the standalone Spelltouched feats were added);
+  and the remaining variant rules (gestalt characters,
+  fractional base bonuses, sanity, taint, and the
+  rest).
+
+## Tome of Magic (`src/data/tome-of-magic/`)
+
+- 3 base classes: Binder (pp. 9–14; Table 1–1, p. 11),
+  Shadowcaster (pp. 111–116; Table 2–1, p. 112),
+  Truenamer (pp. 198–203; Table 3–2, p. 199).
+- 1 new skill: Truespeak (Int, trained only, p. 195;
+  description pp. 232–234).
+- 15 prestige classes: Anima Mage, Knight of the Sacred
+  Seal, Scion of Dantalion, Tenebrous Apostate, Witch
+  Slayer (pact magic); Child of Night, Master of
+  Shadow, Noctumancer, Shadowblade, Shadow Smith
+  (shadow magic); Acolyte of the Ego, Bereft, Brimstone
+  Speaker, Disciple of the Word, Fiendbinder (truename
+  magic). Cells settled against page images where OCR
+  was ambiguous: Tenebrous Apostate advances divine
+  spellcasting at levels 2–5 only ("at each level
+  beyond 1st", pp. 63–64); Acolyte of the Ego's table
+  (p. 204) prints full BAB with Fortitude good and
+  Reflex/Will poor, contrary to the OCR first pass.
+- 56 feats: 19 pact magic feats (Bind Vestige, Bind
+  Vestige Improved — printed "Bind Vestige, Improved" —
+  Defense against the Supernatural, Empower
+  Supernatural Ability, Enlarge Supernatural Ability,
+  Expel Vestige, Extend Supernatural Ability, Favored
+  Vestige, Favored Vestige Focus, Ignore Special
+  Requirements, Improved Binding, Practiced Binder,
+  Rapid Pact Making, Rapid Recovery, Skilled Pact
+  Making, Sudden Ability Focus, Supernatural Crusader,
+  Supernatural Opportunist, Widen Supernatural
+  Ability); 17 shadow magic feats (Favored Mystery,
+  Nocturnal Caster, Path Focus, Greater Path Focus,
+  Shadow Cast, Shadow Familiar, Shadow Reflection,
+  Shadow Vision, Unseen Arrow, and the 8 metashadow
+  feats filed "metamagic" with the [Metashadow]
+  descriptor noted: Empower Mystery, Enlarge Mystery,
+  Extend Mystery, Line of Shadow, Maximize Mystery,
+  Quicken Mystery, Reach Mystery, Still Mystery); 20
+  truename feats (Empower Utterance, Enlarge Utterance,
+  Extend Utterance, and Quicken Utterance filed
+  "metamagic" as the utterance analogues of the
+  metamagic feats; Focused Lexicon, Obscure Personal
+  Truename, Personal Truename Backlash, Truename
+  Rebuttal, Truename Research, Truename Training,
+  Minor Utterance, Utterance of the Evolving Mind,
+  Utterance of the Crafted Tool, Utterance of the
+  Perfected Map, Utterance Focus; and the 5 recitation
+  feats: Recitation of the Fortified State, Recitation
+  of the Meditative State, Recitation of the Mindful
+  State, Recitation of the Sanguine State, Recitation
+  of the Vital State).
+- Printed conflicts noted on the records (descriptions
+  govern): Defense against the Supernatural grants a
+  +2 insight bonus in its description vs +1 in Table
+  1–8; Bind Vestige, Improved lets you bind as a
+  5th-level binder with vestiges up to 3rd level in its
+  description vs the table's "up to 5th level";
+  Improved Binding's description adds Intimidate 4
+  ranks to its prerequisites; the recitation feats'
+  Truespeak prerequisite is 9 ranks in the descriptions
+  (p. 231) vs 6 ranks in Table 3–11.
+- Omitted as unmodeled systems: vestiges and pact
+  augmentation detail, shadow mysteries and paths,
+  truespeak utterances and the three lexicons, truename
+  spells and monsters (summarized in class feature text
+  where they define a class or prestige class).
+
+## Judgment calls applying to the whole batch
+
+- Prestige class prerequisites are recorded as free
+  text in the app's `prerequisites` string list (the
+  PrestigeClassDefinition contract used by every earlier
+  pack), with spellcasting/manifesting/binding
+  advancement stated in the same text or in feature
+  descriptions.
+- Class skill lists are recorded as display names
+  (e.g. "Knowledge (arcana)"), matching the resolver's
+  name-based class-skill matching and the Complete
+  Psionic pack's convention; "Knowledge (all)" is used
+  where a book prints Knowledge (all skills, taken
+  individually).
+- Divine, psionic-descriptor, and spelltouched feats
+  without a dedicated app category are filed "general"
+  with the printed descriptor noted in the record, per
+  the Complete Psionic precedent; metapsionic,
+  metashadow, and utterance-modifying feats are filed
+  "metamagic" on the same precedent.
+
+## Verification
+
+- `npm run check` (tsc): 0 errors. `npm run build`:
+  succeeds (bundle index-BLwe256e.js).
+- `vite preview`: HTTP 200, serving the new bundle;
+  server stopped afterward.
+- Resolver smoke test (esbuild bundle of a temporary
+  script against the real modules, script deleted after
+  the run): ten builds, all with zero validation
+  errors — Human Warblade 6 with Stormguard Warrior
+  and Human Crusader 5 / Ruby Knight Vindicator 2 with
+  Divine Spirit (Tome of Battle); Xeph Soulknife 5 with
+  Wild Talent, Half-Giant Psychic Warrior 4 (ECL
+  adjustment +1), Elan Psion 4, and Thri-Kreen Ranger 3
+  (ECL adjustment +4: 2 racial HD + LA +2) (Expanded
+  Psionics); Human Rogue 4 with Stench of the Dead
+  (Unearthed Arcana); Human Binder 5 with Improved
+  Binding, Human Shadowcaster 4 with Shadow Familiar,
+  and Human Truenamer 4 with Truename Training (Tome
+  of Magic).
+- Id-collision check: before this batch the aggregates
+  held ALL_RACES 66, ALL_CLASSES 40,
+  ALL_PRESTIGE_CLASSES 276, ALL_TEMPLATES 14,
+  ALL_FEATS 1210, ALL_SKILLS 55. After the merge:
+  ALL_RACES 75 (+9), ALL_CLASSES 50 (+10),
+  ALL_PRESTIGE_CLASSES 308 (+32), ALL_TEMPLATES 14
+  (+0), ALL_FEATS 1405 (+195), ALL_SKILLS 61 (+6) —
+  every new record present exactly once, no internal
+  duplicates, reconciling as Tome of Battle +3 classes
+  / +1 skill / +8 prestige classes / +38 feats,
+  Expanded Psionics +9 races / +4 classes / +4 skills /
+  +9 prestige classes / +84 feats, Unearthed Arcana
+  +17 feats, and Tome of Magic +3 classes / +1 skill /
+  +15 prestige classes / +56 feats, with the one
+  duplicate skip (Open Minded) documented above.
+- NOT pushed to GitHub and NOT deployed in this pass —
+  the parent agent verifies, pushes (which auto-deploys
+  via the Pages workflow), and reports.
