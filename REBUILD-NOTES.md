@@ -3774,3 +3774,7 @@ Shaun's message arrived garbled by dictation ("rerolling all eight and bellows")
 ## Correction — 2026-10-28: reroll until it beats 8
 
 Shaun, on the first version ("new roll stands"): "Yeah, keep rerolling the eights or belows until it's not." `rerollLowCells` now loops each low cell until its result is above 8, so one tap of the button leaves no low cells in the grid. Suite extended: 6/6, including the new no-low-cells-remain check.
+
+## Fix — 2026-10-28: per-entity switches now persist and inherit (Shaun's catch)
+
+Shaun: "I just turned off all kinds of races and classes and you didn't save it." He was right: the toggle-inheritance shipped earlier that day covered ruleset and house-rule toggles only. The per-entity enable switches (races, classes, skills, feats, abilities) lived solely in the current build, so they reset on reload or a new character. Fix: `TogglePrefs` now carries all five disabled lists; every toggle handler (ruleset, house rule, and all five entity switches) writes the build's complete toggle state via `prefsFromBuild`; `createDefaultBuild` seeds all five lists from prefs. Suite `~/race-split-work/verify-prefs2.ts` 11/11 — capture, round-trip, inheritance, sanitize, legacy-prefs compatibility (older prefs without the new fields load with empty lists), and saved characters still keep their own lists. Recovery for disables made before this fix: they survive only inside a saved character that carries them — opening that character and flipping any one switch snapshots its whole toggle state into the prefs.

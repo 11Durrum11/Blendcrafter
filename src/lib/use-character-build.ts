@@ -14,7 +14,7 @@ import { buildPrereqContext, evaluatePrestigeClass } from "@/engine/prestige-pre
 import { ALL_PRESTIGE_CLASSES } from "@/data";
 import { DEFAULT_HOUSE_RULES } from "@/engine/house-rules";
 import { DEFAULT_PERSONALITY } from "@/engine/personality";
-import { ALL_RULESETS_ON, loadTogglePrefs, saveTogglePrefs } from "@/lib/toggle-prefs";
+import { ALL_RULESETS_ON, loadTogglePrefs, prefsFromBuild, saveTogglePrefs } from "@/lib/toggle-prefs";
 
 /** The classic 15/14/13/12/10/8 spread, assigned in ability order. */
 export const STANDARD_ARRAY = [15, 14, 13, 12, 10, 8];
@@ -43,11 +43,11 @@ export function createDefaultBuild(): CharacterBuild {
     inventory: [],
     enabledRulesets: prefs ? [...prefs.enabledRulesets] : [...ALL_RULESETS_ON],
     houseRules: prefs ? { ...prefs.houseRules } : { ...DEFAULT_HOUSE_RULES },
-    disabledRaceIds: [],
-    disabledClassIds: [],
-    disabledSkillIds: [],
-    disabledFeatIds: [],
-    disabledAbilities: [],
+    disabledRaceIds: prefs ? [...prefs.disabledRaceIds] : [],
+    disabledClassIds: prefs ? [...prefs.disabledClassIds] : [],
+    disabledSkillIds: prefs ? [...prefs.disabledSkillIds] : [],
+    disabledFeatIds: prefs ? [...prefs.disabledFeatIds] : [],
+    disabledAbilities: prefs ? [...prefs.disabledAbilities] : [],
     personality: structuredClone(DEFAULT_PERSONALITY),
   };
 }
@@ -152,7 +152,7 @@ export function useCharacterBuild(initial?: CharacterBuild): UseCharacterBuild {
     // what new characters inherit. After that, only his own toggle
     // actions update the prefs.
     if (!loadTogglePrefs()) {
-      saveTogglePrefs({ enabledRulesets: normalized.enabledRulesets, houseRules: normalized.houseRules });
+      saveTogglePrefs(prefsFromBuild(normalized));
     }
     setBuildState(normalized);
   }, []);
@@ -295,7 +295,7 @@ export function useCharacterBuild(initial?: CharacterBuild): UseCharacterBuild {
       if (enabled) extra.push(ruleset);
       const next = { ...b, enabledRulesets: ["core", ...extra] as Ruleset[] };
       // Shaun's toggle action — this state is what new characters inherit.
-      saveTogglePrefs({ enabledRulesets: next.enabledRulesets, houseRules: next.houseRules });
+      saveTogglePrefs(prefsFromBuild(next));
       return next;
     });
   }, []);
@@ -306,36 +306,52 @@ export function useCharacterBuild(initial?: CharacterBuild): UseCharacterBuild {
     setBuildState((b) => {
       const next = { ...b, houseRules: { ...b.houseRules, [id]: enabled } };
       // Shaun's toggle action — this state is what new characters inherit.
-      saveTogglePrefs({ enabledRulesets: next.enabledRulesets, houseRules: next.houseRules });
+      saveTogglePrefs(prefsFromBuild(next));
       return next;
     });
   }, []);
 
-  const toggleRaceEnabled = useCallback(
-    (raceId: string, enabled: boolean) =>
-      setBuildState((b) => ({ ...b, disabledRaceIds: toggleId(b.disabledRaceIds, raceId, enabled) })),
-    []
-  );
-  const toggleClassEnabled = useCallback(
-    (classId: string, enabled: boolean) =>
-      setBuildState((b) => ({ ...b, disabledClassIds: toggleId(b.disabledClassIds, classId, enabled) })),
-    []
-  );
-  const toggleSkillEnabled = useCallback(
-    (skillId: string, enabled: boolean) =>
-      setBuildState((b) => ({ ...b, disabledSkillIds: toggleId(b.disabledSkillIds, skillId, enabled) })),
-    []
-  );
-  const toggleFeatEnabled = useCallback(
-    (featId: string, enabled: boolean) =>
-      setBuildState((b) => ({ ...b, disabledFeatIds: toggleId(b.disabledFeatIds, featId, enabled) })),
-    []
-  );
+  // Per-entity enable switches are toggles too (Shaun's standing rule):
+  // every flip stores the build's whole toggle state, so a race or class
+  // he turns off stays off — including in new characters — until he
+  // turns it back on.
+  const toggleRaceEnabled = useCallback((raceId: string, enabled: boolean) => {
+    setBuildState((b) => {
+      const next = { ...b, disabledRaceIds: toggleId(b.disabledRaceIds, raceId, enabled) };
+      saveTogglePrefs(prefsFromBuild(next));
+      return next;
+    });
+  }, []);
+  const toggleClassEnabled = useCallback((classId: string, enabled: boolean) => {
+    setBuildState((b) => {
+      const next = { ...b, disabledClassIds: toggleId(b.disabledClassIds, classId, enabled) };
+      saveTogglePrefs(prefsFromBuild(next));
+      return next;
+    });
+  }, []);
+  const toggleSkillEnabled = useCallback((skillId: string, enabled: boolean) => {
+    setBuildState((b) => {
+      const next = { ...b, disabledSkillIds: toggleId(b.disabledSkillIds, skillId, enabled) };
+      saveTogglePrefs(prefsFromBuild(next));
+      return next;
+    });
+  }, []);
+  const toggleFeatEnabled = useCallback((featId: string, enabled: boolean) => {
+    setBuildState((b) => {
+      const next = { ...b, disabledFeatIds: toggleId(b.disabledFeatIds, featId, enabled) };
+      saveTogglePrefs(prefsFromBuild(next));
+      return next;
+    });
+  }, []);
   const toggleAbilityEnabled = useCallback((key: AbilityKey, enabled: boolean) => {
-    setBuildState((b) => ({
-      ...b,
-      disabledAbilities: enabled ? b.disabledAbilities.filter((k) => k !== key) : [...b.disabledAbilities, key],
-    }));
+    setBuildState((b) => {
+      const next = {
+        ...b,
+        disabledAbilities: enabled ? b.disabledAbilities.filter((k) => k !== key) : [...b.disabledAbilities, key],
+      };
+      saveTogglePrefs(prefsFromBuild(next));
+      return next;
+    });
   }, []);
 
   const updatePersonality = useCallback((patch: Partial<PersonalityProfile>) => {
