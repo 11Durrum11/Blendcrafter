@@ -50,12 +50,20 @@ export function rollDiceGrid(): DiceCell[][] {
 
 /**
  * Shaun's My Way reroll rule (2026-10-28): every result of 8 or below
- * gets rerolled — a fresh 4d6-drop-lowest for that cell, and the new
- * roll stands even if it lands low again. Cells above 8 are untouched
- * (same objects). Exported for testing.
+ * keeps rerolling until it is NOT 8 or below — "keep rerolling the
+ * eights or belows until it's not." Cells above 8 are untouched (same
+ * objects), so after a reroll pass no cell in the grid is low.
+ * Exported for testing.
  */
 export function rerollLowCells(grid: DiceCell[][], threshold = 8): DiceCell[][] {
-  return grid.map((row) => row.map((cell) => (cell.value <= threshold ? rollDiceCell() : cell)));
+  return grid.map((row) =>
+    row.map((cell) => {
+      if (cell.value > threshold) return cell;
+      let next = rollDiceCell();
+      while (next.value <= threshold) next = rollDiceCell();
+      return next;
+    })
+  );
 }
 
 export interface DiceLine {
@@ -381,7 +389,7 @@ export function StepRace({
               <p className="text-sm text-muted-foreground">
                 Roll 4d6 and drop the lowest, thirty-six times, into a 6×6 grid — then pick any row, any column, or
                 either diagonal, and place its six results on whichever abilities you choose. Any result of 8 or
-                below can be rerolled.
+                below is rerolled until it beats 8.
               </p>
               {!diceGrid ? (
                 <Button type="button" size="sm" onClick={handleRollGrid} data-testid="button-roll-my-way">

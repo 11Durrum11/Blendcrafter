@@ -3770,3 +3770,7 @@ Shaun's follow-up: "Player has choice as to where to put the results." The picke
 ## Addendum — 2026-10-28: My Way reroll rule (8 and below)
 
 Shaun's message arrived garbled by dictation ("rerolling all eight and bellows"); he confirmed it is a reroll rule for My Way, and the rule as built is: **every grid result of 8 or below can be rerolled** — a "Reroll 8 and below (n)" button (n = current low-cell count, disabled at 0) replaces each low cell with a fresh 4d6-drop-lowest roll; the new roll stands even if it lands low again; cells above 8 are untouched. Rerolling clears the picked line and placements, same as a full re-roll. If Shaun's table rule differs (e.g., reroll until above 8, or only within the picked line), it is a one-line change to `rerollLowCells` / the handler. Suite `~/race-split-work/verify-reroll.ts` 5/5.
+
+## Correction — 2026-10-28: reroll until it beats 8
+
+Shaun, on the first version ("new roll stands"): "Yeah, keep rerolling the eights or belows until it's not." `rerollLowCells` now loops each low cell until its result is above 8, so one tap of the button leaves no low cells in the grid. Suite extended: 6/6, including the new no-low-cells-remain check.
