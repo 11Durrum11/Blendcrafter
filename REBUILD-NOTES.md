@@ -3786,3 +3786,11 @@ Shaun: "It's still rolling eight and below." Correct — the reroll-until versio
 ## Feature addendum — 2026-10-28: classes get the race treatment (Shaun's order)
 
 "Give the classes the same treatment that you did to the races." Base and prestige classes already lived in separate cards (the class equivalent of the race split), so this adds the other half: segregation. In both the Class Levels card and the Prestige Classes card, turned-on classes render first and turned-off classes sink below under a "Turned off" subheading (same pattern as `renderRaceSection`). Card markup was extracted verbatim into `renderClassCard` / `renderPrestigeCard` in `src/components/steps/step-classes.tsx`; a marker census against the pre-change file (restored from the repo to repair a bad first splice) confirms every element — gating UI, certification checkboxes, warnings, switches, source links — survived exactly once. Prestige gating behavior is untouched.
+
+## Addendum — 2026-10-28: prestige gray-out completed + prereq float (Shaun's orders)
+
+Two prestige-list rules from Shaun, back to back:
+
+1. **"Keep all the prestige classes grayed out until their prerequisites are met."** Audit first: on a blank build the gate blocks all 360 of 360 prestige classes (every one has at least one gate entry) — the engine side was airtight. One visual exception existed: a class whose levels were taken and whose prerequisites later broke kept full opacity (red warning only). Closed: the card now dims whenever the gate is not selectable, taken or not; the warning and the remove-levels button are unchanged.
+
+2. **"Put the prestige classes that have the prerequisites met on top and everything else sinks to the bottom."** The prestige lists (turned-on and turned-off alike) are now stably sorted by gate selectability — met first, the rest below in their original order (`sortPrestigeByPrereqMet`, exported from step-classes.tsx). Suite `~/race-split-work/verify-float.ts` 6/6, including stability and a real-gates integration check; the prcgate engine suite still passes.

@@ -15,6 +15,20 @@ import { RULESET_LABELS } from "@/components/ruleset-toggle";
 import { EntityDetailDialog } from "@/components/entity-detail-dialog";
 import { describeClass, describePrestigeClass, type EntityDetail } from "@/lib/entity-descriptions";
 
+/**
+ * Prereq float (Shaun, 2026-10-28): prestige classes whose prerequisites
+ * are met sit on top; everything else sinks to the bottom. Stable — the
+ * original order is preserved within the met and unmet groups.
+ */
+export function sortPrestigeByPrereqMet<T extends { id: string }>(
+  list: T[],
+  gates: Map<string, { selectable: boolean }>
+): T[] {
+  return [...list].sort(
+    (a, b) => Number(gates.get(b.id)?.selectable ?? false) - Number(gates.get(a.id)?.selectable ?? false)
+  );
+}
+
 interface StepClassesProps {
   classLevels: ClassLevelChoice[];
   prestigeClassLevels: ClassLevelChoice[];
@@ -70,6 +84,11 @@ export function StepClasses({
     }
     return gates;
   }, [resolved, certifications, enabledRulesets]);
+
+  // Met-prerequisite prestige classes float to the top of each list
+  // (turned-on and turned-off alike); the rest sink below.
+  const prestigeOnSorted = sortPrestigeByPrereqMet(prestigeOn, prestigeGates);
+  const prestigeOffSorted = sortPrestigeByPrereqMet(prestigeOff, prestigeGates);
 
   const renderClassCard = (cls: (typeof visibleClasses)[number]) => {
     const current = classLevels.find((c) => c.classId === cls.id);
@@ -162,7 +181,11 @@ export function StepClasses({
         key={cls.id}
         className={cn(
           "rounded-md border border-card-border bg-card p-4",
-          (isDisabled || (blocked && !taken)) && "opacity-50"
+          // Shaun's rule (2026-10-28): ALL prestige classes stay grayed
+          // out until their prerequisites are met — including one whose
+          // levels were taken and whose prerequisites later broke (it
+          // keeps its red warning and its remove button below).
+          (isDisabled || blocked) && "opacity-50"
         )}
         data-testid={`prestige-card-${cls.id}`}
       >
@@ -340,11 +363,11 @@ export function StepClasses({
             <p className="text-sm text-muted-foreground">No prestige classes available for the enabled rule sets.</p>
           ) : (
             <>
-              <div className="grid gap-3 sm:grid-cols-2">{prestigeOn.map(renderPrestigeCard)}</div>
-              {prestigeOff.length > 0 && (
+              <div className="grid gap-3 sm:grid-cols-2">{prestigeOnSorted.map(renderPrestigeCard)}</div>
+              {prestigeOffSorted.length > 0 && (
                 <>
                   <h4 className="mt-5 font-display text-sm font-semibold text-muted-foreground">Turned off</h4>
-                  <div className="mt-3 grid gap-3 sm:grid-cols-2">{prestigeOff.map(renderPrestigeCard)}</div>
+                  <div className="mt-3 grid gap-3 sm:grid-cols-2">{prestigeOffSorted.map(renderPrestigeCard)}</div>
                 </>
               )}
             </>
