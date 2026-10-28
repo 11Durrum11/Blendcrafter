@@ -79,6 +79,44 @@ export function diceLines(grid: DiceCell[][]): DiceLine[] {
   return lines;
 }
 
+/**
+ * Free placement of a picked line's results (Shaun, 2026-10-28): the
+ * player chooses which ability each result goes to — the line is a
+ * pool, not an order. Placements are keyed by pool INDEX (not value),
+ * so duplicate results (two 14s) stay distinct.
+ */
+export type LinePlacements = Record<AbilityKey, number | null>;
+
+export function emptyPlacements(): LinePlacements {
+  return { str: null, dex: null, con: null, int: null, wis: null, cha: null };
+}
+
+export function placeValue(placements: LinePlacements, ability: AbilityKey, poolIndex: number): LinePlacements {
+  const next = { ...placements };
+  (Object.keys(next) as AbilityKey[]).forEach((key) => {
+    if (next[key] === poolIndex) next[key] = null;
+  });
+  next[ability] = poolIndex;
+  return next;
+}
+
+export function unplaceValue(placements: LinePlacements, ability: AbilityKey): LinePlacements {
+  return { ...placements, [ability]: null };
+}
+
+export function placementsComplete(placements: LinePlacements): boolean {
+  return ABILITY_KEYS.every((key) => placements[key] !== null);
+}
+
+export function placementsToScores(placements: LinePlacements, pool: number[]): Record<AbilityKey, number> {
+  const scores = {} as Record<AbilityKey, number>;
+  ABILITY_KEYS.forEach((key) => {
+    const idx = placements[key];
+    scores[key] = idx !== null ? pool[idx] ?? 10 : 10;
+  });
+  return scores;
+}
+
 const POINT_BUY_COST: Record<number, number> = { 8: 0, 9: 1, 10: 2, 11: 3, 12: 4, 13: 5, 14: 6, 15: 8, 16: 10, 17: 13, 18: 16 };
 const POINT_BUY_BUDGET = 25;
 
@@ -97,6 +135,8 @@ export function StepRace({
   const [mode, setMode] = useState<"standard" | "pointbuy" | "myway">("standard");
   const [diceGrid, setDiceGrid] = useState<DiceCell[][] | null>(null);
   const [pickedLineId, setPickedLineId] = useState<string | null>(null);
+  const [placements, setPlacements] = useState<LinePlacements>(emptyPlacements());
+  const [grabbedPoolIndex, setGrabbedPoolIndex] = useState<number | null>(null);
   const [detail, setDetail] = useState<EntityDetail | null>(null);
   const visibleRaces = ALL_RACES.filter((race) => enabledRulesets.includes(race.ruleset));
   // Race grouping (Shaun, 2026-10-28): playable character races first,
@@ -113,15 +153,32 @@ export function StepRace({
   function handleRollGrid() {
     setDiceGrid(rollDiceGrid());
     setPickedLineId(null);
+    setPlacements(emptyPlacements());
+    setGrabbedPoolIndex(null);
   }
 
   function handlePickLine(line: DiceLine) {
     setPickedLineId(line.id);
-    const scores = {} as Record<AbilityKey, number>;
-    ABILITY_KEYS.forEach((key, i) => {
-      scores[key] = line.values[i] ?? 10;
-    });
-    onAllAbilitiesChange(scores);
+    setPlacements(emptyPlacements());
+    setGrabbedPoolIndex(null);
+  }
+
+  function handleChipClick(poolIndex: number) {
+    setGrabbedPoolIndex((cur) => (cur === poolIndex ? null : poolIndex));
+  }
+
+  function handleSlotClick(key: AbilityKey) {
+    if (grabbedPoolIndex !== null) {
+      setPlacements((p) => placeValue(p, key, grabbedPoolIndex));
+      setGrabbedPoolIndex(null);
+    } else if (placements[key] !== null) {
+      setPlacements((p) => unplaceValue(p, key));
+    }
+  }
+
+  function handleApplyPlacements() {
+    if (!pickedLine || !placementsComplete(placements)) return;
+    onAllAbilitiesChange(placementsToScores(placements, pickedLine.values));
   }
 
   function assignStandardArray() {
@@ -305,8 +362,7 @@ export function StepRace({
             <div className="space-y-3">
               <p className="text-sm text-muted-foreground">
                 Roll 4d6 and drop the lowest, thirty-six times, into a 6×6 grid — then pick any row, any column, or
-                either diagonal. The line you pick fills your abilities in order (Str, Dex, Con, Int, Wis, Cha); you
-                can still adjust them below afterwards.
+                either diagonal, and place its six results on whichever abilities you choose.
               </p>
               {!diceGrid ? (
                 <Button type="button" size="sm" onClick={handleRollGrid} data-testid="button-roll-my-way">
@@ -351,6 +407,80 @@ export function StepRace({
                         ))}
                     </div>
                   ))}
+                  {pickedLine && (
+                    <div className="space-y-2 rounded-md border border-card-border bg-card p-3">
+                      <p className="text-sm text-muted-foreground">
+                        Place the results: tap a result, then tap the ability it goes to. Tap a filled ability to
+                        free its result back up.
+                      </p>
+                      <div className="flex flex-wrap gap-1.5">
+                        {pickedLine.values.map((value, i) => {
+                          const placed = ABILITY_KEYS.some((key) => placements[key] === i);
+                          return (
+                            <Button
+                              key={i}
+                              type="button"
+                              size="sm"
+                              variant={grabbedPoolIndex === i ? "default" : "outline"}
+                              disabled={placed}
+                              onClick={() => handleChipClick(i)}
+                              data-testid={`button-pool-${i}`}
+                              className={cn("font-mono", placed && "opacity-40 line-through")}
+                            >
+                              {value}
+                            </Button>
+                          );
+                        })}
+                      </div>
+                      <div className="grid max-w-md grid-cols-3 gap-1.5 sm:grid-cols-6">
+                        {ABILITY_KEYS.map((key) => {
+                          const idx = placements[key];
+                          return (
+                            <button
+                              key={key}
+                              type="button"
+                              onClick={() => handleSlotClick(key)}
+                              data-testid={`button-slot-${key}`}
+                              className={cn(
+                                "rounded-md border px-1 py-1.5 text-center transition-colors",
+                                idx !== null
+                                  ? "border-primary bg-accent/40"
+                                  : "border-card-border bg-card hover-elevate"
+                              )}
+                            >
+                              <div className="text-[10px] uppercase tracking-wide text-muted-foreground">
+                                {ABILITY_LABEL[key]}
+                              </div>
+                              <div className="font-mono text-sm font-bold">{idx !== null ? pickedLine.values[idx] : "—"}</div>
+                            </button>
+                          );
+                        })}
+                      </div>
+                      <div className="flex gap-2">
+                        <Button
+                          type="button"
+                          size="sm"
+                          disabled={!placementsComplete(placements)}
+                          onClick={handleApplyPlacements}
+                          data-testid="button-apply-my-way"
+                        >
+                          Apply these scores
+                        </Button>
+                        <Button
+                          type="button"
+                          size="sm"
+                          variant="outline"
+                          onClick={() => {
+                            setPlacements(emptyPlacements());
+                            setGrabbedPoolIndex(null);
+                          }}
+                          data-testid="button-clear-my-way"
+                        >
+                          Clear placements
+                        </Button>
+                      </div>
+                    </div>
+                  )}
                   <Button type="button" size="sm" variant="outline" onClick={handleRollGrid} data-testid="button-reroll-my-way">
                     <Dices className="mr-1.5 h-3.5 w-3.5" /> Re-roll
                   </Button>
