@@ -269,6 +269,72 @@ export interface MagicItemDefinition {
 }
 
 /* ------------------------------------------------------------------ */
+/* Spells (Batch 12: full builder integration)                         */
+/* ------------------------------------------------------------------ */
+
+/**
+ * One spell as printed in its source book. `levels` maps a spell-list
+ * name exactly as the source prints it ("Sorcerer/Wizard", "Cleric",
+ * "Bard", domain names such as "Spell", ...) to the spell's level on
+ * that list. Fields the source does not print (Spell Compendium omits
+ * the Saving Throw / Spell Resistance lines for some spells, and
+ * abbreviates "functions like X" entries) say so rather than inventing
+ * a value.
+ */
+export interface SpellDefinition {
+  id: string;
+  name: string;
+  ruleset: Ruleset;
+  school: string;
+  subschool?: string;
+  descriptors: string[];
+  levels: Record<string, number>;
+  components: string;
+  castingTime: string;
+  range: string;
+  /** Target, area, or effect line as printed (whichever the spell has). */
+  targetOrArea: string;
+  duration: string;
+  savingThrow: string;
+  spellResistance: string;
+  /** Short mechanical gist in our own words — never book text. */
+  summary: string;
+  /** Optional provenance note (e.g. abbreviated "functions like" entries). */
+  note?: string;
+  source: string;
+  sourceUrl: string;
+}
+
+export type CastingKind = "prepared-arcane" | "prepared-divine" | "spontaneous";
+
+/**
+ * Spellcasting data for one base class, levels 1–10 (the app's class-row
+ * convention). Rows are indexed by class level - 1; each row is indexed
+ * by spell level 0–9. A `null` cell means the class cannot cast spells
+ * of that level at all yet; a `0` cell means "bonus spells only".
+ * `spellsKnown` is present for spontaneous classes (and classes with a
+ * fixed known list); a `null` cell there means "no numeric cap" (e.g.
+ * warmage/beguiler know their whole list — see `knowsEntireList`).
+ * Prepared classes learn their whole list, so they carry no
+ * spellsKnown table; a wizard's spellbook has no rules cap either.
+ */
+export interface CastingProfile {
+  classId: string;
+  /** The key used in SpellDefinition.levels for this class's list. */
+  listName: string;
+  kind: CastingKind;
+  keyAbility: AbilityKey;
+  spellsPerDay: (number | null)[][];
+  spellsKnown?: (number | null)[][];
+  knowsEntireList?: boolean;
+  /** School restriction on the class list (spellthief). */
+  allowedSchools?: string[];
+  note?: string;
+  source: string;
+  sourceUrl: string;
+}
+
+/* ------------------------------------------------------------------ */
 /* Body modifications: grafts, symbionts, warforged components         */
 /* ------------------------------------------------------------------ */
 
@@ -488,6 +554,13 @@ export interface CharacterBuild {
    * uncertified "special" prerequisites cannot be taken.
    */
   prestigePrereqCertifications: Record<string, string[]>;
+  /**
+   * Selected spell ids per casting class id (Batch 12). For spontaneous
+   * classes these are spells known; for prepared classes, the spells
+   * prepared / in the spellbook. Missing key = no selections. Legacy
+   * saved builds predate the field and load with no selections.
+   */
+  selectedSpells: Record<string, string[]>;
   inventory: InventoryEntry[];
   enabledRulesets: Ruleset[];
   houseRules: HouseRules;

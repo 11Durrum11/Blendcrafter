@@ -19,6 +19,7 @@ import {
 import { ALL_CLASSES, ALL_EQUIPMENT, ALL_FEATS, ALL_MAGIC_ITEMS, ALL_PRESTIGE_CLASSES, ALL_RACES, ALL_SKILLS, ALL_TEMPLATES } from "@/data";
 import { checkPrerequisites, checkTemplateOrdering } from "./prerequisites";
 import { buildPrereqContext, evaluatePrestigeClass } from "./prestige-prerequisites";
+import { validateSelectedSpells } from "./spells";
 import { resolveModifierStack, formatSigned } from "./stacking";
 import { averageRoll, parseDieFaces, stepDieSize } from "./dice";
 import { progressionRow, SAVE_ABILITY } from "./progression";
@@ -658,6 +659,16 @@ export function resolveCharacter(build: CharacterBuild): ResolvedCharacter {
     inventory: resolvedInventory,
     validation,
   };
+
+  // Spell selection validation (Batch 12): list membership, level
+  // access, and per-level known/prepared caps from the casting
+  // profiles. Prestige "+1 spellcasting" advancement is not modeled
+  // (documented in src/engine/spells.ts).
+  {
+    const totals = {} as Record<AbilityKey, number | null>;
+    for (const key of ABILITY_KEYS) totals[key] = resolvedCharacter.abilityScores[key]?.total ?? null;
+    validation.push(...validateSelectedSpells(build, totals));
+  }
 
   // Prestige-class prerequisite enforcement for classes already taken:
   // levels are never stripped, but if the build no longer meets a taken

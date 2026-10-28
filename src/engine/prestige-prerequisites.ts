@@ -1,6 +1,7 @@
-import { ALL_CLASSES, ALL_FEATS, ALL_PRESTIGE_CLASSES, ALL_RACES, ALL_SKILLS } from "@/data";
+import { ALL_CLASSES, ALL_FEATS, ALL_PRESTIGE_CLASSES, ALL_RACES, ALL_SKILLS, ALL_SPELLS, SPELLS_BY_ID } from "@/data";
 import {
   type AbilityKey,
+  type CharacterBuild,
   type CreatureType,
   type FeatCategory,
   type FeatDefinition,
@@ -9,8 +10,10 @@ import {
   type SaveKey,
   type Size,
   type SkillDefinition,
+  type SpellDefinition,
 } from "./types";
 import { progressionRow } from "./progression";
+import { canCastNamedSpell, castingFacts, type CastingType, type ClassCastingFacts } from "./spells";
 
 /**
  * Prestige-class prerequisite enforcement.
@@ -22,11 +25,20 @@ import { progressionRow } from "./progression";
  *
  *   met     — the requirement is machine-checkable and satisfied.
  *   unmet   — machine-checkable and NOT satisfied (carries a reason).
- *   special — not machine-checkable with the data the app models (spell /
- *             power / mystery casting, class features such as sneak attack
- *             or turn undead, languages, story requirements, ...). Special
+ *   special — not machine-checkable with the data the app models
+ *             (psionic powers, shadowcasting mysteries, invocations,
+ *             class features such as sneak attack or turn undead,
+ *             languages, story requirements, ...). Special
  *             prerequisites never hard-gate on a guess: the player must
  *             certify them (CharacterBuild.prestigePrereqCertifications).
+ *
+ * Since Batch 12, spellcasting prerequisites ARE modeled (casting
+ * profiles + spell selections in src/engine/spells.ts): "able to cast
+ * Nth-level arcane/divine spells", "arcane/divine caster level Nth",
+ * and named-spell requirements ("able to cast charm person") evaluate
+ * as hard checks. Descriptor/school counting requirements ("able to
+ * cast at least three illusion spells"), domain-access requirements,
+ * and spell-like-ability alternatives remain special.
  *
  * A prestige class is selectable iff every entry is met, or special and
  * certified. Parsing is conservative by design: any phrasing that does not
@@ -85,6 +97,10 @@ export interface PrereqContext {
   classLevels: ReadonlyMap<string, number>;
   totalHitDice: number;
   alignment: string;
+  /** Batch 12: per-class casting facts (profiles + selections). */
+  castingFacts: ClassCastingFacts[];
+  /** Batch 12: the build's spell selections, for named-spell checks. */
+  selectedSpells: CharacterBuild["selectedSpells"];
 }
 
 /* ------------------------------------------------------------------ */
@@ -127,6 +143,8 @@ export function buildPrereqContext(resolved: ResolvedCharacter): PrereqContext {
     classLevels,
     totalHitDice: resolved.totalHitDice,
     alignment: build.personality.alignment,
+    castingFacts: castingFacts(build, abilityScores),
+    selectedSpells: build.selectedSpells ?? {},
   };
 }
 
@@ -183,6 +201,12 @@ function parseCount(word: string): number | null {
 /* ------------------------------------------------------------------ */
 
 const SKILLS_BY_NAME = new Map(ALL_SKILLS.map((s) => [norm(s.name), s]));
+const SPELLS_BY_NAME = new Map<string, SpellDefinition>();
+for (const s of ALL_SPELLS) {
+  const key = norm(s.name);
+  if (!SPELLS_BY_NAME.has(key)) SPELLS_BY_NAME.set(key, s);
+}
+const ORDINAL_WORDS = ["0th", "1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th"];
 const FEATS_BY_NAME = new Map(ALL_FEATS.map((f) => [norm(f.name), f]));
 const RACES_BY_NAME = new Map(ALL_RACES.map((r) => [norm(r.name), r]));
 const RACE_NAMES_NORM = [...RACES_BY_NAME.keys()].sort((a, b) => b.length - a.length);
@@ -300,7 +324,11 @@ type ParsedFragment =
   | { kind: "class-level"; classIds: string[]; name: string; required: number }
   | { kind: "alignment"; options: AlignmentOption[]; printed: string }
   | { kind: "identity"; options: IdentityOption[]; printed: string }
-  | { kind: "size"; target: string; mode: "exact" | "or-larger" | "or-smaller" };
+  | { kind: "size"; target: string; mode: "exact" | "or-larger" | "or-smaller" }
+  | { kind: "cast-level"; type: CastingType | "any"; level: number; mode: "any" | "prepared" | "spontaneous" }
+  | { kind: "caster-level"; type: CastingType | "any"; level: number }
+  | { kind: "cast-spell"; options: SpellDefinition[]; type?: CastingType }
+  | { kind: "cast-school-spell"; type: CastingType; level: number; school: string };
 
 interface ParsedEntry {
   text: string;
@@ -312,7 +340,7 @@ interface ParsedEntry {
 /* ------------------------------------------------------------------ */
 
 const PREFIX_RE =
-  /^(skills?|feats?|spells?|spellcasting|special|race|alignment|languages?|base attack bonus|base save bonuses|base save bonus|base saves|base save|weapon proficiency|proficiency|type\/subtype|creature type|type|patron|religion|deity|gender|martial maneuvers|martial stances|skill tricks|psionics|powers|invocations?|warlock invocation|spell|class skills)\s*:\s*/i;
+  /^(spells or spell-like abilities|skills?|feats?|spells?|spellcasting|special|race|alignment|languages?|base attack bonus|base save bonuses|base save bonus|base saves|base save|weapon proficiency|proficiency|type\/subtype|creature type|type|patron|religion|deity|gender|martial maneuvers|martial stances|skill tricks|psionics|powers|invocations?|warlock invocation|spell|class skills)\s*:\s*/i;
 
 type PrefixHint = "skill" | "feat" | "race" | "type" | "alignment" | "bab" | "save" | "other";
 
@@ -587,6 +615,72 @@ function classifyFragment(frag: string, hint: PrefixHint, depth: number): { text
     }
   }
 
+  // Spellcasting (Batch 12): caster level, "able to cast Nth-level
+  // arcane/divine spells" (with prepared/spontaneous qualifiers), and
+  // named-spell requirements. Descriptor/school counting phrasings
+  // ("at least three illusion spells") deliberately do NOT match any
+  // pattern here and stay special.
+  const casterLevel = t.match(/^(arcane|divine) caster level (\d+)(?:st|nd|rd|th)?$/);
+  if (casterLevel) {
+    return self({ kind: "caster-level", type: casterLevel[1] as CastingType, level: Number(casterLevel[2]) });
+  }
+  const casterLevelAny = t.match(/^caster level (\d+)(?:st|nd|rd|th)?$/);
+  if (casterLevelAny) return self({ kind: "caster-level", type: "any", level: Number(casterLevelAny[1]) });
+
+  const castLevel = t.match(
+    /^(?:able|ability) to (spontaneously cast|prepare and cast|cast) (\d+)(?:st|nd|rd|th)-level (arcane or divine|divine or arcane|arcane|divine) spells?$/
+  );
+  if (castLevel) {
+    const mode =
+      castLevel[1] === "spontaneously cast" ? "spontaneous" : castLevel[1] === "prepare and cast" ? "prepared" : "any";
+    const type = castLevel[3].includes(" or ") ? "any" : (castLevel[3] as CastingType);
+    return self({ kind: "cast-level", type, level: Number(castLevel[2]), mode });
+  }
+  const castLevelNoType = t.match(/^(?:able|ability) to cast (\d+)(?:st|nd|rd|th)-level spells?$/);
+  if (castLevelNoType) return self({ kind: "cast-level", type: "any", level: Number(castLevelNoType[1]), mode: "any" });
+  const castWithoutPrep = t.match(/^(?:able|ability) to cast (arcane|divine) spells? without preparation$/);
+  if (castWithoutPrep) {
+    return self({ kind: "cast-level", type: castWithoutPrep[1] as CastingType, level: 1, mode: "spontaneous" });
+  }
+  const castAnyOfType = t.match(/^(?:able|ability) to cast (arcane|divine) spells?$/);
+  if (castAnyOfType) return self({ kind: "cast-level", type: castAnyOfType[1] as CastingType, level: 1, mode: "any" });
+  const castSchool = t.match(
+    /^(?:able|ability) to prepare and cast at least one (\d+)(?:st|nd|rd|th)-level (arcane|divine) spell from the ([a-z]+) school$/
+  );
+  if (castSchool) {
+    return self({
+      kind: "cast-school-spell",
+      type: castSchool[2] as CastingType,
+      level: Number(castSchool[1]),
+      school: castSchool[3],
+    });
+  }
+
+  // Named spells: "able to cast charm person", "able to cast dismissal
+  // or dispel evil", "able to cast zone of truth as a divine spell".
+  const namedCast = t.match(/^(?:able|ability) to cast (.+)$/);
+  if (namedCast) {
+    let rest = namedCast[1].trim();
+    let namedType: CastingType | undefined;
+    const asType = rest.match(/^(.+?) as an? (arcane|divine) spell$/);
+    if (asType) {
+      rest = asType[1].trim();
+      namedType = asType[2] as CastingType;
+    }
+    rest = rest.replace(/ spells?$/, "").trim();
+    const alternatives = splitTopLevel(rest, [" or "]).map((p) => p.trim());
+    const resolvedSpells = alternatives.map((alt) => SPELLS_BY_NAME.get(norm(alt)));
+    if (resolvedSpells.length > 0 && resolvedSpells.every((r) => r !== undefined)) {
+      return self({ kind: "cast-spell", options: resolvedSpells as SpellDefinition[], type: namedType });
+    }
+  }
+  // Bare spell name: the second half of an "X and Y" compound whose
+  // first half carried the "able to cast" phrasing.
+  if (!/^(able|ability)\b/.test(t) && !/\d/.test(t) && t.length <= 40) {
+    const bareSpell = SPELLS_BY_NAME.get(t);
+    if (bareSpell) return self({ kind: "cast-spell", options: [bareSpell] });
+  }
+
   // Ability score: "Dexterity 13".
   const ability = t.match(/^(strength|dexterity|constitution|intelligence|wisdom|charisma|str|dex|con|int|wis|cha) (\d+)\+?$/);
   if (ability) {
@@ -647,7 +741,15 @@ function classifyFragment(frag: string, hint: PrefixHint, depth: number): { text
   if (depth === 0 && t.includes(" and ")) {
     const sides = splitTopLevel(frag, [" and "]);
     if (sides.length >= 2) {
-      const classified = sides.flatMap((side) => classifyFragment(side, hint, depth + 1));
+      // "Able to cast 2nd-level divine spells and 2nd-level arcane
+      // spells": later sides inherit the first side's verb phrase.
+      const verbMatch = sides[0].trim().match(/^(able|ability) to cast\s+/i);
+      const adjusted = sides.map((side, i) => {
+        const s = side.trim();
+        if (i > 0 && verbMatch && !/^(able|ability)\b/i.test(s)) return `${verbMatch[0]}${s}`;
+        return s;
+      });
+      const classified = adjusted.flatMap((side) => classifyFragment(side, hint, depth + 1));
       if (classified.every((c) => c.parsed.kind !== "special")) return classified;
     }
   }
@@ -882,6 +984,65 @@ function evalFragment(parsed: ParsedFragment, ctx: PrereqContext): { status: Pre
         : {
             status: "unmet",
             reason: `Must be ${parsed.target} size${parsed.mode === "exact" ? "" : ` or ${parsed.mode === "or-larger" ? "larger" : "smaller"}`} (you are ${ctx.size})`,
+          };
+    }
+    case "cast-level": {
+      const pool = ctx.castingFacts.filter(
+        (f) =>
+          (parsed.type === "any" || f.type === parsed.type) &&
+          (parsed.mode === "any" ||
+            (parsed.mode === "prepared" ? f.profile.kind !== "spontaneous" : f.profile.kind === "spontaneous"))
+      );
+      const have = pool.reduce((m, f) => Math.max(m, f.maxLevel), -1);
+      const typeLabel = parsed.type === "any" ? "" : ` ${parsed.type}`;
+      const modeLabel = parsed.mode === "prepared" ? "prepared " : parsed.mode === "spontaneous" ? "spontaneous " : "";
+      return have >= parsed.level
+        ? { status: "met" }
+        : {
+            status: "unmet",
+            reason: `Able to cast ${ORDINAL_WORDS[parsed.level]}-level${typeLabel} spells (${modeLabel}your best is ${have < 0 ? "no casting" : have === 0 ? "0-level only" : `${ORDINAL_WORDS[have]}-level`})`,
+          };
+    }
+    case "caster-level": {
+      const pool = ctx.castingFacts.filter((f) => parsed.type === "any" || f.type === parsed.type);
+      const have = pool.reduce((m, f) => Math.max(m, f.classLevel), 0);
+      const typeLabel = parsed.type === "any" ? "" : `${parsed.type} `;
+      return have >= parsed.level
+        ? { status: "met" }
+        : {
+            status: "unmet",
+            reason: `${typeLabel.charAt(0).toUpperCase() + typeLabel.slice(1)}caster level ${parsed.level} (yours is ${have})`,
+          };
+    }
+    case "cast-spell": {
+      const facts = parsed.type ? ctx.castingFacts.filter((f) => f.type === parsed.type) : ctx.castingFacts;
+      const ok = parsed.options.some((spell) =>
+        canCastNamedSpell(ctx.selectedSpells, spell, facts, ctx.abilityScores)
+      );
+      const names = parsed.options.map((s) => s.name).join(" or ");
+      return ok
+        ? { status: "met" }
+        : {
+            status: "unmet",
+            reason: `Able to cast ${names}${parsed.type ? ` as a ${parsed.type} spell` : ""} (not castable with this build's classes and spell selections)`,
+          };
+    }
+    case "cast-school-spell": {
+      const ok = ctx.castingFacts.some(
+        (f) =>
+          f.type === parsed.type &&
+          f.profile.kind !== "spontaneous" &&
+          f.maxLevel >= parsed.level &&
+          (ctx.selectedSpells[f.classId] ?? []).some((id) => {
+            const sp = SPELLS_BY_ID[id];
+            return sp !== undefined && norm(sp.school) === parsed.school && sp.levels[f.profile.listName] === parsed.level;
+          })
+      );
+      return ok
+        ? { status: "met" }
+        : {
+            status: "unmet",
+            reason: `Able to prepare and cast a ${ORDINAL_WORDS[parsed.level]}-level ${parsed.type} spell from the ${parsed.school} school (none selected for a prepared ${parsed.type} class)`,
           };
     }
   }

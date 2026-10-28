@@ -33,6 +33,7 @@ export function createDefaultBuild(): CharacterBuild {
     skillRanks: {},
     featIds: [],
     prestigePrereqCertifications: {},
+    selectedSpells: {},
     inventory: [],
     // Standard set (Shaun's live choice, made the default 2026-10-27):
     // every toggleable ruleset on.
@@ -58,6 +59,9 @@ export function normalizeBuild(input: CharacterBuild): CharacterBuild {
     // double — forced off on every load, even for builds saved while it
     // was on. Stays off until Shaun asks to turn it on.
     houseRules: { ...base.houseRules, ...(input.houseRules ?? {}), crossClassSkillDoubleCost: false },
+    // Batch 12: builds saved before spell selection existed have no
+    // selectedSpells field — default to no selections.
+    selectedSpells: { ...(input.selectedSpells ?? {}) },
     personality: { ...base.personality, ...(input.personality ?? {}), weights: { ...base.personality.weights, ...(input.personality?.weights ?? {}) } },
   };
 }
@@ -88,6 +92,7 @@ export interface UseCharacterBuild {
   setTemplateForm: (templateId: string, formId: string) => void;
   setSkillRank: (skillId: string, ranks: number) => void;
   toggleFeat: (featId: string, selected: boolean) => void;
+  toggleSpell: (classId: string, spellId: string, selected: boolean) => void;
   addInventory: (kind: InventoryEntry["kind"], itemId: string) => void;
   removeInventory: (id: string) => void;
   toggleEquipped: (id: string, equipped: boolean) => void;
@@ -223,6 +228,22 @@ export function useCharacterBuild(initial?: CharacterBuild): UseCharacterBuild {
     }));
   }, []);
 
+  const toggleSpell = useCallback((classId: string, spellId: string, selected: boolean) => {
+    setBuildState((b) => {
+      const current = b.selectedSpells?.[classId] ?? [];
+      const next = selected
+        ? current.includes(spellId)
+          ? current
+          : [...current, spellId]
+        : current.filter((s) => s !== spellId);
+      if (next === current) return b;
+      const selectedSpells = { ...(b.selectedSpells ?? {}) };
+      if (next.length > 0) selectedSpells[classId] = next;
+      else delete selectedSpells[classId];
+      return { ...b, selectedSpells };
+    });
+  }, []);
+
   const addInventory = useCallback((kind: InventoryEntry["kind"], itemId: string) => {
     setBuildState((b) => ({
       ...b,
@@ -306,6 +327,7 @@ export function useCharacterBuild(initial?: CharacterBuild): UseCharacterBuild {
     setTemplateForm,
     setSkillRank,
     toggleFeat,
+    toggleSpell,
     addInventory,
     removeInventory,
     toggleEquipped,

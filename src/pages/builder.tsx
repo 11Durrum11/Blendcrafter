@@ -11,6 +11,7 @@ import { CharacterRepository } from "@/components/character-repository";
 import { OglFooter } from "@/components/ogl-footer";
 import { StepRace } from "@/components/steps/step-race";
 import { StepClasses } from "@/components/steps/step-classes";
+import { StepSpells } from "@/components/steps/step-spells";
 import { StepSkills } from "@/components/steps/step-skills";
 import { StepTemplates } from "@/components/steps/step-templates";
 import { StepFeats } from "@/components/steps/step-feats";
@@ -18,12 +19,14 @@ import { StepEquipment } from "@/components/steps/step-equipment";
 import { StepPersonality } from "@/components/steps/step-personality";
 import { StepSheet } from "@/components/steps/step-sheet";
 import { useCharacterBuild } from "@/lib/use-character-build";
+import { CASTING_PROFILES_BY_ID } from "@/data";
 import { exportCharacterJson, importCharacterJson } from "@/lib/character-io";
 import { useToast } from "@/hooks/use-toast";
 
 const STEPS = [
   { id: "race", label: "Race & Abilities" },
   { id: "classes", label: "Classes" },
+  { id: "spells", label: "Spells" },
   { id: "skills", label: "Skills" },
   { id: "templates", label: "Templates" },
   { id: "feats", label: "Feats" },
@@ -47,9 +50,16 @@ export default function Builder() {
   const cb = useCharacterBuild();
   const { build, resolved } = cb;
 
+  // The Spells step exists only when the build has a class with a
+  // casting profile (Batch 12).
+  const hasCaster = build.classLevels.some((c) => c.levels > 0 && CASTING_PROFILES_BY_ID[c.classId]);
+  const visibleSteps = STEPS.filter((s) => s.id !== "spells" || hasCaster);
+  const effectiveStep: StepId = currentStep === "spells" && !hasCaster ? "classes" : currentStep;
+  const visibleIndex = visibleSteps.findIndex((s) => s.id === effectiveStep);
+
   const goTo = (step: StepId) => navigate(`/step/${step}`);
-  const prev = STEPS[stepIndex - 1];
-  const next = STEPS[stepIndex + 1];
+  const prev = visibleSteps[visibleIndex - 1];
+  const next = visibleSteps[visibleIndex + 1];
 
   async function handleImport(file: File | undefined) {
     if (!file) return;
@@ -147,9 +157,9 @@ export default function Builder() {
       </header>
 
       <main className="mx-auto max-w-6xl px-4 py-6 sm:px-6">
-        <Tabs value={currentStep} onValueChange={(v) => goTo(v as StepId)}>
+        <Tabs value={effectiveStep} onValueChange={(v) => goTo(v as StepId)}>
           <TabsList className="flex h-auto flex-wrap justify-start gap-1" data-testid="step-tabs">
-            {STEPS.map((s, i) => (
+            {visibleSteps.map((s, i) => (
               <TabsTrigger key={s.id} value={s.id} data-testid={`tab-step-${s.id}`}>
                 <span className="mr-1.5 font-mono text-xs text-muted-foreground">{i + 1}</span>
                 {s.label}
@@ -173,7 +183,7 @@ export default function Builder() {
               onToggleAbilityEnabled={cb.toggleAbilityEnabled}
             />
           )}
-          {currentStep === "classes" && (
+          {effectiveStep === "classes" && (
             <StepClasses
               classLevels={build.classLevels}
               prestigeClassLevels={build.prestigeClassLevels}
@@ -188,6 +198,9 @@ export default function Builder() {
               onToggleClassEnabled={cb.toggleClassEnabled}
               onTogglePrestigeCertification={cb.togglePrestigeCertification}
             />
+          )}
+          {effectiveStep === "spells" && (
+            <StepSpells build={build} resolved={resolved} onToggleSpell={cb.toggleSpell} />
           )}
           {currentStep === "skills" && (
             <StepSkills
@@ -242,7 +255,7 @@ export default function Builder() {
             <ChevronLeft className="mr-1 h-4 w-4" /> {prev ? prev.label : "Back"}
           </Button>
           <span className="text-xs text-muted-foreground">
-            Step {stepIndex + 1} of {STEPS.length}
+            Step {visibleIndex + 1} of {visibleSteps.length}
           </span>
           <Button disabled={!next} onClick={() => next && goTo(next.id)} data-testid="button-next-step">
             {next ? next.label : "Done"} <ChevronRight className="ml-1 h-4 w-4" />
