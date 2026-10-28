@@ -1800,3 +1800,317 @@ pp. 82–87), which a later batch could add as feats.
 - NOT pushed to GitHub and NOT deployed in this pass — the
   parent agent verifies, pushes (which auto-deploys via the
   Pages workflow), and reports.
+
+---
+
+# Batch 6 addendum (2026-10-27): Complete Champion, Complete Mage, Complete Psionic, Complete Scoundrel
+
+Merged into the barrel (`src/data/index.ts`) 2026-10-27 as
+Batch 6 of the "all original books" program: the four remaining
+Complete books. All four are generic D&D 3.5 supplements, so
+every record carries ruleset "core". Sources are the copies in
+Shaun's durrum1 Dropbox library, folder
+`/A POC PC related/5.Splat/Complete sereies/` (the folder's
+spelling is the library's own):
+`D&D 3.5 - Complete Champion.pdf`,
+`D&D 3.5 - Complete Mage.pdf`,
+`D&D 3.5 - Complete Psionic.pdf`,
+`D&D 3.5 - Complete Scoundrel.pdf`.
+Printed page numbers are used throughout: Complete Champion,
+Complete Mage, and Complete Scoundrel printed page = PDF page
+(verified against the folios); Complete Psionic printed page =
+PDF page − 1. The Complete Psionic PDF is an image-only scan —
+all 159 pages were rendered and read by OCR of the page images,
+with ambiguous table cells settled against the page images
+directly. Only new data files plus the barrel were touched
+(and one cross-note appended to a Races of Eberron feat record,
+documented below); Shaun's locked house rules and settings
+were not touched — a post-build check confirmed the default
+build still starts with all five rulesets enabled and
+`crossClassSkillDoubleCost: false`, `crossClassSkillHalfCap:
+true`, `levelAdjustmentBuyoff: false`.
+
+## Complete Champion (`src/data/complete-champion/`)
+
+- 11 prestige classes (Chapter 2): Fist of the Forest,
+  Forest Reeve, Holt Warden, Mythic Exemplar, Ordained
+  Champion, Paragnostic Apostle, Paragnostic Initiate,
+  Sanctified One, Shadowspy, Shadowstriker, Squire of Legend.
+- 42 feats (Table 2-1, descriptions pp. 54–64): Air Devotion,
+  Animal Devotion, Awesome Smite, Battle Blessing, Bestial
+  Charge, Chaos Devotion, Charnel Miasma, Death Devotion,
+  Destruction Devotion, Earth Devotion, Elemental Essence,
+  Evil Devotion, Fire Devotion, Fragile Construct, Good
+  Devotion, Great and Small, Healing Devotion, Holy Potency,
+  Holy Warrior, Imbued Healing, Knowledge Devotion, Law
+  Devotion, Luck Devotion, Magic Devotion, Mitigate
+  Suffering, Plant Devotion, Protection Devotion, Protective
+  Ward, Retrieve Spell, Spiritual Counter, Spontaneous
+  Domains, Strength Devotion, Sun Devotion, Swift Call,
+  Swift Wild Shape, Touch of Healing, Travel Devotion,
+  Trickery Devotion, Umbral Shroud, Venom's Gift, War
+  Devotion, Water Devotion. The 22 Devotion feats are one feat
+  each, keyed to their domain as printed.
+- No base classes, no races, no templates, no new skills
+  (verified against the book's contents).
+- Printed quirks kept as printed: Mythic Exemplar's table
+  has no good save; Sanctified One's table has all three
+  saves good. Shadowstriker's Reflex save (poor, per Table
+  2-11) was settled against the printed page image after a
+  garbled text-layer read.
+
+## Complete Mage (`src/data/complete-mage/`)
+
+- 11 prestige classes (Chapter 3): Abjurant Champion,
+  Eldritch Disciple, Eldritch Theurge, Enlightened Spirit,
+  Holy Scourge, Lyric Thaumaturge, Master Specialist,
+  Nightmare Spinner, Ultimate Magus, Unseen Seer, Wild Soul.
+- 65 feats (Table 2-1, descriptions pp. 37–48): Acidic
+  Splatter, Alacritous Cogitation, Aquatic Breath,
+  Battlecaster Defense, Battlecaster Offense, Blade of
+  Force, Borne Aloft, Captivating Melody, Clap of Thunder,
+  Cloudy Conjuration, Clutch of Earth, Dazzling Illusion,
+  Defending Spirit, Delay Potion, Dimensional Jaunt,
+  Dimensional Reach, Drowning Glance, Elemental Adept,
+  Energy Abjuration, Energy Gestalt, Face-Changer, Favored
+  Magic Foe, Fearsome Necromancy, Fey Heritage, Fey Legacy,
+  Fey Power, Fey Presence, Fey Skin, Fiendish Heritage,
+  Fiendish Legacy, Fiendish Power, Fiendish Presence,
+  Fiendish Resistance, Fiery Burst, Hasty Spirit, Hurricane
+  Breath, Insightful Divination, Invisible Needle, Magic
+  Device Attunement, Magic Disruption, Magic Sensitive,
+  Master of Undeath, Melodic Casting, Metamagic School
+  Focus, Metamagic Spell Trigger, Metamagic Vigor, Minor
+  Shapeshift, Mystic Backlash, Piercing Evocation, Ranged
+  Recall, Rapid Metamagic, Residual Magic, Retributive
+  Spell, Shadow Veil, Sickening Grasp, Somatic Weaponry,
+  Storm Bolt, Summon Elemental, Sunlight Eyes, Touch of
+  Distraction, Toughening Transmutation, Unsettling
+  Enchantment, Vengeful Spirit, Wind-Guided Arrows,
+  Winter's Blast.
+- No base classes (the book's table of contents confirms
+  none), no races, no templates, no new skills.
+- Printed quirk kept as printed: Wild Soul's Hit Die is d4
+  as printed on its table (verified against the page image).
+
+## Complete Psionic (`src/data/complete-psionic/`)
+
+- 3 base classes ADDED (Chapter 1) — all three were verified
+  ABSENT from the recovered core data before being added,
+  following the Wu Jen / Shugenja / Healer precedent; each is
+  recorded with levels 1–10 progression rows per the app's
+  per-class level-cap convention, and their manifesting is
+  described in prose in the class feature entry (powers, like
+  spells, are not modeled): Ardent (d6, 2+Int, three-quarter
+  BAB, Will good; Wisdom-based manifesting from mantles),
+  Divine Mind (d10, 2+Int, three-quarter BAB, Fort and Will
+  good; psychic aura; manifester level = class level − 4),
+  Lurk (d6, 4+Int, three-quarter BAB, Ref and Will good;
+  lurk augments and psionic sneak attack). The book's one
+  table-vs-text quirk is recorded in the Ardent record: its
+  class skill list prints "Knowledge" unqualified, recorded
+  as "Knowledge (all)" following the Wu Jen precedent.
+- 8 prestige classes (Chapter 2): Anarchic Initiate, Ebon
+  Saint, Ectopic Adept, Flayerspawn Psychic, Illumine Soul,
+  Soulbow, Storm Disciple, Zerth Cenobite. Flayerspawn
+  Psychic's manifesting advancement (+1 at 2nd, 4th, 5th,
+  7th, 9th, 10th only) was settled against a cropped page
+  image of Table 2-4.
+- 95 feats net-new: Chapter 3's Table 3-1 Psionic Feats
+  (40), Table 3-2 Psionic Racial Feats (28), Table 3-3
+  General Feats (4), Table 3-4 Host Feats (8), Table 3-5
+  Illithid Heritage Feats (9), Table 3-6 Metapsionic Feats
+  (7), plus Chapter 6's five epic psionic feats (Improved
+  Overchannel, Automatic Quicken Power, Epic Power
+  Penetration, Epic Psionic Endowment, Improved Combat
+  Manifestation). Ectopic Form's eight forms are choices
+  within the one feat, not separate feats. Full list:
+  Dazzling Energy, Dire Flail Mind Blade, Dire Stun, Don
+  Mantle, Dwarven Urgosh Mind Blade, Ectopic Form, Elemental
+  Envoy, Envoy Cognizance, Enervation Endurance, Enhanced
+  Beneficence, Euphoric Reduction, Focused Perception,
+  Focused Skill User, Instinctive Consummator, Extra Lurk
+  Augment, Lurk Augment Ranged, Lurk Master, Mantle Focus,
+  Mental Juggernaut, Mind Cleave, Mind Empowerment, Mind
+  Strike Focused, Mind Strike Swift, Orc Double Axe Mind
+  Blade, Postpone Enervation, Practiced Manifester,
+  Privileged Energy, Psymbiot, Skin of the Construct,
+  Stygian Archon, Tap Mantle, Extra Aura, Two-Bladed Mind
+  Blade, Volatile Escalation, Volatile Leech, Dromite Ray,
+  Dromite Barrier, Duergar Expansion, Duergar Invisibility,
+  Elan Repletion Enhanced, Elan Resilience Enhanced, Elan
+  Resistance Enhanced, Elan Retainment, Githyanki Charm,
+  Githyanki Control, Githyanki Dismissal, Githyanki
+  Ectoform, Githzerai Burst, Githzerai Feedback, Githzerai
+  Knock, Githzerai Link, Half-Giant Stomp, Half-Giant
+  Thunderer, Maenad Fury, Maenad Scream, Maenad Scream
+  Deafening, Synad Multitask Enhanced, Thri-Kreen Carapace,
+  Thri-Kreen Claw, Thri-Kreen Displacement, Thri-Kreen
+  Poison, Xeph Burst Extra, Xeph Celerity, Dorje Mastery,
+  Dual Dorje, Hostile Mind Improved, Psionic Mastery,
+  Aggressive Mind, Antagonist, Defensive Shell, Host Focus,
+  Pacifist, Spiritual Force (host feat — see below),
+  Telepathic Affinity, Illithid Heritage, Illithid Blast,
+  Illithid Compulsion, Illithid Enthusiast, Illithid
+  Grapple, Illithid Extraction, Illithid Legacy, Illithid
+  Legacy Greater, Illithid Skin, Knockdown Power, Linked
+  Power, Metapower, Paraelemental Power, Phrenic Leech,
+  Stygian Power, Transdimensional Power, Improved
+  Overchannel, Automatic Quicken Power, Epic Power
+  Penetration, Epic Psionic Endowment, Improved Combat
+  Manifestation.
+- 1 race (Chapter 6): Synad — aberration, Medium, 30 ft.,
+  darkvision 60 ft., naturally psionic (3 bonus power
+  points), threefold mind / collective / multitask traits,
+  favored class Any, no ability modifiers and no level
+  adjustment, all as printed. The chapter's Talaire humans
+  of the Six Hidden Houses are NOT a separate race (they use
+  the human record with a house-specific Wild Talent
+  variant), and the chapter's racial classes are a separate
+  leveling system the app does not model.
+- No templates and no new skills.
+- The Erudite (Chapter 6) is a variant psion presented as an
+  option, not a new base class — not added, per the Wu Jen /
+  variant-class precedent.
+
+## Complete Scoundrel (`src/data/complete-scoundrel/`)
+
+- 13 prestige classes (Chapter 2): Avenging Executioner,
+  Battle Trickster, Cloaked Dancer, Combat Trapsmith,
+  Fortune's Friend, Gray Guard, Magical Trickster,
+  Malconvoker, Master of Masks, Mountebank, Psibond Agent,
+  Spellwarp Sniper, Uncanny Trickster.
+- 55 feats net-new (Table 3-1, descriptions pp. 73–82):
+  Advantageous Avoidance, Better Lucky than Good, Dumb
+  Luck, Fortuitous Strike, Good Karma, Healer's Luck, Lucky
+  Break, Lucky Catch, Lucky Fingers, Lucky Start, Magical
+  Fortune, Make Your Own Luck, Miser's Fortune, Psychic
+  Luck, Sly Fortune, Survivor's Luck, Tempting Fate, Third
+  Time's the Charm, Unbelievable Luck, Victor's Luck,
+  Concussion Attack, Deafening Strike, Disemboweling
+  Strike, Eldritch Erosion, Head Shot, Impeding Attack,
+  Merciful Strike, Mind Drain, Persistent Attacker, Throat
+  Punch, Chant of the Long Road, Chord of Distraction, Epic
+  of the Lost King, Sound of Silence, Warning Shout,
+  Ascetic Stalker, Cool Head, Daredevil Athlete, Daring
+  Outlaw, Daring Warrior, Deadly Defense, Expanded Ki Pool,
+  Enduring Ki, Freerunner, Improved Skirmish, Martial
+  Stalker, Master Spellthief, Poison Expert, Poison Master,
+  Psithief, Savvy Rogue, Sure Hand, Sweet Talker, Swift
+  Ambusher, Swift Hunter.
+- No base classes (confirmed), no races, no templates, no
+  new skills.
+- Table-vs-description conflicts, descriptions govern (both
+  noted in the records): Eldritch Erosion's sneak attack
+  cost (description 4d6, table 3d6) and Poison Expert's
+  Craft (poisonmaking) prerequisite (description 4 ranks,
+  table 8 ranks). Several of the book's description blocks
+  print under neighboring feat headings in the column
+  layout; each feat's benefit follows its own text (this
+  affects Sly Fortune, Sound of Silence, Sweet Talker,
+  Tempting Fate, and the Lucky Catch / Lucky Fingers pair,
+  whose Table 3-1 benefit lines are scrambled).
+
+## Base classes — verification results
+
+- Complete Champion, Complete Mage, Complete Scoundrel:
+  confirmed to contain NO base classes.
+- Complete Psionic: Ardent, Divine Mind, and Lurk were all
+  missing from the recovered data and are added as new
+  records (above). Because they are new records, there are
+  no recovered-record discrepancies to report for them.
+- No recovered records were modified or duplicated in this
+  batch, and no discrepancies in recovered records were
+  found while cross-checking these four books.
+
+## Duplicates skipped and the one same-name collision
+
+- Complete Scoundrel: Improved Familiar — already in the
+  dataset from Complete Warrior (the Scoundrel printing's
+  own Special notes it reprints the DMG feat); skipped.
+- Complete Psionic: six of the book's feat printings
+  duplicate records already in the dataset and are skipped:
+  Deep Vision, Focused Shield, Invest Armor, and Energize
+  Armor (Races of Stone records, from Batch 1) and Gestalt
+  Anchor and Strength of Two (Races of Eberron records,
+  from Batch 5). Note for the parent: the Complete Psionic
+  printing of Gestalt Anchor words the benefit slightly
+  differently (the bonus applies to the feat-holder while
+  within 60 feet of hosting allies; the Races of Eberron
+  printing extends it to nearby kalashtar allies as well)
+  and restates the prerequisite (any host feat or kalashtar,
+  base Will save +3). It was treated as a reprint and
+  skipped; the earlier record governs.
+- Same name, DIFFERENT feat (Batch 5 precedent followed):
+  Complete Psionic's host feat Spiritual Force (add Cha
+  bonus to mind blade damage for 1 round) is not the Races
+  of Eberron feat Spiritual Force (a kalashtar mind-blade
+  feat: manifest the mind blade as a swift action, +2
+  effective levels for enhancement). The Complete Psionic
+  feat is kept under the suffixed id `spiritual-force-cp`,
+  with cross-notes in both records (the Races of Eberron
+  record's `special` gained the cross-note — the only edit
+  to an earlier pack file in this batch).
+- No other id collisions: a post-merge scan of all four
+  aggregates found every Batch 6 record present exactly
+  once (see Verification). One pre-existing internal
+  duplicate in the older data (`great-cleave` appears in two
+  pre-Batch-6 packs and is deduped by the barrel) predates
+  this batch and was left alone.
+
+## Judgment calls and deliberate omissions (shelf material)
+
+- Complete Scoundrel's skill tricks (42: Interaction 6,
+  Mental 7, Manipulation 12, Movement 17) are a separate
+  mechanic bought with skill points — an omitted system,
+  NOT modeled as feats or skills.
+- Complete Champion: affiliations, domains-as-systems,
+  organizations, and the book's spells are out of scope and
+  not converted. (Domain feats themselves ARE converted —
+  see above.)
+- Complete Mage: spells, the book's magical locations,
+  alchemical and magic items are out of scope.
+- Complete Psionic: powers and mantles-as-a-system,
+  psionic items, Chapter 5's constructs and creatures
+  (including the ectopic-form astral construct stat blocks —
+  the feat itself is converted), epic progressions of the
+  Chapter 1 classes, and the daily-power-points variant are
+  out of scope.
+- Complete Scoundrel: equipment, poisons-as-items, and
+  spells are out of scope.
+- Feat categories: the app has no psionic / host / illithid
+  / devotion / luck categories; those groupings are recorded
+  in each feat's `special` text with the closest app
+  category used (racial feats as "race-specific",
+  metapsionic and Imbued Healing-style feats as "metamagic",
+  tactical and ambush feats as "combat", the rest
+  "general").
+
+## Verification
+
+- `npm run check` (tsc): 0 errors. `npm run build`:
+  succeeds.
+- `vite preview`: HTTP 200; server stopped afterward.
+- Resolver smoke test (esbuild bundle of a temporary script
+  against the real modules, script deleted after the run):
+  four builds, one per book, all with zero validation
+  errors — Human Cleric 5 / Ordained Champion 3 with
+  Awesome Smite (Complete Champion); Human Wizard 5 /
+  Master Specialist 3 with Retributive Spell (Complete
+  Mage); Synad Ardent 5 / Storm Disciple 2 with Practiced
+  Manifester (Complete Psionic — the build carried one
+  feat-slot warning, a test artifact of the synthetic build,
+  not a data problem); Human Rogue 5 / Fortune's Friend 2
+  with Lucky Start (Complete Scoundrel).
+- Id-collision check: before this batch the aggregates held
+  ALL_RACES 44, ALL_CLASSES 37, ALL_PRESTIGE_CLASSES 217,
+  ALL_TEMPLATES 12, ALL_FEATS 840, ALL_SKILLS 55. After the
+  merge: ALL_RACES 45 (+1), ALL_CLASSES 40 (+3),
+  ALL_PRESTIGE_CLASSES 260 (+43), ALL_TEMPLATES 12 (+0),
+  ALL_FEATS 1097 (+257), ALL_SKILLS 55 (+0) — every new
+  record present exactly once; the +257 feats reconcile as
+  42 + 65 + 95 + 55 with the seven skips / suffix resolution
+  documented above.
+- NOT pushed to GitHub and NOT deployed in this pass — the
+  parent agent verifies, pushes (which auto-deploys via the
+  Pages workflow), and reports.
