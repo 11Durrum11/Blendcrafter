@@ -48,6 +48,16 @@ export function rollDiceGrid(): DiceCell[][] {
   return Array.from({ length: 6 }, () => Array.from({ length: 6 }, rollDiceCell));
 }
 
+/**
+ * Shaun's My Way reroll rule (2026-10-28): every result of 8 or below
+ * gets rerolled — a fresh 4d6-drop-lowest for that cell, and the new
+ * roll stands even if it lands low again. Cells above 8 are untouched
+ * (same objects). Exported for testing.
+ */
+export function rerollLowCells(grid: DiceCell[][], threshold = 8): DiceCell[][] {
+  return grid.map((row) => row.map((cell) => (cell.value <= threshold ? rollDiceCell() : cell)));
+}
+
 export interface DiceLine {
   id: string;
   group: "Rows" | "Columns" | "Diagonals";
@@ -152,6 +162,14 @@ export function StepRace({
 
   function handleRollGrid() {
     setDiceGrid(rollDiceGrid());
+    setPickedLineId(null);
+    setPlacements(emptyPlacements());
+    setGrabbedPoolIndex(null);
+  }
+
+  function handleRerollLow() {
+    if (!diceGrid) return;
+    setDiceGrid(rerollLowCells(diceGrid));
     setPickedLineId(null);
     setPlacements(emptyPlacements());
     setGrabbedPoolIndex(null);
@@ -362,7 +380,8 @@ export function StepRace({
             <div className="space-y-3">
               <p className="text-sm text-muted-foreground">
                 Roll 4d6 and drop the lowest, thirty-six times, into a 6×6 grid — then pick any row, any column, or
-                either diagonal, and place its six results on whichever abilities you choose.
+                either diagonal, and place its six results on whichever abilities you choose. Any result of 8 or
+                below can be rerolled.
               </p>
               {!diceGrid ? (
                 <Button type="button" size="sm" onClick={handleRollGrid} data-testid="button-roll-my-way">
@@ -481,9 +500,22 @@ export function StepRace({
                       </div>
                     </div>
                   )}
-                  <Button type="button" size="sm" variant="outline" onClick={handleRollGrid} data-testid="button-reroll-my-way">
-                    <Dices className="mr-1.5 h-3.5 w-3.5" /> Re-roll
-                  </Button>
+                  <div className="flex flex-wrap gap-2">
+                    <Button
+                      type="button"
+                      size="sm"
+                      variant="outline"
+                      onClick={handleRerollLow}
+                      disabled={!diceGrid || diceGrid.flat().every((cell) => cell.value > 8)}
+                      data-testid="button-reroll-low-my-way"
+                    >
+                      <Dices className="mr-1.5 h-3.5 w-3.5" /> Reroll 8 and below
+                      {diceGrid ? ` (${diceGrid.flat().filter((cell) => cell.value <= 8).length})` : ""}
+                    </Button>
+                    <Button type="button" size="sm" variant="outline" onClick={handleRollGrid} data-testid="button-reroll-my-way">
+                      <Dices className="mr-1.5 h-3.5 w-3.5" /> Re-roll whole grid
+                    </Button>
+                  </div>
                 </>
               )}
             </div>
