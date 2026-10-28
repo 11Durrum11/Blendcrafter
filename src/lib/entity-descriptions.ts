@@ -121,7 +121,7 @@ export function describePrestigeClass(cls: PrestigeClassDefinition): EntityDetai
   return {
     title: cls.name,
     badges: ["Prestige Class", `Hit Die ${cls.hitDie}`],
-    summary: `${cls.name} (prestige) — prerequisites are shown as text and are not enforced by the builder.`,
+    summary: `${cls.name} (prestige) — prerequisites are enforced by the builder: the class stays unavailable until every prerequisite the builder can check is met, and each remaining prerequisite has been confirmed on the Classes step.`,
     sections,
     source: cls.source,
     sourceUrl: cls.sourceUrl,

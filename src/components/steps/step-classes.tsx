@@ -1,11 +1,14 @@
-import { useState } from "react";
-import { AlertTriangle, Info, Minus, Plus } from "lucide-react";
+import { useMemo, useState } from "react";
+import { AlertTriangle, Check, HelpCircle, Info, Lock, Minus, Plus, X } from "lucide-react";
 import { ALL_CLASSES, ALL_PRESTIGE_CLASSES } from "@/data";
 import type { ClassLevelChoice, ResolvedCharacter, Ruleset } from "@/engine/types";
+import { buildPrereqContext, evaluatePrestigeClass, type PrestigeGateResult } from "@/engine/prestige-prerequisites";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Switch } from "@/components/ui/switch";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 import { ProductIdentityBadge } from "@/components/product-identity-badge";
 import { RULESET_LABELS } from "@/components/ruleset-toggle";
@@ -17,12 +20,14 @@ interface StepClassesProps {
   prestigeClassLevels: ClassLevelChoice[];
   enabledRulesets: Ruleset[];
   disabledClassIds: string[];
+  certifications: Record<string, string[]>;
   resolved: ResolvedCharacter;
   onAdd: (classId: string) => void;
   onRemove: (classId: string) => void;
   onAddPrestige: (classId: string) => void;
   onRemovePrestige: (classId: string) => void;
   onToggleClassEnabled: (classId: string, enabled: boolean) => void;
+  onTogglePrestigeCertification: (classId: string, prereqText: string, certified: boolean) => void;
 }
 
 export function StepClasses({
@@ -30,12 +35,14 @@ export function StepClasses({
   prestigeClassLevels,
   enabledRulesets,
   disabledClassIds,
+  certifications,
   resolved,
   onAdd,
   onRemove,
   onAddPrestige,
   onRemovePrestige,
   onToggleClassEnabled,
+  onTogglePrestigeCertification,
 }: StepClassesProps) {
   const [detail, setDetail] = useState<EntityDetail | null>(null);
   const totalLevels = classLevels.reduce((s, c) => s + c.levels, 0);
@@ -43,21 +50,19 @@ export function StepClasses({
   const visibleClasses = ALL_CLASSES.filter((cls) => enabledRulesets.includes(cls.ruleset));
   const visiblePrestige = ALL_PRESTIGE_CLASSES.filter((cls) => enabledRulesets.includes(cls.ruleset));
 
-  // Best-effort free-text check: does any currently-taken class/level/BAB roughly satisfy
-  // the prestige class's prerequisites text? This never hard-blocks — it only flags a
-  // soft warning so the player can make the final call themselves.
-  function looksUnmet(prereqs: string[]): boolean {
-    const bab = resolved.bab.total;
-    const totalCharLevel = resolved.totalHitDice;
-    for (const p of prereqs) {
-      const lower = p.toLowerCase();
-      const babMatch = lower.match(/base attack bonus \+?(\d+)/);
-      if (babMatch && bab < Number(babMatch[1])) return true;
-      const levelMatch = lower.match(/(?:character level|class level)s? (\d+)/);
-      if (levelMatch && totalCharLevel < Number(levelMatch[1])) return true;
+  // Prestige prerequisites are hard-gated: evaluate every visible class
+  // against the resolved build. A class is selectable only when every
+  // machine-checkable prerequisite is met and every "special" prerequisite
+  // has been certified by the player.
+  const prestigeGates = useMemo(() => {
+    const ctx = buildPrereqContext(resolved);
+    const gates = new Map<string, PrestigeGateResult>();
+    for (const cls of ALL_PRESTIGE_CLASSES) {
+      if (!enabledRulesets.includes(cls.ruleset)) continue;
+      gates.set(cls.id, evaluatePrestigeClass(cls, ctx, certifications[cls.id] ?? []));
     }
-    return false;
-  }
+    return gates;
+  }, [resolved, certifications, enabledRulesets]);
 
   return (
     <div className="space-y-6">
@@ -162,9 +167,12 @@ export function StepClasses({
         <CardHeader>
           <CardTitle className="font-display text-xl">Prestige Classes</CardTitle>
           <CardDescription>
-            Prerequisites are shown as free text and are <span className="font-medium">not enforced</span> — a soft
-            warning badge appears if your current build doesn't obviously meet them, but you can still take the
-            levels. Toggle additional rule sets in the header to see more options.
+            Prerequisites are <span className="font-medium">enforced</span>: a prestige class stays grayed out and
+            blocked until every prerequisite is met. Requirements the builder can check — base attack bonus, base
+            saves, skill ranks, feats, race, alignment — are verified automatically against your build. The rest
+            are listed with a checkbox so you can confirm you meet them. If a build changes so a taken class's
+            prerequisites are no longer met, its levels are kept but further levels are blocked. Toggle additional
+            rule sets in the header to see more options.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -175,12 +183,18 @@ export function StepClasses({
               {visiblePrestige.map((cls) => {
                 const current = prestigeClassLevels.find((c) => c.classId === cls.id);
                 const row = current ? cls.progression.find((r) => r.level === current.levels) : undefined;
-                const unmet = looksUnmet(cls.prerequisites);
+                const gate = prestigeGates.get(cls.id);
+                const taken = (current?.levels ?? 0) > 0;
+                const takenUnmet = taken && (gate?.entries.some((e) => e.status === "unmet") ?? false);
+                const blocked = !(gate?.selectable ?? true);
                 const isDisabled = disabledClassIds.includes(cls.id);
                 return (
                   <div
                     key={cls.id}
-                    className={cn("rounded-md border border-card-border bg-card p-4", isDisabled && "opacity-50")}
+                    className={cn(
+                      "rounded-md border border-card-border bg-card p-4",
+                      (isDisabled || (blocked && !taken)) && "opacity-50"
+                    )}
                     data-testid={`prestige-card-${cls.id}`}
                   >
                     <div className="flex items-start justify-between gap-2">
@@ -214,14 +228,62 @@ export function StepClasses({
                         Lv {current?.levels ?? 0}
                       </Badge>
                     </div>
-                    {cls.prerequisites.length > 0 && (
-                      <p className="mt-2 text-xs text-muted-foreground">
-                        <span className="font-medium text-foreground">Prerequisites:</span> {cls.prerequisites.join("; ")}
-                      </p>
+                    {gate && gate.entries.length > 0 && (
+                      <div className="mt-2 space-y-1.5" data-testid={`prereq-list-${cls.id}`}>
+                        <div className="text-xs font-medium text-foreground">Prerequisites:</div>
+                        {gate.entries.map((entry, i) => {
+                          const unmetReasons = entry.fragments
+                            .filter((f) => f.status === "unmet")
+                            .map((f) => f.reason ?? f.text);
+                          return (
+                            <div key={i} className="text-xs">
+                              <div className="flex items-start gap-1.5">
+                                {entry.status === "met" || (entry.status === "special" && entry.certified) ? (
+                                  <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-500" />
+                                ) : entry.status === "unmet" ? (
+                                  <X className="mt-0.5 h-3.5 w-3.5 shrink-0 text-destructive" />
+                                ) : (
+                                  <HelpCircle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-amber-500" />
+                                )}
+                                <span className={entry.status === "unmet" ? "text-foreground" : "text-muted-foreground"}>
+                                  {entry.text}
+                                </span>
+                              </div>
+                              {entry.status === "unmet" && unmetReasons.length > 0 && (
+                                <div className="ml-5 text-destructive">{unmetReasons.join("; ")}</div>
+                              )}
+                              {entry.status === "special" && (
+                                <div className="ml-5 mt-1 flex items-center gap-2">
+                                  <Checkbox
+                                    id={`certify-${cls.id}-${i}`}
+                                    checked={entry.certified}
+                                    onCheckedChange={(checked) =>
+                                      onTogglePrestigeCertification(cls.id, entry.text, checked === true)
+                                    }
+                                    data-testid={`checkbox-certify-${cls.id}-${i}`}
+                                  />
+                                  <Label htmlFor={`certify-${cls.id}-${i}`} className="text-xs font-normal text-muted-foreground">
+                                    {entry.certified
+                                      ? "Confirmed — you meet this requirement"
+                                      : "Can't be auto-checked — I meet this requirement"}
+                                  </Label>
+                                </div>
+                              )}
+                            </div>
+                          );
+                        })}
+                      </div>
                     )}
-                    {unmet && (current?.levels ?? 0) === 0 && (
-                      <div className="mt-2 flex items-center gap-1.5 text-xs text-amber-500" data-testid={`warning-prereq-${cls.id}`}>
-                        <AlertTriangle className="h-3.5 w-3.5 shrink-0" /> Prerequisites not verified against your current build.
+                    {takenUnmet && (
+                      <div className="mt-2 flex items-center gap-1.5 text-xs text-destructive" data-testid={`warning-prereq-${cls.id}`}>
+                        <AlertTriangle className="h-3.5 w-3.5 shrink-0" /> Prerequisites no longer met — existing
+                        levels are kept, but further levels are blocked.
+                      </div>
+                    )}
+                    {blocked && !taken && (
+                      <div className="mt-2 flex items-center gap-1.5 text-xs text-muted-foreground" data-testid={`gate-locked-${cls.id}`}>
+                        <Lock className="h-3.5 w-3.5 shrink-0" /> Locked — meet the prerequisites above to take
+                        this class.
                       </div>
                     )}
                     {row && (
@@ -250,7 +312,7 @@ export function StepClasses({
                         size="icon"
                         variant="outline"
                         className="h-7 w-7"
-                        disabled={(current?.levels ?? 0) >= 10}
+                        disabled={(current?.levels ?? 0) >= 10 || isDisabled || blocked}
                         onClick={() => onAddPrestige(cls.id)}
                         data-testid={`button-add-prestige-level-${cls.id}`}
                         aria-label={`Add a level of ${cls.name}`}

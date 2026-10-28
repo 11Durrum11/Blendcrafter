@@ -197,7 +197,13 @@ export interface ClassDefinition {
 }
 
 export interface PrestigeClassDefinition extends ClassDefinition {
-  /** Free-text prerequisites; shown in the UI, never hard-enforced. */
+  /**
+   * Free-text prerequisites, hard-enforced by the prestige-prerequisite
+   * evaluator (src/engine/prestige-prerequisites.ts): requirements it can
+   * machine-check (BAB, base saves, skill ranks, named feats, race/type,
+   * alignment, character level) gate the class, and the rest must be
+   * player-certified (see CharacterBuild.prestigePrereqCertifications).
+   */
   prerequisites: string[];
 }
 
@@ -475,6 +481,13 @@ export interface CharacterBuild {
   templates: AppliedTemplateChoice[];
   skillRanks: Record<string, number>;
   featIds: string[];
+  /**
+   * Player certifications for prestige-class prerequisites the evaluator
+   * cannot machine-check: prestige class id -> the exact prerequisite
+   * entry texts the player has confirmed they meet. A prestige class with
+   * uncertified "special" prerequisites cannot be taken.
+   */
+  prestigePrereqCertifications: Record<string, string[]>;
   inventory: InventoryEntry[];
   enabledRulesets: Ruleset[];
   houseRules: HouseRules;

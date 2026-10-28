@@ -179,12 +179,14 @@ export default function Builder() {
               prestigeClassLevels={build.prestigeClassLevels}
               enabledRulesets={build.enabledRulesets}
               disabledClassIds={build.disabledClassIds}
+              certifications={build.prestigePrereqCertifications}
               resolved={resolved}
               onAdd={cb.addClassLevel}
               onRemove={cb.removeClassLevel}
               onAddPrestige={cb.addPrestigeLevel}
               onRemovePrestige={cb.removePrestigeLevel}
               onToggleClassEnabled={cb.toggleClassEnabled}
+              onTogglePrestigeCertification={cb.togglePrestigeCertification}
             />
           )}
           {currentStep === "skills" && (

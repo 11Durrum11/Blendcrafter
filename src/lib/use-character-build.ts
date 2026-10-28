@@ -10,6 +10,8 @@ import {
   type Ruleset,
 } from "@/engine/types";
 import { resolveCharacter } from "@/engine/resolver";
+import { buildPrereqContext, evaluatePrestigeClass } from "@/engine/prestige-prerequisites";
+import { ALL_PRESTIGE_CLASSES } from "@/data";
 import { DEFAULT_HOUSE_RULES } from "@/engine/house-rules";
 import { DEFAULT_PERSONALITY } from "@/engine/personality";
 
@@ -30,6 +32,7 @@ export function createDefaultBuild(): CharacterBuild {
     templates: [],
     skillRanks: {},
     featIds: [],
+    prestigePrereqCertifications: {},
     inventory: [],
     // Standard set (Shaun's live choice, made the default 2026-10-27):
     // every toggleable ruleset on.
@@ -78,6 +81,7 @@ export interface UseCharacterBuild {
   removeClassLevel: (classId: string) => void;
   addPrestigeLevel: (classId: string) => void;
   removePrestigeLevel: (classId: string) => void;
+  togglePrestigeCertification: (classId: string, prereqText: string, certified: boolean) => void;
   addTemplate: (templateId: string) => void;
   removeTemplate: (templateId: string) => void;
   reorderTemplate: (templateId: string, direction: -1 | 1) => void;
@@ -142,11 +146,39 @@ export function useCharacterBuild(initial?: CharacterBuild): UseCharacterBuild {
     (classId: string) => setBuildState((b) => ({ ...b, classLevels: adjustLevels(b.classLevels, classId, -1) })),
     []
   );
-  const addPrestigeLevel = useCallback(
-    (classId: string) =>
-      setBuildState((b) => ({ ...b, prestigeClassLevels: adjustLevels(b.prestigeClassLevels, classId, 1) })),
-    []
-  );
+  const addPrestigeLevel = useCallback((classId: string) => {
+    setBuildState((b) => {
+      // Prestige classes are gated: refuse the add unless every
+      // machine-checkable prerequisite is met and every "special"
+      // prerequisite has been player-certified for this build.
+      const def = ALL_PRESTIGE_CLASSES.find((c) => c.id === classId);
+      if (def) {
+        const gate = evaluatePrestigeClass(
+          def,
+          buildPrereqContext(resolveCharacter(b)),
+          (b.prestigePrereqCertifications ?? {})[classId] ?? []
+        );
+        if (!gate.selectable) return b;
+      }
+      return { ...b, prestigeClassLevels: adjustLevels(b.prestigeClassLevels, classId, 1) };
+    });
+  }, []);
+  const togglePrestigeCertification = useCallback((classId: string, prereqText: string, certified: boolean) => {
+    setBuildState((b) => {
+      const all = b.prestigePrereqCertifications ?? {};
+      const current = all[classId] ?? [];
+      const next = certified
+        ? current.includes(prereqText)
+          ? current
+          : [...current, prereqText]
+        : current.filter((t) => t !== prereqText);
+      if (next === current) return b;
+      const certifications = { ...all };
+      if (next.length > 0) certifications[classId] = next;
+      else delete certifications[classId];
+      return { ...b, prestigePrereqCertifications: certifications };
+    });
+  }, []);
   const removePrestigeLevel = useCallback(
     (classId: string) =>
       setBuildState((b) => ({ ...b, prestigeClassLevels: adjustLevels(b.prestigeClassLevels, classId, -1) })),
@@ -267,6 +299,7 @@ export function useCharacterBuild(initial?: CharacterBuild): UseCharacterBuild {
     removeClassLevel,
     addPrestigeLevel,
     removePrestigeLevel,
+    togglePrestigeCertification,
     addTemplate,
     removeTemplate,
     reorderTemplate,

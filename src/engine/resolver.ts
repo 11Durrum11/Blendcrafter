@@ -18,6 +18,7 @@ import {
 } from "./types";
 import { ALL_CLASSES, ALL_EQUIPMENT, ALL_FEATS, ALL_MAGIC_ITEMS, ALL_PRESTIGE_CLASSES, ALL_RACES, ALL_SKILLS, ALL_TEMPLATES } from "@/data";
 import { checkPrerequisites, checkTemplateOrdering } from "./prerequisites";
+import { buildPrereqContext, evaluatePrestigeClass } from "./prestige-prerequisites";
 import { resolveModifierStack, formatSigned } from "./stacking";
 import { averageRoll, parseDieFaces, stepDieSize } from "./dice";
 import { progressionRow, SAVE_ABILITY } from "./progression";
@@ -630,7 +631,7 @@ export function resolveCharacter(build: CharacterBuild): ResolvedCharacter {
     ],
   };
 
-  return {
+  const resolvedCharacter: ResolvedCharacter = {
     build,
     race,
     size,
@@ -657,4 +658,32 @@ export function resolveCharacter(build: CharacterBuild): ResolvedCharacter {
     inventory: resolvedInventory,
     validation,
   };
+
+  // Prestige-class prerequisite enforcement for classes already taken:
+  // levels are never stripped, but if the build no longer meets a taken
+  // class's machine-checkable prerequisites, surface an error so the UI
+  // can badge it and block further levels (the add path re-checks the
+  // full gate, certifications included).
+  {
+    const ctx = buildPrereqContext(resolvedCharacter);
+    for (const choice of build.prestigeClassLevels) {
+      if (choice.levels <= 0) continue;
+      const def = PRESTIGE_BY_ID.get(choice.classId);
+      if (!def) continue;
+      const gate = evaluatePrestigeClass(def, ctx, (build.prestigePrereqCertifications ?? {})[def.id] ?? []);
+      const reasons = gate.entries
+        .filter((e) => e.status === "unmet")
+        .flatMap((e) => e.fragments.filter((f) => f.status === "unmet").map((f) => f.reason ?? f.text));
+      if (reasons.length > 0) {
+        validation.push({
+          severity: "error",
+          message:
+            `${def.name}: prerequisites no longer met (${reasons.join("; ")}). ` +
+            "Existing levels are kept, but no further levels can be added until the prerequisites are met again.",
+        });
+      }
+    }
+  }
+
+  return resolvedCharacter;
 }
