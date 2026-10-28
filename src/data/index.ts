@@ -458,6 +458,25 @@ import { SPELL_COMPENDIUM_SPELLS_A } from "./spells/spell-compendium-a";
 import { SPELL_COMPENDIUM_SPELLS_B } from "./spells/spell-compendium-b";
 import { SPELL_COMPENDIUM_SPELLS_C } from "./spells/spell-compendium-c";
 import { SPELL_COMPENDIUM_SPELLS_D } from "./spells/spell-compendium-d";
+import { BOOK_OF_EXALTED_DEEDS_SPELLS } from "./book-of-exalted-deeds/spells";
+import { BOOK_OF_VILE_DARKNESS_SPELLS } from "./book-of-vile-darkness/spells";
+import { FROSTBURN_SPELLS } from "./frostburn/spells";
+import { SANDSTORM_SPELLS } from "./sandstorm/spells";
+import { COMPLETE_ARCANE_SPELLS } from "./complete-arcane/spells";
+import { COMPLETE_MAGE_SPELLS } from "./complete-mage/spells";
+import { COMPLETE_CHAMPION_SPELLS } from "./complete-champion/spells";
+import { COMPLETE_SCOUNDREL_SPELLS } from "./complete-scoundrel/spells";
+import { COMPLETE_WARRIOR_SPELLS } from "./complete-warrior/spells";
+import { COMPLETE_DIVINE_SPELLS } from "./complete-divine/spells";
+import { GHOSTWALK_SPELLS } from "./ghostwalk/spells";
+import { GHOSTWALK_WEB_ENHANCEMENT_SPELLS } from "./ghostwalk/spells-web-enhancement";
+import { DRAGON_MAGIC_SPELLS } from "./dragon-magic/spells";
+import { HEROES_OF_BATTLE_SPELLS } from "./heroes-of-battle/spells";
+import { FIENDISH_CODEX_I_SPELLS } from "./fiendish-codex-i/spells";
+import { FIENDISH_CODEX_II_SPELLS } from "./fiendish-codex-ii/spells";
+import { SORCERY_AND_STEAM_SPELLS } from "./sorcery-steam/spells";
+import { EBERRON_CAMPAIGN_SETTING_SPELLS } from "./eberron/spells";
+import { RACES_OF_EBERRON_SPELLS } from "./races-of-eberron/spells";
 import { CASTING_PROFILES } from "./spells/casting-profiles";
 
 function dedupeById<T extends { id: string }>(items: T[]): T[] {
@@ -549,11 +568,16 @@ export { RACES, TEMPLATES, LEGACY_CLASSES, CORE_CLASSES, NEW_BASE_CLASSES, CORE_
  * Batch 12 (spells): ALL_SPELLS merges the SRD core list with Spell
  * Compendium (the backbone — where SC reprints a spell it governs and
  * the SRD record is omitted at generation time) plus per-book leftover
- * spell packs. Deduped by id, first pack wins. ALL_CASTING_PROFILES
+ * spell packs. Batch 12b adds the leftover per-book spell chapters
+ * (BoED, BoVD, the Completes, Ghostwalk + its web enhancement,
+ * Frostburn, Sandstorm, Dragon Magic, Heroes of Battle, both Fiendish
+ * Codices, Sorcery & Steam, ECS, Races of Eberron), wired after the SC
+ * files so SC keeps governing on any id collision. Deduped by id,
+ * first pack wins. ALL_CASTING_PROFILES
  * carries the per-class spells-per-day / spells-known tables (levels
  * 1–10) keyed by base-class id. See REBUILD-NOTES.md Batch 12 addendum.
  */
-export const ALL_SPELLS: SpellDefinition[] = dedupeById([...SRD_SPELLS, ...SPELL_COMPENDIUM_SPELLS_A, ...SPELL_COMPENDIUM_SPELLS_B, ...SPELL_COMPENDIUM_SPELLS_C, ...SPELL_COMPENDIUM_SPELLS_D]);
+export const ALL_SPELLS: SpellDefinition[] = dedupeById([...SRD_SPELLS, ...SPELL_COMPENDIUM_SPELLS_A, ...SPELL_COMPENDIUM_SPELLS_B, ...SPELL_COMPENDIUM_SPELLS_C, ...SPELL_COMPENDIUM_SPELLS_D, ...BOOK_OF_EXALTED_DEEDS_SPELLS, ...BOOK_OF_VILE_DARKNESS_SPELLS, ...FROSTBURN_SPELLS, ...SANDSTORM_SPELLS, ...COMPLETE_ARCANE_SPELLS, ...COMPLETE_MAGE_SPELLS, ...COMPLETE_CHAMPION_SPELLS, ...COMPLETE_SCOUNDREL_SPELLS, ...COMPLETE_WARRIOR_SPELLS, ...COMPLETE_DIVINE_SPELLS, ...GHOSTWALK_SPELLS, ...GHOSTWALK_WEB_ENHANCEMENT_SPELLS, ...DRAGON_MAGIC_SPELLS, ...HEROES_OF_BATTLE_SPELLS, ...FIENDISH_CODEX_I_SPELLS, ...FIENDISH_CODEX_II_SPELLS, ...SORCERY_AND_STEAM_SPELLS, ...EBERRON_CAMPAIGN_SETTING_SPELLS, ...RACES_OF_EBERRON_SPELLS]);
 export const ALL_CASTING_PROFILES: CastingProfile[] = [...CASTING_PROFILES];
 export const CASTING_PROFILES_BY_ID: Record<string, CastingProfile> = Object.fromEntries(ALL_CASTING_PROFILES.map((p) => [p.classId, p]));
 export const SPELLS_BY_ID: Record<string, SpellDefinition> = Object.fromEntries(ALL_SPELLS.map((s) => [s.id, s]));

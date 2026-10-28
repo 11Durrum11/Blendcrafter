@@ -3634,3 +3634,55 @@ Races 99, base classes 56, prestige classes 353, templates 28, feats 1,655, skil
 - Gating suite re-run: only the 3 expected Mystic Theurge expectation changes (above); everything else passes.
 - Aggregate dump of the real barrel: no duplicate ids in any aggregate (casting profiles keyed uniquely by classId, 18/18).
 - NOT pushed to GitHub and NOT deployed in this pass — the parent agent verifies, pushes (which auto-deploys via the Pages workflow), and reports.
+
+## Batch 12b addendum (2026-10-28) — per-book leftover spell chapters
+
+The follow-up batch the Batch 12 addendum staged. DATA-ONLY: every record uses the existing `SpellDefinition` type; the only pre-existing file touched is the barrel (`src/data/index.ts` — 19 new imports, ALL_SPELLS extended after the Spell Compendium files so SC keeps governing on any id collision). New files: one `spells.ts` per book inside its existing pack folder, plus `ghostwalk/spells-web-enhancement.ts`. Nothing else in the tree changed.
+
+Method: the Batch 12 preserved parses for BoED/BoVD were re-derived and completed (BoVD A–C range parsed here), and every other chapter was parsed from the library PDFs with a line/font-based parser; every shipped record was verified against its book's own text, with page-image checks wherever the text layer was ambiguous. Complete Divine, Complete Warrior, and Fiendish Codex II have image-only PDFs: they were OCR'd (RapidOCR), name-diffed against ALL_SPELLS, and every shipped block was verified against a rendered page image. **Dropped as unverifiable: 0 records in the entire batch** — every unverifiable candidate was resolved by verification, an SC-governed skip, or a variant (below).
+
+### Per-book accounting (parsed = good spell entries in the chapter; present = already in ALL_SPELLS, skipped; shipped = new records)
+
+| Book | Parsed | Present | Shipped | Notes |
+|---|---|---|---|---|
+| Book of Exalted Deeds | 121 | 8 | 113 | Incl. 30 sanctified spells |
+| Book of Vile Darkness | 141 | 10 | 131 | Incl. 19 corrupt spells; fan FAQ appended to the PDF ignored |
+| Frostburn | 101 | 5 | 96 | |
+| Sandstorm | 67 | 3 | 64 | Psychic Scimitar (psionic power) and 2 epic spells excluded by design |
+| Complete Arcane | 140 | 89 | 51 | Skips incl. the rename below |
+| Complete Mage | 97 | 2 | 95 | |
+| Complete Champion | 47 | 0 | 47 | |
+| Complete Scoundrel | 28 | 2 | 26 | |
+| Complete Adventurer | 69 | 69 | 0 | Verified zero — SC reprinted the whole chapter |
+| Complete Warrior | 7 descriptions | 6 | 1 | OCR; only Hound of Doom is new |
+| Complete Divine | 118 descriptions | 116 | 2 | OCR; Bane Bow and Blink, Improved |
+| Ghostwalk | 64 | 19 | 45 | |
+| Ghostwalk Web Enhancement | 5 | 0 | 5 | Official enhancement appended to the library PDF; separate export |
+| Dragon Magic | 42 spells (of 100 chapter entries) | 0 | 42 | Remaining entries are invocations/breath feats — excluded by design |
+| Heroes of Battle | 23 | 0 | 23 | Ch. 6 |
+| Fiendish Codex I | 21 | 8 | 13 | Skips incl. 5 BoVD reprints (below) |
+| Fiendish Codex II | 21 | 1 | 20 | OCR; Devil's Eye skip + 3 variants (below) |
+| Sorcery & Steam | 42 | 0 | 42 | Ruleset `sorcery_steam` |
+| Eberron Campaign Setting | 51 | 9 | 14 | 28 dropped by design: the book's INFUSIONS section (27 artificer infusions + Detoxify) is not spells |
+| Races of Eberron | 38 | 2 | 36 | Ruleset `eberron` |
+
+**Shipped total: 866. ALL_SPELLS 1,589 → 2,455.**
+
+### Decisions and precedents applied
+- **Spell Compendium governs reprints** (skip, counted as present). Notable: **Divine Sacrifice** (BoED) — SC reprints it with a school change (Necromancy → Evocation) and an added Blackguard 1 list assignment; treated as an SC-governed reprint-with-revision and skipped, so the BoED-only Champion of Gwynharwyf 1 assignment is not carried.
+- **Rename-skip:** Complete Arcane's "Otiluke's Greater Dispelling Screen" is SC's "Dispelling Screen, Greater" — skipped as already present under the SC name.
+- **Materially different same-name versions ship as suffixed variants with cross-notes in BOTH records** (the sanctioned cross-note edits are in this batch's own BoVD file, regenerated with the notes configured): `demoncall-fc1` (FC I: no material component, 1 swift action vs BoVD's 1 action), `hellfire-fc2` and `hellfire-storm-fc2` (FC II: larger area/different damage model vs BoVD), `devils-ego-fc2` (FC II: +4 profane bonus, 1 swift action vs BoVD's 1d4+1 enhancement), `status-greater-hob` (Heroes of Battle's Status, Greater is a *different spell* from ECS's Community-domain Status, Greater — different lists, casting time, range, and targets; both ship).
+- **Straight reprints in later books skipped** (formatting-only 3.0→3.5 cleanup does not make a variant): FC I's Befoul, Demon Wings, Demonflesh, Despoil, Pox, Fiendish Clarity, Morality Undone (all BoVD spells; Morality Undone's removal of the BoVD-only Mortal Hunter list and Despoil's added Corruption 9 assignment in FC I are not carried), and FC II's Devil's Eye (FC II changes its school Divination → Transmutation and makes the duration dismissible; the effect is unchanged, so the BoVD record governs, per the Divine Sacrifice precedent).
+- **Abbreviated entries** ("As X, except…") inherit their unprinted stat-block fields from the named base spell, with a provenance note on the record — same-book bases where the book provides them (Bane of Chaos/Good/Law ← Bane of Evil; the Construct/Humanoid Essence and Natural Weapon Augmentation chains; Abyssal Frenzy, Mass), SRD/SC bases otherwise (Ghostwalk's "or Ghost" variants, Glyph of Turning, Raise Ghost, Repel Ectoplasm; True Seeing, Mass; Shield of Faith, Legion's).
+- **"Not printed in source"**: spells whose blocks genuinely print no Saving Throw / Spell Resistance lines (verified per book — the pattern is self-only spells in the 3.5 books and much of 3.0-era BoVD, where ~36 spells print no ST/SR lines at all) carry that string for the missing field, per the Batch 12 precedent. BoVD's 3.0-style casting times ("1 action") are kept as printed.
+- **Level sources:** all levels come from each spell's own stat block except Fiendish Codex II's Investiture of the Spined Devil, whose Sorcerer/Wizard 2 assignment was garbled in the OCR of its block and was confirmed from the book's class spell lists (pp. 99–100); FC II levels were otherwise cross-checked between stat blocks and lists throughout.
+- **Sanctified and Corrupt spells** are transcribed faithfully with their universal list levels (`Sanctified` / `Corrupt`). No casting profile carries those list names — by the books, any good prepared caster may take sanctified spells and any caster may take corrupt spells — so selecting one currently produces the resolver's list-membership error, the same status as other non-profile list names (Demonologist, Deathless, Feast, etc.). The records are complete and searchable; modeling the universal lists is an engine decision for a future batch, not data.
+
+### Totals after Batch 12b
+Races 99, base classes 56, prestige classes 353, templates 28, feats 1,655, skills 62, equipment 1,407, magic items 1,644 — all unchanged. **Spells 1,589 → 2,455** (+866). Casting profiles unchanged at 18.
+
+### Verification (Batch 12b)
+- `npm run check` (tsc) passes with 0 errors. `npm run build` succeeds; the built bundle contains "LOCKED OFF by Shaun" and "I meet this requirement" plus the new spell data. Vite preview serves HTTP 200 (stopped after the check).
+- Scripted suite (`~/batch12b-work/verify-12b.ts`, esbuild bundle of the real barrel + engine): ALL CHECKS PASSED — ALL_SPELLS is exactly 2,455; no duplicate ids in ALL_SPELLS or any other aggregate (races/classes/PrCs/templates/skills/feats/equipment/magic items re-verified); all five variant pairs present with cross-notes in both records; resolver smoke: a cleric selecting BoED spells and a wizard selecting BoVD spells from their own class lists resolve with 0 errors; a cleric selecting a sanctified spell and a wizard selecting a corrupt spell each produce exactly the one expected list-membership error and no other issue (see the model note above).
+- Untouched, per the hard constraints: house-rules files, the settings lock, engine files, components, and every pre-existing data file except the barrel (and this addendum). Batch 12's spell files were not edited; the cross-notes live in this batch's own BoVD records.
+- NOT pushed to GitHub and NOT deployed in this pass — the parent agent verifies, pushes in chunks, live-verifies, and reports.
