@@ -44,26 +44,23 @@ export function rollDiceCell(): DiceCell {
   return { dice, value: sorted[1] + sorted[2] + sorted[3] };
 }
 
-export function rollDiceGrid(): DiceCell[][] {
-  return Array.from({ length: 6 }, () => Array.from({ length: 6 }, rollDiceCell));
+/**
+ * Shaun's My Way floor (2026-10-28): a result of 8 or below never
+ * stands — it keeps rerolling until it's not ("keep rerolling the
+ * eights or belows until it's not"). The floor is part of the roll
+ * itself, not a separate cleanup step: an earlier build only applied
+ * it from a "Reroll 8 and below" button, so a fresh grid still dealt
+ * low cells and Shaun called it — "it's still rolling eight and
+ * below." With the floor in the roll, the grid can never contain one.
+ */
+export function rollMyWayCell(threshold = 8): DiceCell {
+  let cell = rollDiceCell();
+  while (cell.value <= threshold) cell = rollDiceCell();
+  return cell;
 }
 
-/**
- * Shaun's My Way reroll rule (2026-10-28): every result of 8 or below
- * keeps rerolling until it is NOT 8 or below — "keep rerolling the
- * eights or belows until it's not." Cells above 8 are untouched (same
- * objects), so after a reroll pass no cell in the grid is low.
- * Exported for testing.
- */
-export function rerollLowCells(grid: DiceCell[][], threshold = 8): DiceCell[][] {
-  return grid.map((row) =>
-    row.map((cell) => {
-      if (cell.value > threshold) return cell;
-      let next = rollDiceCell();
-      while (next.value <= threshold) next = rollDiceCell();
-      return next;
-    })
-  );
+export function rollDiceGrid(): DiceCell[][] {
+  return Array.from({ length: 6 }, () => Array.from({ length: 6 }, () => rollMyWayCell()));
 }
 
 export interface DiceLine {
@@ -170,14 +167,6 @@ export function StepRace({
 
   function handleRollGrid() {
     setDiceGrid(rollDiceGrid());
-    setPickedLineId(null);
-    setPlacements(emptyPlacements());
-    setGrabbedPoolIndex(null);
-  }
-
-  function handleRerollLow() {
-    if (!diceGrid) return;
-    setDiceGrid(rerollLowCells(diceGrid));
     setPickedLineId(null);
     setPlacements(emptyPlacements());
     setGrabbedPoolIndex(null);
@@ -388,8 +377,8 @@ export function StepRace({
             <div className="space-y-3">
               <p className="text-sm text-muted-foreground">
                 Roll 4d6 and drop the lowest, thirty-six times, into a 6×6 grid — then pick any row, any column, or
-                either diagonal, and place its six results on whichever abilities you choose. Any result of 8 or
-                below is rerolled until it beats 8.
+                either diagonal, and place its six results on whichever abilities you choose. No result of 8 or
+                below ever stands — it rerolls on the spot until it beats 8.
               </p>
               {!diceGrid ? (
                 <Button type="button" size="sm" onClick={handleRollGrid} data-testid="button-roll-my-way">
@@ -508,22 +497,9 @@ export function StepRace({
                       </div>
                     </div>
                   )}
-                  <div className="flex flex-wrap gap-2">
-                    <Button
-                      type="button"
-                      size="sm"
-                      variant="outline"
-                      onClick={handleRerollLow}
-                      disabled={!diceGrid || diceGrid.flat().every((cell) => cell.value > 8)}
-                      data-testid="button-reroll-low-my-way"
-                    >
-                      <Dices className="mr-1.5 h-3.5 w-3.5" /> Reroll 8 and below
-                      {diceGrid ? ` (${diceGrid.flat().filter((cell) => cell.value <= 8).length})` : ""}
-                    </Button>
-                    <Button type="button" size="sm" variant="outline" onClick={handleRollGrid} data-testid="button-reroll-my-way">
-                      <Dices className="mr-1.5 h-3.5 w-3.5" /> Re-roll whole grid
-                    </Button>
-                  </div>
+                  <Button type="button" size="sm" variant="outline" onClick={handleRollGrid} data-testid="button-reroll-my-way">
+                    <Dices className="mr-1.5 h-3.5 w-3.5" /> Re-roll whole grid
+                  </Button>
                 </>
               )}
             </div>
