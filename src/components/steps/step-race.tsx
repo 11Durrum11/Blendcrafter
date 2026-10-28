@@ -13,6 +13,7 @@ import { cn } from "@/lib/utils";
 import { STANDARD_ARRAY } from "@/lib/use-character-build";
 import { ProductIdentityBadge } from "@/components/product-identity-badge";
 import { RULESET_LABELS } from "@/components/ruleset-toggle";
+import { isMonsterRace } from "@/lib/race-groups";
 import { EntityDetailDialog } from "@/components/entity-detail-dialog";
 import { describeAbility, describeRace, type EntityDetail } from "@/lib/entity-descriptions";
 
@@ -47,6 +48,10 @@ export function StepRace({
   const [mode, setMode] = useState<"standard" | "pointbuy">("standard");
   const [detail, setDetail] = useState<EntityDetail | null>(null);
   const visibleRaces = ALL_RACES.filter((race) => enabledRulesets.includes(race.ruleset));
+  // Race grouping (Shaun, 2026-10-28): playable character races first,
+  // monster races under their own heading below. Both stay selectable.
+  const playableRaces = visibleRaces.filter((race) => !isMonsterRace(race));
+  const monsterRaces = visibleRaces.filter((race) => isMonsterRace(race));
 
   const pointsSpent = ABILITY_KEYS.reduce((sum, k) => sum + (POINT_BUY_COST[baseAbilityScores[k]] ?? 0), 0);
 
@@ -57,6 +62,73 @@ export function StepRace({
     });
     onAllAbilitiesChange(scores);
   }
+
+  const renderRaceTile = (race: (typeof visibleRaces)[number]) => {
+  const isDisabled = disabledRaceIds.includes(race.id);
+  return (
+    <div
+      key={race.id}
+      role="button"
+      tabIndex={isDisabled ? -1 : 0}
+      data-testid={`race-option-${race.id}`}
+      onClick={() => !isDisabled && onRaceChange(race.id)}
+      onKeyDown={(e) => {
+        if (!isDisabled && (e.key === "Enter" || e.key === " ")) onRaceChange(race.id);
+      }}
+      className={cn(
+        "rounded-md border p-3 text-left transition-colors",
+        isDisabled
+          ? "cursor-not-allowed opacity-50 border-card-border bg-card"
+          : cn(
+              "cursor-pointer hover-elevate",
+              raceId === race.id ? "border-primary ring-1 ring-primary bg-accent/40" : "border-card-border bg-card"
+            )
+      )}
+    >
+      <div className="font-display text-base font-semibold flex items-center gap-1.5">
+        {race.name}
+        {race.ruleset !== "core" && <ProductIdentityBadge rulesetLabel={RULESET_LABELS[race.ruleset]} />}
+        <button
+          type="button"
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            setDetail(describeRace(race));
+          }}
+          className="ml-auto shrink-0 rounded-full p-0.5 text-muted-foreground hover-elevate hover:text-foreground"
+          aria-label={`View description of ${race.name}`}
+          data-testid={`button-info-race-${race.id}`}
+        >
+          <Info className="h-3.5 w-3.5" />
+        </button>
+        <Switch
+          checked={!isDisabled}
+          onCheckedChange={(checked) => onToggleRaceEnabled(race.id, checked)}
+          onClick={(e) => e.stopPropagation()}
+          className="shrink-0 scale-75"
+          aria-label={isDisabled ? `Enable ${race.name}` : `Disable ${race.name}`}
+          data-testid={`switch-enable-race-${race.id}`}
+        />
+      </div>
+      <div className="mt-1 text-xs text-muted-foreground">
+        {race.size} · Speed {race.baseSpeed} ft
+      </div>
+      <div className="mt-2 flex flex-wrap gap-1">
+        {ABILITY_KEYS.filter((k) => race.abilityModifiers[k]).map((k) => (
+          <Badge key={k} variant="outline" className="text-[10px]">
+            {k.toUpperCase()} {race.abilityModifiers[k]! > 0 ? "+" : ""}
+            {race.abilityModifiers[k]}
+          </Badge>
+        ))}
+        {ABILITY_KEYS.every((k) => !race.abilityModifiers[k]) && (
+          <Badge variant="outline" className="text-[10px]">
+            No adjustments
+          </Badge>
+        )}
+      </div>
+    </div>
+  );
+  };
 
   return (
     <div className="space-y-6">
@@ -72,74 +144,18 @@ export function StepRace({
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-            {visibleRaces.map((race) => {
-              const isDisabled = disabledRaceIds.includes(race.id);
-              return (
-                <div
-                  key={race.id}
-                  role="button"
-                  tabIndex={isDisabled ? -1 : 0}
-                  data-testid={`race-option-${race.id}`}
-                  onClick={() => !isDisabled && onRaceChange(race.id)}
-                  onKeyDown={(e) => {
-                    if (!isDisabled && (e.key === "Enter" || e.key === " ")) onRaceChange(race.id);
-                  }}
-                  className={cn(
-                    "rounded-md border p-3 text-left transition-colors",
-                    isDisabled
-                      ? "cursor-not-allowed opacity-50 border-card-border bg-card"
-                      : cn(
-                          "cursor-pointer hover-elevate",
-                          raceId === race.id ? "border-primary ring-1 ring-primary bg-accent/40" : "border-card-border bg-card"
-                        )
-                  )}
-                >
-                  <div className="font-display text-base font-semibold flex items-center gap-1.5">
-                    {race.name}
-                    {race.ruleset !== "core" && <ProductIdentityBadge rulesetLabel={RULESET_LABELS[race.ruleset]} />}
-                    <button
-                      type="button"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        setDetail(describeRace(race));
-                      }}
-                      className="ml-auto shrink-0 rounded-full p-0.5 text-muted-foreground hover-elevate hover:text-foreground"
-                      aria-label={`View description of ${race.name}`}
-                      data-testid={`button-info-race-${race.id}`}
-                    >
-                      <Info className="h-3.5 w-3.5" />
-                    </button>
-                    <Switch
-                      checked={!isDisabled}
-                      onCheckedChange={(checked) => onToggleRaceEnabled(race.id, checked)}
-                      onClick={(e) => e.stopPropagation()}
-                      className="shrink-0 scale-75"
-                      aria-label={isDisabled ? `Enable ${race.name}` : `Disable ${race.name}`}
-                      data-testid={`switch-enable-race-${race.id}`}
-                    />
-                  </div>
-                  <div className="mt-1 text-xs text-muted-foreground">
-                    {race.size} · Speed {race.baseSpeed} ft
-                  </div>
-                  <div className="mt-2 flex flex-wrap gap-1">
-                    {ABILITY_KEYS.filter((k) => race.abilityModifiers[k]).map((k) => (
-                      <Badge key={k} variant="outline" className="text-[10px]">
-                        {k.toUpperCase()} {race.abilityModifiers[k]! > 0 ? "+" : ""}
-                        {race.abilityModifiers[k]}
-                      </Badge>
-                    ))}
-                    {ABILITY_KEYS.every((k) => !race.abilityModifiers[k]) && (
-                      <Badge variant="outline" className="text-[10px]">
-                        No adjustments
-                      </Badge>
-                    )}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+          <h4 className="font-display text-base font-semibold">Playable Character Races</h4>
+          <p className="mb-3 mt-1 text-xs text-muted-foreground">Races the books present for player characters.</p>
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">{playableRaces.map(renderRaceTile)}</div>
+          {monsterRaces.length > 0 && (
+            <>
+              <h4 className="mt-6 font-display text-base font-semibold">Monster Races</h4>
+              <p className="mb-3 mt-1 text-xs text-muted-foreground">
+                From monster-book entries — playable, but they start with racial Hit Dice and level adjustments.
+              </p>
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">{monsterRaces.map(renderRaceTile)}</div>
+            </>
+          )}
         </CardContent>
       </Card>
 

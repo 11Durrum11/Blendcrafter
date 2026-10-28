@@ -14,6 +14,7 @@ import { buildPrereqContext, evaluatePrestigeClass } from "@/engine/prestige-pre
 import { ALL_PRESTIGE_CLASSES } from "@/data";
 import { DEFAULT_HOUSE_RULES } from "@/engine/house-rules";
 import { DEFAULT_PERSONALITY } from "@/engine/personality";
+import { ALL_RULESETS_ON, loadTogglePrefs, saveTogglePrefs } from "@/lib/toggle-prefs";
 
 /** The classic 15/14/13/12/10/8 spread, assigned in ability order. */
 export const STANDARD_ARRAY = [15, 14, 13, 12, 10, 8];
@@ -23,6 +24,11 @@ export function createDefaultBuild(): CharacterBuild {
   ABILITY_KEYS.forEach((key, i) => {
     baseAbilityScores[key] = STANDARD_ARRAY[i] ?? 10;
   });
+  // Toggle inheritance (Shaun, 2026-10-28): a new character starts from
+  // the toggles as Shaun last set them — what he has off stays off until
+  // he turns it back on. Before he has ever toggled anything, the
+  // first-run default is every ruleset on (his live choice, 2026-10-27).
+  const prefs = loadTogglePrefs();
   return {
     name: "Unnamed Character",
     raceId: "human",
@@ -35,10 +41,8 @@ export function createDefaultBuild(): CharacterBuild {
     prestigePrereqCertifications: {},
     selectedSpells: {},
     inventory: [],
-    // Standard set (Shaun's live choice, made the default 2026-10-27):
-    // every toggleable ruleset on.
-    enabledRulesets: ["core", "eberron", "iron_kingdoms", "sorcery_steam", "homebrew"],
-    houseRules: { ...DEFAULT_HOUSE_RULES },
+    enabledRulesets: prefs ? [...prefs.enabledRulesets] : [...ALL_RULESETS_ON],
+    houseRules: prefs ? { ...prefs.houseRules } : { ...DEFAULT_HOUSE_RULES },
     disabledRaceIds: [],
     disabledClassIds: [],
     disabledSkillIds: [],
@@ -141,7 +145,17 @@ export function useCharacterBuild(initial?: CharacterBuild): UseCharacterBuild {
 
   const resolved = useMemo(() => resolveCharacter(build), [build]);
 
-  const setBuild = useCallback((next: CharacterBuild) => setBuildState(normalizeBuild(next)), []);
+  const setBuild = useCallback((next: CharacterBuild) => {
+    const normalized = normalizeBuild(next);
+    // One-time seed for toggle inheritance: the first character Shaun
+    // opens defines his starting toggle state, so his current offs are
+    // what new characters inherit. After that, only his own toggle
+    // actions update the prefs.
+    if (!loadTogglePrefs()) {
+      saveTogglePrefs({ enabledRulesets: normalized.enabledRulesets, houseRules: normalized.houseRules });
+    }
+    setBuildState(normalized);
+  }, []);
   const updateBuild = useCallback((patch: Partial<CharacterBuild>) => {
     setBuildState((b) => ({ ...b, ...patch }));
   }, []);
@@ -279,14 +293,22 @@ export function useCharacterBuild(initial?: CharacterBuild): UseCharacterBuild {
     setBuildState((b) => {
       const extra = b.enabledRulesets.filter((r) => r !== "core" && r !== ruleset);
       if (enabled) extra.push(ruleset);
-      return { ...b, enabledRulesets: ["core", ...extra] as Ruleset[] };
+      const next = { ...b, enabledRulesets: ["core", ...extra] as Ruleset[] };
+      // Shaun's toggle action — this state is what new characters inherit.
+      saveTogglePrefs({ enabledRulesets: next.enabledRulesets, houseRules: next.houseRules });
+      return next;
     });
   }, []);
   const toggleHouseRule = useCallback((id: keyof CharacterBuild["houseRules"], enabled: boolean) => {
     // Permanent lock (Shaun, 2026-10-27): the cross-class double-cost rule
     // cannot be switched on. Off until Shaun asks to turn it on.
     if (id === "crossClassSkillDoubleCost" && enabled) return;
-    setBuildState((b) => ({ ...b, houseRules: { ...b.houseRules, [id]: enabled } }));
+    setBuildState((b) => {
+      const next = { ...b, houseRules: { ...b.houseRules, [id]: enabled } };
+      // Shaun's toggle action — this state is what new characters inherit.
+      saveTogglePrefs({ enabledRulesets: next.enabledRulesets, houseRules: next.houseRules });
+      return next;
+    });
   }, []);
 
   const toggleRaceEnabled = useCallback(
