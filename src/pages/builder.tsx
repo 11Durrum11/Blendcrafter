@@ -1,6 +1,6 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Link, useLocation, useRoute } from "wouter";
-import { ChevronLeft, ChevronRight, Download, Moon, Sun, Upload, UserPlus } from "lucide-react";
+import { ChevronLeft, ChevronRight, Download, Link2, Moon, Sun, Upload, UserPlus } from "lucide-react";
 import { Logo } from "@/components/logo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -21,6 +21,7 @@ import { StepSheet } from "@/components/steps/step-sheet";
 import { useCharacterBuild } from "@/lib/use-character-build";
 import { CASTING_PROFILES_BY_ID } from "@/data";
 import { exportCharacterJson, importCharacterJson } from "@/lib/character-io";
+import { buildShareUrl, buildTokenFromSearch, copyText, decodeBuildToken } from "@/lib/build-link";
 import { useToast } from "@/hooks/use-toast";
 
 const STEPS = [
@@ -49,6 +50,57 @@ export default function Builder() {
 
   const cb = useCharacterBuild();
   const { build, resolved } = cb;
+
+  // Build deep links (APOC hub connection): a ?build= token in the URL
+  // carries a whole character — the Campaign Tracker links here. Load it
+  // once on arrival, then strip the token so a refresh doesn't reload it
+  // over newer edits. A bad token only costs a toast; the app starts fine.
+  useEffect(() => {
+    const token = buildTokenFromSearch(window.location.search);
+    if (!token) return;
+    let cancelled = false;
+    void (async () => {
+      const linked = await decodeBuildToken(token);
+      if (cancelled) return;
+      const url = new URL(window.location.href);
+      url.searchParams.delete("build");
+      window.history.replaceState(null, "", url.toString());
+      if (linked) {
+        cb.setBuild(linked);
+        toast({
+          title: "Character loaded from link",
+          description: `${linked.name || "Character"} arrived via its build link. Save it from the Characters menu to keep it in this browser.`,
+        });
+      } else {
+        toast({
+          title: "Build link unreadable",
+          description: "That link's character data could not be decoded.",
+          variant: "destructive",
+        });
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+    // Runs once on mount by design.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  async function handleCopyBuildLink() {
+    const url = await buildShareUrl(build);
+    if (await copyText(url)) {
+      toast({
+        title: "Build link copied",
+        description: "Paste it into this character's record in the Campaign Tracker — the link opens this exact build.",
+      });
+    } else {
+      toast({
+        title: "Copy failed",
+        description: "Your browser blocked the copy — try again, or use Export for a file instead.",
+        variant: "destructive",
+      });
+    }
+  }
 
   // The Spells step exists only when the build has a class with a
   // casting profile (Batch 12).
@@ -98,6 +150,10 @@ export default function Builder() {
             <Button variant="outline" size="sm" className="px-2 sm:px-3" onClick={() => exportCharacterJson(build)} data-testid="button-export-character">
               <Download className="h-3.5 w-3.5 sm:mr-1.5" />
               <span className="hidden sm:inline">Export</span>
+            </Button>
+            <Button variant="outline" size="sm" className="px-2 sm:px-3" onClick={() => void handleCopyBuildLink()} data-testid="button-copy-build-link">
+              <Link2 className="h-3.5 w-3.5 sm:mr-1.5" />
+              <span className="hidden sm:inline">Copy build link</span>
             </Button>
             <Button variant="outline" size="sm" className="px-2 sm:px-3" onClick={() => importRef.current?.click()} data-testid="button-import-character">
               <Upload className="h-3.5 w-3.5 sm:mr-1.5" />
