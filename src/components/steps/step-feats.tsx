@@ -259,21 +259,14 @@ export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved,
       <EntityDetailDialog
         detail={detailFeat ? describeFeat(detailFeat) : null}
         onOpenChange={(open) => !open && setDetailFeat(null)}
-        footer={
+        headerAction={
           detailFeat ? (
-            <div className="flex items-center justify-between gap-3 border-t border-card-border pt-3">
-              <span className="text-sm">
-                {disabledFeatIds.includes(detailFeat.id)
-                  ? "This feat is turned off for your characters."
-                  : "This feat is turned on."}
-              </span>
-              <Switch
-                checked={!disabledFeatIds.includes(detailFeat.id)}
-                onCheckedChange={(checked) => onToggleFeatEnabled(detailFeat.id, checked)}
-                aria-label={disabledFeatIds.includes(detailFeat.id) ? `Enable ${detailFeat.name}` : `Disable ${detailFeat.name}`}
-                data-testid={`switch-enable-feat-${detailFeat.id}`}
-              />
-            </div>
+            <Switch
+              checked={!disabledFeatIds.includes(detailFeat.id)}
+              onCheckedChange={(checked) => onToggleFeatEnabled(detailFeat.id, checked)}
+              aria-label={disabledFeatIds.includes(detailFeat.id) ? `Enable ${detailFeat.name}` : `Disable ${detailFeat.name}`}
+              data-testid={`switch-enable-feat-${detailFeat.id}`}
+            />
           ) : undefined
         }
       />

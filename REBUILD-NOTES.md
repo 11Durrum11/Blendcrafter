@@ -5082,3 +5082,10 @@ the footer, same as feats). What deliberately stayed visible
 on prestige cards: the prerequisite checklist with its certify
 checkboxes, the warnings and the lock line — those are working
 controls, not crunch display.
+
+**Feat dialog switch to the top (2026-11-02, Shaun's
+direction):** the feat full-crunch dialog no longer carries the
+bottom footer row or its "turned on/off" status text — just the
+toggle switch itself, at the top of the dialog beside the
+title (EntityDetailDialog gained a headerAction slot). The
+dialog body is the full crunch and nothing else.

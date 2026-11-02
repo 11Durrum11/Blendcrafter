@@ -6,23 +6,29 @@ import type { EntityDetail } from "@/lib/entity-descriptions";
 interface EntityDetailDialogProps {
   detail: EntityDetail | null;
   onOpenChange: (open: boolean) => void;
-  /** Optional extra controls rendered under the source link
-   * (the Feats step puts the feat's enable/disable switch here). */
+  /** Optional extra controls rendered under the source link. */
   footer?: ReactNode;
+  /** Optional control rendered at the top of the dialog, beside
+   * the title (the Feats step puts the feat's enable/disable
+   * switch here — just the switch, no status text). */
+  headerAction?: ReactNode;
 }
 
 /**
  * Shared read-only detail view opened by clicking a race, class, prestige class, skill,
  * feat, or ability score anywhere in the builder. Content comes from entity-descriptions.ts.
  */
-export function EntityDetailDialog({ detail, onOpenChange, footer }: EntityDetailDialogProps) {
+export function EntityDetailDialog({ detail, onOpenChange, footer, headerAction }: EntityDetailDialogProps) {
   return (
     <Dialog open={detail !== null} onOpenChange={onOpenChange}>
       <DialogContent className="max-h-[85vh] overflow-y-auto sm:max-w-lg" data-testid="dialog-entity-detail">
         {detail && (
           <>
             <DialogHeader>
-              <DialogTitle className="font-display text-xl">{detail.title}</DialogTitle>
+              <div className="flex items-start justify-between gap-3">
+                <DialogTitle className="font-display text-xl">{detail.title}</DialogTitle>
+                {headerAction}
+              </div>
               {detail.badges.length > 0 && (
                 <div className="flex flex-wrap gap-1.5 pt-1">
                   {detail.badges.map((b) => (
