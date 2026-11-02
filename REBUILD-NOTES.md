@@ -5176,3 +5176,19 @@ lay their category titles out in a four-column grid (two on
 narrow screens) — each title its own box, expanding downward
 in its column, its items scrolling inside. Same treatment for
 Magic Items as for Equipment, per Shaun's follow-up.
+
+**Character sheet made self-explanatory + NPC generator fixes
+(2026-11-02, Shaun's direction):** the Character Sheet step now
+explains itself top to bottom — a "How to read this sheet"
+intro (every boxed number opens into its audit), and plain
+verbiage on every card: what ability scores and modifiers are,
+AC / touch / flat-footed, BAB and the attack totals,
+initiative, HP, the three saves and what each resists, CR /
+LA / ECL, speed modes, the feature groups, skills and the
+(class) mark, feat and skill-point budgets, and how equipped
+gear is already counted. Also fixed two real bugs found
+checking the generated NPC profile: Current Pressure said
+"level 0 expectations" for a fresh character (now uses the
+floored level), and Core Personality's fallback sentence
+interpolated the raw weight key ("Their goals is the heaviest
+weight...") — it now reads in plain words for every key.

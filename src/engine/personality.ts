@@ -70,6 +70,17 @@ const ABILITY_FLAVOR: Record<string, { high: string; low: string }> = {
   cha: { high: "magnetic, used to being listened to", low: "blunt and socially awkward" },
 };
 
+/** Readable nouns for the heaviest-weight sentence. */
+const HEAVIEST_LABEL: Record<string, string> = {
+  trauma: "the old wound they carry",
+  goals: "what they are striving for",
+  background: "their upbringing",
+  family: "their family",
+  alignment: "their convictions",
+  race: "their heritage",
+  class: "their training",
+};
+
 function topWeight(p: PersonalityProfile, keys: (keyof PersonalityWeights)[]): keyof PersonalityWeights {
   return keys.reduce((best, k) => (p.weights[k] > p.weights[best] ? k : best), keys[0]);
 }
@@ -97,9 +108,6 @@ export function generatePersonality(
 ): GeneratedPersonality {
   const p = profile;
   const race = resolved.race.name;
-  const classes = [...build.classLevels, ...build.prestigeClassLevels]
-    .map((c) => c.levels)
-    .reduce((a, b) => a + b, 0);
   const classNames = resolved.build.classLevels.length + resolved.build.prestigeClassLevels.length;
   const level = Math.max(resolved.totalHitDice, 1);
   const dom = dominantAbility(resolved);
@@ -139,7 +147,7 @@ export function generatePersonality(
       ? ` Underneath it all sits the defining wound: ${p.trauma}`
       : heaviest === "goals" && p.goals
         ? ` What organizes their days is the goal: ${p.goals}`
-        : ` Their ${heaviest} is the heaviest weight in how they were made.`);
+        : ` What weighs heaviest in how they were made is ${HEAVIEST_LABEL[heaviest] ?? "their past"}.`);
 
   const lifeHistory =
     `Age ${p.age}. Raised in a ${p.familyStatus.toLowerCase()} situation, coming out of a ${p.background.toLowerCase()} background` +
@@ -206,7 +214,7 @@ export function generatePersonality(
 
   const currentPressure = p.circumstances
     ? `Right now: ${p.circumstances}`
-    : `No acute crisis; the pressure is the ordinary kind — level ${classes} expectations, ${wealthWord} finances, and whatever the road brings next.`;
+    : `No acute crisis; the pressure is the ordinary kind — level ${level} expectations, ${wealthWord} finances, and whatever the road brings next.`;
 
   const mannerisms: string[] = [
     dom.key === "dex" ? "Taps or spins a small object when thinking." : dom.key === "str" ? "Takes up space without noticing; doors get opened with the shoulder." : "Goes quiet and still when a decision actually matters.",
