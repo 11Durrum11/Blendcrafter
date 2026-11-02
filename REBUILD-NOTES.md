@@ -5101,3 +5101,12 @@ sections show open so results stay visible.
 example, not an exception — ALL feat sections start closed,
 Fighter Bonus Feats included; sections open only on a title
 click.
+
+**Feat section titles are drag-movable (2026-11-02, Shaun's
+direction):** press a section title and drag to rearrange the
+sections (pointer-based, so touch works too); a plain click
+still expands/collapses — a real drag suppresses the click.
+The dragged section highlights with a ring and the order
+reorders live under the pointer. The arrangement persists in
+localStorage (blendcrafter:feat-section-order), a UI preference
+like the toggle prefs, never part of a build.

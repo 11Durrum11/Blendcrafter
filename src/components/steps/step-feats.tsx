@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { ChevronDown, ChevronRight, Search, Zap } from "lucide-react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { ChevronDown, ChevronRight, GripVertical, Search, Zap } from "lucide-react";
 import { ALL_FEATS } from "@/data";
 import type { FeatDefinition, ResolvedCharacter, Ruleset } from "@/engine/types";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -86,6 +86,30 @@ export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved,
       else next.add(id);
       return next;
     });
+  // Draggable section titles (Shaun, 2026-11-02): press a section
+  // title and drag to rearrange the sections; a plain click (no
+  // drag) still expands/collapses. Pointer-based so it works with
+  // touch as well as a mouse. The chosen order is a UI preference
+  // kept in localStorage (like the toggle prefs), not per-build.
+  const SECTION_ORDER_KEY = "blendcrafter:feat-section-order";
+  const [sectionOrder, setSectionOrder] = useState<string[]>(() => {
+    try {
+      const parsed: unknown = JSON.parse(localStorage.getItem(SECTION_ORDER_KEY) ?? "null");
+      return Array.isArray(parsed) ? parsed.filter((x): x is string => typeof x === "string") : [];
+    } catch {
+      return [];
+    }
+  });
+  useEffect(() => {
+    try {
+      localStorage.setItem(SECTION_ORDER_KEY, JSON.stringify(sectionOrder));
+    } catch {
+      /* storage unavailable — order just won't persist */
+    }
+  }, [sectionOrder]);
+  const dragRef = useRef<{ id: string; startY: number; dragging: boolean } | null>(null);
+  const justDraggedRef = useRef(false);
+  const [draggingId, setDraggingId] = useState<string | null>(null);
   const visible = ALL_FEATS.filter(
     (f) => enabledRulesets.includes(f.ruleset) && f.name.toLowerCase().includes(query.toLowerCase())
   );
@@ -123,6 +147,16 @@ export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved,
       shadowed: 0,
     })),
   ].filter((s) => s.feats.length > 0 || (query === "" && s.shadowed > 0));
+  const orderedSections = useMemo(() => {
+    const rank = (id: string) => {
+      const i = sectionOrder.indexOf(id);
+      return i === -1 ? Number.MAX_SAFE_INTEGER : i;
+    };
+    return featSections
+      .map((section, i) => ({ section, i }))
+      .sort((a, b) => rank(a.section.id) - rank(b.section.id) || a.i - b.i)
+      .map(({ section }) => section);
+  }, [featSections, sectionOrder]);
 
   // Minimized to the name (Shaun, 2026-11-02): the feats list
   // shows just each feat's name, like the flaw/trait pickers.
@@ -232,7 +266,7 @@ export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved,
           {visible.length === 0 ? (
             <p className="mt-4 text-sm text-muted-foreground">No feats match your search or the enabled rule sets.</p>
           ) : (
-            featSections.map((section) => {
+            orderedSections.map((section) => {
               const turnedOn = section.feats.filter((f) => !disabledFeatIds.includes(f.id));
               const turnedOff = section.feats.filter((f) => disabledFeatIds.includes(f.id));
               // Active feats to the top (Shaun, 2026-11-02): within a
@@ -245,14 +279,67 @@ export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved,
               const grayedOut = turnedOn.filter(isGrayed);
               const expanded = query !== "" || expandedSections.has(section.id);
               return (
-                <div key={section.id} className="mt-5" data-testid={`feat-section-${section.id}`}>
+                <div
+                  key={section.id}
+                  className={cn("mt-5 rounded-md", draggingId === section.id && "ring-2 ring-primary/50")}
+                  data-testid={`feat-section-${section.id}`}
+                  data-feat-section={section.id}
+                >
                   <button
                     type="button"
-                    className="flex w-full items-center gap-2 text-left"
-                    onClick={() => toggleSection(section.id)}
+                    className="flex w-full cursor-grab touch-none select-none items-center gap-2 text-left active:cursor-grabbing"
+                    onClick={() => {
+                      if (justDraggedRef.current) return;
+                      toggleSection(section.id);
+                    }}
+                    onPointerDown={(e) => {
+                      dragRef.current = { id: section.id, startY: e.clientY, dragging: false };
+                      try {
+                        e.currentTarget.setPointerCapture(e.pointerId);
+                      } catch {
+                        /* capture unsupported — drag still tracks via the button */
+                      }
+                    }}
+                    onPointerMove={(e) => {
+                      const d = dragRef.current;
+                      if (!d || d.id !== section.id) return;
+                      if (!d.dragging && Math.abs(e.clientY - d.startY) > 8) {
+                        d.dragging = true;
+                        setDraggingId(d.id);
+                      }
+                      if (d.dragging) {
+                        const over = document
+                          .elementFromPoint(e.clientX, e.clientY)
+                          ?.closest<HTMLElement>("[data-feat-section]")?.dataset.featSection;
+                        if (over && over !== d.id) {
+                          const ids = orderedSections.map((x) => x.id);
+                          const from = ids.indexOf(d.id);
+                          const to = ids.indexOf(over);
+                          if (from !== -1 && to !== -1) {
+                            ids.splice(to, 0, ids.splice(from, 1)[0]);
+                            setSectionOrder(ids);
+                          }
+                        }
+                      }
+                    }}
+                    onPointerUp={() => {
+                      if (dragRef.current?.dragging) {
+                        justDraggedRef.current = true;
+                        setTimeout(() => {
+                          justDraggedRef.current = false;
+                        }, 50);
+                      }
+                      dragRef.current = null;
+                      setDraggingId(null);
+                    }}
+                    onPointerCancel={() => {
+                      dragRef.current = null;
+                      setDraggingId(null);
+                    }}
                     aria-expanded={expanded}
                     data-testid={`feat-section-toggle-${section.id}`}
                   >
+                    <GripVertical className="h-4 w-4 shrink-0 text-muted-foreground" />
                     {expanded ? <ChevronDown className="h-4 w-4 shrink-0" /> : <ChevronRight className="h-4 w-4 shrink-0" />}
                     <span className="font-display text-base font-semibold">{section.label}</span>
                     <span className="text-xs font-normal text-muted-foreground">({section.feats.length})</span>
