@@ -4680,3 +4680,6 @@ liquid max, spent/liquid amounts and percentages, how much is
 still to spend to reach 70%, and a plain explanation that at
 least 70% must be spent on gear. The calculation panel moved up
 from the card body into this header panel (same testids).
+The header panel also notes (Shaun, same call) that you can buy
+whatever you can afford — including upgrading something you
+already have — whatever it costs; it all counts toward the 70%.

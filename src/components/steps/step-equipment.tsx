@@ -238,6 +238,10 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, onAdd, onR
                   unspent is liquid cash, and it can never be more than 30% — if it is, keep buying gear until it
                   isn't.
                 </p>
+                <p className="mt-1 text-xs text-muted-foreground" data-testid="wealth-buy-note">
+                  You can buy whatever you can afford — even if that means upgrading something you already have —
+                  whatever it costs. It all counts toward the 70%.
+                </p>
               </div>
             ) : (
               <p className="mt-2 text-sm text-muted-foreground">
