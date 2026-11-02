@@ -79,7 +79,9 @@ export function StepPersonality({ build, resolved, onChange }: Props) {
       <CardContent className="space-y-6">
         <p className="text-sm text-muted-foreground">The full library: the Unearthed Arcana lists plus a snapshot of the D&D Wiki, saved into Blendcrafter so wiki edits can't change it on you. Book guidance — a flaw is taken at 1st level and grants a bonus feat, and a character may have up to two traits — is shown for reference; Blendcrafter doesn't enforce either.</p>
         <FlawTraitPicker title="Flaws" items={ALL_FLAWS} selectedIds={p.flawIds ?? []} query={flawQuery} onQuery={setFlawQuery} onToggle={toggleFlaw} onShowDetail={(item) => setDetail(describeFlawTrait(item))} testidPrefix="flaw" />
+        <PickedBox title="Flaws" items={ALL_FLAWS} selectedIds={p.flawIds ?? []} onRemove={toggleFlaw} onShowDetail={(item) => setDetail(describeFlawTrait(item))} testidPrefix="flaw" />
         <FlawTraitPicker title="Traits" items={ALL_TRAITS} selectedIds={p.traitIds ?? []} query={traitQuery} onQuery={setTraitQuery} onToggle={toggleTrait} onShowDetail={(item) => setDetail(describeFlawTrait(item))} testidPrefix="trait" />
+        <PickedBox title="Traits" items={ALL_TRAITS} selectedIds={p.traitIds ?? []} onRemove={toggleTrait} onShowDetail={(item) => setDetail(describeFlawTrait(item))} testidPrefix="trait" />
       </CardContent>
     </Card>
 
@@ -91,6 +93,29 @@ export function StepPersonality({ build, resolved, onChange }: Props) {
       <Section title="Temperament">{generated.temperament}</Section><Section title="Core Personality">{generated.corePersonality}</Section><Section title="Life History">{generated.lifeHistory}</Section><Section title="Values">{generated.values}</Section><Section title="Motivations"><List items={generated.motivations}/></Section><Section title="Fears"><List items={generated.fears}/></Section><Section title="Moral Outlook">{generated.moralOutlook}</Section><Section title="Social Behavior">{generated.socialBehavior}</Section><Section title="Reputation">{generated.reputationInterpretation}</Section><Section title="Relationships">{generated.relationships}</Section><Section title="Current Pressure">{generated.currentPressure}</Section><Section title="Mannerisms"><List items={generated.mannerisms}/></Section><Section title="Voice">{generated.voice}</Section><Section title="Combat Psychology">{generated.combatPsychology}</Section><Section title="Contradictions"><List items={generated.contradictions}/></Section><Section title="Adventure Hooks"><List items={generated.adventureHooks}/></Section>
     </div></CardContent></Card>
     <EntityDetailDialog detail={detail} onOpenChange={(open) => !open && setDetail(null)} />
+  </div>;
+}
+/**
+ * The picked box (Shaun, 2026-11-02): whatever flaw or trait the
+ * player picks lands here, fully crunched out — name, prerequisite,
+ * the full description text, and the source — not just the name.
+ */
+function PickedBox({title,items,selectedIds,onRemove,onShowDetail,testidPrefix}:{title:string;items:FlawTraitDefinition[];selectedIds:string[];onRemove:(id:string)=>void;onShowDetail:(item:FlawTraitDefinition)=>void;testidPrefix:string}) {
+  const picked = items.filter(i=>selectedIds.includes(i.id));
+  return <div className="rounded-md border border-card-border bg-muted/20 p-3" data-testid={`picked-box-${testidPrefix}`}>
+    <h4 className="font-display text-sm font-semibold">Your {title} <span className="font-normal text-muted-foreground">({picked.length} picked)</span></h4>
+    {picked.length===0 ? <p className="mt-1 text-sm text-muted-foreground">None picked yet — tick a name in the list above and it lands here, fully written out.</p> :
+    <div className="mt-2 space-y-3">
+      {picked.map(item=><div key={item.id} className="rounded-md border border-card-border bg-card p-3" data-testid={`picked-${testidPrefix}-${item.id}`}>
+        <div className="flex items-start justify-between gap-2">
+          <button type="button" className="text-left font-semibold underline-offset-2 hover:underline" onClick={()=>onShowDetail(item)} data-testid={`picked-name-${testidPrefix}-${item.id}`}>{item.name}</button>
+          <Button type="button" size="sm" variant="outline" className="h-6 shrink-0 text-xs" onClick={()=>onRemove(item.id)} data-testid={`picked-remove-${testidPrefix}-${item.id}`}>Remove</Button>
+        </div>
+        {item.prerequisite && <p className="mt-1 text-xs text-muted-foreground"><span className="font-medium text-foreground">Prerequisite:</span> {item.prerequisite}</p>}
+        <p className="mt-1 text-sm leading-6">{item.description}</p>
+        <a href={item.sourceUrl} target="_blank" rel="noreferrer" className="mt-1 block text-[11px] text-primary underline underline-offset-2">{item.source}</a>
+      </div>)}
+    </div>}
   </div>;
 }
 function FlawTraitPicker({title,items,selectedIds,query,onQuery,onToggle,onShowDetail,testidPrefix}:{title:string;items:FlawTraitDefinition[];selectedIds:string[];query:string;onQuery:(v:string)=>void;onToggle:(id:string)=>void;onShowDetail:(item:FlawTraitDefinition)=>void;testidPrefix:string}) {

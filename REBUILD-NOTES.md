@@ -4860,3 +4860,9 @@ and the source).
 long flaw names in the Flaws & Traits list now show as "ADD" and
 "ADHD" so each takes one line in the names-only grid; ids and full
 descriptions in the click dialog are unchanged.
+
+**Picked boxes for Flaws & Traits (2026-11-02, Shaun's
+direction):** under each picker in the Personality step sits a
+"Your Flaws" / "Your Traits" box; whatever is picked lands there
+fully crunched out — name, prerequisite, the full description
+text, and source — with a Remove button per entry.
