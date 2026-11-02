@@ -3972,3 +3972,125 @@ presented inside its Craft section as a Craft use, not a skill.
   toggle/settings file was touched — new data files, the barrel
   merge, and this addendum only. NOT pushed or deployed in this
   pass — the parent agent verifies, pushes, and reports.
+
+# IKCG classes addendum (2026-11-02): Bodger, Fell Caller, Gun Mage — the missing Iron Kingdoms Character Guide base classes
+
+Shaun's order (2026-11-02): "Build Bodger, Fell Caller, and Gun Mage
+now." The skills audit earlier the same day flagged that the Iron
+Kingdoms Character Guide's Chapter Two "New Classes" (p. 87) lists
+four base classes, and only the Arcane Mechanik (p. 88) had a record
+(from Liber Mechanika, Batch 10) — these three were parent-verified
+absent from ALL_CLASSES and ALL_PRESTIGE_CLASSES. They are now built
+from the printed pages of the scanned IKCG PDF
+(/A POC PC related/1.D&D 3rd ed.-Iron Kingdoms-Character Guide (Rules Sourcebook).pdf;
+PDF page = printed page + 1 throughout), with every progression
+table verified against the page image.
+
+## What was added (3 records, 1 NEW file + barrel merge only)
+
+`src/data/iron-kingdoms/classes-ikcg.ts` (`IRON_KINGDOMS_CLASSES`),
+merged into ALL_CLASSES and the barrel re-export list; base classes
+56 → 59. Rows capped at levels 1–10 per app convention. All three
+are three-quarter BAB with the save columns exactly as printed:
+
+- **Bodger** (pp. 93–100; Game Rule Information p. 97, Table 2–3
+  p. 96): d8, 6 + Int skill points, good Fortitude and Reflex,
+  poor Will. Features: Bodging (competence bonus of half class
+  level to Craft (tools)/(mechanika)/(steam engine) repairs; the
+  full makeshift-construction procedure, the "Bodging Tools" DC
+  table (base DC 10), bodged-tool lifespans and the −2 use
+  penalty, bodged-repair costs/maintenance, and the Scrounging
+  cost reductions), Jackwrench (Ex) (1d4 rounds of function, 1d3
+  uses per machine; +10 circumstance bonus when jackwrenching a
+  magic/mechanikal device, with the printed 20% + 5%-per-charge
+  failure chances), Evasion (Ex) as printed at 2nd (no damage on
+  a successful Reflex save, full damage on a failed one — the
+  book's weaker wording is kept), Tinkering (Ex) (trapfinding
+  against standard/mechanikal traps from 2nd, half-level Search
+  bonus at 5th, half-level Disable Device bonus at 10th, study
+  and bypass on beating the DC by 10+), Demolish (Ex) (+1d6 vs
+  constructs/mechanikal creatures and machinery at 3rd, +1d6
+  every three levels), Give It a Good Kick (Ex) (5th; 2d4 + 1 per
+  three levels rounds; squeezing 1d3 charges from "empty"
+  devices), Toss a Hammer at It (Ex) (8th; ranged jackwrench
+  1/day within 30 ft.), and Master Mechanik (11th, and again at
+  14th, 17th, 20th: Improved Evasion, Master Bodger, Precise
+  Timing, Skill Mastery, Wrench Tosser, or a feat).
+- **Fell Caller** (pp. 100–104; Game Rule Information and
+  Table 2–4 on p. 102): d8, 4 + Int skill points, good Fortitude
+  only. Trollkin only; any nonlawful. Fell Calls (Sp): 2 calls
+  per level per day; the bard's bardic music abilities usable as
+  fell calls, plus the printed call list — Fell Call (Perform 3
+  + Intimidate 1), Signal Call (Perform 3), Stay Death (Perform
+  4), Stunning Blast (Perform 6; earliest 3rd level), Fell Howl
+  (Perform 8 + Intimidate 8; earliest 5th), Sonic Blast (7th
+  level; as shout, scaling to 10d6), Confusion Call (7th level;
+  Perform 9), Chorus Call (9th), Doom's Quaking Call (10th
+  level; Perform 12), Greater Fell Call (12th level; Perform 15
+  + Intimidate 12; two slots), Greater Chorus Call (15th) — with
+  the immediate-effect rule (the caller picks the effective
+  level and takes nonlethal damage equal to it, Fortitude DC
+  10 + effective level for half). Bonus feats at 4th, 8th, 12th,
+  16th, 20th from the fighter bonus feat list except Greater
+  Weapon Focus, Weapon Specialization, and Greater Weapon
+  Specialization (p. 103).
+- **Gun Mage** (pp. 104–111; Game Rule Information p. 107,
+  Table 2–5 p. 106, Table 2–6 p. 107): d6, 2 + Int skill
+  points, good Reflex only. Features: Arcane Focus (casting
+  through a pistol; rays use the pistol attack bonus; normal
+  pistols lose 1 hardness per two spell levels channeled),
+  Bond with Magelock Pistol (full day, 100 gp; up to his
+  Charisma modifier in bonded pistols; Table 2–7 hardness/hit
+  point growth and special abilities; the printed XP-loss rule
+  if a bonded pistol is destroyed), Spell Link, Reinforcing
+  Runes (2nd), Cast Rune Bullet (3rd; +1d6 force per spell
+  level, +1d3 for cantrips; enhancement bonus from 6th), the
+  bonded-pistol abilities Ranged Touch (3rd), Touch (5th),
+  Sighting Link (7th), Call Pistol (9th), Gun Scrye (13th), and
+  Bonus Feats (5th and every five levels; the printed list).
+
+## Gun Mage casting — profile deliberately NOT modeled (follow-up)
+
+The gun mage is a Charisma-based spontaneous caster with his own
+spell list (IKCG pp. 110–111), transcribed into the Spells feature
+with both casting tables for levels 1–10. A CastingProfile was not
+added: the list holds 191 printed entries (17 0-level, 28 1st,
+40 2nd, 29 3rd, 26 4th, 24 5th, 27 6th), and a profile keyed to a
+"Gun Mage" list name would match no spells — the shared SRD
+entries carry no Gun Mage list level on their records, and the
+list's new Iron Kingdoms spells (boldface in the book; legible in
+the scan: arcane bullet 1st, wraith 4th, death bullet 6th; full
+text in Chapter Five: Iron Kingdoms Spells, pp. 352–367) have no
+records at all. The follow-up batch is: build the IKCG Chapter
+Five spell records, add the "Gun Mage" list level to the shared
+spells on the printed list, then add the profile (spontaneous,
+Charisma, Table 2–5 per-day, Table 2–6 known). This follows the
+existing feature-text precedent (Paingiver and Mortitheurge spell
+lists are likewise described in their class features).
+
+## Deliberate omissions
+
+- The Mechanik's Wrench callout (p. 100) is a weapon stat block
+  (simple one-handed melee, 20 gp, 1d6/1d4, crit ×2, 5 lb.,
+  bludgeoning or piercing, double weapon), not class mechanics;
+  it is left for an equipment pass and not folded into the
+  Bodger record.
+- IKCG prestige classes (Battle Chaplain, Blackclad, Mage
+  Hunter, Pistoleer, Rifleman, Second-Story Man, Warcaster,
+  pp. 111 ff.) are outside this order and untouched.
+
+## Verification
+
+- `npm run check` (tsc) and `npm run build` (see the run record
+  in the builder's report).
+- `~/ikcg-classes-work/verify.ts`: base classes 56 → 59; the
+  three records exist with 10-level progressions; BAB/save/
+  skill-point values spot-checked against Tables 2–3, 2–4, and
+  2–5 at levels 1, 5, and 10; every class-skill name on the
+  three classes resolves under the skills audit's name-normalized
+  method (defined skill, documented family specialty, catch-all,
+  or 3.0 fold).
+- No existing data record was modified; no engine, component,
+  or toggle/settings file was touched — one new data file, the
+  barrel merge, and this addendum only. NOT pushed or deployed
+  in this pass — the parent agent verifies, pushes, and reports.

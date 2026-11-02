@@ -313,6 +313,48 @@ export function isWizardBonusFeat(feat: FeatDefinition): boolean {
   );
 }
 
+/** Iron Kingdoms Character Guide, p. 103: the fell caller chooses bonus
+ * feats from the fighter list, except these three. */
+export const FELL_CALLER_EXCLUDED_IDS: ReadonlySet<string> = new Set([
+  "greater-weapon-focus",
+  "weapon-specialization",
+  "greater-weapon-specialization",
+]);
+
+export function isFellCallerBonusFeat(feat: FeatDefinition): boolean {
+  return isFighterBonusFeat(feat) && !FELL_CALLER_EXCLUDED_IDS.has(feat.id);
+}
+
+/** Iron Kingdoms Character Guide, p. 109: the gun mage's printed bonus-feat
+ * list, beyond "any metamagic feat". Parenthetical chain feats in the book's
+ * list are included. Combat Loading and Improved Combat Loading are on the
+ * printed list but have no feat records in the data. */
+export const GUN_MAGE_BONUS_FEAT_IDS: readonly string[] = [
+  "combat-casting",
+  "dodge",
+  "mobility",
+  "improved-initiative",
+  "point-blank-shot",
+  "far-shot",
+  "improved-precise-shot",
+  "precise-shot",
+  "rapid-shot",
+  "shot-on-the-run",
+  "quick-draw",
+  "skill-focus",
+  "spell-focus",
+  "greater-spell-focus",
+  "spell-penetration",
+  "greater-spell-penetration",
+  "weapon-focus",
+];
+
+const GUN_MAGE_BONUS_FEAT_ID_SET: ReadonlySet<string> = new Set(GUN_MAGE_BONUS_FEAT_IDS);
+
+export function isGunMageBonusFeat(feat: FeatDefinition): boolean {
+  return isMetamagicFeat(feat) || GUN_MAGE_BONUS_FEAT_ID_SET.has(feat.id);
+}
+
 export interface ClassBonusFeatRule {
   classId: string;
   className: string;
@@ -363,6 +405,13 @@ export const CLASS_BONUS_FEAT_RULES: readonly ClassBonusFeatRule[] = [
     sectionLabel: "Psychic Warrior Bonus Feats",
     note: "Per the Psychic Warrior class, Expanded Psionics Handbook, p. 25: the fighter bonus feats or the psionic feats — both lists are shown in the sections above.",
     matches: (feat) => isFighterBonusFeat(feat) || isPsionicFeat(feat),
+  },
+  {
+    classId: "fell-caller",
+    className: "Fell Caller",
+    sectionLabel: "Fell Caller Bonus Feats",
+    note: "Per the Fell Caller class, Iron Kingdoms Character Guide, p. 103: bonus feats at 4th, 8th, 12th, 16th, and 20th level from the fighter bonus feat list, except Greater Weapon Focus, Weapon Specialization, and Greater Weapon Specialization — the fighter feats are listed under Fighter Bonus Feats above.",
+    matches: isFellCallerBonusFeat,
   },
   {
     classId: "knight",
@@ -444,6 +493,13 @@ export const CLASS_BONUS_FEAT_RULES: readonly ClassBonusFeatRule[] = [
     sectionLabel: "Musketeer Bonus Feats",
     note: "Per the Musketeer class list, Sorcery & Steam (bonus feats at 5th level and every three levels thereafter). The book also lists Ambidexterity, a 3.0 feat folded into Two-Weapon Fighting in 3.5, which has no feat record.",
     matches: inIds(MUSKETEER_BONUS_FEAT_IDS),
+  },
+  {
+    classId: "gun-mage",
+    className: "Gun Mage",
+    sectionLabel: "Gun Mage Bonus Feats",
+    note: "Per the Gun Mage class list, Iron Kingdoms Character Guide, p. 109 (bonus feats at 5th level and every five levels thereafter): any metamagic feat (listed under Wizard Bonus Feats above), plus the printed list below. The book also lists Combat Loading and Improved Combat Loading, which have no feat records in the data.",
+    matches: isGunMageBonusFeat,
   },
   {
     classId: "eidolon",
