@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Coins, Info, Plus, Search, Shield, Trash2 } from "lucide-react";
+import { Coins, Info, Plus, Search, Shield, Trash2, ChevronDown, ChevronRight } from "lucide-react";
 import { ALL_EQUIPMENT, ALL_MAGIC_ITEMS } from "@/data";
 import type { InventoryEntry, ResolvedCharacter, Ruleset } from "@/engine/types";
 import { formatGp, initialWealthSplit, WEALTH_BY_LEVEL, wealthByLevel } from "@/engine/wealth";
@@ -91,6 +91,10 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, onAdd, onR
   const [equipQuery, setEquipQuery] = useState("");
   const [itemQuery, setItemQuery] = useState("");
   const [detail, setDetail] = useState<EntityDetail | null>(null);
+  // Wealth-by-level minimized to its title (Shaun, 2026-11-02):
+  // the panel shows just its title until clicked, then the chart
+  // and the 70/30 calculation expand.
+  const [wblOpen, setWblOpen] = useState(false);
 
   function showInventoryDetail(entry: InventoryEntry) {
     if (entry.kind === "equipment") {
@@ -172,10 +176,24 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, onAdd, onR
               calculated from it — at least 70% of the chart amount
               must be spent on gear, at most 30% may stay liquid. */}
           <div className="mt-3 rounded-md border border-card-border bg-card p-3" data-testid="wealth-by-level-panel">
-            <div className="flex flex-wrap items-baseline justify-between gap-2">
-              <p className="font-display text-sm font-semibold">Wealth by Level — DMG Table 5–1</p>
-              <p className="text-xs text-muted-foreground">Your ECL is {resolved.ecl.value} — highlighted below</p>
-            </div>
+            <button
+              type="button"
+              className="flex w-full flex-wrap items-baseline justify-between gap-2 text-left"
+              onClick={() => setWblOpen((o) => !o)}
+              aria-expanded={wblOpen}
+              data-testid="wealth-by-level-toggle"
+            >
+              <p className="flex items-center gap-1.5 font-display text-sm font-semibold">
+                {wblOpen ? <ChevronDown className="h-4 w-4 shrink-0" /> : <ChevronRight className="h-4 w-4 shrink-0" />}
+                Wealth by Level — DMG Table 5–1
+              </p>
+              <p className="text-xs text-muted-foreground">
+                Your ECL is {resolved.ecl.value}
+                {wblOpen ? " — highlighted below" : ""}
+              </p>
+            </button>
+            {wblOpen && (
+              <>
             {/* List format (Shaun, 2026-11-02): every level with the
                 whole number and its 70% and 30% numbers beside it. */}
             <div className="mt-2 max-h-64 overflow-y-auto" data-testid="wealth-by-level-chart">
@@ -266,6 +284,8 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, onAdd, onR
                   ? "Level 1 characters use their class's starting gold instead — the chart and the 70% calculation start at level 2."
                   : "The DMG chart stops at level 20, so there's no chart amount to calculate from past that."}
               </p>
+            )}
+              </>
             )}
           </div>
           <CardDescription>

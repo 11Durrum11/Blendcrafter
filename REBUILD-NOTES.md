@@ -5129,3 +5129,9 @@ direction):** same treatment as the feat titles — the casting
 types lay out in a four-column grid (two on narrow screens),
 each type expanding downward inside its own column with spell
 names one per row. Hover/click crunch on the names unchanged.
+
+**Wealth-by-level minimized to its title (2026-11-02, Shaun's
+direction):** the Wealth by Level panel beside the Wealth
+header shows just its title (with the ECL note) until clicked;
+clicking expands the DMG chart and the 70/30 calculation, and
+clicking again folds it away.
