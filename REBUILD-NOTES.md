@@ -4866,3 +4866,72 @@ direction):** under each picker in the Personality step sits a
 "Your Flaws" / "Your Traits" box; whatever is picked lands there
 fully crunched out — name, prerequisite, the full description
 text, and source — with a Remove button per entry.
+
+**Flaw/trait crunch wiring (2026-11-02, Shaun's order: "make sure
+all these flaws and traits whatever crunch they insist gets
+utilized in the character"):** picked flaws and traits now apply
+their mechanical effects through the resolver, exactly like feat
+modifiers. `FlawTraitDefinition` gained `modifiers?: Modifier[]`;
+in resolver Phase 4, right after the feat loop, the modifiers of
+every picked flaw (`build.personality.flawIds`) and trait
+(`traitIds`) are pushed into the same modifierPool, so they flow
+through the identical stacking and audit path. Picked entries with
+modeled effects show a "Mechanical effect" badge in the
+Personality step's picked boxes (mirroring the feats step).
+
+Engine survey first (only targets the resolver demonstrably
+derives were used): `skill.<id>`, `save.fort/ref/will`,
+`ac.untyped` (general AC component), `hp.bonus`. The engine
+derives NO attack totals (melee/ranged), NO initiative total, NO
+grapple or standalone ability-check totals, and speed/ability
+scores never read the modifier pool — so effects on those
+surfaces cannot be modeled without inventing numbers, and per
+the order they stay unmodeled with the reason recorded.
+
+Modeled: UA flaws 6/13, UA traits 22/35, D&D Wiki snapshot
+13/268 (4 flaws + 9 traits) — 41 records, 167 modifiers. Where a
+record's effect splits into a modelable half and an unmodelable
+half (e.g. Feeble's skill penalties land; its raw ability checks
+don't exist in the engine), the modeled half carries a note
+naming the boundary. The wiki rule was strict: a record was
+modeled ONLY if its entire printed effect is unconditional
+numeric modifiers on proven targets — no conditions, choices,
+non-numeric clauses, or unmodelable halves; any doubt, skipped.
+
+Unmodeled UA flaws (7): Frail (per-level hp loss — hp.bonus is a
+flat one-time value, no per-level channel), Murky-Eyed
+(concealment reroll — no miss-chance surface), Noncombatant (-2
+melee attack — no attack derivation), Pathetic (player-chosen
+ability -2 — choice-based, and ability scores never read the
+pool), Shaky (-2 ranged attack — no attack derivation), Slow
+flaw (speed halved — multiplier; speed never reads the pool),
+Unreactive (-6 initiative — no initiative total exists).
+Unmodeled UA traits (13): Brawler (attack/grapple surfaces),
+Cautious (both halves conditional — fighting defensively / fear
+only), Illiterate (chosen skill), Inattentive trait (chosen
+skill + complex-checks variant), Nightsighted (darkvision range
++ conditional bright-light Spot), Quick (+10 speed not
+pool-driven; -1 hp/level), Reckless (damage rolls / melee
+attack), Relentless (Con checks + fatigue swap — no ability-
+check surface), Slippery (grapple-only Escape Artist subset +
+grapple checks), Slow trait (+1 hp/level + halved speed),
+Specialized (chosen skill family), Spellgifted (caster level by
+school — no channel), Torpid (save bonus only vs
+enchantment/compulsion subset + initiative).
+
+Verified by /tmp/test-flawtrait-wiring.mts (13 assertions, all
+passing): baseline vs picks — Vulnerable AC -1 (total and
+touch), Inattentive Listen/Spot -4 with the flaw named in the
+audit trail, Weak Will -3, Meager Fortitude -3, Detached trait
+moving both saves (+1 Will / -1 Ref), Aggressive's AC -1, wiki
+Loud (Hide/Move Silently -2) and Weakened Power (all saves -2),
+Noncombatant picked changing nothing (documented boundary), and
+unpicked flaws leaving numbers at baseline.
+
+**Confirm button for Flaws & Traits (2026-11-02, Shaun's
+direction):** ticking a name now only STAGES the pick; the
+"Confirm picks" button beside the Flaws & Traits title (with an
+"Unconfirmed picks" flag while staged ≠ committed) commits them
+— that is when they land in the Your Flaws / Your Traits boxes
+and their modifiers apply to the character. Remove in a picked
+box still removes immediately and un-stages the name.

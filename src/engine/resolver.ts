@@ -16,7 +16,7 @@ import {
   type TemplateDefinition,
   type ValidationIssue,
 } from "./types";
-import { ALL_CLASSES, ALL_EQUIPMENT, ALL_FEATS, ALL_MAGIC_ITEMS, ALL_PRESTIGE_CLASSES, ALL_RACES, ALL_SKILLS, ALL_TEMPLATES } from "@/data";
+import { ALL_CLASSES, ALL_EQUIPMENT, ALL_FEATS, ALL_FLAWS, ALL_MAGIC_ITEMS, ALL_PRESTIGE_CLASSES, ALL_RACES, ALL_SKILLS, ALL_TEMPLATES, ALL_TRAITS } from "@/data";
 import { checkPrerequisites, checkTemplateOrdering } from "./prerequisites";
 import { buildPrereqContext, evaluatePrestigeClass } from "./prestige-prerequisites";
 import { validateSelectedSpells } from "./spells";
@@ -54,6 +54,8 @@ const TEMPLATES_BY_ID = new Map(ALL_TEMPLATES.map((t) => [t.id, t]));
 const EQUIPMENT_BY_ID = new Map(ALL_EQUIPMENT.map((e) => [e.id, e]));
 const MAGIC_BY_ID = new Map(ALL_MAGIC_ITEMS.map((m) => [m.id, m]));
 const FEATS_BY_ID = new Map(ALL_FEATS.map((f) => [f.id, f]));
+const FLAWS_BY_ID = new Map(ALL_FLAWS.map((f) => [f.id, f]));
+const TRAITS_BY_ID = new Map(ALL_TRAITS.map((t) => [t.id, t]));
 
 export function resolveCharacter(build: CharacterBuild): ResolvedCharacter {
   /* ---------------- Phase 1: normalize base creature ---------------- */
@@ -174,6 +176,19 @@ export function resolveCharacter(build: CharacterBuild): ResolvedCharacter {
     .map((id) => FEATS_BY_ID.get(id))
     .filter((f): f is NonNullable<typeof f> => Boolean(f));
   for (const feat of selectedFeats) modifierPool.push(...(feat.modifiers ?? []));
+
+  // Picked flaws & traits (Personality step): the records whose printed
+  // effects are modeled carry ordinary modifiers, which join the same
+  // pool and flow through the same stacking/audit path as feat
+  // modifiers (Shaun's order, 2026-11-02: picked crunch must apply).
+  for (const id of build.personality?.flawIds ?? []) {
+    const rec = FLAWS_BY_ID.get(id);
+    if (rec) modifierPool.push(...(rec.modifiers ?? []));
+  }
+  for (const id of build.personality?.traitIds ?? []) {
+    const rec = TRAITS_BY_ID.get(id);
+    if (rec) modifierPool.push(...(rec.modifiers ?? []));
+  }
 
   // Equipped armor/shields and magic-item modifiers join the same pool.
   const resolvedInventory = build.inventory.flatMap((entry) => {

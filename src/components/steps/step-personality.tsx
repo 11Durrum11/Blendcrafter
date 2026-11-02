@@ -1,5 +1,6 @@
-import { useMemo, useState, type ReactNode } from "react";
+import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { Brain, Dices, Sparkles } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -23,14 +24,33 @@ export function StepPersonality({ build, resolved, onChange }: Props) {
   const [flawQuery, setFlawQuery] = useState("");
   const [traitQuery, setTraitQuery] = useState("");
   const [detail, setDetail] = useState<EntityDetail | null>(null);
-  const toggleFlaw = (id: string) => {
-    const cur = p.flawIds ?? [];
-    set("flawIds", cur.includes(id) ? cur.filter((x) => x !== id) : [...cur, id]);
+  // Staged picks (Shaun, 2026-11-02): ticking a name only stages it.
+  // The Confirm button beside the Flaws & Traits title commits the
+  // staged picks to the character — that is when they land in the
+  // picked boxes below and their crunch applies. The staged set
+  // re-syncs whenever the committed picks change (another character
+  // loaded, a Remove in the picked box, the Confirm itself).
+  const committedFlaws = p.flawIds ?? [];
+  const committedTraits = p.traitIds ?? [];
+  const [stagedFlaws, setStagedFlaws] = useState<string[]>(committedFlaws);
+  const [stagedTraits, setStagedTraits] = useState<string[]>(committedTraits);
+  useEffect(() => { setStagedFlaws(p.flawIds ?? []); }, [JSON.stringify(p.flawIds ?? [])]);
+  useEffect(() => { setStagedTraits(p.traitIds ?? []); }, [JSON.stringify(p.traitIds ?? [])]);
+  const toggleFlaw = (id: string) =>
+    setStagedFlaws((cur) => (cur.includes(id) ? cur.filter((x) => x !== id) : [...cur, id]));
+  const toggleTrait = (id: string) =>
+    setStagedTraits((cur) => (cur.includes(id) ? cur.filter((x) => x !== id) : [...cur, id]));
+  const removeFlaw = (id: string) => {
+    set("flawIds", committedFlaws.filter((x) => x !== id));
+    setStagedFlaws((cur) => cur.filter((x) => x !== id));
   };
-  const toggleTrait = (id: string) => {
-    const cur = p.traitIds ?? [];
-    set("traitIds", cur.includes(id) ? cur.filter((x) => x !== id) : [...cur, id]);
+  const removeTrait = (id: string) => {
+    set("traitIds", committedTraits.filter((x) => x !== id));
+    setStagedTraits((cur) => cur.filter((x) => x !== id));
   };
+  const sameSet = (a: string[], b: string[]) => a.length === b.length && a.every((x) => b.includes(x));
+  const picksDirty = !sameSet(stagedFlaws, committedFlaws) || !sameSet(stagedTraits, committedTraits);
+  const confirmPicks = () => onChange({ flawIds: stagedFlaws, traitIds: stagedTraits });
   const setWeight = (key: keyof PersonalityProfile["weights"], value: number) => onChange({ weights: { ...p.weights, [key]: value } });
   const generate = () => onChange({ generated });
   const randomize = () => {
@@ -75,13 +95,23 @@ export function StepPersonality({ build, resolved, onChange }: Props) {
     </Card>
 
     <Card>
-      <CardHeader><CardTitle className="font-display">Flaws & Traits</CardTitle></CardHeader>
+      <CardHeader>
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <CardTitle className="font-display">Flaws & Traits</CardTitle>
+          <div className="flex items-center gap-2">
+            {picksDirty && <span className="text-xs font-medium text-amber-500" data-testid="text-unconfirmed-picks">Unconfirmed picks</span>}
+            <Button type="button" size="sm" onClick={confirmPicks} disabled={!picksDirty} data-testid="button-confirm-flawtraits">
+              {picksDirty ? "Confirm picks" : "Confirmed"}
+            </Button>
+          </div>
+        </div>
+      </CardHeader>
       <CardContent className="space-y-6">
-        <p className="text-sm text-muted-foreground">The full library: the Unearthed Arcana lists plus a snapshot of the D&D Wiki, saved into Blendcrafter so wiki edits can't change it on you. Book guidance — a flaw is taken at 1st level and grants a bonus feat, and a character may have up to two traits — is shown for reference; Blendcrafter doesn't enforce either.</p>
-        <FlawTraitPicker title="Flaws" items={ALL_FLAWS} selectedIds={p.flawIds ?? []} query={flawQuery} onQuery={setFlawQuery} onToggle={toggleFlaw} onShowDetail={(item) => setDetail(describeFlawTrait(item))} testidPrefix="flaw" />
-        <PickedBox title="Flaws" items={ALL_FLAWS} selectedIds={p.flawIds ?? []} onRemove={toggleFlaw} onShowDetail={(item) => setDetail(describeFlawTrait(item))} testidPrefix="flaw" />
-        <FlawTraitPicker title="Traits" items={ALL_TRAITS} selectedIds={p.traitIds ?? []} query={traitQuery} onQuery={setTraitQuery} onToggle={toggleTrait} onShowDetail={(item) => setDetail(describeFlawTrait(item))} testidPrefix="trait" />
-        <PickedBox title="Traits" items={ALL_TRAITS} selectedIds={p.traitIds ?? []} onRemove={toggleTrait} onShowDetail={(item) => setDetail(describeFlawTrait(item))} testidPrefix="trait" />
+        <p className="text-sm text-muted-foreground">The full library: the Unearthed Arcana lists plus a snapshot of the D&D Wiki, saved into Blendcrafter so wiki edits can't change it on you. Book guidance — a flaw is taken at 1st level and grants a bonus feat, and a character may have up to two traits — is shown for reference; Blendcrafter doesn't enforce either. Tick names to stage your picks, then hit <span className="font-medium text-foreground">Confirm picks</span> — that's when they land in the boxes below and their crunch applies to the character.</p>
+        <FlawTraitPicker title="Flaws" items={ALL_FLAWS} selectedIds={stagedFlaws} query={flawQuery} onQuery={setFlawQuery} onToggle={toggleFlaw} onShowDetail={(item) => setDetail(describeFlawTrait(item))} testidPrefix="flaw" />
+        <PickedBox title="Flaws" items={ALL_FLAWS} selectedIds={committedFlaws} onRemove={removeFlaw} onShowDetail={(item) => setDetail(describeFlawTrait(item))} testidPrefix="flaw" />
+        <FlawTraitPicker title="Traits" items={ALL_TRAITS} selectedIds={stagedTraits} query={traitQuery} onQuery={setTraitQuery} onToggle={toggleTrait} onShowDetail={(item) => setDetail(describeFlawTrait(item))} testidPrefix="trait" />
+        <PickedBox title="Traits" items={ALL_TRAITS} selectedIds={committedTraits} onRemove={removeTrait} onShowDetail={(item) => setDetail(describeFlawTrait(item))} testidPrefix="trait" />
       </CardContent>
     </Card>
 
@@ -108,7 +138,10 @@ function PickedBox({title,items,selectedIds,onRemove,onShowDetail,testidPrefix}:
     <div className="mt-2 space-y-3">
       {picked.map(item=><div key={item.id} className="rounded-md border border-card-border bg-card p-3" data-testid={`picked-${testidPrefix}-${item.id}`}>
         <div className="flex items-start justify-between gap-2">
-          <button type="button" className="text-left font-semibold underline-offset-2 hover:underline" onClick={()=>onShowDetail(item)} data-testid={`picked-name-${testidPrefix}-${item.id}`}>{item.name}</button>
+          <span className="flex items-center gap-2">
+            <button type="button" className="text-left font-semibold underline-offset-2 hover:underline" onClick={()=>onShowDetail(item)} data-testid={`picked-name-${testidPrefix}-${item.id}`}>{item.name}</button>
+            {item.modifiers && item.modifiers.length > 0 && <Badge variant="secondary" className="text-[10px]">Mechanical effect</Badge>}
+          </span>
           <Button type="button" size="sm" variant="outline" className="h-6 shrink-0 text-xs" onClick={()=>onRemove(item.id)} data-testid={`picked-remove-${testidPrefix}-${item.id}`}>Remove</Button>
         </div>
         {item.prerequisite && <p className="mt-1 text-xs text-muted-foreground"><span className="font-medium text-foreground">Prerequisite:</span> {item.prerequisite}</p>}

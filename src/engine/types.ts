@@ -545,6 +545,15 @@ export interface FlawTraitDefinition {
   source: string;
   sourceUrl: string;
   ruleset: string;
+  /**
+   * Modeled mechanical effects, wired into the resolver's modifier pool
+   * exactly like feat modifiers when the flaw/trait is picked. Present
+   * only where the printed effect maps cleanly onto a target the engine
+   * actually derives (skills, saves, AC, flat hp.bonus); conditional,
+   * choice-based, per-level, attack/initiative/speed and sense effects
+   * stay unmodeled — see REBUILD-NOTES.md for the per-record accounting.
+   */
+  modifiers?: Modifier[];
 }
 
 export interface PersonalityProfile {
