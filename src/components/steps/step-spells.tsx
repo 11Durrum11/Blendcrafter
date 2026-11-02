@@ -157,6 +157,7 @@ export function StepSpells({ build, resolved, onToggleSpell }: StepSpellsProps) 
               spellcasting class levels.
             </p>
           )}
+          <div className="grid grid-cols-2 items-start gap-3 sm:grid-cols-4">
           {library.map(({ profile, byLevel, levels, total }) => {
             const searching = query.trim().length > 0;
             const expanded = searching || expandedTypes.has(profile.listName);
@@ -196,7 +197,7 @@ export function StepSpells({ build, resolved, onToggleSpell }: StepSpellsProps) 
                           {LEVEL_LABELS[lvl]}{" "}
                           <span className="text-sm font-normal text-muted-foreground">({spells.length})</span>
                         </h4>
-                        <div className="mt-1 grid grid-cols-2 gap-x-3 gap-y-0 sm:grid-cols-3 lg:grid-cols-4">
+                        <div className="mt-1 grid grid-cols-1 gap-y-0">
                           {spells.map((s) => (
                             <Tooltip key={s.id}>
                               <TooltipTrigger asChild>
@@ -235,6 +236,7 @@ export function StepSpells({ build, resolved, onToggleSpell }: StepSpellsProps) 
               </div>
             );
           })}
+          </div>
         </CardContent>
       </Card>
 

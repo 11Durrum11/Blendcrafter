@@ -5123,3 +5123,9 @@ the feat sections lay out in a four-column grid (two columns on
 narrow screens) — titles across, and a section expands downward
 inside its own column, its feat names stacking one per row.
 Drag-to-rearrange works across the grid unchanged.
+
+**Spell Library titles in four columns (2026-11-02, Shaun's
+direction):** same treatment as the feat titles — the casting
+types lay out in a four-column grid (two on narrow screens),
+each type expanding downward inside its own column with spell
+names one per row. Hover/click crunch on the names unchanged.
