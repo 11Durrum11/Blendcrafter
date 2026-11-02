@@ -99,17 +99,16 @@ function FlawTraitPicker({title,items,selectedIds,query,onQuery,onToggle,onShowD
   return <div className="space-y-2" data-testid={`picker-${testidPrefix}`}>
     <h3 className="text-sm font-semibold">{title} <span className="font-normal text-muted-foreground">({selectedIds.length} selected · {items.length} in the library)</span></h3>
     <Input value={query} onChange={e=>onQuery(e.target.value)} placeholder={`Search ${title.toLowerCase()}…`} className="h-8" data-testid={`input-${testidPrefix}-search`} />
-    <div className="max-h-64 divide-y divide-card-border overflow-y-auto rounded-md border border-card-border">
-      {sorted.map(item=><label key={item.id} className="flex cursor-pointer items-start gap-2 p-2.5 hover:bg-muted/40" data-testid={`${testidPrefix}-option-${item.id}`}>
-        <input type="checkbox" className="mt-0.5 accent-primary" checked={selectedIds.includes(item.id)} onChange={()=>onToggle(item.id)} />
-        <span>
-          <button type="button" className="text-left text-sm font-medium underline-offset-2 hover:underline" onClick={(e)=>{e.preventDefault();e.stopPropagation();onShowDetail(item);}} data-testid={`${testidPrefix}-name-${item.id}`}>{item.name}</button>
-          {item.prerequisite && <span className="text-xs text-muted-foreground"> — {item.prerequisite}</span>}
-          <span className="block text-xs text-muted-foreground">{item.summary}</span>
-          <span className="block text-[11px] text-muted-foreground/70">{item.source}</span>
-        </span>
+    {/* Names only, four across (Shaun, 2026-11-02): the initial list
+        shows just each flaw/trait name to save space; everything
+        else — summary, full description, prerequisite, source —
+        lives in the click (the name opens the detail dialog). */}
+    <div className="grid max-h-64 grid-cols-2 gap-1 overflow-y-auto rounded-md border border-card-border p-2 md:grid-cols-4">
+      {sorted.map(item=><label key={item.id} className="flex cursor-pointer items-start gap-1.5 rounded p-1.5 hover:bg-muted/40" data-testid={`${testidPrefix}-option-${item.id}`}>
+        <input type="checkbox" className="mt-0.5 shrink-0 accent-primary" checked={selectedIds.includes(item.id)} onChange={()=>onToggle(item.id)} />
+        <button type="button" className="text-left text-sm font-medium leading-tight underline-offset-2 hover:underline" onClick={(e)=>{e.preventDefault();e.stopPropagation();onShowDetail(item);}} data-testid={`${testidPrefix}-name-${item.id}`}>{item.name}</button>
       </label>)}
-      {sorted.length===0 && <p className="p-3 text-sm text-muted-foreground">No matches.</p>}
+      {sorted.length===0 && <p className="col-span-full p-1 text-sm text-muted-foreground">No matches.</p>}
     </div>
   </div>;
 }

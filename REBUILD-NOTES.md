@@ -4824,3 +4824,34 @@ separate piece of work.
 Each record carries both a one-line `summary` (the mechanics)
 and a full `description` (flavor line plus complete effect
 text), matching the describeFlawTrait dialog contract.
+
+**Flaws & Traits — published-vs-homebrew clarification
+(2026-11-02, Shaun's follow-up):** published book material in
+the pack is the Unearthed Arcana lists only: 13 flaws + 35
+traits = 48 published records, each with source "Unearthed
+Arcana" and the full SRD text. The two D&D Wiki list pages
+Shaun named (3.5e Flaws / 3.5e Traits) were re-read directly:
+both are homebrew lists (breadcrumb "3.5e Homebrew ->
+Character Options") with main / April Fools / supplement /
+needs-improvement sections — there is no published or Dragon
+Magazine reprint section on either page, and no entry on
+either list carries a Dragon issue attribution. The wiki
+snapshot is therefore entirely homebrew: 116 flaws + 152
+traits = 268 records, source "D&D Wiki (homebrew)". Three
+wiki flaw names coincide with Dragon #324 flaw names
+(Cold-Blooded, Coward, and Chivalrous vs. the Dragon flaw
+Chivalrous Courtesy); the wiki pages are homebrew submissions
+under the 3.5e Homebrew breadcrumb (spot-verified: Coward,
+whose page text matches its record exactly), not reprints,
+so no Dragon attribution was attached. Also fixed one
+snapshot name artifact: the trait listed as "Cross
+Trained.(3.5e Trait)" is now id "cross-trained", name
+"Cross Trained".
+
+**Flaws & Traits list trimmed (2026-11-02, Shaun's direction):**
+the Personality pickers show names only, four across, to save
+space — the summary that sat under each name is gone from the
+list, along with the prerequisite and source lines; all of it
+lives in the click (the name opens the detail dialog, which
+carries the summary, the Full Description, the prerequisite,
+and the source).
