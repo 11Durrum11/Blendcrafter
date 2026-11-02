@@ -130,9 +130,37 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, onAdd, onR
     <div className="space-y-6">
       <Card>
         <CardHeader>
-          <CardTitle className="font-display text-xl flex items-center gap-2">
-            <Coins className="h-5 w-5 text-primary" /> Wealth
-          </CardTitle>
+          <div className="flex flex-wrap items-start justify-between gap-3">
+            <CardTitle className="font-display text-xl flex items-center gap-2">
+              <Coins className="h-5 w-5 text-primary" /> Wealth
+            </CardTitle>
+            {/* Currency types beside the Wealth header (Shaun,
+                2026-11-02), taken from his "MISC OTHER HOUSE RULES"
+                document: coin, gems, scripts, and cheqs. Coin uses
+                book-standard conversions — 10 cp = 1 sp, 10 sp = 1 gp,
+                1 pp = 10 gp, 50 coins to the pound; no electrum. */}
+            <div
+              className="max-w-xl space-y-1 text-xs leading-relaxed text-muted-foreground sm:text-right"
+              data-testid="wealth-currency-types"
+            >
+              <p>
+                <span className="font-medium text-foreground">Coin:</span> copper (cp), silver (sp), gold (gp),
+                platinum (pp) — 10 cp = 1 sp · 10 sp = 1 gp · 1 pp = 10 gp · 50 coins = 1 lb.
+              </p>
+              <p>
+                <span className="font-medium text-foreground">Gems:</span> 10 to a pound; compound pricing; price is
+                very appraise-dependent.
+              </p>
+              <p>
+                <span className="font-medium text-foreground">Scripts:</span> paper money, 1 gp each; 500 to a pound;
+                very society-dependent.
+              </p>
+              <p>
+                <span className="font-medium text-foreground">Cheqs:</span> any amount; very lightweight; very
+                society-dependent.
+              </p>
+            </div>
+          </div>
           <CardDescription>
             The gold-piece value of everything in your inventory, kept current as you add and remove items below.
           </CardDescription>

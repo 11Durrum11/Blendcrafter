@@ -4660,3 +4660,13 @@ scrolling) and a row of category heading buttons at the top of
 the card that jump to the section. The old category dropdown is
 gone (the sections are the structure now). The one data spelling
 variant "wondrous-item" displays merged under Wondrous Items.
+
+**Currency types beside Wealth (2026-11-02, Shaun's direction):**
+the Wealth card header now carries the currency types from Shaun's
+"MISC OTHER HOUSE RULES" document beside the Wealth title — Coin
+(copper, silver, gold, platinum at book-standard conversions:
+10 cp = 1 sp, 10 sp = 1 gp, 1 pp = 10 gp; 50 coins to the pound),
+Gems (10 to a pound, compound pricing, price very
+appraise-dependent), Scripts (paper money, 1 gp each, 500 to a
+pound, very society-dependent), and Cheqs (any amount, very
+lightweight, very society-dependent — spelled "Cheqs" per Shaun).
