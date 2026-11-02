@@ -4648,3 +4648,15 @@ Active feats also sort to the top of each section now: qualified
 (and already-chosen) feats list first, the grayed-out ones sink
 below under a "Prerequisites not met" subheading — the same
 segregation pattern as the turned-off entries.
+
+**Equipment categorized (2026-11-02, Shaun's direction):** the
+Equipment and Magic Items lists are grouped into category
+sections — Weapons, Armor, Shields, Ammunition, Alchemical Gear,
+Tools, Adventuring Gear; Wondrous Items, Rings, Rods, Staffs,
+Wands, Scrolls, Potions, Magic Weapons/Armor/Shields, Special
+Abilities, Augment Crystals, Magic Ammunition, Artifacts — each
+with its heading at the top of the section (sticky while
+scrolling) and a row of category heading buttons at the top of
+the card that jump to the section. The old category dropdown is
+gone (the sections are the structure now). The one data spelling
+variant "wondrous-item" displays merged under Wondrous Items.

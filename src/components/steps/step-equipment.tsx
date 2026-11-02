@@ -22,9 +22,73 @@ interface StepEquipmentProps {
   onToggleEquipped: (id: string, equipped: boolean) => void;
 }
 
+/**
+ * Category structure for the equipment lists (Shaun, 2026-11-02:
+ * "Categorize the equipment and put the category headings at the
+ * top"). Sections render in this order with a heading at the top of
+ * each; categories outside the list append alphabetically.
+ */
+const EQUIPMENT_CATEGORY_ORDER: { key: string; label: string }[] = [
+  { key: "weapon", label: "Weapons" },
+  { key: "armor", label: "Armor" },
+  { key: "shield", label: "Shields" },
+  { key: "ammunition", label: "Ammunition" },
+  { key: "alchemical gear", label: "Alchemical Gear" },
+  { key: "tool", label: "Tools" },
+  { key: "gear", label: "Adventuring Gear" },
+];
+
+const MAGIC_CATEGORY_ORDER: { key: string; label: string }[] = [
+  { key: "wondrous", label: "Wondrous Items" },
+  { key: "ring", label: "Rings" },
+  { key: "rod", label: "Rods" },
+  { key: "staff", label: "Staffs" },
+  { key: "wand", label: "Wands" },
+  { key: "scroll", label: "Scrolls" },
+  { key: "potion", label: "Potions" },
+  { key: "weapon", label: "Magic Weapons" },
+  { key: "armor", label: "Magic Armor" },
+  { key: "shield", label: "Magic Shields" },
+  { key: "armor-or-weapon-special-ability", label: "Armor & Weapon Special Abilities" },
+  { key: "augment-crystal", label: "Augment Crystals" },
+  { key: "ammunition", label: "Magic Ammunition" },
+  { key: "artifact", label: "Artifacts" },
+];
+
+interface CategorySection<T> {
+  key: string;
+  label: string;
+  items: T[];
+}
+
+function groupByCategory<T extends { category: string }>(
+  items: T[],
+  order: { key: string; label: string }[],
+  normalize?: (category: string) => string
+): CategorySection<T>[] {
+  const byKey = new Map<string, T[]>();
+  for (const item of items) {
+    const key = normalize ? normalize(item.category) : item.category;
+    const list = byKey.get(key) ?? [];
+    list.push(item);
+    byKey.set(key, list);
+  }
+  const sections: CategorySection<T>[] = [];
+  for (const { key, label } of order) {
+    const list = byKey.get(key);
+    if (list && list.length > 0) {
+      sections.push({ key, label, items: list });
+      byKey.delete(key);
+    }
+  }
+  for (const key of [...byKey.keys()].sort()) {
+    sections.push({ key, label: key[0].toUpperCase() + key.slice(1), items: byKey.get(key)! });
+  }
+  return sections;
+}
+
 export function StepEquipment({ inventory, enabledRulesets, resolved, onAdd, onRemove, onToggleEquipped }: StepEquipmentProps) {
   const [equipQuery, setEquipQuery] = useState("");
-  const [equipCategory, setEquipCategory] = useState<string>("all");
   const [itemQuery, setItemQuery] = useState("");
   const [detail, setDetail] = useState<EntityDetail | null>(null);
 
@@ -38,16 +102,20 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, onAdd, onR
     }
   }
 
-  const equipmentCategories = Array.from(new Set(ALL_EQUIPMENT.map((e) => e.category)));
   const visibleEquipment = ALL_EQUIPMENT.filter(
-    (e) =>
-      enabledRulesets.includes(e.ruleset) &&
-      e.name.toLowerCase().includes(equipQuery.toLowerCase()) &&
-      (equipCategory === "all" || e.category === equipCategory)
+    (e) => enabledRulesets.includes(e.ruleset) && e.name.toLowerCase().includes(equipQuery.toLowerCase())
   );
   const visibleMagicItems = ALL_MAGIC_ITEMS.filter(
     (m) => enabledRulesets.includes(m.ruleset) && m.name.toLowerCase().includes(itemQuery.toLowerCase())
   );
+  const equipmentSections = groupByCategory(visibleEquipment, EQUIPMENT_CATEGORY_ORDER);
+  // "wondrous-item" is a one-record spelling variant of "wondrous" in
+  // the data; the two display as one Wondrous Items section.
+  const magicSections = groupByCategory(visibleMagicItems, MAGIC_CATEGORY_ORDER, (c) =>
+    c === "wondrous-item" ? "wondrous" : c
+  );
+
+  const jumpToSection = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
 
   const wealth = resolved.wealth;
   const wbl = wealthByLevel(resolved.ecl.value);
@@ -144,26 +212,42 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, onAdd, onR
               <Search className="absolute left-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-muted-foreground" />
               <Input value={equipQuery} onChange={(e) => setEquipQuery(e.target.value)} placeholder="Search equipment…" className="h-8 pl-8" data-testid="input-equipment-search" />
             </div>
-            <select
-              value={equipCategory}
-              onChange={(e) => setEquipCategory(e.target.value)}
-              className="h-8 rounded-md border border-input bg-background px-2 text-sm"
-              data-testid="select-equipment-category"
-            >
-              <option value="all">All categories</option>
-              {equipmentCategories.map((c) => (
-                <option key={c} value={c}>
-                  {c[0].toUpperCase() + c.slice(1)}
-                </option>
-              ))}
-            </select>
           </div>
 
-          <div className="mt-3 max-h-80 overflow-y-auto divide-y divide-card-border rounded-md border border-card-border bg-card">
+          {equipmentSections.length > 0 && (
+            <div className="mt-3 flex flex-wrap gap-1.5" data-testid="equipment-category-headings">
+              {equipmentSections.map((section) => (
+                <Button
+                  key={section.key}
+                  type="button"
+                  size="sm"
+                  variant="outline"
+                  className="h-7 text-xs"
+                  onClick={() => jumpToSection(`equip-cat-${section.key}`)}
+                  data-testid={`button-equip-cat-${section.key}`}
+                >
+                  {section.label} ({section.items.length})
+                </Button>
+              ))}
+            </div>
+          )}
+
+          <div className="mt-3 max-h-80 overflow-y-auto rounded-md border border-card-border bg-card">
             {visibleEquipment.length === 0 ? (
               <p className="p-4 text-sm text-muted-foreground">No equipment matches your search or the enabled rule sets.</p>
             ) : (
-              visibleEquipment.map((item) => (
+              equipmentSections.map((section) => (
+                <div key={section.key}>
+                  <div
+                    id={`equip-cat-${section.key}`}
+                    className="sticky top-0 z-10 border-b border-card-border bg-card px-3 py-2 font-display text-sm font-semibold"
+                    data-testid={`heading-equip-cat-${section.key}`}
+                  >
+                    {section.label}{" "}
+                    <span className="text-xs font-normal text-muted-foreground">({section.items.length})</span>
+                  </div>
+                  <div className="divide-y divide-card-border">
+                    {section.items.map((item) => (
                 <div key={item.id} className="flex flex-wrap items-center justify-between gap-2 p-3" data-testid={`equipment-row-${item.id}`}>
                   <div className="min-w-0">
                     <div className="flex items-center gap-1.5 flex-wrap">
@@ -187,6 +271,9 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, onAdd, onR
                     <Plus className="mr-1 h-3.5 w-3.5" /> Add
                   </Button>
                 </div>
+                    ))}
+                  </div>
+                </div>
               ))
             )}
           </div>
@@ -209,11 +296,39 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, onAdd, onR
             <Search className="absolute left-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-muted-foreground" />
             <Input value={itemQuery} onChange={(e) => setItemQuery(e.target.value)} placeholder="Search magic items…" className="h-8 pl-8" data-testid="input-magic-item-search" />
           </div>
-          <div className="mt-3 max-h-80 overflow-y-auto divide-y divide-card-border rounded-md border border-card-border bg-card">
+          {magicSections.length > 0 && (
+            <div className="mt-3 flex flex-wrap gap-1.5" data-testid="magic-category-headings">
+              {magicSections.map((section) => (
+                <Button
+                  key={section.key}
+                  type="button"
+                  size="sm"
+                  variant="outline"
+                  className="h-7 text-xs"
+                  onClick={() => jumpToSection(`magic-cat-${section.key}`)}
+                  data-testid={`button-magic-cat-${section.key}`}
+                >
+                  {section.label} ({section.items.length})
+                </Button>
+              ))}
+            </div>
+          )}
+          <div className="mt-3 max-h-80 overflow-y-auto rounded-md border border-card-border bg-card">
             {visibleMagicItems.length === 0 ? (
               <p className="p-4 text-sm text-muted-foreground">No magic items match your search or the enabled rule sets.</p>
             ) : (
-              visibleMagicItems.map((item) => (
+              magicSections.map((section) => (
+                <div key={section.key}>
+                  <div
+                    id={`magic-cat-${section.key}`}
+                    className="sticky top-0 z-10 border-b border-card-border bg-card px-3 py-2 font-display text-sm font-semibold"
+                    data-testid={`heading-magic-cat-${section.key}`}
+                  >
+                    {section.label}{" "}
+                    <span className="text-xs font-normal text-muted-foreground">({section.items.length})</span>
+                  </div>
+                  <div className="divide-y divide-card-border">
+                    {section.items.map((item) => (
                 <div key={item.id} className="flex flex-wrap items-center justify-between gap-2 p-3" data-testid={`magic-item-row-${item.id}`}>
                   <div className="min-w-0">
                     <div className="flex items-center gap-1.5 flex-wrap">
@@ -235,6 +350,9 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, onAdd, onR
                   <Button type="button" size="sm" variant="outline" onClick={() => onAdd("magic-item", item.id)} data-testid={`button-add-magic-item-${item.id}`}>
                     <Plus className="mr-1 h-3.5 w-3.5" /> Add
                   </Button>
+                </div>
+                    ))}
+                  </div>
                 </div>
               ))
             )}
