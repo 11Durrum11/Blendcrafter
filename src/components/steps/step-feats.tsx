@@ -245,6 +245,14 @@ export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved,
             featSections.map((section) => {
               const turnedOn = section.feats.filter((f) => !disabledFeatIds.includes(f.id));
               const turnedOff = section.feats.filter((f) => disabledFeatIds.includes(f.id));
+              // Active feats to the top (Shaun, 2026-11-02): within a
+              // section, the feats the build qualifies for (and any
+              // already chosen) list first; the grayed-out ones sink
+              // below under their own subheading, the same pattern as
+              // the turned-off segregation.
+              const isGrayed = (f: FeatDefinition) => looksUnmet(f, resolved, featIds) && !featIds.includes(f.id);
+              const active = turnedOn.filter((f) => !isGrayed(f));
+              const grayedOut = turnedOn.filter(isGrayed);
               return (
                 <div key={section.id} className="mt-5" data-testid={`feat-section-${section.id}`}>
                   <h4 className="font-display text-base font-semibold">{section.label}</h4>
@@ -252,7 +260,13 @@ export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved,
                   {section.feats.length === 0 && (
                     <p className="mt-1 text-xs italic text-muted-foreground">Every feat on this list is listed in an earlier section above.</p>
                   )}
-                  {turnedOn.length > 0 && <div className="mt-2 grid gap-3 sm:grid-cols-2">{turnedOn.map(renderFeatCard)}</div>}
+                  {active.length > 0 && <div className="mt-2 grid gap-3 sm:grid-cols-2">{active.map(renderFeatCard)}</div>}
+                  {grayedOut.length > 0 && (
+                    <>
+                      <h5 className="mt-4 font-display text-sm font-semibold text-muted-foreground">Prerequisites not met</h5>
+                      <div className="mt-2 grid gap-3 sm:grid-cols-2">{grayedOut.map(renderFeatCard)}</div>
+                    </>
+                  )}
                   {turnedOff.length > 0 && (
                     <>
                       <h5 className="mt-4 font-display text-sm font-semibold text-muted-foreground">Turned off</h5>

@@ -4644,3 +4644,7 @@ feats the build qualifies for stand out; it stays selectable
 (prerequisites are flagged, never enforced, as before), and a
 feat already chosen keeps its full-strength card with the
 warning line.
+Active feats also sort to the top of each section now: qualified
+(and already-chosen) feats list first, the grayed-out ones sink
+below under a "Prerequisites not met" subheading — the same
+segregation pattern as the turned-off entries.
