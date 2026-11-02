@@ -38,7 +38,6 @@ export const DRAGON_MAGIC_SPELLS: SpellDefinition[] = [
   "descriptors": [],
   "levels": {
     "Sorcerer/Wizard": 7,
-    "Wu Jen": 7
   },
   "components": "V, S",
   "castingTime": "1 standard action",
@@ -140,26 +139,6 @@ export const DRAGON_MAGIC_SPELLS: SpellDefinition[] = [
   "subschool": "Summoning"
 },
 {
-  "id": "channel-the-dragon",
-  "name": "Channel the Dragon",
-  "ruleset": "core",
-  "school": "Transmutation",
-  "descriptors": [],
-  "levels": {
-    "Wu Jen": 7
-  },
-  "components": "V, S",
-  "castingTime": "1 full round",
-  "range": "Personal",
-  "targetOrArea": "You",
-  "duration": "1 round/level",
-  "savingThrow": "Not printed in source",
-  "spellResistance": "Not printed in source",
-  "summary": "The force of elemental wyrms floods your spirit and reinforces your body: your flesh hardens and your eyes gleam, as the text describes.",
-  "source": "Dragon Magic, p. 65",
-  "sourceUrl": "/a poc dm related/desktop/Sourcebooks/Dragon Magic (oef, act, bm, hq) (WTC953837200).pdf"
-},
-{
   "id": "curse-of-the-elemental-lords",
   "name": "Curse of the Elemental Lords",
   "ruleset": "core",
@@ -207,7 +186,6 @@ export const DRAGON_MAGIC_SPELLS: SpellDefinition[] = [
   "descriptors": [],
   "levels": {
     "Sorcerer/Wizard": 2,
-    "Wu Jen": 2
   },
   "components": "V, S",
   "castingTime": "1 standard action",
@@ -271,7 +249,6 @@ export const DRAGON_MAGIC_SPELLS: SpellDefinition[] = [
   "levels": {
     "Cleric": 6,
     "Sorcerer/Wizard": 6,
-    "Wu Jen": 6
   },
   "components": "V, S, M",
   "castingTime": "1 standard action",
@@ -304,28 +281,6 @@ export const DRAGON_MAGIC_SPELLS: SpellDefinition[] = [
   "summary": "You are imbued with a supernatural ferocity, gaining an edge in melee combat for the duration, as the text describes.",
   "source": "Dragon Magic, p. 67",
   "sourceUrl": "/a poc dm related/desktop/Sourcebooks/Dragon Magic (oef, act, bm, hq) (WTC953837200).pdf"
-},
-{
-  "id": "firestride-exhalation",
-  "name": "Firestride Exhalation",
-  "ruleset": "core",
-  "school": "Conjuration",
-  "descriptors": [],
-  "levels": {
-    "Sorcerer/Wizard": 4,
-    "Wu Jen": 4
-  },
-  "components": "V, S",
-  "castingTime": "1 standard action",
-  "range": "30 ft.; see text",
-  "targetOrArea": "Cone-shaped burst; see text",
-  "duration": "Instantaneous",
-  "savingThrow": "Reﬂ ex half",
-  "spellResistance": "Yes",
-  "summary": "You fill your lungs with swirling, burning energy and exhale a powerful cone of fire; the exhalation also moves you, as the text describes.",
-  "source": "Dragon Magic, p. 67",
-  "sourceUrl": "/a poc dm related/desktop/Sourcebooks/Dragon Magic (oef, act, bm, hq) (WTC953837200).pdf",
-  "subschool": "Teleportation"
 },
 {
   "id": "form-of-the-desert-hunter",
@@ -379,7 +334,6 @@ export const DRAGON_MAGIC_SPELLS: SpellDefinition[] = [
   "levels": {
     "Druid": 7,
     "Sorcerer/Wizard": 6,
-    "Wu Jen": 6
   },
   "components": "V, S",
   "castingTime": "1 standard action",
@@ -461,7 +415,6 @@ export const DRAGON_MAGIC_SPELLS: SpellDefinition[] = [
   "school": "Evocation",
   "descriptors": [],
   "levels": {
-    "Shugenja": 5,
     "Sorcerer/Wizard": 5
   },
   "components": "V, S",
@@ -884,7 +837,6 @@ export const DRAGON_MAGIC_SPELLS: SpellDefinition[] = [
   ],
   "levels": {
     "Druid": 3,
-    "Shugenja": 3,
     "Sorcerer/Wizard": 3
   },
   "components": "V, S",
@@ -909,7 +861,6 @@ export const DRAGON_MAGIC_SPELLS: SpellDefinition[] = [
   "levels": {
     "Druid": 3,
     "Sorcerer/Wizard": 3,
-    "Wu Jen": 3
   },
   "components": "V, S",
   "castingTime": "1 standard action",

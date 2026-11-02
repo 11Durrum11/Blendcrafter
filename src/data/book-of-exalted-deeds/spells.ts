@@ -52,29 +52,6 @@ export const BOOK_OF_EXALTED_DEEDS_SPELLS: SpellDefinition[] = [
   "sourceUrl": "/A POC PC related/5.Splat/Book of Exalted Deeds.pdf"
 },
 {
-  "id": "armageddon",
-  "name": "Armageddon",
-  "ruleset": "core",
-  "school": "Conjuration",
-  "descriptors": [
-    "Good"
-  ],
-  "levels": {
-    "Sanctified": 9
-  },
-  "components": "V, S, Sacrifice",
-  "castingTime": "1 standard action",
-  "range": "Medium (100 ft. + 10 ft./level)",
-  "targetOrArea": "2 or more summoned creatures, no two of which can be more than 30 ft. apart",
-  "duration": "1 minute/level (D)",
-  "savingThrow": "None",
-  "spellResistance": "No",
-  "summary": "Opens a portal to a good-aligned Outer Plane; waves of celestials — avorals, then a ghaele eladrin, then an astral deva — arrive over several rounds and serve you for the duration.",
-  "source": "Book of Exalted Deeds, p. 90",
-  "sourceUrl": "/A POC PC related/5.Splat/Book of Exalted Deeds.pdf",
-  "subschool": "Summoning"
-},
-{
   "id": "aspect-of-the-deity",
   "name": "Aspect of the Deity",
   "ruleset": "core",
@@ -1555,29 +1532,6 @@ export const BOOK_OF_EXALTED_DEEDS_SPELLS: SpellDefinition[] = [
   "spellResistance": "Yes (see text)",
   "summary": "You immolate yourself, consuming your flesh in a cloud of flame 20 feet high and 30 feet in diameter, and you die (no saving throw and spell resistance does not apply); every evil creature within the cloud takes 2d6 points of damage per caster level (maximum 40d6), neutral creatures take half damage (halved again on a successful Reflex save), and good creatures take no damage.",
   "source": "Book of Exalted Deeds, p. 103",
-  "sourceUrl": "/A POC PC related/5.Splat/Book of Exalted Deeds.pdf"
-},
-{
-  "id": "quickshift",
-  "name": "Quickshift",
-  "ruleset": "core",
-  "school": "Transmutation",
-  "descriptors": [
-    "Good"
-  ],
-  "levels": {
-    "Cleric": 6,
-    "Sorcerer/Wizard": 6
-  },
-  "components": "V, S, Celestial",
-  "castingTime": "1 round",
-  "range": "Personal",
-  "targetOrArea": "You",
-  "duration": "1 round/level",
-  "savingThrow": "Not printed in source",
-  "spellResistance": "Not printed in source",
-  "summary": "For the duration of this spell, your teleport or greater teleport spell-like ability is quickened (as if enhanced with the Quicken Spell feat); the spell has no effect on other spells or spell-like abilities.",
-  "source": "Book of Exalted Deeds, p. 104",
   "sourceUrl": "/A POC PC related/5.Splat/Book of Exalted Deeds.pdf"
 },
 {

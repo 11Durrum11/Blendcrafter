@@ -178,28 +178,6 @@ export const COMPLETE_SCOUNDREL_SPELLS: SpellDefinition[] = [
   "sourceUrl": "/A POC PC related/5.Splat/Complete sereies/D&D 3.5 - Complete Scoundrel.pdf"
 },
 {
-  "id": "evacuation-rune",
-  "name": "Evacuation Rune",
-  "ruleset": "core",
-  "school": "Conjuration",
-  "descriptors": [],
-  "levels": {
-    "Bard": 5,
-    "Sorcerer/Wizard": 5
-  },
-  "components": "V, S, M",
-  "castingTime": "1 standard action",
-  "range": "Touch",
-  "targetOrArea": "One invisible rune",
-  "duration": "24 hours",
-  "savingThrow": "None (harmless)",
-  "spellResistance": "No (harmless)",
-  "summary": "You scribe an invisible rune; even though it disappears, you feel as though you can step back to it simply by willing it, as the text describes.",
-  "source": "Complete Scoundrel, p. 98",
-  "sourceUrl": "/A POC PC related/5.Splat/Complete sereies/D&D 3.5 - Complete Scoundrel.pdf",
-  "subschool": "Teleportation"
-},
-{
   "id": "fatal-flame",
   "name": "Fatal Flame",
   "ruleset": "core",

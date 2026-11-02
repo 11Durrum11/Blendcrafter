@@ -32,29 +32,6 @@ export const GHOSTWALK_WEB_ENHANCEMENT_SPELLS: SpellDefinition[] = [
   "note": "From the official Ghostwalk Web Enhancement (Sean K. Reynolds), appended to the library PDF."
 },
 {
-  "id": "door-to-great-evil",
-  "name": "DOOR TO GREAT EVIL",
-  "ruleset": "core",
-  "school": "Transmutation",
-  "descriptors": [
-    "Teleportation"
-  ],
-  "levels": {
-    "Paladin": 4
-  },
-  "components": "V, DF",
-  "castingTime": "1 action",
-  "range": "Personal or touch",
-  "targetOrArea": "You or willing paladin touched",
-  "duration": "Instantaneous",
-  "savingThrow": "None",
-  "spellResistance": "No",
-  "summary": "This spell functions like teleport, except as noted in its text; when you cast it, you select one of two variants.",
-  "source": "Ghostwalk Web Enhancement, p. 228",
-  "sourceUrl": "/A POC PC related/5.Splat/Ghostwalk.pdf",
-  "note": "From the official Ghostwalk Web Enhancement (Sean K. Reynolds), appended to the library PDF."
-},
-{
   "id": "candlelight",
   "name": "CANDLELIGHT",
   "ruleset": "core",

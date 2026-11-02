@@ -602,26 +602,6 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf"
   },
   {
-    "id": "slide",
-    "name": "Slide",
-    "ruleset": "core",
-    "school": "Transmutation",
-    "descriptors": [],
-    "levels": {
-      "Sorcerer/Wizard": 1
-    },
-    "components": "V",
-    "castingTime": "1 standard action",
-    "range": "Close (25 ft. + 5 ft./2 levels)",
-    "targetOrArea": "One creature",
-    "duration": "Instantaneous",
-    "savingThrow": "Will negates",
-    "spellResistance": "Yes",
-    "summary": "Moves the subject laterally (5 feet) as a swift teleport-like shift, ignoring attacks of opportunity for that movement.",
-    "source": "Spell Compendium, p. 191",
-    "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf"
-  },
-  {
     "id": "slide-greater",
     "name": "Slide, Greater",
     "ruleset": "core",
@@ -2306,7 +2286,6 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     "levels": {
       "Cleric": 5,
       "Sorcerer/Wizard": 6,
-      "Shugenja": 4
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -2426,7 +2405,6 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
       "Cleric": 9,
       "Druid": 9,
       "Sorcerer/Wizard": 9,
-      "Wu Jen": 9
     },
     "components": "V, S, M",
     "castingTime": "1 round",
@@ -2816,28 +2794,6 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     "subschool": "Creation"
   },
   {
-    "id": "swamp-stride",
-    "name": "Swamp Stride",
-    "ruleset": "core",
-    "school": "Conjuration",
-    "descriptors": [],
-    "levels": {
-      "Druid": 5,
-      "Ranger": 4
-    },
-    "components": "V, S, DF",
-    "castingTime": "1 standard action",
-    "range": "Personal",
-    "targetOrArea": "You",
-    "duration": "1",
-    "savingThrow": "Not printed in source",
-    "spellResistance": "Not printed in source",
-    "summary": "You step through the Plane of Shadow via swamp: teleporting between points in a swampy area.",
-    "source": "Spell Compendium, p. 217",
-    "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf",
-    "subschool": "Teleportation"
-  },
-  {
     "id": "swim",
     "name": "Swim",
     "ruleset": "core",
@@ -2848,7 +2804,6 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     "levels": {
       "Druid": 2,
       "Sorcerer/Wizard": 2,
-      "Wu Jen": 2
     },
     "components": "V, S, M",
     "castingTime": "1 round",
@@ -2894,7 +2849,6 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     ],
     "levels": {
       "Sorcerer/Wizard": 7,
-      "Wu Jen": 7
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -2918,7 +2872,6 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     ],
     "levels": {
       "Sorcerer/Wizard": 4,
-      "Wu Jen": 5
     },
     "components": "V, S, F",
     "castingTime": "1 standard action",
@@ -3091,7 +3044,6 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Druid": 3,
-      "Wu Jen": 3
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -3330,7 +3282,6 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     ],
     "levels": {
       "Sorcerer/Wizard": 7,
-      "Wu Jen": 6
     },
     "components": "V, S, M",
     "castingTime": "1 round",
@@ -3345,28 +3296,6 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     "subschool": "Compulsion"
   },
   {
-    "id": "translocation-trick",
-    "name": "Translocation Trick",
-    "ruleset": "core",
-    "school": "Conjuration",
-    "descriptors": [
-      "Teleportation"
-    ],
-    "levels": {
-      "Sorcerer/Wizard": 4
-    },
-    "components": "V to as-",
-    "castingTime": "1 standard action",
-    "range": "Medium (100 ft. + 10 ft./level)",
-    "targetOrArea": "You and one creature",
-    "duration": "10",
-    "savingThrow": "Will negates; see text",
-    "spellResistance": "Yes",
-    "summary": "You swap places with a creature at the moment it teleports, redirecting its arrival and taking its destination... in practice, you intercept a teleport effect and trade places with the traveler.",
-    "source": "Spell Compendium, p. 222",
-    "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf"
-  },
-  {
     "id": "transmute-rock-to-lava",
     "name": "Transmute Rock To Lava",
     "ruleset": "core",
@@ -3378,7 +3307,6 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     "levels": {
       "Druid": 9,
       "Sorcerer/Wizard": 9,
-      "Wu Jen": 9
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -4225,7 +4153,6 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     ],
     "levels": {
       "Sorcerer/Wizard": 5,
-      "Wu Jen": 5
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -4433,7 +4360,6 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     ],
     "levels": {
       "Sorcerer/Wizard": 2,
-      "Wu Jen": 2
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -5142,7 +5068,6 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Cleric": 7,
-      "Wu Jen": 7
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -5163,7 +5088,6 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Druid": 4,
-      "Wu Jen": 5
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",

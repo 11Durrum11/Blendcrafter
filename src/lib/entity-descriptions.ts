@@ -8,6 +8,7 @@ import {
   type PrestigeClassDefinition,
   type RaceDefinition,
   type SkillDefinition,
+  type SpellDefinition,
 } from "@/engine/types";
 import { raceStartingEcl } from "@/lib/race-groups";
 
@@ -184,5 +185,34 @@ export function describeMagicItem(item: MagicItemDefinition): EntityDetail {
     sections: [{ heading: "Cost", body: item.cost }],
     source: item.source,
     sourceUrl: item.sourceUrl,
+  };
+}
+
+/**
+ * Full crunch for one spell. When a list name is given (the library and the
+ * picking cards browse one list at a time), its level on that list is badged.
+ */
+export function describeSpell(spell: SpellDefinition, listName?: string): EntityDetail {
+  const schoolLine = `${spell.school}${spell.subschool ? ` (${spell.subschool})` : ""}${
+    spell.descriptors.length > 0 ? ` [${spell.descriptors.join(", ")}]` : ""
+  }`;
+  const levelOnList = listName ? spell.levels[listName] : undefined;
+  const sections: EntityDetailSection[] = [
+    { heading: "Casting Time", body: spell.castingTime },
+    { heading: "Components", body: spell.components },
+    { heading: "Range", body: spell.range },
+    { heading: "Target / Area / Effect", body: spell.targetOrArea },
+    { heading: "Duration", body: spell.duration },
+    { heading: "Saving Throw", body: spell.savingThrow },
+    { heading: "Spell Resistance", body: spell.spellResistance },
+  ];
+  if (spell.note) sections.push({ heading: "Note", body: spell.note });
+  return {
+    title: spell.name,
+    badges: ["Spell", schoolLine, ...(levelOnList !== undefined && listName ? [`${listName} ${levelOnList}`] : [])],
+    summary: spell.summary,
+    sections,
+    source: spell.source,
+    sourceUrl: spell.sourceUrl,
   };
 }

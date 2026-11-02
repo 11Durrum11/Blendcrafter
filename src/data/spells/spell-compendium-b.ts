@@ -473,7 +473,6 @@ export const SPELL_COMPENDIUM_SPELLS_B: SpellDefinition[] = [
     "levels": {
       "Cleric": 5,
       "Sorcerer/Wizard": 4,
-      "Shugenja": 5
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -1100,7 +1099,6 @@ export const SPELL_COMPENDIUM_SPELLS_B: SpellDefinition[] = [
       "Cleric": 6,
       "Druid": 6,
       "Sorcerer/Wizard": 7,
-      "Wu Jen": 7
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -1170,7 +1168,6 @@ export const SPELL_COMPENDIUM_SPELLS_B: SpellDefinition[] = [
     "levels": {
       "Cleric": 3,
       "Druid": 3,
-      "Shugenja": 5
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -1415,50 +1412,6 @@ export const SPELL_COMPENDIUM_SPELLS_B: SpellDefinition[] = [
     "summary": "Your breath weapon becomes ethereal, affecting creatures on both the Ethereal and Material planes.",
     "source": "Spell Compendium, p. 84",
     "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf"
-  },
-  {
-    "id": "ethereal-chamber",
-    "name": "Ethereal Chamber",
-    "ruleset": "core",
-    "school": "Evocation",
-    "descriptors": [
-      "Force"
-    ],
-    "levels": {
-      "Sorcerer/Wizard": 2
-    },
-    "components": "V, S, M",
-    "castingTime": "1 standard action",
-    "range": "Close (25 ft. + 5 ft./2 levels)",
-    "targetOrArea": "One ethereal creature",
-    "duration": "1",
-    "savingThrow": "Reflex negates",
-    "spellResistance": "Yes",
-    "summary": "Creates a small sealed ethereal room that blocks ethereal travel and traps ethereal creatures.",
-    "source": "Spell Compendium, p. 84",
-    "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf"
-  },
-  {
-    "id": "ethereal-mount",
-    "name": "Ethereal Mount",
-    "ruleset": "core",
-    "school": "Conjuration",
-    "descriptors": [],
-    "levels": {
-      "Bard": 4,
-      "Sorcerer/Wizard": 4
-    },
-    "components": "V, S",
-    "castingTime": "10 minutes",
-    "range": "0 ft.",
-    "targetOrArea": "One quasi-real mount, plus one additional mount/2 levels Your spell draws ether into form, creating a misty mount for you to ride.",
-    "duration": "1 hour/level (D)",
-    "savingThrow": "Not printed in source",
-    "spellResistance": "Not printed in source",
-    "summary": "As mount/phantom steed: conjures a quasi-real horse that can become ethereal with its rider.",
-    "source": "Spell Compendium, p. 85",
-    "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf",
-    "subschool": "Creation"
   },
   {
     "id": "evil-glare",
@@ -2083,7 +2036,6 @@ export const SPELL_COMPENDIUM_SPELLS_B: SpellDefinition[] = [
     ],
     "levels": {
       "Assassin": 2,
-      "Wu Jen": 2
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -2120,28 +2072,6 @@ export const SPELL_COMPENDIUM_SPELLS_B: SpellDefinition[] = [
     "subschool": "Summoning"
   },
   {
-    "id": "fire-stride",
-    "name": "Fire Stride",
-    "ruleset": "core",
-    "school": "Transmutation",
-    "descriptors": [
-      "Teleportation"
-    ],
-    "levels": {
-      "Sorcerer/Wizard": 4
-    },
-    "components": "V, S",
-    "castingTime": "1 standard action",
-    "range": "Personal",
-    "targetOrArea": "You",
-    "duration": "10",
-    "savingThrow": "Not printed in source",
-    "spellResistance": "Not printed in source",
-    "summary": "You step into one fire and out of another within range, teleporting between flames.",
-    "source": "Spell Compendium, p. 93",
-    "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf"
-  },
-  {
     "id": "fire-wings",
     "name": "Fire Wings",
     "ruleset": "core",
@@ -2151,8 +2081,6 @@ export const SPELL_COMPENDIUM_SPELLS_B: SpellDefinition[] = [
     ],
     "levels": {
       "Druid": 3,
-      "Shugenja": 3,
-      "Wu Jen": 3
     },
     "components": "V, S, M, F",
     "castingTime": "1 round",
@@ -2246,7 +2174,6 @@ export const SPELL_COMPENDIUM_SPELLS_B: SpellDefinition[] = [
       "Druid": 6,
       "Purification": 6,
       "Sorcerer/Wizard": 6,
-      "Shugenja": 6
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -2888,29 +2815,6 @@ export const SPELL_COMPENDIUM_SPELLS_B: SpellDefinition[] = [
     "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf"
   },
   {
-    "id": "gelsewhere-chant",
-    "name": "G’Elsewhere Chant",
-    "ruleset": "core",
-    "school": "Conjuration",
-    "descriptors": [
-      "Sonic",
-      "Teleportation"
-    ],
-    "levels": {
-      "Bard": 3
-    },
-    "components": "V, S",
-    "castingTime": "1 standard action",
-    "range": "Touch",
-    "targetOrArea": "One creature or object touched",
-    "duration": "Instantaneous",
-    "savingThrow": "Will negates",
-    "spellResistance": "Yes",
-    "summary": "A chant teleports an unwilling creature a short distance to a spot you designate.",
-    "source": "Spell Compendium, p. 100",
-    "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf"
-  },
-  {
     "id": "gembomb",
     "name": "Gembomb",
     "ruleset": "core",
@@ -2930,28 +2834,6 @@ export const SPELL_COMPENDIUM_SPELLS_B: SpellDefinition[] = [
     "savingThrow": "Reflex half",
     "spellResistance": "Yes",
     "summary": "A gem becomes a bomb: thrown or triggered, it explodes for energy damage of a type tied to the gem.",
-    "source": "Spell Compendium, p. 101",
-    "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf"
-  },
-  {
-    "id": "gemjump",
-    "name": "Gemjump",
-    "ruleset": "core",
-    "school": "Conjuration",
-    "descriptors": [
-      "Teleportation"
-    ],
-    "levels": {
-      "Sorcerer/Wizard": 6
-    },
-    "components": "V, S, F",
-    "castingTime": "1 round",
-    "range": "Unlimited; see text",
-    "targetOrArea": "You and willing creatures totaling up to one/3 levels; see text",
-    "duration": "Until",
-    "savingThrow": "None; see text",
-    "spellResistance": "No; see text",
-    "summary": "You teleport into a prepared gem, then emerge from it later, traveling with the gem's carrier.",
     "source": "Spell Compendium, p. 101",
     "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf"
   },
@@ -3458,7 +3340,6 @@ export const SPELL_COMPENDIUM_SPELLS_B: SpellDefinition[] = [
     "levels": {
       "Sorcerer/Wizard": 1,
       "Warmage": 1,
-      "Wu Jen": 1
     },
     "components": "V, S, M",
     "castingTime": "1 round",
@@ -3809,7 +3690,6 @@ export const SPELL_COMPENDIUM_SPELLS_B: SpellDefinition[] = [
     ],
     "levels": {
       "Assassin": 4,
-      "Wu Jen": 4
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -4519,7 +4399,6 @@ export const SPELL_COMPENDIUM_SPELLS_B: SpellDefinition[] = [
       "Assassin": 2,
       "Sorcerer/Wizard": 2,
       "Warmage": 2,
-      "Wu Jen": 2
     },
     "components": "S, M",
     "castingTime": "1 standard action",
@@ -5045,26 +4924,6 @@ export const SPELL_COMPENDIUM_SPELLS_B: SpellDefinition[] = [
     "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf"
   },
   {
-    "id": "instant-refuge",
-    "name": "Instant Refuge",
-    "ruleset": "core",
-    "school": "Evocation",
-    "descriptors": [],
-    "levels": {
-      "Sorcerer/Wizard": 9
-    },
-    "components": "V, S, M, XP",
-    "castingTime": "10 minutes",
-    "range": "Personal",
-    "targetOrArea": "You",
-    "duration": "Until discharged",
-    "savingThrow": "Not printed in source",
-    "spellResistance": "Not printed in source",
-    "summary": "When a condition you set occurs, you are whisked to a designated sanctuary anywhere on the plane.",
-    "source": "Spell Compendium, p. 124",
-    "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf"
-  },
-  {
     "id": "instant-search",
     "name": "Instant Search",
     "ruleset": "core",
@@ -5444,28 +5303,6 @@ export const SPELL_COMPENDIUM_SPELLS_B: SpellDefinition[] = [
     "summary": "You gain vampiric traits: a blood-draining bite, domination gaze once, and resistances, but also vampire weaknesses.",
     "source": "Spell Compendium, p. 128",
     "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf"
-  },
-  {
-    "id": "knights-move",
-    "name": "Knight’S Move",
-    "ruleset": "core",
-    "school": "Transmutation",
-    "descriptors": [],
-    "levels": {
-      "Cleric": 3,
-      "Paladin": 2
-    },
-    "components": "V, S, DF",
-    "castingTime": "1 swift action",
-    "range": "5 ft./2 levels; see text",
-    "targetOrArea": "You",
-    "duration": "Instantaneous",
-    "savingThrow": "Not printed in source",
-    "spellResistance": "Not printed in source",
-    "summary": "As a swift action you teleport up to your speed to a flanking position beside an enemy.",
-    "source": "Spell Compendium, p. 129",
-    "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf",
-    "subschool": "Teleportation"
   },
   {
     "id": "know-greatest-enemy",

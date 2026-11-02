@@ -4712,3 +4712,49 @@ direction):** the spells stay visible to every build; when the
 build has no spellcasting class, the Spell Library card now
 says so outright — browse everything, but this character can't
 cast or pick any of them.
+
+**Spell names hoverable + clickable, bigger level headings,
+tighter four-across layout (2026-11-02, Shaun's direction):**
+in the Spell Library, every spell name now hovers to a tooltip
+with its full crunch (school, list level, casting time,
+components, range, target/area, duration, saving throw, spell
+resistance, summary) and clicks open the full detail dialog
+(new describeSpell in entity-descriptions.ts). Level headings
+are larger (library and picking cards), the names sit closer
+together four across per level, with a little more air between
+the level groups themselves.
+
+**Wu Jen and Shugenja spells removed altogether (2026-11-02,
+Shaun's direction):** every "Wu Jen" and "Shugenja" spell-list
+entry is stripped from all spell records (513 pretty-style
+entries plus the compact-style ones in the audit pack); the 51
+spells that existed only on those two lists (Body Outside Body,
+Decapitating Scarf, Giant Size, Terra Cotta Warrior, and kin)
+are deleted outright; and the Wu Jen and Shugenja casting
+profiles are removed, so neither list appears in the library
+or in picking. Spells shared with other lists keep those
+listings untouched. Spell total: 2,643 → 2,592; casting
+profiles 20 → 18. The Wu Jen and Shugenja CLASSES remain as
+classes; only their spells are gone.
+
+**Transdimensional magic removed (2026-11-02, Shaun's
+direction; APOC canon — extra-dimensional magic is dead):**
+66 spells deleted outright: all 32 Teleportation-subschool
+spells (Teleport, Dimension Door, Plane Shift, Word of Recall,
+Maze, the transposition/dimension-hop family, Tree Stride,
+Transport via Plants, …) plus 34 more whose whole function is
+crossing dimensions — Astral Projection, Blink and its greater/
+improved/baleful variants, Ethereal Jaunt/Etherealness,
+Gate, Rope Trick, Mage's Magnificent Mansion, both Secret
+Chests, Shadow Walk, Shadow Cache, Phase Door, both Instant
+Summons, Fire Stride, Gemjump, G'Elsewhere Chant, Slide,
+Translocation Trick, Instant Refuge, Sacred Haven, Door to
+Great Evil, Stone Stride, Dimension Door Greater, Armageddon,
+Corporeal Instability, Ethereal Mount/Chamber, Quickshift and
+Fiendish Quickening. KEPT on purpose: the wards that BLOCK
+dimensional travel (Dimensional Anchor, Dimensional Lock,
+Anticipate Teleportation ×2, Refusal, Snare Astral Traveler,
+Investiture of the Orthon) and spells that merely perceive or
+affect ethereal creatures (See Invisibility, Make Manifest,
+Ethereal Breath/Alarm, Zone of Revelation). Spell total:
+2,592 → 2,526.

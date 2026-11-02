@@ -14,7 +14,6 @@ export const COMPLETE_MAGE_SPELLS: SpellDefinition[] = [
   "descriptors": [],
   "levels": {
     "Sorcerer/Wizard": 7,
-    "Wu Jen": 7
   },
   "components": "V, S",
   "castingTime": "1 standard action",
@@ -183,7 +182,6 @@ export const COMPLETE_MAGE_SPELLS: SpellDefinition[] = [
   "descriptors": [],
   "levels": {
     "Druid": 2,
-    "Wu Jen": 2
   },
   "components": "V, S",
   "castingTime": "1 standard action",
@@ -440,7 +438,6 @@ export const COMPLETE_MAGE_SPELLS: SpellDefinition[] = [
   "levels": {
     "Druid": 1,
     "Ranger": 1,
-    "Wu Jen": 1
   },
   "components": "V, S, DF",
   "castingTime": "1 full round",
@@ -530,7 +527,6 @@ export const COMPLETE_MAGE_SPELLS: SpellDefinition[] = [
   "levels": {
     "Druid": 8,
     "Sorcerer/Wizard": 8,
-    "Wu Jen": 8
   },
   "components": "V, S",
   "castingTime": "1 standard action",
@@ -553,7 +549,6 @@ export const COMPLETE_MAGE_SPELLS: SpellDefinition[] = [
   ],
   "levels": {
     "Sorcerer/Wizard": 9,
-    "Wu Jen": 9
   },
   "components": "V, S",
   "castingTime": "1 standard action",
@@ -654,50 +649,6 @@ export const COMPLETE_MAGE_SPELLS: SpellDefinition[] = [
   "subschool": "Glamer"
 },
 {
-  "id": "dimension-jumper",
-  "name": "Dimension Jumper",
-  "ruleset": "core",
-  "school": "Conjuration",
-  "descriptors": [],
-  "levels": {
-    "Bard": 5,
-    "Sorcerer/Wizard": 5
-  },
-  "components": "V",
-  "castingTime": "1 swift action",
-  "range": "Personal",
-  "targetOrArea": "You and objects touched",
-  "duration": "1 round/level",
-  "savingThrow": "Not printed in source",
-  "spellResistance": "Not printed in source",
-  "summary": "For the duration, you can teleport yourself up to 30 feet once per round as a move action, carrying objects up to your maximum load.",
-  "source": "Complete Mage, p. 103",
-  "sourceUrl": "/A POC PC related/5.Splat/Complete sereies/D&D 3.5 - Complete Mage.pdf",
-  "subschool": "Teleportation"
-},
-{
-  "id": "dimension-jumper-greater",
-  "name": "Dimension Jumper, Greater",
-  "ruleset": "core",
-  "school": "Conjuration",
-  "descriptors": [],
-  "levels": {
-    "Sorcerer/Wizard": 9
-  },
-  "components": "V",
-  "castingTime": "1 swift action",
-  "range": "Personal",
-  "targetOrArea": "You and objects touched",
-  "duration": "1 round/level",
-  "savingThrow": "Not printed in source",
-  "spellResistance": "Not printed in source",
-  "summary": "As dimension jumper, except that you teleport as a swift action and the range extends to 60 feet.",
-  "source": "Complete Mage, p. 103",
-  "sourceUrl": "/A POC PC related/5.Splat/Complete sereies/D&D 3.5 - Complete Mage.pdf",
-  "subschool": "Teleportation",
-  "note": "Abbreviated entry in Complete Mage: functions as Dimension Jumper except as noted in its description; the unprinted stat-block fields are inherited from that spell."
-},
-{
   "id": "discordant-malediction",
   "name": "Discordant Malediction",
   "ruleset": "core",
@@ -793,7 +744,6 @@ export const COMPLETE_MAGE_SPELLS: SpellDefinition[] = [
   "levels": {
     "Druid": 5,
     "Sorcerer/Wizard": 5,
-    "Wu Jen": 5
   },
   "components": "V, S",
   "castingTime": "standard action",
@@ -817,7 +767,6 @@ export const COMPLETE_MAGE_SPELLS: SpellDefinition[] = [
   "levels": {
     "Druid": 3,
     "Sorcerer/Wizard": 3,
-    "Wu Jen": 3
   },
   "components": "V, S",
   "castingTime": "1 standard action",
@@ -969,7 +918,6 @@ export const COMPLETE_MAGE_SPELLS: SpellDefinition[] = [
   ],
   "levels": {
     "Sorcerer/Wizard": 1,
-    "Wu Jen": 1
   },
   "components": "V, S",
   "castingTime": "1 standard action",
@@ -1034,7 +982,6 @@ export const COMPLETE_MAGE_SPELLS: SpellDefinition[] = [
   ],
   "levels": {
     "Sorcerer/Wizard": 6,
-    "Wu Jen": 6
   },
   "components": "V, S, M",
   "castingTime": "1 standard action",
@@ -1164,7 +1111,6 @@ export const COMPLETE_MAGE_SPELLS: SpellDefinition[] = [
   "descriptors": [],
   "levels": {
     "Sorcerer/Wizard": 8,
-    "Wu Jen": 8
   },
   "components": "V, S",
   "castingTime": "1 swift action",
@@ -1434,29 +1380,6 @@ export const COMPLETE_MAGE_SPELLS: SpellDefinition[] = [
   "sourceUrl": "/A POC PC related/5.Splat/Complete sereies/D&D 3.5 - Complete Mage.pdf"
 },
 {
-  "id": "rain-of-spines",
-  "name": "Rain of Spines",
-  "ruleset": "core",
-  "school": "Conjuration",
-  "descriptors": [
-    "Earth"
-  ],
-  "levels": {
-    "Wu Jen": 4
-  },
-  "components": "V, S",
-  "castingTime": "1 standard action",
-  "range": "Medium (100 ft. + 10 ft./level)",
-  "targetOrArea": "Cylinder (5-ft. radius, 20 ft. high)",
-  "duration": "Instantaneous",
-  "savingThrow": "Reflex partial",
-  "spellResistance": "No",
-  "summary": "A storm of small piercing metallic projectiles rains down, dealing 6d6 points of damage to each creature in the area and pinning them to the floor.",
-  "source": "Complete Mage, p. 115",
-  "sourceUrl": "/A POC PC related/5.Splat/Complete sereies/D&D 3.5 - Complete Mage.pdf",
-  "subschool": "Creation"
-},
-{
   "id": "rarys-arcane-conversion",
   "name": "Rary's Arcane Conversion",
   "ruleset": "core",
@@ -1509,7 +1432,6 @@ export const COMPLETE_MAGE_SPELLS: SpellDefinition[] = [
   "descriptors": [],
   "levels": {
     "Sorcerer/Wizard": 4,
-    "Wu Jen": 3
   },
   "components": "V, S",
   "castingTime": "1 full round",
@@ -1664,7 +1586,6 @@ export const COMPLETE_MAGE_SPELLS: SpellDefinition[] = [
     "Assassin": 3,
     "Druid": 3,
     "Sorcerer/Wizard": 4,
-    "Wu Jen": 4
   },
   "components": "V, S",
   "castingTime": "1 standard action",
@@ -1794,7 +1715,6 @@ export const COMPLETE_MAGE_SPELLS: SpellDefinition[] = [
   "levels": {
     "Druid": 6,
     "Sorcerer/Wizard": 6,
-    "Wu Jen": 6
   },
   "components": "V, S",
   "castingTime": "1 standard action",
@@ -1806,27 +1726,6 @@ export const COMPLETE_MAGE_SPELLS: SpellDefinition[] = [
   "summary": "A shower of lava globs and hailstones rains down for 1 round, dealing 6d6 points of cold damage and 6d6 points of fire damage to everything in the area.",
   "source": "Complete Mage, p. 119",
   "sourceUrl": "/A POC PC related/5.Splat/Complete sereies/D&D 3.5 - Complete Mage.pdf"
-},
-{
-  "id": "storm-of-needles",
-  "name": "Storm of Needles",
-  "ruleset": "core",
-  "school": "Conjuration",
-  "descriptors": [],
-  "levels": {
-    "Wu Jen": 4
-  },
-  "components": "V, S, M",
-  "castingTime": "1 standard action",
-  "range": "30 ft.",
-  "targetOrArea": "Cone-shaped burst",
-  "duration": "Instantaneous",
-  "savingThrow": "Reflex half",
-  "spellResistance": "No",
-  "summary": "A burst of thousands of tiny needles fills the cone, dealing 1d4 points of damage per caster level (maximum 15d4).",
-  "source": "Complete Mage, p. 119",
-  "sourceUrl": "/A POC PC related/5.Splat/Complete sereies/D&D 3.5 - Complete Mage.pdf",
-  "subschool": "Creation"
 },
 {
   "id": "summon-component",
@@ -1873,27 +1772,6 @@ export const COMPLETE_MAGE_SPELLS: SpellDefinition[] = [
   "subschool": "Summoning"
 },
 {
-  "id": "tactical-teleportation",
-  "name": "Tactical Teleportation",
-  "ruleset": "core",
-  "school": "Conjuration",
-  "descriptors": [],
-  "levels": {
-    "Sorcerer/Wizard": 6
-  },
-  "components": "V, S",
-  "castingTime": "1 standard action",
-  "range": "Close (25 ft. + 5 ft./2 levels)",
-  "targetOrArea": "One willing creature/3 levels",
-  "duration": "Instantaneous",
-  "savingThrow": "None and Will negates (object)",
-  "spellResistance": "No and Yes",
-  "summary": "You instantly teleport a number of willing creatures a short distance with no chance of mishap, repositioning them to tactically viable spots.",
-  "source": "Complete Mage, p. 119",
-  "sourceUrl": "/A POC PC related/5.Splat/Complete sereies/D&D 3.5 - Complete Mage.pdf",
-  "subschool": "Teleportation"
-},
-{
   "id": "tenacious-dispelling",
   "name": "Tenacious Dispelling",
   "ruleset": "core",
@@ -1922,7 +1800,6 @@ export const COMPLETE_MAGE_SPELLS: SpellDefinition[] = [
   "levels": {
     "Bard": 2,
     "Sorcerer/Wizard": 2,
-    "Wu Jen": 2
   },
   "components": "V, S, M",
   "castingTime": "1 standard action",
@@ -2043,25 +1920,5 @@ export const COMPLETE_MAGE_SPELLS: SpellDefinition[] = [
   "source": "Complete Mage, p. 121",
   "sourceUrl": "/A POC PC related/5.Splat/Complete sereies/D&D 3.5 - Complete Mage.pdf",
   "subschool": "Creation"
-},
-{
-  "id": "transcend-mortality",
-  "name": "Transcend Mortality",
-  "ruleset": "core",
-  "school": "Transmutation",
-  "descriptors": [],
-  "levels": {
-    "Wu Jen": 9
-  },
-  "components": "V, S",
-  "castingTime": "1 immediate action",
-  "range": "Personal",
-  "targetOrArea": "You",
-  "duration": "1 round/level (D)",
-  "savingThrow": "None",
-  "spellResistance": "Yes",
-  "summary": "For the duration you are all but indestructible, gaining damage reduction 30/epic, spell resistance, and a host of divine defenses — at a terrible price when the spell ends.",
-  "source": "Complete Mage, p. 121",
-  "sourceUrl": "/A POC PC related/5.Splat/Complete sereies/D&D 3.5 - Complete Mage.pdf"
 },
 ];

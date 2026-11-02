@@ -248,27 +248,6 @@ export const SANDSTORM_SPELLS: SpellDefinition[] = [
   "subschool": "Compulsion"
 },
 {
-  "id": "desert-diversion",
-  "name": "Desert Diversion",
-  "ruleset": "core",
-  "school": "Conjuration",
-  "descriptors": [],
-  "levels": {
-    "Sorcerer/Wizard": 4
-  },
-  "components": "V, S",
-  "castingTime": "1 standard action",
-  "range": "Medium (100 ft. + 10 ft./level)",
-  "targetOrArea": "Ray",
-  "duration": "1 min./level",
-  "savingThrow": "None",
-  "spellResistance": "Yes",
-  "summary": "A gray ray flecked with red covers a struck target in a glittering field that usurps planar travel such as dimension door, ethereal jaunt, and gate, diverting it as the text describes.",
-  "source": "Sandstorm, p. 114",
-  "sourceUrl": "/A POC PC related/5.Splat/Sandstorm.pdf",
-  "subschool": "Teleportation"
-},
-{
   "id": "desiccate",
   "name": "Desiccate",
   "ruleset": "core",

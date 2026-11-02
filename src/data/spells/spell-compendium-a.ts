@@ -32,7 +32,6 @@ export const SPELL_COMPENDIUM_SPELLS_A: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 9,
-      "Wu Jen": 9
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -192,7 +191,6 @@ export const SPELL_COMPENDIUM_SPELLS_A: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 2,
-      "Wu Jen": 5
     },
     "components": "S",
     "castingTime": "1 immediate action",
@@ -501,7 +499,6 @@ export const SPELL_COMPENDIUM_SPELLS_A: SpellDefinition[] = [
     ],
     "levels": {
       "Druid": 6,
-      "Shugenja": 6
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -544,7 +541,6 @@ export const SPELL_COMPENDIUM_SPELLS_A: SpellDefinition[] = [
     ],
     "levels": {
       "Druid": 1,
-      "Wu Jen": 2
     },
     "components": "V, S, M",
     "castingTime": "1 round",
@@ -589,7 +585,6 @@ export const SPELL_COMPENDIUM_SPELLS_A: SpellDefinition[] = [
     ],
     "levels": {
       "Druid": 1,
-      "Wu Jen": 1
     },
     "components": "V, S, M",
     "castingTime": "1 round",
@@ -611,7 +606,6 @@ export const SPELL_COMPENDIUM_SPELLS_A: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Druid": 1,
-      "Wu Jen": 1
     },
     "components": "V, S, M",
     "castingTime": "1 round",
@@ -804,7 +798,6 @@ export const SPELL_COMPENDIUM_SPELLS_A: SpellDefinition[] = [
       "Sorcerer/Wizard": 5,
       "Windstorm": 5,
       "Warmage": 5,
-      "Wu Jen": 5
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -965,27 +958,6 @@ export const SPELL_COMPENDIUM_SPELLS_A: SpellDefinition[] = [
     "summary": "You learn a creature's spell resistance and gain a +10 bonus on caster level checks to overcome that creature's SR for the duration.",
     "source": "Spell Compendium, p. 17",
     "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf"
-  },
-  {
-    "id": "astral-hospice",
-    "name": "Astral Hospice",
-    "ruleset": "core",
-    "school": "Conjuration",
-    "descriptors": [],
-    "levels": {
-      "Cleric": 4
-    },
-    "components": "V, S, M",
-    "castingTime": "1 standard action",
-    "range": "Close (25 ft. + 5 ft./2 levels)",
-    "targetOrArea": "See text",
-    "duration": "24",
-    "savingThrow": "None",
-    "spellResistance": "No",
-    "summary": "Creates a safe extradimensional refuge on the Astral Plane where travelers can rest protected.",
-    "source": "Spell Compendium, p. 17",
-    "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf",
-    "subschool": "Teleportation"
   },
   {
     "id": "attune-form",
@@ -1372,7 +1344,6 @@ export const SPELL_COMPENDIUM_SPELLS_A: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 1,
-      "Wu Jen": 1
     },
     "components": "V, S, F",
     "castingTime": "1 standard action",
@@ -1426,27 +1397,6 @@ export const SPELL_COMPENDIUM_SPELLS_A: SpellDefinition[] = [
     "summary": "You gain bonuses to Balance and Listen, can balance on difficult surfaces, and sense the distance to sounds precisely.",
     "source": "Spell Compendium, p. 23",
     "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf"
-  },
-  {
-    "id": "baleful-transposition",
-    "name": "Baleful Transposition",
-    "ruleset": "core",
-    "school": "Conjuration",
-    "descriptors": [],
-    "levels": {
-      "Sorcerer/Wizard": 2
-    },
-    "components": "V",
-    "castingTime": "1 standard action",
-    "range": "Medium (100 ft. + 10 ft./level)",
-    "targetOrArea": "Two creatures of up to Large size",
-    "duration": "Instantaneous",
-    "savingThrow": "Will negates",
-    "spellResistance": "Yes",
-    "summary": "Two creatures of the same size swap positions; Will save for an unwilling subject.",
-    "source": "Spell Compendium, p. 23",
-    "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf",
-    "subschool": "Teleportation"
   },
   {
     "id": "ball-lightning",
@@ -1668,27 +1618,6 @@ export const SPELL_COMPENDIUM_SPELLS_A: SpellDefinition[] = [
     "summary": "Your arms become smoky claws that deal damage and can smoke-claw victims.",
     "source": "Spell Compendium, p. 26",
     "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf"
-  },
-  {
-    "id": "benign-transposition",
-    "name": "Benign Transposition",
-    "ruleset": "core",
-    "school": "Conjuration",
-    "descriptors": [],
-    "levels": {
-      "Sorcerer/Wizard": 1
-    },
-    "components": "V",
-    "castingTime": "1 standard action",
-    "range": "Medium (100 ft. + 10 ft./level)",
-    "targetOrArea": "Two willing creatures of up to Large size",
-    "duration": "Instantaneous",
-    "savingThrow": "None",
-    "spellResistance": "No",
-    "summary": "You swap positions with a willing creature of your size.",
-    "source": "Spell Compendium, p. 27",
-    "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf",
-    "subschool": "Teleportation"
   },
   {
     "id": "bestow-curse-greater",
@@ -2234,28 +2163,6 @@ export const SPELL_COMPENDIUM_SPELLS_A: SpellDefinition[] = [
     "source": "Spell Compendium, p. 32",
     "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf",
     "note": "Abbreviated entry: missing fields follow Blindsight."
-  },
-  {
-    "id": "blink-greater",
-    "name": "Blink, Greater",
-    "ruleset": "core",
-    "school": "Transmutation",
-    "descriptors": [],
-    "levels": {
-      "Bard": 5,
-      "Celerity": 8,
-      "Sorcerer/Wizard": 5
-    },
-    "components": "V, S",
-    "castingTime": "1 standard action",
-    "range": "Personal",
-    "targetOrArea": "You",
-    "duration": "1 round/level (D)",
-    "savingThrow": "Not printed in source",
-    "spellResistance": "Not printed in source",
-    "summary": "As blink, but you control the blinking, taking less miss chance and striking as invisible when you attack.",
-    "source": "Spell Compendium, p. 32",
-    "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf"
   },
   {
     "id": "blistering-radiance",
@@ -4086,26 +3993,6 @@ export const SPELL_COMPENDIUM_SPELLS_A: SpellDefinition[] = [
     "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf"
   },
   {
-    "id": "corporeal-instability",
-    "name": "Corporeal Instability",
-    "ruleset": "core",
-    "school": "Transmutation",
-    "descriptors": [],
-    "levels": {
-      "Sorcerer/Wizard": 4
-    },
-    "components": "V, S",
-    "castingTime": "1 standard action",
-    "range": "Touch",
-    "targetOrArea": "Living creature touched",
-    "duration": "1",
-    "savingThrow": "Fortitude negates",
-    "spellResistance": "Yes",
-    "summary": "The subject's body flickers between planes, gaining blink-like displacement but taking damage as its form destabilizes.",
-    "source": "Spell Compendium, p. 53",
-    "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf"
-  },
-  {
     "id": "corpse-candle",
     "name": "Corpse Candle",
     "ruleset": "core",
@@ -4113,7 +4000,6 @@ export const SPELL_COMPENDIUM_SPELLS_A: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 3,
-      "Wu Jen": 3
     },
     "components": "S, M",
     "castingTime": "1 standard action",
@@ -4290,7 +4176,6 @@ export const SPELL_COMPENDIUM_SPELLS_A: SpellDefinition[] = [
     ],
     "levels": {
       "Druid": 4,
-      "Shugenja": 7
     },
     "components": "V, S, F",
     "castingTime": "1 standard action",
@@ -4568,7 +4453,6 @@ export const SPELL_COMPENDIUM_SPELLS_A: SpellDefinition[] = [
     "levels": {
       "Druid": 5,
       "Purification": 5,
-      "Shugenja": 5
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -5207,28 +5091,6 @@ export const SPELL_COMPENDIUM_SPELLS_A: SpellDefinition[] = [
     "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf"
   },
   {
-    "id": "dimension-door-greater",
-    "name": "Dimension Door, Greater",
-    "ruleset": "core",
-    "school": "Conjuration",
-    "descriptors": [
-      "Teleportation"
-    ],
-    "levels": {
-      "Sorcerer/Wizard": 5
-    },
-    "components": "V",
-    "castingTime": "1 standard action",
-    "range": "Touch",
-    "targetOrArea": "You and touched objects or other touched willing creatures",
-    "duration": "1",
-    "savingThrow": "Not printed in source",
-    "spellResistance": "Not printed in source",
-    "summary": "As dimension door, but you can carry more and arrive precisely without error, and can act after arriving.",
-    "source": "Spell Compendium, p. 64",
-    "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf"
-  },
-  {
     "id": "dinosaur-stampede",
     "name": "Dinosaur Stampede",
     "ruleset": "core",
@@ -5324,7 +5186,6 @@ export const SPELL_COMPENDIUM_SPELLS_A: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 2,
-      "Wu Jen": 3
     },
     "components": "V, S, M",
     "castingTime": "1 round",

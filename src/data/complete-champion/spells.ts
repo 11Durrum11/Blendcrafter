@@ -60,7 +60,6 @@ export const COMPLETE_CHAMPION_SPELLS: SpellDefinition[] = [
   "levels": {
     "Adept": 5,
     "Cleric": 5,
-    "Shugenja": 5
   },
   "components": "V, S, DF",
   "castingTime": "1 standard action",
@@ -85,7 +84,6 @@ export const COMPLETE_CHAMPION_SPELLS: SpellDefinition[] = [
   "levels": {
     "Adept": 2,
     "Cleric": 2,
-    "Shugenja": 2
   },
   "components": "V, S, DF -1 to Armor Class",
   "castingTime": "1 standard action",
@@ -110,7 +108,6 @@ export const COMPLETE_CHAMPION_SPELLS: SpellDefinition[] = [
   "levels": {
     "Adept": 2,
     "Cleric": 2,
-    "Shugenja": 2
   },
   "components": "V, S, DF",
   "castingTime": "1 standard action",
@@ -318,27 +315,6 @@ export const COMPLETE_CHAMPION_SPELLS: SpellDefinition[] = [
   "sourceUrl": "/A POC PC related/5.Splat/Complete sereies/D&D 3.5 - Complete Champion.pdf"
 },
 {
-  "id": "door-of-decay",
-  "name": "Door of Decay",
-  "ruleset": "core",
-  "school": "Conjuration",
-  "descriptors": [],
-  "levels": {
-    "Cleric": 5
-  },
-  "components": "V, S",
-  "castingTime": "1 standard action",
-  "range": "See text",
-  "targetOrArea": "You",
-  "duration": "Instantaneous",
-  "savingThrow": "Not printed in source",
-  "spellResistance": "Not printed in source",
-  "summary": "You use the Negative Energy Plane as a conduit, stepping through a touched undead creature and reappearing elsewhere.",
-  "source": "Complete Champion, p. 120",
-  "sourceUrl": "/A POC PC related/5.Splat/Complete sereies/D&D 3.5 - Complete Champion.pdf",
-  "subschool": "Teleportation"
-},
-{
   "id": "execration",
   "name": "Execration",
   "ruleset": "core",
@@ -520,7 +496,6 @@ export const COMPLETE_CHAMPION_SPELLS: SpellDefinition[] = [
     "Adept": 2,
     "Cleric": 2,
     "Druid": 2,
-    "Shugenja": 2
   },
   "components": "V, S, DF",
   "castingTime": "1 round",
@@ -686,28 +661,6 @@ export const COMPLETE_CHAMPION_SPELLS: SpellDefinition[] = [
   "summary": "One of the subject’s natural weapons takes on a gleaming metallic sheen, temporarily becoming cold iron or silvered, as you choose.",
   "source": "Complete Champion, p. 124",
   "sourceUrl": "/A POC PC related/5.Splat/Complete sereies/D&D 3.5 - Complete Champion.pdf"
-},
-{
-  "id": "phantom-charge",
-  "name": "Phantom Charge",
-  "ruleset": "core",
-  "school": "Conjuration",
-  "descriptors": [],
-  "levels": {
-    "Blackguard": 4,
-    "Paladin": 4
-  },
-  "components": "V, S",
-  "castingTime": "1 swift action",
-  "range": "Personal and touch",
-  "targetOrArea": "You and your special mount or fiendish companion",
-  "duration": "Instantaneous",
-  "savingThrow": "Not printed in source",
-  "spellResistance": "Not printed in source",
-  "summary": "Cast while mounted on your special mount, this spell lets you and your mount charge through other creatures and obstacles as though incorporeal for the charge.",
-  "source": "Complete Champion, p. 125",
-  "sourceUrl": "/A POC PC related/5.Splat/Complete sereies/D&D 3.5 - Complete Champion.pdf",
-  "subschool": "Teleportation"
 },
 {
   "id": "profane-item",

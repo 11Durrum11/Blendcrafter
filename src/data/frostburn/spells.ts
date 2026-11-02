@@ -1129,30 +1129,6 @@ export const FROSTBURN_SPELLS: SpellDefinition[] = [
   "sourceUrl": "/A POC PC related/5.Splat/Frostburn.pdf"
 },
 {
-  "id": "frostfell-slide",
-  "name": "Frostfell Slide",
-  "ruleset": "core",
-  "school": "Conjuration",
-  "descriptors": [
-    "Cold"
-  ],
-  "levels": {
-    "Druid": 4,
-    "Ranger": 4
-  },
-  "components": "V, S, DF, Frostfell",
-  "castingTime": "1 standard action",
-  "range": "Personal",
-  "targetOrArea": "You",
-  "duration": "1 hour/level or until expended; see text",
-  "savingThrow": "Not printed in source",
-  "spellResistance": "Not printed in source",
-  "summary": "You can teleport instantly from one area of slush, snow, or ice to another within the distance allowed by the substance at your point of departure.",
-  "source": "Frostburn, p. 96",
-  "sourceUrl": "/A POC PC related/5.Splat/Frostburn.pdf",
-  "subschool": "Teleportation"
-},
-{
   "id": "gelid-blood",
   "name": "Gelid Blood",
   "ruleset": "core",

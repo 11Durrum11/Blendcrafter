@@ -26,26 +26,4 @@ export const COMPLETE_DIVINE_SPELLS: SpellDefinition[] = [
   "source": "Complete Divine, p. 151",
   "sourceUrl": "/A POC PC related/5.Splat/Complete sereies/D&D 3.5 - Complete Divine.pdf"
 },
-{
-  "id": "blink-improved",
-  "name": "Blink, Improved",
-  "ruleset": "core",
-  "school": "Transmutation",
-  "descriptors": [],
-  "levels": {
-    "Bard": 5,
-    "Celerity": 8,
-    "Sorcerer/Wizard": 5
-  },
-  "components": "V, S",
-  "castingTime": "1 standard action",
-  "range": "Personal",
-  "targetOrArea": "You",
-  "duration": "1 round/level (D)",
-  "savingThrow": "Not printed in source",
-  "spellResistance": "Not printed in source",
-  "summary": "Like the 3rd-level arcane spell blink, you flicker back and forth between the Material and Ethereal planes; however, you are capable of controlling the timing of your blinks and therefore make better use of them, as the text describes.",
-  "source": "Complete Divine, p. 154",
-  "sourceUrl": "/A POC PC related/5.Splat/Complete sereies/D&D 3.5 - Complete Divine.pdf"
-},
 ];

@@ -1248,27 +1248,6 @@ export const BOOK_OF_VILE_DARKNESS_SPELLS: SpellDefinition[] = [
   "sourceUrl": "/A POC PC related/5.Splat/D&D 3.5 - Book of Vile Darkness.pdf"
 },
 {
-  "id": "fiendish-quickening",
-  "name": "Fiendish Quickening",
-  "ruleset": "core",
-  "school": "Transmutation",
-  "descriptors": [],
-  "levels": {
-    "Cleric": 6,
-    "Sorcerer/Wizard": 6
-  },
-  "components": "V, S, Fiend",
-  "castingTime": "1 full round",
-  "range": "Personal",
-  "targetOrArea": "Caster",
-  "duration": "1 round/level",
-  "savingThrow": "Not printed in source",
-  "spellResistance": "Not printed in source",
-  "summary": "For the duration, the caster’s teleport or teleport without error spell-like ability is quickened and usable once per round; teleport spells are unaffected.",
-  "source": "Book of Vile Darkness, p. 95",
-  "sourceUrl": "/A POC PC related/5.Splat/D&D 3.5 - Book of Vile Darkness.pdf"
-},
-{
   "id": "flesh-armor",
   "name": "Flesh Armor",
   "ruleset": "core",

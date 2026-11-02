@@ -2723,7 +2723,6 @@ export const SPELL_COMPENDIUM_SPELLS_C: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Druid": 5,
-      "Shugenja": 4
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -2939,28 +2938,6 @@ export const SPELL_COMPENDIUM_SPELLS_C: SpellDefinition[] = [
     "source": "Spell Compendium, p. 159",
     "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf",
     "note": "Stat block abbreviated in print; school and missing fields follow Avoid Planar Effects."
-  },
-  {
-    "id": "plane-shift-greater",
-    "name": "Plane Shift, Greater",
-    "ruleset": "core",
-    "school": "Conjuration",
-    "descriptors": [],
-    "levels": {
-      "Cleric": 7,
-      "Sorcerer/Wizard": 8
-    },
-    "components": "V, S, F",
-    "castingTime": "1 standard action",
-    "range": "Touch",
-    "targetOrArea": "Creature touched, or up to eight willing creatures joining hands",
-    "duration": "Instantaneous",
-    "savingThrow": "Not printed in source",
-    "spellResistance": "Not printed in source",
-    "summary": "As plane shift, but you arrive exactly where intended on the destination plane.",
-    "source": "Spell Compendium, p. 159",
-    "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf",
-    "subschool": "Teleportation"
   },
   {
     "id": "plant-body",
@@ -4346,7 +4323,6 @@ export const SPELL_COMPENDIUM_SPELLS_C: SpellDefinition[] = [
       "Cleric": 3,
       "Druid": 3,
       "Sorcerer/Wizard": 4,
-      "Wu Jen": 4
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -4848,28 +4824,6 @@ export const SPELL_COMPENDIUM_SPELLS_C: SpellDefinition[] = [
     "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf"
   },
   {
-    "id": "sacred-haven",
-    "name": "Sacred Haven",
-    "ruleset": "core",
-    "school": "Abjuration",
-    "descriptors": [
-      "Good"
-    ],
-    "levels": {
-      "Paladin": 4
-    },
-    "components": "V, S, DF",
-    "castingTime": "1 standard action",
-    "range": "30 ft.",
-    "targetOrArea": "You and allies in a 30-ft.- radius burst centered on you",
-    "duration": "1",
-    "savingThrow": "Will negates (harmless)",
-    "spellResistance": "Yes (harmless)",
-    "summary": "Creates a sacred safe place: allies inside gain protection and you can teleport to the haven.",
-    "source": "Spell Compendium, p. 178",
-    "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf"
-  },
-  {
     "id": "safe-clearing",
     "name": "Safe Clearing",
     "ruleset": "core",
@@ -5040,7 +4994,6 @@ export const SPELL_COMPENDIUM_SPELLS_C: SpellDefinition[] = [
     "levels": {
       "Druid": 2,
       "Ranger": 1,
-      "Shugenja": 2
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -5293,7 +5246,6 @@ export const SPELL_COMPENDIUM_SPELLS_C: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 3,
-      "Wu Jen": 5
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -5325,28 +5277,6 @@ export const SPELL_COMPENDIUM_SPELLS_C: SpellDefinition[] = [
     "spellResistance": "Yes",
     "summary": "Shadows pin the subject: it is entangled or immobilized by its own shadow.",
     "source": "Spell Compendium, p. 182",
-    "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf",
-    "subschool": "Shadow"
-  },
-  {
-    "id": "shadow-cache",
-    "name": "Shadow Cache",
-    "ruleset": "core",
-    "school": "Illusion",
-    "descriptors": [],
-    "levels": {
-      "Bard": 3,
-      "Sorcerer/Wizard": 3
-    },
-    "components": "V, S",
-    "castingTime": "1 standard action",
-    "range": "Touch",
-    "targetOrArea": "1-ft.-diameter circle",
-    "duration": "1",
-    "savingThrow": "No",
-    "spellResistance": "No",
-    "summary": "Hides an item in the Plane of Shadow, retrievable later like a secret chest.",
-    "source": "Spell Compendium, p. 183",
     "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf",
     "subschool": "Shadow"
   },

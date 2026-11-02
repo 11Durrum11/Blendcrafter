@@ -112,7 +112,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 4,
       "Druid": 4,
-      "Shugenja": 4
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -179,7 +178,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Bard": 2,
       "Sorcerer/Wizard": 2,
       "Gun Mage": 2,
-      "Wu Jen": 2
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -223,7 +221,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Druid": 5,
       "Ranger": 4,
       "Sorcerer/Wizard": 5,
-      "Wu Jen": 5
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -300,7 +297,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 4,
       "Gun Mage": 4,
       "Adept": 3,
-      "Wu Jen": 4
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -344,7 +340,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 1,
       "Sorcerer/Wizard": 1,
-      "Wu Jen": 1
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -391,7 +386,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Magic": 6,
       "Protection": 6,
       "Gun Mage": 6,
-      "Shugenja": 6
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -434,7 +428,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Sorcerer/Wizard": 2,
       "Gun Mage": 2,
-      "Wu Jen": 2
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -456,7 +449,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Sorcerer/Wizard": 0,
       "Gun Mage": 0,
-      "Wu Jen": 0
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -512,29 +504,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "sourceUrl": "https://www.d20srd.org/srd/spells/arcaneSightGreater.htm"
   },
   {
-    "id": "astral-projection",
-    "name": "Astral Projection",
-    "ruleset": "core",
-    "school": "Necromancy",
-    "descriptors": [],
-    "levels": {
-      "Cleric": 9,
-      "Sorcerer/Wizard": 9,
-      "Travel": 9,
-      "Wu Jen": 9
-    },
-    "components": "V, S, M",
-    "castingTime": "30 minutes",
-    "range": "Touch",
-    "targetOrArea": "You plus one additional willing creature per two levels",
-    "duration": "See text",
-    "savingThrow": "None",
-    "spellResistance": "No",
-    "summary": "Projects your astral forms to other planes, leaving your bodies in suspended animation on the Material Plane.",
-    "source": "System Reference Document (SRD) spells",
-    "sourceUrl": "https://www.d20srd.org/srd/spells/astralProjection.htm"
-  },
-  {
     "id": "atonement",
     "name": "Atonement",
     "ruleset": "core",
@@ -544,7 +513,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 5,
       "Druid": 5,
       "Healer": 5,
-      "Shugenja": 5
     },
     "components": "V, S, M, DF, XP",
     "castingTime": "1 hour",
@@ -565,7 +533,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Cleric": 2,
-      "Shugenja": 2
     },
     "components": "V, S, M, F",
     "castingTime": "1 minute",
@@ -608,7 +575,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Druid": 5,
       "Sorcerer/Wizard": 5,
       "Adept": 5,
-      "Wu Jen": 5
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -654,7 +620,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 6,
       "Sorcerer/Wizard": 7,
-      "Shugenja": 6
     },
     "components": "V, S, F",
     "castingTime": "1 standard action",
@@ -676,7 +641,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Druid": 2,
       "Ranger": 2,
-      "Shugenja": 2
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -703,8 +667,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Gun Mage": 2,
       "Duskblade": 2,
       "Adept": 2,
-      "Shugenja": 2,
-      "Wu Jen": 2,
       "Artificer": 2
     },
     "components": "V, S, DF",
@@ -773,7 +735,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Sorcerer/Wizard": 8,
-      "Shugenja": 8
     },
     "components": "V, S, M",
     "castingTime": "1 minute",
@@ -870,7 +831,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 1,
       "Paladin": 1,
       "Adept": 1,
-      "Shugenja": 1
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -949,28 +909,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "sourceUrl": "https://www.d20srd.org/srd/spells/blindnessDeafness.htm"
   },
   {
-    "id": "blink",
-    "name": "Blink",
-    "ruleset": "core",
-    "school": "Transmutation",
-    "descriptors": [],
-    "levels": {
-      "Bard": 3,
-      "Sorcerer/Wizard": 3,
-      "Gun Mage": 3
-    },
-    "components": "V, S",
-    "castingTime": "1 standard action",
-    "range": "Personal",
-    "targetOrArea": "You",
-    "duration": "1 round/level (D)",
-    "savingThrow": "None",
-    "spellResistance": "No",
-    "summary": "You flicker between the Material and Ethereal planes: attacks against you have a 50% miss chance and you strike as invisible.",
-    "source": "System Reference Document (SRD) spells",
-    "sourceUrl": "https://www.d20srd.org/srd/spells/blink.htm"
-  },
-  {
     "id": "blur",
     "name": "Blur",
     "ruleset": "core",
@@ -981,8 +919,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 2,
       "Gun Mage": 2,
       "Beguiler": 2,
-      "Shugenja": 2,
-      "Wu Jen": 2
     },
     "components": "V",
     "castingTime": "1 standard action",
@@ -1036,8 +972,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 2,
       "Duskblade": 2,
       "Adept": 2,
-      "Shugenja": 2,
-      "Wu Jen": 2,
       "Artificer": 2
     },
     "components": "V, S, M/DF",
@@ -1086,7 +1020,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Duskblade": 1,
       "Warmage": 1,
       "Adept": 1,
-      "Shugenja": 1
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -1162,8 +1095,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Gun Mage": 2,
       "Duskblade": 2,
       "Adept": 2,
-      "Shugenja": 2,
-      "Wu Jen": 2,
       "Artificer": 2
     },
     "components": "V, S, M",
@@ -1215,7 +1146,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Gun Mage": 1,
       "Duskblade": 1,
       "Adept": 1,
-      "Shugenja": 1
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -1242,7 +1172,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Gun Mage": 6,
       "Duskblade": 5,
       "Warmage": 6,
-      "Shugenja": 7
     },
     "components": "V, S, F",
     "castingTime": "1 standard action",
@@ -1335,7 +1264,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 4,
       "Gun Mage": 4,
       "Beguiler": 4,
-      "Wu Jen": 4
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -1385,7 +1313,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 1,
       "Gun Mage": 1,
       "Beguiler": 1,
-      "Wu Jen": 1
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -1480,7 +1407,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Bard": 3,
       "Sorcerer/Wizard": 3,
       "Beguiler": 3,
-      "Shugenja": 3
     },
     "components": "V, S, F/DF",
     "castingTime": "10 minutes",
@@ -1550,7 +1476,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 5,
       "Gun Mage": 5,
       "Warmage": 5,
-      "Shugenja": 6
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -1577,7 +1502,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Gun Mage": 1,
       "Beguiler": 1,
       "Duskblade": 1,
-      "Shugenja": 2
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -1626,7 +1550,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Druid": 4,
       "Ranger": 4,
-      "Wu Jen": 4
     },
     "components": "V",
     "castingTime": "1 standard action",
@@ -1669,7 +1592,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 5,
       "Adept": 5,
-      "Shugenja": 5
     },
     "components": "V, S, M, DF, XP",
     "castingTime": "10 minutes",
@@ -1691,7 +1613,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Druid": 5,
       "Ranger": 4,
-      "Shugenja": 5
     },
     "components": "V, S",
     "castingTime": "10 minutes",
@@ -1716,7 +1637,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 1,
       "Beguiler": 1,
       "Adept": 1,
-      "Wu Jen": 1
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -1742,7 +1662,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Water": 6,
       "Gun Mage": 5,
       "Warmage": 5,
-      "Wu Jen": 5
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -1768,8 +1687,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 4,
       "Gun Mage": 4,
       "Beguiler": 4,
-      "Shugenja": 5,
-      "Wu Jen": 4
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -1886,7 +1803,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Sorcerer/Wizard": 6,
       "Gun Mage": 6,
-      "Shugenja": 6
     },
     "components": "V, S, M, F",
     "castingTime": "At least 10 minutes; see text",
@@ -1934,7 +1850,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Druid": 8,
       "Plant": 8,
-      "Wu Jen": 8
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -1980,8 +1895,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 4,
       "Druid": 4,
       "Sorcerer/Wizard": 6,
-      "Shugenja": 4,
-      "Wu Jen": 6
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -2004,8 +1917,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 7,
       "Druid": 7,
       "Sorcerer/Wizard": 7,
-      "Shugenja": 6,
-      "Wu Jen": 6
     },
     "components": "V, S",
     "castingTime": "10 minutes; see text",
@@ -2028,7 +1939,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Druid": 5,
-      "Shugenja": 5
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -2126,7 +2036,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Paladin": 1,
       "Healer": 0,
       "Adept": 0,
-      "Shugenja": 0
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -2174,7 +2083,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 4,
       "Gun Mage": 3,
       "Beguiler": 4,
-      "Wu Jen": 4
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -2223,7 +2131,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Healing": 4,
       "Healer": 4,
       "Adept": 4,
-      "Shugenja": 4
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -2275,7 +2182,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Ranger": 2,
       "Healer": 1,
       "Adept": 1,
-      "Shugenja": 1
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -2301,7 +2207,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Druid": 6,
       "Healing": 5,
       "Healer": 4,
-      "Shugenja": 5
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -2326,7 +2231,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Druid": 0,
       "Healer": 0,
       "Adept": 0,
-      "Shugenja": 0
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -2354,7 +2258,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Ranger": 3,
       "Healer": 2,
       "Adept": 2,
-      "Shugenja": 2
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -2382,7 +2285,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Ranger": 4,
       "Healer": 3,
       "Adept": 3,
-      "Shugenja": 3
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -2409,8 +2311,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 0,
       "Gun Mage": 0,
       "Beguiler": 0,
-      "Shugenja": 0,
-      "Wu Jen": 0
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -2489,7 +2389,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 3,
       "Gun Mage": 3,
       "Adept": 3,
-      "Shugenja": 3
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -2515,8 +2414,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 0,
       "Gun Mage": 0,
       "Beguiler": 0,
-      "Shugenja": 0,
-      "Wu Jen": 0
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -2590,7 +2487,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Druid": 5,
       "Paladin": 4,
       "Healer": 4,
-      "Shugenja": 4
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -2666,7 +2562,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Ranger": 1,
       "Healer": 2,
       "Adept": 2,
-      "Shugenja": 2
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -2691,8 +2586,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Sorcerer/Wizard": 7,
       "Warmage": 7,
-      "Shugenja": 8,
-      "Wu Jen": 7
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -2805,7 +2698,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 1,
       "Adept": 1,
-      "Wu Jen": 1
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -2828,7 +2720,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 1,
       "Paladin": 1,
       "Adept": 1,
-      "Wu Jen": 1
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -2850,7 +2741,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 1,
       "Adept": 1,
-      "Wu Jen": 1
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -2872,7 +2762,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 1,
       "Adept": 1,
-      "Wu Jen": 1
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -2900,8 +2789,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Beguiler": 0,
       "Healer": 0,
       "Adept": 0,
-      "Shugenja": 0,
-      "Wu Jen": 0
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -2927,8 +2814,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Ranger": 1,
       "Sorcerer/Wizard": 0,
       "Healer": 0,
-      "Shugenja": 0,
-      "Wu Jen": 0
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -2952,7 +2837,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 5,
       "Druid": 4,
       "Sorcerer/Wizard": 4,
-      "Shugenja": 4
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -2996,7 +2880,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Druid": 1,
       "Ranger": 1,
-      "Shugenja": 1
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -3022,8 +2905,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 2,
       "Gun Mage": 2,
       "Beguiler": 2,
-      "Shugenja": 2,
-      "Wu Jen": 2
     },
     "components": "V, S, F/DF",
     "castingTime": "1 standard action",
@@ -3083,33 +2964,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "sourceUrl": "https://www.d20srd.org/srd/spells/dictum.htm"
   },
   {
-    "id": "dimension-door",
-    "name": "Dimension Door",
-    "ruleset": "core",
-    "school": "Conjuration",
-    "descriptors": [],
-    "levels": {
-      "Bard": 4,
-      "Sorcerer/Wizard": 4,
-      "Travel": 4,
-      "Gun Mage": 4,
-      "Duskblade": 4,
-      "Shugenja": 5,
-      "Wu Jen": 4
-    },
-    "components": "V",
-    "castingTime": "1 standard action",
-    "range": "Long (400 ft. + 40 ft./level)",
-    "targetOrArea": "You and touched objects or other touched willing creatures",
-    "duration": "Instantaneous",
-    "savingThrow": "None or Will negates (object)",
-    "spellResistance": "No or Yes (object)",
-    "summary": "Teleport yourself and up to your Medium load / one creature per three levels to a visualized or described destination.",
-    "source": "System Reference Document (SRD) spells",
-    "sourceUrl": "https://www.d20srd.org/srd/spells/dimensionDoor.htm",
-    "subschool": "Teleportation"
-  },
-  {
     "id": "dimensional-anchor",
     "name": "Dimensional Anchor",
     "ruleset": "core",
@@ -3118,7 +2972,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 4,
       "Sorcerer/Wizard": 4,
-      "Shugenja": 4
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -3182,7 +3035,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 4,
       "Paladin": 3,
-      "Shugenja": 4
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -3207,7 +3059,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Knowledge": 8,
       "Beguiler": 8,
       "Healer": 8,
-      "Shugenja": 8
     },
     "components": "V, S",
     "castingTime": "10 minutes",
@@ -3231,8 +3082,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 1,
       "Gun Mage": 1,
       "Beguiler": 1,
-      "Shugenja": 1,
-      "Wu Jen": 1
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -3258,8 +3107,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Gun Mage": 6,
       "Duskblade": 5,
       "Warmage": 6,
-      "Shugenja": 7,
-      "Wu Jen": 7
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -3281,8 +3128,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 4,
       "Sorcerer/Wizard": 5,
-      "Shugenja": 4,
-      "Wu Jen": 4
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -3396,8 +3241,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Gun Mage": 3,
       "Beguiler": 3,
       "Duskblade": 4,
-      "Shugenja": 3,
-      "Wu Jen": 3
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -3423,8 +3266,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 6,
       "Gun Mage": 6,
       "Beguiler": 6,
-      "Shugenja": 6,
-      "Wu Jen": 6
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -3448,7 +3289,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 3,
       "Gun Mage": 3,
       "Beguiler": 3,
-      "Wu Jen": 3
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -3472,8 +3312,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 0,
       "Duskblade": 0,
       "Warmage": 0,
-      "Shugenja": 0,
-      "Wu Jen": 0
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -3515,7 +3353,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Cleric": 4,
-      "Shugenja": 4
     },
     "components": "V, S, M",
     "castingTime": "10 minutes",
@@ -3604,7 +3441,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Sorcerer/Wizard": 9,
       "Beguiler": 9,
-      "Wu Jen": 9
     },
     "components": "V, S",
     "castingTime": "1 round",
@@ -3631,7 +3467,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 5,
       "Gun Mage": 5,
       "Beguiler": 5,
-      "Wu Jen": 5
     },
     "components": "V, S",
     "castingTime": "1 round",
@@ -3669,27 +3504,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "sourceUrl": "https://www.d20srd.org/srd/spells/doom.htm"
   },
   {
-    "id": "drawmijs-instant-summons",
-    "name": "Drawmij's Instant Summons",
-    "ruleset": "core",
-    "school": "Conjuration",
-    "descriptors": [],
-    "levels": {
-      "Sorcerer/Wizard": 7
-    },
-    "components": "V, S, M",
-    "castingTime": "1 standard action",
-    "range": "See text",
-    "targetOrArea": "One object of 10 lb. or less",
-    "duration": "Until discharged (D)",
-    "savingThrow": "None",
-    "spellResistance": "No",
-    "summary": "Teleport a marked object into your hand from any distance by crushing its paired gem.",
-    "source": "System Reference Document (SRD) spells",
-    "sourceUrl": "https://www.d20srd.org/srd/spells/drawmijsInstantSummons.htm",
-    "subschool": "Summoning"
-  },
-  {
     "id": "dream",
     "name": "Dream",
     "ruleset": "core",
@@ -3700,7 +3514,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 5,
       "Sorcerer/Wizard": 5,
-      "Wu Jen": 5
     },
     "components": "V, S",
     "castingTime": "1 minute",
@@ -3774,8 +3587,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Druid": 8,
       "Earth": 8,
       "Warmage": 7,
-      "Shugenja": 8,
-      "Wu Jen": 8
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -3801,7 +3612,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Fire": 9,
       "Water": 9,
       "Warmage": 9,
-      "Shugenja": 9
     },
     "components": "V, S",
     "castingTime": "10 minutes",
@@ -3829,8 +3639,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 1,
       "Gun Mage": 1,
       "Adept": 1,
-      "Shugenja": 1,
-      "Wu Jen": 1
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -3963,7 +3771,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Cleric": 1,
-      "Shugenja": 1
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -3998,53 +3805,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "sourceUrl": "https://www.d20srd.org/srd/spells/erase.htm"
   },
   {
-    "id": "ethereal-jaunt",
-    "name": "Ethereal Jaunt",
-    "ruleset": "core",
-    "school": "Transmutation",
-    "descriptors": [],
-    "levels": {
-      "Cleric": 7,
-      "Sorcerer/Wizard": 7,
-      "Beguiler": 7,
-      "Wu Jen": 7
-    },
-    "components": "V, S",
-    "castingTime": "1 standard action",
-    "range": "Personal",
-    "targetOrArea": "You",
-    "duration": "1 round/level (D)",
-    "savingThrow": "None",
-    "spellResistance": "No",
-    "summary": "You become ethereal, moving through objects and unseen by Material Plane creatures.",
-    "source": "System Reference Document (SRD) spells",
-    "sourceUrl": "https://www.d20srd.org/srd/spells/etherealJaunt.htm"
-  },
-  {
-    "id": "etherealness",
-    "name": "Etherealness",
-    "ruleset": "core",
-    "school": "Transmutation",
-    "descriptors": [],
-    "levels": {
-      "Cleric": 9,
-      "Sorcerer/Wizard": 9,
-      "Beguiler": 9,
-      "Shugenja": 9,
-      "Wu Jen": 9
-    },
-    "components": "V, S",
-    "castingTime": "1 standard action",
-    "range": "Touch",
-    "targetOrArea": "You and one other touched creature per three levels",
-    "duration": "1 minute/level (D)",
-    "savingThrow": "None",
-    "spellResistance": "No",
-    "summary": "You and companions become ethereal, traveling the Ethereal Plane while insubstantial on the Material.",
-    "source": "System Reference Document (SRD) spells",
-    "sourceUrl": "https://www.d20srd.org/srd/spells/etherealness.htm"
-  },
-  {
     "id": "expeditious-retreat",
     "name": "Expeditious Retreat",
     "ruleset": "core",
@@ -4055,7 +3815,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 1,
       "Gun Mage": 1,
       "Beguiler": 1,
-      "Shugenja": 1
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -4123,7 +3882,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 5,
-      "Wu Jen": 5,
       "Artificer": 5
     },
     "components": "V, S, M",
@@ -4147,7 +3905,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Druid": 1,
-      "Shugenja": 1
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -4236,7 +3993,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Bard": 1,
       "Sorcerer/Wizard": 1,
       "Gun Mage": 1,
-      "Shugenja": 1
     },
     "components": "V",
     "castingTime": "1 immediate action",
@@ -4261,8 +4017,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 5,
       "Gun Mage": 5,
       "Beguiler": 5,
-      "Shugenja": 5,
-      "Wu Jen": 5
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -4287,7 +4041,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 6,
       "Druid": 6,
       "Knowledge": 6,
-      "Shugenja": 6
     },
     "components": "V, S, F",
     "castingTime": "3 rounds",
@@ -4358,8 +4111,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Druid": 6,
       "Sun": 6,
       "Warmage": 6,
-      "Shugenja": 6,
-      "Wu Jen": 6
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -4388,8 +4139,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Gun Mage": 4,
       "Duskblade": 4,
       "Warmage": 3,
-      "Shugenja": 4,
-      "Wu Jen": 4
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -4415,7 +4164,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Druid": 8,
       "Fire": 8,
       "Warmage": 7,
-      "Shugenja": 7
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -4441,7 +4189,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 4,
       "Gun Mage": 4,
       "Warmage": 2,
-      "Wu Jen": 4
     },
     "components": "V, S, M",
     "castingTime": "10 minutes",
@@ -4466,8 +4213,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 3,
       "Gun Mage": 3,
       "Warmage": 3,
-      "Shugenja": 4,
-      "Wu Jen": 3
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -4491,7 +4236,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Sorcerer/Wizard": 3,
       "Warmage": 3,
-      "Shugenja": 4
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -4514,7 +4258,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Druid": 2,
-      "Shugenja": 2
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -4541,7 +4284,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sun": 5,
       "War": 5,
       "Warmage": 5,
-      "Shugenja": 5
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -4567,7 +4309,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 2,
       "Gun Mage": 2,
       "Warmage": 2,
-      "Shugenja": 2
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -4593,8 +4334,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Druid": 0,
       "Sorcerer/Wizard": 0,
       "Gun Mage": 0,
-      "Shugenja": 0,
-      "Wu Jen": 0
     },
     "components": "V",
     "castingTime": "1 standard action",
@@ -4616,8 +4355,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Sorcerer/Wizard": 6,
       "Gun Mage": 6,
-      "Shugenja": 7,
-      "Wu Jen": 6
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -4683,8 +4420,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 2,
       "Gun Mage": 2,
       "Beguiler": 2,
-      "Shugenja": 2,
-      "Wu Jen": 2
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -4733,7 +4468,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Time": 9,
       "Beguiler": 9,
       "Healer": 9,
-      "Shugenja": 9
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -4797,7 +4531,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 9,
-      "Wu Jen": 9
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -4869,7 +4602,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 3,
       "Sorcerer/Wizard": 3,
-      "Wu Jen": 3
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -4881,31 +4613,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "summary": "Subject and its gear become insubstantial vapor: damage reduction 10/magic, immune to poison and crits, flies at 10 feet.",
     "source": "System Reference Document (SRD) spells",
     "sourceUrl": "https://www.d20srd.org/srd/spells/gaseousForm.htm"
-  },
-  {
-    "id": "gate",
-    "name": "Gate",
-    "ruleset": "core",
-    "school": "Conjuration",
-    "descriptors": [],
-    "levels": {
-      "Cleric": 9,
-      "Sorcerer/Wizard": 9,
-      "Travel": 8,
-      "Healer": 9,
-      "Wu Jen": 9
-    },
-    "components": "V, S, XP",
-    "castingTime": "1 standard action",
-    "range": "Medium (100 ft. + 10 ft./level)",
-    "targetOrArea": "See text",
-    "duration": "Instantaneous or concentration (up to 1 round/level); see text",
-    "savingThrow": "None",
-    "spellResistance": "No",
-    "summary": "Opens a portal to another plane for travel, or calls an extraplanar creature of up to twice your level in HD to serve.",
-    "source": "System Reference Document (SRD) spells",
-    "sourceUrl": "https://www.d20srd.org/srd/spells/gate.htm",
-    "subschool": "Calling or Creation"
   },
   {
     "id": "geas-lesser",
@@ -4947,7 +4654,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 6,
       "Sorcerer/Wizard": 6,
       "Gun Mage": 6,
-      "Wu Jen": 6
     },
     "components": "V",
     "castingTime": "10 minutes",
@@ -4995,8 +4701,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Gun Mage": 0,
       "Beguiler": 0,
       "Adept": 0,
-      "Shugenja": 0,
-      "Wu Jen": 0
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -5084,7 +4788,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 2,
       "Gun Mage": 2,
       "Beguiler": 2,
-      "Shugenja": 2
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -5107,7 +4810,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Sorcerer/Wizard": 6,
       "Gun Mage": 6,
-      "Wu Jen": 6,
       "Artificer": 6
     },
     "components": "V, S, M",
@@ -5130,7 +4832,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Sorcerer/Wizard": 4,
       "Gun Mage": 4,
-      "Wu Jen": 4,
       "Artificer": 4
     },
     "components": "V, S, M",
@@ -5152,7 +4853,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Cleric": 3,
-      "Shugenja": 3
     },
     "components": "V, S, M",
     "castingTime": "10 minutes",
@@ -5173,7 +4873,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Cleric": 6,
-      "Shugenja": 6
     },
     "components": "V, S, M",
     "castingTime": "10 minutes",
@@ -5197,7 +4896,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 3,
       "Gun Mage": 3,
-      "Wu Jen": 4
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -5309,7 +5007,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 0,
       "Druid": 0,
       "Adept": 0,
-      "Shugenja": 0
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -5335,7 +5032,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 2,
       "Gun Mage": 2,
       "Warmage": 3,
-      "Shugenja": 3
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -5380,7 +5076,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 4,
       "Sorcerer/Wizard": 4,
-      "Shugenja": 4
     },
     "components": "V, S, M",
     "castingTime": "10 minutes",
@@ -5446,8 +5141,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 3,
       "Gun Mage": 3,
       "Beguiler": 3,
-      "Shugenja": 3,
-      "Wu Jen": 3
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -5472,7 +5165,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Healing": 6,
       "Healer": 6,
       "Adept": 5,
-      "Shugenja": 6
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -5517,7 +5209,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 9,
       "Healing": 9,
       "Healer": 8,
-      "Shugenja": 8
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -5541,7 +5232,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Druid": 2,
-      "Shugenja": 2,
       "Artificer": 2
     },
     "components": "V, S, DF",
@@ -5752,7 +5442,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Gun Mage": 5,
       "Beguiler": 5,
       "Duskblade": 5,
-      "Wu Jen": 5
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -5804,8 +5493,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 3,
       "Gun Mage": 3,
       "Beguiler": 3,
-      "Shugenja": 2,
-      "Wu Jen": 2
     },
     "components": "V, S, F/DF",
     "castingTime": "1 standard action",
@@ -5854,7 +5541,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Sorcerer/Wizard": 1,
       "Gun Mage": 1,
-      "Wu Jen": 1
     },
     "components": "V",
     "castingTime": "1 standard action",
@@ -5969,8 +5655,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 8,
       "Water": 8,
       "Warmage": 8,
-      "Shugenja": 8,
-      "Wu Jen": 8
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -5996,7 +5680,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 2,
       "Gun Mage": 2,
       "Beguiler": 2,
-      "Wu Jen": 2
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -6023,8 +5706,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 1,
       "Gun Mage": 1,
       "Beguiler": 1,
-      "Shugenja": 1,
-      "Wu Jen": 1
     },
     "components": "V, S",
     "castingTime": "1 round",
@@ -6052,7 +5733,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Water": 5,
       "Gun Mage": 4,
       "Warmage": 3,
-      "Wu Jen": 4
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -6098,7 +5778,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 3,
       "Sorcerer/Wizard": 3,
-      "Wu Jen": 3
     },
     "components": "V, S, M",
     "castingTime": "1 minute or longer",
@@ -6121,7 +5800,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Sorcerer/Wizard": 4,
       "Gun Mage": 4,
-      "Shugenja": 4
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -6165,7 +5843,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 9,
       "Destruction": 9,
       "Warmage": 9,
-      "Shugenja": 9
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -6186,8 +5863,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 9,
-      "Shugenja": 9,
-      "Wu Jen": 9
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -6212,8 +5887,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 8,
       "Fire": 8,
       "Warmage": 8,
-      "Shugenja": 8,
-      "Wu Jen": 8
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -6394,27 +6067,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "subschool": "Summoning"
   },
   {
-    "id": "instant-summons",
-    "name": "Instant Summons",
-    "ruleset": "core",
-    "school": "Conjuration",
-    "descriptors": [],
-    "levels": {
-      "Sorcerer/Wizard": 7
-    },
-    "components": "V, S, M",
-    "castingTime": "1 standard action",
-    "range": "See text",
-    "targetOrArea": "One object of up to 10 lb.",
-    "duration": "Instantaneous",
-    "savingThrow": "None",
-    "spellResistance": "No",
-    "summary": "Summons an object you previously marked with an arcane mark from anywhere on the same plane directly to your hand when you speak its name.",
-    "source": "System Reference Document (SRD) spells",
-    "sourceUrl": "https://www.d20srd.org/srd/spells/instantSummons.htm",
-    "subschool": "Summoning"
-  },
-  {
     "id": "interposing-hand",
     "name": "Interposing Hand",
     "ruleset": "core",
@@ -6449,8 +6101,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Gun Mage": 2,
       "Beguiler": 2,
       "Adept": 2,
-      "Shugenja": 3,
-      "Wu Jen": 2
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -6519,8 +6169,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 4,
       "Gun Mage": 4,
       "Beguiler": 4,
-      "Shugenja": 5,
-      "Wu Jen": 4
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -6543,7 +6191,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Sorcerer/Wizard": 7,
       "Beguiler": 7,
-      "Shugenja": 7
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -6585,7 +6232,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Druid": 6,
-      "Wu Jen": 6
     },
     "components": "V, S, M",
     "castingTime": "1 minute per pound created",
@@ -6634,7 +6280,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 1,
       "Gun Mage": 1,
       "Duskblade": 1,
-      "Wu Jen": 1
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -6656,8 +6301,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Sorcerer/Wizard": 3,
       "Duskblade": 3,
-      "Shugenja": 3,
-      "Wu Jen": 3
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -6680,7 +6323,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 2,
       "Gun Mage": 2,
       "Beguiler": 2,
-      "Wu Jen": 2
     },
     "components": "V",
     "castingTime": "1 standard action",
@@ -6703,7 +6345,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Bard": 0,
       "Druid": 0,
       "Gun Mage": 0,
-      "Shugenja": 0
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -6726,7 +6367,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Bard": 4,
       "Sorcerer/Wizard": 6,
       "Knowledge": 7,
-      "Shugenja": 7
     },
     "components": "V, S, M, F",
     "castingTime": "See text",
@@ -6740,27 +6380,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "sourceUrl": "https://www.d20srd.org/srd/spells/legendLore.htm"
   },
   {
-    "id": "leomunds-secret-chest",
-    "name": "Leomund's Secret Chest",
-    "ruleset": "core",
-    "school": "Conjuration",
-    "descriptors": [],
-    "levels": {
-      "Sorcerer/Wizard": 5
-    },
-    "components": "V, S, F",
-    "castingTime": "10 minutes",
-    "range": "Touch",
-    "targetOrArea": "One chest and up to 1 cu. ft. of material per level",
-    "duration": "60 days or until discharged",
-    "savingThrow": "None",
-    "spellResistance": "No",
-    "summary": "Hides an expensive chest on the Ethereal Plane; summon it back with a miniature replica.",
-    "source": "System Reference Document (SRD) spells",
-    "sourceUrl": "https://www.d20srd.org/srd/spells/leomundsSecretChest.htm",
-    "subschool": "Summoning"
-  },
-  {
     "id": "levitate",
     "name": "Levitate",
     "ruleset": "core",
@@ -6769,7 +6388,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Sorcerer/Wizard": 2,
       "Gun Mage": 2,
-      "Shugenja": 2
     },
     "components": "V, S, F",
     "castingTime": "1 standard action",
@@ -6799,8 +6417,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Warmage": 0,
       "Healer": 0,
       "Adept": 0,
-      "Shugenja": 0,
-      "Wu Jen": 0,
       "Artificer": 1
     },
     "components": "V, M/DF",
@@ -6827,7 +6443,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Gun Mage": 3,
       "Warmage": 3,
       "Adept": 3,
-      "Shugenja": 4
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -6848,7 +6463,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 7,
-      "Wu Jen": 7
     },
     "components": "V, S, XP",
     "castingTime": "1 standard action",
@@ -6892,8 +6506,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 4,
       "Gun Mage": 4,
       "Beguiler": 4,
-      "Shugenja": 4,
-      "Wu Jen": 4
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -6917,8 +6529,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 3,
       "Sorcerer/Wizard": 2,
       "Gun Mage": 2,
-      "Shugenja": 2,
-      "Wu Jen": 2
     },
     "components": "V, S, F/DF",
     "castingTime": "1 standard action",
@@ -7008,8 +6618,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Bard": 0,
       "Sorcerer/Wizard": 0,
       "Gun Mage": 0,
-      "Shugenja": 0,
-      "Wu Jen": 0
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -7084,27 +6692,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "summary": "You recall any one spell of 5th level or lower that you cast within the past 24 hours, regaining it as if it had not been cast (wizard only in practice).",
     "source": "System Reference Document (SRD) spells",
     "sourceUrl": "https://www.d20srd.org/srd/spells/magesLucubration.htm"
-  },
-  {
-    "id": "mages-magnificent-mansion",
-    "name": "Mage's Magnificent Mansion",
-    "ruleset": "core",
-    "school": "Conjuration",
-    "descriptors": [],
-    "levels": {
-      "Sorcerer/Wizard": 7
-    },
-    "components": "V, S, F",
-    "castingTime": "1 standard action",
-    "range": "Close (25 ft. + 5 ft./2 levels)",
-    "targetOrArea": "Extradimensional mansion, up to three 10-ft. cubes per level (S)",
-    "duration": "2 hours/level (D)",
-    "savingThrow": "None",
-    "spellResistance": "No",
-    "summary": "Creates an extradimensional mansion with food and near-transparent servants for you and your guests.",
-    "source": "System Reference Document (SRD) spells",
-    "sourceUrl": "https://www.d20srd.org/srd/spells/magesMagnificentMansion.htm",
-    "subschool": "Creation"
   },
   {
     "id": "mages-private-sanctum",
@@ -7183,7 +6770,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Paladin": 3,
       "Sorcerer/Wizard": 3,
       "Gun Mage": 3,
-      "Wu Jen": 3
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -7209,7 +6795,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Paladin": 3,
       "Sorcerer/Wizard": 3,
       "Gun Mage": 3,
-      "Wu Jen": 3
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -7234,7 +6819,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 3,
       "Sorcerer/Wizard": 3,
       "Gun Mage": 3,
-      "Wu Jen": 3
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -7258,7 +6842,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Paladin": 3,
       "Sorcerer/Wizard": 3,
       "Gun Mage": 3,
-      "Wu Jen": 3
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -7346,7 +6929,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 1,
       "Gun Mage": 1,
       "Warmage": 1,
-      "Wu Jen": 1
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -7390,7 +6972,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 1,
       "Druid": 1,
-      "Shugenja": 1,
       "Artificer": 1
     },
     "components": "V, S, DF",
@@ -7439,8 +7020,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 1,
       "Gun Mage": 1,
       "Duskblade": 1,
-      "Shugenja": 1,
-      "Wu Jen": 1,
       "Artificer": 1
     },
     "components": "V, S, DF",
@@ -7466,8 +7045,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 3,
       "Gun Mage": 3,
       "Duskblade": 3,
-      "Shugenja": 3,
-      "Wu Jen": 3,
       "Artificer": 3
     },
     "components": "V, S, M/DF",
@@ -7490,7 +7067,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Sorcerer/Wizard": 5,
       "Adept": 5,
-      "Wu Jen": 5,
       "Artificer": 5
     },
     "components": "V, S, M",
@@ -7515,8 +7091,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Bard": 3,
       "Sorcerer/Wizard": 3,
       "Beguiler": 3,
-      "Shugenja": 3,
-      "Wu Jen": 3
     },
     "components": "V, S, F",
     "castingTime": "1 standard action",
@@ -7538,7 +7112,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Cleric": 2,
-      "Shugenja": 2
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -7573,27 +7146,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "sourceUrl": "https://www.d20srd.org/srd/spells/markOfJustice.htm"
   },
   {
-    "id": "maze",
-    "name": "Maze",
-    "ruleset": "core",
-    "school": "Conjuration",
-    "descriptors": [],
-    "levels": {
-      "Sorcerer/Wizard": 8
-    },
-    "components": "V, S",
-    "castingTime": "1 standard action",
-    "range": "Close (25 ft. + 5 ft./2 levels)",
-    "targetOrArea": "One creature",
-    "duration": "Concentration or 10 minutes; see text",
-    "savingThrow": "None",
-    "spellResistance": "Yes",
-    "summary": "Banishes the subject into an extradimensional labyrinth; it escapes with a DC 20 Intelligence check or after 10 minutes.",
-    "source": "System Reference Document (SRD) spells",
-    "sourceUrl": "https://www.d20srd.org/srd/spells/maze.htm",
-    "subschool": "Teleportation"
-  },
-  {
     "id": "meld-into-stone",
     "name": "Meld into Stone",
     "ruleset": "core",
@@ -7604,7 +7156,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 3,
       "Druid": 3,
-      "Shugenja": 3
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -7631,8 +7182,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Gun Mage": 0,
       "Healer": 0,
       "Adept": 0,
-      "Shugenja": 0,
-      "Wu Jen": 0
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -7658,7 +7207,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 0,
       "Gun Mage": 0,
       "Beguiler": 0,
-      "Wu Jen": 0
     },
     "components": "V, S, F",
     "castingTime": "1 standard action",
@@ -7682,7 +7230,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Sorcerer/Wizard": 9,
       "Warmage": 9,
-      "Shugenja": 9
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -7705,7 +7252,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 8,
       "Protection": 8,
       "Beguiler": 8,
-      "Wu Jen": 8
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -7753,7 +7299,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Sorcerer/Wizard": 4,
       "Adept": 4,
-      "Wu Jen": 4,
       "Artificer": 4
     },
     "components": "V, S, M",
@@ -7778,8 +7323,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Bard": 2,
       "Sorcerer/Wizard": 2,
       "Beguiler": 2,
-      "Shugenja": 2,
-      "Wu Jen": 2
     },
     "components": "V, S, F",
     "castingTime": "1 standard action",
@@ -7823,7 +7366,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 5,
       "Sorcerer/Wizard": 5,
-      "Shugenja": 5
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -7873,7 +7415,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 2,
       "Gun Mage": 2,
       "Beguiler": 2,
-      "Wu Jen": 2
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -7899,7 +7440,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Trickery": 6,
       "Gun Mage": 6,
       "Beguiler": 6,
-      "Shugenja": 7
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -7988,7 +7528,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Sorcerer/Wizard": 9,
       "Magic": 9,
-      "Shugenja": 9
     },
     "components": "V",
     "castingTime": "1 standard action",
@@ -8033,8 +7572,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Druid": 6,
       "Sorcerer/Wizard": 6,
-      "Shugenja": 6,
-      "Wu Jen": 6,
       "Artificer": 6
     },
     "components": "V, S, M",
@@ -8062,7 +7599,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Ranger": 3,
       "Healer": 3,
       "Adept": 3,
-      "Shugenja": 4
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -8088,7 +7624,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 5,
       "Sorcerer/Wizard": 5,
-      "Wu Jen": 5
     },
     "components": "V, S",
     "castingTime": "10 minutes",
@@ -8137,7 +7672,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 2,
       "Bard": 1,
       "Gun Mage": 2,
-      "Shugenja": 2
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -8164,8 +7698,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Beguiler": 1,
       "Duskblade": 1,
       "Adept": 1,
-      "Shugenja": 1,
-      "Wu Jen": 1
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -8190,7 +7722,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 0,
       "Gun Mage": 0,
       "Beguiler": 0,
-      "Wu Jen": 0
     },
     "components": "V, S, F",
     "castingTime": "1 standard action",
@@ -8302,7 +7833,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Druid": 1,
       "Ranger": 1,
-      "Shugenja": 1
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -8323,8 +7853,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 5,
-      "Shugenja": 5,
-      "Wu Jen": 5
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -8346,7 +7874,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Sorcerer/Wizard": 5,
       "Gun Mage": 5,
-      "Wu Jen": 5
     },
     "components": "V, S, XP",
     "castingTime": "2 rounds; see text",
@@ -8368,8 +7895,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 6,
       "Sorcerer/Wizard": 6,
-      "Shugenja": 6,
-      "Wu Jen": 6
     },
     "components": "V, S, F",
     "castingTime": "1 standard action",
@@ -8392,8 +7917,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 5,
       "Sorcerer/Wizard": 5,
-      "Shugenja": 5,
-      "Wu Jen": 5
     },
     "components": "V, S, F",
     "castingTime": "1 standard action",
@@ -8476,28 +7999,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "source": "System Reference Document (SRD) spells",
     "sourceUrl": "https://www.d20srd.org/srd/spells/phantomTrap.htm",
     "subschool": "Glamer"
-  },
-  {
-    "id": "phase-door",
-    "name": "Phase Door",
-    "ruleset": "core",
-    "school": "Conjuration",
-    "descriptors": [],
-    "levels": {
-      "Sorcerer/Wizard": 7,
-      "Beguiler": 7
-    },
-    "components": "V",
-    "castingTime": "1 standard action",
-    "range": "0 ft.",
-    "targetOrArea": "One 5 ft. by 8 ft. opening, 10 ft. deep plus 5 ft./three levels",
-    "duration": "One usage per two levels",
-    "savingThrow": "None",
-    "spellResistance": "No",
-    "summary": "Creates an invisible passage through wood, plaster, or stone walls, usable only by you and one other you designate.",
-    "source": "System Reference Document (SRD) spells",
-    "sourceUrl": "https://www.d20srd.org/srd/spells/phaseDoor.htm",
-    "subschool": "Creation"
   },
   {
     "id": "planar-ally",
@@ -8626,28 +8127,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "subschool": "Calling"
   },
   {
-    "id": "plane-shift",
-    "name": "Plane Shift",
-    "ruleset": "core",
-    "school": "Conjuration",
-    "descriptors": [],
-    "levels": {
-      "Cleric": 5,
-      "Sorcerer/Wizard": 7
-    },
-    "components": "V, S, F",
-    "castingTime": "1 standard action",
-    "range": "Touch",
-    "targetOrArea": "Creature touched, or up to eight willing creatures joining hands",
-    "duration": "Instantaneous",
-    "savingThrow": "Will negates",
-    "spellResistance": "Yes",
-    "summary": "Transports touched creatures to another plane, arriving 5-500 miles from the intended destination.",
-    "source": "System Reference Document (SRD) spells",
-    "sourceUrl": "https://www.d20srd.org/srd/spells/planeShift.htm",
-    "subschool": "Teleportation"
-  },
-  {
     "id": "plant-growth",
     "name": "Plant Growth",
     "ruleset": "core",
@@ -8657,8 +8136,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Druid": 3,
       "Plant": 3,
       "Ranger": 3,
-      "Shugenja": 3,
-      "Wu Jen": 3
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -8727,7 +8204,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Sorcerer/Wizard": 4,
       "Adept": 4,
-      "Wu Jen": 4
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -8749,7 +8225,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Sorcerer/Wizard": 8,
       "Trickery": 8,
-      "Wu Jen": 8
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -8773,8 +8248,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Sorcerer/Wizard": 7,
       "Beguiler": 7,
-      "Shugenja": 8,
-      "Wu Jen": 7
     },
     "components": "V",
     "castingTime": "1 standard action",
@@ -8802,7 +8275,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "War": 9,
       "Death": 9,
       "Beguiler": 9,
-      "Wu Jen": 9
     },
     "components": "V",
     "castingTime": "1 standard action",
@@ -8828,7 +8300,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 8,
       "War": 8,
       "Beguiler": 8,
-      "Wu Jen": 8
     },
     "components": "V",
     "castingTime": "1 standard action",
@@ -8853,7 +8324,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 3,
       "Paladin": 3,
-      "Shugenja": 3
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -8877,7 +8347,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Bard": 0,
       "Sorcerer/Wizard": 0,
       "Gun Mage": 0,
-      "Wu Jen": 0
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -8964,7 +8433,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Druid": 1,
-      "Shugenja": 2
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -8986,8 +8454,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 6,
       "Sorcerer/Wizard": 6,
-      "Shugenja": 7,
-      "Wu Jen": 6
     },
     "components": "V, S, F",
     "castingTime": "1 standard action",
@@ -9033,7 +8499,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Sorcerer/Wizard": 2,
       "Gun Mage": 2,
-      "Wu Jen": 2
     },
     "components": "V, S, F",
     "castingTime": "1 standard action",
@@ -9058,7 +8523,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 1,
       "Gun Mage": 1,
       "Adept": 1,
-      "Wu Jen": 1
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -9084,8 +8548,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 3,
       "Gun Mage": 3,
       "Duskblade": 3,
-      "Shugenja": 3,
-      "Wu Jen": 3
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -9111,7 +8573,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Gun Mage": 1,
       "Healer": 1,
       "Adept": 1,
-      "Wu Jen": 1
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -9135,7 +8596,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 1,
       "Gun Mage": 1,
       "Adept": 1,
-      "Wu Jen": 1
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -9159,7 +8619,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 1,
       "Gun Mage": 1,
       "Adept": 1,
-      "Wu Jen": 1
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -9182,7 +8641,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 8,
       "Sorcerer/Wizard": 8,
       "Magic": 8,
-      "Shugenja": 8
     },
     "components": "V, S, M, F",
     "castingTime": "1 standard action",
@@ -9248,7 +8706,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Druid": 0,
       "Healer": 0,
       "Adept": 0,
-      "Shugenja": 0
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -9272,7 +8729,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 2,
       "Gun Mage": 2,
       "Warmage": 2,
-      "Wu Jen": 2
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -9293,7 +8749,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Druid": 3,
-      "Shugenja": 4
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -9436,7 +8891,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Gun Mage": 0,
       "Duskblade": 0,
       "Warmage": 0,
-      "Wu Jen": 0
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -9466,8 +8920,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Beguiler": 0,
       "Healer": 0,
       "Adept": 0,
-      "Shugenja": 0,
-      "Wu Jen": 0
     },
     "components": "V, S, F",
     "castingTime": "1 standard action",
@@ -9542,29 +8994,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "sourceUrl": "https://www.d20srd.org/srd/spells/reducePersonMass.htm"
   },
   {
-    "id": "refuge",
-    "name": "Refuge",
-    "ruleset": "core",
-    "school": "Conjuration",
-    "descriptors": [],
-    "levels": {
-      "Cleric": 7,
-      "Sorcerer/Wizard": 9,
-      "Liberation": 7
-    },
-    "components": "V, S, M",
-    "castingTime": "1 standard action",
-    "range": "Touch",
-    "targetOrArea": "One object touched",
-    "duration": "Permanent until discharged",
-    "savingThrow": "None",
-    "spellResistance": "No",
-    "summary": "Enchants an item so that breaking it teleports its bearer (and gear) to your home.",
-    "source": "System Reference Document (SRD) spells",
-    "sourceUrl": "https://www.d20srd.org/srd/spells/refuge.htm",
-    "subschool": "Teleportation"
-  },
-  {
     "id": "regenerate",
     "name": "Regenerate",
     "ruleset": "core",
@@ -9575,7 +9004,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Druid": 9,
       "Healing": 7,
       "Healer": 6,
-      "Shugenja": 8
     },
     "components": "V, S, DF",
     "castingTime": "3 full rounds",
@@ -9619,7 +9047,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 3,
       "Paladin": 3,
       "Healer": 2,
-      "Shugenja": 3
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -9647,8 +9074,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Gun Mage": 4,
       "Healer": 3,
       "Adept": 3,
-      "Shugenja": 3,
-      "Wu Jen": 3
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -9674,7 +9099,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Ranger": 3,
       "Healer": 2,
       "Adept": 3,
-      "Shugenja": 3
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -9698,7 +9122,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Bard": 1,
       "Cleric": 1,
       "Healer": 1,
-      "Shugenja": 1
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -9721,7 +9144,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 2,
       "Paladin": 2,
       "Healer": 1,
-      "Shugenja": 2
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -9743,7 +9165,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Druid": 8,
-      "Wu Jen": 8
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -9788,7 +9209,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Druid": 6,
       "Plant": 6,
-      "Wu Jen": 6
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -9814,8 +9234,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Gun Mage": 6,
       "Beguiler": 6,
       "Healer": 7,
-      "Shugenja": 7,
-      "Wu Jen": 6
     },
     "components": "V, S, F/DF",
     "castingTime": "1 standard action",
@@ -9843,8 +9261,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Gun Mage": 2,
       "Duskblade": 1,
       "Adept": 2,
-      "Shugenja": 2,
-      "Wu Jen": 2
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -9870,8 +9286,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Paladin": 1,
       "Sorcerer/Wizard": 0,
       "Gun Mage": 0,
-      "Shugenja": 0,
-      "Wu Jen": 0
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -9895,7 +9309,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Paladin": 4,
       "Healer": 3,
       "Adept": 4,
-      "Shugenja": 4
     },
     "components": "V, S, M",
     "castingTime": "3 rounds",
@@ -9918,7 +9331,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 7,
       "Healer": 6,
-      "Shugenja": 7
     },
     "components": "V, S, XP",
     "castingTime": "3 rounds",
@@ -9943,7 +9355,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Druid": 2,
       "Paladin": 1,
       "Healer": 2,
-      "Shugenja": 2
     },
     "components": "V, S",
     "castingTime": "3 rounds",
@@ -9966,7 +9377,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 7,
       "Healer": 7,
-      "Shugenja": 7
     },
     "components": "V, S, M, DF",
     "castingTime": "10 minutes",
@@ -10010,7 +9420,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 5,
       "Strength": 5,
-      "Shugenja": 5
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -10024,27 +9433,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "sourceUrl": "https://www.d20srd.org/srd/spells/righteousMight.htm"
   },
   {
-    "id": "rope-trick",
-    "name": "Rope Trick",
-    "ruleset": "core",
-    "school": "Transmutation",
-    "descriptors": [],
-    "levels": {
-      "Sorcerer/Wizard": 2,
-      "Wu Jen": 2
-    },
-    "components": "V, S, M",
-    "castingTime": "1 standard action",
-    "range": "Touch",
-    "targetOrArea": "One touched piece of rope, 5-30 ft. long",
-    "duration": "1 hour/level (D)",
-    "savingThrow": "None",
-    "spellResistance": "No",
-    "summary": "A rope rises into an extradimensional space that hides up to eight creatures.",
-    "source": "System Reference Document (SRD) spells",
-    "sourceUrl": "https://www.d20srd.org/srd/spells/ropeTrick.htm"
-  },
-  {
     "id": "rusting-grasp",
     "name": "Rusting Grasp",
     "ruleset": "core",
@@ -10052,7 +9440,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Druid": 4,
-      "Wu Jen": 4,
       "Artificer": 4
     },
     "components": "V, S, DF",
@@ -10075,7 +9462,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 1,
       "Healer": 1,
-      "Shugenja": 1
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -10174,7 +9560,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 8,
       "Trickery": 8,
       "Beguiler": 8,
-      "Shugenja": 8
     },
     "components": "V, S",
     "castingTime": "10 minutes",
@@ -10199,8 +9584,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 5,
       "Druid": 4,
       "Sorcerer/Wizard": 4,
-      "Shugenja": 5,
-      "Wu Jen": 4
     },
     "components": "V, S, M/DF, F",
     "castingTime": "1 hour",
@@ -10225,8 +9608,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 7,
       "Druid": 7,
       "Sorcerer/Wizard": 7,
-      "Shugenja": 7,
-      "Wu Jen": 7
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -10268,7 +9649,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Cleric": 3,
-      "Shugenja": 3
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -10280,27 +9660,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "summary": "A ray of sunlight deals 1d8/level damage to undead (max 10d8), half that to others.",
     "source": "System Reference Document (SRD) spells",
     "sourceUrl": "https://www.d20srd.org/srd/spells/searingLight.htm"
-  },
-  {
-    "id": "secret-chest",
-    "name": "Secret Chest",
-    "ruleset": "core",
-    "school": "Conjuration",
-    "descriptors": [],
-    "levels": {
-      "Sorcerer/Wizard": 5
-    },
-    "components": "V, S, F",
-    "castingTime": "10 minutes",
-    "range": "See text",
-    "targetOrArea": "One chest and up to 1 cu. ft./level of goods",
-    "duration": "Sixty days or until discharged",
-    "savingThrow": "None",
-    "spellResistance": "No",
-    "summary": "Hides an expensive chest on the Ethereal Plane; you can retrieve it at will by using its miniature replica, and it returns automatically if not recalled.",
-    "source": "System Reference Document (SRD) spells",
-    "sourceUrl": "https://www.d20srd.org/srd/spells/secretChest.htm",
-    "subschool": "Summoning"
   },
   {
     "id": "secret-page",
@@ -10358,7 +9717,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Beguiler": 2,
       "Duskblade": 2,
       "Adept": 2,
-      "Wu Jen": 2
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -10570,29 +9928,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "subschool": "Shadow"
   },
   {
-    "id": "shadow-walk",
-    "name": "Shadow Walk",
-    "ruleset": "core",
-    "school": "Illusion",
-    "descriptors": [],
-    "levels": {
-      "Bard": 5,
-      "Sorcerer/Wizard": 6,
-      "Beguiler": 6
-    },
-    "components": "V, S",
-    "castingTime": "1 standard action",
-    "range": "Touch",
-    "targetOrArea": "Up to one touched creature per level",
-    "duration": "1 hour/level (D)",
-    "savingThrow": "Will negates",
-    "spellResistance": "Yes",
-    "summary": "Subjects step into shadow and travel the border of the Plane of Shadow at 50 miles per hour.",
-    "source": "System Reference Document (SRD) spells",
-    "sourceUrl": "https://www.d20srd.org/srd/spells/shadowWalk.htm",
-    "subschool": "Shadow"
-  },
-  {
     "id": "shambler",
     "name": "Shambler",
     "ruleset": "core",
@@ -10600,7 +9935,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Druid": 9,
-      "Shugenja": 9
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -10624,7 +9958,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Druid": 9,
       "Sorcerer/Wizard": 9,
       "Animal": 9,
-      "Wu Jen": 9
     },
     "components": "V, S, F",
     "castingTime": "1 standard action",
@@ -10674,7 +10007,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Sorcerer/Wizard": 1,
       "Gun Mage": 1,
-      "Wu Jen": 1
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -10696,7 +10028,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 1,
       "Paladin": 1,
-      "Shugenja": 1,
       "Artificer": 1
     },
     "components": "V, S, M",
@@ -10787,7 +10118,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Gun Mage": 1,
       "Duskblade": 1,
       "Warmage": 1,
-      "Shugenja": 1
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -10814,7 +10144,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Gun Mage": 4,
       "Duskblade": 4,
       "Warmage": 4,
-      "Wu Jen": 4
     },
     "components": "V",
     "castingTime": "1 standard action",
@@ -10884,7 +10213,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 2,
       "Gun Mage": 2,
       "Beguiler": 2,
-      "Shugenja": 2
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -10908,8 +10236,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Bard": 1,
       "Sorcerer/Wizard": 1,
       "Beguiler": 1,
-      "Shugenja": 1,
-      "Wu Jen": 1
     },
     "components": "V, S, F",
     "castingTime": "1 standard action",
@@ -10981,8 +10307,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Gun Mage": 1,
       "Beguiler": 1,
       "Adept": 1,
-      "Shugenja": 1,
-      "Wu Jen": 1
     },
     "components": "V, S, M",
     "castingTime": "1 round",
@@ -11077,7 +10401,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Druid": 2,
       "Earth": 2,
-      "Shugenja": 2
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -11100,7 +10423,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 4,
       "Gun Mage": 4,
       "Beguiler": 4,
-      "Wu Jen": 4
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -11147,7 +10469,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 9,
       "Sorcerer/Wizard": 9,
-      "Shugenja": 9
     },
     "components": "V, S, F",
     "castingTime": "1 standard action",
@@ -11172,7 +10493,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Bard": 2,
       "Cleric": 2,
       "Gun Mage": 2,
-      "Shugenja": 2
     },
     "components": "V, S, F/DF",
     "castingTime": "1 standard action",
@@ -11196,7 +10516,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Druid": 1,
       "Ranger": 1,
       "Healer": 1,
-      "Shugenja": 1
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -11219,7 +10538,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Cleric": 3,
-      "Wu Jen": 6
     },
     "components": "V, S, DF",
     "castingTime": "10 minutes",
@@ -11282,7 +10600,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Cleric": 4,
-      "Shugenja": 4
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -11323,7 +10640,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Cleric": 5,
-      "Shugenja": 5
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -11347,7 +10663,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Magic": 7,
       "Luck": 7,
       "Beguiler": 7,
-      "Shugenja": 7
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -11392,7 +10707,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Gun Mage": 2,
       "Beguiler": 2,
       "Duskblade": 2,
-      "Wu Jen": 2
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -11437,7 +10751,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Druid": 4,
       "Earth": 4,
-      "Shugenja": 4
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -11480,8 +10793,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 7,
-      "Shugenja": 7,
-      "Wu Jen": 7
     },
     "components": "V, S, M",
     "castingTime": "1 round",
@@ -11527,7 +10838,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 3,
       "Gun Mage": 3,
       "Warmage": 3,
-      "Wu Jen": 3
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -11554,8 +10864,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Druid": 3,
       "Sorcerer/Wizard": 4,
       "Gun Mage": 5,
-      "Shugenja": 3,
-      "Wu Jen": 5
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -11576,7 +10884,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Druid": 6,
-      "Shugenja": 6
     },
     "components": "V, S, DF",
     "castingTime": "10 minutes",
@@ -11599,7 +10906,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 6,
       "Gun Mage": 6,
       "Healer": 5,
-      "Wu Jen": 6
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -11625,8 +10931,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Strength": 4,
       "Gun Mage": 4,
       "Adept": 4,
-      "Shugenja": 6,
-      "Wu Jen": 4
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -11648,7 +10952,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 9,
       "Druid": 9,
-      "Shugenja": 9
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -11676,7 +10979,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 3,
       "Gun Mage": 3,
       "Beguiler": 3,
-      "Wu Jen": 3
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -11704,7 +11006,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 6,
       "Gun Mage": 6,
       "Beguiler": 6,
-      "Wu Jen": 6
     },
     "components": "V, M",
     "castingTime": "1 standard action",
@@ -11749,7 +11050,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Bard": 1,
       "Cleric": 1,
       "Sorcerer/Wizard": 1,
-      "Wu Jen": 1
     },
     "components": "V, S, F/DF",
     "castingTime": "1 round",
@@ -11773,7 +11073,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Bard": 2,
       "Cleric": 2,
       "Sorcerer/Wizard": 2,
-      "Wu Jen": 2
     },
     "components": "V, S, F/DF",
     "castingTime": "1 round",
@@ -11797,7 +11096,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Bard": 3,
       "Cleric": 3,
       "Sorcerer/Wizard": 3,
-      "Wu Jen": 3
     },
     "components": "V, S, F/DF",
     "castingTime": "1 round",
@@ -11821,7 +11119,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Bard": 4,
       "Cleric": 4,
       "Sorcerer/Wizard": 4,
-      "Wu Jen": 4
     },
     "components": "V, S, F/DF",
     "castingTime": "1 round",
@@ -11844,7 +11141,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 9,
       "Sorcerer/Wizard": 9,
-      "Wu Jen": 9
     },
     "components": "V, S, F/DF",
     "castingTime": "1 round",
@@ -11868,7 +11164,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Bard": 5,
       "Cleric": 5,
       "Sorcerer/Wizard": 5,
-      "Wu Jen": 5
     },
     "components": "V, S, F/DF",
     "castingTime": "1 round",
@@ -11892,7 +11187,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Bard": 6,
       "Cleric": 6,
       "Sorcerer/Wizard": 6,
-      "Wu Jen": 6
     },
     "components": "V, S, F/DF",
     "castingTime": "1 round",
@@ -11916,7 +11210,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Bard": 6,
       "Cleric": 7,
       "Sorcerer/Wizard": 7,
-      "Wu Jen": 7
     },
     "components": "V, S, F/DF",
     "castingTime": "1 round",
@@ -11939,7 +11232,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 8,
       "Sorcerer/Wizard": 8,
-      "Wu Jen": 8
     },
     "components": "V, S, F/DF",
     "castingTime": "1 round",
@@ -12006,7 +11298,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Druid": 3,
       "Ranger": 3,
-      "Shugenja": 3
     },
     "components": "V, S, DF",
     "castingTime": "1 round",
@@ -12050,7 +11341,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Druid": 9,
-      "Shugenja": 9
     },
     "components": "V, S, DF",
     "castingTime": "1 round",
@@ -12072,7 +11362,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Druid": 5,
-      "Shugenja": 5
     },
     "components": "V, S, DF",
     "castingTime": "1 round",
@@ -12094,7 +11383,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Druid": 6,
-      "Shugenja": 6
     },
     "components": "V, S, DF",
     "castingTime": "1 round",
@@ -12116,7 +11404,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Druid": 7,
-      "Shugenja": 7
     },
     "components": "V, S, DF",
     "castingTime": "1 round",
@@ -12138,7 +11425,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Druid": 8,
-      "Shugenja": 8
     },
     "components": "V, S, DF",
     "castingTime": "1 round",
@@ -12187,7 +11473,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Druid": 7,
       "Sun": 7,
       "Warmage": 7,
-      "Shugenja": 7
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -12213,7 +11498,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 8,
       "Sun": 8,
       "Warmage": 8,
-      "Shugenja": 8
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -12237,7 +11521,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 8,
       "Sorcerer/Wizard": 8,
-      "Wu Jen": 8
     },
     "components": "V, S, M",
     "castingTime": "10 minutes",
@@ -12263,7 +11546,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 6,
       "Sorcerer/Wizard": 6,
       "Gun Mage": 6,
-      "Wu Jen": 6
     },
     "components": "V, S, M",
     "castingTime": "10 minutes",
@@ -12287,7 +11569,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 8,
       "Sorcerer/Wizard": 8,
-      "Wu Jen": 8
     },
     "components": "V, S, M",
     "castingTime": "10 minutes",
@@ -12313,7 +11594,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 5,
       "Sorcerer/Wizard": 5,
       "Gun Mage": 5,
-      "Wu Jen": 5
     },
     "components": "V, S, M",
     "castingTime": "10 minutes",
@@ -12338,7 +11618,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 6,
       "Sorcerer/Wizard": 6,
       "Gun Mage": 6,
-      "Wu Jen": 6
     },
     "components": "V, S, M",
     "castingTime": "10 minutes",
@@ -12364,7 +11643,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 5,
       "Sorcerer/Wizard": 5,
       "Gun Mage": 5,
-      "Wu Jen": 5
     },
     "components": "V, S, M",
     "castingTime": "10 minutes",
@@ -12388,7 +11666,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 7,
       "Sorcerer/Wizard": 7,
-      "Wu Jen": 7
     },
     "components": "V, S, M",
     "castingTime": "10 minutes",
@@ -12411,7 +11688,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 7,
       "Sorcerer/Wizard": 7,
-      "Wu Jen": 7
     },
     "components": "V, S, M",
     "castingTime": "10 minutes",
@@ -12455,7 +11731,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Druid": 9,
       "Sorcerer/Wizard": 8,
-      "Wu Jen": 8
     },
     "components": "V, S, M",
     "castingTime": "1 hour",
@@ -12502,7 +11777,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Sorcerer/Wizard": 5,
       "Gun Mage": 5,
-      "Wu Jen": 5
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -12538,101 +11812,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "sourceUrl": "https://www.d20srd.org/srd/spells/telepathicBond.htm"
   },
   {
-    "id": "teleport",
-    "name": "Teleport",
-    "ruleset": "core",
-    "school": "Conjuration",
-    "descriptors": [],
-    "levels": {
-      "Sorcerer/Wizard": 5,
-      "Travel": 5,
-      "Gun Mage": 5,
-      "Shugenja": 6,
-      "Wu Jen": 5
-    },
-    "components": "V",
-    "castingTime": "1 standard action",
-    "range": "Personal and touch",
-    "targetOrArea": "You and touched objects or other touched willing creatures",
-    "duration": "Instantaneous",
-    "savingThrow": "None or Will negates (object)",
-    "spellResistance": "No or Yes (object)",
-    "summary": "Instantly transports you up to 100 miles/level to a known destination; familiarity determines mishap risk.",
-    "source": "System Reference Document (SRD) spells",
-    "sourceUrl": "https://www.d20srd.org/srd/spells/teleport.htm",
-    "subschool": "Teleportation"
-  },
-  {
-    "id": "teleport-object",
-    "name": "Teleport Object",
-    "ruleset": "core",
-    "school": "Conjuration",
-    "descriptors": [],
-    "levels": {
-      "Sorcerer/Wizard": 7,
-      "Shugenja": 7,
-      "Wu Jen": 7
-    },
-    "components": "V",
-    "castingTime": "1 standard action",
-    "range": "Touch",
-    "targetOrArea": "One touched object of up to 50 lb./level and 3 cu. ft./level",
-    "duration": "Instantaneous",
-    "savingThrow": "Will negates (object)",
-    "spellResistance": "Yes (object)",
-    "summary": "As teleport, but teleports a touched object to a designated destination instead of creatures.",
-    "source": "System Reference Document (SRD) spells",
-    "sourceUrl": "https://www.d20srd.org/srd/spells/teleportObject.htm",
-    "subschool": "Teleportation"
-  },
-  {
-    "id": "teleport-greater",
-    "name": "Teleport, Greater",
-    "ruleset": "core",
-    "school": "Conjuration",
-    "descriptors": [],
-    "levels": {
-      "Sorcerer/Wizard": 7,
-      "Travel": 7,
-      "Shugenja": 8,
-      "Wu Jen": 7
-    },
-    "components": "V",
-    "castingTime": "1 standard action",
-    "range": "Personal and touch",
-    "targetOrArea": "You and touched objects or other touched willing creatures",
-    "duration": "Instantaneous",
-    "savingThrow": "None or Will negates (object)",
-    "spellResistance": "No or Yes (object)",
-    "summary": "As teleport, but no range limit and no off-target arrival.",
-    "source": "System Reference Document (SRD) spells",
-    "sourceUrl": "https://www.d20srd.org/srd/spells/teleportGreater.htm",
-    "subschool": "Teleportation"
-  },
-  {
-    "id": "teleportation-circle",
-    "name": "Teleportation Circle",
-    "ruleset": "core",
-    "school": "Conjuration",
-    "descriptors": [],
-    "levels": {
-      "Sorcerer/Wizard": 9,
-      "Shugenja": 9,
-      "Wu Jen": 9
-    },
-    "components": "V, S, M",
-    "castingTime": "10 minutes",
-    "range": "0 ft.",
-    "targetOrArea": "Circle 5 ft. in radius",
-    "duration": "10 minutes/level (D)",
-    "savingThrow": "None",
-    "spellResistance": "No",
-    "summary": "Creates an invisible circle that teleports any creature stepping in it to a designated destination.",
-    "source": "System Reference Document (SRD) spells",
-    "sourceUrl": "https://www.d20srd.org/srd/spells/teleportationCircle.htm",
-    "subschool": "Teleportation"
-  },
-  {
     "id": "temporal-stasis",
     "name": "Temporal Stasis",
     "ruleset": "core",
@@ -12663,7 +11842,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Trickery": 9,
       "Time": 8,
       "Beguiler": 9,
-      "Wu Jen": 9
     },
     "components": "V",
     "castingTime": "1 standard action",
@@ -12710,7 +11888,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 4,
       "Sorcerer/Wizard": 3,
       "Adept": 3,
-      "Wu Jen": 3
     },
     "components": "V, M/DF",
     "castingTime": "1 standard action",
@@ -12802,7 +11979,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Druid": 7,
-      "Wu Jen": 7
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -12849,7 +12025,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Druid": 5,
       "Sorcerer/Wizard": 5,
-      "Shugenja": 5
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -12861,27 +12036,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "summary": "Transforms natural rock into mud deep enough to mire creatures and collapse ceilings.",
     "source": "System Reference Document (SRD) spells",
     "sourceUrl": "https://www.d20srd.org/srd/spells/transmuteRockToMud.htm"
-  },
-  {
-    "id": "transport-via-plants",
-    "name": "Transport via Plants",
-    "ruleset": "core",
-    "school": "Conjuration",
-    "descriptors": [],
-    "levels": {
-      "Druid": 6
-    },
-    "components": "V, S",
-    "castingTime": "1 standard action",
-    "range": "Unlimited",
-    "targetOrArea": "One plant",
-    "duration": "1 round",
-    "savingThrow": "Will negates (object)",
-    "spellResistance": "Yes (object)",
-    "summary": "Step into a plant and exit any other plant of the same kind on the same plane, any distance.",
-    "source": "System Reference Document (SRD) spells",
-    "sourceUrl": "https://www.d20srd.org/srd/spells/transportViaPlants.htm",
-    "subschool": "Teleportation"
   },
   {
     "id": "trap-the-soul",
@@ -12926,28 +12080,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "sourceUrl": "https://www.d20srd.org/srd/spells/treeShape.htm"
   },
   {
-    "id": "tree-stride",
-    "name": "Tree Stride",
-    "ruleset": "core",
-    "school": "Conjuration",
-    "descriptors": [],
-    "levels": {
-      "Druid": 5,
-      "Ranger": 4
-    },
-    "components": "V, S, DF",
-    "castingTime": "1 standard action",
-    "range": "Personal",
-    "targetOrArea": "You",
-    "duration": "1 hour/level or until expended (D)",
-    "savingThrow": "None",
-    "spellResistance": "No",
-    "summary": "Step into one tree and out of another of the same kind up to 3,000 feet away, once per level.",
-    "source": "System Reference Document (SRD) spells",
-    "sourceUrl": "https://www.d20srd.org/srd/spells/treeStride.htm",
-    "subschool": "Teleportation"
-  },
-  {
     "id": "true-resurrection",
     "name": "True Resurrection",
     "ruleset": "core",
@@ -12956,7 +12088,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 9,
       "Healer": 9,
-      "Shugenja": 9
     },
     "components": "V, S, M, DF",
     "castingTime": "10 minutes",
@@ -12985,8 +12116,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Beguiler": 6,
       "Healer": 5,
       "Adept": 5,
-      "Shugenja": 6,
-      "Wu Jen": 6
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -13010,7 +12139,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Gun Mage": 1,
       "Duskblade": 1,
       "Warmage": 1,
-      "Wu Jen": 1
     },
     "components": "V, F",
     "castingTime": "1 standard action",
@@ -13145,7 +12273,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 1,
       "Sorcerer/Wizard": 1,
-      "Wu Jen": 1
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -13191,8 +12318,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Bard": 6,
       "Sorcerer/Wizard": 6,
       "Beguiler": 6,
-      "Shugenja": 6,
-      "Wu Jen": 6
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -13216,7 +12341,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Bard": 1,
       "Sorcerer/Wizard": 1,
       "Gun Mage": 1,
-      "Wu Jen": 1
     },
     "components": "V, F",
     "castingTime": "1 standard action",
@@ -13240,7 +12364,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 0,
       "Druid": 0,
       "Paladin": 1,
-      "Shugenja": 0
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -13261,7 +12384,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 7,
-      "Shugenja": 8
     },
     "components": "V, S, XP",
     "castingTime": "1 standard action",
@@ -13314,8 +12436,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Gun Mage": 4,
       "Warmage": 4,
       "Adept": 4,
-      "Shugenja": 4,
-      "Wu Jen": 4
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -13339,7 +12459,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Sorcerer/Wizard": 5,
       "Gun Mage": 5,
-      "Wu Jen": 5,
       "Artificer": 5
     },
     "components": "V, S, M",
@@ -13365,8 +12484,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 4,
       "Water": 4,
       "Gun Mage": 4,
-      "Shugenja": 5,
-      "Wu Jen": 4
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -13388,8 +12505,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Sorcerer/Wizard": 6,
       "Gun Mage": 6,
-      "Shugenja": 5,
-      "Wu Jen": 6,
       "Artificer": 6
     },
     "components": "V, S, M",
@@ -13419,8 +12534,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Earth": 5,
       "Gun Mage": 5,
       "Adept": 5,
-      "Shugenja": 5,
-      "Wu Jen": 5,
       "Artificer": 5
     },
     "components": "V, S, M/DF",
@@ -13464,7 +12577,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Druid": 2,
-      "Wu Jen": 2
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -13489,8 +12601,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Ranger": 3,
       "Sorcerer/Wizard": 3,
       "Gun Mage": 3,
-      "Shugenja": 3,
-      "Wu Jen": 3
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -13512,7 +12622,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 3,
       "Ranger": 3,
-      "Shugenja": 3
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -13627,8 +12736,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Air": 8,
       "Druid": 8,
-      "Shugenja": 8,
-      "Wu Jen": 8
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -13653,7 +12760,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Bard": 2,
       "Sorcerer/Wizard": 2,
       "Gun Mage": 2,
-      "Wu Jen": 2
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -13675,7 +12781,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 6,
       "Druid": 6,
-      "Shugenja": 6
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -13702,7 +12807,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 3,
       "Air": 2,
       "Gun Mage": 3,
-      "Shugenja": 3
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -13723,7 +12827,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 9,
-      "Wu Jen": 9
     },
     "components": "V, XP",
     "castingTime": "1 standard action",
@@ -13744,7 +12847,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Druid": 2,
-      "Wu Jen": 2
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -13780,27 +12882,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "summary": "Nonchaotic creatures are deafened, confused, stunned, or killed and banished, by their HD relative to yours.",
     "source": "System Reference Document (SRD) spells",
     "sourceUrl": "https://www.d20srd.org/srd/spells/wordOfChaos.htm"
-  },
-  {
-    "id": "word-of-recall",
-    "name": "Word of Recall",
-    "ruleset": "core",
-    "school": "Conjuration",
-    "descriptors": [],
-    "levels": {
-      "Cleric": 6
-    },
-    "components": "V",
-    "castingTime": "1 standard action",
-    "range": "Unlimited",
-    "targetOrArea": "You and touched objects or other touched willing creatures",
-    "duration": "Instantaneous",
-    "savingThrow": "None or Will negates (object)",
-    "spellResistance": "No or Yes (object)",
-    "summary": "Teleport instantly back to your designated sanctuary with any touched companions.",
-    "source": "System Reference Document (SRD) spells",
-    "sourceUrl": "https://www.d20srd.org/srd/spells/wordOfRecall.htm",
-    "subschool": "Teleportation"
   },
   {
     "id": "zone-of-silence",

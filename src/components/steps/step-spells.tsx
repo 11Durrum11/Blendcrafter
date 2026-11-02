@@ -11,6 +11,9 @@ import { Switch } from "@/components/ui/switch";
 import { cn } from "@/lib/utils";
 import { ProductIdentityBadge } from "@/components/product-identity-badge";
 import { RULESET_LABELS } from "@/components/ruleset-toggle";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import { EntityDetailDialog } from "@/components/entity-detail-dialog";
+import { describeSpell, type EntityDetail } from "@/lib/entity-descriptions";
 
 interface StepSpellsProps {
   build: CharacterBuild;
@@ -56,6 +59,7 @@ export function StepSpells({ build, resolved, onToggleSpell }: StepSpellsProps) 
   const [query, setQuery] = useState("");
   const [selectedOnly, setSelectedOnly] = useState(false);
   const [expandedTypes, setExpandedTypes] = useState<Set<string>>(new Set());
+  const [detail, setDetail] = useState<EntityDetail | null>(null);
 
   const casterClasses = useMemo(
     () =>
@@ -185,16 +189,43 @@ export function StepSpells({ build, resolved, onToggleSpell }: StepSpellsProps) 
                   <span className="text-xs text-muted-foreground">{total} spells</span>
                 </button>
                 {expanded && (
-                  <div className="space-y-3 border-t border-card-border px-3 py-3">
+                  <div className="space-y-5 border-t border-card-border px-3 py-3">
                     {visibleLevels.map(({ lvl, spells }) => (
                       <div key={lvl}>
-                        <h4 className="font-display text-sm font-semibold">
+                        <h4 className="font-display text-lg font-semibold">
                           {LEVEL_LABELS[lvl]}{" "}
-                          <span className="text-xs font-normal text-muted-foreground">({spells.length})</span>
+                          <span className="text-sm font-normal text-muted-foreground">({spells.length})</span>
                         </h4>
-                        <div className="mt-1 grid gap-x-4 gap-y-0.5 sm:grid-cols-2 lg:grid-cols-3">
+                        <div className="mt-1 grid grid-cols-2 gap-x-3 gap-y-0 sm:grid-cols-3 lg:grid-cols-4">
                           {spells.map((s) => (
-                            <span key={s.id} className="text-sm">{s.name}</span>
+                            <Tooltip key={s.id}>
+                              <TooltipTrigger asChild>
+                                <button
+                                  type="button"
+                                  className="text-left text-sm leading-tight underline-offset-2 hover:underline"
+                                  onClick={() => setDetail(describeSpell(s, profile.listName))}
+                                  data-testid={`library-spell-${s.id}`}
+                                >
+                                  {s.name}
+                                </button>
+                              </TooltipTrigger>
+                              <TooltipContent className="max-w-sm text-xs">
+                                <p className="font-semibold">{s.name}</p>
+                                <p>
+                                  {s.school}
+                                  {s.subschool ? ` (${s.subschool})` : ""}
+                                  {s.descriptors.length > 0 ? ` [${s.descriptors.join(", ")}]` : ""} ·{" "}
+                                  {profile.listName} {lvl}
+                                </p>
+                                <p>Casting time: {s.castingTime} · Components: {s.components}</p>
+                                <p>Range: {s.range} · {s.targetOrArea}</p>
+                                <p>
+                                  Duration: {s.duration} · Saving throw: {s.savingThrow} · Spell resistance:{" "}
+                                  {s.spellResistance}
+                                </p>
+                                <p className="mt-1">{s.summary}</p>
+                              </TooltipContent>
+                            </Tooltip>
                           ))}
                         </div>
                       </div>
@@ -255,7 +286,7 @@ export function StepSpells({ build, resolved, onToggleSpell }: StepSpellsProps) 
                 return (
                   <div key={lvl}>
                     <div className="mb-2 flex items-baseline gap-2">
-                      <h3 className="font-display text-base font-semibold">{LEVEL_LABELS[lvl]}</h3>
+                      <h3 className="font-display text-xl font-semibold">{LEVEL_LABELS[lvl]}</h3>
                       <span className="text-xs text-muted-foreground" data-testid={`spell-count-${choice.classId}-${lvl}`}>
                         {selectedInLevel.length}
                         {cap !== null ? ` / ${cap}` : ""} {capLabel(profile)}
@@ -335,6 +366,7 @@ export function StepSpells({ build, resolved, onToggleSpell }: StepSpellsProps) 
           </Card>
         );
       })}
+      <EntityDetailDialog detail={detail} onOpenChange={(open) => !open && setDetail(null)} />
     </div>
   );
 }
