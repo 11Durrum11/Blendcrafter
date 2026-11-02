@@ -27,10 +27,10 @@ import { useToast } from "@/hooks/use-toast";
 const STEPS = [
   { id: "race", label: "Abilities & Race" },
   { id: "classes", label: "Classes" },
-  { id: "spells", label: "Spells" },
   { id: "skills", label: "Skills" },
   { id: "templates", label: "Templates" },
   { id: "feats", label: "Feats" },
+  { id: "spells", label: "Spells" },
   { id: "equipment", label: "Equipment" },
   { id: "personality", label: "Personality" },
   { id: "sheet", label: "Character Sheet" },

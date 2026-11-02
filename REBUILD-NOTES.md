@@ -4619,3 +4619,8 @@ gains 7th- and 8th-level spells at the same level (14th); healer
 rows 19 and 20 are identical in print. With this, the full
 six-character level-20 suite (~/test-chars-work/) passes every
 check.
+
+**Step order (2026-11-02, Shaun's direction):** the Spells step
+moved to after Feats — step order is now Abilities & Race,
+Classes, Skills, Templates, Feats, Spells, Equipment,
+Personality, Character Sheet.
