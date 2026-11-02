@@ -5096,3 +5096,8 @@ heading (title + count + chevron); clicking the heading expands
 it, clicking again closes it. Fighter Bonus Feats is the one
 section left open by default. While a search is typed, matching
 sections show open so results stay visible.
+
+**Correction (2026-11-02, Shaun):** Fighter Bonus Feats was an
+example, not an exception — ALL feat sections start closed,
+Fighter Bonus Feats included; sections open only on a title
+click.

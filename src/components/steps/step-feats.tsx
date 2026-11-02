@@ -74,11 +74,11 @@ export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved,
   const [query, setQuery] = useState("");
   const [detailFeat, setDetailFeat] = useState<FeatDefinition | null>(null);
   // Sections collapsed to their titles (Shaun, 2026-11-02): every
-  // feat section closes down to just its heading; clicking the
-  // heading expands it. Fighter Bonus Feats is the one section
-  // left open. While a search is typed, matching sections show
-  // open so the results are visible.
-  const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set(["class-fighter"]));
+  // feat section — Fighter Bonus Feats included — closes down to
+  // just its heading; a section opens only when its title is
+  // clicked. While a search is typed, matching sections show open
+  // so the results are visible.
+  const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set());
   const toggleSection = (id: string) =>
     setExpandedSections((prev) => {
       const next = new Set(prev);
