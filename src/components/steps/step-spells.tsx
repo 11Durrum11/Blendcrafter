@@ -147,6 +147,12 @@ export function StepSpells({ build, resolved, onToggleSpell }: StepSpellsProps) 
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-3">
+          {casterClasses.length === 0 && (
+            <p className="rounded-md border border-card-border bg-muted/40 px-3 py-2 text-sm" data-testid="library-cannot-cast-note">
+              You can browse every spell here — but this character can't cast or pick any of them: no
+              spellcasting class levels.
+            </p>
+          )}
           {library.map(({ profile, byLevel, levels, total }) => {
             const searching = query.trim().length > 0;
             const expanded = searching || expandedTypes.has(profile.listName);

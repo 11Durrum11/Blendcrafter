@@ -4706,3 +4706,9 @@ counts, names alphabetical within a level. The step no longer
 dead-ends for non-caster builds: the library is always there to
 browse, and picking cards appear for the build's casting
 classes as before.
+
+**"You can't" note on the library (2026-11-02, Shaun's
+direction):** the spells stay visible to every build; when the
+build has no spellcasting class, the Spell Library card now
+says so outright — browse everything, but this character can't
+cast or pick any of them.
