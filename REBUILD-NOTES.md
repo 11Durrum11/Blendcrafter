@@ -5039,3 +5039,11 @@ melee attack" and Aggressive asserting both halves) — 13
 assertions, all passing. The six level-20 test characters
 (~/test-chars-work/test-characters.mts) — 63 checks, all passing.
 npm run check and npm run build both pass.
+
+**Picked boxes are pull-to-extend (2026-11-02, Shaun's
+direction):** the Your Flaws / Your Traits boxes no longer
+auto-expand to fit their content. Like the Goals, Secrets,
+Allies, Enemies, Trauma and Current Circumstances text boxes,
+each sits at a fixed height, its entries scroll inside, and the
+player drags the corner handle to extend it and see as much as
+they want.

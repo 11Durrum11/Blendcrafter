@@ -92,9 +92,11 @@ export function StepPersonality({ build, resolved, onChange }: Props) {
           <Field label="Current Circumstances"><Textarea value={p.circumstances} onChange={e=>set("circumstances",e.target.value)} placeholder="What is happening right now?"/></Field>
         </div>
         {/* The picked boxes live here, under Goals and Secrets
-            (Shaun, 2026-11-02), and expand with everything picked —
-            each entry shown fully crunched out. Picking happens in
-            the Flaws & Traits card below; Confirm sends them here. */}
+            (Shaun, 2026-11-02), each entry shown fully crunched out.
+            Like the text boxes above they keep a fixed height with a
+            pull-corner to extend — they do not auto-expand. Picking
+            happens in the Flaws & Traits card below; Confirm sends
+            them here. */}
         <div className="grid items-start gap-4 lg:grid-cols-2">
           <PickedBox title="Flaws" items={ALL_FLAWS} selectedIds={committedFlaws} onRemove={removeFlaw} onShowDetail={(item) => setDetail(describeFlawTrait(item))} testidPrefix="flaw" />
           <PickedBox title="Traits" items={ALL_TRAITS} selectedIds={committedTraits} onRemove={removeTrait} onShowDetail={(item) => setDetail(describeFlawTrait(item))} testidPrefix="trait" />
@@ -138,10 +140,15 @@ export function StepPersonality({ build, resolved, onChange }: Props) {
  */
 function PickedBox({title,items,selectedIds,onRemove,onShowDetail,testidPrefix}:{title:string;items:FlawTraitDefinition[];selectedIds:string[];onRemove:(id:string)=>void;onShowDetail:(item:FlawTraitDefinition)=>void;testidPrefix:string}) {
   const picked = items.filter(i=>selectedIds.includes(i.id));
-  return <div className="rounded-md border border-card-border bg-muted/20 p-3" data-testid={`picked-box-${testidPrefix}`}>
-    <h4 className="font-display text-sm font-semibold">Your {title} <span className="font-normal text-muted-foreground">({picked.length} picked)</span></h4>
+  // Textarea mechanics (Shaun, 2026-11-02): like the Goals / Secrets /
+  // Allies / Enemies / Trauma / Current Circumstances boxes, this box
+  // does NOT auto-expand to fit its content — it sits at a fixed
+  // height, the entries scroll inside, and the player pulls the
+  // corner handle to extend it and see as much as they want.
+  return <div className="flex h-64 max-h-[85vh] min-h-[7rem] flex-col resize-y overflow-hidden rounded-md border border-card-border bg-muted/20 p-3" data-testid={`picked-box-${testidPrefix}`}>
+    <h4 className="shrink-0 font-display text-sm font-semibold">Your {title} <span className="font-normal text-muted-foreground">({picked.length} picked)</span></h4>
     {picked.length===0 ? <p className="mt-1 text-sm text-muted-foreground">None picked yet — tick names in the Flaws & Traits lists below, hit Confirm, and they land here, fully written out.</p> :
-    <div className="mt-2 space-y-3">
+    <div className="mt-2 flex-1 space-y-3 overflow-y-auto pr-1">
       {picked.map(item=><div key={item.id} className="rounded-md border border-card-border bg-card p-3" data-testid={`picked-${testidPrefix}-${item.id}`}>
         <div className="flex items-start justify-between gap-2">
           <span className="flex items-center gap-2">
