@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
 import type { EntityDetail } from "@/lib/entity-descriptions";
@@ -5,13 +6,16 @@ import type { EntityDetail } from "@/lib/entity-descriptions";
 interface EntityDetailDialogProps {
   detail: EntityDetail | null;
   onOpenChange: (open: boolean) => void;
+  /** Optional extra controls rendered under the source link
+   * (the Feats step puts the feat's enable/disable switch here). */
+  footer?: ReactNode;
 }
 
 /**
  * Shared read-only detail view opened by clicking a race, class, prestige class, skill,
  * feat, or ability score anywhere in the builder. Content comes from entity-descriptions.ts.
  */
-export function EntityDetailDialog({ detail, onOpenChange }: EntityDetailDialogProps) {
+export function EntityDetailDialog({ detail, onOpenChange, footer }: EntityDetailDialogProps) {
   return (
     <Dialog open={detail !== null} onOpenChange={onOpenChange}>
       <DialogContent className="max-h-[85vh] overflow-y-auto sm:max-w-lg" data-testid="dialog-entity-detail">
@@ -48,6 +52,7 @@ export function EntityDetailDialog({ detail, onOpenChange }: EntityDetailDialogP
                 {detail.source}
               </a>
             )}
+            {footer}
           </>
         )}
       </DialogContent>

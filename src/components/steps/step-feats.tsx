@@ -1,17 +1,14 @@
 import { useState } from "react";
-import { AlertTriangle, Info, Search, Zap } from "lucide-react";
+import { Search, Zap } from "lucide-react";
 import { ALL_FEATS } from "@/data";
 import type { FeatDefinition, ResolvedCharacter, Ruleset } from "@/engine/types";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Switch } from "@/components/ui/switch";
 import { cn } from "@/lib/utils";
 import { CLASS_BONUS_FEAT_RULES } from "@/lib/class-bonus-feats";
-import { ProductIdentityBadge } from "@/components/product-identity-badge";
-import { RULESET_LABELS } from "@/components/ruleset-toggle";
 import { EntityDetailDialog } from "@/components/entity-detail-dialog";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { describeFeat, type EntityDetail } from "@/lib/entity-descriptions";
 
 interface StepFeatsProps {
@@ -75,7 +72,7 @@ function looksUnmet(feat: FeatDefinition, resolved: ResolvedCharacter, selectedF
 
 export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved, onToggleFeat, onToggleFeatEnabled }: StepFeatsProps) {
   const [query, setQuery] = useState("");
-  const [detail, setDetail] = useState<EntityDetail | null>(null);
+  const [detailFeat, setDetailFeat] = useState<FeatDefinition | null>(null);
   const visible = ALL_FEATS.filter(
     (f) => enabledRulesets.includes(f.ruleset) && f.name.toLowerCase().includes(query.toLowerCase())
   );
@@ -114,91 +111,70 @@ export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved,
     })),
   ].filter((s) => s.feats.length > 0 || (query === "" && s.shadowed > 0));
 
-  const renderFeatCard = (feat: FeatDefinition) => {
+  // Minimized to the name (Shaun, 2026-11-02): the feats list
+  // shows just each feat's name, like the flaw/trait pickers.
+  // Hovering a name shows the truncated crunch (the short benefit
+  // summary, clamped, plus prerequisites); clicking the name opens
+  // the full-crunch dialog. The checkbox still picks the feat. The
+  // per-feat enable/disable switch moved into that dialog, so a
+  // turned-off feat is switched back on from its own full view.
+  // Graying is unchanged: prerequisites-not-met renders muted,
+  // a chosen feat keeps full strength.
+  const renderFeatName = (feat: FeatDefinition) => {
     const selected = featIds.includes(feat.id);
     const unmet = looksUnmet(feat, resolved, featIds);
     const isDisabled = disabledFeatIds.includes(feat.id);
-    // Grayed out (Shaun, 2026-11-02): a feat whose prerequisites
-    // don't look met renders grayed so the ones the build qualifies
-    // for stand out at a glance. Still selectable — prerequisites
-    // are flagged, never enforced. A feat already chosen keeps its
-    // full-strength card (with the warning line) so the current
-    // build stays readable.
     const grayed = unmet && !selected && !isDisabled;
     return (
-      <div
+      <label
         key={feat.id}
-        role="checkbox"
-        aria-checked={selected}
-        tabIndex={isDisabled ? -1 : 0}
-        onClick={() => !isDisabled && onToggleFeat(feat.id, !selected)}
-        onKeyDown={(e) => {
-          if (isDisabled) return;
-          if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            onToggleFeat(feat.id, !selected);
-          }
-        }}
         className={cn(
-          "flex items-start gap-2.5 rounded-md border border-card-border bg-card p-3",
-          isDisabled ? "opacity-50 cursor-not-allowed" : "cursor-pointer hover-elevate",
-          grayed && "bg-muted/40 opacity-60 saturate-50"
+          "flex items-start gap-1.5 rounded p-1.5",
+          isDisabled ? "opacity-50" : "cursor-pointer hover:bg-muted/40"
         )}
-        data-testid={`feat-card-${feat.id}`}
+        data-testid={`feat-option-${feat.id}`}
       >
-        <Checkbox
+        <input
+          type="checkbox"
+          className="mt-0.5 shrink-0 accent-primary"
           checked={selected}
           disabled={isDisabled}
-          onCheckedChange={(checked) => onToggleFeat(feat.id, checked === true)}
-          onClick={(e) => e.stopPropagation()}
-          className="mt-0.5"
+          onChange={() => onToggleFeat(feat.id, !selected)}
           data-testid={`checkbox-feat-${feat.id}`}
         />
-        <div className="min-w-0 flex-1">
-          <div className="flex items-center gap-1.5 flex-wrap">
-            <span className={cn("font-medium", grayed && "text-muted-foreground")}>{feat.name}</span>
+        <Tooltip>
+          <TooltipTrigger asChild>
             <button
               type="button"
+              className={cn(
+                "text-left text-sm font-medium leading-tight underline-offset-2 hover:underline",
+                (grayed || isDisabled) && "text-muted-foreground",
+                grayed && "saturate-50"
+              )}
               onClick={(e) => {
+                e.preventDefault();
                 e.stopPropagation();
-                setDetail(describeFeat(feat));
+                setDetailFeat(feat);
               }}
-              className="rounded-full p-0.5 text-muted-foreground hover-elevate hover:text-foreground"
-              aria-label={`View description of ${feat.name}`}
-              data-testid={`button-info-feat-${feat.id}`}
+              data-testid={`feat-name-${feat.id}`}
             >
-              <Info className="h-3.5 w-3.5" />
+              {feat.name}
             </button>
-            <Switch
-              checked={!isDisabled}
-              onCheckedChange={(checked) => onToggleFeatEnabled(feat.id, checked)}
-              onClick={(e) => e.stopPropagation()}
-              className="ml-auto shrink-0 scale-75"
-              aria-label={isDisabled ? `Enable ${feat.name}` : `Disable ${feat.name}`}
-              data-testid={`switch-enable-feat-${feat.id}`}
-            />
-            <Badge variant="outline" className="text-[10px]">{CATEGORY_LABELS[feat.category]}</Badge>
-            {feat.modifiers && feat.modifiers.length > 0 && (
-              <Badge variant="secondary" className="text-[10px]">Mechanical effect</Badge>
+          </TooltipTrigger>
+          <TooltipContent className="max-w-sm text-xs">
+            <p className="font-semibold">{feat.name}</p>
+            <p className="mt-0.5 line-clamp-3">{feat.benefitSummary}</p>
+            {feat.prerequisites.length > 0 && (
+              <p className="mt-1">
+                <span className="font-medium">Prereqs:</span> {feat.prerequisites.join("; ")}
+              </p>
             )}
-            {feat.ruleset !== "core" && <ProductIdentityBadge rulesetLabel={RULESET_LABELS[feat.ruleset]} />}
-          </div>
-          <p className="mt-1 text-xs text-muted-foreground">{feat.benefitSummary}</p>
-          {feat.prerequisites.length > 0 && (
-            <p className="mt-1 text-xs text-muted-foreground">
-              <span className="font-medium text-foreground">Prereqs:</span> {feat.prerequisites.join("; ")}
-            </p>
-          )}
-          {unmet && (
-            <div className="mt-1.5 flex items-center gap-1.5 text-xs text-amber-500" data-testid={`warning-prereq-${feat.id}`}>
-              <AlertTriangle className="h-3.5 w-3.5 shrink-0" /> Prerequisites not verified against your current build.
-            </div>
-          )}
-          <a href={feat.sourceUrl} target="_blank" rel="noreferrer" className="mt-1.5 block text-[11px] text-primary underline underline-offset-2">
-            {feat.source}
-          </a>
-        </div>
-      </div>
+            {unmet && (
+              <p className="mt-1 text-amber-500">Prerequisites not verified against your current build.</p>
+            )}
+          </TooltipContent>
+        </Tooltip>
+      </label>
     );
   };
 
@@ -210,8 +186,9 @@ export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved,
             <Zap className="h-5 w-5 text-primary" /> Feats
           </CardTitle>
           <CardDescription>
-            Feats whose prerequisites don't look met are <span className="font-medium">grayed out</span> and
-            flagged with a warning — prerequisites are shown as free text and are{" "}
+            The list is names only: <span className="font-medium">hover a name</span> for the short crunch,{" "}
+            <span className="font-medium">click it</span> for the whole thing. Feats whose prerequisites don't
+            look met are <span className="font-medium">grayed out</span> — prerequisites are shown as free text and are{" "}
             <span className="font-medium">not enforced</span>. Source:{" "}
             <a href="https://www.d20srd.org/srd/feats.htm" target="_blank" rel="noreferrer" className="text-primary underline underline-offset-2">
               d20 SRD Feats
@@ -260,17 +237,17 @@ export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved,
                   {section.feats.length === 0 && (
                     <p className="mt-1 text-xs italic text-muted-foreground">Every feat on this list is listed in an earlier section above.</p>
                   )}
-                  {active.length > 0 && <div className="mt-2 grid gap-3 sm:grid-cols-2">{active.map(renderFeatCard)}</div>}
+                  {active.length > 0 && <div className="mt-2 grid grid-cols-2 gap-1 md:grid-cols-4">{active.map(renderFeatName)}</div>}
                   {grayedOut.length > 0 && (
                     <>
                       <h5 className="mt-4 font-display text-sm font-semibold text-muted-foreground">Prerequisites not met</h5>
-                      <div className="mt-2 grid gap-3 sm:grid-cols-2">{grayedOut.map(renderFeatCard)}</div>
+                      <div className="mt-2 grid grid-cols-2 gap-1 md:grid-cols-4">{grayedOut.map(renderFeatName)}</div>
                     </>
                   )}
                   {turnedOff.length > 0 && (
                     <>
                       <h5 className="mt-4 font-display text-sm font-semibold text-muted-foreground">Turned off</h5>
-                      <div className="mt-2 grid gap-3 sm:grid-cols-2">{turnedOff.map(renderFeatCard)}</div>
+                      <div className="mt-2 grid grid-cols-2 gap-1 md:grid-cols-4">{turnedOff.map(renderFeatName)}</div>
                     </>
                   )}
                 </div>
@@ -279,7 +256,27 @@ export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved,
           )}
         </CardContent>
       </Card>
-      <EntityDetailDialog detail={detail} onOpenChange={(open) => !open && setDetail(null)} />
+      <EntityDetailDialog
+        detail={detailFeat ? describeFeat(detailFeat) : null}
+        onOpenChange={(open) => !open && setDetailFeat(null)}
+        footer={
+          detailFeat ? (
+            <div className="flex items-center justify-between gap-3 border-t border-card-border pt-3">
+              <span className="text-sm">
+                {disabledFeatIds.includes(detailFeat.id)
+                  ? "This feat is turned off for your characters."
+                  : "This feat is turned on."}
+              </span>
+              <Switch
+                checked={!disabledFeatIds.includes(detailFeat.id)}
+                onCheckedChange={(checked) => onToggleFeatEnabled(detailFeat.id, checked)}
+                aria-label={disabledFeatIds.includes(detailFeat.id) ? `Enable ${detailFeat.name}` : `Disable ${detailFeat.name}`}
+                data-testid={`switch-enable-feat-${detailFeat.id}`}
+              />
+            </div>
+          ) : undefined
+        }
+      />
     </div>
   );
 }

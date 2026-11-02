@@ -5055,3 +5055,30 @@ base classes 65 -> 63. They had no casting profiles and no
 bonus-feat rules. The prestige classes Dragon Samurai and
 Shadow Sun Ninja are different classes and remain, flagged to
 Shaun in the removal report.
+
+**Feats list minimized to names (2026-11-02, Shaun's
+direction):** the Feats step no longer renders full cards — each
+feat is just its name in a four-across grid (sections, active
+float, grayed sinking and turned-off segregation unchanged).
+Hovering a name shows the truncated crunch (benefit summary
+clamped to three lines, plus prerequisites and the not-verified
+warning when it applies); clicking the name opens the
+full-crunch dialog (describeFeat: summary, prerequisites,
+modeled effect, special, source). The checkbox still picks the
+feat. The per-feat enable/disable switch moved into that
+dialog's new optional footer (EntityDetailDialog gained a
+footer slot), so turned-off feats are re-enabled from their own
+full view.
+
+**Classes crunched to three across (2026-11-02, Shaun's
+direction):** base and prestige grids go from two across to
+three (sm 2 / lg 3) and the cards are crunched — name, level
+badge, current-level stat row and the level steppers only. The
+name hovers for the short crunch (hit die, BAB progression,
+skill points, current-level saves) and clicks for the
+full-crunch dialog; the ruleset badge, hit-die line, source
+link and the enable switch moved into that dialog (switch in
+the footer, same as feats). What deliberately stayed visible
+on prestige cards: the prerequisite checklist with its certify
+checkboxes, the warnings and the lock line — those are working
+controls, not crunch display.

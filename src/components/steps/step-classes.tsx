@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
-import { AlertTriangle, Check, HelpCircle, Info, Lock, Minus, Plus, X } from "lucide-react";
+import { AlertTriangle, Check, HelpCircle, Lock, Minus, Plus, X } from "lucide-react";
 import { ALL_CLASSES, ALL_PRESTIGE_CLASSES } from "@/data";
-import type { ClassLevelChoice, ResolvedCharacter, Ruleset } from "@/engine/types";
+import type { ClassDefinition, ClassLevelChoice, PrestigeClassDefinition, ResolvedCharacter, Ruleset } from "@/engine/types";
 import { buildPrereqContext, evaluatePrestigeClass, type PrestigeGateResult } from "@/engine/prestige-prerequisites";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -10,9 +10,8 @@ import { Switch } from "@/components/ui/switch";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
-import { ProductIdentityBadge } from "@/components/product-identity-badge";
-import { RULESET_LABELS } from "@/components/ruleset-toggle";
 import { EntityDetailDialog } from "@/components/entity-detail-dialog";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { describeClass, describePrestigeClass, type EntityDetail } from "@/lib/entity-descriptions";
 
 /**
@@ -58,7 +57,7 @@ export function StepClasses({
   onToggleClassEnabled,
   onTogglePrestigeCertification,
 }: StepClassesProps) {
-  const [detail, setDetail] = useState<EntityDetail | null>(null);
+  const [detailClass, setDetailClass] = useState<{ cls: ClassDefinition | PrestigeClassDefinition; kind: "base" | "prestige" } | null>(null);
   const totalLevels = classLevels.reduce((s, c) => s + c.levels, 0);
   const totalPrestigeLevels = prestigeClassLevels.reduce((s, c) => s + c.levels, 0);
   const visibleClasses = ALL_CLASSES.filter((cls) => enabledRulesets.includes(cls.ruleset));
@@ -90,6 +89,12 @@ export function StepClasses({
   const prestigeOnSorted = sortPrestigeByPrereqMet(prestigeOn, prestigeGates);
   const prestigeOffSorted = sortPrestigeByPrereqMet(prestigeOff, prestigeGates);
 
+  // Crunched cards, three across (Shaun, 2026-11-02): the card
+  // carries the name, the level badge, the current-level stat row
+  // and the level steppers. The name hovers for the short crunch
+  // and clicks for the full-crunch dialog; the ruleset badge, the
+  // hit-die line and the enable switch moved into that dialog
+  // (the switch sits in its footer, like the Feats step).
   const renderClassCard = (cls: (typeof visibleClasses)[number]) => {
     const current = classLevels.find((c) => c.classId === cls.id);
     const row = current ? cls.progression.find((r) => r.level === current.levels) : undefined;
@@ -97,48 +102,47 @@ export function StepClasses({
     return (
       <div
         key={cls.id}
-        className={cn("rounded-md border border-card-border bg-card p-4", isDisabled && "opacity-50")}
+        className={cn("rounded-md border border-card-border bg-card p-3", isDisabled && "opacity-50")}
         data-testid={`class-card-${cls.id}`}
       >
-        <div className="flex items-start justify-between gap-2">
-          <div>
-            <div className="flex items-center gap-1.5">
-              <div className="font-display text-base font-semibold">{cls.name}</div>
-              {cls.ruleset !== "core" && <ProductIdentityBadge rulesetLabel={RULESET_LABELS[cls.ruleset]} />}
+        <div className="flex items-center justify-between gap-2">
+          <Tooltip>
+            <TooltipTrigger asChild>
               <button
                 type="button"
-                onClick={() => setDetail(describeClass(cls))}
-                className="rounded-full p-0.5 text-muted-foreground hover-elevate hover:text-foreground"
+                onClick={() => setDetailClass({ cls, kind: "base" })}
+                className="text-left font-display text-base font-semibold leading-tight underline-offset-2 hover:underline"
                 aria-label={`View description of ${cls.name}`}
                 data-testid={`button-info-class-${cls.id}`}
               >
-                <Info className="h-3.5 w-3.5" />
+                {cls.name}
               </button>
-              <Switch
-                checked={!isDisabled}
-                onCheckedChange={(checked) => onToggleClassEnabled(cls.id, checked)}
-                className="ml-auto shrink-0 scale-75"
-                aria-label={isDisabled ? `Enable ${cls.name}` : `Disable ${cls.name}`}
-                data-testid={`switch-enable-class-${cls.id}`}
-              />
-            </div>
-            <div className="text-xs text-muted-foreground">
-              Hit Die {cls.hitDie} · {cls.babProgression} BAB
-            </div>
-          </div>
-          <Badge variant="outline" className="font-mono">
+            </TooltipTrigger>
+            <TooltipContent className="max-w-sm text-xs">
+              <p className="font-semibold">{cls.name}</p>
+              <p className="mt-0.5">
+                Hit Die {cls.hitDie} · {cls.babProgression} BAB · {cls.skillPointsPerLevel} skill points per level
+              </p>
+              {row && current && (
+                <p className="mt-0.5 font-mono">
+                  Level {current.levels}: BAB +{row.bab} · Fort +{row.fort} · Ref +{row.ref} · Will +{row.will}
+                </p>
+              )}
+            </TooltipContent>
+          </Tooltip>
+          <Badge variant="outline" className="shrink-0 font-mono">
             Lv {current?.levels ?? 0}
           </Badge>
         </div>
         {row && (
-          <div className="mt-2 flex gap-3 text-xs text-muted-foreground font-mono">
+          <div className="mt-1.5 flex gap-3 text-xs text-muted-foreground font-mono">
             <span>BAB +{row.bab}</span>
             <span>Fort +{row.fort}</span>
             <span>Ref +{row.ref}</span>
             <span>Will +{row.will}</span>
           </div>
         )}
-        <div className="mt-3 flex items-center gap-2">
+        <div className="mt-2 flex items-center gap-2">
           <Button
             type="button"
             size="icon"
@@ -180,7 +184,7 @@ export function StepClasses({
       <div
         key={cls.id}
         className={cn(
-          "rounded-md border border-card-border bg-card p-4",
+          "rounded-md border border-card-border bg-card p-3",
           // Shaun's rule (2026-10-28): ALL prestige classes stay grayed
           // out until their prerequisites are met — including one whose
           // levels were taken and whose prerequisites later broke (it
@@ -189,34 +193,32 @@ export function StepClasses({
         )}
         data-testid={`prestige-card-${cls.id}`}
       >
-        <div className="flex items-start justify-between gap-2">
-          <div>
-            <div className="flex items-center gap-1.5 flex-wrap">
-              <span className="font-display text-base font-semibold">{cls.name}</span>
-              <Badge variant="secondary" className="text-[10px]">Prestige</Badge>
-              {cls.ruleset !== "core" && <ProductIdentityBadge rulesetLabel={RULESET_LABELS[cls.ruleset]} />}
+        <div className="flex items-center justify-between gap-2">
+          <Tooltip>
+            <TooltipTrigger asChild>
               <button
                 type="button"
-                onClick={() => setDetail(describePrestigeClass(cls))}
-                className="rounded-full p-0.5 text-muted-foreground hover-elevate hover:text-foreground"
+                onClick={() => setDetailClass({ cls, kind: "prestige" })}
+                className="text-left font-display text-base font-semibold leading-tight underline-offset-2 hover:underline"
                 aria-label={`View description of ${cls.name}`}
                 data-testid={`button-info-prestige-${cls.id}`}
               >
-                <Info className="h-3.5 w-3.5" />
+                {cls.name}
               </button>
-              <Switch
-                checked={!isDisabled}
-                onCheckedChange={(checked) => onToggleClassEnabled(cls.id, checked)}
-                className="ml-auto shrink-0 scale-75"
-                aria-label={isDisabled ? `Enable ${cls.name}` : `Disable ${cls.name}`}
-                data-testid={`switch-enable-prestige-${cls.id}`}
-              />
-            </div>
-            <div className="text-xs text-muted-foreground">
-              Hit Die {cls.hitDie} · {cls.babProgression} BAB
-            </div>
-          </div>
-          <Badge variant="outline" className="font-mono">
+            </TooltipTrigger>
+            <TooltipContent className="max-w-sm text-xs">
+              <p className="font-semibold">{cls.name}</p>
+              <p className="mt-0.5">
+                Hit Die {cls.hitDie} · {cls.babProgression} BAB · {cls.skillPointsPerLevel} skill points per level
+              </p>
+              {row && current && (
+                <p className="mt-0.5 font-mono">
+                  Level {current.levels}: BAB +{row.bab} · Fort +{row.fort} · Ref +{row.ref} · Will +{row.will}
+                </p>
+              )}
+            </TooltipContent>
+          </Tooltip>
+          <Badge variant="outline" className="shrink-0 font-mono">
             Lv {current?.levels ?? 0}
           </Badge>
         </div>
@@ -312,9 +314,6 @@ export function StepClasses({
             <Plus className="h-3.5 w-3.5" />
           </Button>
         </div>
-        <a href={cls.sourceUrl} target="_blank" rel="noreferrer" className="mt-2 block text-[11px] text-primary underline underline-offset-2">
-          {cls.source}
-        </a>
       </div>
     );
   };
@@ -325,7 +324,9 @@ export function StepClasses({
         <CardHeader>
           <CardTitle className="font-display text-xl">Class Levels</CardTitle>
           <CardDescription>
-            Multiclassing is allowed — add levels in any combination up to level 10 per class. Source:{" "}
+            Multiclassing is allowed — add levels in any combination up to level 10 per class. Cards are
+            crunched three across: <span className="font-medium">hover a name</span> for the short crunch,{" "}
+            <span className="font-medium">click it</span> for the whole thing. Source:{" "}
             <a href="https://www.d20srd.org/srd/classes/" target="_blank" rel="noreferrer" className="text-primary underline underline-offset-2">
               d20 SRD Classes
             </a>
@@ -333,11 +334,11 @@ export function StepClasses({
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="grid gap-3 sm:grid-cols-2">{classesOn.map(renderClassCard)}</div>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{classesOn.map(renderClassCard)}</div>
           {classesOff.length > 0 && (
             <>
               <h4 className="mt-5 font-display text-sm font-semibold text-muted-foreground">Turned off</h4>
-              <div className="mt-3 grid gap-3 sm:grid-cols-2">{classesOff.map(renderClassCard)}</div>
+              <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{classesOff.map(renderClassCard)}</div>
             </>
           )}
           <p className="mt-4 text-sm text-muted-foreground">
@@ -363,11 +364,11 @@ export function StepClasses({
             <p className="text-sm text-muted-foreground">No prestige classes available for the enabled rule sets.</p>
           ) : (
             <>
-              <div className="grid gap-3 sm:grid-cols-2">{prestigeOnSorted.map(renderPrestigeCard)}</div>
+              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{prestigeOnSorted.map(renderPrestigeCard)}</div>
               {prestigeOffSorted.length > 0 && (
                 <>
                   <h4 className="mt-5 font-display text-sm font-semibold text-muted-foreground">Turned off</h4>
-                  <div className="mt-3 grid gap-3 sm:grid-cols-2">{prestigeOffSorted.map(renderPrestigeCard)}</div>
+                  <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{prestigeOffSorted.map(renderPrestigeCard)}</div>
                 </>
               )}
             </>
@@ -377,7 +378,33 @@ export function StepClasses({
           </p>
         </CardContent>
       </Card>
-      <EntityDetailDialog detail={detail} onOpenChange={(open) => !open && setDetail(null)} />
+      <EntityDetailDialog
+        detail={
+          detailClass
+            ? detailClass.kind === "base"
+              ? describeClass(detailClass.cls)
+              : describePrestigeClass(detailClass.cls as PrestigeClassDefinition)
+            : null
+        }
+        onOpenChange={(open) => !open && setDetailClass(null)}
+        footer={
+          detailClass ? (
+            <div className="flex items-center justify-between gap-3 border-t border-card-border pt-3">
+              <span className="text-sm">
+                {disabledClassIds.includes(detailClass.cls.id)
+                  ? "This class is turned off for your characters."
+                  : "This class is turned on."}
+              </span>
+              <Switch
+                checked={!disabledClassIds.includes(detailClass.cls.id)}
+                onCheckedChange={(checked) => onToggleClassEnabled(detailClass.cls.id, checked)}
+                aria-label={disabledClassIds.includes(detailClass.cls.id) ? `Enable ${detailClass.cls.name}` : `Disable ${detailClass.cls.name}`}
+                data-testid={`switch-enable-${detailClass.kind === "base" ? "class" : "prestige"}-${detailClass.cls.id}`}
+              />
+            </div>
+          ) : undefined
+        }
+      />
     </div>
   );
 }
