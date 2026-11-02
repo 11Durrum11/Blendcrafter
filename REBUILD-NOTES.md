@@ -5140,3 +5140,11 @@ clicking again folds it away.
 the four currency types beside the Wealth header now run on
 just two lines — Coin + Gems on the first, Scripts + Cheqs on
 the second.
+
+**Click a level, get the limit (2026-11-02, Shaun's direction):**
+rows in the wealth-by-level chart are clickable — clicking a
+level sets it as the total gp limit, which appears beside
+Magic items in the wealth summary ("Limit N gp (level L)"),
+reading 0 gp until a level is clicked. The picked level
+highlights green in the chart (the ECL row keeps its own
+highlight). The pick lives in the Equipment step's state.

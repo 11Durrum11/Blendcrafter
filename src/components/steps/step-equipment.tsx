@@ -95,6 +95,12 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, onAdd, onR
   // the panel shows just its title until clicked, then the chart
   // and the 70/30 calculation expand.
   const [wblOpen, setWblOpen] = useState(false);
+  // Click-a-level gp limit (Shaun, 2026-11-02): clicking a level
+  // in the wealth-by-level chart sets the total gp limit, shown
+  // beside Magic items in the summary below (0 gp until a level
+  // is clicked). Kept in this step's state — it lives while you
+  // are on the Equipment step.
+  const [limitPick, setLimitPick] = useState<{ level: number; gp: number } | null>(null);
 
   function showInventoryDetail(entry: InventoryEntry) {
     if (entry.kind === "equipment") {
@@ -195,6 +201,10 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, onAdd, onR
               <>
             {/* List format (Shaun, 2026-11-02): every level with the
                 whole number and its 70% and 30% numbers beside it. */}
+            <p className="mt-2 text-xs text-muted-foreground">
+              Click a level to set it as your total gp limit — the limit shows beside Magic items in the
+              summary below.
+            </p>
             <div className="mt-2 max-h-64 overflow-y-auto" data-testid="wealth-by-level-chart">
               <table className="w-full text-xs">
                 <thead>
@@ -210,10 +220,14 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, onAdd, onR
                     <tr
                       key={level}
                       data-testid={level === resolved.ecl.value ? "wealth-by-level-current" : undefined}
+                      onClick={() => setLimitPick({ level, gp })}
                       className={
-                        level === resolved.ecl.value
-                          ? "bg-primary/15 font-semibold text-foreground"
-                          : "text-muted-foreground"
+                        "cursor-pointer hover:bg-muted/40 " +
+                        (limitPick?.level === level
+                          ? "bg-emerald-500/20 font-semibold text-foreground"
+                          : level === resolved.ecl.value
+                            ? "bg-primary/15 font-semibold text-foreground"
+                            : "text-muted-foreground")
                       }
                     >
                       <td className="py-0.5 pr-2 font-mono">{level}</td>
@@ -302,6 +316,11 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, onAdd, onR
             <div className="text-sm text-muted-foreground">
               Equipment <span className="font-mono text-foreground">{formatGp(wealth.equipmentGp)} gp</span>
               {" · "}Magic items <span className="font-mono text-foreground">{formatGp(wealth.magicItemGp)} gp</span>
+              {" · "}Limit{" "}
+              <span className="font-mono text-foreground" data-testid="text-wealth-limit">
+                {formatGp(limitPick?.gp ?? 0)} gp
+              </span>
+              {limitPick && <span> (level {limitPick.level})</span>}
             </div>
           </div>
           <p className="mt-2 text-sm text-muted-foreground">
