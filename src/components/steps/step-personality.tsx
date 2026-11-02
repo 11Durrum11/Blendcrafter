@@ -91,6 +91,14 @@ export function StepPersonality({ build, resolved, onChange }: Props) {
           <Field label="Secrets"><Textarea value={p.secrets} onChange={e=>set("secrets",e.target.value)} /></Field>
           <Field label="Current Circumstances"><Textarea value={p.circumstances} onChange={e=>set("circumstances",e.target.value)} placeholder="What is happening right now?"/></Field>
         </div>
+        {/* The picked boxes live here, under Goals and Secrets
+            (Shaun, 2026-11-02), and expand with everything picked —
+            each entry shown fully crunched out. Picking happens in
+            the Flaws & Traits card below; Confirm sends them here. */}
+        <div className="grid items-start gap-4 lg:grid-cols-2">
+          <PickedBox title="Flaws" items={ALL_FLAWS} selectedIds={committedFlaws} onRemove={removeFlaw} onShowDetail={(item) => setDetail(describeFlawTrait(item))} testidPrefix="flaw" />
+          <PickedBox title="Traits" items={ALL_TRAITS} selectedIds={committedTraits} onRemove={removeTrait} onShowDetail={(item) => setDetail(describeFlawTrait(item))} testidPrefix="trait" />
+        </div>
       </CardContent>
     </Card>
 
@@ -107,11 +115,9 @@ export function StepPersonality({ build, resolved, onChange }: Props) {
         </div>
       </CardHeader>
       <CardContent className="space-y-6">
-        <p className="text-sm text-muted-foreground">The full library: the Unearthed Arcana lists plus a snapshot of the D&D Wiki, saved into Blendcrafter so wiki edits can't change it on you. Book guidance — a flaw is taken at 1st level and grants a bonus feat, and a character may have up to two traits — is shown for reference; Blendcrafter doesn't enforce either. Tick names to stage your picks, then hit <span className="font-medium text-foreground">Confirm picks</span> — that's when they land in the boxes below and their crunch applies to the character.</p>
+        <p className="text-sm text-muted-foreground">The full library: the Unearthed Arcana lists plus a snapshot of the D&D Wiki, saved into Blendcrafter so wiki edits can't change it on you. Book guidance — a flaw is taken at 1st level and grants a bonus feat, and a character may have up to two traits — is shown for reference; Blendcrafter doesn't enforce either. Tick names to stage your picks, then hit <span className="font-medium text-foreground">Confirm picks</span> — that's when they land in the Your Flaws / Your Traits boxes (under Goals and Secrets, in the section above) and their crunch applies to the character.</p>
         <FlawTraitPicker title="Flaws" items={ALL_FLAWS} selectedIds={stagedFlaws} query={flawQuery} onQuery={setFlawQuery} onToggle={toggleFlaw} onShowDetail={(item) => setDetail(describeFlawTrait(item))} testidPrefix="flaw" />
-        <PickedBox title="Flaws" items={ALL_FLAWS} selectedIds={committedFlaws} onRemove={removeFlaw} onShowDetail={(item) => setDetail(describeFlawTrait(item))} testidPrefix="flaw" />
         <FlawTraitPicker title="Traits" items={ALL_TRAITS} selectedIds={stagedTraits} query={traitQuery} onQuery={setTraitQuery} onToggle={toggleTrait} onShowDetail={(item) => setDetail(describeFlawTrait(item))} testidPrefix="trait" />
-        <PickedBox title="Traits" items={ALL_TRAITS} selectedIds={committedTraits} onRemove={removeTrait} onShowDetail={(item) => setDetail(describeFlawTrait(item))} testidPrefix="trait" />
       </CardContent>
     </Card>
 
@@ -134,7 +140,7 @@ function PickedBox({title,items,selectedIds,onRemove,onShowDetail,testidPrefix}:
   const picked = items.filter(i=>selectedIds.includes(i.id));
   return <div className="rounded-md border border-card-border bg-muted/20 p-3" data-testid={`picked-box-${testidPrefix}`}>
     <h4 className="font-display text-sm font-semibold">Your {title} <span className="font-normal text-muted-foreground">({picked.length} picked)</span></h4>
-    {picked.length===0 ? <p className="mt-1 text-sm text-muted-foreground">None picked yet — tick a name in the list above and it lands here, fully written out.</p> :
+    {picked.length===0 ? <p className="mt-1 text-sm text-muted-foreground">None picked yet — tick names in the Flaws & Traits lists below, hit Confirm, and they land here, fully written out.</p> :
     <div className="mt-2 space-y-3">
       {picked.map(item=><div key={item.id} className="rounded-md border border-card-border bg-card p-3" data-testid={`picked-${testidPrefix}-${item.id}`}>
         <div className="flex items-start justify-between gap-2">

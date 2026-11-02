@@ -18,6 +18,8 @@ export function StepSheet({ character }: StepSheetProps) {
     abilityScores,
     ac,
     bab,
+    attack,
+    initiative,
     saves,
     hp,
     cr,
@@ -122,6 +124,10 @@ export function StepSheet({ character }: StepSheetProps) {
           </CardHeader>
           <CardContent className="space-y-2">
             <AuditTrail label="Base Attack Bonus" value={`+${bab.total}`} audit={bab.audit} />
+            <AuditTrail label="Melee Attack" value={fmtMod(attack.melee.total)} audit={attack.melee.audit} data-testid="attack-melee" />
+            <AuditTrail label="Ranged Attack" value={fmtMod(attack.ranged.total)} audit={attack.ranged.audit} data-testid="attack-ranged" />
+            <AuditTrail label="Grapple" value={fmtMod(attack.grapple.total)} audit={attack.grapple.audit} data-testid="attack-grapple" />
+            <AuditTrail label="Initiative" value={fmtMod(initiative.total)} audit={initiative.audit} data-testid="initiative" />
             <AuditTrail label="Hit Points" value={hp.total} audit={hp.audit} />
           </CardContent>
         </Card>
@@ -149,6 +155,7 @@ export function StepSheet({ character }: StepSheetProps) {
           <CardTitle className="font-display text-lg">Speed</CardTitle>
         </CardHeader>
         <CardContent>
+          <AuditTrail label="Land Speed" value={`${speed.base} ft.`} audit={character.speedAudit} className="mb-3" data-testid="speed-land" />
           <div className="flex flex-wrap gap-3 text-sm">
             {Object.entries(speed).map(([key, value]) => (
               <Badge key={key} variant="outline" className="capitalize">

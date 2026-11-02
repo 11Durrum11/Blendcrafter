@@ -549,9 +549,14 @@ export interface FlawTraitDefinition {
    * Modeled mechanical effects, wired into the resolver's modifier pool
    * exactly like feat modifiers when the flaw/trait is picked. Present
    * only where the printed effect maps cleanly onto a target the engine
-   * actually derives (skills, saves, AC, flat hp.bonus); conditional,
-   * choice-based, per-level, attack/initiative/speed and sense effects
-   * stay unmodeled — see REBUILD-NOTES.md for the per-record accounting.
+   * actually derives (skills, saves, AC, attack totals, initiative,
+   * speed.land, hp.bonus, and per-Hit-Die hp.perLevel). Conditional,
+   * choice-based, subset (e.g. a save bonus against one school only)
+   * and sense effects stay unmodeled — see REBUILD-NOTES.md for the
+   * per-record accounting. The Slow flaw's and Slow trait's halved
+   * land speed is modeled by a resolver weave keyed to the picked
+   * record id, not by a modifier here: a halving is a multiplier and
+   * has no honest flat representation.
    */
   modifiers?: Modifier[];
 }
@@ -677,6 +682,8 @@ export interface ResolvedCharacter {
   subtypes: string[];
   /** Movement modes in feet, keyed by mode ("base", "fly", …). */
   speed: Record<string, number>;
+  /** Audit trail for the land-speed derivation (pool adds + Slow halving weave). */
+  speedAudit: AuditEntry[];
   abilityScores: Record<AbilityKey, ResolvedAbility>;
   ac: {
     total: number;
@@ -686,6 +693,9 @@ export interface ResolvedCharacter {
     audit: AuditEntry[];
   };
   bab: ResolvedValue;
+  /** Standard 3.5 attack totals (BAB + ability + size + pool). Grapple uses the special size modifier. */
+  attack: { melee: ResolvedValue; ranged: ResolvedValue; grapple: ResolvedValue };
+  initiative: ResolvedValue;
   saves: Record<SaveKey, ResolvedValue>;
   hp: ResolvedValue;
   cr: { value: number; audit: AuditEntry[] };

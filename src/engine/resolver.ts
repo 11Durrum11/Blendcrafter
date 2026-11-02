@@ -11,6 +11,7 @@ import {
   type RaceDefinition,
   type ResolvedCharacter,
   type ResolvedSkill,
+  type ResolvedValue,
   type SaveKey,
   type Size,
   type TemplateDefinition,
@@ -45,6 +46,25 @@ const SIZE_AC_MODIFIER: Record<Size, number> = {
   Huge: -2,
   Gargantuan: -4,
   Colossal: -8,
+};
+
+/**
+ * Special size modifier for grapple checks — a different scale from
+ * the attack/AC size modifier above (SRD, Combat — Grapple Checks:
+ * "Fine −16, Diminutive −12, Tiny −8, Small −4, Medium 0, Large +4,
+ * Huge +8, Gargantuan +12, Colossal +16").
+ * https://www.d20srd.org/srd/combat/specialAttacks.htm#grapple
+ */
+const SIZE_GRAPPLE_MODIFIER: Record<Size, number> = {
+  Fine: -16,
+  Diminutive: -12,
+  Tiny: -8,
+  Small: -4,
+  Medium: 0,
+  Large: 4,
+  Huge: 8,
+  Gargantuan: 12,
+  Colossal: 16,
 };
 
 const RACES_BY_ID = new Map(ALL_RACES.map((r) => [r.id, r]));
@@ -376,6 +396,22 @@ export function resolveCharacter(build: CharacterBuild): ResolvedCharacter {
     hpTotal += hpBonusStack.value;
     hpAudit.push(...hpBonusStack.audit.map((a) => ({ ...a, resultingValue: hpTotal })));
   }
+  // Per-Hit-Die hit point adjustments (Frail −1, Quick −1, Slow trait
+  // +1): each pool modifier on "hp.perLevel" contributes its value
+  // once per Hit Die — the same HD count the Constitution bonus above
+  // uses (totalHitDice = class levels + racial Hit Dice).
+  const hpPerLevelStack = resolveModifierStack(modifierPool, "hp.perLevel");
+  if (hpPerLevelStack.value !== 0 && totalHitDice > 0) {
+    const perLevelDelta = hpPerLevelStack.value * totalHitDice;
+    hpTotal += perLevelDelta;
+    hpAudit.push(...hpPerLevelStack.audit.map((a) => ({ ...a, resultingValue: hpTotal })));
+    hpAudit.push({
+      source: "Per-level hit point adjustment",
+      target: "hp",
+      operation: `${formatSigned(hpPerLevelStack.value)} per Hit Die × ${totalHitDice} HD = ${formatSigned(perLevelDelta)}`,
+      resultingValue: hpTotal,
+    });
+  }
   const hp = { total: hpTotal, audit: hpAudit };
 
   /* ---------------- BAB & saves -------------------------------------- */
@@ -464,6 +500,106 @@ export function resolveCharacter(build: CharacterBuild): ResolvedCharacter {
   const flatFooted = acTotal - Math.max(dexComponent, 0) - (components.dodge?.value ?? 0);
   acAudit.push({ source: "Total", target: "ac", operation: `Armor class ${acTotal} (touch ${touch}, flat-footed ${flatFooted})`, resultingValue: acTotal });
   const ac = { total: acTotal, touch, flatFooted, components, audit: acAudit };
+
+  /* ---------------- Attacks & initiative ----------------------------- */
+  // Standard 3.5 attack totals with the default ability assignment:
+  // melee uses Strength, ranged uses Dexterity. Weapon Finesse and
+  // other per-weapon substitutions are NOT modeled (documented in
+  // REBUILD-NOTES). Attack rolls take the same size modifier as AC
+  // (SIZE_AC_MODIFIER); grapple takes the separate special size
+  // modifier (SIZE_GRAPPLE_MODIFIER). Pool targets attack.melee /
+  // attack.ranged / attack.grapple / initiative carry flaw & trait
+  // crunch (Noncombatant −2 melee, Shaky −2 ranged, Unreactive −6
+  // initiative, Aggressive +2 initiative…); no feat data uses them.
+  const deriveAttackTotal = (target: string, abilityKey: AbilityKey, sizeMod: number, sizeOperation: string): ResolvedValue => {
+    const audit: AuditEntry[] = [];
+    let total = babTotal;
+    audit.push({ source: "Base attack bonus", target, operation: `Base attack bonus ${formatSigned(babTotal)}`, resultingValue: total });
+    const mod = abilityModOr0(abilityKey);
+    if (abilityScores[abilityKey].total === null) {
+      audit.push({ source: "No ability score", target, operation: `${abilityKey.toUpperCase()} removed — no ability modifier applies`, resultingValue: total });
+    } else {
+      total += mod;
+      audit.push({ source: `${abilityKey.toUpperCase()} modifier`, target, operation: `${formatSigned(mod)} ability modifier`, resultingValue: total });
+    }
+    if (sizeMod !== 0) {
+      total += sizeMod;
+      audit.push({ source: "Size", target, operation: sizeOperation, resultingValue: total });
+    }
+    const stack = resolveModifierStack(modifierPool, target);
+    const preStack = total;
+    total += stack.value;
+    audit.push(...stack.audit.map((a) => ({ ...a, resultingValue: preStack + (a.resultingValue as number) })));
+    return { total, audit };
+  };
+
+  const sizeAttackOperation = `${formatSigned(SIZE_AC_MODIFIER[size])} size modifier (${size})`;
+  const attack = {
+    melee: deriveAttackTotal("attack.melee", "str", SIZE_AC_MODIFIER[size], sizeAttackOperation),
+    ranged: deriveAttackTotal("attack.ranged", "dex", SIZE_AC_MODIFIER[size], sizeAttackOperation),
+    grapple: deriveAttackTotal(
+      "attack.grapple",
+      "str",
+      SIZE_GRAPPLE_MODIFIER[size],
+      `${formatSigned(SIZE_GRAPPLE_MODIFIER[size])} special size modifier for grapple (${size})`
+    ),
+  };
+
+  const initiative = ((): ResolvedValue => {
+    const audit: AuditEntry[] = [];
+    let total = 0;
+    const mod = abilityModOr0("dex");
+    if (abilityScores.dex.total === null) {
+      audit.push({ source: "No ability score", target: "initiative", operation: "DEX removed — no ability modifier applies", resultingValue: total });
+    } else {
+      total += mod;
+      audit.push({ source: "Dexterity modifier", target: "initiative", operation: `${formatSigned(mod)} Dexterity modifier`, resultingValue: total });
+    }
+    const stack = resolveModifierStack(modifierPool, "initiative");
+    const preStack = total;
+    total += stack.value;
+    audit.push(...stack.audit.map((a) => ({ ...a, resultingValue: preStack + (a.resultingValue as number) })));
+    return { total, audit };
+  })();
+
+  /* ---------------- Speed -------------------------------------------- */
+  // Land speed reads the pool here, after every other derivation: flat
+  // "speed.land" adds land first (Quick trait +10 ft.), then the Slow
+  // halving weave. Other movement modes (fly, swim…) come from
+  // race/template patches only and never read the pool.
+  const speedAudit: AuditEntry[] = [
+    { source: "Base land speed", target: "speed.land", operation: `Land speed ${speed.base} ft. before modifiers`, resultingValue: speed.base },
+  ];
+  {
+    const stack = resolveModifierStack(modifierPool, "speed.land");
+    if (stack.value !== 0) {
+      speed.base += stack.value;
+      speedAudit.push(...stack.audit.map((a) => ({ ...a, resultingValue: speed.base })));
+    }
+  }
+  // Halving weave: the Slow flaw and the Slow trait both read "your
+  // base land speed is halved (round down to the nearest 5-foot
+  // interval)" — a multiplier, which no flat pool modifier can
+  // represent, so it is woven in keyed to the picked record ids,
+  // mirroring the halfling-luck weave in Phase 4, and applied after
+  // the flat adds above. Picking both records still halves only once:
+  // each describes the same resulting state, not a stacking penalty.
+  {
+    const slowSources: string[] = [];
+    if ((build.personality?.flawIds ?? []).includes("slow")) slowSources.push("Slow (flaw)");
+    if ((build.personality?.traitIds ?? []).includes("slow")) slowSources.push("Slow (trait)");
+    if (slowSources.length > 0 && speed.base > 0) {
+      const before = speed.base;
+      speed.base = Math.floor(speed.base / 2 / 5) * 5;
+      speedAudit.push({
+        source: slowSources.join(" and "),
+        target: "speed.land",
+        operation: `Base land speed halved (${before} ft. → ${speed.base} ft., rounded down to the nearest 5-foot interval)`,
+        resultingValue: speed.base,
+        note: "Halving is a multiplier, not a flat modifier — applied by a resolver weave keyed to the picked Slow record, after flat speed adds.",
+      });
+    }
+  }
 
   /* ---------------- Phase 5: merge features -------------------------- */
   const featureMap = new Map<string, FeatureDefinition>();
@@ -742,9 +878,12 @@ export function resolveCharacter(build: CharacterBuild): ResolvedCharacter {
     type,
     subtypes,
     speed,
+    speedAudit,
     abilityScores,
     ac,
     bab,
+    attack,
+    initiative,
     saves,
     hp,
     cr,

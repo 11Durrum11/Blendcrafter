@@ -4935,3 +4935,107 @@ direction):** ticking a name now only STAGES the pick; the
 — that is when they land in the Your Flaws / Your Traits boxes
 and their modifiers apply to the character. Remove in a picked
 box still removes immediately and un-stages the name.
+
+**Engine extension — attack, initiative, speed, per-level HP
+(2026-11-02, Shaun's approval):** the resolver now derives the
+surfaces the flaw/trait wiring had to stop at, so the remaining
+printed crunch lands. All derivations run off the same modifier
+pool and stacking/audit machinery as skills/saves/AC; no feat data
+uses the new targets, so builds without flaw/trait picks resolve
+bit-identically on every pre-existing output (harness-asserted).
+
+Derivations added (src/engine/resolver.ts):
+- Attack totals on ResolvedCharacter.attack: melee = BAB + Str
+  modifier + size modifier + pool "attack.melee"; ranged = BAB +
+  Dex modifier + size modifier + pool "attack.ranged". The attack
+  size modifier is the codebase's existing SIZE_AC_MODIFIER table
+  (identical to the SRD attack/AC size table). Grapple = BAB + Str
+  modifier + SPECIAL size modifier + pool "attack.grapple", from a
+  new SIZE_GRAPPLE_MODIFIER table taken from the SRD grapple rules
+  (Fine −16, Diminutive −12, Tiny −8, Small −4, Medium 0, Large +4,
+  Huge +8, Gargantuan +12, Colossal +16;
+  d20srd.org/srd/combat/specialAttacks.htm#grapple). Default
+  ability assignment only: Weapon Finesse and other per-weapon
+  substitutions are NOT modeled.
+- Initiative on ResolvedCharacter.initiative = Dex modifier + pool
+  "initiative".
+- Per-Hit-Die HP: pool "hp.perLevel" modifiers contribute value ×
+  totalHitDice during HP derivation, where totalHitDice is exactly
+  the count the HP code already uses (class levels + prestige
+  levels + racial Hit Dice + animal Hit Dice — the same count the
+  Constitution bonus multiplies). Flat "hp.bonus" is unchanged.
+- Speed: land speed now reads pool "speed.land" (flat feet adds),
+  applied where the other derivations run, after race/template
+  patches. The derivation is audited on the new
+  ResolvedCharacter.speedAudit field. HALVING (Slow flaw, Slow
+  trait: "base land speed is halved, round down to the nearest
+  5-foot interval") is a multiplier with no honest flat
+  representation, so it is a resolver weave keyed to the picked
+  record id "slow" in flawIds / traitIds — mirroring the
+  halfling-luck weave in Phase 4 — applied AFTER the flat adds,
+  rounding down to the nearest 5-foot interval, with an audit
+  entry. Picking both Slow records still halves only once: each
+  describes the same resulting state, not a stacking penalty. The
+  Slow flaw record itself carries NO modifier — the weave is its
+  model (also stated on FlawTraitDefinition.modifiers in types.ts).
+  Other movement modes (fly, swim…) still come from patches only.
+  Quick's printed fallback (no land speed → apply to the highest
+  other speed) has no case in the current data: every race defines
+  a base land speed, and "speed.land" targets land only.
+
+Display (src/components/steps/step-sheet.tsx): the "Base Attack &
+Hit Points" card now also shows Melee Attack, Ranged Attack,
+Grapple, and Initiative AuditTrails next to BAB, and the Speed
+card shows a Land Speed AuditTrail (the speedAudit breakdown)
+above the mode badges.
+
+Records modeled by this batch (11 new modifiers; totals now 50
+records / 178 modifiers across flaws+traits):
+- Flaw Noncombatant: attack.melee −2. Flaw Shaky: attack.ranged
+  −2. Flaw Unreactive: initiative −6. Flaw Frail: hp.perLevel −1.
+  Flaw Slow: the halving weave only (no modifier, by design).
+- Trait Quick: speed.land +10 AND hp.perLevel −1. Trait Slow:
+  hp.perLevel +1 AND the halving weave. Trait Aggressive: ADDED
+  initiative +2 beside its existing AC −1 (its modifier note,
+  which claimed initiative was unmodeled, was corrected — the only
+  note text changed anywhere in this batch; no name/summary/
+  description/prerequisite text was touched, verified by stripping
+  modifiers and diffing).
+- Judged by the printed text, halves only: Torpid's drawback
+  (−2 initiative) is unconditional → modeled; its benefit (+1
+  saves vs enchantment/compulsion) stays unmodeled (save subset).
+  Reckless's drawback (−1 melee attack rolls) is unconditional →
+  modeled; its benefit (+1 melee damage rolls) stays unmodeled
+  (the engine derives no damage totals). Brawler's +1 on grapple
+  checks covers ALL grapple checks → modeled on attack.grapple;
+  its +1 unarmed attack rolls and −1 on all other attack rolls
+  stay unmodeled (they turn on whether an attack is unarmed, which
+  the attack totals do not distinguish). Slippery stays fully
+  unmodeled: both its grapple halves cover only subsets of
+  grapple checks (escaping / avoiding vs. all other).
+
+Still unmodeled, unchanged from the previous accounting: Murky-
+Eyed (concealment reroll), Pathetic (chosen ability −2),
+Illiterate / Inattentive trait / Specialized (chosen skill),
+Nightsighted (darkvision + conditional Spot), Spellgifted
+(caster level by school), Cautious and Relentless (conditional /
+ability-check surfaces), plus the partial halves named above and
+in modifier notes (Feeble's ability checks, the Escape Artist
+bull-rush/overrun halves, Reputation, wild empathy).
+
+Verified: /tmp/test-attack-derivation.mts — 35 assertions, all
+passing (baseline hand-computed totals; Noncombatant −2 melee
+with ranged/grapple unchanged AND AC/saves/HP/BAB/skills/speed/
+initiative bit-identical; Shaky; Unreactive −6 with audit
+attribution; Aggressive +2 initiative and −1 AC; Torpid −2;
+grapple sanity: human Fighter 5, Str 16 → +8 = BAB 5 + Str 3 +
+special size 0, Brawler → +9; Reckless melee −1; Frail on
+Fighter 5 → HP 35 → 30; Quick on Fighter 5 → speed 40 and HP 30;
+Slow flaw 30 ft → 15; Slow trait on Fighter 5 → HP 40 and speed
+15; Quick + Slow weave order (30+10) halved → 20).
+/tmp/test-flawtrait-wiring2.mts (the previous wiring harness with
+the superseded Noncombatant boundary replaced by "changes only
+melee attack" and Aggressive asserting both halves) — 13
+assertions, all passing. The six level-20 test characters
+(~/test-chars-work/test-characters.mts) — 63 checks, all passing.
+npm run check and npm run build both pass.
