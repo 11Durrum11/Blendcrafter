@@ -307,11 +307,11 @@ export const SORCERY_STEAM_FIREARM_EQUIPMENT: EquipmentItem[] = [
   },
   {
     "id": "firearm-bullet-10",
-    "name": "Firearm bullet (10)",
+    "name": "Firearm bullet (1)",
     "category": "gear",
     "cost": "1 gp",
-    "weight": "1 lb.",
-    "notes": "Ten firearm bullets.",
+    "weight": "1/10 lb.",
+    "notes": "One firearm bullet. (Corrected 2026-11-01 from fire_arms-2.docx, which lists a single bullet at 1 gp and 1/10 lb.; this entry previously read (10) at 1 lb. from fire_arms.docx v1. Entry id kept as firearm-bullet-10 so saved builds still resolve.)",
     "source": "Pathfinder Ultimate Combat (document source tag UC) — via fire_arms.docx, Shaun Bradley's compiled firearms document",
     "sourceUrl": "workspace/user/files/fire_arms.docx",
     "ruleset": "sorcery_steam"
