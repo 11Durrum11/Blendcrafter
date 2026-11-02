@@ -98,6 +98,25 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, wealthLimi
   // the panel shows just its title until clicked, then the chart
   // and the 70/30 calculation expand.
   const [wblOpen, setWblOpen] = useState(false);
+  // Equipment and Magic Items minimized to their titles (Shaun,
+  // 2026-11-02): every category section starts closed to just its
+  // heading; clicking the heading expands its items. While a
+  // search is typed, sections show open so matches are visible.
+  // The heading buttons above each list now also open the section
+  // they jump to.
+  const [openEquipSections, setOpenEquipSections] = useState<Set<string>>(new Set());
+  const [openMagicSections, setOpenMagicSections] = useState<Set<string>>(new Set());
+  const toggleSet = (fn: React.Dispatch<React.SetStateAction<Set<string>>>, key: string) =>
+    fn((prev) => {
+      const next = new Set(prev);
+      if (next.has(key)) next.delete(key);
+      else next.add(key);
+      return next;
+    });
+  const openAndJump = (fn: React.Dispatch<React.SetStateAction<Set<string>>>, key: string, id: string) => {
+    fn((prev) => new Set(prev).add(key));
+    setTimeout(() => jumpToSection(id), 60);
+  };
   // Click-a-level gp limit (Shaun, 2026-11-02): clicking a level
   // in the wealth-by-level chart sets the total gp limit, shown
   // beside Magic items in the summary below (0 gp until a level
@@ -373,7 +392,7 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, wealthLimi
                   size="sm"
                   variant="outline"
                   className="h-7 text-xs"
-                  onClick={() => jumpToSection(`equip-cat-${section.key}`)}
+                  onClick={() => openAndJump(setOpenEquipSections, section.key, `equip-cat-${section.key}`)}
                   data-testid={`button-equip-cat-${section.key}`}
                 >
                   {section.label} ({section.items.length})
@@ -386,16 +405,23 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, wealthLimi
             {visibleEquipment.length === 0 ? (
               <p className="p-4 text-sm text-muted-foreground">No equipment matches your search or the enabled rule sets.</p>
             ) : (
-              equipmentSections.map((section) => (
+              equipmentSections.map((section) => {
+                const equipOpen = equipQuery.trim() !== "" || openEquipSections.has(section.key);
+                return (
                 <div key={section.key}>
-                  <div
+                  <button
+                    type="button"
                     id={`equip-cat-${section.key}`}
-                    className="sticky top-0 z-10 border-b border-card-border bg-card px-3 py-2 font-display text-sm font-semibold"
+                    className="sticky top-0 z-10 flex w-full items-center gap-1.5 border-b border-card-border bg-card px-3 py-2 text-left font-display text-sm font-semibold"
+                    onClick={() => toggleSet(setOpenEquipSections, section.key)}
+                    aria-expanded={equipOpen}
                     data-testid={`heading-equip-cat-${section.key}`}
                   >
+                    {equipOpen ? <ChevronDown className="h-4 w-4 shrink-0" /> : <ChevronRight className="h-4 w-4 shrink-0" />}
                     {section.label}{" "}
                     <span className="text-xs font-normal text-muted-foreground">({section.items.length})</span>
-                  </div>
+                  </button>
+                  {equipOpen && (
                   <div className="divide-y divide-card-border">
                     {section.items.map((item) => (
                 <div key={item.id} className="flex flex-wrap items-center justify-between gap-2 p-3" data-testid={`equipment-row-${item.id}`}>
@@ -425,8 +451,10 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, wealthLimi
                 </div>
                     ))}
                   </div>
+                  )}
                 </div>
-              ))
+                );
+              })
             )}
           </div>
         </CardContent>
@@ -457,7 +485,7 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, wealthLimi
                   size="sm"
                   variant="outline"
                   className="h-7 text-xs"
-                  onClick={() => jumpToSection(`magic-cat-${section.key}`)}
+                  onClick={() => openAndJump(setOpenMagicSections, section.key, `magic-cat-${section.key}`)}
                   data-testid={`button-magic-cat-${section.key}`}
                 >
                   {section.label} ({section.items.length})
@@ -469,16 +497,23 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, wealthLimi
             {visibleMagicItems.length === 0 ? (
               <p className="p-4 text-sm text-muted-foreground">No magic items match your search or the enabled rule sets.</p>
             ) : (
-              magicSections.map((section) => (
+              magicSections.map((section) => {
+                const magicOpen = itemQuery.trim() !== "" || openMagicSections.has(section.key);
+                return (
                 <div key={section.key}>
-                  <div
+                  <button
+                    type="button"
                     id={`magic-cat-${section.key}`}
-                    className="sticky top-0 z-10 border-b border-card-border bg-card px-3 py-2 font-display text-sm font-semibold"
+                    className="sticky top-0 z-10 flex w-full items-center gap-1.5 border-b border-card-border bg-card px-3 py-2 text-left font-display text-sm font-semibold"
+                    onClick={() => toggleSet(setOpenMagicSections, section.key)}
+                    aria-expanded={magicOpen}
                     data-testid={`heading-magic-cat-${section.key}`}
                   >
+                    {magicOpen ? <ChevronDown className="h-4 w-4 shrink-0" /> : <ChevronRight className="h-4 w-4 shrink-0" />}
                     {section.label}{" "}
                     <span className="text-xs font-normal text-muted-foreground">({section.items.length})</span>
-                  </div>
+                  </button>
+                  {magicOpen && (
                   <div className="divide-y divide-card-border">
                     {section.items.map((item) => (
                 <div key={item.id} className="flex flex-wrap items-center justify-between gap-2 p-3" data-testid={`magic-item-row-${item.id}`}>
@@ -507,8 +542,10 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, wealthLimi
                 </div>
                     ))}
                   </div>
+                  )}
                 </div>
-              ))
+                );
+              })
             )}
           </div>
         </CardContent>

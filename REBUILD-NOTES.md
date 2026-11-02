@@ -5159,3 +5159,12 @@ round-trip tests: the pick survives normalizeBuild, legacy
 builds without the field load clean, the cross-class
 double-cost lock is still forced off, and saved ruleset /
 house-rule state is preserved exactly.
+
+**Equipment minimized to titles (2026-11-02, Shaun's
+direction):** every category section in the Equipment and Magic
+Items lists starts closed to just its heading; clicking the
+heading expands its items, clicking again folds them. While a
+search is typed, sections show open so matches stay visible.
+The heading buttons above each list now open the section they
+jump to. The Inventory card is untouched — that's the
+character's own gear, not a browsing list.
