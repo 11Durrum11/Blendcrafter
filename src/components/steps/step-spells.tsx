@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import { BookOpen, Search } from "lucide-react";
 import { ALL_CLASSES, ALL_SPELLS, CASTING_PROFILES_BY_ID } from "@/data";
 import type { CastingProfile, CharacterBuild, ResolvedCharacter, SpellDefinition } from "@/engine/types";
-import { bonusSpells, canCastLevel, knownRow, perDayRow } from "@/engine/spells";
+import { bonusSpells, canCastLevel, knownRow, perDayRow, spellLevelOnList } from "@/engine/spells";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -119,13 +119,14 @@ export function StepSpells({ build, resolved, onToggleSpell }: StepSpellsProps) 
         const selected = build.selectedSpells?.[choice.classId] ?? [];
         const list = ALL_SPELLS.filter(
           (s) =>
-            s.levels[profile.listName] !== undefined &&
+            spellLevelOnList(s, profile) !== undefined &&
             build.enabledRulesets.includes(s.ruleset) &&
             (!profile.allowedSchools || profile.allowedSchools.includes(s.school))
         );
         const byLevel = new Map<number, SpellDefinition[]>();
         for (const s of list) {
-          const lvl = s.levels[profile.listName];
+          const lvl = spellLevelOnList(s, profile);
+          if (lvl === undefined) continue;
           if (!canCastLevel(profile, choice.levels, lvl, abilityScore)) continue;
           const arr = byLevel.get(lvl) ?? [];
           arr.push(s);

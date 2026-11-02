@@ -115,6 +115,19 @@ export function slotCap(
   return cell + bonusSpells(abilityScore, spellLevel);
 }
 
+/** The level at which a spell appears for a casting profile: the
+ *  profile's listName first, then any listAliases (sorcerer-only spells
+ *  keyed "Sorcerer" — Audit C flag F3, 2026-11-02). */
+export function spellLevelOnList(spell: SpellDefinition, profile: CastingProfile): number | undefined {
+  const direct = spell.levels[profile.listName];
+  if (direct !== undefined) return direct;
+  for (const alias of profile.listAliases ?? []) {
+    const viaAlias = spell.levels[alias];
+    if (viaAlias !== undefined) return viaAlias;
+  }
+  return undefined;
+}
+
 /** Spells on a class's list (optionally ruleset-filtered), with the
  *  profile's school restriction applied (spellthief). */
 export function spellsOnList(
@@ -122,7 +135,7 @@ export function spellsOnList(
   rulesets?: readonly string[]
 ): SpellDefinition[] {
   return ALL_SPELLS.filter((s) => {
-    if (s.levels[profile.listName] === undefined) return false;
+    if (spellLevelOnList(s, profile) === undefined) return false;
     if (profile.allowedSchools && !profile.allowedSchools.includes(s.school)) return false;
     if (rulesets && !rulesets.includes(s.ruleset)) return false;
     return true;
@@ -173,7 +186,7 @@ export function canCastNamedSpell(
   abilityScores?: Partial<Record<AbilityKey, number | null>>
 ): boolean {
   for (const fact of facts) {
-    const level = spell.levels[fact.profile.listName];
+    const level = spellLevelOnList(spell, fact.profile);
     if (level === undefined) continue;
     if (fact.profile.allowedSchools && !fact.profile.allowedSchools.includes(spell.school)) continue;
     const score = abilityScores ? abilityScores[fact.profile.keyAbility] ?? null : null;
@@ -228,7 +241,7 @@ export function validateSelectedSpells(
         issues.push({ severity: "error", message: `Unknown spell id "${spellId}" selected for ${className}.` });
         continue;
       }
-      const level = spell.levels[profile.listName];
+      const level = spellLevelOnList(spell, profile);
       if (level === undefined) {
         issues.push({
           severity: "error",

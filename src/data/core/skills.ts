@@ -57,7 +57,7 @@ export const CORE_SKILLS: SkillDefinition[] = [
   skill("search", "Search", "int"),
   skill("sense-motive", "Sense Motive", "wis"),
   skill("sleight-of-hand", "Sleight of Hand", "dex", { trainedOnly: true, armorCheckPenalty: true }),
-  skill("speak-language", "Speak Language", "int", { description: "Always a cross-class purchase: 1 rank buys fluency in one additional language." }),
+  skill("speak-language", "Speak Language", "int", { trainedOnly: true, description: "Always a cross-class purchase: 1 rank buys fluency in one additional language. SRD header: \"Speak Language (None; Trained Only)\" — the skill is never rolled, so it has no key ability; keyed \"int\" here only because the schema requires an ability (flagged in the 2026-11-02 Domain B audit)." }),
   skill("spellcraft", "Spellcraft", "int", { trainedOnly: true }),
   skill("spot", "Spot", "wis"),
   skill("survival", "Survival", "wis"),

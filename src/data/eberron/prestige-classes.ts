@@ -1,5 +1,5 @@
 /**
- * Eberron prestige classes: all eight from Chapter 5 of the Eberron
+ * Eberron prestige classes: all eight from Chapter 4 of the Eberron
  * Campaign Setting. Progression tables were read from the printed
  * tables in the copy in Shaun's Dropbox library:
  *   /A POC PC related/2.Alchemy & steampunk flavored material/2.Eberron Campaign Setting.pdf

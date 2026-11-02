@@ -8,7 +8,7 @@
  *
  * Parsing rules (surveyed against all 3,614 priced records in the data):
  * - The first currency amount in the string is the price; units convert at
- *   pp ×10, gp ×1, sp ×0.1, cp ×0.01. Fractions (½ gp) are supported.
+ *   pp ×10, gp ×1, sp ×0.1, cp ×0.01. Fractions (½ gp, 1/2 gp) are supported.
  * - A parenthetical "market" price wins when present (wealth counts market
  *   value, not crafting/base cost): "8,000 gp base cost (16,000 gp market)".
  * - Multi-grade records (augment crystals: least/lesser/greater in one
@@ -24,7 +24,13 @@ const UNIT_TO_GP: Record<string, number> = { pp: 10, gp: 1, sp: 0.1, cp: 0.01 };
 
 export function parseCostToGp(cost: string): number | null {
   if (!cost) return null;
-  const normalized = cost.replace(/½/g, "0.5").replace(/¼/g, "0.25").replace(/,/g, "");
+  const normalized = cost
+    .replace(/½/g, "0.5")
+    .replace(/¼/g, "0.25")
+    .replace(/(\d+(?:\.\d+)?)\s*\/\s*(\d+(?:\.\d+)?)/g, (_m, a: string, b: string) =>
+      String(parseFloat(a) / parseFloat(b))
+    )
+    .replace(/,/g, "");
   const market = normalized.match(/([\d.]+)\s*gp\s+market/i);
   if (market) return parseFloat(market[1]);
   // Ranges ("5–10 gp", "5 sp–1 gp") count at the lower bound, in its own unit.

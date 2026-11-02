@@ -322,6 +322,10 @@ export interface CastingProfile {
   classId: string;
   /** The key used in SpellDefinition.levels for this class's list. */
   listName: string;
+  /** Additional levels keys this profile may also draw from, checked after
+   *  listName (e.g. the sorcerer profile also reads the "Sorcerer" key used
+   *  by spells printed for sorcerers only — Audit C flag F3, 2026-11-02). */
+  listAliases?: string[];
   kind: CastingKind;
   keyAbility: AbilityKey;
   spellsPerDay: (number | null)[][];

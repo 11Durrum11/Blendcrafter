@@ -37,6 +37,7 @@ export const CASTING_PROFILES: CastingProfile[] = [
   {
     classId: "sorcerer",
     listName: "Sorcerer/Wizard",
+    listAliases: ["Sorcerer"],
     kind: "spontaneous",
     keyAbility: "cha",
     spellsPerDay: [
@@ -468,7 +469,7 @@ export const CASTING_PROFILES: CastingProfile[] = [
       [5, 5, 4, 3, null, null, null, null, null, null],
       [5, 5, 4, 4, null, null, null, null, null, null],
       [6, 5, 5, 4, 3, null, null, null, null, null],
-      [6, 5, 5, 4, 4, null, null, null, null, null, null],
+      [6, 5, 5, 4, 4, null, null, null, null, null],
       [6, 6, 5, 5, 4, 3, null, null, null, null],
       [6, 6, 5, 5, 4, 4, null, null, null, null],
     ],
@@ -507,6 +508,39 @@ export const CASTING_PROFILES: CastingProfile[] = [
     note: "Spontaneous Charisma caster on the Gun Mage spell list (Iron Kingdoms Character Guide pp. 110–111). Table 2–6 marks the first spells-known entry for each newly gained spell level with an asterisk: '*Provided the gun mage has a high enough Charisma score to have a bonus spell of this level.' The asterisked counts are encoded as printed (2).",
     source: "Iron Kingdoms Character Guide, Table 2-5: The Gun Mage (spells per day, p. 106) and Table 2-6: Gun Mage Spells Known (p. 107)",
     sourceUrl: `${DBX}1.D&D 3rd ed.-Iron Kingdoms-Character Guide (Rules Sourcebook).pdf`,
+  },
+  {
+    // Missing-content batch 2026-11-02: the Eberron Campaign
+    // Setting artificer's "spells" are INFUSIONS — neither arcane
+    // nor divine, imbued into items and constructs, with the whole
+    // printed list (ECS pp. 103–105) accessible and nothing known
+    // or prepared. Expressed with the beguiler/warmage whole-list
+    // precedent: spontaneous + knowsEntireList. Rows are Table 2–1
+    // infusions per day (levels 1–10); cell 0 is always null — the
+    // artificer has no 0-level infusions. The whole printed list is
+    // tagged/built as of the 2026-11-02 audit wave: 34 shared PHB/SC
+    // entries carry "Artificer" keys from the tagging pass and the
+    // 27 ECS-original infusions are records in the eberron pack.
+    classId: "artificer-ecs",
+    listName: "Artificer",
+    kind: "spontaneous",
+    keyAbility: "int",
+    spellsPerDay: [
+      [null, 2, null, null, null, null, null, null, null, null],
+      [null, 3, null, null, null, null, null, null, null, null],
+      [null, 3, 1, null, null, null, null, null, null, null],
+      [null, 3, 2, null, null, null, null, null, null, null],
+      [null, 3, 3, 1, null, null, null, null, null, null],
+      [null, 3, 3, 2, null, null, null, null, null, null],
+      [null, 3, 3, 2, null, null, null, null, null, null],
+      [null, 3, 3, 3, 1, null, null, null, null, null],
+      [null, 3, 3, 3, 2, null, null, null, null, null],
+      [null, 3, 3, 3, 2, null, null, null, null, null],
+    ],
+    knowsEntireList: true,
+    note: "Infusions, not spells: an artificer's infusions are neither arcane nor divine and can only be imbued into items or constructs. He knows the entire artificer infusion list (Eberron Campaign Setting pp. 103–105) and prepares nothing; the per-day figures are infusions per day from Table 2–1.",
+    source: "Eberron Campaign Setting, Table 2–1: The Artificer (infusions per day, p. 30)",
+    sourceUrl: `${DBX}2.Alchemy & steampunk flavored material/2.Eberron Campaign Setting.pdf`,
   },
 ];
 

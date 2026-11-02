@@ -715,6 +715,30 @@ export function resolveCharacter(build: CharacterBuild): ResolvedCharacter {
     validation,
   };
 
+  // Ability-floor validation (Domain D audit, 2026-11-02): a resolved
+  // ability score of 0 or less (e.g. a warforged charger's printed −8
+  // Charisma against a low base score) leaves a creature helpless in
+  // that ability — surface it instead of resolving silently.
+  {
+    const ABILITY_NAMES: Record<AbilityKey, string> = {
+      str: "Strength",
+      dex: "Dexterity",
+      con: "Constitution",
+      int: "Intelligence",
+      wis: "Wisdom",
+      cha: "Charisma",
+    };
+    for (const key of ABILITY_KEYS) {
+      const total = resolvedCharacter.abilityScores[key]?.total ?? null;
+      if (total !== null && total < 1) {
+        validation.push({
+          severity: "error",
+          message: `${ABILITY_NAMES[key]} is ${total} after racial and template adjustments — a score of 0 or lower leaves a creature helpless in that ability. Raise the base score or remove a penalty.`,
+        });
+      }
+    }
+  }
+
   // Spell selection validation (Batch 12): list membership, level
   // access, and per-level known/prepared caps from the casting
   // profiles. Prestige "+1 spellcasting" advancement is not modeled

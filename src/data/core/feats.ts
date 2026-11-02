@@ -1375,5 +1375,20 @@ export const CORE_FEATS: FeatDefinition[] = [
     "source": "d20SRD — Feats",
     "sourceUrl": "https://www.d20srd.org/srd/feats.htm",
     "ruleset": "core"
+  },
+  {
+    "id": "tattoo-focus",
+    "name": "Tattoo Focus",
+    "category": "setting-specific",
+    "prerequisites": [
+      "Specialized in a school of magic",
+      "Region: Thay"
+    ],
+    "benefitSummary": "+1 to the DC of saving throws against spells from your specialized school, and +1 on caster level checks to overcome spell resistance when casting spells from that school.",
+    "special": "Only characters with the Tattoo Focus feat can participate in Red Wizard circle magic.",
+    "modifiers": [],
+    "source": "Dungeon Master's Guide — New Features of the Red Wizard (p. 194)",
+    "sourceUrl": "/A POC PC related/4.Core books/3.5 Dungeon Master's Guide.pdf",
+    "ruleset": "core"
   }
 ];

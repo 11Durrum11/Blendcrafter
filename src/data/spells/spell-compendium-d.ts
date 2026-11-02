@@ -120,7 +120,7 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
       "Force"
     ],
     "levels": {
-      "Sorcerer/ Wizard": 5
+      "Sorcerer/Wizard": 5
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -312,7 +312,7 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     "levels": {
       "Assassin": 1,
       "Bard": 1,
-      "Sorcerer/ Wizard": 1
+      "Sorcerer/Wizard": 1
     },
     "components": "V, S",
     "castingTime": "1 swift action",
@@ -800,7 +800,7 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     "levels": {
       "Assassin": 1,
       "Ranger": 1,
-      "Sorcerer/ Wizard": 1
+      "Sorcerer/Wizard": 1
     },
     "components": "V, S",
     "castingTime": "1 swift action",
@@ -1046,7 +1046,7 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     "levels": {
       "Bard": 2,
       "Cleric": 3,
-      "Sorcerer/ Wizard": 3
+      "Sorcerer/Wizard": 3
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -1176,7 +1176,7 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     "levels": {
       "Assassin": 3,
       "Bard": 4,
-      "Sorcerer/ Wizard": 3
+      "Sorcerer/Wizard": 3
     },
     "components": "V, S",
     "castingTime": "1 swift action",
@@ -1981,7 +1981,7 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     "levels": {
       "Cleric": 5,
       "Druid": 5,
-      "Sorcerer/ Wizard": 7
+      "Sorcerer/Wizard": 7
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -2305,7 +2305,8 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Cleric": 5,
-      "Sorcerer/Wizard": 6
+      "Sorcerer/Wizard": 6,
+      "Shugenja": 4
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -2424,7 +2425,8 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     "levels": {
       "Cleric": 9,
       "Druid": 9,
-      "Sorcerer/ Wizard": 9
+      "Sorcerer/Wizard": 9,
+      "Wu Jen": 9
     },
     "components": "V, S, M",
     "castingTime": "1 round",
@@ -2845,7 +2847,8 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     ],
     "levels": {
       "Druid": 2,
-      "Sorcerer/Wizard": 2
+      "Sorcerer/Wizard": 2,
+      "Wu Jen": 2
     },
     "components": "V, S, M",
     "castingTime": "1 round",
@@ -2890,7 +2893,8 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
       "Evil"
     ],
     "levels": {
-      "Sorcerer/Wizard": 7
+      "Sorcerer/Wizard": 7,
+      "Wu Jen": 7
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -2913,7 +2917,8 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
       "Force"
     ],
     "levels": {
-      "Sorcerer/Wizard": 4
+      "Sorcerer/Wizard": 4,
+      "Wu Jen": 5
     },
     "components": "V, S, F",
     "castingTime": "1 standard action",
@@ -2958,7 +2963,7 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     "levels": {
       "Bard": 6,
       "Cleric": 7,
-      "Sorcerer/ Wizard": 7
+      "Sorcerer/Wizard": 7
     },
     "components": "V, S, F",
     "castingTime": "1 standard action sword",
@@ -3085,7 +3090,8 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
-      "Druid": 3
+      "Druid": 3,
+      "Wu Jen": 3
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -3323,7 +3329,8 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
-      "Sorcerer/Wizard": 7
+      "Sorcerer/Wizard": 7,
+      "Wu Jen": 6
     },
     "components": "V, S, M",
     "castingTime": "1 round",
@@ -3370,7 +3377,8 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     ],
     "levels": {
       "Druid": 9,
-      "Sorcerer/Wizard": 9
+      "Sorcerer/Wizard": 9,
+      "Wu Jen": 9
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -3415,7 +3423,7 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     "levels": {
       "Bard": 3,
       "Druid": 3,
-      "Sorcerer/ Wizard": 4
+      "Sorcerer/Wizard": 4
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -4011,7 +4019,7 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     ],
     "levels": {
       "Cleric": 9,
-      "Sorcerer/ Wizard": 9
+      "Sorcerer/Wizard": 9
     },
     "components": "V, S, M, XP",
     "castingTime": "1 hour",
@@ -4216,7 +4224,8 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
       "Acid"
     ],
     "levels": {
-      "Sorcerer/Wizard": 5
+      "Sorcerer/Wizard": 5,
+      "Wu Jen": 5
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -4239,7 +4248,7 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     "levels": {
       "Bard": 4,
       "Dragon": 4,
-      "Sorcerer/ Wizard": 4
+      "Sorcerer/Wizard": 4
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -4284,7 +4293,7 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     "levels": {
       "Assassin": 4,
       "Cleric": 5,
-      "Sorcerer/ Wizard": 5
+      "Sorcerer/Wizard": 5
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -4423,7 +4432,8 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
-      "Sorcerer/Wizard": 2
+      "Sorcerer/Wizard": 2,
+      "Wu Jen": 2
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -4560,7 +4570,7 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     "levels": {
       "Cleric": 4,
       "Druid": 5,
-      "Sorcerer/ Wizard": 4
+      "Sorcerer/Wizard": 4
     },
     "components": "V, S, M/DF",
     "castingTime": "Not printed in source",
@@ -4747,7 +4757,7 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     "levels": {
       "Bard": 3,
       "Cleric": 3,
-      "Sorcerer/ Wizard": 3
+      "Sorcerer/Wizard": 3
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -4851,7 +4861,8 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Bard": 2,
-      "Sorcerer/Wizard": 2
+      "Sorcerer/Wizard": 2,
+      "Warmage": 2
     },
     "components": "V, S, F",
     "castingTime": "1 standard action A whirling blade makes attacks against many foes",
@@ -5130,7 +5141,8 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     "school": "Necromancy",
     "descriptors": [],
     "levels": {
-      "Cleric": 7
+      "Cleric": 7,
+      "Wu Jen": 7
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -5150,7 +5162,8 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
-      "Druid": 4
+      "Druid": 4,
+      "Wu Jen": 5
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",

@@ -109,17 +109,11 @@ export const IRON_KINGDOMS_FEATS: FeatDefinition[] = [
     sourceUrl: IKCG_PATH,
     ruleset: "iron_kingdoms",
   },
-  {
-    id: "great-cleave",
-    name: "Great Cleave",
-    category: "general",
-    prerequisites: ["Strength 13", "Cleave", "Power Attack", "Base attack bonus +4"],
-    benefitSummary: "This feat works like Cleave, except that there is no limit to the number of times you can use it per round.",
-    modifiers: [],
-    source: `${CH5}: Great Cleave`,
-    sourceUrl: IKCG_PATH,
-    ruleset: "iron_kingdoms",
-  },
+  // NOTE (2026-11-02 Domain B audit): this pack previously also carried a
+  // "great-cleave" record — the IKCG Chapter 5 reprint of the SRD feat. It
+  // was silently shadowed by the governing d20SRD record of the same id
+  // (barrel dedupes by id, first pack wins), so it has been removed to match
+  // the project's skip-reprints convention; the SRD Great Cleave governs.
   {
     id: "guarded",
     name: "Guarded",

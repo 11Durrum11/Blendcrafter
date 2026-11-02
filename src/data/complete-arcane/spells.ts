@@ -1071,4 +1071,25 @@ export const COMPLETE_ARCANE_SPELLS: SpellDefinition[] = [
   "source": "Complete Arcane, p. 129",
   "sourceUrl": "/A POC PC related/5.Splat/Complete sereies/D&D 3.5 - Complete Arcane.pdf"
 },
+{
+  "id": "accuracy",
+  "name": "Accuracy",
+  "ruleset": "core",
+  "school": "Transmutation",
+  "descriptors": [],
+  "levels": {
+    "Warmage": 1,
+    "Wu Jen": 1
+  },
+  "components": "V, S, M",
+  "castingTime": "1 standard action",
+  "range": "Touch",
+  "targetOrArea": "One thrown weapon per level touched or one projectile weapon touched",
+  "duration": "10 min./level",
+  "savingThrow": "Will negates (harmless, object)",
+  "spellResistance": "Yes (harmless, object)",
+  "summary": "You enhance one or more thrown weapons or one projectile weapon to improve its chance of hitting distant targets: for the duration, the range increment of the affected weapon or weapons is doubled. Material component: ink used to scribe a mystical character on each weapon affected.",
+  "source": "Complete Arcane, p. 96",
+  "sourceUrl": "/A POC PC related/5.Splat/Complete sereies/D&D 3.5 - Complete Arcane.pdf"
+},
 ];

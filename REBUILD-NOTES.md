@@ -4277,3 +4277,282 @@ casting profiles 18 → **19**. Files created:
 `src/lib/class-bonus-feats.ts` (item E), and this addendum. No
 toggle/settings, engine, component, or character-repository file
 was touched. NOT pushed — the parent agent verifies and pushes.
+
+# Full audit + fix wave — addendum (2026-11-02)
+
+Shaun's order: "Start from top to bottom, left to right, front to
+back, every line make sure everything is right no information is
+missing anywhere all the information is where it's supposed to be" —
+followed by six 20th-level test characters (separate addendum).
+Four domain audits ran in parallel; every fix below is book-provable
+and was verified in-partition before consolidation.
+
+## Audit results and fixes
+
+- **Domain A (races/classes/PrCs/templates):** 566 records verified;
+  the levels 11–20 formula fallback is PROVEN for all 59 base classes.
+  Fix: Bugbear gained its missing hitDie (3d8 per its own trait text).
+  Seven book-verified progression deviations were confirmed as printed
+  and left alone (guarded in the audit suite): Elven High Mage, War
+  Hulk, Disciples of Mammon/Baalzebul, S&S Artificer, Arcane
+  Mechanik, Mechanist; heir-of-siberys' empty classSkills is
+  book-faithful (ECS p. 81 inheritance rule).
+- **Domain B (feats & skills):** 1,711 feats + 73 skills, schema
+  clean. Fixes: Speak Language is now trainedOnly (SRD: "None;
+  Trained Only"; the schema has no "none" key ability, so the record
+  stays keyed Int and its description documents the SRD line); the
+  IKCG Ch. 5 Great Cleave reprint shadowed by the SRD record was
+  removed (skip-reprints convention). Superior Synergy module fully
+  reconciled with SUPERIOR-SYNERGY-ACCOUNTING.md.
+- **Domain C (spells/profiles/equipment/magic items):** Fixes: 74
+  Spell Compendium spells carried the levels key "Sorcerer/ Wizard"
+  (stray space) matching no profile — fixed (Sor/Wiz-keyed spells
+  1,269 → 1,343); Healer profile level-8 row trimmed to 10 cells.
+  Flags F1–F4 drove the tagging wave, the PHB II chapter build, the
+  sorcerer list alias, and the Wu Jen completion below. Ten fan-index
+  equipment records keep cost "TBD" (print-only sources, unpriceable).
+- **Domain D (engine & wiring):** wiring sound — all 12 barrel
+  aggregates reconciled exactly (8,417 records, 0 orphans); 467
+  resolver smoke resolves; the 16-combination house-rule matrix is
+  clean; toggle state is preserved exactly through normalize, save,
+  prefs inheritance, and build links (off-stays-off on every path).
+  Two findings fixed by the parent (below).
+
+## Features authoring (Audit A's biggest finding: 38 records had none)
+
+- **Prestige classes:** all 8 DMG PrCs (arcane trickster, archmage,
+  assassin, dragon disciple, eldritch knight, loremaster, mystic
+  theurge, shadowdancer) gained feature entries from their SRD pages;
+  0 of 361 PrCs now have empty features.
+- **Base classes:** 31 classes, 294 entries — all 11 PHB classes, all
+  5 NPC classes, and the 15 recovered splatbook classes (beguiler,
+  duskblade, dragon shaman, knight, favored soul, spirit shaman,
+  hexblade, samurai, swashbuckler, marshal, ninja, scout, spellthief,
+  warlock, warmage), sourced from the SRD and from Shaun's own book
+  PDFs. Selectable bonus-feat lists are not duplicated into features;
+  a single "Bonus Feats" entry names the cadence and defers to
+  src/lib/class-bonus-feats.ts. Fighter = Basics + Bonus Feats only,
+  as printed. Zero base classes with empty features.
+
+## Spell-list tagging wave (Audit C flag F1)
+
+573 records tagged additively (value-level diffs prove only added
+keys): Beguiler 0 → 92, Duskblade 0 → 46, Warmage 0 → 85, Healer
+1 → 54, Adept 4 → 71, Shugenja 6 → 219, each from its printed class
+list. Wu Jen cantrips 0 → 17 in the same pass, then the **Wu Jen
+completion** transcribed the full printed list (Complete Arcane
+pp. 91–95, 257 entries) and added 207 more keys — Wu Jen profile
+90 → 297 spells, zero disagreements with pre-existing values (the
+tagging sample itself was wrong on two pairs; the book governs:
+corpse candle Wu Jen 3, horrid wilting Wu Jen 8).
+
+**Wu Jen spell-list completion (2026-11-02, Domain C audit
+follow-up):** the Wu Jen casting profile showed only 90 spells
+because the original tagging had reached only records whose own
+spell entries print a Wu Jen level — the SRD/Spell Compendium
+records for PHB spells on the list carried no "Wu Jen" key. The
+complete printed Wu Jen list (Complete Arcane pp. 91–95, 257 entries
+at levels 1–9) was transcribed from page images and matched against
+ALL_SPELLS with the tagging batch's matcher: **207 keys added**
+(177 SRD, 28 Spell Compendium, 2 core audit), 49 printed entries
+confirmed already tagged at the printed level, **zero
+disagreements** with pre-existing values. Wu Jen profile now 297
+spells (per level 17/41/42/33/40/33/29/24/20/18). Value-level diff
+vs the pre-batch snapshot proves the only change in any spell file
+is the added "Wu Jen" keys. One printed entry has no record
+anywhere: **accuracy** (Wu Jen 1; described CA p. 96) — built in the
+consolidation below.
+
+## Dandwiki pack (Shaun's doc #5, "in use" links)
+
+New pack src/data/homebrew-dandwiki/, every record ruleset
+"homebrew", sourced to the wiki page: +5 base classes (Elemental
+Bender, Mad Alchemist, Battle Chemist, Gadgeteer, Night Doctor),
++Dwelf race, +3 templates (Twisted Creature, Half-Forged,
+Half-Celestial Template Class — the SRD half-celestial record is
+untouched), +91 equipment (Mogul Locomotive, Hot Air Balloon, three
+wiki airships distinct from the Sorcery & Steam zeppelins, 86
+alchemical items from the Mundane Alchemical Items list), +2
+wild-magic surge tables (the wiki variant — a different system from
+Shaun's own homebrew tables), and a 313-entry reference index
+(Flaws 99, Traits 155, Wild Magic 11, Masterwork 11, Legal System
+36, Homebrew Feats portal 1 — the portal links several thousand
+feat pages and is indexed, not crawled). NOT integrated: the
+Mechanic class (its wiki page has been deleted and no successor
+exists; the live "Mechanist" is a different class and was not
+substituted) and the NPCs link (a category index of NPC stat
+blocks; the app has no NPC record type). Fetch fallbacks are
+documented in the records: Elemental Bender via its live successor
+"Bender, 2nd Variant"; Zeppelins via the author's Renderrs' DnD
+Resource mirror; Night Doctor via the surviving dnd-wiki.org page.
+The Mad Alchemist page carries the wiki's "April Fools" banner —
+noted in its record, integrated as ordered.
+
+## Missing-content batch (2026-11-02)
+
+ECS Artificer built as a new base class (id artificer-ecs,
+src/data/eberron/classes-ecs.ts) with a modeled infusion casting
+profile (ECS Table 2–1; whole-list access, Int-based); its
+selectable bonus-feat list (ECS p. 32: metamagic, or Attune Magic
+Weapon, Craft Construct, Exceptional Artisan, Extra Rings,
+Extraordinary Artisan, Legendary Artisan, Wand Mastery) is
+transcribed in the batch report for the class-bonus module.
+Cannith Wand Adept was NOT built: it is not in the Eberron
+Campaign Setting (ECS Ch. 4 prints exactly 8 PrCs, all already in
+the data) — it is from Sharn: City of Towers, which is not in the
+library. DMG Red Wizard PrC and its prerequisite feat Tattoo Focus
+appended to the core pack (Spell Mastery named in the feature text
+only, not built, per Shaun's ruling). Player's Handbook II
+Chapter 4 (New Spells) built in full: 124 records
+(src/data/players-handbook-ii/spells.ts) — all 123 names from the
+chapter lists plus Bigby's Helpful Hand (described p. 102, absent
+from the lists); PHB II's Master's Touch and Summon Golem are
+different spells from the Spell Compendium / Sorcery & Steam
+records of those names and are filed under the suffixed ids
+masters-touch-phb2 and summon-golem-phb2. All PHB II records carry
+their printed Beguiler (19) and Duskblade (25) list keys.
+Follow-up: ~43 shared PHB/SC spells on the printed ECS infusion
+list still lack "Artificer" levels keys (18 ECS-new infusions
+already carry them).
+
+## Consolidation fixes (parent, 2026-11-02)
+
+- **Engine:** parseCostToGp handles ASCII fractions ("1/2 gp" →
+  0.5; was 2). CastingProfile gained listAliases and the engine/UI
+  resolve spell levels through spellLevelOnList — the sorcerer
+  profile aliases "Sorcerer", making the 10 sorcerer-only spells
+  (Arcane Fusion line, Dragon Magic primal spells) reachable by
+  sorcerers only; spell data stays book-true (Audit C flag F3).
+  The resolver now raises an error-level validation issue when a
+  resolved ability total falls below 1 (the Warforged Charger's
+  printed −8 Charisma can no longer resolve to 0 silently).
+  Verified: ~/consolidation-work/verify-engine-fixes.ts.
+- **DMG PrC records aligned to the SRD:** arcane trickster hit die
+  d6 → d4 and class skills corrected (Appraise and Speak Language
+  in, Perform out); archmage prerequisite now reads "knowledge of
+  5th-level or higher spells from at least five schools"; assassin
+  and shadowdancer skill lists corrected to the SRD; eldritch
+  knight's and mystic theurge's "Knowledge (all)" replaced by their
+  printed specialties; dragon disciple and loremaster gained Speak
+  Language.
+- **Dead source links fixed:** the sorcerer record and its features
+  now cite the SRD's combined sorcererWizard page; the five NPC
+  class records cite their per-class /srd/npcClasses/ pages
+  (pattern verified live). The Eberron PrC file header now says
+  Chapter 4 (the PrCs' actual chapter).
+- **Six ECS feats built from the printed book** (Attune Magic
+  Weapon, Exceptional Artisan, Extraordinary Artisan, Legendary
+  Artisan, Extra Rings — all [Item Creation] — and Wand Mastery
+  [General]; ECS pp. 50–61), and the **Artificer bonus-feat rule
+  wired** in src/lib/class-bonus-feats.ts (metamagic ∪ the seven
+  printed feats; Craft Construct's record lives in the Monster
+  Manual IV pack).
+- **Five missing spell records authored:** Deathwatch, Bless
+  Water, Cure Moderate Wounds, Mass, and Cure Serious Wounds, Mass
+  (SRD; with their Miniatures Handbook Healer keys 0/1/5/6), and
+  Accuracy (Complete Arcane p. 96; Warmage 1, Wu Jen 1).
+  **Master of the Rolling River remains a documented miss:**
+  Complete Divine prints it only as a Shugenja list line (6th) and
+  does not describe it (description chapter checked) — it is an
+  Oriental Adventures spell, and OA is not in the library.
+- **Dancing Blade collision resolved:** PHB II's Dancing Blade
+  (Bard 5, Sor/Wiz 5) was shadowed by Complete Arcane's different
+  Wu Jen spell of the same name; refiled as dancing-blade-phb2
+  (the Master's Touch precedent), with the collision noted in the
+  record.
+- Declined records stay absent per Shaun's rulings: Spell Mastery,
+  Craft Accumulator, Resilient Sphere.
+
+## Totals after the audit + fix wave
+
+Races 115, base classes 65, prestige classes 361, templates 36,
+feats 1,718, skills 73, spells 2,616, casting profiles 20,
+equipment 1,577, magic items 2,128, random tables 5,
+body-modifications index 183, dandwiki reference index 313.
+
+**Artificer infusion tagging (2026-11-02, missing-content
+follow-up):** the ECS Artificer's shared PHB/Spell Compendium list
+entries now carry "Artificer" levels keys from the printed infusion
+list (ECS pp. 103–104) — 33 keys added (28 SRD records: Identify,
+Light, Magic Stone/Vestment/Weapon, Shield of Faith, the
+ability-score line, Chill/Heat Metal, Greater Magic Weapon, the
+Globe of Invulnerability line, Minor/Major Creation, Rusting Grasp,
+Disrupting Weapon, Fabricate, the three Walls, Blade Barrier, Move
+Earth; Spell Compendium: the four Repair Damage singles and
+Hardening), taking printed-list coverage to 34 of 61 with
+value-level diff proof that nothing else changed; the one pre-keyed
+list entry (Shield of Faith, Legion's) already agreed at 4. The
+remaining 27 printed infusions — nearly all of the ECS-new infusion
+chapter (Armor Enhancement and Weapon Augmentation lines, the
+Inflict Damage singles, Construct Energy Ward line, Metamagic
+Item, Power Surge, Spell Storing Item, Total Repair, and kin) —
+have no spell records anywhere in the data and await a records
+batch; measured pre-batch, 16 records carried "Artificer" keys
+(15 of them Races of Eberron spells, not ECS-list entries).
+
+**ECS infusion records (2026-11-02, Artificer follow-up):** the
+infusion tagging pass resolved 34 of the 61 printed ECS infusions
+onto existing records, but 27 ECS-original infusions had no spell
+record anywhere; all 27 are now built in src/data/eberron/spells.ts
+(spells 2,616 → 2,643), transcribed from the printed descriptions
+(ECS pp. 108–117, read from page images): the armor enhancement and
+weapon augmentation lines, the inflict damage line, Construct
+Energy Ward (and Greater), Disable Construct, Energy Alteration,
+Enhancement Alteration, Iron Construct, Item Alteration, Metamagic
+Item, Power Surge, Resistance Item, Skill Enhancement, Spell
+Storing Item, Stone Construct, Suppress Requirement, Total Repair,
+and Toughen Construct. Eight entries are printed in abbreviated
+"as X" form with no stat block of their own; their unprinted fields
+follow the referenced infusion (lesser armor enhancement / inflict
+light damage / the weapon augmentation chain) and each such record
+carries a note saying so, with the entry's own material component
+preserved. The artificer-ecs profile now resolves the complete
+printed 61-entry infusion list at the printed levels (verified
+against the tagging batch's transcription, including the three
+inverted-name records: Magic Weapon, Greater; Globe of
+Invulnerability, Lesser; Shield of Faith, Legion's). This
+supersedes the "await a records batch" note in the tagging
+addendum above.
+
+> **Doc #4 house-rules integration (2026-11-02).** Shaun's "MISC
+> OTHER HOUSE RULES" document (house-rules doc #4,
+> workspace/user/files/4._MISC_OTHER_HOUSE_RULES_6_xpih.docx)
+> integrated into the homebrew pack; the document ends "MORE TO
+> COME!" and is unfinished. His "Twisted" template appended to
+> HOMEBREW_TEMPLATES as `twisted-house` ("Twisted (House)") — a
+> fixed corruption template (Smite Good, vile-damage Disruptive
+> Attack, DR 5/cold iron, immunities/resistances, claws, +4 Str/+4
+> Con/−2 Cha, Int floor 3, alignment to evil), distinct from the
+> D&D Wiki Twisted Creature in the homebrew-dandwiki pack; the
+> document states no CR or LA (recorded 0/0) and no
+> inherited/acquired timing (recorded acquired); the conditional
+> animal/vermin type change and the Int floor are carried as
+> feature text. His warforged built as a variant race
+> `warforged-house` in src/data/homebrew/races.ts (new
+> HOMEBREW_RACES, merged into ALL_RACES): the Eberron record is
+> untouched, but in Shaun's version warforged heal naturally
+> ("biological nanites") and healing sub-school effects work at
+> FULL effect. The remaining rules are a reference index
+> (src/data/homebrew/house-rules-index.ts, exported as
+> ALL_HOUSE_RULES_INDEX + ALL_SUMMONING_SPELL_LIST): wizard
+> spellbook 2×; money at book standard (10 cp = 1 sp, 10 sp = 1
+> gp, 1 pp = 10 gp — Shaun's ×10 electrum chain was retracted by
+> him and is not printed) with his pros/cons per currency form;
+> divinity resistance; the walking-dead bite; releveled Darkness
+> 0 / Deeper Darkness 2 / No Light 3 (reference only — no spell
+> records changed); demon portation shunting; and the summoning
+> rework (mage-types only, "*" = BAD JU-JU, creatures travel 3
+> rounds/HD). The summoning table proved to be two lists — a
+> 147-row table nested in a cell of the outer 50-row table, no
+> overlapping rows — 197 rows transcribed with book and Type as
+> written; 167 match existing spell records (spellId linked), 30
+> are from books outside the builder and are reference-only.
+
+**Final totals for the audit-wave deploy (2026-11-02):** races
+116, base classes 65, prestige classes 361, templates 37, feats
+1,718, skills 73, spells 2,643, casting profiles 20, equipment
+1,577, magic items 2,128, random tables 5, body-modifications
+index 183, dandwiki reference index 313, house-rules index 13,
+summoning spell list 197. The "Totals after the audit + fix wave"
+line above predates the infusion-records and doc-#4 batches and
+is superseded by these numbers.

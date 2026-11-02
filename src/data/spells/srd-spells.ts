@@ -14,7 +14,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Acid"
     ],
     "levels": {
-      "Sorcerer/Wizard": 2
+      "Sorcerer/Wizard": 2,
+      "Duskblade": 2,
+      "Warmage": 2
     },
     "components": "V, S, M, F",
     "castingTime": "1 standard action",
@@ -39,7 +41,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Sorcerer/Wizard": 6,
       "Water": 7,
-      "Gun Mage": 6
+      "Gun Mage": 6,
+      "Warmage": 6
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -62,7 +65,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Acid"
     ],
     "levels": {
-      "Sorcerer/Wizard": 0
+      "Sorcerer/Wizard": 0,
+      "Duskblade": 0,
+      "Warmage": 0
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -83,7 +88,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Conjuration",
     "descriptors": [],
     "levels": {
-      "Cleric": 2
+      "Cleric": 2,
+      "Adept": 2
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -105,7 +111,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Cleric": 4,
-      "Druid": 4
+      "Druid": 4,
+      "Shugenja": 4
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -148,7 +155,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
-      "Cleric": 2
+      "Cleric": 2,
+      "Artificer": 2
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -170,7 +178,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 2,
       "Sorcerer/Wizard": 2,
-      "Gun Mage": 2
+      "Gun Mage": 2,
+      "Wu Jen": 2
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -213,7 +222,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Druid": 5,
       "Ranger": 4,
-      "Sorcerer/Wizard": 5
+      "Sorcerer/Wizard": 5,
+      "Wu Jen": 5
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -262,7 +272,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Bard": 2,
-      "Druid": 2
+      "Druid": 2,
+      "Adept": 2
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -287,7 +298,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 3,
       "Sorcerer/Wizard": 4,
-      "Gun Mage": 4
+      "Gun Mage": 4,
+      "Adept": 3,
+      "Wu Jen": 4
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -330,7 +343,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Bard": 1,
-      "Sorcerer/Wizard": 1
+      "Sorcerer/Wizard": 1,
+      "Wu Jen": 1
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -376,7 +390,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 6,
       "Magic": 6,
       "Protection": 6,
-      "Gun Mage": 6
+      "Gun Mage": 6,
+      "Shugenja": 6
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -418,7 +433,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 2,
-      "Gun Mage": 2
+      "Gun Mage": 2,
+      "Wu Jen": 2
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -439,7 +455,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 0,
-      "Gun Mage": 0
+      "Gun Mage": 0,
+      "Wu Jen": 0
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -459,7 +476,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Divination",
     "descriptors": [],
     "levels": {
-      "Sorcerer/Wizard": 3
+      "Sorcerer/Wizard": 3,
+      "Beguiler": 3
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -479,7 +497,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Divination",
     "descriptors": [],
     "levels": {
-      "Sorcerer/Wizard": 7
+      "Sorcerer/Wizard": 7,
+      "Beguiler": 7
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -501,7 +520,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 9,
       "Sorcerer/Wizard": 9,
-      "Travel": 9
+      "Travel": 9,
+      "Wu Jen": 9
     },
     "components": "V, S, M",
     "castingTime": "30 minutes",
@@ -522,7 +542,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Cleric": 5,
-      "Druid": 5
+      "Druid": 5,
+      "Healer": 5,
+      "Shugenja": 5
     },
     "components": "V, S, M, DF, XP",
     "castingTime": "1 hour",
@@ -542,7 +564,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Divination",
     "descriptors": [],
     "levels": {
-      "Cleric": 2
+      "Cleric": 2,
+      "Shugenja": 2
     },
     "components": "V, S, M, F",
     "castingTime": "1 minute",
@@ -583,7 +606,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Druid": 5,
-      "Sorcerer/Wizard": 5
+      "Sorcerer/Wizard": 5,
+      "Adept": 5,
+      "Wu Jen": 5
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -628,7 +653,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Cleric": 6,
-      "Sorcerer/Wizard": 7
+      "Sorcerer/Wizard": 7,
+      "Shugenja": 6
     },
     "components": "V, S, F",
     "castingTime": "1 standard action",
@@ -649,7 +675,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Druid": 2,
-      "Ranger": 2
+      "Ranger": 2,
+      "Shugenja": 2
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -673,7 +700,12 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Druid": 2,
       "Ranger": 2,
       "Sorcerer/Wizard": 2,
-      "Gun Mage": 2
+      "Gun Mage": 2,
+      "Duskblade": 2,
+      "Adept": 2,
+      "Shugenja": 2,
+      "Wu Jen": 2,
+      "Artificer": 2
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -717,7 +749,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 3,
       "Sorcerer/Wizard": 4,
-      "Gun Mage": 4
+      "Gun Mage": 4,
+      "Adept": 3
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -739,7 +772,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
-      "Sorcerer/Wizard": 8
+      "Sorcerer/Wizard": 8,
+      "Shugenja": 8
     },
     "components": "V, S, M",
     "castingTime": "1 minute",
@@ -760,7 +794,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Conjuration",
     "descriptors": [],
     "levels": {
-      "Sorcerer/Wizard": 4
+      "Sorcerer/Wizard": 4,
+      "Warmage": 4
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -784,7 +819,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Cleric": 6,
-      "War": 6
+      "War": 6,
+      "Warmage": 6,
+      "Artificer": 6
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -831,7 +868,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Cleric": 1,
-      "Paladin": 1
+      "Paladin": 1,
+      "Adept": 1,
+      "Shugenja": 1
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -940,7 +979,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 2,
       "Sorcerer/Wizard": 2,
-      "Gun Mage": 2
+      "Gun Mage": 2,
+      "Beguiler": 2,
+      "Shugenja": 2,
+      "Wu Jen": 2
     },
     "components": "V",
     "castingTime": "1 standard action",
@@ -965,7 +1007,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 5,
       "Paladin": 4,
       "Sorcerer/Wizard": 5,
-      "Gun Mage": 5
+      "Gun Mage": 5,
+      "Beguiler": 5,
+      "Healer": 5,
+      "Adept": 5
     },
     "components": "V, S",
     "castingTime": "1 minute",
@@ -988,7 +1033,12 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 2,
       "Druid": 2,
       "Paladin": 2,
-      "Sorcerer/Wizard": 2
+      "Sorcerer/Wizard": 2,
+      "Duskblade": 2,
+      "Adept": 2,
+      "Shugenja": 2,
+      "Wu Jen": 2,
+      "Artificer": 2
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -1032,7 +1082,11 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Sorcerer/Wizard": 1,
-      "Gun Mage": 1
+      "Gun Mage": 1,
+      "Duskblade": 1,
+      "Warmage": 1,
+      "Adept": 1,
+      "Shugenja": 1
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -1079,7 +1133,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Bard": 2,
-      "Cleric": 2
+      "Cleric": 2,
+      "Healer": 2
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -1104,7 +1159,12 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Druid": 2,
       "Ranger": 2,
       "Sorcerer/Wizard": 2,
-      "Gun Mage": 2
+      "Gun Mage": 2,
+      "Duskblade": 2,
+      "Adept": 2,
+      "Shugenja": 2,
+      "Wu Jen": 2,
+      "Artificer": 2
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -1152,7 +1212,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Bard": 1,
       "Cleric": 1,
       "Sorcerer/Wizard": 1,
-      "Gun Mage": 1
+      "Gun Mage": 1,
+      "Duskblade": 1,
+      "Adept": 1,
+      "Shugenja": 1
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -1176,7 +1239,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Sorcerer/Wizard": 6,
       "Air": 6,
-      "Gun Mage": 6
+      "Gun Mage": 6,
+      "Duskblade": 5,
+      "Warmage": 6,
+      "Shugenja": 7
     },
     "components": "V, S, F",
     "castingTime": "1 standard action",
@@ -1267,7 +1333,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 3,
       "Sorcerer/Wizard": 4,
-      "Gun Mage": 4
+      "Gun Mage": 4,
+      "Beguiler": 4,
+      "Wu Jen": 4
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -1315,7 +1383,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 1,
       "Sorcerer/Wizard": 1,
-      "Gun Mage": 1
+      "Gun Mage": 1,
+      "Beguiler": 1,
+      "Wu Jen": 1
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -1338,7 +1408,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cold"
     ],
     "levels": {
-      "Druid": 2
+      "Druid": 2,
+      "Artificer": 2
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -1359,7 +1430,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 1,
-      "Gun Mage": 1
+      "Gun Mage": 1,
+      "Duskblade": 1,
+      "Warmage": 1
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -1383,7 +1456,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Sorcerer/Wizard": 6,
       "Death": 6,
-      "Gun Mage": 6
+      "Gun Mage": 6,
+      "Warmage": 6
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -1404,7 +1478,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Bard": 3,
-      "Sorcerer/Wizard": 3
+      "Sorcerer/Wizard": 3,
+      "Beguiler": 3,
+      "Shugenja": 3
     },
     "components": "V, S, F/DF",
     "castingTime": "10 minutes",
@@ -1428,7 +1504,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Sorcerer/Wizard": 8,
-      "Strength": 8
+      "Strength": 8,
+      "Duskblade": 5
     },
     "components": "V, S, F",
     "castingTime": "1 standard action",
@@ -1471,7 +1548,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Sorcerer/Wizard": 5,
-      "Gun Mage": 5
+      "Gun Mage": 5,
+      "Warmage": 5,
+      "Shugenja": 6
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -1495,7 +1574,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Sorcerer/Wizard": 1,
-      "Gun Mage": 1
+      "Gun Mage": 1,
+      "Beguiler": 1,
+      "Duskblade": 1,
+      "Shugenja": 2
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -1520,7 +1602,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Cleric": 1,
-      "Paladin": 1
+      "Paladin": 1,
+      "Adept": 1
     },
     "components": "V",
     "castingTime": "1 standard action",
@@ -1542,7 +1625,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Druid": 4,
-      "Ranger": 4
+      "Ranger": 4,
+      "Wu Jen": 4
     },
     "components": "V",
     "castingTime": "1 standard action",
@@ -1583,7 +1667,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Divination",
     "descriptors": [],
     "levels": {
-      "Cleric": 5
+      "Cleric": 5,
+      "Adept": 5,
+      "Shugenja": 5
     },
     "components": "V, S, M, DF, XP",
     "castingTime": "10 minutes",
@@ -1604,7 +1690,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Druid": 5,
-      "Ranger": 4
+      "Ranger": 4,
+      "Shugenja": 5
     },
     "components": "V, S",
     "castingTime": "10 minutes",
@@ -1626,7 +1713,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 1,
       "Cleric": 1,
-      "Sorcerer/Wizard": 1
+      "Sorcerer/Wizard": 1,
+      "Beguiler": 1,
+      "Adept": 1,
+      "Wu Jen": 1
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -1650,7 +1740,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Sorcerer/Wizard": 5,
       "Water": 6,
-      "Gun Mage": 5
+      "Gun Mage": 5,
+      "Warmage": 5,
+      "Wu Jen": 5
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -1674,7 +1766,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 3,
       "Sorcerer/Wizard": 4,
-      "Gun Mage": 4
+      "Gun Mage": 4,
+      "Beguiler": 4,
+      "Shugenja": 5,
+      "Wu Jen": 4
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -1767,7 +1862,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 3,
       "Druid": 3,
       "Sorcerer/Wizard": 4,
-      "Gun Mage": 4
+      "Gun Mage": 4,
+      "Warmage": 4,
+      "Adept": 3
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -1788,7 +1885,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 6,
-      "Gun Mage": 6
+      "Gun Mage": 6,
+      "Shugenja": 6
     },
     "components": "V, S, M, F",
     "castingTime": "At least 10 minutes; see text",
@@ -1812,7 +1910,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 3,
       "Sorcerer/Wizard": 2,
-      "Gun Mage": 2
+      "Gun Mage": 2,
+      "Warmage": 2,
+      "Adept": 3
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -1833,7 +1933,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Druid": 8,
-      "Plant": 8
+      "Plant": 8,
+      "Wu Jen": 8
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -1878,7 +1979,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 4,
       "Druid": 4,
-      "Sorcerer/Wizard": 6
+      "Sorcerer/Wizard": 6,
+      "Shugenja": 4,
+      "Wu Jen": 6
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -1900,7 +2003,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 7,
       "Druid": 7,
-      "Sorcerer/Wizard": 7
+      "Sorcerer/Wizard": 7,
+      "Shugenja": 6,
+      "Wu Jen": 6
     },
     "components": "V, S",
     "castingTime": "10 minutes; see text",
@@ -1922,7 +2027,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Air"
     ],
     "levels": {
-      "Druid": 5
+      "Druid": 5,
+      "Shugenja": 5
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -1942,7 +2048,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Conjuration",
     "descriptors": [],
     "levels": {
-      "Cleric": 3
+      "Cleric": 3,
+      "Healer": 3
     },
     "components": "V, S",
     "castingTime": "10 minutes",
@@ -2016,7 +2123,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 0,
       "Druid": 0,
-      "Paladin": 1
+      "Paladin": 1,
+      "Healer": 0,
+      "Adept": 0,
+      "Shugenja": 0
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -2062,7 +2172,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 3,
       "Sorcerer/Wizard": 4,
-      "Gun Mage": 3
+      "Gun Mage": 3,
+      "Beguiler": 4,
+      "Wu Jen": 4
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -2108,7 +2220,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Bard": 4,
       "Cleric": 4,
       "Druid": 5,
-      "Healing": 4
+      "Healing": 4,
+      "Healer": 4,
+      "Adept": 4,
+      "Shugenja": 4
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -2131,7 +2246,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 8,
       "Druid": 9,
-      "Healing": 8
+      "Healing": 8,
+      "Healer": 7
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -2156,7 +2272,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 1,
       "Druid": 1,
       "Paladin": 1,
-      "Ranger": 2
+      "Ranger": 2,
+      "Healer": 1,
+      "Adept": 1,
+      "Shugenja": 1
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -2180,7 +2299,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Bard": 5,
       "Cleric": 5,
       "Druid": 6,
-      "Healing": 5
+      "Healing": 5,
+      "Healer": 4,
+      "Shugenja": 5
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -2202,7 +2323,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Cleric": 0,
-      "Druid": 0
+      "Druid": 0,
+      "Healer": 0,
+      "Adept": 0,
+      "Shugenja": 0
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -2227,7 +2351,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 2,
       "Druid": 3,
       "Paladin": 3,
-      "Ranger": 3
+      "Ranger": 3,
+      "Healer": 2,
+      "Adept": 2,
+      "Shugenja": 2
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -2252,7 +2379,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 3,
       "Druid": 4,
       "Paladin": 4,
-      "Ranger": 4
+      "Ranger": 4,
+      "Healer": 3,
+      "Adept": 3,
+      "Shugenja": 3
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -2277,7 +2407,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 0,
       "Sorcerer/Wizard": 0,
-      "Gun Mage": 0
+      "Gun Mage": 0,
+      "Beguiler": 0,
+      "Shugenja": 0,
+      "Wu Jen": 0
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -2302,7 +2435,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Bard": 2,
       "Cleric": 2,
       "Sorcerer/Wizard": 2,
-      "Gun Mage": 2
+      "Gun Mage": 2,
+      "Adept": 2
     },
     "components": "V, M/DF",
     "castingTime": "1 standard action",
@@ -2325,7 +2459,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Bard": 2,
       "Ranger": 3,
       "Sorcerer/Wizard": 2,
-      "Gun Mage": 2
+      "Gun Mage": 2,
+      "Duskblade": 2
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -2352,7 +2487,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Druid": 3,
       "Paladin": 3,
       "Sorcerer/Wizard": 3,
-      "Gun Mage": 3
+      "Gun Mage": 3,
+      "Adept": 3,
+      "Shugenja": 3
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -2376,7 +2513,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 0,
       "Sorcerer/Wizard": 0,
-      "Gun Mage": 0
+      "Gun Mage": 0,
+      "Beguiler": 0,
+      "Shugenja": 0,
+      "Wu Jen": 0
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -2401,7 +2541,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 2,
       "Sorcerer/Wizard": 2,
-      "Gun Mage": 2
+      "Gun Mage": 2,
+      "Beguiler": 2
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -2447,7 +2588,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 4,
       "Druid": 5,
-      "Paladin": 4
+      "Paladin": 4,
+      "Healer": 4,
+      "Shugenja": 4
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -2471,7 +2614,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 3,
       "Sorcerer/Wizard": 3,
-      "Gun Mage": 3
+      "Gun Mage": 3,
+      "Beguiler": 3
     },
     "components": "V, S, M",
     "castingTime": "1 round",
@@ -2494,7 +2638,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Darkness"
     ],
     "levels": {
-      "Cleric": 3
+      "Cleric": 3,
+      "Adept": 3
     },
     "components": "V, M/DF",
     "castingTime": "1 standard action",
@@ -2518,7 +2663,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 2,
       "Druid": 2,
       "Paladin": 2,
-      "Ranger": 1
+      "Ranger": 1,
+      "Healer": 2,
+      "Adept": 2,
+      "Shugenja": 2
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -2541,7 +2689,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Fire"
     ],
     "levels": {
-      "Sorcerer/Wizard": 7
+      "Sorcerer/Wizard": 7,
+      "Warmage": 7,
+      "Shugenja": 8,
+      "Wu Jen": 7
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -2563,7 +2714,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
-      "Sorcerer/Wizard": 8
+      "Sorcerer/Wizard": 8,
+      "Beguiler": 8
     },
     "components": "V, S, M/DF",
     "castingTime": "10 minutes",
@@ -2651,7 +2803,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Divination",
     "descriptors": [],
     "levels": {
-      "Cleric": 1
+      "Cleric": 1,
+      "Adept": 1,
+      "Wu Jen": 1
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -2672,7 +2826,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Cleric": 1,
-      "Paladin": 1
+      "Paladin": 1,
+      "Adept": 1,
+      "Wu Jen": 1
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -2692,7 +2848,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Divination",
     "descriptors": [],
     "levels": {
-      "Cleric": 1
+      "Cleric": 1,
+      "Adept": 1,
+      "Wu Jen": 1
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -2712,7 +2870,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Divination",
     "descriptors": [],
     "levels": {
-      "Cleric": 1
+      "Cleric": 1,
+      "Adept": 1,
+      "Wu Jen": 1
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -2736,7 +2896,12 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 0,
       "Druid": 0,
       "Sorcerer/Wizard": 0,
-      "Gun Mage": 0
+      "Gun Mage": 0,
+      "Beguiler": 0,
+      "Healer": 0,
+      "Adept": 0,
+      "Shugenja": 0,
+      "Wu Jen": 0
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -2760,7 +2925,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Druid": 0,
       "Paladin": 1,
       "Ranger": 1,
-      "Sorcerer/Wizard": 0
+      "Sorcerer/Wizard": 0,
+      "Healer": 0,
+      "Shugenja": 0,
+      "Wu Jen": 0
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -2783,7 +2951,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Bard": 4,
       "Cleric": 5,
       "Druid": 4,
-      "Sorcerer/Wizard": 4
+      "Sorcerer/Wizard": 4,
+      "Shugenja": 4
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -2804,7 +2973,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Bard": 1,
-      "Sorcerer/Wizard": 1
+      "Sorcerer/Wizard": 1,
+      "Beguiler": 1
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -2825,7 +2995,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Druid": 1,
-      "Ranger": 1
+      "Ranger": 1,
+      "Shugenja": 1
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -2849,7 +3020,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 2,
       "Sorcerer/Wizard": 2,
-      "Gun Mage": 2
+      "Gun Mage": 2,
+      "Beguiler": 2,
+      "Shugenja": 2,
+      "Wu Jen": 2
     },
     "components": "V, S, F/DF",
     "castingTime": "1 standard action",
@@ -2918,7 +3092,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Bard": 4,
       "Sorcerer/Wizard": 4,
       "Travel": 4,
-      "Gun Mage": 4
+      "Gun Mage": 4,
+      "Duskblade": 4,
+      "Shugenja": 5,
+      "Wu Jen": 4
     },
     "components": "V",
     "castingTime": "1 standard action",
@@ -2940,7 +3117,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Cleric": 4,
-      "Sorcerer/Wizard": 4
+      "Sorcerer/Wizard": 4,
+      "Shugenja": 4
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -3003,7 +3181,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Cleric": 4,
-      "Paladin": 3
+      "Paladin": 3,
+      "Shugenja": 4
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -3025,7 +3204,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 8,
       "Sorcerer/Wizard": 8,
-      "Knowledge": 8
+      "Knowledge": 8,
+      "Beguiler": 8,
+      "Healer": 8,
+      "Shugenja": 8
     },
     "components": "V, S",
     "castingTime": "10 minutes",
@@ -3047,7 +3229,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 1,
       "Sorcerer/Wizard": 1,
-      "Gun Mage": 1
+      "Gun Mage": 1,
+      "Beguiler": 1,
+      "Shugenja": 1,
+      "Wu Jen": 1
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -3070,7 +3255,11 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Sorcerer/Wizard": 6,
       "Destruction": 7,
-      "Gun Mage": 6
+      "Gun Mage": 6,
+      "Duskblade": 5,
+      "Warmage": 6,
+      "Shugenja": 7,
+      "Wu Jen": 7
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -3091,7 +3280,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Cleric": 4,
-      "Sorcerer/Wizard": 5
+      "Sorcerer/Wizard": 5,
+      "Shugenja": 4,
+      "Wu Jen": 4
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -3202,7 +3393,11 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Druid": 3,
       "Paladin": 3,
       "Sorcerer/Wizard": 3,
-      "Gun Mage": 3
+      "Gun Mage": 3,
+      "Beguiler": 3,
+      "Duskblade": 4,
+      "Shugenja": 3,
+      "Wu Jen": 3
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -3226,7 +3421,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 6,
       "Druid": 6,
       "Sorcerer/Wizard": 6,
-      "Gun Mage": 6
+      "Gun Mage": 6,
+      "Beguiler": 6,
+      "Shugenja": 6,
+      "Wu Jen": 6
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -3248,7 +3446,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 3,
       "Sorcerer/Wizard": 3,
-      "Gun Mage": 3
+      "Gun Mage": 3,
+      "Beguiler": 3,
+      "Wu Jen": 3
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -3269,7 +3469,11 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Necromancy",
     "descriptors": [],
     "levels": {
-      "Sorcerer/Wizard": 0
+      "Sorcerer/Wizard": 0,
+      "Duskblade": 0,
+      "Warmage": 0,
+      "Shugenja": 0,
+      "Wu Jen": 0
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -3289,7 +3493,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
-      "Cleric": 5
+      "Cleric": 5,
+      "Artificer": 5
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -3309,7 +3514,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Divination",
     "descriptors": [],
     "levels": {
-      "Cleric": 4
+      "Cleric": 4,
+      "Shugenja": 4
     },
     "components": "V, S, M",
     "castingTime": "10 minutes",
@@ -3396,7 +3602,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
-      "Sorcerer/Wizard": 9
+      "Sorcerer/Wizard": 9,
+      "Beguiler": 9,
+      "Wu Jen": 9
     },
     "components": "V, S",
     "castingTime": "1 round",
@@ -3421,7 +3629,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 4,
       "Sorcerer/Wizard": 5,
-      "Gun Mage": 5
+      "Gun Mage": 5,
+      "Beguiler": 5,
+      "Wu Jen": 5
     },
     "components": "V, S",
     "castingTime": "1 round",
@@ -3489,7 +3699,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Bard": 5,
-      "Sorcerer/Wizard": 5
+      "Sorcerer/Wizard": 5,
+      "Wu Jen": 5
     },
     "components": "V, S",
     "castingTime": "1 minute",
@@ -3514,7 +3725,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 2,
       "Paladin": 2,
       "Sorcerer/Wizard": 2,
-      "Gun Mage": 2
+      "Gun Mage": 2,
+      "Artificer": 2
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -3560,7 +3772,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 8,
       "Druid": 8,
-      "Earth": 8
+      "Earth": 8,
+      "Warmage": 7,
+      "Shugenja": 8,
+      "Wu Jen": 8
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -3584,7 +3799,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Druid": 9,
       "Earth": 9,
       "Fire": 9,
-      "Water": 9
+      "Water": 9,
+      "Warmage": 9,
+      "Shugenja": 9
     },
     "components": "V, S",
     "castingTime": "10 minutes",
@@ -3610,7 +3827,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Paladin": 1,
       "Ranger": 1,
       "Sorcerer/Wizard": 1,
-      "Gun Mage": 1
+      "Gun Mage": 1,
+      "Adept": 1,
+      "Shugenja": 1,
+      "Wu Jen": 1
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -3652,7 +3872,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 4,
-      "Gun Mage": 4
+      "Gun Mage": 4,
+      "Duskblade": 4
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -3741,7 +3962,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Abjuration",
     "descriptors": [],
     "levels": {
-      "Cleric": 1
+      "Cleric": 1,
+      "Shugenja": 1
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -3783,7 +4005,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Cleric": 7,
-      "Sorcerer/Wizard": 7
+      "Sorcerer/Wizard": 7,
+      "Beguiler": 7,
+      "Wu Jen": 7
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -3804,7 +4028,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Cleric": 9,
-      "Sorcerer/Wizard": 9
+      "Sorcerer/Wizard": 9,
+      "Beguiler": 9,
+      "Shugenja": 9,
+      "Wu Jen": 9
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -3826,7 +4053,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 1,
       "Sorcerer/Wizard": 1,
-      "Gun Mage": 1
+      "Gun Mage": 1,
+      "Beguiler": 1,
+      "Shugenja": 1
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -3893,7 +4122,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
-      "Sorcerer/Wizard": 5
+      "Sorcerer/Wizard": 5,
+      "Wu Jen": 5,
+      "Artificer": 5
     },
     "components": "V, S, M",
     "castingTime": "See text",
@@ -3915,7 +4146,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Light"
     ],
     "levels": {
-      "Druid": 1
+      "Druid": 1,
+      "Shugenja": 1
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -4003,7 +4235,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 1,
       "Sorcerer/Wizard": 1,
-      "Gun Mage": 1
+      "Gun Mage": 1,
+      "Shugenja": 1
     },
     "components": "V",
     "castingTime": "1 immediate action",
@@ -4026,7 +4259,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Sorcerer/Wizard": 5,
-      "Gun Mage": 5
+      "Gun Mage": 5,
+      "Beguiler": 5,
+      "Shugenja": 5,
+      "Wu Jen": 5
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -4050,7 +4286,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Bard": 6,
       "Cleric": 6,
       "Druid": 6,
-      "Knowledge": 6
+      "Knowledge": 6,
+      "Shugenja": 6
     },
     "components": "V, S, F",
     "castingTime": "3 rounds",
@@ -4095,7 +4332,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 7,
       "Druid": 9,
       "Sorcerer/Wizard": 7,
-      "Death": 7
+      "Death": 7,
+      "Warmage": 7
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -4118,7 +4356,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Druid": 6,
-      "Sun": 6
+      "Sun": 6,
+      "Warmage": 6,
+      "Shugenja": 6,
+      "Wu Jen": 6
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -4144,7 +4385,11 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 4,
       "Fire": 5,
       "Sun": 4,
-      "Gun Mage": 4
+      "Gun Mage": 4,
+      "Duskblade": 4,
+      "Warmage": 3,
+      "Shugenja": 4,
+      "Wu Jen": 4
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -4168,7 +4413,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 7,
       "Druid": 8,
-      "Fire": 8
+      "Fire": 8,
+      "Warmage": 7,
+      "Shugenja": 7
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -4192,7 +4439,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Druid": 2,
       "Sorcerer/Wizard": 4,
-      "Gun Mage": 4
+      "Gun Mage": 4,
+      "Warmage": 2,
+      "Wu Jen": 4
     },
     "components": "V, S, M",
     "castingTime": "10 minutes",
@@ -4215,7 +4464,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Sorcerer/Wizard": 3,
-      "Gun Mage": 3
+      "Gun Mage": 3,
+      "Warmage": 3,
+      "Shugenja": 4,
+      "Wu Jen": 3
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -4237,7 +4489,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Fire"
     ],
     "levels": {
-      "Sorcerer/Wizard": 3
+      "Sorcerer/Wizard": 3,
+      "Warmage": 3,
+      "Shugenja": 4
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -4259,7 +4513,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Fire"
     ],
     "levels": {
-      "Druid": 2
+      "Druid": 2,
+      "Shugenja": 2
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -4284,7 +4539,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 5,
       "Druid": 4,
       "Sun": 5,
-      "War": 5
+      "War": 5,
+      "Warmage": 5,
+      "Shugenja": 5
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -4308,7 +4565,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Druid": 2,
       "Sorcerer/Wizard": 2,
-      "Gun Mage": 2
+      "Gun Mage": 2,
+      "Warmage": 2,
+      "Shugenja": 2
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -4333,7 +4592,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Bard": 0,
       "Druid": 0,
       "Sorcerer/Wizard": 0,
-      "Gun Mage": 0
+      "Gun Mage": 0,
+      "Shugenja": 0,
+      "Wu Jen": 0
     },
     "components": "V",
     "castingTime": "1 standard action",
@@ -4354,7 +4615,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 6,
-      "Gun Mage": 6
+      "Gun Mage": 6,
+      "Shugenja": 7,
+      "Wu Jen": 6
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -4418,7 +4681,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Druid": 2,
       "Sorcerer/Wizard": 2,
-      "Gun Mage": 2
+      "Gun Mage": 2,
+      "Beguiler": 2,
+      "Shugenja": 2,
+      "Wu Jen": 2
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -4464,7 +4730,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Druid": 9,
       "Sorcerer/Wizard": 9,
       "Knowledge": 9,
-      "Time": 9
+      "Time": 9,
+      "Beguiler": 9,
+      "Healer": 9,
+      "Shugenja": 9
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -4485,7 +4754,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Bard": 2,
-      "Sorcerer/Wizard": 2
+      "Sorcerer/Wizard": 2,
+      "Artificer": 2
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -4526,7 +4796,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Abjuration",
     "descriptors": [],
     "levels": {
-      "Sorcerer/Wizard": 9
+      "Sorcerer/Wizard": 9,
+      "Wu Jen": 9
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -4550,7 +4821,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 4,
       "Druid": 4,
       "Ranger": 4,
-      "Luck": 4
+      "Luck": 4,
+      "Beguiler": 4,
+      "Healer": 4
     },
     "components": "V, S, M, DF",
     "castingTime": "1 standard action",
@@ -4573,7 +4846,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Sorcerer/Wizard": 6,
-      "Gun Mage": 6
+      "Gun Mage": 6,
+      "Warmage": 6
     },
     "components": "V, S, F",
     "castingTime": "1 standard action",
@@ -4594,7 +4868,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Bard": 3,
-      "Sorcerer/Wizard": 3
+      "Sorcerer/Wizard": 3,
+      "Wu Jen": 3
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -4616,7 +4891,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 9,
       "Sorcerer/Wizard": 9,
-      "Travel": 8
+      "Travel": 8,
+      "Healer": 9,
+      "Wu Jen": 9
     },
     "components": "V, S, XP",
     "castingTime": "1 standard action",
@@ -4669,7 +4946,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Bard": 6,
       "Cleric": 6,
       "Sorcerer/Wizard": 6,
-      "Gun Mage": 6
+      "Gun Mage": 6,
+      "Wu Jen": 6
     },
     "components": "V",
     "castingTime": "10 minutes",
@@ -4691,7 +4969,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Cleric": 2,
-      "Sorcerer/Wizard": 3
+      "Sorcerer/Wizard": 3,
+      "Healer": 2
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -4713,7 +4992,11 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 0,
       "Sorcerer/Wizard": 0,
-      "Gun Mage": 0
+      "Gun Mage": 0,
+      "Beguiler": 0,
+      "Adept": 0,
+      "Shugenja": 0,
+      "Wu Jen": 0
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -4734,7 +5017,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Necromancy",
     "descriptors": [],
     "levels": {
-      "Sorcerer/Wizard": 2
+      "Sorcerer/Wizard": 2,
+      "Duskblade": 2
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -4775,7 +5059,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
-      "Bard": 3
+      "Bard": 3,
+      "Beguiler": 3
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -4797,7 +5082,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 2,
       "Sorcerer/Wizard": 2,
-      "Gun Mage": 2
+      "Gun Mage": 2,
+      "Beguiler": 2,
+      "Shugenja": 2
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -4819,7 +5106,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 6,
-      "Gun Mage": 6
+      "Gun Mage": 6,
+      "Wu Jen": 6,
+      "Artificer": 6
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -4840,7 +5129,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 4,
-      "Gun Mage": 4
+      "Gun Mage": 4,
+      "Wu Jen": 4,
+      "Artificer": 4
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -4860,7 +5151,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Abjuration",
     "descriptors": [],
     "levels": {
-      "Cleric": 3
+      "Cleric": 3,
+      "Shugenja": 3
     },
     "components": "V, S, M",
     "castingTime": "10 minutes",
@@ -4880,7 +5172,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Abjuration",
     "descriptors": [],
     "levels": {
-      "Cleric": 6
+      "Cleric": 6,
+      "Shugenja": 6
     },
     "components": "V, S, M",
     "castingTime": "10 minutes",
@@ -4903,7 +5196,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Bard": 3,
-      "Gun Mage": 3
+      "Gun Mage": 3,
+      "Wu Jen": 4
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -4924,7 +5218,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
-      "Druid": 1
+      "Druid": 1,
+      "Healer": 1
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -5012,7 +5307,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Cleric": 0,
-      "Druid": 0
+      "Druid": 0,
+      "Adept": 0,
+      "Shugenja": 0
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -5036,7 +5333,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Druid": 2,
       "Sorcerer/Wizard": 2,
-      "Gun Mage": 2
+      "Gun Mage": 2,
+      "Warmage": 3,
+      "Shugenja": 3
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -5080,7 +5379,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Bard": 4,
-      "Sorcerer/Wizard": 4
+      "Sorcerer/Wizard": 4,
+      "Shugenja": 4
     },
     "components": "V, S, M",
     "castingTime": "10 minutes",
@@ -5144,7 +5444,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 3,
       "Sorcerer/Wizard": 3,
-      "Gun Mage": 3
+      "Gun Mage": 3,
+      "Beguiler": 3,
+      "Shugenja": 3,
+      "Wu Jen": 3
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -5166,7 +5469,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 6,
       "Druid": 7,
-      "Healing": 6
+      "Healing": 6,
+      "Healer": 6,
+      "Adept": 5,
+      "Shugenja": 6
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -5209,7 +5515,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Cleric": 9,
-      "Healing": 9
+      "Healing": 9,
+      "Healer": 8,
+      "Shugenja": 8
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -5232,7 +5540,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Fire"
     ],
     "levels": {
-      "Druid": 2
+      "Druid": 2,
+      "Shugenja": 2,
+      "Artificer": 2
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -5273,7 +5583,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Bard": 6,
-      "Cleric": 6
+      "Cleric": 6,
+      "Healer": 6
     },
     "components": "V, S, DF",
     "castingTime": "10 minutes",
@@ -5438,7 +5749,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Bard": 4,
       "Sorcerer/Wizard": 5,
       "Law": 6,
-      "Gun Mage": 5
+      "Gun Mage": 5,
+      "Beguiler": 5,
+      "Duskblade": 5,
+      "Wu Jen": 5
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -5461,7 +5775,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
-      "Sorcerer/Wizard": 9
+      "Sorcerer/Wizard": 9,
+      "Beguiler": 9
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -5487,7 +5802,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Bard": 2,
       "Cleric": 2,
       "Sorcerer/Wizard": 3,
-      "Gun Mage": 3
+      "Gun Mage": 3,
+      "Beguiler": 3,
+      "Shugenja": 2,
+      "Wu Jen": 2
     },
     "components": "V, S, F/DF",
     "castingTime": "1 standard action",
@@ -5510,7 +5828,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
-      "Sorcerer/Wizard": 7
+      "Sorcerer/Wizard": 7,
+      "Beguiler": 7
     },
     "components": "V, S, F/DF",
     "castingTime": "1 standard action",
@@ -5534,7 +5853,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Sorcerer/Wizard": 1,
-      "Gun Mage": 1
+      "Gun Mage": 1,
+      "Wu Jen": 1
     },
     "components": "V",
     "castingTime": "1 standard action",
@@ -5557,7 +5877,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Cleric": 8,
-      "Good": 8
+      "Good": 8,
+      "Healer": 8
     },
     "components": "V, S, F",
     "castingTime": "1 standard action",
@@ -5646,7 +5967,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 8,
-      "Water": 8
+      "Water": 8,
+      "Warmage": 8,
+      "Shugenja": 8,
+      "Wu Jen": 8
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -5670,7 +5994,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 2,
       "Sorcerer/Wizard": 2,
-      "Gun Mage": 2
+      "Gun Mage": 2,
+      "Beguiler": 2,
+      "Wu Jen": 2
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -5695,7 +6021,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 1,
       "Sorcerer/Wizard": 1,
-      "Gun Mage": 1
+      "Gun Mage": 1,
+      "Beguiler": 1,
+      "Shugenja": 1,
+      "Wu Jen": 1
     },
     "components": "V, S",
     "castingTime": "1 round",
@@ -5721,7 +6050,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Druid": 4,
       "Sorcerer/Wizard": 4,
       "Water": 5,
-      "Gun Mage": 4
+      "Gun Mage": 4,
+      "Warmage": 3,
+      "Wu Jen": 4
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -5742,7 +6073,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Bard": 1,
-      "Sorcerer/Wizard": 1
+      "Sorcerer/Wizard": 1,
+      "Artificer": 1
     },
     "components": "V, S, M/DF",
     "castingTime": "1 hour",
@@ -5765,7 +6097,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Bard": 3,
-      "Sorcerer/Wizard": 3
+      "Sorcerer/Wizard": 3,
+      "Wu Jen": 3
     },
     "components": "V, S, M",
     "castingTime": "1 minute or longer",
@@ -5787,7 +6120,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 4,
-      "Gun Mage": 4
+      "Gun Mage": 4,
+      "Shugenja": 4
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -5829,7 +6163,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Cleric": 9,
-      "Destruction": 9
+      "Destruction": 9,
+      "Warmage": 9,
+      "Shugenja": 9
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -5849,7 +6185,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Abjuration",
     "descriptors": [],
     "levels": {
-      "Sorcerer/Wizard": 9
+      "Sorcerer/Wizard": 9,
+      "Shugenja": 9,
+      "Wu Jen": 9
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -5872,7 +6210,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Sorcerer/Wizard": 8,
-      "Fire": 8
+      "Fire": 8,
+      "Warmage": 8,
+      "Shugenja": 8,
+      "Wu Jen": 8
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -6081,7 +6422,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 5,
-      "Gun Mage": 5
+      "Gun Mage": 5,
+      "Duskblade": 4
     },
     "components": "V, S, F",
     "castingTime": "1 standard action",
@@ -6104,7 +6446,11 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 2,
       "Sorcerer/Wizard": 2,
-      "Gun Mage": 2
+      "Gun Mage": 2,
+      "Beguiler": 2,
+      "Adept": 2,
+      "Shugenja": 3,
+      "Wu Jen": 2
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -6147,7 +6493,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 3,
       "Sorcerer/Wizard": 3,
-      "Gun Mage": 3
+      "Gun Mage": 3,
+      "Beguiler": 3
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -6170,7 +6517,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 4,
       "Sorcerer/Wizard": 4,
-      "Gun Mage": 4
+      "Gun Mage": 4,
+      "Beguiler": 4,
+      "Shugenja": 5,
+      "Wu Jen": 4
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -6191,7 +6541,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Illusion",
     "descriptors": [],
     "levels": {
-      "Sorcerer/Wizard": 7
+      "Sorcerer/Wizard": 7,
+      "Beguiler": 7,
+      "Shugenja": 7
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -6232,7 +6584,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
-      "Druid": 6
+      "Druid": 6,
+      "Wu Jen": 6
     },
     "components": "V, S, M",
     "castingTime": "1 minute per pound created",
@@ -6279,7 +6632,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Druid": 1,
       "Ranger": 1,
       "Sorcerer/Wizard": 1,
-      "Gun Mage": 1
+      "Gun Mage": 1,
+      "Duskblade": 1,
+      "Wu Jen": 1
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -6299,7 +6654,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
-      "Sorcerer/Wizard": 3
+      "Sorcerer/Wizard": 3,
+      "Duskblade": 3,
+      "Shugenja": 3,
+      "Wu Jen": 3
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -6320,7 +6678,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 2,
-      "Gun Mage": 2
+      "Gun Mage": 2,
+      "Beguiler": 2,
+      "Wu Jen": 2
     },
     "components": "V",
     "castingTime": "1 standard action",
@@ -6342,7 +6702,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 0,
       "Druid": 0,
-      "Gun Mage": 0
+      "Gun Mage": 0,
+      "Shugenja": 0
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -6364,7 +6725,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 4,
       "Sorcerer/Wizard": 6,
-      "Knowledge": 7
+      "Knowledge": 7,
+      "Shugenja": 7
     },
     "components": "V, S, M, F",
     "castingTime": "See text",
@@ -6406,7 +6768,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 2,
-      "Gun Mage": 2
+      "Gun Mage": 2,
+      "Shugenja": 2
     },
     "components": "V, S, F",
     "castingTime": "1 standard action",
@@ -6432,7 +6795,13 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 0,
       "Druid": 0,
       "Sorcerer/Wizard": 0,
-      "Gun Mage": 0
+      "Gun Mage": 0,
+      "Warmage": 0,
+      "Healer": 0,
+      "Adept": 0,
+      "Shugenja": 0,
+      "Wu Jen": 0,
+      "Artificer": 1
     },
     "components": "V, M/DF",
     "castingTime": "1 standard action",
@@ -6455,7 +6824,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Sorcerer/Wizard": 3,
-      "Gun Mage": 3
+      "Gun Mage": 3,
+      "Warmage": 3,
+      "Adept": 3,
+      "Shugenja": 4
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -6475,7 +6847,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Universal",
     "descriptors": [],
     "levels": {
-      "Sorcerer/Wizard": 7
+      "Sorcerer/Wizard": 7,
+      "Wu Jen": 7
     },
     "components": "V, S, XP",
     "castingTime": "1 standard action",
@@ -6517,7 +6890,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 4,
       "Sorcerer/Wizard": 4,
-      "Gun Mage": 4
+      "Gun Mage": 4,
+      "Beguiler": 4,
+      "Shugenja": 4,
+      "Wu Jen": 4
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -6540,7 +6916,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Bard": 2,
       "Cleric": 3,
       "Sorcerer/Wizard": 2,
-      "Gun Mage": 2
+      "Gun Mage": 2,
+      "Shugenja": 2,
+      "Wu Jen": 2
     },
     "components": "V, S, F/DF",
     "castingTime": "1 standard action",
@@ -6605,7 +6983,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 1,
-      "Gun Mage": 1
+      "Gun Mage": 1,
+      "Beguiler": 1
     },
     "components": "V, S, F",
     "castingTime": "1 standard action",
@@ -6628,7 +7007,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 0,
       "Sorcerer/Wizard": 0,
-      "Gun Mage": 0
+      "Gun Mage": 0,
+      "Shugenja": 0,
+      "Wu Jen": 0
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -6753,7 +7134,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Evocation",
     "descriptors": [],
     "levels": {
-      "Sorcerer/Wizard": 7
+      "Sorcerer/Wizard": 7,
+      "Warmage": 7
     },
     "components": "V, S, F",
     "castingTime": "1 standard action",
@@ -6800,7 +7182,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 3,
       "Paladin": 3,
       "Sorcerer/Wizard": 3,
-      "Gun Mage": 3
+      "Gun Mage": 3,
+      "Wu Jen": 3
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -6825,7 +7208,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 3,
       "Paladin": 3,
       "Sorcerer/Wizard": 3,
-      "Gun Mage": 3
+      "Gun Mage": 3,
+      "Wu Jen": 3
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -6849,7 +7233,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 3,
       "Sorcerer/Wizard": 3,
-      "Gun Mage": 3
+      "Gun Mage": 3,
+      "Wu Jen": 3
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -6872,7 +7257,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 3,
       "Paladin": 3,
       "Sorcerer/Wizard": 3,
-      "Gun Mage": 3
+      "Gun Mage": 3,
+      "Wu Jen": 3
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -6958,7 +7344,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Sorcerer/Wizard": 1,
-      "Gun Mage": 1
+      "Gun Mage": 1,
+      "Warmage": 1,
+      "Wu Jen": 1
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -7001,7 +7389,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Cleric": 1,
-      "Druid": 1
+      "Druid": 1,
+      "Shugenja": 1,
+      "Artificer": 1
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -7023,7 +7413,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 3,
       "Strength": 3,
-      "War": 3
+      "War": 3,
+      "Artificer": 1
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -7046,7 +7437,11 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 1,
       "Paladin": 1,
       "Sorcerer/Wizard": 1,
-      "Gun Mage": 1
+      "Gun Mage": 1,
+      "Duskblade": 1,
+      "Shugenja": 1,
+      "Wu Jen": 1,
+      "Artificer": 1
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -7069,7 +7464,11 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 4,
       "Paladin": 3,
       "Sorcerer/Wizard": 3,
-      "Gun Mage": 3
+      "Gun Mage": 3,
+      "Duskblade": 3,
+      "Shugenja": 3,
+      "Wu Jen": 3,
+      "Artificer": 3
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -7089,7 +7488,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Conjuration",
     "descriptors": [],
     "levels": {
-      "Sorcerer/Wizard": 5
+      "Sorcerer/Wizard": 5,
+      "Adept": 5,
+      "Wu Jen": 5,
+      "Artificer": 5
     },
     "components": "V, S, M",
     "castingTime": "10 minutes",
@@ -7111,7 +7513,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Bard": 3,
-      "Sorcerer/Wizard": 3
+      "Sorcerer/Wizard": 3,
+      "Beguiler": 3,
+      "Shugenja": 3,
+      "Wu Jen": 3
     },
     "components": "V, S, F",
     "castingTime": "1 standard action",
@@ -7132,7 +7537,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
-      "Cleric": 2
+      "Cleric": 2,
+      "Shugenja": 2
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -7197,7 +7603,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Cleric": 3,
-      "Druid": 3
+      "Druid": 3,
+      "Shugenja": 3
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -7221,7 +7628,11 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 0,
       "Druid": 0,
       "Sorcerer/Wizard": 0,
-      "Gun Mage": 0
+      "Gun Mage": 0,
+      "Healer": 0,
+      "Adept": 0,
+      "Shugenja": 0,
+      "Wu Jen": 0
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -7245,7 +7656,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 0,
       "Sorcerer/Wizard": 0,
-      "Gun Mage": 0
+      "Gun Mage": 0,
+      "Beguiler": 0,
+      "Wu Jen": 0
     },
     "components": "V, S, F",
     "castingTime": "1 standard action",
@@ -7267,7 +7680,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Fire"
     ],
     "levels": {
-      "Sorcerer/Wizard": 9
+      "Sorcerer/Wizard": 9,
+      "Warmage": 9,
+      "Shugenja": 9
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -7288,7 +7703,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 8,
-      "Protection": 8
+      "Protection": 8,
+      "Beguiler": 8,
+      "Wu Jen": 8
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -7312,7 +7729,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 5,
       "Sorcerer/Wizard": 5,
-      "Gun Mage": 5
+      "Gun Mage": 5,
+      "Beguiler": 5
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -7333,7 +7751,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Conjuration",
     "descriptors": [],
     "levels": {
-      "Sorcerer/Wizard": 4
+      "Sorcerer/Wizard": 4,
+      "Adept": 4,
+      "Wu Jen": 4,
+      "Artificer": 4
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -7355,7 +7776,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Bard": 2,
-      "Sorcerer/Wizard": 2
+      "Sorcerer/Wizard": 2,
+      "Beguiler": 2,
+      "Shugenja": 2,
+      "Wu Jen": 2
     },
     "components": "V, S, F",
     "castingTime": "1 standard action",
@@ -7398,7 +7822,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Bard": 5,
-      "Sorcerer/Wizard": 5
+      "Sorcerer/Wizard": 5,
+      "Shugenja": 5
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -7421,7 +7846,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 2,
       "Sorcerer/Wizard": 2,
-      "Gun Mage": 2
+      "Gun Mage": 2,
+      "Beguiler": 2,
+      "Adept": 2
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -7444,7 +7871,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 2,
       "Sorcerer/Wizard": 2,
-      "Gun Mage": 2
+      "Gun Mage": 2,
+      "Beguiler": 2,
+      "Wu Jen": 2
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -7468,7 +7897,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Bard": 5,
       "Sorcerer/Wizard": 6,
       "Trickery": 6,
-      "Gun Mage": 6
+      "Gun Mage": 6,
+      "Beguiler": 6,
+      "Shugenja": 7
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -7534,7 +7965,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 8,
-      "Luck": 8
+      "Luck": 8,
+      "Beguiler": 8
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -7555,7 +7987,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 9,
-      "Magic": 9
+      "Magic": 9,
+      "Shugenja": 9
     },
     "components": "V",
     "castingTime": "1 standard action",
@@ -7599,7 +8032,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Druid": 6,
-      "Sorcerer/Wizard": 6
+      "Sorcerer/Wizard": 6,
+      "Shugenja": 6,
+      "Wu Jen": 6,
+      "Artificer": 6
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -7623,7 +8059,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 3,
       "Druid": 3,
       "Paladin": 4,
-      "Ranger": 3
+      "Ranger": 3,
+      "Healer": 3,
+      "Adept": 3,
+      "Shugenja": 4
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -7648,7 +8087,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Bard": 5,
-      "Sorcerer/Wizard": 5
+      "Sorcerer/Wizard": 5,
+      "Wu Jen": 5
     },
     "components": "V, S",
     "castingTime": "10 minutes",
@@ -7672,7 +8112,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Bard": 3,
       "Ranger": 3,
       "Sorcerer/Wizard": 3,
-      "Gun Mage": 3
+      "Gun Mage": 3,
+      "Beguiler": 3
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -7695,7 +8136,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 3,
       "Sorcerer/Wizard": 2,
       "Bard": 1,
-      "Gun Mage": 2
+      "Gun Mage": 2,
+      "Shugenja": 2
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -7718,7 +8160,12 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 1,
       "Druid": 1,
       "Sorcerer/Wizard": 1,
-      "Gun Mage": 1
+      "Gun Mage": 1,
+      "Beguiler": 1,
+      "Duskblade": 1,
+      "Adept": 1,
+      "Shugenja": 1,
+      "Wu Jen": 1
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -7741,7 +8188,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 0,
       "Sorcerer/Wizard": 0,
-      "Gun Mage": 0
+      "Gun Mage": 0,
+      "Beguiler": 0,
+      "Wu Jen": 0
     },
     "components": "V, S, F",
     "castingTime": "1 standard action",
@@ -7808,7 +8257,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Druid": 2,
       "Paladin": 2,
       "Ranger": 2,
-      "Sorcerer/Wizard": 2
+      "Sorcerer/Wizard": 2,
+      "Artificer": 2
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -7851,7 +8301,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Druid": 1,
-      "Ranger": 1
+      "Ranger": 1,
+      "Shugenja": 1
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -7871,7 +8322,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
-      "Sorcerer/Wizard": 5
+      "Sorcerer/Wizard": 5,
+      "Shugenja": 5,
+      "Wu Jen": 5
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -7892,7 +8345,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 5,
-      "Gun Mage": 5
+      "Gun Mage": 5,
+      "Wu Jen": 5
     },
     "components": "V, S, XP",
     "castingTime": "2 rounds; see text",
@@ -7913,7 +8367,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Bard": 6,
-      "Sorcerer/Wizard": 6
+      "Sorcerer/Wizard": 6,
+      "Shugenja": 6,
+      "Wu Jen": 6
     },
     "components": "V, S, F",
     "castingTime": "1 standard action",
@@ -7935,7 +8391,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Bard": 5,
-      "Sorcerer/Wizard": 5
+      "Sorcerer/Wizard": 5,
+      "Shugenja": 5,
+      "Wu Jen": 5
     },
     "components": "V, S, F",
     "castingTime": "1 standard action",
@@ -7959,7 +8417,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
-      "Sorcerer/Wizard": 4
+      "Sorcerer/Wizard": 4,
+      "Duskblade": 4,
+      "Warmage": 4
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -8024,7 +8484,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Conjuration",
     "descriptors": [],
     "levels": {
-      "Sorcerer/Wizard": 7
+      "Sorcerer/Wizard": 7,
+      "Beguiler": 7
     },
     "components": "V",
     "castingTime": "1 standard action",
@@ -8195,7 +8656,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Druid": 3,
       "Plant": 3,
-      "Ranger": 3
+      "Ranger": 3,
+      "Shugenja": 3,
+      "Wu Jen": 3
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -8216,7 +8679,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Cleric": 3,
-      "Druid": 3
+      "Druid": 3,
+      "Warmage": 3
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -8239,7 +8703,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Sorcerer/Wizard": 8,
-      "Gun Mage": 6
+      "Gun Mage": 6,
+      "Duskblade": 5,
+      "Warmage": 8
     },
     "components": "V, S, F",
     "castingTime": "1 standard action",
@@ -8259,7 +8725,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
-      "Sorcerer/Wizard": 4
+      "Sorcerer/Wizard": 4,
+      "Adept": 4,
+      "Wu Jen": 4
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -8280,7 +8748,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 8,
-      "Trickery": 8
+      "Trickery": 8,
+      "Wu Jen": 8
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -8302,7 +8771,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
-      "Sorcerer/Wizard": 7
+      "Sorcerer/Wizard": 7,
+      "Beguiler": 7,
+      "Shugenja": 8,
+      "Wu Jen": 7
     },
     "components": "V",
     "castingTime": "1 standard action",
@@ -8328,7 +8800,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Sorcerer/Wizard": 9,
       "War": 9,
-      "Death": 9
+      "Death": 9,
+      "Beguiler": 9,
+      "Wu Jen": 9
     },
     "components": "V",
     "castingTime": "1 standard action",
@@ -8352,7 +8826,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Sorcerer/Wizard": 8,
-      "War": 8
+      "War": 8,
+      "Beguiler": 8,
+      "Wu Jen": 8
     },
     "components": "V",
     "castingTime": "1 standard action",
@@ -8376,7 +8852,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Cleric": 3,
-      "Paladin": 3
+      "Paladin": 3,
+      "Shugenja": 3
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -8399,7 +8876,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 0,
       "Sorcerer/Wizard": 0,
-      "Gun Mage": 0
+      "Gun Mage": 0,
+      "Wu Jen": 0
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -8420,7 +8898,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 9,
-      "Sun": 9
+      "Sun": 9,
+      "Warmage": 9
     },
     "components": "V",
     "castingTime": "1 standard action",
@@ -8440,7 +8919,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Evocation",
     "descriptors": [],
     "levels": {
-      "Sorcerer/Wizard": 7
+      "Sorcerer/Wizard": 7,
+      "Warmage": 7
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -8460,7 +8940,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Abjuration",
     "descriptors": [],
     "levels": {
-      "Sorcerer/Wizard": 8
+      "Sorcerer/Wizard": 8,
+      "Warmage": 8
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -8482,7 +8963,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Fire"
     ],
     "levels": {
-      "Druid": 1
+      "Druid": 1,
+      "Shugenja": 2
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -8503,7 +8985,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Bard": 6,
-      "Sorcerer/Wizard": 6
+      "Sorcerer/Wizard": 6,
+      "Shugenja": 7,
+      "Wu Jen": 6
     },
     "components": "V, S, F",
     "castingTime": "1 standard action",
@@ -8525,7 +9009,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Bard": 6,
-      "Sorcerer/Wizard": 7
+      "Sorcerer/Wizard": 7,
+      "Beguiler": 7
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -8547,7 +9032,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 2,
-      "Gun Mage": 2
+      "Gun Mage": 2,
+      "Wu Jen": 2
     },
     "components": "V, S, F",
     "castingTime": "1 standard action",
@@ -8570,7 +9056,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 1,
       "Paladin": 1,
       "Sorcerer/Wizard": 1,
-      "Gun Mage": 1
+      "Gun Mage": 1,
+      "Adept": 1,
+      "Wu Jen": 1
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -8594,7 +9082,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Druid": 3,
       "Ranger": 3,
       "Sorcerer/Wizard": 3,
-      "Gun Mage": 3
+      "Gun Mage": 3,
+      "Duskblade": 3,
+      "Shugenja": 3,
+      "Wu Jen": 3
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -8617,7 +9108,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 1,
       "Paladin": 1,
       "Sorcerer/Wizard": 1,
-      "Gun Mage": 1
+      "Gun Mage": 1,
+      "Healer": 1,
+      "Adept": 1,
+      "Wu Jen": 1
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -8639,7 +9133,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 1,
       "Sorcerer/Wizard": 1,
-      "Gun Mage": 1
+      "Gun Mage": 1,
+      "Adept": 1,
+      "Wu Jen": 1
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -8661,7 +9157,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 1,
       "Sorcerer/Wizard": 1,
-      "Gun Mage": 1
+      "Gun Mage": 1,
+      "Adept": 1,
+      "Wu Jen": 1
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -8683,7 +9181,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 8,
       "Sorcerer/Wizard": 8,
-      "Magic": 8
+      "Magic": 8,
+      "Shugenja": 8
     },
     "components": "V, S, M, F",
     "castingTime": "1 standard action",
@@ -8746,7 +9245,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Cleric": 0,
-      "Druid": 0
+      "Druid": 0,
+      "Healer": 0,
+      "Adept": 0,
+      "Shugenja": 0
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -8768,7 +9270,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 2,
       "Sorcerer/Wizard": 2,
-      "Gun Mage": 2
+      "Gun Mage": 2,
+      "Warmage": 2,
+      "Wu Jen": 2
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -8788,7 +9292,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
-      "Druid": 3
+      "Druid": 3,
+      "Shugenja": 4
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -8836,7 +9341,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Bard": 4,
-      "Sorcerer/Wizard": 4
+      "Sorcerer/Wizard": 4,
+      "Beguiler": 4
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -8857,7 +9363,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Conjuration",
     "descriptors": [],
     "levels": {
-      "Cleric": 5
+      "Cleric": 5,
+      "Healer": 5,
+      "Adept": 5
     },
     "components": "V, S, M, DF",
     "castingTime": "1 minute",
@@ -8879,7 +9387,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 1,
-      "Gun Mage": 1
+      "Gun Mage": 1,
+      "Duskblade": 1
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -8900,7 +9409,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 3,
-      "Gun Mage": 3
+      "Gun Mage": 3,
+      "Duskblade": 3
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -8923,7 +9433,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Sorcerer/Wizard": 0,
-      "Gun Mage": 0
+      "Gun Mage": 0,
+      "Duskblade": 0,
+      "Warmage": 0,
+      "Wu Jen": 0
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -8949,7 +9462,12 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Paladin": 1,
       "Ranger": 1,
       "Sorcerer/Wizard": 0,
-      "Gun Mage": 0
+      "Gun Mage": 0,
+      "Beguiler": 0,
+      "Healer": 0,
+      "Adept": 0,
+      "Shugenja": 0,
+      "Wu Jen": 0
     },
     "components": "V, S, F",
     "castingTime": "1 standard action",
@@ -9055,7 +9573,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 7,
       "Druid": 9,
-      "Healing": 7
+      "Healing": 7,
+      "Healer": 6,
+      "Shugenja": 8
     },
     "components": "V, S, DF",
     "castingTime": "3 full rounds",
@@ -9097,7 +9617,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Cleric": 3,
-      "Paladin": 3
+      "Paladin": 3,
+      "Healer": 2,
+      "Shugenja": 3
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -9122,7 +9644,11 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 3,
       "Paladin": 3,
       "Sorcerer/Wizard": 4,
-      "Gun Mage": 4
+      "Gun Mage": 4,
+      "Healer": 3,
+      "Adept": 3,
+      "Shugenja": 3,
+      "Wu Jen": 3
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -9145,7 +9671,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 3,
       "Druid": 3,
       "Paladin": 3,
-      "Ranger": 3
+      "Ranger": 3,
+      "Healer": 2,
+      "Adept": 3,
+      "Shugenja": 3
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -9167,7 +9696,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Bard": 1,
-      "Cleric": 1
+      "Cleric": 1,
+      "Healer": 1,
+      "Shugenja": 1
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -9188,7 +9719,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Cleric": 2,
-      "Paladin": 2
+      "Paladin": 2,
+      "Healer": 1,
+      "Shugenja": 2
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -9209,7 +9742,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Abjuration",
     "descriptors": [],
     "levels": {
-      "Druid": 8
+      "Druid": 8,
+      "Wu Jen": 8
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -9253,7 +9787,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Druid": 6,
-      "Plant": 6
+      "Plant": 6,
+      "Wu Jen": 6
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -9276,7 +9811,11 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Bard": 6,
       "Cleric": 6,
       "Sorcerer/Wizard": 6,
-      "Gun Mage": 6
+      "Gun Mage": 6,
+      "Beguiler": 6,
+      "Healer": 7,
+      "Shugenja": 7,
+      "Wu Jen": 6
     },
     "components": "V, S, F/DF",
     "castingTime": "1 standard action",
@@ -9301,7 +9840,11 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Paladin": 2,
       "Ranger": 2,
       "Sorcerer/Wizard": 2,
-      "Gun Mage": 2
+      "Gun Mage": 2,
+      "Duskblade": 1,
+      "Adept": 2,
+      "Shugenja": 2,
+      "Wu Jen": 2
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -9326,7 +9869,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Druid": 0,
       "Paladin": 1,
       "Sorcerer/Wizard": 0,
-      "Gun Mage": 0
+      "Gun Mage": 0,
+      "Shugenja": 0,
+      "Wu Jen": 0
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -9347,7 +9892,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Cleric": 4,
-      "Paladin": 4
+      "Paladin": 4,
+      "Healer": 3,
+      "Adept": 4,
+      "Shugenja": 4
     },
     "components": "V, S, M",
     "castingTime": "3 rounds",
@@ -9368,7 +9916,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Conjuration",
     "descriptors": [],
     "levels": {
-      "Cleric": 7
+      "Cleric": 7,
+      "Healer": 6,
+      "Shugenja": 7
     },
     "components": "V, S, XP",
     "castingTime": "3 rounds",
@@ -9391,7 +9941,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 2,
       "Druid": 2,
-      "Paladin": 1
+      "Paladin": 1,
+      "Healer": 2,
+      "Shugenja": 2
     },
     "components": "V, S",
     "castingTime": "3 rounds",
@@ -9412,7 +9964,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Conjuration",
     "descriptors": [],
     "levels": {
-      "Cleric": 7
+      "Cleric": 7,
+      "Healer": 7,
+      "Shugenja": 7
     },
     "components": "V, S, M, DF",
     "castingTime": "10 minutes",
@@ -9455,7 +10009,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Cleric": 5,
-      "Strength": 5
+      "Strength": 5,
+      "Shugenja": 5
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -9475,7 +10030,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
-      "Sorcerer/Wizard": 2
+      "Sorcerer/Wizard": 2,
+      "Wu Jen": 2
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -9495,7 +10051,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
-      "Druid": 4
+      "Druid": 4,
+      "Wu Jen": 4,
+      "Artificer": 4
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -9515,7 +10073,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Abjuration",
     "descriptors": [],
     "levels": {
-      "Cleric": 1
+      "Cleric": 1,
+      "Healer": 1,
+      "Shugenja": 1
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -9562,7 +10122,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
-      "Sorcerer/Wizard": 8
+      "Sorcerer/Wizard": 8,
+      "Beguiler": 8,
+      "Warmage": 8
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -9586,7 +10148,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Sorcerer/Wizard": 2,
-      "Gun Mage": 2
+      "Gun Mage": 2,
+      "Duskblade": 2,
+      "Warmage": 2,
+      "Adept": 2
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -9607,7 +10172,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 8,
-      "Trickery": 8
+      "Trickery": 8,
+      "Beguiler": 8,
+      "Shugenja": 8
     },
     "components": "V, S",
     "castingTime": "10 minutes",
@@ -9631,7 +10198,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Bard": 3,
       "Cleric": 5,
       "Druid": 4,
-      "Sorcerer/Wizard": 4
+      "Sorcerer/Wizard": 4,
+      "Shugenja": 5,
+      "Wu Jen": 4
     },
     "components": "V, S, M/DF, F",
     "castingTime": "1 hour",
@@ -9655,7 +10224,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Bard": 6,
       "Cleric": 7,
       "Druid": 7,
-      "Sorcerer/Wizard": 7
+      "Sorcerer/Wizard": 7,
+      "Shugenja": 7,
+      "Wu Jen": 7
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -9696,7 +10267,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Evocation",
     "descriptors": [],
     "levels": {
-      "Cleric": 3
+      "Cleric": 3,
+      "Shugenja": 3
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -9782,7 +10354,11 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 2,
       "Sorcerer/Wizard": 2,
-      "Gun Mage": 2
+      "Gun Mage": 2,
+      "Beguiler": 2,
+      "Duskblade": 2,
+      "Adept": 2,
+      "Wu Jen": 2
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -9804,7 +10380,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 5,
       "Sorcerer/Wizard": 5,
-      "Gun Mage": 5
+      "Gun Mage": 5,
+      "Beguiler": 5
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -9827,7 +10404,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 4,
       "Sorcerer/Wizard": 5,
-      "Gun Mage": 5
+      "Gun Mage": 5,
+      "Beguiler": 5
     },
     "components": "V, S, M/DF",
     "castingTime": "10 minutes",
@@ -9999,7 +10577,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Bard": 5,
-      "Sorcerer/Wizard": 6
+      "Sorcerer/Wizard": 6,
+      "Beguiler": 6
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -10020,7 +10599,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Conjuration",
     "descriptors": [],
     "levels": {
-      "Druid": 9
+      "Druid": 9,
+      "Shugenja": 9
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -10043,7 +10623,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Druid": 9,
       "Sorcerer/Wizard": 9,
-      "Animal": 9
+      "Animal": 9,
+      "Wu Jen": 9
     },
     "components": "V, S, F",
     "castingTime": "1 standard action",
@@ -10068,7 +10649,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Bard": 2,
       "Cleric": 2,
       "Sorcerer/Wizard": 2,
-      "Gun Mage": 2
+      "Gun Mage": 2,
+      "Warmage": 2
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -10091,7 +10673,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Sorcerer/Wizard": 1,
-      "Gun Mage": 1
+      "Gun Mage": 1,
+      "Wu Jen": 1
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -10112,7 +10695,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Cleric": 1,
-      "Paladin": 1
+      "Paladin": 1,
+      "Shugenja": 1,
+      "Artificer": 1
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -10199,7 +10784,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Sorcerer/Wizard": 1,
-      "Gun Mage": 1
+      "Gun Mage": 1,
+      "Duskblade": 1,
+      "Warmage": 1,
+      "Shugenja": 1
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -10223,7 +10811,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 3,
       "Sorcerer/Wizard": 4,
-      "Gun Mage": 4
+      "Gun Mage": 4,
+      "Duskblade": 4,
+      "Warmage": 4,
+      "Wu Jen": 4
     },
     "components": "V",
     "castingTime": "1 standard action",
@@ -10247,7 +10838,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 6,
       "Sorcerer/Wizard": 8,
-      "Gun Mage": 6
+      "Gun Mage": 6,
+      "Warmage": 8
     },
     "components": "V, S, F",
     "castingTime": "1 standard action",
@@ -10290,7 +10882,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 2,
       "Cleric": 2,
-      "Gun Mage": 2
+      "Gun Mage": 2,
+      "Beguiler": 2,
+      "Shugenja": 2
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -10312,7 +10906,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Bard": 1,
-      "Sorcerer/Wizard": 1
+      "Sorcerer/Wizard": 1,
+      "Beguiler": 1,
+      "Shugenja": 1,
+      "Wu Jen": 1
     },
     "components": "V, S, F",
     "castingTime": "1 standard action",
@@ -10381,7 +10978,11 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 1,
       "Sorcerer/Wizard": 1,
-      "Gun Mage": 1
+      "Gun Mage": 1,
+      "Beguiler": 1,
+      "Adept": 1,
+      "Shugenja": 1,
+      "Wu Jen": 1
     },
     "components": "V, S, M",
     "castingTime": "1 round",
@@ -10406,7 +11007,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Druid": 3,
       "Sorcerer/Wizard": 3,
-      "Gun Mage": 3
+      "Gun Mage": 3,
+      "Warmage": 3
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -10429,7 +11031,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 3,
       "Sorcerer/Wizard": 3,
-      "Gun Mage": 3
+      "Gun Mage": 3,
+      "Beguiler": 3
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -10473,7 +11076,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Druid": 2,
-      "Earth": 2
+      "Earth": 2,
+      "Shugenja": 2
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -10494,7 +11098,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 4,
-      "Gun Mage": 4
+      "Gun Mage": 4,
+      "Beguiler": 4,
+      "Wu Jen": 4
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -10540,7 +11146,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Cleric": 9,
-      "Sorcerer/Wizard": 9
+      "Sorcerer/Wizard": 9,
+      "Shugenja": 9
     },
     "components": "V, S, F",
     "castingTime": "1 standard action",
@@ -10564,7 +11171,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 2,
       "Cleric": 2,
-      "Gun Mage": 2
+      "Gun Mage": 2,
+      "Shugenja": 2
     },
     "components": "V, S, F/DF",
     "castingTime": "1 standard action",
@@ -10586,7 +11194,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 3,
       "Druid": 1,
-      "Ranger": 1
+      "Ranger": 1,
+      "Healer": 1,
+      "Shugenja": 1
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -10608,7 +11218,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Language-Dependent"
     ],
     "levels": {
-      "Cleric": 3
+      "Cleric": 3,
+      "Wu Jen": 6
     },
     "components": "V, S, DF",
     "castingTime": "10 minutes",
@@ -10670,7 +11281,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Abjuration",
     "descriptors": [],
     "levels": {
-      "Cleric": 4
+      "Cleric": 4,
+      "Shugenja": 4
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -10710,7 +11322,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Abjuration",
     "descriptors": [],
     "levels": {
-      "Cleric": 5
+      "Cleric": 5,
+      "Shugenja": 5
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -10732,7 +11345,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Sorcerer/Wizard": 7,
       "Magic": 7,
-      "Luck": 7
+      "Luck": 7,
+      "Beguiler": 7,
+      "Shugenja": 7
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -10774,7 +11389,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Druid": 2,
       "Sorcerer/Wizard": 2,
-      "Gun Mage": 2
+      "Gun Mage": 2,
+      "Beguiler": 2,
+      "Duskblade": 2,
+      "Wu Jen": 2
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -10818,7 +11436,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Druid": 4,
-      "Earth": 4
+      "Earth": 4,
+      "Shugenja": 4
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -10860,7 +11479,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
-      "Sorcerer/Wizard": 7
+      "Sorcerer/Wizard": 7,
+      "Shugenja": 7,
+      "Wu Jen": 7
     },
     "components": "V, S, M",
     "castingTime": "1 round",
@@ -10880,7 +11501,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Divination",
     "descriptors": [],
     "levels": {
-      "Cleric": 2
+      "Cleric": 2,
+      "Healer": 3
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -10903,7 +11525,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Sorcerer/Wizard": 3,
-      "Gun Mage": 3
+      "Gun Mage": 3,
+      "Warmage": 3,
+      "Wu Jen": 3
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -10929,7 +11553,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 3,
       "Druid": 3,
       "Sorcerer/Wizard": 4,
-      "Gun Mage": 5
+      "Gun Mage": 5,
+      "Shugenja": 3,
+      "Wu Jen": 5
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -10949,7 +11575,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Divination",
     "descriptors": [],
     "levels": {
-      "Druid": 6
+      "Druid": 6,
+      "Shugenja": 6
     },
     "components": "V, S, DF",
     "castingTime": "10 minutes",
@@ -10970,7 +11597,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 6,
-      "Gun Mage": 6
+      "Gun Mage": 6,
+      "Healer": 5,
+      "Wu Jen": 6
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -10994,7 +11623,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sorcerer/Wizard": 4,
       "Earth": 4,
       "Strength": 4,
-      "Gun Mage": 4
+      "Gun Mage": 4,
+      "Adept": 4,
+      "Shugenja": 6,
+      "Wu Jen": 4
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -11015,7 +11647,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Cleric": 9,
-      "Druid": 9
+      "Druid": 9,
+      "Shugenja": 9
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -11041,7 +11674,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 2,
       "Sorcerer/Wizard": 3,
-      "Gun Mage": 3
+      "Gun Mage": 3,
+      "Beguiler": 3,
+      "Wu Jen": 3
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -11067,7 +11702,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 5,
       "Sorcerer/Wizard": 6,
-      "Gun Mage": 6
+      "Gun Mage": 6,
+      "Beguiler": 6,
+      "Wu Jen": 6
     },
     "components": "V, M",
     "castingTime": "1 standard action",
@@ -11111,7 +11748,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 1,
       "Cleric": 1,
-      "Sorcerer/Wizard": 1
+      "Sorcerer/Wizard": 1,
+      "Wu Jen": 1
     },
     "components": "V, S, F/DF",
     "castingTime": "1 round",
@@ -11134,7 +11772,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 2,
       "Cleric": 2,
-      "Sorcerer/Wizard": 2
+      "Sorcerer/Wizard": 2,
+      "Wu Jen": 2
     },
     "components": "V, S, F/DF",
     "castingTime": "1 round",
@@ -11157,7 +11796,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 3,
       "Cleric": 3,
-      "Sorcerer/Wizard": 3
+      "Sorcerer/Wizard": 3,
+      "Wu Jen": 3
     },
     "components": "V, S, F/DF",
     "castingTime": "1 round",
@@ -11180,7 +11820,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 4,
       "Cleric": 4,
-      "Sorcerer/Wizard": 4
+      "Sorcerer/Wizard": 4,
+      "Wu Jen": 4
     },
     "components": "V, S, F/DF",
     "castingTime": "1 round",
@@ -11202,7 +11843,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Cleric": 9,
-      "Sorcerer/Wizard": 9
+      "Sorcerer/Wizard": 9,
+      "Wu Jen": 9
     },
     "components": "V, S, F/DF",
     "castingTime": "1 round",
@@ -11225,7 +11867,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 5,
       "Cleric": 5,
-      "Sorcerer/Wizard": 5
+      "Sorcerer/Wizard": 5,
+      "Wu Jen": 5
     },
     "components": "V, S, F/DF",
     "castingTime": "1 round",
@@ -11248,7 +11891,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 6,
       "Cleric": 6,
-      "Sorcerer/Wizard": 6
+      "Sorcerer/Wizard": 6,
+      "Wu Jen": 6
     },
     "components": "V, S, F/DF",
     "castingTime": "1 round",
@@ -11271,7 +11915,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 6,
       "Cleric": 7,
-      "Sorcerer/Wizard": 7
+      "Sorcerer/Wizard": 7,
+      "Wu Jen": 7
     },
     "components": "V, S, F/DF",
     "castingTime": "1 round",
@@ -11293,7 +11938,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Cleric": 8,
-      "Sorcerer/Wizard": 8
+      "Sorcerer/Wizard": 8,
+      "Wu Jen": 8
     },
     "components": "V, S, F/DF",
     "castingTime": "1 round",
@@ -11359,7 +12005,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Druid": 3,
-      "Ranger": 3
+      "Ranger": 3,
+      "Shugenja": 3
     },
     "components": "V, S, DF",
     "castingTime": "1 round",
@@ -11402,7 +12049,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Conjuration",
     "descriptors": [],
     "levels": {
-      "Druid": 9
+      "Druid": 9,
+      "Shugenja": 9
     },
     "components": "V, S, DF",
     "castingTime": "1 round",
@@ -11423,7 +12071,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Conjuration",
     "descriptors": [],
     "levels": {
-      "Druid": 5
+      "Druid": 5,
+      "Shugenja": 5
     },
     "components": "V, S, DF",
     "castingTime": "1 round",
@@ -11444,7 +12093,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Conjuration",
     "descriptors": [],
     "levels": {
-      "Druid": 6
+      "Druid": 6,
+      "Shugenja": 6
     },
     "components": "V, S, DF",
     "castingTime": "1 round",
@@ -11465,7 +12115,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Conjuration",
     "descriptors": [],
     "levels": {
-      "Druid": 7
+      "Druid": 7,
+      "Shugenja": 7
     },
     "components": "V, S, DF",
     "castingTime": "1 round",
@@ -11486,7 +12137,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Conjuration",
     "descriptors": [],
     "levels": {
-      "Druid": 8
+      "Druid": 8,
+      "Shugenja": 8
     },
     "components": "V, S, DF",
     "castingTime": "1 round",
@@ -11533,7 +12185,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Druid": 7,
-      "Sun": 7
+      "Sun": 7,
+      "Warmage": 7,
+      "Shugenja": 7
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -11557,7 +12211,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Druid": 8,
       "Sorcerer/Wizard": 8,
-      "Sun": 8
+      "Sun": 8,
+      "Warmage": 8,
+      "Shugenja": 8
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -11580,7 +12236,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Cleric": 8,
-      "Sorcerer/Wizard": 8
+      "Sorcerer/Wizard": 8,
+      "Wu Jen": 8
     },
     "components": "V, S, M",
     "castingTime": "10 minutes",
@@ -11605,7 +12262,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 6,
       "Sorcerer/Wizard": 6,
-      "Gun Mage": 6
+      "Gun Mage": 6,
+      "Wu Jen": 6
     },
     "components": "V, S, M",
     "castingTime": "10 minutes",
@@ -11628,7 +12286,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Cleric": 8,
-      "Sorcerer/Wizard": 8
+      "Sorcerer/Wizard": 8,
+      "Wu Jen": 8
     },
     "components": "V, S, M",
     "castingTime": "10 minutes",
@@ -11653,7 +12312,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 5,
       "Sorcerer/Wizard": 5,
-      "Gun Mage": 5
+      "Gun Mage": 5,
+      "Wu Jen": 5
     },
     "components": "V, S, M",
     "castingTime": "10 minutes",
@@ -11677,7 +12337,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 6,
       "Sorcerer/Wizard": 6,
-      "Gun Mage": 6
+      "Gun Mage": 6,
+      "Wu Jen": 6
     },
     "components": "V, S, M",
     "castingTime": "10 minutes",
@@ -11702,7 +12363,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 5,
       "Sorcerer/Wizard": 5,
-      "Gun Mage": 5
+      "Gun Mage": 5,
+      "Wu Jen": 5
     },
     "components": "V, S, M",
     "castingTime": "10 minutes",
@@ -11725,7 +12387,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Cleric": 7,
-      "Sorcerer/Wizard": 7
+      "Sorcerer/Wizard": 7,
+      "Wu Jen": 7
     },
     "components": "V, S, M",
     "castingTime": "10 minutes",
@@ -11747,7 +12410,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Cleric": 7,
-      "Sorcerer/Wizard": 7
+      "Sorcerer/Wizard": 7,
+      "Wu Jen": 7
     },
     "components": "V, S, M",
     "castingTime": "10 minutes",
@@ -11790,7 +12454,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Druid": 9,
-      "Sorcerer/Wizard": 8
+      "Sorcerer/Wizard": 8,
+      "Wu Jen": 8
     },
     "components": "V, S, M",
     "castingTime": "1 hour",
@@ -11836,7 +12501,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 5,
-      "Gun Mage": 5
+      "Gun Mage": 5,
+      "Wu Jen": 5
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -11857,7 +12523,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 5,
-      "Gun Mage": 5
+      "Gun Mage": 5,
+      "Beguiler": 5
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -11879,7 +12546,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Sorcerer/Wizard": 5,
       "Travel": 5,
-      "Gun Mage": 5
+      "Gun Mage": 5,
+      "Shugenja": 6,
+      "Wu Jen": 5
     },
     "components": "V",
     "castingTime": "1 standard action",
@@ -11900,7 +12569,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Conjuration",
     "descriptors": [],
     "levels": {
-      "Sorcerer/Wizard": 7
+      "Sorcerer/Wizard": 7,
+      "Shugenja": 7,
+      "Wu Jen": 7
     },
     "components": "V",
     "castingTime": "1 standard action",
@@ -11922,7 +12593,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 7,
-      "Travel": 7
+      "Travel": 7,
+      "Shugenja": 8,
+      "Wu Jen": 7
     },
     "components": "V",
     "castingTime": "1 standard action",
@@ -11943,7 +12616,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Conjuration",
     "descriptors": [],
     "levels": {
-      "Sorcerer/Wizard": 9
+      "Sorcerer/Wizard": 9,
+      "Shugenja": 9,
+      "Wu Jen": 9
     },
     "components": "V, S, M",
     "castingTime": "10 minutes",
@@ -11986,7 +12661,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Sorcerer/Wizard": 9,
       "Trickery": 9,
-      "Time": 8
+      "Time": 8,
+      "Beguiler": 9,
+      "Wu Jen": 9
     },
     "components": "V",
     "castingTime": "1 standard action",
@@ -12031,7 +12708,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 2,
       "Cleric": 4,
-      "Sorcerer/Wizard": 3
+      "Sorcerer/Wizard": 3,
+      "Adept": 3,
+      "Wu Jen": 3
     },
     "components": "V, M/DF",
     "castingTime": "1 standard action",
@@ -12052,7 +12731,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 0,
-      "Gun Mage": 0
+      "Gun Mage": 0,
+      "Duskblade": 0,
+      "Adept": 0
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -12075,7 +12756,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Sorcerer/Wizard": 2,
-      "Gun Mage": 2
+      "Gun Mage": 2,
+      "Beguiler": 2,
+      "Duskblade": 2
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -12097,7 +12780,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 6,
-      "Gun Mage": 6
+      "Gun Mage": 6,
+      "Warmage": 6
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -12117,7 +12801,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
-      "Druid": 7
+      "Druid": 7,
+      "Wu Jen": 7
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -12163,7 +12848,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Druid": 5,
-      "Sorcerer/Wizard": 5
+      "Sorcerer/Wizard": 5,
+      "Shugenja": 5
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -12268,7 +12954,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Conjuration",
     "descriptors": [],
     "levels": {
-      "Cleric": 9
+      "Cleric": 9,
+      "Healer": 9,
+      "Shugenja": 9
     },
     "components": "V, S, M, DF",
     "castingTime": "10 minutes",
@@ -12293,7 +12981,12 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cleric": 5,
       "Druid": 5,
       "Sorcerer/Wizard": 6,
-      "Knowledge": 5
+      "Knowledge": 5,
+      "Beguiler": 6,
+      "Healer": 5,
+      "Adept": 5,
+      "Shugenja": 6,
+      "Wu Jen": 6
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -12314,7 +13007,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 1,
-      "Gun Mage": 1
+      "Gun Mage": 1,
+      "Duskblade": 1,
+      "Warmage": 1,
+      "Wu Jen": 1
     },
     "components": "V, F",
     "castingTime": "1 standard action",
@@ -12358,7 +13054,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Bard": 1,
       "Cleric": 2,
       "Paladin": 2,
-      "Gun Mage": 2
+      "Gun Mage": 2,
+      "Beguiler": 1
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -12447,7 +13144,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Bard": 1,
-      "Sorcerer/Wizard": 1
+      "Sorcerer/Wizard": 1,
+      "Wu Jen": 1
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -12469,7 +13167,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 3,
-      "Gun Mage": 3
+      "Gun Mage": 3,
+      "Duskblade": 3
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -12490,7 +13189,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Bard": 6,
-      "Sorcerer/Wizard": 6
+      "Sorcerer/Wizard": 6,
+      "Beguiler": 6,
+      "Shugenja": 6,
+      "Wu Jen": 6
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -12513,7 +13215,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 1,
       "Sorcerer/Wizard": 1,
-      "Gun Mage": 1
+      "Gun Mage": 1,
+      "Wu Jen": 1
     },
     "components": "V, F",
     "castingTime": "1 standard action",
@@ -12536,7 +13239,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Cleric": 0,
       "Druid": 0,
-      "Paladin": 1
+      "Paladin": 1,
+      "Shugenja": 0
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -12556,7 +13260,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Divination",
     "descriptors": [],
     "levels": {
-      "Sorcerer/Wizard": 7
+      "Sorcerer/Wizard": 7,
+      "Shugenja": 8
     },
     "components": "V, S, XP",
     "castingTime": "1 standard action",
@@ -12580,7 +13285,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Sorcerer/Wizard": 9,
-      "Death": 9
+      "Death": 9,
+      "Warmage": 9
     },
     "components": "V",
     "castingTime": "1 standard action",
@@ -12605,7 +13311,11 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Druid": 5,
       "Sorcerer/Wizard": 4,
       "Fire": 4,
-      "Gun Mage": 4
+      "Gun Mage": 4,
+      "Warmage": 4,
+      "Adept": 4,
+      "Shugenja": 4,
+      "Wu Jen": 4
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -12628,7 +13338,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Sorcerer/Wizard": 5,
-      "Gun Mage": 5
+      "Gun Mage": 5,
+      "Wu Jen": 5,
+      "Artificer": 5
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -12652,7 +13364,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Sorcerer/Wizard": 4,
       "Water": 4,
-      "Gun Mage": 4
+      "Gun Mage": 4,
+      "Shugenja": 5,
+      "Wu Jen": 4
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -12673,7 +13387,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 6,
-      "Gun Mage": 6
+      "Gun Mage": 6,
+      "Shugenja": 5,
+      "Wu Jen": 6,
+      "Artificer": 6
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -12700,7 +13417,11 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Druid": 6,
       "Sorcerer/Wizard": 5,
       "Earth": 5,
-      "Gun Mage": 5
+      "Gun Mage": 5,
+      "Adept": 5,
+      "Shugenja": 5,
+      "Wu Jen": 5,
+      "Artificer": 5
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -12742,7 +13463,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
-      "Druid": 2
+      "Druid": 2,
+      "Wu Jen": 2
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -12766,7 +13488,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Druid": 3,
       "Ranger": 3,
       "Sorcerer/Wizard": 3,
-      "Gun Mage": 3
+      "Gun Mage": 3,
+      "Shugenja": 3,
+      "Wu Jen": 3
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -12787,7 +13511,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Cleric": 3,
-      "Ranger": 3
+      "Ranger": 3,
+      "Shugenja": 3
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -12807,7 +13532,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Necromancy",
     "descriptors": [],
     "levels": {
-      "Sorcerer/Wizard": 7
+      "Sorcerer/Wizard": 7,
+      "Warmage": 7
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -12828,7 +13554,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 5,
-      "Gun Mage": 5
+      "Gun Mage": 5,
+      "Duskblade": 5
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -12849,7 +13576,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 2,
-      "Gun Mage": 2
+      "Gun Mage": 2,
+      "Adept": 2
     },
     "components": "V, S, M",
     "castingTime": "1 standard action",
@@ -12873,7 +13601,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
-      "Sorcerer/Wizard": 9
+      "Sorcerer/Wizard": 9,
+      "Warmage": 9
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -12897,7 +13626,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     ],
     "levels": {
       "Air": 8,
-      "Druid": 8
+      "Druid": 8,
+      "Shugenja": 8,
+      "Wu Jen": 8
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -12921,7 +13652,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "levels": {
       "Bard": 2,
       "Sorcerer/Wizard": 2,
-      "Gun Mage": 2
+      "Gun Mage": 2,
+      "Wu Jen": 2
     },
     "components": "V, S",
     "castingTime": "1 standard action",
@@ -12942,7 +13674,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Cleric": 6,
-      "Druid": 6
+      "Druid": 6,
+      "Shugenja": 6
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -12968,7 +13701,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Ranger": 2,
       "Sorcerer/Wizard": 3,
       "Air": 2,
-      "Gun Mage": 3
+      "Gun Mage": 3,
+      "Shugenja": 3
     },
     "components": "V, S, M/DF",
     "castingTime": "1 standard action",
@@ -12988,7 +13722,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Universal",
     "descriptors": [],
     "levels": {
-      "Sorcerer/Wizard": 9
+      "Sorcerer/Wizard": 9,
+      "Wu Jen": 9
     },
     "components": "V, XP",
     "castingTime": "1 standard action",
@@ -13008,7 +13743,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
-      "Druid": 2
+      "Druid": 2,
+      "Wu Jen": 2
     },
     "components": "V, S, DF",
     "castingTime": "1 standard action",
@@ -13074,7 +13810,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Bard": 4,
-      "Gun Mage": 5
+      "Gun Mage": 5,
+      "Beguiler": 3
     },
     "components": "V, S",
     "castingTime": "1 round",
@@ -13111,5 +13848,101 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "source": "System Reference Document (SRD) spells",
     "sourceUrl": "https://www.d20srd.org/srd/spells/zoneOfTruth.htm",
     "subschool": "Compulsion"
-  }
+  },
+  {
+    "id": "deathwatch",
+    "name": "Deathwatch",
+    "ruleset": "core",
+    "school": "Necromancy",
+    "descriptors": [
+      "Evil"
+    ],
+    "levels": {
+      "Cleric": 1,
+      "Healer": 0
+    },
+    "components": "V, S",
+    "castingTime": "1 standard action",
+    "range": "30 ft.",
+    "targetOrArea": "Cone-shaped emanation",
+    "duration": "10 min./level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "summary": "Using the foul sight granted by the powers of unlife, you determine the condition of creatures near death in the area: dead, fragile (alive with 3 or fewer hit points), fighting off death (4 or more hit points), undead, or neither alive nor dead. Deathwatch sees through any spell or ability that allows creatures to feign death.",
+    "source": "System Reference Document (SRD) spells",
+    "sourceUrl": "https://www.d20srd.org/srd/spells/deathwatch.htm"
+  },
+  {
+    "id": "bless-water",
+    "name": "Bless Water",
+    "ruleset": "core",
+    "school": "Transmutation",
+    "descriptors": [
+      "Good"
+    ],
+    "levels": {
+      "Cleric": 1,
+      "Paladin": 1,
+      "Healer": 1
+    },
+    "components": "V, S, M",
+    "castingTime": "1 minute",
+    "range": "Touch",
+    "targetOrArea": "Flask of water touched",
+    "duration": "Instantaneous",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "summary": "This transmutation imbues a flask (1 pint) of water with positive energy, turning it into holy water. Material component: 5 pounds of powdered silver (worth 25 gp).",
+    "source": "System Reference Document (SRD) spells",
+    "sourceUrl": "https://www.d20srd.org/srd/spells/blessWater.htm"
+  },
+  {
+    "id": "cure-moderate-wounds-mass",
+    "name": "Cure Moderate Wounds, Mass",
+    "ruleset": "core",
+    "school": "Conjuration",
+    "subschool": "Healing",
+    "descriptors": [],
+    "levels": {
+      "Bard": 6,
+      "Cleric": 6,
+      "Druid": 7,
+      "Healer": 5,
+      "Healing": 6
+    },
+    "components": "V, S",
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetOrArea": "One or more creatures, no two of which can be more than 30 ft. apart",
+    "duration": "Instantaneous",
+    "savingThrow": "Will half (harmless) or Will half; see text",
+    "spellResistance": "Yes (harmless) or Yes; see text",
+    "summary": "This spell functions like cure light wounds, mass, except that it cures 2d8 points of damage +1 point per caster level (maximum +30).",
+    "source": "System Reference Document (SRD) spells",
+    "sourceUrl": "https://www.d20srd.org/srd/spells/cureModerateWoundsMass.htm"
+  },
+  {
+    "id": "cure-serious-wounds-mass",
+    "name": "Cure Serious Wounds, Mass",
+    "ruleset": "core",
+    "school": "Conjuration",
+    "subschool": "Healing",
+    "descriptors": [],
+    "levels": {
+      "Cleric": 7,
+      "Druid": 8,
+      "Healer": 6,
+      "Healing": 7
+    },
+    "components": "V, S",
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetOrArea": "One or more creatures, no two of which can be more than 30 ft. apart",
+    "duration": "Instantaneous",
+    "savingThrow": "Will half (harmless) or Will half; see text",
+    "spellResistance": "Yes (harmless) or Yes; see text",
+    "summary": "This spell functions like cure light wounds, mass, except that it cures 3d8 points of damage +1 point per caster level (maximum +35).",
+    "source": "System Reference Document (SRD) spells",
+    "sourceUrl": "https://www.d20srd.org/srd/spells/cureSeriousWoundsMass.htm"
+  },
 ];

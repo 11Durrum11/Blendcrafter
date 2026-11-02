@@ -185,6 +185,7 @@ export const RACES_OF_EBERRON_RACES: RaceDefinition[] = [
     favoredClass: "Rogue",
     levelAdjustment: 1,
     racialHitDice: 3,
+    hitDie: "d8",
     skillBonuses: { "move-silently": 4 },
     traits: [
       {

@@ -24,6 +24,34 @@ const HOMEBREW_DOC = "Shaun Bradley — Homebrew Wild-Magic Surge Table (D&D 3.5
 const HOMEBREW_DOC_URL =
   "https://docs.google.com/document/d/1VY2BIGWKlOy-Ua-quZE05yP2rsiO_pYr/edit";
 
+/**
+ * Second source document for this pack: Shaun's "MISC OTHER HOUSE
+ * RULES" document (his house-rules doc #4, uploaded 2026-11-02 as
+ * workspace/user/files/4._MISC_OTHER_HOUSE_RULES_6_xpih.docx). The
+ * Twisted template below is from that document. It is a different
+ * template from the D&D Wiki "Twisted Creature" in the
+ * homebrew-dandwiki pack (a random-mutation template); Shaun's is a
+ * fixed corruption template, and both records stay.
+ *
+ * Modeling notes for the Twisted template:
+ * - The document states no Challenge Rating adjustment and no level
+ *   adjustment, so both are recorded as 0 with the omission stated
+ *   in the summary (the D&D Wiki Twisted Creature convention).
+ * - The document does not label the template inherited or acquired;
+ *   it is recorded as "acquired" (a creature becomes twisted).
+ * - The type change is conditional (animals and vermin become
+ *   magical beasts; every other type is unchanged), which the
+ *   unconditional patch ops cannot express, so it is carried as a
+ *   trait feature and in the prerequisite note rather than faked
+ *   with a "set-type" patch.
+ * - Natural armor "+2 improvement" is an "improve" modifier, as in
+ *   the Steampunk-Augmented Undead record above. "Intelligence is
+ *   at least 3" is a floor, not a delta, so it is carried as a
+ *   trait feature rather than an ability modifier.
+ */
+const DOC4 = "Shaun Bradley — Misc Other House Rules (house-rules doc #4)";
+const DOC4_URL = "workspace/user/files/4._MISC_OTHER_HOUSE_RULES_6_xpih.docx";
+
 export const HOMEBREW_TEMPLATES: TemplateDefinition[] = [
   {
     id: "steampunk-augmented-undead",
@@ -116,6 +144,134 @@ export const HOMEBREW_TEMPLATES: TemplateDefinition[] = [
         category: "trait",
         source: HOMEBREW_DOC,
         sourceUrl: HOMEBREW_DOC_URL,
+      },
+    ],
+  },
+  {
+    id: "twisted-house",
+    name: "Twisted (House)",
+    ruleset: "homebrew",
+    timing: "acquired",
+    summary:
+      "Shaun's house 'twisted' template, from his Misc Other House Rules document — not the D&D Wiki Twisted Creature (a separate record in the homebrew-dandwiki pack). The creature gains Smite Good and a Disruptive Attack dealing vile damage, darkvision 60 ft, damage reduction 5/cold iron, immunity to electricity and poison, resistance 10 to acid, cold, and fire, +2 natural armor, and two claw attacks; +4 Strength, +4 Constitution, −2 Charisma, Intelligence at least 3, and its alignment changes to evil. The document gives no CR adjustment and no level adjustment (both recorded as 0).",
+    source: DOC4,
+    sourceUrl: DOC4_URL,
+    crModifier: 0,
+    levelAdjustment: 0,
+    prerequisites: [
+      {
+        note: "Shaun's document places no restriction on the base creature: animals or vermin with this template become magical beasts, but otherwise the creature type is unchanged. Do not recalculate the creature's Hit Dice, base attack bonus, saves, or skill points if its type changes.",
+      },
+    ],
+    abilityModifiers: { str: 4, con: 4, cha: -2 },
+    patches: [],
+    modifiers: [
+      {
+        id: "twisted-house-natural-armor",
+        source: "Twisted (House)",
+        sourceUrl: DOC4_URL,
+        target: "ac.natural",
+        value: 2,
+        mode: "improve",
+        bonusType: "natural-armor",
+        note: "Natural armor improves by +2 (thus stacking with natural armor the base creature had).",
+      },
+    ],
+    features: [
+      {
+        key: "twisted-house-size-and-type",
+        name: "Size and Type",
+        description:
+          "A twisted creature uses all the base creature's statistics and abilities except as noted in this template. Animals or vermin with this template become magical beasts, but otherwise the creature type is unchanged. Size is unchanged.",
+        category: "trait",
+        source: DOC4,
+        sourceUrl: DOC4_URL,
+      },
+      {
+        key: "twisted-house-smite-good",
+        name: "Smite Good (Su)",
+        description:
+          "Once per day the creature can make a normal melee attack to deal extra damage equal to its HD total (maximum of +20) against a good foe.",
+        category: "special-attack",
+        source: DOC4,
+        sourceUrl: DOC4_URL,
+      },
+      {
+        key: "twisted-house-disruptive-attack",
+        name: "Disruptive Attack (Su)",
+        description:
+          "The creature deals an additional 1 point of vile damage when it touches uncorrupted, living, corporeal nonoutsiders.",
+        category: "special-attack",
+        source: DOC4,
+        sourceUrl: DOC4_URL,
+      },
+      {
+        key: "twisted-house-darkvision",
+        name: "Darkvision",
+        description: "Darkvision out to 60 feet.",
+        category: "special-quality",
+        source: DOC4,
+        sourceUrl: DOC4_URL,
+      },
+      {
+        key: "twisted-house-damage-reduction",
+        name: "Damage Reduction",
+        description:
+          "Damage reduction 5/cold iron. If the base creature already has one or more of this template's special qualities, use the better value.",
+        category: "special-quality",
+        source: DOC4,
+        sourceUrl: DOC4_URL,
+      },
+      {
+        key: "twisted-house-magic-natural-weapons",
+        name: "Natural Weapons as Magic",
+        description:
+          "Its natural weapons are treated as magic weapons for the purpose of overcoming damage reduction.",
+        category: "special-quality",
+        source: DOC4,
+        sourceUrl: DOC4_URL,
+      },
+      {
+        key: "twisted-house-immunities",
+        name: "Immunities",
+        description: "Immunity to electricity and poison.",
+        category: "special-quality",
+        source: DOC4,
+        sourceUrl: DOC4_URL,
+      },
+      {
+        key: "twisted-house-resistances",
+        name: "Resistances",
+        description: "Resistance to acid 10, cold 10, and fire 10.",
+        category: "special-quality",
+        source: DOC4,
+        sourceUrl: DOC4_URL,
+      },
+      {
+        key: "twisted-house-claw-attacks",
+        name: "Claw Attacks",
+        description:
+          "A twisted has two claw attacks, which are its primary natural weapons. If the base creature can use weapons, the twisted retains this ability. A twisted without weapons uses a claw when making an attack action; when it has a weapon, it usually uses the weapon instead. These claw attacks deal 1d3 damage for a Medium creature (1d2 for a Small creature and 1d4 for a Large creature). Full attack: a twisted fighting without weapons uses both claws when making a full attack; if armed, it usually uses the weapon as its primary attack, and if it has a hand free, it uses a claw as an additional natural secondary attack.",
+        category: "special-attack",
+        source: DOC4,
+        sourceUrl: DOC4_URL,
+      },
+      {
+        key: "twisted-house-ability-adjustments",
+        name: "Ability Adjustments",
+        description:
+          "+4 Strength, +4 Constitution, −2 Charisma (applied in this template's ability modifiers), but Intelligence is at least 3.",
+        category: "trait",
+        source: DOC4,
+        sourceUrl: DOC4_URL,
+      },
+      {
+        key: "twisted-house-alignment",
+        name: "Alignment",
+        description: "Alignment changes to evil.",
+        category: "trait",
+        source: DOC4,
+        sourceUrl: DOC4_URL,
       },
     ],
   },

@@ -358,6 +358,28 @@ export function isGunMageBonusFeat(feat: FeatDefinition): boolean {
   return isMetamagicFeat(feat) || GUN_MAGE_BONUS_FEAT_ID_SET.has(feat.id);
 }
 
+/** Eberron Campaign Setting, p. 32: the artificer's bonus feat (gained
+ * at 4th level and every four levels thereafter) is a metamagic feat or
+ * one of the printed list below. The six ECS feats on the list
+ * (Attune Magic Weapon and the artisan feats, plus Wand Mastery) were
+ * built with the missing-content consolidation, 2026-11-02; Craft
+ * Construct's record lives in the Monster Manual IV pack. */
+export const ARTIFICER_ECS_BONUS_FEAT_IDS: readonly string[] = [
+  "attune-magic-weapon",
+  "craft-construct",
+  "exceptional-artisan",
+  "extra-rings",
+  "extraordinary-artisan",
+  "legendary-artisan",
+  "wand-mastery",
+];
+
+const ARTIFICER_ECS_BONUS_FEAT_ID_SET: ReadonlySet<string> = new Set(ARTIFICER_ECS_BONUS_FEAT_IDS);
+
+export function isArtificerEcsBonusFeat(feat: FeatDefinition): boolean {
+  return isMetamagicFeat(feat) || ARTIFICER_ECS_BONUS_FEAT_ID_SET.has(feat.id);
+}
+
 export interface ClassBonusFeatRule {
   classId: string;
   className: string;
@@ -517,5 +539,12 @@ export const CLASS_BONUS_FEAT_RULES: readonly ClassBonusFeatRule[] = [
     sectionLabel: "Eidoloncer Bonus Feats",
     note: "Per the Eidoloncer class, Ghostwalk: bonus feats must be feats with the [Ghost] descriptor — the same list as the eidolon's, shown in the Eidolon Bonus Feats section above.",
     matches: isGhostFeat,
+  },
+  {
+    classId: "artificer-ecs",
+    className: "Artificer (Eberron)",
+    sectionLabel: "Artificer Bonus Feats",
+    note: "Per the Artificer class, Eberron Campaign Setting, p. 32 (a bonus feat at 4th level and every four levels thereafter): any metamagic feat, or Attune Magic Weapon, Craft Construct, Exceptional Artisan, Extra Rings, Extraordinary Artisan, Legendary Artisan, or Wand Mastery. (The metamagic and item creation feats are listed under Wizard Bonus Feats above.)",
+    matches: isArtificerEcsBonusFeat,
   },
 ];
