@@ -4624,3 +4624,8 @@ check.
 moved to after Feats — step order is now Abilities & Race,
 Classes, Skills, Templates, Feats, Spells, Equipment,
 Personality, Character Sheet.
+The Spells step is now always visible in the step list (it was
+hidden entirely on builds with no casting class, which made its
+new place in the order impossible to see on a non-caster); the
+step's own empty state explains that the build has no
+spellcasting progression.

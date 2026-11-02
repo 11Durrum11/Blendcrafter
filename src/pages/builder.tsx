@@ -19,7 +19,6 @@ import { StepEquipment } from "@/components/steps/step-equipment";
 import { StepPersonality } from "@/components/steps/step-personality";
 import { StepSheet } from "@/components/steps/step-sheet";
 import { useCharacterBuild } from "@/lib/use-character-build";
-import { CASTING_PROFILES_BY_ID } from "@/data";
 import { exportCharacterJson, importCharacterJson } from "@/lib/character-io";
 import { buildShareUrl, buildTokenFromSearch, copyText, decodeBuildToken } from "@/lib/build-link";
 import { useToast } from "@/hooks/use-toast";
@@ -102,11 +101,12 @@ export default function Builder() {
     }
   }
 
-  // The Spells step exists only when the build has a class with a
-  // casting profile (Batch 12).
-  const hasCaster = build.classLevels.some((c) => c.levels > 0 && CASTING_PROFILES_BY_ID[c.classId]);
-  const visibleSteps = STEPS.filter((s) => s.id !== "spells" || hasCaster);
-  const effectiveStep: StepId = currentStep === "spells" && !hasCaster ? "classes" : currentStep;
+  // The Spells step is always in the step list (Shaun, 2026-11-02:
+  // it used to appear only for casting builds, so its place in the
+  // order was invisible on a non-caster). For a build with no
+  // casting class the step itself shows a plain empty state.
+  const visibleSteps = STEPS;
+  const effectiveStep: StepId = currentStep;
 
   // Moving to the next section starts at the top of the page
   // (Shaun, 2026-11-02).
