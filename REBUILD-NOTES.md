@@ -4766,3 +4766,12 @@ their greaters, Shades, Simulacrum, Project Image, Net of
 Shadows, Wall of Gloom, Ice Assassin, and kin) plus Black
 Sand, which is infused with shadowstuff — 29 deleted. Spell
 total: 2,526 → 2,497.
+
+**Click shows the entire spell entry (2026-11-02, Shaun's
+clarified direction):** hover and the library layout stay
+exactly as they were; the click dialog now shows EVERYTHING in
+the spell's record — a "Spell Lists" section (every list the
+spell sits on, with its level on each) now leads the full
+crunch: casting time, components, range, target/area/effect,
+duration, saving throw, spell resistance, note when present,
+summary, and source. Nothing cut.

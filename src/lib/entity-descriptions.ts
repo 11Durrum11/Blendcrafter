@@ -198,6 +198,13 @@ export function describeSpell(spell: SpellDefinition, listName?: string): Entity
   }`;
   const levelOnList = listName ? spell.levels[listName] : undefined;
   const sections: EntityDetailSection[] = [
+    {
+      heading: "Spell Lists",
+      body: Object.entries(spell.levels)
+        .sort(([a], [b]) => a.localeCompare(b))
+        .map(([list, lvl]) => `${list} ${lvl}`)
+        .join("\n"),
+    },
     { heading: "Casting Time", body: spell.castingTime },
     { heading: "Components", body: spell.components },
     { heading: "Range", body: spell.range },
