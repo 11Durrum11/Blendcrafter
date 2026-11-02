@@ -78,7 +78,7 @@ export const CORE_AUDIT_SPELLS: SpellDefinition[] = [
     ruleset: "core",
     school: "Evocation",
     descriptors: ["Force"],
-    levels: { "Sorcerer/Wizard": 6 },
+    levels: { "Sorcerer/Wizard": 6, "Gun Mage": 6 },
     components: "V, S, F",
     castingTime: "1 standard action",
     range: "Medium (100 ft. + 10 ft./level)",

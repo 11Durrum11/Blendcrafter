@@ -328,8 +328,11 @@ export function isFellCallerBonusFeat(feat: FeatDefinition): boolean {
 /** Iron Kingdoms Character Guide, p. 109: the gun mage's printed bonus-feat
  * list, beyond "any metamagic feat". Parenthetical chain feats in the book's
  * list are included. Combat Loading and Improved Combat Loading are on the
- * printed list but have no feat records in the data. */
+ * printed list; their feat records were added with the IKCG completion
+ * batch (Chapter Two feats sweep, 2026-11-02). */
 export const GUN_MAGE_BONUS_FEAT_IDS: readonly string[] = [
+  "combat-loading",
+  "improved-combat-loading",
   "combat-casting",
   "dodge",
   "mobility",
@@ -498,7 +501,7 @@ export const CLASS_BONUS_FEAT_RULES: readonly ClassBonusFeatRule[] = [
     classId: "gun-mage",
     className: "Gun Mage",
     sectionLabel: "Gun Mage Bonus Feats",
-    note: "Per the Gun Mage class list, Iron Kingdoms Character Guide, p. 109 (bonus feats at 5th level and every five levels thereafter): any metamagic feat (listed under Wizard Bonus Feats above), plus the printed list below. The book also lists Combat Loading and Improved Combat Loading, which have no feat records in the data.",
+    note: "Per the Gun Mage class list, Iron Kingdoms Character Guide, p. 109 (bonus feats at 5th level and every five levels thereafter): any metamagic feat (listed under Wizard Bonus Feats above), plus the printed list below, which includes Combat Loading and Improved Combat Loading.",
     matches: isGunMageBonusFeat,
   },
   {

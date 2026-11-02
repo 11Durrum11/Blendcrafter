@@ -4094,3 +4094,186 @@ lists are likewise described in their class features).
   or toggle/settings file was touched — one new data file, the
   barrel merge, and this addendum only. NOT pushed or deployed
   in this pass — the parent agent verifies, pushes, and reports.
+
+---
+
+# IKCG completion batch — addendum (2026-11-02)
+
+Shaun's order of 2026-11-02: build the Iron Kingdoms Character
+Guide completion batch — (1) the Chapter Five spell chapter,
+(2) the Gun Mage casting profile, (3) the full IKCG feats sweep.
+Everything was transcribed from the printed pages of the local
+IKCG scan (PDF page = printed page + 1); the scan has no text
+layer, so pages were read as rendered images, including 300-dpi
+zoom crops where a stat block straddled a column or page break.
+
+## A. Gun Mage spell list tagging (pp. 110–111)
+
+The printed Gun Mage spell list (191 entries: 17 0-level, 28 1st,
+40 2nd, 29 3rd, 26 4th, 24 5th, 27 6th) was transcribed to
+`~/ikcg-completion-work/gun-mage-list.json` and matched against
+all existing spell records by name-normalized matching (with
+comma-inversion and greater/lesser/mass suffix variants). 197
+match targets after expanding the two printed group entries
+("protection from chaos/evil/good/law" and "magic circle against
+chaos/evil/good/law", one printed entry each covering four
+spells). 196 targets resolved; each resolved record gained
+exactly one `"Gun Mage": <level>` entry in its `levels` map —
+192 records in total (191 in `src/data/spells/srd-spells.ts`,
+plus `forceful-hand` in `src/data/core/audit-spells.ts`, whose
+compact inline record style was edited by hand). A value-level
+diff against pre-tag backups proves every change is exactly the
+one added key — no other field or level entry changed. The
+machine-readable change report is
+`~/ikcg-completion-work/tag-report.json` (spell id, file, level
+added); match reports are alongside it.
+
+The one miss: **resilient sphere** (printed 4th level) has no
+spell record anywhere in the data — the SRD's Otiluke's
+resilient sphere was never built. It is an existing-book spell,
+not a Chapter Five new spell, so no record was created for it in
+this batch; it is the single named gap in Gun Mage coverage.
+
+Two list quirks, resolved as printed: 4th level prints BOTH
+"lesser globe of invulnerability" and "minor globe of
+invulnerability" — the book's two names for the same spell; both
+entries resolve to the single `globe-of-invulnerability-lesser`
+record (tagged Gun Mage 4), so 195 records carry the list.
+Conversely, Chapter Five's Altered Spells entry for disguise
+self (p. 354) prints "Level: Gmg 1, Sor 1", but disguise self is
+NOT on the pp. 110–111 Gun Mage list (the 28-entry 1st-level
+count confirms); the class list governs and it was not tagged.
+
+## B. New IKCG spells — `src/data/iron-kingdoms/spells.ts` (23)
+
+Chapter Five (pp. 352–367) read in full. Its first half,
+"Altered Spells" (pp. 352–359), presents existing spells with
+Iron Kingdoms list/backlash changes — no new records (its Gun
+Mage levels cross-checked the tagging in A and agree). The "New
+Spells" section (pp. 359–367) yields 23 records:
+`IRON_KINGDOMS_SPELLS` — Arcane Bullet, Bind Guardian,
+Bombardment, Borne on the Winds, Circle of Renewal, Corpse
+Binding, Crush Construct, Death Bullet, Detect Cortex, Earth
+Wave, Graniteskin, Overdrive, Reveal Souls, Scramble, Seize
+Gears, Stone Guardian I–IV, Stone Stride, Summon Gorax, Summon
+Razorbats, Wraith. Printed list abbreviations are expanded as
+recorded list keys ("Amk/Sor/Wiz" → both "Arcane Mechanik" and
+"Sorcerer/Wizard"; Blc → "Blackclad"; Gmg → "Gun Mage"; domains
+such as "Healing" and "Mechanika" as keys, following the corpus's
+existing domain-key pattern). No casting profiles exist for the
+arcane mechanik or blackclad lists; those keys are documentary,
+like the domain keys on SRD records.
+
+Surprises, all documented in the records themselves:
+- **Bombardment is a homonym.** The existing `bombardment`
+  record (Spell Compendium p. 37, Conjuration, Druid 8) is a
+  different spell from the IKCG's (Transmutation, Amk/Sor/Wiz 4,
+  Blc 4). The IKCG record is id `bombardment-ikcg`; both coexist.
+- **Earth Wave's Range line is not printed** — the stat block
+  ends at "Casting Time" (p. 362) and resumes with "Area:"
+  (p. 363), verified by zoom crop. The record's range is
+  "Personal", grounded in the printed "40-foot-radius burst
+  centered on the caster", with a note documenting the omission.
+- **Stone Stride prints no saving throw or spell resistance
+  lines** (verified by zoom crop); both fields carry the corpus
+  convention "Not printed in source".
+- Overdrive's range ("Close (25 ft. + 2 ft./lvl)") and saving
+  throw ("Yes"), and Scramble's saving throw ("Yes"), are
+  transcribed exactly as printed.
+- Stone Guardian II–IV inherit I's components/casting
+  time/range/duration/save/SR — the book prints only level and
+  effect lines for II–IV; noted per record.
+
+## C. Gun Mage casting profile
+
+Added to `CASTING_PROFILES` in
+`src/data/spells/casting-profiles.ts` (now 19 profiles):
+classId "gun-mage", listName "Gun Mage", spontaneous, Charisma.
+Spells per day from Table 2–5 (p. 106) and spells known from
+Table 2–6 (p. 107), rows for class levels 1–10 cross-checked
+against the printed tables (and against the values previously
+transcribed into the gun-mage class record's Spells feature —
+they agree). Table 2–6's asterisk ("Provided the gun mage has a
+high enough Charisma score to have a bonus spell of this level")
+is explained in the profile note; asterisked counts are encoded
+as printed (2). Note: Table 2–5 grants no 5th-level slots before
+class level 11 and no 6th-level slots before 13, so within the
+app's levels 1–10 rows the highest castable level is 4th
+(bonus-only at 10th) — engine-verified, not a data gap.
+
+## D. IKCG feats sweep — `src/data/iron-kingdoms/feats-ch2.ts` (52)
+
+Table 2–17: Feats (pp. 153–155) transcribed in full: 62 feats
+(28 General, 1 Item Creation, 15 Faith, 18 Society) with entry
+texts read from pp. 151–167. **10 chapter feats already had
+records and were left governing, not duplicated:** Bayonet
+Charge and Stronghammer Smith (IKCG pack) and, from the Liber
+Mechanika pack, Calloused Hands, Mechanikal Aptitude,
+Mechanikal Specialty, Rugged Mechanika, Inquisitor, Union
+Steamo, Mechanikal Secrets, Quick Fix. The remaining 52 are new
+records in `IRON_KINGDOMS_CH2_FEATS`, following the Liber
+Mechanika pack's conventions (Faith/Society filed as
+"setting-specific" with the printed type noted in the summary).
+The p. 150 chapter introduction states Create Thrall, Myth
+Delver, Sagas and Stories, Tall Tales, and Unearthed Arcana are
+reprinted from Monsternomicon vol. 1, and Stronghammer Smith
+from the Lock & Load Character Primer — recorded in the file
+header. Deliberately NOT added, per Shaun's 2026-11-02 rulings:
+Craft Accumulator (Liber Mechanika) and Spell Mastery (PHB).
+
+Table-vs-entry discrepancies were resolved in favor of the feat
+entries and documented in the records: Create Thrall's
+prerequisites come from its entry (the table's compressed
+"Ability to cast animate dead" omits the printed caster-level
+9th requirement); Illuminated One's alignment from its entry
+(LG/LN/NG/CG — the table shows only "Lawful or good"); Improved
+Two-Pistol Fighting's prerequisites from its entry (the table's
+additional Dex 17 appears nowhere in the entry and is noted in
+the record's `special`); the table prints Calloused Hands at
+Str 18 against the entry's Str 13 — the existing Liber
+Mechanika record (Str 13) governs. "Fire's Wrath" is the
+feat-entry name for the table's "Engulf in Flames (Wrath)"; the
+table's (Balm)/(Wrath) suffixes are dropped by the entry
+headings of the other faith feats.
+
+## E. Gun Mage bonus-feat rule update
+
+`src/lib/class-bonus-feats.ts` (the only non-data file this
+batch may edit): `combat-loading` and `improved-combat-loading`
+added to `GUN_MAGE_BONUS_FEAT_IDS` (17 → 19 ids), and the rule's
+note no longer says they have no records. Gun Mage bonus-feat
+membership across ALL_FEATS: 79 → 81.
+
+## Verification (suites in `~/ikcg-completion-work/scripts/`)
+
+- `verify.ts`: Gun Mage coverage 196/197 targets resolved at the
+  correct levels (sole miss: resilient sphere, above); records
+  per Gun Mage level 17/31/40/32/24/24/27 for levels 0–6
+  (1st level counts 31 records because the four protection-from
+  spells resolve from one printed entry; 4th counts 24 records
+  covering 25 entries via the shared globe record); profile
+  tables match Tables 2–5/2–6 at levels 1, 5, 10 and in full;
+  62/62 chapter feats present in ALL_FEATS; Combat Loading and
+  Improved Combat Loading satisfy `isGunMageBonusFeat`
+  (membership 79 → 81); no duplicate spell/feat ids.
+- `verify-build.ts`: a sample Gun Mage 5 (Cha 16) run through
+  the engine's `validateSelectedSpells` — a legal known set
+  (6/4/3 per Table 2–6) passes clean; an over-cap pick, a
+  3rd-level pick, and an off-list pick each produce the correct
+  error. `castingFacts` at level 10 gives maxLevel 4 (Cha 18)
+  and 0 (Cha 10), per Table 2–5 plus the minimum-ability rule.
+- `npm run check` (tsc) and `npm run build` pass.
+
+## Totals after this batch
+
+Spells 2,464 → **2,487** (+23); feats 1,659 → **1,711** (+52);
+casting profiles 18 → **19**. Files created:
+`src/data/iron-kingdoms/spells.ts`,
+`src/data/iron-kingdoms/feats-ch2.ts`. Files edited:
+`src/data/spells/srd-spells.ts` (191 list-level tags),
+`src/data/core/audit-spells.ts` (1 tag),
+`src/data/spells/casting-profiles.ts` (Gun Mage profile),
+`src/data/index.ts` (barrel wiring),
+`src/lib/class-bonus-feats.ts` (item E), and this addendum. No
+toggle/settings, engine, component, or character-repository file
+was touched. NOT pushed — the parent agent verifies and pushes.
