@@ -386,12 +386,21 @@ export interface ClassBonusFeatRule {
   sectionLabel: string;
   /** One-line source note shown under the section heading. */
   note: string;
+  /** Class levels at which this class grants a selectable bonus feat
+   *  from this list, per the class's own text (cited in the note and
+   *  in the class record's Bonus Feats feature). The resolver adds
+   *  these as feat slots restricted to this list. Empty only where a
+   *  rule exists for display but the cadence is not recorded in the
+   *  class record as modeled (shadowcaster — a two-entry summary
+   *  record; its bonus feats still count against general slots). */
+  bonusFeatLevels: readonly number[];
   matches: (feat: FeatDefinition) => boolean;
 }
 
 export const CLASS_BONUS_FEAT_RULES: readonly ClassBonusFeatRule[] = [
   {
     classId: "fighter",
+    bonusFeatLevels: [1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20],
     className: "Fighter",
     sectionLabel: "Fighter Bonus Feats",
     note: "Feats designated as fighter bonus feats: the Player's Handbook list (Table 5–1), Player's Handbook II, and each feat's own text.",
@@ -399,6 +408,7 @@ export const CLASS_BONUS_FEAT_RULES: readonly ClassBonusFeatRule[] = [
   },
   {
     classId: "wizard",
+    bonusFeatLevels: [5, 10, 15, 20],
     className: "Wizard",
     sectionLabel: "Wizard Bonus Feats",
     note: "Per the Wizard class, Player's Handbook: a metamagic feat, an item creation feat, or Spell Mastery. (The mortitheurge uses this same rule — see below.)",
@@ -406,6 +416,7 @@ export const CLASS_BONUS_FEAT_RULES: readonly ClassBonusFeatRule[] = [
   },
   {
     classId: "monk",
+    bonusFeatLevels: [1, 2, 6],
     className: "Monk",
     sectionLabel: "Monk Bonus Feats",
     note: "Per the Monk class, Player's Handbook (1st, 2nd, and 6th level lists), plus the monk designations in Player's Handbook II and each feat's own text. All the PHB monk choices and the Player's Handbook II monk feats are also fighter bonus feats, so they are listed under Fighter Bonus Feats above.",
@@ -416,6 +427,7 @@ export const CLASS_BONUS_FEAT_RULES: readonly ClassBonusFeatRule[] = [
   },
   {
     classId: "psion",
+    bonusFeatLevels: [1, 5, 10, 15, 20],
     className: "Psion",
     sectionLabel: "Psion Bonus Feats",
     note: "Per the Psion class, Expanded Psionics Handbook, p. 20: a psionic feat, a metapsionic feat, or a psionic item creation feat.",
@@ -426,6 +438,7 @@ export const CLASS_BONUS_FEAT_RULES: readonly ClassBonusFeatRule[] = [
   },
   {
     classId: "psychic-warrior",
+    bonusFeatLevels: [1, 2, 5, 8, 11, 14, 17, 20],
     className: "Psychic Warrior",
     sectionLabel: "Psychic Warrior Bonus Feats",
     note: "Per the Psychic Warrior class, Expanded Psionics Handbook, p. 25: the fighter bonus feats or the psionic feats — both lists are shown in the sections above.",
@@ -433,6 +446,7 @@ export const CLASS_BONUS_FEAT_RULES: readonly ClassBonusFeatRule[] = [
   },
   {
     classId: "fell-caller",
+    bonusFeatLevels: [4, 8, 12, 16, 20],
     className: "Fell Caller",
     sectionLabel: "Fell Caller Bonus Feats",
     note: "Per the Fell Caller class, Iron Kingdoms Character Guide, p. 103: bonus feats at 4th, 8th, 12th, 16th, and 20th level from the fighter bonus feat list, except Greater Weapon Focus, Weapon Specialization, and Greater Weapon Specialization — the fighter feats are listed under Fighter Bonus Feats above.",
@@ -440,6 +454,7 @@ export const CLASS_BONUS_FEAT_RULES: readonly ClassBonusFeatRule[] = [
   },
   {
     classId: "knight",
+    bonusFeatLevels: [5, 10, 15],
     className: "Knight",
     sectionLabel: "Knight Bonus Feats",
     note: "Per the Knight class list, Player's Handbook II (bonus feats at 5th, 10th, and 15th level; Weapon Focus is lance only).",
@@ -447,6 +462,7 @@ export const CLASS_BONUS_FEAT_RULES: readonly ClassBonusFeatRule[] = [
   },
   {
     classId: "scout",
+    bonusFeatLevels: [4, 8, 12, 16, 20],
     className: "Scout",
     sectionLabel: "Scout Bonus Feats",
     note: "Per the Scout class list, Complete Adventurer (bonus feats at 4th level and every four levels thereafter).",
@@ -454,6 +470,7 @@ export const CLASS_BONUS_FEAT_RULES: readonly ClassBonusFeatRule[] = [
   },
   {
     classId: "hexblade",
+    bonusFeatLevels: [5, 10, 15, 20],
     className: "Hexblade",
     sectionLabel: "Hexblade Bonus Feats",
     note: "Per the Hexblade class list, Complete Warrior (bonus feats at 5th level and every five levels thereafter; Spell Focus choices are limited to enchantment, necromancy, and transmutation).",
@@ -461,6 +478,7 @@ export const CLASS_BONUS_FEAT_RULES: readonly ClassBonusFeatRule[] = [
   },
   {
     classId: "warblade",
+    bonusFeatLevels: [5, 9, 13, 17],
     className: "Warblade",
     sectionLabel: "Warblade Bonus Feats",
     note: "Per the Warblade bonus feat list, Tome of Battle, p. 22 (bonus feats at 5th level and every four levels thereafter).",
@@ -468,6 +486,7 @@ export const CLASS_BONUS_FEAT_RULES: readonly ClassBonusFeatRule[] = [
   },
   {
     classId: "binder",
+    bonusFeatLevels: [4, 11, 18],
     className: "Binder",
     sectionLabel: "Binder Bonus Feats",
     note: "Per the Binder class, Tome of Magic (bonus feats at 4th, 11th, and 18th level): eight named feats plus the pact magic feats of Chapter 1.",
@@ -476,6 +495,7 @@ export const CLASS_BONUS_FEAT_RULES: readonly ClassBonusFeatRule[] = [
   },
   {
     classId: "shadowcaster",
+    bonusFeatLevels: [],
     className: "Shadowcaster",
     sectionLabel: "Shadowcaster Bonus Feats",
     note: "Per the Shadowcaster class, Tome of Magic: any metamagic feat, any metashadow feat, Favored Mystery, Greater Path Focus, Nocturnal Caster, Path Focus, or Shadow Vision. (The plain metamagic feats are listed under Wizard Bonus Feats above.)",
@@ -486,6 +506,7 @@ export const CLASS_BONUS_FEAT_RULES: readonly ClassBonusFeatRule[] = [
   },
   {
     classId: "truenamer",
+    bonusFeatLevels: [9, 15],
     className: "Truenamer",
     sectionLabel: "Truenamer Bonus Feats",
     note: "Per the Truenamer class, Tome of Magic (bonus recitation feats at 9th and 15th level): the recitation feats, p. 231.",
@@ -493,6 +514,7 @@ export const CLASS_BONUS_FEAT_RULES: readonly ClassBonusFeatRule[] = [
   },
   {
     classId: "wu-jen",
+    bonusFeatLevels: [1],
     className: "Wu Jen",
     sectionLabel: "Wu Jen Bonus Feats",
     note: "Per the Wu Jen class, Complete Arcane: a bonus metamagic feat at 1st level — the metamagic feats are listed under Wizard Bonus Feats above.",
@@ -500,6 +522,7 @@ export const CLASS_BONUS_FEAT_RULES: readonly ClassBonusFeatRule[] = [
   },
   {
     classId: "mortitheurge",
+    bonusFeatLevels: [4, 12, 20],
     className: "Mortitheurge",
     sectionLabel: "Mortitheurge Bonus Feats",
     note: "Per the Mortitheurge class, Monsternomicon vol. 2: a metamagic feat, an item creation feat, or Spell Mastery — the same list as the wizard's, shown under Wizard Bonus Feats above.",
@@ -507,6 +530,7 @@ export const CLASS_BONUS_FEAT_RULES: readonly ClassBonusFeatRule[] = [
   },
   {
     classId: "arcane-mechanik",
+    bonusFeatLevels: [3, 6, 9, 12],
     className: "Arcane Mechanik",
     sectionLabel: "Arcane Mechanik Bonus Feats",
     note: "Per the Arcane Mechanik class list, Liber Mechanika (bonus feats at 3rd, 6th, 9th, and 12th level). The book also lists Craft Accumulator, which is not in the feat data; the five craft feats on the list are item creation feats, listed under Wizard Bonus Feats above.",
@@ -514,6 +538,7 @@ export const CLASS_BONUS_FEAT_RULES: readonly ClassBonusFeatRule[] = [
   },
   {
     classId: "musketeer",
+    bonusFeatLevels: [5, 8, 11, 14, 17, 20],
     className: "Musketeer",
     sectionLabel: "Musketeer Bonus Feats",
     note: "Per the Musketeer class list, Sorcery & Steam (bonus feats at 5th level and every three levels thereafter). The book also lists Ambidexterity, a 3.0 feat folded into Two-Weapon Fighting in 3.5, which has no feat record.",
@@ -521,6 +546,7 @@ export const CLASS_BONUS_FEAT_RULES: readonly ClassBonusFeatRule[] = [
   },
   {
     classId: "gun-mage",
+    bonusFeatLevels: [5, 10, 15, 20],
     className: "Gun Mage",
     sectionLabel: "Gun Mage Bonus Feats",
     note: "Per the Gun Mage class list, Iron Kingdoms Character Guide, p. 109 (bonus feats at 5th level and every five levels thereafter): any metamagic feat (listed under Wizard Bonus Feats above), plus the printed list below, which includes Combat Loading and Improved Combat Loading.",
@@ -528,6 +554,7 @@ export const CLASS_BONUS_FEAT_RULES: readonly ClassBonusFeatRule[] = [
   },
   {
     classId: "eidolon",
+    bonusFeatLevels: [1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20],
     className: "Eidolon",
     sectionLabel: "Eidolon Bonus Feats",
     note: "Per the Eidolon class, Ghostwalk: bonus feats must be feats with the [Ghost] descriptor. This is also the eidoloncer's bonus-feat list — see below.",
@@ -535,6 +562,7 @@ export const CLASS_BONUS_FEAT_RULES: readonly ClassBonusFeatRule[] = [
   },
   {
     classId: "eidoloncer",
+    bonusFeatLevels: [1, 5, 10, 15, 20],
     className: "Eidoloncer",
     sectionLabel: "Eidoloncer Bonus Feats",
     note: "Per the Eidoloncer class, Ghostwalk: bonus feats must be feats with the [Ghost] descriptor — the same list as the eidolon's, shown in the Eidolon Bonus Feats section above.",
@@ -542,9 +570,23 @@ export const CLASS_BONUS_FEAT_RULES: readonly ClassBonusFeatRule[] = [
   },
   {
     classId: "artificer-ecs",
+    bonusFeatLevels: [4, 8, 12, 16, 20],
     className: "Artificer (Eberron)",
     sectionLabel: "Artificer Bonus Feats",
     note: "Per the Artificer class, Eberron Campaign Setting, p. 32 (a bonus feat at 4th level and every four levels thereafter): any metamagic feat, or Attune Magic Weapon, Craft Construct, Exceptional Artisan, Extra Rings, Extraordinary Artisan, Legendary Artisan, or Wand Mastery. (The metamagic and item creation feats are listed under Wizard Bonus Feats above.)",
     matches: isArtificerEcsBonusFeat,
   },
 ];
+
+/** The bonus-feat rule for a class id, if one is modeled. */
+export function bonusFeatRuleFor(classId: string): ClassBonusFeatRule | undefined {
+  return CLASS_BONUS_FEAT_RULES.find((r) => r.classId === classId);
+}
+
+/** How many selectable class bonus-feat slots a class level total has
+ *  earned under its rule (0 when the class has no modeled list). */
+export function earnedBonusFeatSlots(classId: string, classLevels: number): number {
+  const rule = bonusFeatRuleFor(classId);
+  if (!rule) return 0;
+  return rule.bonusFeatLevels.filter((l) => l <= classLevels).length;
+}

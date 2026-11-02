@@ -22,6 +22,7 @@ import { buildPrereqContext, evaluatePrestigeClass } from "./prestige-prerequisi
 import { validateSelectedSpells } from "./spells";
 import { computeSynergies } from "./skill-synergy";
 import { parseCostToGp } from "./wealth";
+import { bonusFeatRuleFor, earnedBonusFeatSlots, type ClassBonusFeatRule } from "@/lib/class-bonus-feats";
 import { resolveModifierStack, formatSigned } from "./stacking";
 import { averageRoll, parseDieFaces, stepDieSize } from "./dice";
 import { progressionRow, SAVE_ABILITY } from "./progression";
@@ -596,25 +597,59 @@ export function resolveCharacter(build: CharacterBuild): ResolvedCharacter {
   }
 
   /* ---------------- Feat slots --------------------------------------- */
-  const featSlotsTotal =
+  const generalFeatSlots =
     (totalHitDice > 0 ? 1 + Math.floor(totalHitDice / 3) : 0) + (race.bonusFeatSlots ?? 0);
   const featSlotsAudit: AuditEntry[] = [
     {
       source: "Character level",
       target: "feat-slots",
       operation: totalHitDice > 0 ? `1 feat at 1st level + 1 per 3 Hit Dice (${totalHitDice} HD)` : "No Hit Dice — no feat slots",
-      resultingValue: featSlotsTotal,
+      resultingValue: generalFeatSlots,
     },
   ];
   if (race.bonusFeatSlots) {
-    featSlotsAudit.push({ source: race.name, sourceUrl: race.sourceUrl, target: "feat-slots", operation: `${formatSigned(race.bonusFeatSlots)} bonus feat slot`, resultingValue: featSlotsTotal });
+    featSlotsAudit.push({ source: race.name, sourceUrl: race.sourceUrl, target: "feat-slots", operation: `${formatSigned(race.bonusFeatSlots)} bonus feat slot`, resultingValue: generalFeatSlots });
   }
+  // Class bonus-feat slots (found by the 2026-11-02 level-20 test
+  // characters: a legal Fighter 20 was warned as 11 feats over budget
+  // because class bonus feats had no slot accounting). Each class
+  // with a modeled bonus-feat list adds the slots its levels have
+  // earned; those slots can only be spent on feats from the list.
+  let classBonusFeatSlots = 0;
+  const earnedBonusRules: ClassBonusFeatRule[] = [];
+  for (const choice of [...build.classLevels, ...build.prestigeClassLevels]) {
+    const rule = bonusFeatRuleFor(choice.classId);
+    if (!rule) continue;
+    const earned = earnedBonusFeatSlots(choice.classId, choice.levels);
+    if (earned > 0) {
+      classBonusFeatSlots += earned;
+      earnedBonusRules.push(rule);
+      featSlotsAudit.push({
+        source: rule.className,
+        target: "feat-slots",
+        operation: `${formatSigned(earned)} class bonus feat slot(s) (${rule.sectionLabel})`,
+        resultingValue: generalFeatSlots + classBonusFeatSlots,
+      });
+    }
+  }
+  const featSlotsTotal = generalFeatSlots + classBonusFeatSlots;
   const featSlots = { total: featSlotsTotal, used: selectedFeats.length, audit: featSlotsAudit };
   if (selectedFeats.length > featSlotsTotal) {
     validation.push({
       severity: "warning",
       message: `${selectedFeats.length} feats selected but only ${featSlotsTotal} feat slot(s) available.`,
     });
+  }
+  if (earnedBonusRules.length > 0) {
+    const offListCount = selectedFeats.filter(
+      (f) => !earnedBonusRules.some((r) => r.matches(f))
+    ).length;
+    if (offListCount > generalFeatSlots) {
+      validation.push({
+        severity: "warning",
+        message: `${offListCount} selected feat(s) are not on any of this character's class bonus-feat lists, but only ${generalFeatSlots} general feat slot(s) are available — class bonus feat slots can only be spent on the class list.`,
+      });
+    }
   }
 
   /* ---------------- Phase 6/7: CR, LA buyoff, ECL --------------------- */

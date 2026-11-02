@@ -4556,3 +4556,38 @@ index 183, dandwiki reference index 313, house-rules index 13,
 summoning spell list 197. The "Totals after the audit + fix wave"
 line above predates the infusion-records and doc-#4 batches and
 is superseded by these numbers.
+
+## Feat-slot accounting fix (2026-11-02, found by the test characters)
+
+The first level-20 test build exposed a real engine bug: class
+bonus feats had no slot accounting in the resolver, so a legal
+Fighter 20 (8 general + 11 fighter bonus feats) was warned "19
+feats selected but only 8 feat slot(s) available." Fix:
+ClassBonusFeatRule gained `bonusFeatLevels` — the class levels at
+which the class grants a selectable bonus feat, taken from each
+class's own Bonus Feats feature text / the rule's book citation
+(Fighter 1,2,4,…,20; Wizard 5,10,15,20; Monk 1,2,6; Psion
+1,5,10,15,20; Psychic Warrior 1,2,5,8,11,14,17,20; Fell Caller
+4,8,12,16,20; Knight 5,10,15; Scout 4,8,12,16,20; Hexblade
+5,10,15,20; Warblade 5,9,13,17; Binder 4,11,18; Truenamer 9,15;
+Wu Jen 1; Mortitheurge 4,12,20; Arcane Mechanik 3,6,9,12;
+Musketeer 5,8,11,14,17,20; Gun Mage 5,10,15,20; Eidolon
+1,2,4,…,20; Eidoloncer 1,5,10,15,20; ECS Artificer 4,8,12,16,20).
+Shadowcaster's list is empty by design: its record is a two-entry
+summary that does not state a cadence, so its bonus feats still
+count against general slots rather than inventing one. The
+resolver now adds earned class bonus slots to featSlots.total
+(with per-class audit entries) and warns when feats that match no
+earned class list exceed the general slots (bonus slots are
+list-restricted). Verified by ~/test-chars-work/feat-slots.mts
+(14 checks: single-class, multiclass Fighter 10/Wizard 10 = 16
+slots, restriction warning, Rogue over-slot warning intact) and
+the Audit D suites (check2's only flags remain the known
+Warforged Charger Cha-0 cases, now surfaced by the ability-floor
+validation; check5 toggle round-trips clean; check7 wealth clean).
+Adjudication note: Audit D's check3 script expects a +3 Diplomacy
+delta from Bluff 13 ranks under Superior Synergy; the engine's +2
+is correct per SUPERIOR-SYNERGY-ACCOUNTING.md — the Bluff line is
+a mixed line whose 10-rank tier is a special (attitude changes in
+~half the time), not the +3 rung; the script's expectation, not
+the engine, is wrong.
