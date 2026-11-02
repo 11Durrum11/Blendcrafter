@@ -4670,3 +4670,13 @@ Gems (10 to a pound, compound pricing, price very
 appraise-dependent), Scripts (paper money, 1 gp each, 500 to a
 pound, very society-dependent), and Cheqs (any amount, very
 lightweight, very society-dependent — spelled "Cheqs" per Shaun).
+
+**Wealth-by-level chart beside the Wealth header (2026-11-02,
+Shaun's direction):** the Wealth card header now also carries the
+full DMG Table 5–1 wealth-by-level chart (levels 2–20, the
+build's ECL highlighted) with the calculation run from it —
+initial wealth for the level, the must-spend 70% target, the 30%
+liquid max, spent/liquid amounts and percentages, how much is
+still to spend to reach 70%, and a plain explanation that at
+least 70% must be spent on gear. The calculation panel moved up
+from the card body into this header panel (same testids).

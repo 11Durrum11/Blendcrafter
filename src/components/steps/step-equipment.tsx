@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Coins, Info, Plus, Search, Shield, Trash2 } from "lucide-react";
 import { ALL_EQUIPMENT, ALL_MAGIC_ITEMS } from "@/data";
 import type { InventoryEntry, ResolvedCharacter, Ruleset } from "@/engine/types";
-import { formatGp, initialWealthSplit, wealthByLevel } from "@/engine/wealth";
+import { formatGp, initialWealthSplit, WEALTH_BY_LEVEL, wealthByLevel } from "@/engine/wealth";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -125,6 +125,11 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, onAdd, onR
   // most 30% left liquid. Level 1 keeps the starting-gold note instead.
   const split = wbl !== null ? initialWealthSplit(wbl, wealth.totalGp) : null;
   const formatPct = (v: number) => `${Math.round(v * 10) / 10}%`;
+  // Wealth-by-level chart entries for the header panel (Shaun,
+  // 2026-11-02: chart next to the Wealth header, calculated).
+  const wblEntries = Object.entries(WEALTH_BY_LEVEL)
+    .map(([lvl, gp]) => ({ level: Number(lvl), gp }))
+    .sort((a, b) => a.level - b.level);
 
   return (
     <div className="space-y-6">
@@ -161,6 +166,87 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, onAdd, onR
               </p>
             </div>
           </div>
+          {/* Wealth-by-level chart + calculation beside the Wealth
+              header (Shaun, 2026-11-02): the full DMG Table 5–1 chart
+              with the build's ECL highlighted, and the 70/30 rule
+              calculated from it — at least 70% of the chart amount
+              must be spent on gear, at most 30% may stay liquid. */}
+          <div className="mt-3 rounded-md border border-card-border bg-card p-3" data-testid="wealth-by-level-panel">
+            <div className="flex flex-wrap items-baseline justify-between gap-2">
+              <p className="font-display text-sm font-semibold">Wealth by Level — DMG Table 5–1</p>
+              <p className="text-xs text-muted-foreground">Level : gp — your ECL is {resolved.ecl.value}</p>
+            </div>
+            <div className="mt-2 flex flex-wrap gap-1" data-testid="wealth-by-level-chart">
+              {wblEntries.map(({ level, gp }) => (
+                <span
+                  key={level}
+                  data-testid={level === resolved.ecl.value ? "wealth-by-level-current" : undefined}
+                  className={
+                    level === resolved.ecl.value
+                      ? "rounded border border-primary bg-primary/15 px-1.5 py-0.5 font-mono text-[11px] font-semibold text-foreground"
+                      : "rounded border border-card-border px-1.5 py-0.5 font-mono text-[11px] text-muted-foreground"
+                  }
+                >
+                  {level}: {formatGp(gp)}
+                </span>
+              ))}
+            </div>
+            {split !== null ? (
+              <div className="mt-3 border-t border-card-border pt-2" data-testid="wealth-initial-split">
+                <p className="text-sm">
+                  Initial wealth (DMG, level {resolved.ecl.value}):{" "}
+                  <span className="font-mono font-semibold text-foreground" data-testid="text-initial-wealth">
+                    {formatGp(split.initial)} gp
+                  </span>
+                  {" · "}Must spend (70%):{" "}
+                  <span className="font-mono font-semibold text-foreground" data-testid="text-spend-target">
+                    {formatGp(split.initial * 0.7)} gp
+                  </span>
+                  {" · "}Liquid max (30%):{" "}
+                  <span className="font-mono text-foreground">{formatGp(split.initial * 0.3)} gp</span>
+                </p>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  Spent on gear: <span className="font-mono text-foreground">{formatGp(split.spent)} gp</span> (
+                  {formatPct(split.spentPct)}) · Liquid:{" "}
+                  <span className="font-mono text-foreground">{formatGp(split.liquid)} gp</span> (
+                  {formatPct(split.liquidPct)})
+                </p>
+                <p className="mt-1 text-sm">
+                  {split.initial * 0.7 > wealth.totalGp ? (
+                    <>
+                      Still to spend to reach 70%:{" "}
+                      <span className="font-mono font-semibold text-foreground">
+                        {formatGp(split.initial * 0.7 - wealth.totalGp)} gp
+                      </span>
+                      .{" "}
+                    </>
+                  ) : (
+                    <>You've met the 70% spending requirement. </>
+                  )}
+                  {split.liquidWithinLimit ? (
+                    <span className="font-medium text-emerald-500" data-testid="wealth-rule-ok">
+                      At most 30% liquid — good.
+                    </span>
+                  ) : (
+                    <span className="font-medium text-amber-500" data-testid="wealth-rule-warning">
+                      Too much liquid: spend at least 70% of initial wealth on gear.
+                    </span>
+                  )}
+                </p>
+                <p className="mt-1 text-xs text-muted-foreground">
+                  The rule: you need to spend at least 70% of your wealth-by-level amount on gear. What's left
+                  unspent is liquid cash, and it can never be more than 30% — if it is, keep buying gear until it
+                  isn't.
+                </p>
+              </div>
+            ) : (
+              <p className="mt-2 text-sm text-muted-foreground">
+                {resolved.ecl.value < 2
+                  ? "Level 1 characters use their class's starting gold instead — the chart and the 70% calculation start at level 2."
+                  : "The DMG chart stops at level 20, so there's no chart amount to calculate from past that."}
+              </p>
+            )}
+          </div>
           <CardDescription>
             The gold-piece value of everything in your inventory, kept current as you add and remove items below.
           </CardDescription>
@@ -189,34 +275,6 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, onAdd, onR
               resolved.ecl.value < 2 && <> Level 1 characters use their class's starting gold instead of the wealth-by-level guideline.</>
             )}
           </p>
-          {split !== null && (
-            <div className="mt-3 rounded-md border border-card-border bg-card p-3" data-testid="wealth-initial-split">
-              <p className="text-sm">
-                Initial wealth (DMG, level {resolved.ecl.value}):{" "}
-                <span className="font-mono font-semibold text-foreground" data-testid="text-initial-wealth">
-                  {formatGp(split.initial)} gp
-                </span>
-              </p>
-              <p className="mt-1 text-sm text-muted-foreground">
-                Spent on gear: <span className="font-mono text-foreground">{formatGp(split.spent)} gp</span> (
-                {formatPct(split.spentPct)}) · Liquid:{" "}
-                <span className="font-mono text-foreground">{formatGp(split.liquid)} gp</span> (
-                {formatPct(split.liquidPct)})
-              </p>
-              <p className="mt-1 text-sm">
-                A character must spend at least 70% of initial wealth on gear — at most 30% can stay liquid.{" "}
-                {split.liquidWithinLimit ? (
-                  <span className="font-medium text-emerald-500" data-testid="wealth-rule-ok">
-                    At most 30% liquid — good.
-                  </span>
-                ) : (
-                  <span className="font-medium text-amber-500" data-testid="wealth-rule-warning">
-                    Too much liquid: spend at least 70% of initial wealth on gear.
-                  </span>
-                )}
-              </p>
-            </div>
-          )}
         </CardContent>
       </Card>
 
