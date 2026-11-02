@@ -95,6 +95,11 @@ function dominantAbility(resolved: ResolvedCharacter): { key: string; total: num
   return best;
 }
 
+/** "a" / "an" for the woven-in background and family phrases. */
+function article(word: string): string {
+  return /^[aeiou]/i.test(word) ? "an" : "a";
+}
+
 function alignmentAxis(alignment: string): { moral: string; order: string } {
   const moral = alignment.includes("Good") ? "good" : alignment.includes("Evil") ? "evil" : "neutral";
   const order = alignment.startsWith("Lawful") ? "lawful" : alignment.startsWith("Chaotic") ? "chaotic" : "neutral";
@@ -128,7 +133,7 @@ export function generatePersonality(
     p.socialStanding >= 8 ? "high-born or celebrated" : p.socialStanding >= 5 ? "respectable" : p.socialStanding >= 3 ? "unremarkable" : "marginal";
 
   const temperament =
-    `${race} temperament filtered through a ${p.background.toLowerCase()} upbringing: ` +
+    `${race} temperament filtered through ${article(p.background)} ${p.background.toLowerCase()} upbringing: ` +
     (order === "lawful"
       ? "structured, habitual, and visibly calmed by routine."
       : order === "chaotic"
@@ -150,7 +155,7 @@ export function generatePersonality(
         : ` What weighs heaviest in how they were made is ${HEAVIEST_LABEL[heaviest] ?? "their past"}.`);
 
   const lifeHistory =
-    `Age ${p.age}. Raised in a ${p.familyStatus.toLowerCase()} situation, coming out of a ${p.background.toLowerCase()} background` +
+    `Age ${p.age}. Raised in ${article(p.familyStatus)} ${p.familyStatus.toLowerCase()} situation, coming out of ${article(p.background)} ${p.background.toLowerCase()} background` +
     (level > 1
       ? ` and hardened by roughly ${level} levels of hard experience${classNames > 1 ? " across more than one discipline" : ""}.`
       : " and only just starting to be tested by the world.") +

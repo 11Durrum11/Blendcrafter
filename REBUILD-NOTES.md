@@ -5203,3 +5203,8 @@ draft preview before the first generation, a "saved on this
 character" note when current, and an amber stale warning when
 inputs changed after generating (staleness = snapshot vs live
 draft comparison, harness-verified both ways).
+
+**NPC prose article fix (2026-11-02, found by live-browser
+test):** the generator wove the background in as "a outlander
+upbringing" (and "a orphaned situation") — now picks a/an by
+the word's first letter for background and family phrases.
