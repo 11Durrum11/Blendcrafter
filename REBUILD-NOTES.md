@@ -3810,3 +3810,165 @@ The accounted-for house rule is implemented. New module `src/engine/skill-synerg
 ## Feature addendum — 2026-10-28: build deep links (APOC hub connection, Shaun's order)
 
 Shaun, from the hub arrangement: "Build the deep link — tracker link opens the actual build." New `src/lib/build-link.ts`: a build packs into `https://11durrum11.github.io/Blendcrafter/?build=<token>` — the export payload shape, gzip-compressed + base64url (prefix "z"; plain-JSON "j" fallback). The token rides the QUERY STRING because the router owns the hash (wouter useHashLocation). Builder changes: on mount, a `?build=` token is decoded and loaded via setBuild, then stripped from the address bar (a refresh won't reload it over newer edits); a bad token only raises a toast. New header button "Copy build link" beside Export — paste the result into the character's Campaign Tracker record and the link opens that exact build; the arrived character is unsaved until Shaun saves it from the Characters menu (stated in the arrival toast). Suite `~/race-split-work/verify-buildlink.ts` 13/13: a rich build (classes, PrC + certifications, template, feats, ranks, Superior Synergy on, disabled lists, spells, inventory) round-trips byte-identical after normalize, at 1,073 token characters; garbage/truncated/wrong-app tokens all decode to null without throwing.
+
+---
+
+# Skills audit addendum (2026-11-02): every skill from every book, listed and proven complete
+
+Shaun's order (2026-11-02, main chat, filed to this chat): "Look for
+all the skills from all the books — list them." Method: class records
+store `classSkills` as display NAME strings, so the audit ran a
+name-normalized diff (case/punctuation-insensitive, "(3.0)" tags
+stripped) of every distinct class-skill name across ALL base classes
+and ALL prestige classes against the defined skills, then checked the
+skills chapters of the books the diff or the library flagged as
+suspects against the actual book text (page images for the scanned
+Iron Kingdoms books; text layers / the books' own indexes and tables
+elsewhere). Family rule applied throughout: Craft / Knowledge /
+Perform / Profession are family skills whose specialties are chosen
+per character — a referenced specialty is covered by its family
+UNLESS the book gives that specialty its own headed write-up with
+its own key ability / trained-only status / rules text, in which
+case it is a skill record (the standing precedent: Sorcery & Steam's
+Knowledge and Profession specialties, Monsternomicon vol. 2's
+Profession (Torturer), and core's own Craft (alchemy) record).
+
+**Result: 63 → 73 skill records. The name-normalized diff is now
+empty** — all 84 distinct referenced class-skill names resolve as:
+63 defined skills, 13 documented family specialties, 5 family
+catch-alls, 3 documented 3.0 folds. Suite:
+`~/skill-audit-work/verify.ts` (all checks pass), with the first-pass
+scans in `~/skill-audit-work/audit2.ts`.
+
+## What was added (10 records, 2 NEW files + barrel merge only)
+
+- **`src/data/iron-kingdoms/skills.ts`** (`IRON_KINGDOMS_SKILLS`,
+  9 records) — the Iron Kingdoms Character Guide's Skills section
+  (Chapter Two, "Skills & Feats", pp. 142–150) opens "This section
+  describes new skills appropriate to the setting" and gives each
+  of these a headed write-up; all read from the printed pages:
+  - **Craft (cannoneer)** (Int, trained only, p. 142) — load/fire/
+    clean cannons; grenade priming DC 6.
+  - **Craft (clockwork)** (Int, trained only, p. 143) — own DC/cost
+    table (simple 15, complex 25, advanced 35+).
+  - **Craft (demolitions)** (Int, trained only, p. 143) — explosives;
+    a roll of 1 while priming is a critical failure.
+  - **Craft (gunsmithing)** (Int, trained only, p. 146) — own
+    firearm construction/repair DC table.
+  - **Craft (mechanika)** (Int, trained only, pp. 146–148) — the
+    setting's central skill: activation DC 6, accumulator and
+    rune-plate DCs, assembly/schematic/reverse-engineering rules.
+    (Liber Mechanika's classes referenced "Craft (mechanika)" all
+    along; it now resolves to a real record.)
+  - **Craft (small arms)** (Int, NOT trained only per its header,
+    p. 148) — loading and care of firearms.
+  - **Craft (steam engine)** (Int, trained only, p. 148) — own
+    DC/cost table (simple 15, complex 25, advanced 35+).
+  - **Craft (tools)** (Int, NOT trained only per its header,
+    pp. 148–149) — making simple tools/toolkits with circumstance
+    bonuses.
+  - **Jack Handling** (Cha, trained only, p. 150) — commanding
+    steamjacks (handle / "push", actions, DC modifiers). **Book
+    discrepancy, recorded on the record:** Table 2-15 lists the
+    key ability as Wisdom, but the skill's own write-up header
+    reads "(Cha; Trained Only)" and its untrained rule is a
+    Charisma check; the write-up governs (the Sorcery & Steam
+    Munitions convention).
+- **`src/data/monsternomicon/skills-mn1.ts`**
+  (`MONSTERNOMICON_MN1_SKILLS`, 1 record):
+  - **Creature Lore** (Int, trained only) — the ONLY entry under
+    the "New Skills" heading of Monsternomicon vol. 1's Legend &
+    Lore appendix (p. 209): monster research with the appendix's
+    DC ladder (Common 10 / Uncommon 15 / Rare 20–25 / Obscure
+    30+), Knowledge synergy at 4 ranks, class skill for bards,
+    rangers, and wizards. Batch 9 had left the name standing as
+    printed in the Bone Grinder / Monster Hunter lists; it is now
+    a record. The Character Guide reprints it (p. 149) with the
+    synergy restated at 5 ranks against Knowledge (nature) —
+    noted on the record.
+
+## Folded 3.0 skills — no records, by the standing conversion rule
+
+- **Innuendo → Bluff** (referenced by Invisible Blade's list as
+  printed from Complete Warrior-era sources; the 3.5 conversion
+  folds it into Bluff — the Sorcery & Steam batch applied the
+  same fold).
+- **Scry → Spellcraft** (referenced by Geomancer; Scry was
+  dropped as a skill in 3.5, its mechanic moving to spells).
+- **Intuit Direction → Survival** (referenced by Bone Grinder
+  and Monster Hunter as "Intuit Direction (3.0)"; dropped in 3.5,
+  folded into Survival — the same fold the Monsternomicon batch
+  already applied to Wilderness Lore).
+
+## Documented family specialties (covered, no records)
+
+Referenced specialties the books present as specialties only:
+Craft (armorsmithing), Craft (bone grinding), Craft (sculpting),
+Craft (weaponsmithing), Knowledge (anatomy), Knowledge (any
+science or technical), Knowledge (ghost lore) — Ghostwalk Ch. 1
+calls it "a new Knowledge category", still a Knowledge specialty —
+Knowledge (law), Knowledge (mechanika) (Table 2-15 lists it and
+the Craft (mechanika) synergy names it, but the Character Guide
+gives it no write-up of its own), Knowledge (philosophy),
+Knowledge (skorne ancestors), Knowledge (skorne houses),
+Profession (mechanik). Catch-all references resolved to their
+families: "Knowledge", "Knowledge (any)", "Knowledge (all)",
+"Knowledge (all skills, taken individually)", and "Lore (any)" —
+Monsternomicon vol. 1's Adventuring Scholar catch-all for
+lore-type Knowledge skills; the book defines no "Lore" skill (its
+only New Skill is Creature Lore). Also Craft (dissection), which
+appears in the Bone Grinder's prerequisites (not a class-skill
+list), is a Craft specialty. Ghostwalk's "shellcraft" (p. 27) is
+presented inside its Craft section as a Craft use, not a skill.
+
+## Per-book verification (beyond the class-list diff)
+
+- **Sorcery & Steam — complete.** The book's own index divides
+  Chapter 3 into "skills, existing 97-100" and "skills, new
+  100-102", and the back cover names Drive, Munitions, and Use
+  Steamcraft Device; with the p. 99 Knowledge areas and p. 100
+  Profession specialties, that is exactly the 9 records present.
+- **Iron Kingdoms Character Guide — completed by this audit**
+  (Table 2-15: Skills, pp. 144–145, plus the pp. 142–150
+  write-ups; see above). Knowledge (tactics) (Table 2-15) also
+  remains a Knowledge specialty.
+- **Monsternomicon vol. 1 — completed by this audit** (New Skills,
+  p. 209: Creature Lore only). **Vol. 2:** its only skill write-up
+  is Profession (torturer) (Wis; Trained Only) in the Paingiver
+  section — already a record.
+- **Eberron Campaign Setting — no new skill.** Its p. 46 Skills
+  section opens "A few skills have new uses and additional rules"
+  (Craft repairing warforged, Disguise, Forgery, Speak Language,
+  Spellcraft vs dragonmarks) — new uses only.
+- **Ghostwalk — no new skill.** Chapter 1's Skills section (p. 27)
+  is expressly "additional uses" for Player's Handbook skills,
+  plus the Knowledge (ghost lore) category above.
+- **Expanded Psionics Handbook — complete.** The book's own
+  skills introduction (p. 36 area) names its new skills:
+  Autohypnosis, Knowledge (psionics), Psicraft, and Use Psionic
+  Device — all four already records.
+- **Tome of Battle — complete** (Martial Lore, p. 28, already a
+  record; the book's only new skill). **Tome of Magic — complete**
+  (Truespeak, already a record; its only new skill). **Complete
+  Psionic — no new skill** (no skill write-ups; its classes draw
+  on the psionic skills above). All remaining integrated books
+  were cleared by the name-normalized class-list diff plus their
+  own batches' chapter checks (each prior addendum's "no new
+  skills" finding stands unrebutted by the diff).
+
+## Verification
+
+- `npm run check` (tsc): 0 errors.
+- `npm run build`: succeeded (only the pre-existing >500 kB
+  chunk-size warning); all 10 new skill names confirmed present
+  in the built bundle.
+- `~/skill-audit-work/verify.ts`: ALL CHECKS PASSED — 73 defined
+  skills, no duplicate ids, every record cited, the 10 new records
+  carry the book-evidenced key abilities / trained-only flags /
+  ruleset, and every one of the 84 referenced class-skill names
+  resolves (63 defined / 13 specialties / 5 catch-alls / 3 folds),
+  with no stale documentation entries.
+- No existing skill record was modified; no engine, component, or
+  toggle/settings file was touched — new data files, the barrel
+  merge, and this addendum only. NOT pushed or deployed in this
+  pass — the parent agent verifies, pushes, and reports.
