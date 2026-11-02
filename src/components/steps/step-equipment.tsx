@@ -174,22 +174,39 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, onAdd, onR
           <div className="mt-3 rounded-md border border-card-border bg-card p-3" data-testid="wealth-by-level-panel">
             <div className="flex flex-wrap items-baseline justify-between gap-2">
               <p className="font-display text-sm font-semibold">Wealth by Level — DMG Table 5–1</p>
-              <p className="text-xs text-muted-foreground">Level : gp — your ECL is {resolved.ecl.value}</p>
+              <p className="text-xs text-muted-foreground">Your ECL is {resolved.ecl.value} — highlighted below</p>
             </div>
-            <div className="mt-2 flex flex-wrap gap-1" data-testid="wealth-by-level-chart">
-              {wblEntries.map(({ level, gp }) => (
-                <span
-                  key={level}
-                  data-testid={level === resolved.ecl.value ? "wealth-by-level-current" : undefined}
-                  className={
-                    level === resolved.ecl.value
-                      ? "rounded border border-primary bg-primary/15 px-1.5 py-0.5 font-mono text-[11px] font-semibold text-foreground"
-                      : "rounded border border-card-border px-1.5 py-0.5 font-mono text-[11px] text-muted-foreground"
-                  }
-                >
-                  {level}: {formatGp(gp)}
-                </span>
-              ))}
+            {/* List format (Shaun, 2026-11-02): every level with the
+                whole number and its 70% and 30% numbers beside it. */}
+            <div className="mt-2 max-h-64 overflow-y-auto" data-testid="wealth-by-level-chart">
+              <table className="w-full text-xs">
+                <thead>
+                  <tr className="border-b border-card-border text-left text-muted-foreground">
+                    <th className="py-1 pr-2 font-medium">Level</th>
+                    <th className="py-1 pr-2 font-medium">Wealth (gp)</th>
+                    <th className="py-1 pr-2 font-medium">Spend 70%</th>
+                    <th className="py-1 font-medium">Liquid 30%</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {wblEntries.map(({ level, gp }) => (
+                    <tr
+                      key={level}
+                      data-testid={level === resolved.ecl.value ? "wealth-by-level-current" : undefined}
+                      className={
+                        level === resolved.ecl.value
+                          ? "bg-primary/15 font-semibold text-foreground"
+                          : "text-muted-foreground"
+                      }
+                    >
+                      <td className="py-0.5 pr-2 font-mono">{level}</td>
+                      <td className="py-0.5 pr-2 font-mono">{formatGp(gp)}</td>
+                      <td className="py-0.5 pr-2 font-mono">{formatGp(gp * 0.7)}</td>
+                      <td className="py-0.5 font-mono">{formatGp(gp * 0.3)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
             {split !== null ? (
               <div className="mt-3 border-t border-card-border pt-2" data-testid="wealth-initial-split">

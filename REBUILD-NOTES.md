@@ -4683,3 +4683,6 @@ from the card body into this header panel (same testids).
 The header panel also notes (Shaun, same call) that you can buy
 whatever you can afford — including upgrading something you
 already have — whatever it costs; it all counts toward the 70%.
+The chart now renders in list format (Shaun, same call): one row
+per level with the whole wealth number and its 70% and 30%
+numbers beside it.
