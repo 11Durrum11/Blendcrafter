@@ -123,6 +123,7 @@ export interface UseCharacterBuild {
   toggleFeatEnabled: (featId: string, enabled: boolean) => void;
   toggleAbilityEnabled: (key: AbilityKey, enabled: boolean) => void;
   updatePersonality: (patch: Partial<PersonalityProfile>) => void;
+  setWealthLimitLevel: (level: number | null) => void;
   reset: () => void;
 }
 
@@ -358,6 +359,15 @@ export function useCharacterBuild(initial?: CharacterBuild): UseCharacterBuild {
     setBuildState((b) => ({ ...b, personality: { ...b.personality, ...patch } }));
   }, []);
 
+  // The clicked wealth-by-level limit (Shaun, 2026-11-02: "make
+  // it happen" — the pick is part of the saved build, so it
+  // survives step switches, saves, and build links). Nothing else
+  // in the build changes; normalizeBuild's spread carries the
+  // field through loads untouched.
+  const setWealthLimitLevel = useCallback((level: number | null) => {
+    setBuildState((b) => ({ ...b, wealthLimitLevel: level }));
+  }, []);
+
   const reset = useCallback(() => setBuildState(createDefaultBuild()), []);
 
   return {
@@ -392,6 +402,7 @@ export function useCharacterBuild(initial?: CharacterBuild): UseCharacterBuild {
     toggleFeatEnabled,
     toggleAbilityEnabled,
     updatePersonality,
+    setWealthLimitLevel,
     reset,
   };
 }

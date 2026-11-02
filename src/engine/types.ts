@@ -610,6 +610,13 @@ export interface CharacterBuild {
    * saved builds predate the field and load with no selections.
    */
   selectedSpells: Record<string, string[]>;
+  /**
+   * The wealth-by-level chart level the player clicked to set as
+   * this character's total gp limit (Shaun, 2026-11-02). Optional:
+   * builds saved before the field existed simply have no limit
+   * picked. The gp amount is read off the chart at render time.
+   */
+  wealthLimitLevel?: number | null;
   inventory: InventoryEntry[];
   enabledRulesets: Ruleset[];
   houseRules: HouseRules;

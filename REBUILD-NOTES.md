@@ -5148,3 +5148,14 @@ Magic items in the wealth summary ("Limit N gp (level L)"),
 reading 0 gp until a level is clicked. The picked level
 highlights green in the chart (the ECL row keeps its own
 highlight). The pick lives in the Equipment step's state.
+
+**The gp limit now persists (2026-11-02, Shaun: "No, make it
+happen"):** the clicked wealth-by-level limit is saved on the
+character build (new optional field build.wealthLimitLevel),
+so it survives step switches, saves, and build links; clicking
+the picked level again clears it. Implementation touched
+use-character-build.ts ONLY to add a setter — verified by
+round-trip tests: the pick survives normalizeBuild, legacy
+builds without the field load clean, the cross-class
+double-cost lock is still forced off, and saved ruleset /
+house-rule state is preserved exactly.

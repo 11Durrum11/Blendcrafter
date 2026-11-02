@@ -301,9 +301,11 @@ export default function Builder() {
               inventory={build.inventory}
               enabledRulesets={build.enabledRulesets}
               resolved={resolved}
+              wealthLimitLevel={build.wealthLimitLevel ?? null}
               onAdd={cb.addInventory}
               onRemove={cb.removeInventory}
               onToggleEquipped={cb.toggleEquipped}
+              onSetWealthLimitLevel={cb.setWealthLimitLevel}
             />
           )}
           {currentStep === "personality" && (

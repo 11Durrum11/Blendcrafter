@@ -17,9 +17,12 @@ interface StepEquipmentProps {
   inventory: InventoryEntry[];
   enabledRulesets: Ruleset[];
   resolved: ResolvedCharacter;
+  /** The chart level picked as this build's total gp limit. */
+  wealthLimitLevel: number | null;
   onAdd: (kind: InventoryEntry["kind"], itemId: string) => void;
   onRemove: (id: string) => void;
   onToggleEquipped: (id: string, equipped: boolean) => void;
+  onSetWealthLimitLevel: (level: number | null) => void;
 }
 
 /**
@@ -87,7 +90,7 @@ function groupByCategory<T extends { category: string }>(
   return sections;
 }
 
-export function StepEquipment({ inventory, enabledRulesets, resolved, onAdd, onRemove, onToggleEquipped }: StepEquipmentProps) {
+export function StepEquipment({ inventory, enabledRulesets, resolved, wealthLimitLevel, onAdd, onRemove, onToggleEquipped, onSetWealthLimitLevel }: StepEquipmentProps) {
   const [equipQuery, setEquipQuery] = useState("");
   const [itemQuery, setItemQuery] = useState("");
   const [detail, setDetail] = useState<EntityDetail | null>(null);
@@ -98,9 +101,11 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, onAdd, onR
   // Click-a-level gp limit (Shaun, 2026-11-02): clicking a level
   // in the wealth-by-level chart sets the total gp limit, shown
   // beside Magic items in the summary below (0 gp until a level
-  // is clicked). Kept in this step's state — it lives while you
-  // are on the Equipment step.
-  const [limitPick, setLimitPick] = useState<{ level: number; gp: number } | null>(null);
+  // is clicked). The pick is saved on the build itself
+  // (build.wealthLimitLevel), so it survives step switches,
+  // saves, and build links. Clicking the picked level again
+  // clears it.
+  const limitGp = wealthLimitLevel !== null ? (WEALTH_BY_LEVEL[wealthLimitLevel] ?? 0) : 0;
 
   function showInventoryDetail(entry: InventoryEntry) {
     if (entry.kind === "equipment") {
@@ -220,10 +225,10 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, onAdd, onR
                     <tr
                       key={level}
                       data-testid={level === resolved.ecl.value ? "wealth-by-level-current" : undefined}
-                      onClick={() => setLimitPick({ level, gp })}
+                      onClick={() => onSetWealthLimitLevel(wealthLimitLevel === level ? null : level)}
                       className={
                         "cursor-pointer hover:bg-muted/40 " +
-                        (limitPick?.level === level
+                        (wealthLimitLevel === level
                           ? "bg-emerald-500/20 font-semibold text-foreground"
                           : level === resolved.ecl.value
                             ? "bg-primary/15 font-semibold text-foreground"
@@ -318,9 +323,9 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, onAdd, onR
               {" · "}Magic items <span className="font-mono text-foreground">{formatGp(wealth.magicItemGp)} gp</span>
               {" · "}Limit{" "}
               <span className="font-mono text-foreground" data-testid="text-wealth-limit">
-                {formatGp(limitPick?.gp ?? 0)} gp
+                {formatGp(limitGp)} gp
               </span>
-              {limitPick && <span> (level {limitPick.level})</span>}
+              {wealthLimitLevel !== null && <span> (level {wealthLimitLevel})</span>}
             </div>
           </div>
           <p className="mt-2 text-sm text-muted-foreground">
