@@ -4782,3 +4782,45 @@ cards, clicking a spell only selected it — the full entry
 dialog was reachable only from the library. The spell's name
 in a picking card now opens the same full-entry dialog (the
 rest of the card still toggles selection).
+
+**Spell descriptions wave 1 — SRD pack (2026-11-02, Shaun's
+direction):** all 561 records in srd-spells.ts now carry a
+`description` field — the spell's full prose text from its
+d20srd.org page (Open Game Content), stat block excluded,
+shown as the first section of the click dialog. Two records'
+stored sourceUrls 404 on the site (mordenkainens-disjunction,
+tashas-hideous-laughter); their text came from the live SRD
+pages under the SRD names (Mage's Disjunction, Hideous
+Laughter); the stored URLs were left as-is.
+
+**Price sits beside the item name (2026-11-02, Shaun):** the
+equipment and magic-item price moved from the right end of the
+header line to immediately after the item's name.
+
+**STATUS NOTE on spell descriptions wave 1:** built and
+verified locally (all 561 SRD descriptions), but its push on
+2026-11-02 was DECLINED at Shaun's approval card — wave 1 is
+NOT live. The live site remains at the picking-card commit
+until Shaun says to push it.
+
+**Flaws & Traits data pack (2026-11-02, Shaun's direction):**
+new src/data/flaws-traits/ pack feeding a Flaws & Traits section
+in the Personality step. Contents: the complete Unearthed
+Arcana lists with full SRD text from d20srd.org — 13 flaws and
+35 traits (ruleset "unearthed-arcana") — plus a snapshot of the
+D&D Wiki homebrew lists (3.5e Flaws / 3.5e Traits pages,
+snapshotted 2026-11-02 because the wiki changes constantly):
+116 flaws and 155 traits fetched, 152 traits kept after
+name-dedupe against the SRD (wiki Hardy, wiki Reckless, and a
+duplicate wiki ADHD dropped — the SRD version wins). Totals:
+129 flaws, 187 traits, exported as ALL_FLAWS / ALL_TRAITS.
+Every wiki page on both lists was captured (271/271, none
+missing); wiki records carry source "D&D Wiki (homebrew)" —
+the pages give no per-page source line, and book mentions in
+their text are passing references, not attributions.
+PersonalityProfile gained flawIds / traitIds (defaults [] in
+DEFAULT_PERSONALITY). Data pack only; the section UI is a
+separate piece of work.
+Each record carries both a one-line `summary` (the mechanics)
+and a full `description` (flavor line plus complete effect
+text), matching the describeFlawTrait dialog contract.

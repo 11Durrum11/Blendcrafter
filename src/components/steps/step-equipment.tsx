@@ -359,6 +359,8 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, onAdd, onR
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center gap-1.5 flex-wrap">
                       <span className="font-medium">{item.name}</span>
+                      {/* Price right beside the item's name (Shaun, 2026-11-02). */}
+                      <span className="ml-1.5 font-mono text-sm font-semibold" data-testid={`price-equipment-${item.id}`}>{item.cost}</span>
                       <button
                         type="button"
                         className="text-muted-foreground hover:text-foreground"
@@ -371,8 +373,6 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, onAdd, onR
                       <Badge variant="outline" className="text-[10px] capitalize">{item.category}</Badge>
                       {typeof item.acBonus === "number" && <Badge variant="secondary" className="text-[10px]">AC +{item.acBonus}</Badge>}
                       {item.ruleset !== "core" && <ProductIdentityBadge rulesetLabel={RULESET_LABELS[item.ruleset]} />}
-                      {/* Price on the item's header line (Shaun, 2026-11-02). */}
-                      <span className="ml-auto pl-2 font-mono text-sm font-semibold" data-testid={`price-equipment-${item.id}`}>{item.cost}</span>
                     </div>
                     <p className="text-xs text-muted-foreground">{[item.weight, item.notes].filter(Boolean).join(" · ")}</p>
                   </div>
@@ -442,6 +442,8 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, onAdd, onR
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center gap-1.5 flex-wrap">
                       <span className="font-medium">{item.name}</span>
+                      {/* Price right beside the item's name (Shaun, 2026-11-02). */}
+                      <span className="ml-1.5 font-mono text-sm font-semibold" data-testid={`price-magic-item-${item.id}`}>{item.cost}</span>
                       <button
                         type="button"
                         className="text-muted-foreground hover:text-foreground"
@@ -453,8 +455,6 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, onAdd, onR
                       </button>
                       <Badge variant="outline" className="text-[10px] capitalize">{item.category}</Badge>
                       {item.ruleset !== "core" && <ProductIdentityBadge rulesetLabel={RULESET_LABELS[item.ruleset]} />}
-                      {/* Price on the item's header line (Shaun, 2026-11-02). */}
-                      <span className="ml-auto pl-2 font-mono text-sm font-semibold" data-testid={`price-magic-item-${item.id}`}>{item.cost}</span>
                     </div>
                     <p className="text-xs text-muted-foreground">{item.summary}</p>
                   </div>

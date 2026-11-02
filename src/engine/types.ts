@@ -299,6 +299,12 @@ export interface SpellDefinition {
   spellResistance: string;
   /** Short mechanical gist in our own words — never book text. */
   summary: string;
+  /**
+   * The spell's full description text (the verbal part of the entry, from
+   * Shaun's own books / the SRD), added at Shaun's direction 2026-11-02.
+   * Populated in waves; absent until a spell's wave lands.
+   */
+  description?: string;
   /** Optional provenance note (e.g. abbreviated "functions like" entries). */
   note?: string;
   source: string;
@@ -521,6 +527,26 @@ export interface GeneratedPersonality {
   adventureHooks: string[];
 }
 
+/**
+ * A character flaw or trait for the Personality step's Flaws & Traits
+ * section. Flaws are the Unearthed Arcana variant: purely negative,
+ * each granting a bonus feat. Traits pair a benefit with a drawback.
+ * The dandwiki records are a dated snapshot of the D&D Wiki homebrew
+ * lists (see src/data/flaws-traits/).
+ */
+export interface FlawTraitDefinition {
+  id: string;
+  name: string;
+  kind: "flaw" | "trait";
+  summary: string;
+  /** The entry's full text (flavor line plus complete mechanics). */
+  description: string;
+  prerequisite?: string;
+  source: string;
+  sourceUrl: string;
+  ruleset: string;
+}
+
 export interface PersonalityProfile {
   age: number;
   alignment: string;
@@ -539,6 +565,9 @@ export interface PersonalityProfile {
   goals: string;
   secrets: string;
   circumstances: string;
+  /** Selected Flaws & Traits section picks (ids into the flaws-traits pack). */
+  flawIds: string[];
+  traitIds: string[];
   weights: PersonalityWeights;
   /** Last generated profile snapshot, if the user pressed Generate. */
   generated?: GeneratedPersonality;

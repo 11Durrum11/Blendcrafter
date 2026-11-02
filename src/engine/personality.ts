@@ -56,6 +56,8 @@ export const DEFAULT_PERSONALITY: PersonalityProfile = {
   goals: "",
   secrets: "",
   circumstances: "",
+  flawIds: [],
+  traitIds: [],
   weights: { ...DEFAULT_PERSONALITY_WEIGHTS },
 };
 

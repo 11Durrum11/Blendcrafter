@@ -279,6 +279,7 @@ import type {
   ClassDefinition,
   EquipmentItem,
   FeatDefinition,
+  FlawTraitDefinition,
   MagicItemDefinition,
   PrestigeClassDefinition,
   RaceDefinition,
@@ -328,6 +329,7 @@ import { DANDWIKI_EQUIPMENT } from "./homebrew-dandwiki/equipment";
 import { DANDWIKI_TABLES } from "./homebrew-dandwiki/tables";
 import { ALL_DANDWIKI_REFERENCE_INDEX as DANDWIKI_REFERENCE_INDEX } from "./homebrew-dandwiki/reference-index";
 import type { DandwikiReferenceEntry } from "./homebrew-dandwiki/reference-index";
+import { FLAWS, TRAITS } from "./flaws-traits/index";
 import { BODY_MODIFICATIONS } from "./body-modifications";
 import { RACES_OF_STONE_RACES } from "./races-of-stone/races";
 import { RACES_OF_STONE_PRESTIGE_CLASSES } from "./races-of-stone/prestige-classes";
@@ -620,6 +622,18 @@ export const ALL_DANDWIKI_REFERENCE_INDEX: DandwikiReferenceEntry[] = dedupeById
 export const ALL_HOUSE_RULES_INDEX: HouseRuleEntry[] = dedupeById([...HOUSE_RULE_ENTRIES]);
 
 export const ALL_SUMMONING_SPELL_LIST: SummoningSpellEntry[] = dedupeById([...SUMMONING_SPELL_LIST]);
+
+/**
+ * Flaws & Traits pack (2026-11-02, Shaun's direction): the complete
+ * Unearthed Arcana lists (13 flaws, 35 traits, full SRD text) plus a
+ * dated snapshot of the D&D Wiki homebrew lists (116 flaws, 152
+ * traits after name-dedupe against the SRD — the SRD version wins).
+ * Feeds the Personality step's Flaws & Traits section; picks are
+ * stored on PersonalityProfile.flawIds / traitIds.
+ */
+export const ALL_FLAWS: FlawTraitDefinition[] = dedupeById([...FLAWS]);
+export const ALL_TRAITS: FlawTraitDefinition[] = dedupeById([...TRAITS]);
+export { FLAWS, TRAITS };
 
 export const ALL_SKILLS: SkillDefinition[] = dedupeById([...CORE_SKILLS, ...SORCERY_STEAM_SKILLS, ...TOME_OF_BATTLE_SKILLS, ...EXPANDED_PSIONICS_SKILLS, ...TOME_OF_MAGIC_SKILLS, ...MONSTERNOMICON_SKILLS, ...MONSTERNOMICON_MN1_SKILLS, ...IRON_KINGDOMS_SKILLS, ...CORE_AUDIT_SKILLS]);
 

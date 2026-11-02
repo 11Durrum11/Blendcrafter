@@ -4,6 +4,7 @@ import {
   type ClassDefinition,
   type EquipmentItem,
   type FeatDefinition,
+  type FlawTraitDefinition,
   type MagicItemDefinition,
   type PrestigeClassDefinition,
   type RaceDefinition,
@@ -166,6 +167,23 @@ export function describeFeat(feat: FeatDefinition): EntityDetail {
   };
 }
 
+export function describeFlawTrait(entry: FlawTraitDefinition): EntityDetail {
+  const sections: EntityDetailSection[] = [
+    { heading: "Full Description", body: entry.description },
+  ];
+  if (entry.prerequisite) {
+    sections.push({ heading: "Prerequisite", body: entry.prerequisite });
+  }
+  return {
+    title: entry.name,
+    badges: [entry.kind === "flaw" ? "Flaw" : "Trait"],
+    summary: entry.summary,
+    sections,
+    source: entry.source,
+    sourceUrl: entry.sourceUrl,
+  };
+}
+
 export function describeEquipment(item: EquipmentItem): EntityDetail {
   return {
     title: item.name,
@@ -198,6 +216,7 @@ export function describeSpell(spell: SpellDefinition, listName?: string): Entity
   }`;
   const levelOnList = listName ? spell.levels[listName] : undefined;
   const sections: EntityDetailSection[] = [
+    ...(spell.description ? [{ heading: "Description", body: spell.description }] : []),
     {
       heading: "Spell Lists",
       body: Object.entries(spell.levels)
