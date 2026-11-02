@@ -4636,3 +4636,11 @@ the Ability Scores card — My Way (Shaun's 6×6 dice grid) is the
 only generation method offered. Scores can still be typed into
 the number fields directly, and existing builds are unaffected;
 the default scores a brand-new build starts with are unchanged.
+
+**Feat graying (2026-11-02, Shaun's direction):** in the Feats
+step, a feat whose prerequisites don't look met against the
+current build now renders grayed out (muted, desaturated) so the
+feats the build qualifies for stand out; it stays selectable
+(prerequisites are flagged, never enforced, as before), and a
+feat already chosen keeps its full-strength card with the
+warning line.

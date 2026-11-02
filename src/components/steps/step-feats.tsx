@@ -118,6 +118,13 @@ export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved,
     const selected = featIds.includes(feat.id);
     const unmet = looksUnmet(feat, resolved, featIds);
     const isDisabled = disabledFeatIds.includes(feat.id);
+    // Grayed out (Shaun, 2026-11-02): a feat whose prerequisites
+    // don't look met renders grayed so the ones the build qualifies
+    // for stand out at a glance. Still selectable — prerequisites
+    // are flagged, never enforced. A feat already chosen keeps its
+    // full-strength card (with the warning line) so the current
+    // build stays readable.
+    const grayed = unmet && !selected && !isDisabled;
     return (
       <div
         key={feat.id}
@@ -134,7 +141,8 @@ export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved,
         }}
         className={cn(
           "flex items-start gap-2.5 rounded-md border border-card-border bg-card p-3",
-          isDisabled ? "opacity-50 cursor-not-allowed" : "cursor-pointer hover-elevate"
+          isDisabled ? "opacity-50 cursor-not-allowed" : "cursor-pointer hover-elevate",
+          grayed && "bg-muted/40 opacity-60 saturate-50"
         )}
         data-testid={`feat-card-${feat.id}`}
       >
@@ -148,7 +156,7 @@ export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved,
         />
         <div className="min-w-0 flex-1">
           <div className="flex items-center gap-1.5 flex-wrap">
-            <span className="font-medium">{feat.name}</span>
+            <span className={cn("font-medium", grayed && "text-muted-foreground")}>{feat.name}</span>
             <button
               type="button"
               onClick={(e) => {
@@ -202,8 +210,9 @@ export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved,
             <Zap className="h-5 w-5 text-primary" /> Feats
           </CardTitle>
           <CardDescription>
-            Prerequisites are shown as free text and flagged with a warning badge when they don't look met — they
-            are <span className="font-medium">not enforced</span>. Source:{" "}
+            Feats whose prerequisites don't look met are <span className="font-medium">grayed out</span> and
+            flagged with a warning — prerequisites are shown as free text and are{" "}
+            <span className="font-medium">not enforced</span>. Source:{" "}
             <a href="https://www.d20srd.org/srd/feats.htm" target="_blank" rel="noreferrer" className="text-primary underline underline-offset-2">
               d20 SRD Feats
             </a>
