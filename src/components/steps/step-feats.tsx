@@ -8,6 +8,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Switch } from "@/components/ui/switch";
 import { cn } from "@/lib/utils";
+import { CLASS_BONUS_FEAT_RULES } from "@/lib/class-bonus-feats";
 import { ProductIdentityBadge } from "@/components/product-identity-badge";
 import { RULESET_LABELS } from "@/components/ruleset-toggle";
 import { EntityDetailDialog } from "@/components/entity-detail-dialog";
@@ -42,16 +43,12 @@ export const FEAT_CATEGORY_ORDER: FeatDefinition["category"][] = [
 ];
 
 /**
- * A feat is a fighter bonus feat when its own record says so — the
- * phrase "fighter bonus feat" in its special text, benefit summary, or
- * prerequisites (the SRD wording: "A fighter may select X as one of
- * his fighter bonus feats"). Derived from the record text only;
- * nothing is hand-assigned.
+ * The fighter bonus feat rule (record-text designations + the PHB
+ * list + Player's Handbook II designations) and every other class's
+ * bonus-feat rule live in src/lib/class-bonus-feats.ts. Re-exported
+ * here for existing callers.
  */
-export function isFighterBonusFeat(feat: FeatDefinition): boolean {
-  const text = [feat.special ?? "", feat.benefitSummary, ...feat.prerequisites].join(" ");
-  return /fighter bonus feat/i.test(text);
-}
+export { isFighterBonusFeat } from "@/lib/class-bonus-feats";
 
 /**
  * Best-effort free-text prerequisite check against ability scores / BAB / other selected
@@ -85,25 +82,37 @@ export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved,
   const used = resolved.featSlots.used;
   const total = resolved.featSlots.total;
 
-  // Feats grouped by category (Shaun, 2026-11-02): fighter bonus feats
-  // get their own first section and are listed only there; every other
-  // feat sits under its category heading. Sections left empty by the
-  // search filter disappear entirely.
-  const fighterBonusFeats = visible.filter((f) => isFighterBonusFeat(f));
-  const fighterBonusIds = new Set(fighterBonusFeats.map((f) => f.id));
-  const featSections: { id: string; label: string; note?: string; feats: FeatDefinition[] }[] = [
-    {
-      id: "fighter-bonus",
-      label: "Fighter Bonus Feats",
-      note: "Feats a fighter can take as bonus feats, per each feat's own text.",
-      feats: fighterBonusFeats,
-    },
+  // Feats grouped into class bonus-feat sections first (Shaun,
+  // 2026-11-02: the PHB fighter bonus-feat list, and the same
+  // treatment for every class that grants selectable bonus feats —
+  // see src/lib/class-bonus-feats.ts), then by category.
+  // Single-listing: a feat appears in the first section whose rule
+  // it matches and nowhere else. A class section whose whole list
+  // was claimed by earlier sections still shows its heading (with
+  // its source note) as a pointer — unless a search is filtering
+  // the list, in which case empty sections disappear entirely.
+  const claimed = new Set<string>();
+  const classSections = CLASS_BONUS_FEAT_RULES.map((rule) => {
+    const matching = visible.filter((f) => rule.matches(f));
+    const feats = matching.filter((f) => !claimed.has(f.id));
+    for (const f of feats) claimed.add(f.id);
+    return {
+      id: `class-${rule.classId}`,
+      label: rule.sectionLabel,
+      note: rule.note as string | undefined,
+      feats,
+      shadowed: matching.length - feats.length,
+    };
+  });
+  const featSections: { id: string; label: string; note?: string; feats: FeatDefinition[]; shadowed: number }[] = [
+    ...classSections,
     ...FEAT_CATEGORY_ORDER.map((cat) => ({
       id: cat as string,
       label: CATEGORY_LABELS[cat],
-      feats: visible.filter((f) => f.category === cat && !fighterBonusIds.has(f.id)),
+      feats: visible.filter((f) => f.category === cat && !claimed.has(f.id)),
+      shadowed: 0,
     })),
-  ].filter((s) => s.feats.length > 0);
+  ].filter((s) => s.feats.length > 0 || (query === "" && s.shadowed > 0));
 
   const renderFeatCard = (feat: FeatDefinition) => {
     const selected = featIds.includes(feat.id);
@@ -231,6 +240,9 @@ export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved,
                 <div key={section.id} className="mt-5" data-testid={`feat-section-${section.id}`}>
                   <h4 className="font-display text-base font-semibold">{section.label}</h4>
                   {section.note && <p className="mt-0.5 text-xs text-muted-foreground">{section.note}</p>}
+                  {section.feats.length === 0 && (
+                    <p className="mt-1 text-xs italic text-muted-foreground">Every feat on this list is listed in an earlier section above.</p>
+                  )}
                   {turnedOn.length > 0 && <div className="mt-2 grid gap-3 sm:grid-cols-2">{turnedOn.map(renderFeatCard)}</div>}
                   {turnedOff.length > 0 && (
                     <>
