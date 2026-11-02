@@ -266,7 +266,8 @@ export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved,
           {visible.length === 0 ? (
             <p className="mt-4 text-sm text-muted-foreground">No feats match your search or the enabled rule sets.</p>
           ) : (
-            orderedSections.map((section) => {
+            <div className="grid grid-cols-2 items-start gap-x-4 gap-y-5 sm:grid-cols-4">
+            {orderedSections.map((section) => {
               const turnedOn = section.feats.filter((f) => !disabledFeatIds.includes(f.id));
               const turnedOff = section.feats.filter((f) => disabledFeatIds.includes(f.id));
               // Active feats to the top (Shaun, 2026-11-02): within a
@@ -281,7 +282,7 @@ export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved,
               return (
                 <div
                   key={section.id}
-                  className={cn("mt-5 rounded-md", draggingId === section.id && "ring-2 ring-primary/50")}
+                  className={cn("rounded-md", draggingId === section.id && "ring-2 ring-primary/50")}
                   data-testid={`feat-section-${section.id}`}
                   data-feat-section={section.id}
                 >
@@ -350,24 +351,25 @@ export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved,
                   {section.feats.length === 0 && (
                     <p className="mt-1 text-xs italic text-muted-foreground">Every feat on this list is listed in an earlier section above.</p>
                   )}
-                  {active.length > 0 && <div className="mt-2 grid grid-cols-2 gap-1 md:grid-cols-4">{active.map(renderFeatName)}</div>}
+                  {active.length > 0 && <div className="mt-2 grid grid-cols-1 gap-1">{active.map(renderFeatName)}</div>}
                   {grayedOut.length > 0 && (
                     <>
                       <h5 className="mt-4 font-display text-sm font-semibold text-muted-foreground">Prerequisites not met</h5>
-                      <div className="mt-2 grid grid-cols-2 gap-1 md:grid-cols-4">{grayedOut.map(renderFeatName)}</div>
+                      <div className="mt-2 grid grid-cols-1 gap-1">{grayedOut.map(renderFeatName)}</div>
                     </>
                   )}
                   {turnedOff.length > 0 && (
                     <>
                       <h5 className="mt-4 font-display text-sm font-semibold text-muted-foreground">Turned off</h5>
-                      <div className="mt-2 grid grid-cols-2 gap-1 md:grid-cols-4">{turnedOff.map(renderFeatName)}</div>
+                      <div className="mt-2 grid grid-cols-1 gap-1">{turnedOff.map(renderFeatName)}</div>
                     </>
                   )}
                     </>
                   )}
                 </div>
               );
-            })
+            })}
+            </div>
           )}
         </CardContent>
       </Card>

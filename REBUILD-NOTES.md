@@ -5117,3 +5117,9 @@ Wu Jen Bonus Feats section is gone from the Feats step, and a
 Wu Jen no longer earns the level-1 bonus metamagic feat slot in
 the resolver's accounting. The Wu Jen class itself remains in
 the builder (its spells were removed earlier at Shaun's word).
+
+**Feat titles in four columns (2026-11-02, Shaun's direction):**
+the feat sections lay out in a four-column grid (two columns on
+narrow screens) — titles across, and a section expands downward
+inside its own column, its feat names stacking one per row.
+Drag-to-rearrange works across the grid unchanged.
