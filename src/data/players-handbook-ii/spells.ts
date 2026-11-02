@@ -1361,25 +1361,6 @@ export const PLAYERS_HANDBOOK_II_SPELLS: SpellDefinition[] = [
     "sourceUrl": PHB2_PATH
   },
   {
-    "id": "legion-of-sentinels",
-    "name": "Legion of Sentinels",
-    "ruleset": "core",
-    "school": "Illusion",
-    "subschool": "Shadow",
-    "descriptors": [],
-    "levels": { "Beguiler": 3, "Sorcerer/Wizard": 3 },
-    "components": "V, S, M",
-    "castingTime": "1 standard action",
-    "range": "Close (25 ft. + 5 ft./2 levels)",
-    "targetOrArea": "10-ft.-radius emanation centered on a point in space",
-    "duration": "1 round/level",
-    "savingThrow": "None",
-    "spellResistance": "No",
-    "summary": "A phalanx of spectral swordfighters appears: a ghostly, incorporeal swordfighter stands in each square covered by the spell's area (a swordfighter can share a space with another creature or object). Each swordfighter threatens the squares adjacent to it and can make one attack of opportunity per round, dealing 1d8 points of damage + 1 per three caster levels (maximum +5); the swordfighters do not hinder movement or block line of effect, but they can flank an opponent. Each swordfighter has hit points equal to twice your caster level and an Armor Class of 25, and makes saving throws or checks with a bonus equal to your caster level.",
-    "source": `${PHB2}, pp. 116–117`,
-    "sourceUrl": PHB2_PATH
-  },
-  {
     "id": "linked-perception",
     "name": "Linked Perception",
     "ruleset": "core",

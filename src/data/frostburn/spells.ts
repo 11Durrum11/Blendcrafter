@@ -1352,27 +1352,6 @@ export const FROSTBURN_SPELLS: SpellDefinition[] = [
   "sourceUrl": "/A POC PC related/5.Splat/Frostburn.pdf"
 },
 {
-  "id": "ice-assassin",
-  "name": "Ice Assassin",
-  "ruleset": "core",
-  "school": "Illusion",
-  "descriptors": [],
-  "levels": {
-    "Sorcerer/Wizard": 9
-  },
-  "components": "V, S, M, XP",
-  "castingTime": "8 hours",
-  "range": "Touch",
-  "targetOrArea": "One duplicate creature",
-  "duration": "Instantaneous",
-  "savingThrow": "None; see text",
-  "spellResistance": "No",
-  "summary": "An improved simulacrum: creates a living, near-perfect duplicate of an existing creature from ice and shadow, bent on destroying the original.",
-  "source": "Frostburn, p. 97",
-  "sourceUrl": "/A POC PC related/5.Splat/Frostburn.pdf",
-  "subschool": "Shadow"
-},
-{
   "id": "ice-castle",
   "name": "Ice Castle",
   "ruleset": "core",

@@ -1168,30 +1168,6 @@ export const COMPLETE_MAGE_SPELLS: SpellDefinition[] = [
   "sourceUrl": "/A POC PC related/5.Splat/Complete sereies/D&D 3.5 - Complete Mage.pdf"
 },
 {
-  "id": "nightmare-terrain",
-  "name": "Nightmare Terrain",
-  "ruleset": "core",
-  "school": "Illusion",
-  "descriptors": [],
-  "levels": {
-    "Assassin": 3,
-    "Bard": 3,
-    "Hexblade": 3,
-    "Sorcerer/Wizard": 4
-  },
-  "components": "V, S",
-  "castingTime": "1 standard action",
-  "range": "Close (25 ft. + 5 ft./2 levels)",
-  "targetOrArea": "Five 10-ft. cubes + one 10-ft. cube/level (S)",
-  "duration": "1 round/level",
-  "savingThrow": "Will disbelief (if interacted with)",
-  "spellResistance": "No",
-  "summary": "You cloak your surroundings in a horrific dreamscape of writhing vegetation, disembodied limbs, and animated corpses, making the terrain look, sound, and smell like a nightmare.",
-  "source": "Complete Mage, p. 112",
-  "sourceUrl": "/A POC PC related/5.Splat/Complete sereies/D&D 3.5 - Complete Mage.pdf",
-  "subschool": "Shadow"
-},
-{
   "id": "otilukes-impressing-field",
   "name": "Otiluke's Impressing Field",
   "ruleset": "core",

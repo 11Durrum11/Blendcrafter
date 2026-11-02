@@ -8468,29 +8468,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "subschool": "Figment"
   },
   {
-    "id": "project-image",
-    "name": "Project Image",
-    "ruleset": "core",
-    "school": "Illusion",
-    "descriptors": [],
-    "levels": {
-      "Bard": 6,
-      "Sorcerer/Wizard": 7,
-      "Beguiler": 7
-    },
-    "components": "V, S",
-    "castingTime": "1 standard action",
-    "range": "Medium (100 ft. + 10 ft./level)",
-    "targetOrArea": "One shadow duplicate",
-    "duration": "1 round/level (D)",
-    "savingThrow": "Will disbelief (if interacted with)",
-    "spellResistance": "No",
-    "summary": "Projects a shadowy duplicate you can see, speak, and cast spells through.",
-    "source": "System Reference Document (SRD) spells",
-    "sourceUrl": "https://www.d20srd.org/srd/spells/projectImage.htm",
-    "subschool": "Shadow"
-  },
-  {
     "id": "protection-from-arrows",
     "name": "Protection from Arrows",
     "ruleset": "core",
@@ -9821,113 +9798,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "sourceUrl": "https://www.d20srd.org/srd/spells/sequester.htm"
   },
   {
-    "id": "shades",
-    "name": "Shades",
-    "ruleset": "core",
-    "school": "Illusion",
-    "descriptors": [],
-    "levels": {
-      "Sorcerer/Wizard": 9
-    },
-    "components": "V, S",
-    "castingTime": "1 standard action",
-    "range": "Will disbelief (if interacted with)",
-    "targetOrArea": "See text",
-    "duration": "See text",
-    "savingThrow": "See text",
-    "spellResistance": "See text",
-    "summary": "As shadow conjuration, but conjures quasi-real versions of spells up to 8th level that are 80% real if disbelieved.",
-    "source": "System Reference Document (SRD) spells",
-    "sourceUrl": "https://www.d20srd.org/srd/spells/shades.htm",
-    "subschool": "Shadow"
-  },
-  {
-    "id": "shadow-conjuration",
-    "name": "Shadow Conjuration",
-    "ruleset": "core",
-    "school": "Illusion",
-    "descriptors": [],
-    "levels": {
-      "Bard": 4,
-      "Sorcerer/Wizard": 4
-    },
-    "components": "V, S",
-    "castingTime": "1 standard action",
-    "range": "See text",
-    "targetOrArea": "See text",
-    "duration": "See text",
-    "savingThrow": "Will disbelief (if interacted with); see text",
-    "spellResistance": "Yes; see text",
-    "summary": "Mimics a sorcerer/wizard conjuration spell of 3rd level or lower with quasi-real shadow stuff (20% real).",
-    "source": "System Reference Document (SRD) spells",
-    "sourceUrl": "https://www.d20srd.org/srd/spells/shadowConjuration.htm",
-    "subschool": "Shadow"
-  },
-  {
-    "id": "shadow-conjuration-greater",
-    "name": "Shadow Conjuration, Greater",
-    "ruleset": "core",
-    "school": "Illusion",
-    "descriptors": [],
-    "levels": {
-      "Sorcerer/Wizard": 7
-    },
-    "components": "V, S",
-    "castingTime": "1 standard action",
-    "range": "See text",
-    "targetOrArea": "See text",
-    "duration": "See text",
-    "savingThrow": "Will disbelief (if interacted with); see text",
-    "spellResistance": "Yes; see text",
-    "summary": "As shadow conjuration, but mimics spells of 6th level or lower and is 60% real.",
-    "source": "System Reference Document (SRD) spells",
-    "sourceUrl": "https://www.d20srd.org/srd/spells/shadowConjurationGreater.htm",
-    "subschool": "Shadow"
-  },
-  {
-    "id": "shadow-evocation",
-    "name": "Shadow Evocation",
-    "ruleset": "core",
-    "school": "Illusion",
-    "descriptors": [],
-    "levels": {
-      "Bard": 5,
-      "Sorcerer/Wizard": 5
-    },
-    "components": "V, S",
-    "castingTime": "1 standard action",
-    "range": "See text",
-    "targetOrArea": "See text",
-    "duration": "See text",
-    "savingThrow": "Will disbelief (if interacted with); see text",
-    "spellResistance": "Yes; see text",
-    "summary": "Mimics a sorcerer/wizard evocation spell of 4th level or lower with shadow stuff (20% real).",
-    "source": "System Reference Document (SRD) spells",
-    "sourceUrl": "https://www.d20srd.org/srd/spells/shadowEvocation.htm",
-    "subschool": "Shadow"
-  },
-  {
-    "id": "shadow-evocation-greater",
-    "name": "Shadow Evocation, Greater",
-    "ruleset": "core",
-    "school": "Illusion",
-    "descriptors": [],
-    "levels": {
-      "Sorcerer/Wizard": 8
-    },
-    "components": "V, S",
-    "castingTime": "1 standard action",
-    "range": "See text",
-    "targetOrArea": "See text",
-    "duration": "See text",
-    "savingThrow": "Will disbelief (if interacted with); see text",
-    "spellResistance": "Yes; see text",
-    "summary": "As shadow evocation, but mimics spells of 7th level or lower and is 60% real.",
-    "source": "System Reference Document (SRD) spells",
-    "sourceUrl": "https://www.d20srd.org/srd/spells/shadowEvocationGreater.htm",
-    "subschool": "Shadow"
-  },
-  {
     "id": "shambler",
     "name": "Shambler",
     "ruleset": "core",
@@ -10248,27 +10118,6 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "source": "System Reference Document (SRD) spells",
     "sourceUrl": "https://www.d20srd.org/srd/spells/silentImage.htm",
     "subschool": "Figment"
-  },
-  {
-    "id": "simulacrum",
-    "name": "Simulacrum",
-    "ruleset": "core",
-    "school": "Illusion",
-    "descriptors": [],
-    "levels": {
-      "Sorcerer/Wizard": 7
-    },
-    "components": "V, S, M, XP",
-    "castingTime": "12 hours",
-    "range": "0 ft.",
-    "targetOrArea": "One duplicate creature",
-    "duration": "Instantaneous",
-    "savingThrow": "None",
-    "spellResistance": "No",
-    "summary": "Creates a part-real duplicate of a creature with half its levels/HD and abilities, under your control.",
-    "source": "System Reference Document (SRD) spells",
-    "sourceUrl": "https://www.d20srd.org/srd/spells/simulacrum.htm",
-    "subschool": "Shadow"
   },
   {
     "id": "slay-living",

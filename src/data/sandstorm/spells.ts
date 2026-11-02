@@ -91,30 +91,6 @@ export const SANDSTORM_SPELLS: SpellDefinition[] = [
   "sourceUrl": "/A POC PC related/5.Splat/Sandstorm.pdf"
 },
 {
-  "id": "black-sand",
-  "name": "Black Sand",
-  "ruleset": "core",
-  "school": "Necromancy",
-  "descriptors": [
-    "Darkness",
-    "Evil"
-  ],
-  "levels": {
-    "Cleric": 3,
-    "Sand": 2
-  },
-  "components": "V, S",
-  "castingTime": "1 standard action",
-  "range": "Medium (100 ft. + 10 ft./level)",
-  "targetOrArea": "20-ft.-radius spread",
-  "duration": "1 min./level",
-  "savingThrow": "Reflex negates; see text",
-  "spellResistance": "Yes",
-  "summary": "Creates an area of black sand infused with shadowstuff and negative energy that swallows light into magical darkness and damages creatures that touch it each round.",
-  "source": "Sandstorm, p. 112",
-  "sourceUrl": "/A POC PC related/5.Splat/Sandstorm.pdf"
-},
-{
   "id": "blast-of-sand",
   "name": "Blast of Sand",
   "ruleset": "core",

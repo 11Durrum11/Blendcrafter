@@ -379,28 +379,6 @@ export const SORCERY_AND_STEAM_SPELLS: SpellDefinition[] = [
   "sourceUrl": "/A POC DM related/Desktop/Sorcery & Steam.pdf"
 },
 {
-  "id": "hood-of-shadows",
-  "name": "Hood of Shadows",
-  "ruleset": "sorcery_steam",
-  "school": "Illusion",
-  "descriptors": [],
-  "levels": {
-    "Bard": 1,
-    "Sorcerer/Wizard": 1
-  },
-  "components": "V, S, M",
-  "castingTime": "1 action",
-  "range": "Personal",
-  "targetOrArea": "You",
-  "duration": "1 minute/level",
-  "savingThrow": "See text",
-  "spellResistance": "No",
-  "summary": "By conjuring an illusion of shadows, you gain a +10 circumstance bonus on all Hide checks while within a dark or heavily shadowed area.",
-  "source": "Sorcery & Steam, p. 117",
-  "sourceUrl": "/A POC DM related/Desktop/Sorcery & Steam.pdf",
-  "subschool": "Shadow"
-},
-{
   "id": "iron-shape",
   "name": "Iron Shape",
   "ruleset": "sorcery_steam",

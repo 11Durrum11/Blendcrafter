@@ -3361,27 +3361,6 @@ export const SPELL_COMPENDIUM_SPELLS_A: SpellDefinition[] = [
     "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf"
   },
   {
-    "id": "claws-of-darkness",
-    "name": "Claws Of Darkness",
-    "ruleset": "core",
-    "school": "Illusion",
-    "descriptors": [],
-    "levels": {
-      "Sorcerer/Wizard": 2
-    },
-    "components": "V, S",
-    "castingTime": "1 standard action",
-    "range": "Personal",
-    "targetOrArea": "You",
-    "duration": "1",
-    "savingThrow": "Fortitude partial",
-    "spellResistance": "Yes; see text",
-    "summary": "Shadowy claws extend from your hands dealing cold damage with reach.",
-    "source": "Spell Compendium, p. 47",
-    "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf",
-    "subschool": "Shadow"
-  },
-  {
     "id": "clear-mind",
     "name": "Clear Mind",
     "ruleset": "core",
@@ -4466,29 +4445,6 @@ export const SPELL_COMPENDIUM_SPELLS_A: SpellDefinition[] = [
     "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf"
   },
   {
-    "id": "dark-way",
-    "name": "Dark Way",
-    "ruleset": "core",
-    "school": "Illusion",
-    "descriptors": [],
-    "levels": {
-      "Bard": 2,
-      "Cleric": 2,
-      "Sorcerer/Wizard": 2
-    },
-    "components": "V, S, DF",
-    "castingTime": "1 standard action",
-    "range": "Close (25 ft. + 5 ft./2 levels)",
-    "targetOrArea": "One bridge of force 5 ft. wide, 1 in. thick, and up to 20 ft./level long",
-    "duration": "1",
-    "savingThrow": "None",
-    "spellResistance": "Yes",
-    "summary": "Creates a bridge of shadow-stuff that supports weight across a gap.",
-    "source": "Spell Compendium, p. 58",
-    "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf",
-    "subschool": "Shadow"
-  },
-  {
     "id": "darkbolt",
     "name": "Darkbolt",
     "ruleset": "core",
@@ -4572,29 +4528,6 @@ export const SPELL_COMPENDIUM_SPELLS_A: SpellDefinition[] = [
     "summary": "You awaken sleeping creatures in the area refreshed, ending sleep effects and fatigue.",
     "source": "Spell Compendium, p. 59",
     "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf"
-  },
-  {
-    "id": "dead-end",
-    "name": "Dead End",
-    "ruleset": "core",
-    "school": "Illusion",
-    "descriptors": [],
-    "levels": {
-      "Assassin": 1,
-      "Bard": 1,
-      "Sorcerer/Wizard": 1
-    },
-    "components": "V, S, M",
-    "castingTime": "1 standard action",
-    "range": "Touch",
-    "targetOrArea": "One creature/level touched",
-    "duration": "10",
-    "savingThrow": "Will negates (harmless) or Will disbelief (if interacted with); see text",
-    "spellResistance": "Yes",
-    "summary": "You cover your tracks and create a false trail, making pursuers lose your path.",
-    "source": "Spell Compendium, p. 59",
-    "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf",
-    "subschool": "Shadow"
   },
   {
     "id": "deadfall",

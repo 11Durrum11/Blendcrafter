@@ -4758,3 +4758,11 @@ Investiture of the Orthon) and spells that merely perceive or
 affect ethereal creatures (See Invisibility, Make Manifest,
 Ethereal Breath/Alarm, Zone of Revelation). Spell total:
 2,592 → 2,526.
+
+**Shadow spells removed (2026-11-02, Shaun's direction —
+"including spells that use the shadow"):** all 28 Illusion
+(Shadow) subschool spells (Shadow Conjuration/Evocation and
+their greaters, Shades, Simulacrum, Project Image, Net of
+Shadows, Wall of Gloom, Ice Assassin, and kin) plus Black
+Sand, which is infused with shadowstuff — 29 deleted. Spell
+total: 2,526 → 2,497.

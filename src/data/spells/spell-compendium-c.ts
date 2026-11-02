@@ -1824,29 +1824,6 @@ export const SPELL_COMPENDIUM_SPELLS_C: SpellDefinition[] = [
     "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf"
   },
   {
-    "id": "net-of-shadows",
-    "name": "Net Of Shadows",
-    "ruleset": "core",
-    "school": "Illusion",
-    "descriptors": [
-      "Darkness"
-    ],
-    "levels": {
-      "Sorcerer/Wizard": 1
-    },
-    "components": "V, S",
-    "castingTime": "1 standard action",
-    "range": "Close (25 ft. + 5 ft./2 levels)",
-    "targetOrArea": "One creature/level, no two of which are more than 25 ft. apart",
-    "duration": "1d6 rounds",
-    "savingThrow": "Will negates",
-    "spellResistance": "Yes",
-    "summary": "A net woven of shadow entangles a creature and dims light around it.",
-    "source": "Spell Compendium, p. 147",
-    "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf",
-    "subschool": "Shadow"
-  },
-  {
     "id": "nightmare-lullaby",
     "name": "Nightmare Lullaby",
     "ruleset": "core",
@@ -5260,91 +5237,6 @@ export const SPELL_COMPENDIUM_SPELLS_C: SpellDefinition[] = [
     "subschool": "Creation"
   },
   {
-    "id": "shadow-binding",
-    "name": "Shadow Binding",
-    "ruleset": "core",
-    "school": "Illusion",
-    "descriptors": [],
-    "levels": {
-      "Sorcerer/Wizard": 3
-    },
-    "components": "V, S, M",
-    "castingTime": "1 standard action",
-    "range": "Close (25 ft. + 5 ft./2 levels)",
-    "targetOrArea": "10-ft.-radius burst",
-    "duration": "1",
-    "savingThrow": "Will negates",
-    "spellResistance": "Yes",
-    "summary": "Shadows pin the subject: it is entangled or immobilized by its own shadow.",
-    "source": "Spell Compendium, p. 182",
-    "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf",
-    "subschool": "Shadow"
-  },
-  {
-    "id": "shadow-form",
-    "name": "Shadow Form",
-    "ruleset": "core",
-    "school": "Illusion",
-    "descriptors": [],
-    "levels": {
-      "Assassin": 4,
-      "Sorcerer/Wizard": 5
-    },
-    "components": "V, S, M",
-    "castingTime": "1 standard action",
-    "range": "Personal",
-    "targetOrArea": "You",
-    "duration": "1",
-    "savingThrow": "Not printed in source",
-    "spellResistance": "Not printed in source",
-    "summary": "You become a living shadow: incorporeal-like benefits, stealth bonuses, and passage through cracks, but weakened attacks.",
-    "source": "Spell Compendium, p. 183",
-    "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf",
-    "subschool": "Shadow"
-  },
-  {
-    "id": "shadow-hand",
-    "name": "Shadow Hand",
-    "ruleset": "core",
-    "school": "Illusion",
-    "descriptors": [],
-    "levels": {
-      "Sorcerer/Wizard": 5
-    },
-    "components": "V, S",
-    "castingTime": "1 standard action",
-    "range": "Close (25 ft. + 5 ft./2 levels)",
-    "targetOrArea": "Medium shadowy hand",
-    "duration": "1",
-    "savingThrow": "None",
-    "spellResistance": "Yes",
-    "summary": "A shadowy hand performs tasks at range and can deliver touch spells obscurely... in practice a spectral-hand-like shadow that manipulates objects.",
-    "source": "Spell Compendium, p. 183",
-    "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf",
-    "subschool": "Shadow"
-  },
-  {
-    "id": "shadow-landscape",
-    "name": "Shadow Landscape",
-    "ruleset": "core",
-    "school": "Illusion",
-    "descriptors": [],
-    "levels": {
-      "Druid": 9
-    },
-    "components": "V, S, DF",
-    "castingTime": "1 hour",
-    "range": "Long (400 ft. + 40 ft./level)",
-    "targetOrArea": "One-mile-radius spread centered on a point in space",
-    "duration": "24",
-    "savingThrow": "Reflex partial; see text",
-    "spellResistance": "Yes",
-    "summary": "You reshape a landscape's shadow-stuff into an illusory terrain overlay that can become partly real.",
-    "source": "Spell Compendium, p. 184",
-    "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf",
-    "subschool": "Shadow"
-  },
-  {
     "id": "shadow-phase",
     "name": "Shadow Phase",
     "ruleset": "core",
@@ -5365,46 +5257,4 @@ export const SPELL_COMPENDIUM_SPELLS_C: SpellDefinition[] = [
     "source": "Spell Compendium, p. 185",
     "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf"
   },
-  {
-    "id": "shadow-mask",
-    "name": "Shadow Mask",
-    "ruleset": "core",
-    "school": "Illusion",
-    "descriptors": [],
-    "levels": {
-      "Sorcerer/Wizard": 2
-    },
-    "components": "V, S, M",
-    "castingTime": "1 standard action",
-    "range": "Personal",
-    "targetOrArea": "You",
-    "duration": "10",
-    "savingThrow": "Not printed in source",
-    "spellResistance": "Not printed in source",
-    "summary": "A mask of shadow conceals your face and identity, granting bonuses to disguise and protection from gaze scrutiny.",
-    "source": "Spell Compendium, p. 185",
-    "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf",
-    "subschool": "Shadow"
-  },
-  {
-    "id": "shadow-radiance",
-    "name": "Shadow Radiance",
-    "ruleset": "core",
-    "school": "Illusion",
-    "descriptors": [],
-    "levels": {
-      "Sorcerer/Wizard": 2
-    },
-    "components": "V, S, M",
-    "castingTime": "1 standard action",
-    "range": "Medium (100 ft. + 10 ft./level)",
-    "targetOrArea": "20-ft.-radius burst centered on a point in space",
-    "duration": "1",
-    "savingThrow": "Will disbelief (if interacted with)",
-    "spellResistance": "Yes",
-    "summary": "You radiate shadow-light that conceals you and reveals creatures as silhouettes — in practice, an aura of shadow that boosts your stealth and outlines foes.",
-    "source": "Spell Compendium, p. 185",
-    "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf",
-    "subschool": "Shadow"
-  }
 ];

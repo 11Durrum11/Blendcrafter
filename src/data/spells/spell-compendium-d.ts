@@ -5,48 +5,6 @@ import type { SpellDefinition } from "@/engine/types";
 // Summaries are original one-line gists; stat lines are the book's own.
 export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
   {
-    "id": "shadow-spray",
-    "name": "Shadow Spray",
-    "ruleset": "core",
-    "school": "Illusion",
-    "descriptors": [],
-    "levels": {
-      "Sorcerer/Wizard": 2
-    },
-    "components": "V, S, M",
-    "castingTime": "1 standard action",
-    "range": "Medium (100 ft. + 10 ft./level)",
-    "targetOrArea": "5-ft.-radius burst",
-    "duration": "1",
-    "savingThrow": "Fortitude negates",
-    "spellResistance": "Yes",
-    "summary": "A spray of shadow chills and weakens creatures in a cone, dealing Strength damage.",
-    "source": "Spell Compendium, p. 186",
-    "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf",
-    "subschool": "Shadow"
-  },
-  {
-    "id": "shadow-well",
-    "name": "Shadow Well",
-    "ruleset": "core",
-    "school": "Illusion",
-    "descriptors": [],
-    "levels": {
-      "Sorcerer/Wizard": 4
-    },
-    "components": "V, S",
-    "castingTime": "1 standard action",
-    "range": "Close (25 ft. + 5 ft./2 levels)",
-    "targetOrArea": "One creature",
-    "duration": "1",
-    "savingThrow": "Will negates; see text",
-    "spellResistance": "Yes",
-    "summary": "You step into a shadow well: transported into a shadowy pocket that lets you emerge from another shadow nearby.",
-    "source": "Spell Compendium, p. 186",
-    "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf",
-    "subschool": "Shadow"
-  },
-  {
     "id": "shadowblast",
     "name": "Shadowblast",
     "ruleset": "core",
@@ -68,48 +26,6 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     "summary": "A blast of shadow-stuff deals damage and can blind creatures in the burst, worse for light-sensitive foes.",
     "source": "Spell Compendium, p. 186",
     "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf"
-  },
-  {
-    "id": "shadowfade",
-    "name": "Shadowfade",
-    "ruleset": "core",
-    "school": "Illusion",
-    "descriptors": [],
-    "levels": {
-      "Sorcerer/Wizard": 5
-    },
-    "components": "V, S can",
-    "castingTime": "1 standard action",
-    "range": "Close (25 ft. + 5 ft./2 levels)",
-    "targetOrArea": "One 10-ft. portal to the Plane of Shadow",
-    "duration": "1",
-    "savingThrow": "Will negates",
-    "spellResistance": "Yes",
-    "summary": "You fade into shadow form, gaining concealment and incorporeal qualities while moving.",
-    "source": "Spell Compendium, p. 186",
-    "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf",
-    "subschool": "Shadow"
-  },
-  {
-    "id": "shadowy-grappler",
-    "name": "Shadowy Grappler",
-    "ruleset": "core",
-    "school": "Illusion",
-    "descriptors": [],
-    "levels": {
-      "Sorcerer/Wizard": 6
-    },
-    "components": "V, S, M",
-    "castingTime": "Not printed in source",
-    "range": "Medium (100 ft. + 10 ft./level)",
-    "targetOrArea": "One creature",
-    "duration": "1",
-    "savingThrow": "Will partial; see text",
-    "spellResistance": "Yes",
-    "summary": "A shadowy figure grapples a creature at range, holding and crushing it in darkness.",
-    "source": "Spell Compendium, p. 186",
-    "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf",
-    "subschool": "Shadow"
   },
   {
     "id": "shard-storm",
@@ -1146,29 +1062,6 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     "summary": "Your hand becomes spectral: your touch attacks deal negative levels... in practice, a ghostly touch that bestows a negative level on a hit.",
     "source": "Spell Compendium, p. 197",
     "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf"
-  },
-  {
-    "id": "spectral-weapon",
-    "name": "Spectral Weapon",
-    "ruleset": "core",
-    "school": "Illusion",
-    "descriptors": [],
-    "levels": {
-      "Assassin": 3,
-      "Bard": 4,
-      "Sorcerer/Wizard": 3
-    },
-    "components": "V, S",
-    "castingTime": "1 swift action",
-    "range": "0 ft.",
-    "targetOrArea": "One shadowy blade",
-    "duration": "1",
-    "savingThrow": "See text",
-    "spellResistance": "Yes",
-    "summary": "Creates a spectral copy of a weapon that attacks with your skill, dealing force-like damage and striking incorporeal foes.",
-    "source": "Spell Compendium, p. 197",
-    "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf",
-    "subschool": "Shadow"
   },
   {
     "id": "speechlink",
@@ -4347,31 +4240,6 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     "source": "Spell Compendium, p. 233",
     "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf",
     "subschool": "Creation"
-  },
-  {
-    "id": "wall-of-gloom",
-    "name": "Wall Of Gloom",
-    "ruleset": "core",
-    "school": "Illusion",
-    "descriptors": [
-      "Darkness",
-      "Fear",
-      "Mind-Affecting"
-    ],
-    "levels": {
-      "Sorcerer/Wizard": 2,
-    },
-    "components": "V, S, M",
-    "castingTime": "1 standard action",
-    "range": "Medium (100 ft. + 10 ft./level)",
-    "targetOrArea": "A straight wall whose area is up to one 10-ft. square/level",
-    "duration": "Concentration + 1",
-    "savingThrow": "None",
-    "spellResistance": "No",
-    "summary": "A wall of shadowy gloom blocks sight and movement partially; creatures passing through are slowed by dread.",
-    "source": "Spell Compendium, p. 233",
-    "sourceUrl": "/A POC PC related/5.Splat/Spell Compendium.pdf",
-    "subschool": "Shadow"
   },
   {
     "id": "wall-of-good",
