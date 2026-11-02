@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Search, Zap } from "lucide-react";
+import { ChevronDown, ChevronRight, Search, Zap } from "lucide-react";
 import { ALL_FEATS } from "@/data";
 import type { FeatDefinition, ResolvedCharacter, Ruleset } from "@/engine/types";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -73,6 +73,19 @@ function looksUnmet(feat: FeatDefinition, resolved: ResolvedCharacter, selectedF
 export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved, onToggleFeat, onToggleFeatEnabled }: StepFeatsProps) {
   const [query, setQuery] = useState("");
   const [detailFeat, setDetailFeat] = useState<FeatDefinition | null>(null);
+  // Sections collapsed to their titles (Shaun, 2026-11-02): every
+  // feat section closes down to just its heading; clicking the
+  // heading expands it. Fighter Bonus Feats is the one section
+  // left open. While a search is typed, matching sections show
+  // open so the results are visible.
+  const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set(["class-fighter"]));
+  const toggleSection = (id: string) =>
+    setExpandedSections((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
   const visible = ALL_FEATS.filter(
     (f) => enabledRulesets.includes(f.ruleset) && f.name.toLowerCase().includes(query.toLowerCase())
   );
@@ -230,9 +243,22 @@ export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved,
               const isGrayed = (f: FeatDefinition) => looksUnmet(f, resolved, featIds) && !featIds.includes(f.id);
               const active = turnedOn.filter((f) => !isGrayed(f));
               const grayedOut = turnedOn.filter(isGrayed);
+              const expanded = query !== "" || expandedSections.has(section.id);
               return (
                 <div key={section.id} className="mt-5" data-testid={`feat-section-${section.id}`}>
-                  <h4 className="font-display text-base font-semibold">{section.label}</h4>
+                  <button
+                    type="button"
+                    className="flex w-full items-center gap-2 text-left"
+                    onClick={() => toggleSection(section.id)}
+                    aria-expanded={expanded}
+                    data-testid={`feat-section-toggle-${section.id}`}
+                  >
+                    {expanded ? <ChevronDown className="h-4 w-4 shrink-0" /> : <ChevronRight className="h-4 w-4 shrink-0" />}
+                    <span className="font-display text-base font-semibold">{section.label}</span>
+                    <span className="text-xs font-normal text-muted-foreground">({section.feats.length})</span>
+                  </button>
+                  {expanded && (
+                    <>
                   {section.note && <p className="mt-0.5 text-xs text-muted-foreground">{section.note}</p>}
                   {section.feats.length === 0 && (
                     <p className="mt-1 text-xs italic text-muted-foreground">Every feat on this list is listed in an earlier section above.</p>
@@ -248,6 +274,8 @@ export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved,
                     <>
                       <h5 className="mt-4 font-display text-sm font-semibold text-muted-foreground">Turned off</h5>
                       <div className="mt-2 grid grid-cols-2 gap-1 md:grid-cols-4">{turnedOff.map(renderFeatName)}</div>
+                    </>
+                  )}
                     </>
                   )}
                 </div>

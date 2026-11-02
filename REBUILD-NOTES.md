@@ -5089,3 +5089,10 @@ bottom footer row or its "turned on/off" status text — just the
 toggle switch itself, at the top of the dialog beside the
 title (EntityDetailDialog gained a headerAction slot). The
 dialog body is the full crunch and nothing else.
+
+**Feat sections collapse to their titles (2026-11-02, Shaun's
+direction):** every feat section closes down to just its
+heading (title + count + chevron); clicking the heading expands
+it, clicking again closes it. Fighter Bonus Feats is the one
+section left open by default. While a search is typed, matching
+sections show open so results stay visible.
