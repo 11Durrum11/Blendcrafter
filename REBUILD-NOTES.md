@@ -5047,3 +5047,11 @@ Allies, Enemies, Trauma and Current Circumstances text boxes,
 each sits at a fixed height, its entries scroll inside, and the
 player drags the corner handle to extend it and see as much as
 they want.
+
+**Ninja and Samurai removed (2026-11-02, Shaun's direction):**
+the Ninja (Complete Adventurer) and Samurai (Complete Warrior)
+base-class records are deleted from core/new-base-classes.ts —
+base classes 65 -> 63. They had no casting profiles and no
+bonus-feat rules. The prestige classes Dragon Samurai and
+Shadow Sun Ninja are different classes and remain, flagged to
+Shaun in the removal report.

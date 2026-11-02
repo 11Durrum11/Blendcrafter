@@ -39,7 +39,8 @@
  * recovered core data, so the packs add prestige classes and feats
  * only (see the REBUILD-NOTES.md Batch 2 addendum for the
  * verification of the recovered base classes, including the
- * discrepancies found).
+ * discrepancies found). Ninja and Samurai were later REMOVED from
+ * the builder entirely at Shaun's direction (2026-11-02).
  *
  * Also merged 2026-10-27 (Batch 3 of the "all original books"
  * program): the Complete Arcane, Complete Divine, and Book of
