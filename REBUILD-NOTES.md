@@ -5110,3 +5110,10 @@ The dragged section highlights with a ring and the order
 reorders live under the pointer. The arrangement persists in
 localStorage (blendcrafter:feat-section-order), a UI preference
 like the toggle prefs, never part of a build.
+
+**Wu Jen bonus feats removed (2026-11-02, Shaun's direction):**
+the Wu Jen rule is deleted from CLASS_BONUS_FEAT_RULES — the
+Wu Jen Bonus Feats section is gone from the Feats step, and a
+Wu Jen no longer earns the level-1 bonus metamagic feat slot in
+the resolver's accounting. The Wu Jen class itself remains in
+the builder (its spells were removed earlier at Shaun's word).

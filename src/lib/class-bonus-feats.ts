@@ -8,7 +8,7 @@ import type { FeatDefinition } from "@/engine/types";
  * Every rule below is grounded in the class's own source book: either
  * an explicit feat list transcribed from the book (cited per rule), or
  * a feat-type rule exactly where the class text defines its bonus
- * feats by type (Wizard, Wu Jen, Psion, Shadowcaster, Mortitheurge).
+ * feats by type (Wizard, Psion, Shadowcaster, Mortitheurge).
  * Feat-type membership is read off the feat records' own printed
  * descriptors (the house style records [Psionic], [Metashadow],
  * [Ghost], and recitation feats in each record's `special` text).
@@ -511,14 +511,6 @@ export const CLASS_BONUS_FEAT_RULES: readonly ClassBonusFeatRule[] = [
     sectionLabel: "Truenamer Bonus Feats",
     note: "Per the Truenamer class, Tome of Magic (bonus recitation feats at 9th and 15th level): the recitation feats, p. 231.",
     matches: isRecitationFeat,
-  },
-  {
-    classId: "wu-jen",
-    bonusFeatLevels: [1],
-    className: "Wu Jen",
-    sectionLabel: "Wu Jen Bonus Feats",
-    note: "Per the Wu Jen class, Complete Arcane: a bonus metamagic feat at 1st level — the metamagic feats are listed under Wizard Bonus Feats above.",
-    matches: isMetamagicFeat,
   },
   {
     classId: "mortitheurge",
