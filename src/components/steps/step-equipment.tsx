@@ -113,10 +113,6 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, wealthLimi
       else next.add(key);
       return next;
     });
-  const openAndJump = (fn: React.Dispatch<React.SetStateAction<Set<string>>>, key: string, id: string) => {
-    fn((prev) => new Set(prev).add(key));
-    setTimeout(() => jumpToSection(id), 60);
-  };
   // Click-a-level gp limit (Shaun, 2026-11-02): clicking a level
   // in the wealth-by-level chart sets the total gp limit, shown
   // beside Magic items in the summary below (0 gp until a level
@@ -149,7 +145,6 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, wealthLimi
     c === "wondrous-item" ? "wondrous" : c
   );
 
-  const jumpToSection = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
 
   const wealth = resolved.wealth;
   const wbl = wealthByLevel(resolved.ecl.value);
@@ -383,36 +378,19 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, wealthLimi
             </div>
           </div>
 
-          {equipmentSections.length > 0 && (
-            <div className="mt-3 flex flex-wrap gap-1.5" data-testid="equipment-category-headings">
-              {equipmentSections.map((section) => (
-                <Button
-                  key={section.key}
-                  type="button"
-                  size="sm"
-                  variant="outline"
-                  className="h-7 text-xs"
-                  onClick={() => openAndJump(setOpenEquipSections, section.key, `equip-cat-${section.key}`)}
-                  data-testid={`button-equip-cat-${section.key}`}
-                >
-                  {section.label} ({section.items.length})
-                </Button>
-              ))}
-            </div>
-          )}
 
-          <div className="mt-3 max-h-80 overflow-y-auto rounded-md border border-card-border bg-card">
+          <div className="mt-3 grid grid-cols-2 items-start gap-3 sm:grid-cols-4">
             {visibleEquipment.length === 0 ? (
-              <p className="p-4 text-sm text-muted-foreground">No equipment matches your search or the enabled rule sets.</p>
+              <p className="col-span-full p-4 text-sm text-muted-foreground">No equipment matches your search or the enabled rule sets.</p>
             ) : (
               equipmentSections.map((section) => {
                 const equipOpen = equipQuery.trim() !== "" || openEquipSections.has(section.key);
                 return (
-                <div key={section.key}>
+                <div key={section.key} className="rounded-md border border-card-border bg-card">
                   <button
                     type="button"
                     id={`equip-cat-${section.key}`}
-                    className="sticky top-0 z-10 flex w-full items-center gap-1.5 border-b border-card-border bg-card px-3 py-2 text-left font-display text-sm font-semibold"
+                    className="flex w-full items-center gap-1.5 border-b border-card-border bg-card px-3 py-2 text-left font-display text-sm font-semibold"
                     onClick={() => toggleSet(setOpenEquipSections, section.key)}
                     aria-expanded={equipOpen}
                     data-testid={`heading-equip-cat-${section.key}`}
@@ -422,7 +400,7 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, wealthLimi
                     <span className="text-xs font-normal text-muted-foreground">({section.items.length})</span>
                   </button>
                   {equipOpen && (
-                  <div className="divide-y divide-card-border">
+                  <div className="max-h-80 divide-y divide-card-border overflow-y-auto">
                     {section.items.map((item) => (
                 <div key={item.id} className="flex flex-wrap items-center justify-between gap-2 p-3" data-testid={`equipment-row-${item.id}`}>
                   <div className="min-w-0 flex-1">
@@ -476,35 +454,18 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, wealthLimi
             <Search className="absolute left-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-muted-foreground" />
             <Input value={itemQuery} onChange={(e) => setItemQuery(e.target.value)} placeholder="Search magic items…" className="h-8 pl-8" data-testid="input-magic-item-search" />
           </div>
-          {magicSections.length > 0 && (
-            <div className="mt-3 flex flex-wrap gap-1.5" data-testid="magic-category-headings">
-              {magicSections.map((section) => (
-                <Button
-                  key={section.key}
-                  type="button"
-                  size="sm"
-                  variant="outline"
-                  className="h-7 text-xs"
-                  onClick={() => openAndJump(setOpenMagicSections, section.key, `magic-cat-${section.key}`)}
-                  data-testid={`button-magic-cat-${section.key}`}
-                >
-                  {section.label} ({section.items.length})
-                </Button>
-              ))}
-            </div>
-          )}
-          <div className="mt-3 max-h-80 overflow-y-auto rounded-md border border-card-border bg-card">
+          <div className="mt-3 grid grid-cols-2 items-start gap-3 sm:grid-cols-4">
             {visibleMagicItems.length === 0 ? (
-              <p className="p-4 text-sm text-muted-foreground">No magic items match your search or the enabled rule sets.</p>
+              <p className="col-span-full p-4 text-sm text-muted-foreground">No magic items match your search or the enabled rule sets.</p>
             ) : (
               magicSections.map((section) => {
                 const magicOpen = itemQuery.trim() !== "" || openMagicSections.has(section.key);
                 return (
-                <div key={section.key}>
+                <div key={section.key} className="rounded-md border border-card-border bg-card">
                   <button
                     type="button"
                     id={`magic-cat-${section.key}`}
-                    className="sticky top-0 z-10 flex w-full items-center gap-1.5 border-b border-card-border bg-card px-3 py-2 text-left font-display text-sm font-semibold"
+                    className="flex w-full items-center gap-1.5 border-b border-card-border bg-card px-3 py-2 text-left font-display text-sm font-semibold"
                     onClick={() => toggleSet(setOpenMagicSections, section.key)}
                     aria-expanded={magicOpen}
                     data-testid={`heading-magic-cat-${section.key}`}
@@ -514,7 +475,7 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, wealthLimi
                     <span className="text-xs font-normal text-muted-foreground">({section.items.length})</span>
                   </button>
                   {magicOpen && (
-                  <div className="divide-y divide-card-border">
+                  <div className="max-h-80 divide-y divide-card-border overflow-y-auto">
                     {section.items.map((item) => (
                 <div key={item.id} className="flex flex-wrap items-center justify-between gap-2 p-3" data-testid={`magic-item-row-${item.id}`}>
                   <div className="min-w-0 flex-1">

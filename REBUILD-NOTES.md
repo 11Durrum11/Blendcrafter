@@ -5168,3 +5168,11 @@ search is typed, sections show open so matches stay visible.
 The heading buttons above each list now open the section they
 jump to. The Inventory card is untouched — that's the
 character's own gear, not a browsing list.
+
+**Equipment titles in four columns, top buttons removed
+(2026-11-02, Shaun's direction):** the jump-button rows above
+the Equipment and Magic Items lists are gone. Both lists now
+lay their category titles out in a four-column grid (two on
+narrow screens) — each title its own box, expanding downward
+in its column, its items scrolling inside. Same treatment for
+Magic Items as for Equipment, per Shaun's follow-up.
