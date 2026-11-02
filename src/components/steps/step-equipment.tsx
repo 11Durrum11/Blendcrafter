@@ -148,23 +148,22 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, onAdd, onR
                 document: coin, gems, scripts, and cheqs. Coin uses
                 book-standard conversions — 10 cp = 1 sp, 10 sp = 1 gp,
                 1 pp = 10 gp, 50 coins to the pound; no electrum. */}
+            {/* All four currency types on just two lines (Shaun,
+                2026-11-02): Coin + Gems on the first, Scripts +
+                Cheqs on the second. */}
             <div
-              className="max-w-xl space-y-1 text-xs leading-relaxed text-muted-foreground sm:text-right"
+              className="max-w-3xl space-y-1 text-xs leading-relaxed text-muted-foreground sm:text-right"
               data-testid="wealth-currency-types"
             >
               <p>
                 <span className="font-medium text-foreground">Coin:</span> copper (cp), silver (sp), gold (gp),
-                platinum (pp) — 10 cp = 1 sp · 10 sp = 1 gp · 1 pp = 10 gp · 50 coins = 1 lb.
+                platinum (pp) — 10 cp = 1 sp · 10 sp = 1 gp · 1 pp = 10 gp · 50 coins = 1 lb. ·{" "}
+                <span className="font-medium text-foreground">Gems:</span> 10 to a pound; compound pricing; price
+                is very appraise-dependent.
               </p>
               <p>
-                <span className="font-medium text-foreground">Gems:</span> 10 to a pound; compound pricing; price is
-                very appraise-dependent.
-              </p>
-              <p>
-                <span className="font-medium text-foreground">Scripts:</span> paper money, 1 gp each; 500 to a pound;
-                very society-dependent.
-              </p>
-              <p>
+                <span className="font-medium text-foreground">Scripts:</span> paper money, 1 gp each; 500 to a
+                pound; very society-dependent. ·{" "}
                 <span className="font-medium text-foreground">Cheqs:</span> any amount; very lightweight; very
                 society-dependent.
               </p>

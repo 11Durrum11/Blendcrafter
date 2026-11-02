@@ -5135,3 +5135,8 @@ direction):** the Wealth by Level panel beside the Wealth
 header shows just its title (with the ECL note) until clicked;
 clicking expands the DMG chart and the 70/30 calculation, and
 clicking again folds it away.
+
+**Currency block on two lines (2026-11-02, Shaun's direction):**
+the four currency types beside the Wealth header now run on
+just two lines — Coin + Gems on the first, Scripts + Cheqs on
+the second.
