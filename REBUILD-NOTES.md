@@ -4855,3 +4855,8 @@ list, along with the prerequisite and source lines; all of it
 lives in the click (the name opens the detail dialog, which
 carries the summary, the Full Description, the prerequisite,
 and the source).
+
+**Flaw names shortened (2026-11-02, Shaun's direction):** the two
+long flaw names in the Flaws & Traits list now show as "ADD" and
+"ADHD" so each takes one line in the names-only grid; ids and full
+descriptions in the click dialog are unchanged.
