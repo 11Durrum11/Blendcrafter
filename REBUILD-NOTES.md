@@ -4775,3 +4775,10 @@ spell sits on, with its level on each) now leads the full
 crunch: casting time, components, range, target/area/effect,
 duration, saving throw, spell resistance, note when present,
 summary, and source. Nothing cut.
+
+**Picking-card spell names open the full entry too
+(2026-11-02, Shaun's correction):** in the per-class picking
+cards, clicking a spell only selected it — the full entry
+dialog was reachable only from the library. The spell's name
+in a picking card now opens the same full-entry dialog (the
+rest of the card still toggles selection).

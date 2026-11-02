@@ -327,7 +327,17 @@ export function StepSpells({ build, resolved, onToggleSpell }: StepSpellsProps) 
                             />
                             <div className="min-w-0 flex-1">
                               <div className="flex items-center gap-1.5 flex-wrap">
-                                <span className="font-medium">{spell.name}</span>
+                                <button
+                                  type="button"
+                                  className="text-left font-medium underline-offset-2 hover:underline"
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    setDetail(describeSpell(spell, profile.listName));
+                                  }}
+                                  data-testid={`spell-name-${spell.id}`}
+                                >
+                                  {spell.name}
+                                </button>
                                 <Badge variant="outline" className="text-[10px]">
                                   {spell.school}
                                   {spell.subschool ? ` (${spell.subschool})` : ""}
