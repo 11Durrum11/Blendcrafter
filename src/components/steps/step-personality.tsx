@@ -20,6 +20,16 @@ const families = ["Stable family","Large extended family","Estranged family","Or
 export function StepPersonality({ build, resolved, onChange }: Props) {
   const p = build.personality;
   const generated = useMemo(() => generatePersonality(build, resolved, p), [build, resolved, p]);
+  // The profile card shows the SAVED snapshot the Generate
+  // Personality button produces (build.personality.generated). Until
+  // one exists it shows the live draft, labeled as a draft; when the
+  // inputs change after generating, the snapshot no longer matches
+  // the live draft and the card says so. (Before this wiring, the
+  // button saved a snapshot nothing ever displayed, so pressing it
+  // visibly did nothing.)
+  const snapshot = p.generated ?? null;
+  const shown = snapshot ?? generated;
+  const snapshotStale = snapshot !== null && JSON.stringify(snapshot) !== JSON.stringify(generated);
   const set = (key: keyof PersonalityProfile, value: any) => onChange({ [key]: value });
   const [flawQuery, setFlawQuery] = useState("");
   const [traitQuery, setTraitQuery] = useState("");
@@ -127,8 +137,25 @@ export function StepPersonality({ build, resolved, onChange }: Props) {
 
     <div className="flex flex-wrap gap-2"><Button onClick={generate}><Sparkles className="mr-2 h-4 w-4"/>Generate Personality</Button><Button variant="outline" onClick={randomize}><Dices className="mr-2 h-4 w-4"/>Randomize Weights & Social Inputs</Button></div>
 
-    <Card><CardHeader><CardTitle className="font-display">Generated NPC Profile</CardTitle></CardHeader><CardContent><div className="space-y-5 text-sm leading-6">
-      <Section title="Temperament">{generated.temperament}</Section><Section title="Core Personality">{generated.corePersonality}</Section><Section title="Life History">{generated.lifeHistory}</Section><Section title="Values">{generated.values}</Section><Section title="Motivations"><List items={generated.motivations}/></Section><Section title="Fears"><List items={generated.fears}/></Section><Section title="Moral Outlook">{generated.moralOutlook}</Section><Section title="Social Behavior">{generated.socialBehavior}</Section><Section title="Reputation">{generated.reputationInterpretation}</Section><Section title="Relationships">{generated.relationships}</Section><Section title="Current Pressure">{generated.currentPressure}</Section><Section title="Mannerisms"><List items={generated.mannerisms}/></Section><Section title="Voice">{generated.voice}</Section><Section title="Combat Psychology">{generated.combatPsychology}</Section><Section title="Contradictions"><List items={generated.contradictions}/></Section><Section title="Adventure Hooks"><List items={generated.adventureHooks}/></Section>
+    <Card><CardHeader><CardTitle className="font-display">Generated NPC Profile</CardTitle></CardHeader><CardContent>
+      {!snapshot ? (
+        <p className="mb-4 rounded-md border border-card-border bg-muted/40 p-3 text-sm text-muted-foreground" data-testid="npc-profile-draft-note">
+          Draft preview — this text updates live as you change the inputs above. Press{" "}
+          <span className="font-medium text-foreground">Generate Personality</span> to lock this profile onto the
+          character and save it with them.
+        </p>
+      ) : snapshotStale ? (
+        <p className="mb-4 rounded-md border border-amber-500/40 bg-amber-500/10 p-3 text-sm text-amber-600 dark:text-amber-400" data-testid="npc-profile-stale-note">
+          Your inputs have changed since this profile was generated. Press{" "}
+          <span className="font-medium">Generate Personality</span> to refresh it.
+        </p>
+      ) : (
+        <p className="mb-4 text-sm text-muted-foreground" data-testid="npc-profile-saved-note">
+          Generated and saved on this character. Change any input above, then press Generate Personality to refresh it.
+        </p>
+      )}
+      <div className="space-y-5 text-sm leading-6">
+      <Section title="Temperament">{shown.temperament}</Section><Section title="Core Personality">{shown.corePersonality}</Section><Section title="Life History">{shown.lifeHistory}</Section><Section title="Values">{shown.values}</Section><Section title="Motivations"><List items={shown.motivations}/></Section><Section title="Fears"><List items={shown.fears}/></Section><Section title="Moral Outlook">{shown.moralOutlook}</Section><Section title="Social Behavior">{shown.socialBehavior}</Section><Section title="Reputation">{shown.reputationInterpretation}</Section><Section title="Relationships">{shown.relationships}</Section><Section title="Current Pressure">{shown.currentPressure}</Section><Section title="Mannerisms"><List items={shown.mannerisms}/></Section><Section title="Voice">{shown.voice}</Section><Section title="Combat Psychology">{shown.combatPsychology}</Section><Section title="Contradictions"><List items={shown.contradictions}/></Section><Section title="Adventure Hooks"><List items={shown.adventureHooks}/></Section>
     </div></CardContent></Card>
     <EntityDetailDialog detail={detail} onOpenChange={(open) => !open && setDetail(null)} />
   </div>;

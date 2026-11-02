@@ -5192,3 +5192,14 @@ checking the generated NPC profile: Current Pressure said
 floored level), and Core Personality's fallback sentence
 interpolated the raw weight key ("Their goals is the heaviest
 weight...") — it now reads in plain words for every key.
+
+**Generate Personality actually drives the profile now
+(2026-11-02, Shaun: "still doesn't work right"):** the button
+saved its snapshot into personality.generated, but the profile
+card rendered the live memo instead — so pressing Generate
+visibly did nothing and the saved snapshot was displayed
+nowhere. The card now shows the saved snapshot: a labeled
+draft preview before the first generation, a "saved on this
+character" note when current, and an amber stale warning when
+inputs changed after generating (staleness = snapshot vs live
+draft comparison, harness-verified both ways).
