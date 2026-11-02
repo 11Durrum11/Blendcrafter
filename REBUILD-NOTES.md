@@ -4629,3 +4629,10 @@ hidden entirely on builds with no casting class, which made its
 new place in the order impossible to see on a non-caster); the
 step's own empty state explains that the build has no
 spellcasting progression.
+
+**Ability-score methods (2026-11-02, Shaun's direction):** the
+Standard Array and Point Buy generation methods are removed from
+the Ability Scores card — My Way (Shaun's 6×6 dice grid) is the
+only generation method offered. Scores can still be typed into
+the number fields directly, and existing builds are unaffected;
+the default scores a brand-new build starts with are unchanged.

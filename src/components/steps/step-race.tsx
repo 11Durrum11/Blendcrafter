@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Dices, Info, Sparkles } from "lucide-react";
+import { Dices, Info } from "lucide-react";
 import { ALL_RACES } from "@/data";
 import { ABILITY_KEYS, ABILITY_LABEL } from "@/engine/types";
 import type { AbilityKey, Ruleset } from "@/engine/types";
@@ -10,7 +10,6 @@ import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import { Switch } from "@/components/ui/switch";
 import { cn } from "@/lib/utils";
-import { STANDARD_ARRAY } from "@/lib/use-character-build";
 import { ProductIdentityBadge } from "@/components/product-identity-badge";
 import { RULESET_LABELS } from "@/components/ruleset-toggle";
 import { isMonsterRace, raceStartingEcl } from "@/lib/race-groups";
@@ -132,9 +131,6 @@ export function placementsToScores(placements: LinePlacements, pool: number[]): 
   return scores;
 }
 
-const POINT_BUY_COST: Record<number, number> = { 8: 0, 9: 1, 10: 2, 11: 3, 12: 4, 13: 5, 14: 6, 15: 8, 16: 10, 17: 13, 18: 16 };
-const POINT_BUY_BUDGET = 25;
-
 export function StepRace({
   raceId,
   baseAbilityScores,
@@ -147,7 +143,6 @@ export function StepRace({
   onToggleRaceEnabled,
   onToggleAbilityEnabled,
 }: StepRaceProps) {
-  const [mode, setMode] = useState<"standard" | "pointbuy" | "myway">("standard");
   const [diceGrid, setDiceGrid] = useState<DiceCell[][] | null>(null);
   const [pickedLineId, setPickedLineId] = useState<string | null>(null);
   const [placements, setPlacements] = useState<LinePlacements>(emptyPlacements());
@@ -158,8 +153,6 @@ export function StepRace({
   // monster races under their own heading below. Both stay selectable.
   const playableRaces = visibleRaces.filter((race) => !isMonsterRace(race));
   const monsterRaces = visibleRaces.filter((race) => isMonsterRace(race));
-
-  const pointsSpent = ABILITY_KEYS.reduce((sum, k) => sum + (POINT_BUY_COST[baseAbilityScores[k]] ?? 0), 0);
 
   const myWayLines = diceGrid ? diceLines(diceGrid) : [];
   const pickedLine = myWayLines.find((l) => l.id === pickedLineId) ?? null;
@@ -194,14 +187,6 @@ export function StepRace({
   function handleApplyPlacements() {
     if (!pickedLine || !placementsComplete(placements)) return;
     onAllAbilitiesChange(placementsToScores(placements, pickedLine.values));
-  }
-
-  function assignStandardArray() {
-    const scores: Record<AbilityKey, number> = { str: 8, dex: 8, con: 8, int: 8, wis: 8, cha: 8 };
-    ABILITY_KEYS.forEach((key, i) => {
-      scores[key] = STANDARD_ARRAY[i] ?? 10;
-    });
-    onAllAbilitiesChange(scores);
   }
 
   const renderRaceTile = (race: (typeof visibleRaces)[number]) => {
@@ -304,52 +289,18 @@ export function StepRace({
   return (
     <div className="space-y-6">
       <Card>
-        <CardHeader className="flex flex-col items-start gap-4 sm:flex-row sm:justify-between">
+        <CardHeader>
           <div>
             <CardTitle className="font-display text-xl">Ability Scores</CardTitle>
-            <CardDescription>Assign base scores before racial adjustments are applied.</CardDescription>
-          </div>
-          <div className="flex shrink-0 gap-2 flex-wrap">
-            <Button
-              type="button"
-              size="sm"
-              variant={mode === "standard" ? "default" : "outline"}
-              onClick={() => {
-                setMode("standard");
-                assignStandardArray();
-              }}
-              data-testid="button-standard-array"
-            >
-              <Dices className="mr-1.5 h-3.5 w-3.5" /> Standard Array
-            </Button>
-            <Button
-              type="button"
-              size="sm"
-              variant={mode === "pointbuy" ? "default" : "outline"}
-              onClick={() => setMode("pointbuy")}
-              data-testid="button-point-buy"
-            >
-              <Sparkles className="mr-1.5 h-3.5 w-3.5" /> Point Buy
-            </Button>
-            <Button
-              type="button"
-              size="sm"
-              variant={mode === "myway" ? "default" : "outline"}
-              onClick={() => setMode("myway")}
-              data-testid="button-my-way"
-            >
-              <Dices className="mr-1.5 h-3.5 w-3.5" /> My Way
-            </Button>
+            <CardDescription>
+              Base scores before racial adjustments — generated My Way (Shaun's method; the Standard Array and
+              Point Buy methods were removed at his direction, 2026-11-02). Scores can still be typed in directly
+              below.
+            </CardDescription>
           </div>
         </CardHeader>
         <CardContent className="space-y-4">
-          {mode === "pointbuy" && (
-            <p className="text-sm text-muted-foreground">
-              Budget: <span className={cn("font-mono", pointsSpent > POINT_BUY_BUDGET ? "text-destructive" : "text-foreground")}>{pointsSpent}</span> / {POINT_BUY_BUDGET} points
-            </p>
-          )}
-          {mode === "myway" && (
-            <div className="space-y-3">
+          <div className="space-y-3">
               <p className="text-sm text-muted-foreground">
                 Roll 4d6 and drop the lowest, thirty-six times, into a 6×6 grid — then pick any row, any column, or
                 either diagonal, and place its six results on whichever abilities you choose. No result of 8 or
@@ -477,8 +428,7 @@ export function StepRace({
                   </Button>
                 </>
               )}
-            </div>
-          )}
+          </div>
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
             {ABILITY_KEYS.map((key) => {
               const isDisabled = disabledAbilities.includes(key);
