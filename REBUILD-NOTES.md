@@ -4591,3 +4591,31 @@ is correct per SUPERIOR-SYNERGY-ACCOUNTING.md — the Bluff line is
 a mixed line whose 10-rank tier is a special (attitude changes in
 ~half the time), not the +3 rung; the script's expectation, not
 the engine, is wrong.
+
+## Casting tables extended to level 20 (2026-11-02, test-character finding #2)
+
+The second bug the level-20 test characters caught: every casting
+profile carried only 10 spells-per-day rows (and spells-known where
+modeled), and perDayRow/knownRow clamp to the last row — so every
+caster above 10th level was silently capped at their 10th-level
+casting (Wizard 20 maxed at 5th-level spells, Paladin 20 at 2nd,
+Gun Mage 20 at 4th). All 20 profiles now carry the full printed
+1–20 tables: rows 11–20 transcribed from the SRD (PHB classes +
+adept; cleric rows keep the app's no-domain-slot convention),
+Shaun's own book files (ECS Table 2–1, IKCG Tables 2–5/2–6, PHB
+II beguiler/duskblade, Complete Arcane warmage/wu jen, Complete
+Warrior hexblade, Complete Adventurer spellthief), page renders
+of the Complete Divine scan (favored soul, spirit shaman,
+shugenja), and the Miniatures Handbook PDF (healer — it was in
+the local book files all along). Three research passes
+independently cross-checked the books' rows 1–10 against the
+existing data: zero disagreements anywhere, so only the missing
+rows were appended; verification re-proved rows 1–10
+byte-identical and rows 11–20 equal to the transcriptions, and
+maxCastableLevel at 20 now reads 9 for every full caster, 6 for
+bard/gun mage/artificer, 5 for adept/duskblade, 4 for the
+half-casters. Printed quirks preserved, not "fixed": shugenja
+gains 7th- and 8th-level spells at the same level (14th); healer
+rows 19 and 20 are identical in print. With this, the full
+six-character level-20 suite (~/test-chars-work/) passes every
+check.
