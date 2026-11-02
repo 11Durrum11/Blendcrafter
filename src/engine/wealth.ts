@@ -67,6 +67,32 @@ export function wealthByLevel(level: number): number | null {
   return WEALTH_BY_LEVEL[level] ?? null;
 }
 
+/**
+ * Shaun's 70/30 rule (2026-11-02): initial wealth is the DMG
+ * wealth-by-level amount for the character's level; at least 70% of it
+ * must be spent on gear, and at most 30% may remain liquid (unspent
+ * cash). Liquid never displays below 0 — overspending is reported by
+ * the card's existing over-budget line instead.
+ */
+export interface InitialWealthSplit {
+  initial: number;
+  spent: number;
+  liquid: number;
+  spentPct: number;
+  liquidPct: number;
+  /** True when the liquid share is at most 30% of the initial wealth. */
+  liquidWithinLimit: boolean;
+}
+
+export function initialWealthSplit(initial: number, spent: number): InitialWealthSplit {
+  const liquid = Math.max(0, initial - spent);
+  const spentPct = initial > 0 ? (spent / initial) * 100 : 0;
+  const liquidPct = initial > 0 ? (liquid / initial) * 100 : 0;
+  // Compare in integer-ish terms so exactly-30% counts as within the limit.
+  const liquidWithinLimit = liquid * 10 <= initial * 3 + 1e-9;
+  return { initial, spent, liquid, spentPct, liquidPct, liquidWithinLimit };
+}
+
 /** 1234.5 -> "1,234.5"; whole numbers show no decimals. */
 export function formatGp(value: number): string {
   const rounded = Math.round(value * 100) / 100;

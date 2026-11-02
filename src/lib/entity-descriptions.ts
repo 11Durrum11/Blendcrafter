@@ -9,6 +9,7 @@ import {
   type RaceDefinition,
   type SkillDefinition,
 } from "@/engine/types";
+import { raceStartingEcl } from "@/lib/race-groups";
 
 /**
  * Read-only detail views for the shared EntityDetailDialog. Every describe*
@@ -64,6 +65,7 @@ export function describeRace(race: RaceDefinition): EntityDetail {
     .filter(([, v]) => v)
     .map(([k, v]) => `${k.toUpperCase()} ${signed(v as number)}`)
     .join(", ");
+  const startingEcl = raceStartingEcl(race);
   const sections: EntityDetailSection[] = [
     {
       heading: "Racial Traits",
@@ -80,8 +82,8 @@ export function describeRace(race: RaceDefinition): EntityDetail {
   }
   return {
     title: race.name,
-    badges: ["Race", race.size, `${race.baseSpeed} ft`, ...(race.favoredClass ? [`Favored class: ${race.favoredClass}`] : [])],
-    summary: `${race.size} ${race.type}${race.subtypes.length ? ` (${race.subtypes.join(", ")})` : ""}, base speed ${race.baseSpeed} ft.${adjustments ? ` Ability adjustments: ${adjustments}.` : " No ability adjustments."}`,
+    badges: ["Race", `ECL ${startingEcl}`, race.size, `${race.baseSpeed} ft`, ...(race.favoredClass ? [`Favored class: ${race.favoredClass}`] : [])],
+    summary: `${race.size} ${race.type}${race.subtypes.length ? ` (${race.subtypes.join(", ")})` : ""}, base speed ${race.baseSpeed} ft.${adjustments ? ` Ability adjustments: ${adjustments}.` : " No ability adjustments."} Starting ECL ${startingEcl} before class levels${(race.racialHitDice ?? 0) > 0 ? ` (${race.racialHitDice} racial Hit Dice${race.levelAdjustment ? ` + level adjustment ${signed(race.levelAdjustment)}` : ""})` : race.levelAdjustment ? ` (level adjustment ${signed(race.levelAdjustment)})` : ""}.`,
     sections,
     source: race.source,
     sourceUrl: race.sourceUrl,

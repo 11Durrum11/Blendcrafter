@@ -55,6 +55,18 @@ export function StepTemplates({ templates, baseType, enabledRulesets, onAdd, onR
 
   return (
     <div className="space-y-6">
+      <div
+        className="flex items-start gap-2 rounded-md border border-amber-500/40 bg-amber-500/10 p-3 text-sm"
+        data-testid="dm-approval-note"
+        role="note"
+      >
+        <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-amber-500" />
+        <p>
+          <span className="font-semibold">DM approval required.</span> Templates change a character's type,
+          abilities, and level adjustment — no character takes one without the DM's approval first. The DM has
+          final say.
+        </p>
+      </div>
       <Card>
         <CardHeader>
           <CardTitle className="font-display text-xl">Template Blending</CardTitle>

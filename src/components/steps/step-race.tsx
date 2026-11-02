@@ -13,7 +13,7 @@ import { cn } from "@/lib/utils";
 import { STANDARD_ARRAY } from "@/lib/use-character-build";
 import { ProductIdentityBadge } from "@/components/product-identity-badge";
 import { RULESET_LABELS } from "@/components/ruleset-toggle";
-import { isMonsterRace } from "@/lib/race-groups";
+import { isMonsterRace, raceStartingEcl } from "@/lib/race-groups";
 import { EntityDetailDialog } from "@/components/entity-detail-dialog";
 import { describeAbility, describeRace, type EntityDetail } from "@/lib/entity-descriptions";
 
@@ -255,6 +255,9 @@ export function StepRace({
         {race.size} · Speed {race.baseSpeed} ft
       </div>
       <div className="mt-2 flex flex-wrap gap-1">
+        <Badge variant="secondary" className="text-[10px]" data-testid={`badge-ecl-${race.id}`}>
+          ECL {raceStartingEcl(race)}
+        </Badge>
         {ABILITY_KEYS.filter((k) => race.abilityModifiers[k]).map((k) => (
           <Badge key={k} variant="outline" className="text-[10px]">
             {k.toUpperCase()} {race.abilityModifiers[k]! > 0 ? "+" : ""}
@@ -300,34 +303,6 @@ export function StepRace({
 
   return (
     <div className="space-y-6">
-      <Card>
-        <CardHeader>
-          <CardTitle className="font-display text-xl">Base Race</CardTitle>
-          <CardDescription>
-            The base creature every template and class level applies on top of. Source:{" "}
-            <a href="https://www.d20srd.org/srd/races/" target="_blank" rel="noreferrer" className="text-primary underline underline-offset-2">
-              d20 SRD Races
-            </a>
-            .
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          {renderRaceSection(
-            "Playable Character Races",
-            "Races the books present for player characters.",
-            playableRaces,
-            "font-display text-base font-semibold"
-          )}
-          {monsterRaces.length > 0 &&
-            renderRaceSection(
-              "Monster Races",
-              "From monster-book entries \u2014 playable, but they start with racial Hit Dice and level adjustments.",
-              monsterRaces,
-              "mt-6 font-display text-base font-semibold"
-            )}
-        </CardContent>
-      </Card>
-
       <Card>
         <CardHeader className="flex flex-col items-start gap-4 sm:flex-row sm:justify-between">
           <div>
@@ -546,6 +521,35 @@ export function StepRace({
           </div>
         </CardContent>
       </Card>
+
+      <Card>
+        <CardHeader>
+          <CardTitle className="font-display text-xl">Base Race</CardTitle>
+          <CardDescription>
+            The base creature every template and class level applies on top of. Source:{" "}
+            <a href="https://www.d20srd.org/srd/races/" target="_blank" rel="noreferrer" className="text-primary underline underline-offset-2">
+              d20 SRD Races
+            </a>
+            .
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          {renderRaceSection(
+            "Playable Character Races",
+            "Races the books present for player characters.",
+            playableRaces,
+            "font-display text-base font-semibold"
+          )}
+          {monsterRaces.length > 0 &&
+            renderRaceSection(
+              "Monster Races",
+              "From monster-book entries \u2014 playable, but they start with racial Hit Dice and level adjustments.",
+              monsterRaces,
+              "mt-6 font-display text-base font-semibold"
+            )}
+        </CardContent>
+      </Card>
+
       <EntityDetailDialog detail={detail} onOpenChange={(open) => !open && setDetail(null)} />
     </div>
   );

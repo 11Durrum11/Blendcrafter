@@ -25,7 +25,7 @@ import { buildShareUrl, buildTokenFromSearch, copyText, decodeBuildToken } from 
 import { useToast } from "@/hooks/use-toast";
 
 const STEPS = [
-  { id: "race", label: "Race & Abilities" },
+  { id: "race", label: "Abilities & Race" },
   { id: "classes", label: "Classes" },
   { id: "spells", label: "Spells" },
   { id: "skills", label: "Skills" },
@@ -107,6 +107,12 @@ export default function Builder() {
   const hasCaster = build.classLevels.some((c) => c.levels > 0 && CASTING_PROFILES_BY_ID[c.classId]);
   const visibleSteps = STEPS.filter((s) => s.id !== "spells" || hasCaster);
   const effectiveStep: StepId = currentStep === "spells" && !hasCaster ? "classes" : currentStep;
+
+  // Moving to the next section starts at the top of the page
+  // (Shaun, 2026-11-02).
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [effectiveStep]);
   const visibleIndex = visibleSteps.findIndex((s) => s.id === effectiveStep);
 
   const goTo = (step: StepId) => navigate(`/step/${step}`);

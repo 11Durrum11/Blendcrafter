@@ -31,6 +31,28 @@ const CATEGORY_LABELS: Record<FeatDefinition["category"], string> = {
   combat: "Combat",
 };
 
+/** Section order for the grouped feat list (Shaun, 2026-11-02). */
+export const FEAT_CATEGORY_ORDER: FeatDefinition["category"][] = [
+  "general",
+  "combat",
+  "item-creation",
+  "metamagic",
+  "race-specific",
+  "setting-specific",
+];
+
+/**
+ * A feat is a fighter bonus feat when its own record says so — the
+ * phrase "fighter bonus feat" in its special text, benefit summary, or
+ * prerequisites (the SRD wording: "A fighter may select X as one of
+ * his fighter bonus feats"). Derived from the record text only;
+ * nothing is hand-assigned.
+ */
+export function isFighterBonusFeat(feat: FeatDefinition): boolean {
+  const text = [feat.special ?? "", feat.benefitSummary, ...feat.prerequisites].join(" ");
+  return /fighter bonus feat/i.test(text);
+}
+
 /**
  * Best-effort free-text prerequisite check against ability scores / BAB / other selected
  * feats. This never hard-blocks selection — it only renders a warning badge, per spec,
@@ -62,6 +84,106 @@ export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved,
   );
   const used = resolved.featSlots.used;
   const total = resolved.featSlots.total;
+
+  // Feats grouped by category (Shaun, 2026-11-02): fighter bonus feats
+  // get their own first section and are listed only there; every other
+  // feat sits under its category heading. Sections left empty by the
+  // search filter disappear entirely.
+  const fighterBonusFeats = visible.filter((f) => isFighterBonusFeat(f));
+  const fighterBonusIds = new Set(fighterBonusFeats.map((f) => f.id));
+  const featSections: { id: string; label: string; note?: string; feats: FeatDefinition[] }[] = [
+    {
+      id: "fighter-bonus",
+      label: "Fighter Bonus Feats",
+      note: "Feats a fighter can take as bonus feats, per each feat's own text.",
+      feats: fighterBonusFeats,
+    },
+    ...FEAT_CATEGORY_ORDER.map((cat) => ({
+      id: cat as string,
+      label: CATEGORY_LABELS[cat],
+      feats: visible.filter((f) => f.category === cat && !fighterBonusIds.has(f.id)),
+    })),
+  ].filter((s) => s.feats.length > 0);
+
+  const renderFeatCard = (feat: FeatDefinition) => {
+    const selected = featIds.includes(feat.id);
+    const unmet = looksUnmet(feat, resolved, featIds);
+    const isDisabled = disabledFeatIds.includes(feat.id);
+    return (
+      <div
+        key={feat.id}
+        role="checkbox"
+        aria-checked={selected}
+        tabIndex={isDisabled ? -1 : 0}
+        onClick={() => !isDisabled && onToggleFeat(feat.id, !selected)}
+        onKeyDown={(e) => {
+          if (isDisabled) return;
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            onToggleFeat(feat.id, !selected);
+          }
+        }}
+        className={cn(
+          "flex items-start gap-2.5 rounded-md border border-card-border bg-card p-3",
+          isDisabled ? "opacity-50 cursor-not-allowed" : "cursor-pointer hover-elevate"
+        )}
+        data-testid={`feat-card-${feat.id}`}
+      >
+        <Checkbox
+          checked={selected}
+          disabled={isDisabled}
+          onCheckedChange={(checked) => onToggleFeat(feat.id, checked === true)}
+          onClick={(e) => e.stopPropagation()}
+          className="mt-0.5"
+          data-testid={`checkbox-feat-${feat.id}`}
+        />
+        <div className="min-w-0 flex-1">
+          <div className="flex items-center gap-1.5 flex-wrap">
+            <span className="font-medium">{feat.name}</span>
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                setDetail(describeFeat(feat));
+              }}
+              className="rounded-full p-0.5 text-muted-foreground hover-elevate hover:text-foreground"
+              aria-label={`View description of ${feat.name}`}
+              data-testid={`button-info-feat-${feat.id}`}
+            >
+              <Info className="h-3.5 w-3.5" />
+            </button>
+            <Switch
+              checked={!isDisabled}
+              onCheckedChange={(checked) => onToggleFeatEnabled(feat.id, checked)}
+              onClick={(e) => e.stopPropagation()}
+              className="ml-auto shrink-0 scale-75"
+              aria-label={isDisabled ? `Enable ${feat.name}` : `Disable ${feat.name}`}
+              data-testid={`switch-enable-feat-${feat.id}`}
+            />
+            <Badge variant="outline" className="text-[10px]">{CATEGORY_LABELS[feat.category]}</Badge>
+            {feat.modifiers && feat.modifiers.length > 0 && (
+              <Badge variant="secondary" className="text-[10px]">Mechanical effect</Badge>
+            )}
+            {feat.ruleset !== "core" && <ProductIdentityBadge rulesetLabel={RULESET_LABELS[feat.ruleset]} />}
+          </div>
+          <p className="mt-1 text-xs text-muted-foreground">{feat.benefitSummary}</p>
+          {feat.prerequisites.length > 0 && (
+            <p className="mt-1 text-xs text-muted-foreground">
+              <span className="font-medium text-foreground">Prereqs:</span> {feat.prerequisites.join("; ")}
+            </p>
+          )}
+          {unmet && (
+            <div className="mt-1.5 flex items-center gap-1.5 text-xs text-amber-500" data-testid={`warning-prereq-${feat.id}`}>
+              <AlertTriangle className="h-3.5 w-3.5 shrink-0" /> Prerequisites not verified against your current build.
+            </div>
+          )}
+          <a href={feat.sourceUrl} target="_blank" rel="noreferrer" className="mt-1.5 block text-[11px] text-primary underline underline-offset-2">
+            {feat.source}
+          </a>
+        </div>
+      </div>
+    );
+  };
 
   return (
     <div className="space-y-6">
@@ -99,91 +221,27 @@ export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved,
             </div>
           </div>
 
-          <div className="mt-4 grid gap-3 sm:grid-cols-2">
-            {visible.length === 0 ? (
-              <p className="text-sm text-muted-foreground">No feats match your search or the enabled rule sets.</p>
-            ) : (
-              visible.map((feat) => {
-                const selected = featIds.includes(feat.id);
-                const unmet = looksUnmet(feat, resolved, featIds);
-                const isDisabled = disabledFeatIds.includes(feat.id);
-                return (
-                  <div
-                    key={feat.id}
-                    role="checkbox"
-                    aria-checked={selected}
-                    tabIndex={isDisabled ? -1 : 0}
-                    onClick={() => !isDisabled && onToggleFeat(feat.id, !selected)}
-                    onKeyDown={(e) => {
-                      if (isDisabled) return;
-                      if (e.key === "Enter" || e.key === " ") {
-                        e.preventDefault();
-                        onToggleFeat(feat.id, !selected);
-                      }
-                    }}
-                    className={cn(
-                      "flex items-start gap-2.5 rounded-md border border-card-border bg-card p-3",
-                      isDisabled ? "opacity-50 cursor-not-allowed" : "cursor-pointer hover-elevate"
-                    )}
-                    data-testid={`feat-card-${feat.id}`}
-                  >
-                    <Checkbox
-                      checked={selected}
-                      disabled={isDisabled}
-                      onCheckedChange={(checked) => onToggleFeat(feat.id, checked === true)}
-                      onClick={(e) => e.stopPropagation()}
-                      className="mt-0.5"
-                      data-testid={`checkbox-feat-${feat.id}`}
-                    />
-                    <div className="min-w-0 flex-1">
-                      <div className="flex items-center gap-1.5 flex-wrap">
-                        <span className="font-medium">{feat.name}</span>
-                        <button
-                          type="button"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setDetail(describeFeat(feat));
-                          }}
-                          className="rounded-full p-0.5 text-muted-foreground hover-elevate hover:text-foreground"
-                          aria-label={`View description of ${feat.name}`}
-                          data-testid={`button-info-feat-${feat.id}`}
-                        >
-                          <Info className="h-3.5 w-3.5" />
-                        </button>
-                        <Switch
-                          checked={!isDisabled}
-                          onCheckedChange={(checked) => onToggleFeatEnabled(feat.id, checked)}
-                          onClick={(e) => e.stopPropagation()}
-                          className="ml-auto shrink-0 scale-75"
-                          aria-label={isDisabled ? `Enable ${feat.name}` : `Disable ${feat.name}`}
-                          data-testid={`switch-enable-feat-${feat.id}`}
-                        />
-                        <Badge variant="outline" className="text-[10px]">{CATEGORY_LABELS[feat.category]}</Badge>
-                        {feat.modifiers && feat.modifiers.length > 0 && (
-                          <Badge variant="secondary" className="text-[10px]">Mechanical effect</Badge>
-                        )}
-                        {feat.ruleset !== "core" && <ProductIdentityBadge rulesetLabel={RULESET_LABELS[feat.ruleset]} />}
-                      </div>
-                      <p className="mt-1 text-xs text-muted-foreground">{feat.benefitSummary}</p>
-                      {feat.prerequisites.length > 0 && (
-                        <p className="mt-1 text-xs text-muted-foreground">
-                          <span className="font-medium text-foreground">Prereqs:</span> {feat.prerequisites.join("; ")}
-                        </p>
-                      )}
-                      {unmet && (
-                        <div className="mt-1.5 flex items-center gap-1.5 text-xs text-amber-500" data-testid={`warning-prereq-${feat.id}`}>
-                          <AlertTriangle className="h-3.5 w-3.5 shrink-0" /> Prerequisites not verified against your current build.
-                        </div>
-                      )}
-                      <a href={feat.sourceUrl} target="_blank" rel="noreferrer" className="mt-1.5 block text-[11px] text-primary underline underline-offset-2">
-                        {feat.source}
-                      </a>
-                    </div>
-                  </div>
-                );
-              })
-            )}
-          </div>
+          {visible.length === 0 ? (
+            <p className="mt-4 text-sm text-muted-foreground">No feats match your search or the enabled rule sets.</p>
+          ) : (
+            featSections.map((section) => {
+              const turnedOn = section.feats.filter((f) => !disabledFeatIds.includes(f.id));
+              const turnedOff = section.feats.filter((f) => disabledFeatIds.includes(f.id));
+              return (
+                <div key={section.id} className="mt-5" data-testid={`feat-section-${section.id}`}>
+                  <h4 className="font-display text-base font-semibold">{section.label}</h4>
+                  {section.note && <p className="mt-0.5 text-xs text-muted-foreground">{section.note}</p>}
+                  {turnedOn.length > 0 && <div className="mt-2 grid gap-3 sm:grid-cols-2">{turnedOn.map(renderFeatCard)}</div>}
+                  {turnedOff.length > 0 && (
+                    <>
+                      <h5 className="mt-4 font-display text-sm font-semibold text-muted-foreground">Turned off</h5>
+                      <div className="mt-2 grid gap-3 sm:grid-cols-2">{turnedOff.map(renderFeatCard)}</div>
+                    </>
+                  )}
+                </div>
+              );
+            })
+          )}
         </CardContent>
       </Card>
       <EntityDetailDialog detail={detail} onOpenChange={(open) => !open && setDetail(null)} />

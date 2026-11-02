@@ -33,6 +33,26 @@ export function StepSkills({ skillRanks, enabledRulesets, disabledSkillIds, reso
 
   return (
     <div className="space-y-6">
+      <Card data-testid="card-skilled-vs-unskilled">
+        <CardHeader>
+          <CardTitle className="font-display text-xl">Skilled vs. Unskilled</CardTitle>
+          <CardDescription>Whether a skill can be attempted at all depends on training.</CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-2 text-sm text-muted-foreground">
+          <p>
+            <span className="font-medium text-foreground">Skilled (trained-only) skills</span> — marked{" "}
+            <Badge variant="outline" className="text-[10px]">Trained only</Badge> below — can only be used if the
+            character has at least 1 rank in them. With no ranks there is no check at all: the character simply
+            cannot attempt the task, no matter how high the key ability is.
+          </p>
+          <p>
+            <span className="font-medium text-foreground">Unskilled skills</span> can be attempted with no ranks at
+            all — the character rolls with just the key ability modifier (plus any racial or synergy bonuses), and
+            the armor check penalty still applies where a skill is marked{" "}
+            <Badge variant="outline" className="text-[10px]">ACP</Badge>.
+          </p>
+        </CardContent>
+      </Card>
       <Card>
         <CardHeader>
           <CardTitle className="font-display text-xl">Skills</CardTitle>
