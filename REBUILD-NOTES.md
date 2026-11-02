@@ -4693,3 +4693,16 @@ on its header line (right-aligned beside the name) instead of
 being buried at the front of the small print below; the small
 print keeps weight/notes (equipment) and the summary (magic
 items).
+
+**Spell library segregated by casting type and level
+(2026-11-02, Shaun's direction):** the Spells step now carries a
+"Spell Library — by casting type and level" card above the
+per-class picking cards: one collapsible section per spell list
+(Sorcerer/Wizard, Cleric, Druid, Bard, Paladin, Ranger, Adept,
+Beguiler, Duskblade, Warmage, Wu Jen, Shugenja, Hexblade,
+Healer, Gun Mage, Artificer — shared lists represented by their
+fuller profile), each segregated inside by spell level 0–9 with
+counts, names alphabetical within a level. The step no longer
+dead-ends for non-caster builds: the library is always there to
+browse, and picking cards appear for the build's casting
+classes as before.

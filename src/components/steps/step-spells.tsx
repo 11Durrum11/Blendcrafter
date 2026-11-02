@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
-import { BookOpen, Search } from "lucide-react";
-import { ALL_CLASSES, ALL_SPELLS, CASTING_PROFILES_BY_ID } from "@/data";
+import { BookOpen, ChevronDown, ChevronRight, Search } from "lucide-react";
+import { ALL_CASTING_PROFILES, ALL_CLASSES, ALL_SPELLS, CASTING_PROFILES_BY_ID } from "@/data";
 import type { CastingProfile, CharacterBuild, ResolvedCharacter, SpellDefinition } from "@/engine/types";
 import { bonusSpells, canCastLevel, knownRow, perDayRow, spellLevelOnList } from "@/engine/spells";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -55,6 +55,7 @@ function capLabel(profile: CastingProfile): string {
 export function StepSpells({ build, resolved, onToggleSpell }: StepSpellsProps) {
   const [query, setQuery] = useState("");
   const [selectedOnly, setSelectedOnly] = useState(false);
+  const [expandedTypes, setExpandedTypes] = useState<Set<string>>(new Set());
 
   const casterClasses = useMemo(
     () =>
@@ -64,21 +65,37 @@ export function StepSpells({ build, resolved, onToggleSpell }: StepSpellsProps) 
     [build.classLevels]
   );
 
-  if (casterClasses.length === 0) {
-    return (
-      <Card>
-        <CardHeader>
-          <CardTitle className="font-display text-xl flex items-center gap-2">
-            <BookOpen className="h-5 w-5 text-primary" /> Spells
-          </CardTitle>
-          <CardDescription>
-            None of this build's classes has a spellcasting progression. Add levels in a casting class (wizard,
-            cleric, sorcerer, …) and its spell list will appear here.
-          </CardDescription>
-        </CardHeader>
-      </Card>
-    );
-  }
+  // The whole spell library segregated by casting type (cleric, wizard,
+  // druid, …) and, inside each type, by spell level (Shaun, 2026-11-02).
+  // One section per list; where several classes share a list (cleric /
+  // favored soul, druid / spirit shaman), the fuller profile represents it.
+  const library = useMemo(() => {
+    const countFor = (prof: CastingProfile) =>
+      ALL_SPELLS.reduce((n, s) => n + (spellLevelOnList(s, prof) !== undefined ? 1 : 0), 0);
+    const byList = new Map<string, CastingProfile>();
+    for (const p of ALL_CASTING_PROFILES) {
+      const existing = byList.get(p.listName);
+      if (!existing || countFor(p) > countFor(existing)) byList.set(p.listName, p);
+    }
+    return [...byList.values()]
+      .map((profile) => {
+        const byLevel = new Map<number, SpellDefinition[]>();
+        for (const s of ALL_SPELLS) {
+          const lvl = spellLevelOnList(s, profile);
+          if (lvl === undefined) continue;
+          if (!build.enabledRulesets.includes(s.ruleset)) continue;
+          if (profile.allowedSchools && !profile.allowedSchools.includes(s.school)) continue;
+          const arr = byLevel.get(lvl) ?? [];
+          arr.push(s);
+          byLevel.set(lvl, arr);
+        }
+        for (const arr of byLevel.values()) arr.sort((a, b) => a.name.localeCompare(b.name));
+        const levels = [...byLevel.keys()].sort((a, b) => a - b);
+        const total = levels.reduce((n, l) => n + (byLevel.get(l)?.length ?? 0), 0);
+        return { profile, byLevel, levels, total };
+      })
+      .filter((g) => g.total > 0);
+  }, [build.enabledRulesets]);
 
   return (
     <div className="space-y-6">
@@ -111,6 +128,76 @@ export function StepSpells({ build, resolved, onToggleSpell }: StepSpellsProps) 
               Selected only
             </label>
           </div>
+          {casterClasses.length === 0 && (
+            <p className="mt-3 text-sm text-muted-foreground">
+              None of this build's classes has a spellcasting progression. Add levels in a casting class (wizard,
+              cleric, sorcerer, …) and its list will appear below the library for picking.
+            </p>
+          )}
+        </CardContent>
+      </Card>
+
+      {/* Spell library: every list segregated by casting type, then by level. */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="font-display text-lg">Spell Library — by casting type and level</CardTitle>
+          <CardDescription>
+            Every spell list, segregated by casting type — cleric, wizard, druid, and so on — and inside each type
+            by spell level. This is the browsing library; you pick spells in your own classes' cards below.
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-3">
+          {library.map(({ profile, byLevel, levels, total }) => {
+            const searching = query.trim().length > 0;
+            const expanded = searching || expandedTypes.has(profile.listName);
+            const visibleLevels = levels
+              .map((lvl) => ({
+                lvl,
+                spells: (byLevel.get(lvl) ?? []).filter((s) =>
+                  s.name.toLowerCase().includes(query.toLowerCase())
+                ),
+              }))
+              .filter((g) => g.spells.length > 0);
+            if (searching && visibleLevels.length === 0) return null;
+            return (
+              <div key={profile.listName} className="rounded-md border border-card-border" data-testid={`library-type-${profile.classId}`}>
+                <button
+                  type="button"
+                  className="flex w-full items-center gap-2 px-3 py-2 text-left"
+                  onClick={() =>
+                    setExpandedTypes((prev) => {
+                      const next = new Set(prev);
+                      if (next.has(profile.listName)) next.delete(profile.listName);
+                      else next.add(profile.listName);
+                      return next;
+                    })
+                  }
+                  data-testid={`button-library-type-${profile.classId}`}
+                >
+                  {expanded ? <ChevronDown className="h-4 w-4 shrink-0" /> : <ChevronRight className="h-4 w-4 shrink-0" />}
+                  <span className="font-display text-base font-semibold">{profile.listName}</span>
+                  <span className="text-xs text-muted-foreground">{total} spells</span>
+                </button>
+                {expanded && (
+                  <div className="space-y-3 border-t border-card-border px-3 py-3">
+                    {visibleLevels.map(({ lvl, spells }) => (
+                      <div key={lvl}>
+                        <h4 className="font-display text-sm font-semibold">
+                          {LEVEL_LABELS[lvl]}{" "}
+                          <span className="text-xs font-normal text-muted-foreground">({spells.length})</span>
+                        </h4>
+                        <div className="mt-1 grid gap-x-4 gap-y-0.5 sm:grid-cols-2 lg:grid-cols-3">
+                          {spells.map((s) => (
+                            <span key={s.id} className="text-sm">{s.name}</span>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </CardContent>
       </Card>
 
