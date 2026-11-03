@@ -167,13 +167,29 @@ export function StepPersonality({ build, resolved, onChange }: Props) {
  */
 function PickedBox({title,items,selectedIds,onRemove,onShowDetail,testidPrefix}:{title:string;items:FlawTraitDefinition[];selectedIds:string[];onRemove:(id:string)=>void;onShowDetail:(item:FlawTraitDefinition)=>void;testidPrefix:string}) {
   const picked = items.filter(i=>selectedIds.includes(i.id));
+  // Minimized until drawn down (Shaun, 2026-11-03: "have them
+  // minimized until drawn down — like all the other boxes"): only
+  // the title head shows until it's clicked, same as the pickers.
+  const [open, setOpen] = useState(false);
+  const head = (
+    <h4 className="shrink-0 font-display text-sm font-semibold">
+      <button type="button" className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-left" onClick={()=>setOpen(v=>!v)} aria-expanded={open} data-testid={`picked-toggle-${testidPrefix}`}>
+        {open ? <ChevronDown className="h-4 w-4 shrink-0 text-muted-foreground"/> : <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground"/>}
+        <span>Your {title} <span className="font-normal text-muted-foreground">({picked.length} picked)</span></span>
+        <span className="font-sans text-xs font-normal text-muted-foreground">{open ? "(click the title to close)" : "(click the title to open)"}</span>
+      </button>
+    </h4>
+  );
+  if (!open) {
+    return <div className="rounded-md border border-card-border bg-muted/20 p-3" data-testid={`picked-box-${testidPrefix}`}>{head}</div>;
+  }
   // Textarea mechanics (Shaun, 2026-11-02): like the Goals / Secrets /
   // Allies / Enemies / Trauma / Current Circumstances boxes, this box
   // does NOT auto-expand to fit its content — it sits at a fixed
   // height, the entries scroll inside, and the player pulls the
   // corner handle to extend it and see as much as they want.
   return <div className="flex h-64 max-h-[85vh] min-h-[7rem] flex-col resize-y overflow-hidden rounded-md border border-card-border bg-muted/20 p-3" data-testid={`picked-box-${testidPrefix}`}>
-    <h4 className="shrink-0 font-display text-sm font-semibold">Your {title} <span className="font-normal text-muted-foreground">({picked.length} picked)</span></h4>
+    {head}
     {picked.length===0 ? <p className="mt-1 text-sm text-muted-foreground">None picked yet — tick names in the Flaws & Traits lists below, hit Confirm, and they land here, fully written out.</p> :
     <div className="mt-2 flex-1 space-y-3 overflow-y-auto pr-1">
       {picked.map(item=><div key={item.id} className="rounded-md border border-card-border bg-card p-3" data-testid={`picked-${testidPrefix}-${item.id}`}>
