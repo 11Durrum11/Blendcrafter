@@ -39,6 +39,7 @@ const EQUIPMENT_CATEGORY_ORDER: { key: string; label: string }[] = [
   { key: "alchemical gear", label: "Alchemical Gear" },
   { key: "tool", label: "Tools" },
   { key: "gear", label: "Adventuring Gear" },
+  { key: "food and drink", label: "Food & Drink" },
 ];
 
 const MAGIC_CATEGORY_ORDER: { key: string; label: string }[] = [

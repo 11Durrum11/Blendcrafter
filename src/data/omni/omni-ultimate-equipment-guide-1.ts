@@ -4727,7 +4727,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "ale-gallon",
     "name": "Ale, Gallon",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 sp",
     "weight": "8 lb.",
     "notes": "A gallon of common ale.",
@@ -4738,7 +4738,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "ale-mug",
     "name": "Ale, Mug",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "4 cp",
     "weight": "1 lb.",
     "notes": "A mug of common ale.",
@@ -4749,7 +4749,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "baked-garlic-per-bulb",
     "name": "Baked Garlic (Per Bulb)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 cp",
     "weight": "—",
     "notes": "A bulb of baked garlic, a common folk food and remedy.",
@@ -4760,7 +4760,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "baked-garlic-blessed-per-infusion",
     "name": "Baked Garlic, Blessed (Per Infusion)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "26 gp",
     "weight": "—",
     "notes": "Blessed baked garlic prepared as an infusion, a folk preparation against evil and undead influences.",
@@ -4771,7 +4771,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "banquet-per-person",
     "name": "Banquet (Per Person)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "10 gp",
     "weight": "—",
     "notes": "A full banquet with multiple courses and entertainment, priced per person.",
@@ -4782,7 +4782,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "bread-per-loaf",
     "name": "Bread (Per Loaf)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 cp",
     "weight": "1/2 lb.",
     "notes": "A loaf of ordinary bread.",
@@ -4793,7 +4793,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "cheese-ueg1",
     "name": "Cheese",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 sp",
     "weight": "1/2 lb.",
     "notes": "A half-pound piece of cheese.",
@@ -4804,7 +4804,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "chicken-1",
     "name": "Chicken (1)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 cp",
     "weight": "—",
     "notes": "One live chicken.",
@@ -4815,7 +4815,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "cinnamon",
     "name": "Cinnamon",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 gp",
     "weight": "1 lb.",
     "notes": "One pound of cinnamon, a valuable trade spice.",
@@ -4826,7 +4826,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "clean-water-per-gallon",
     "name": "Clean Water (Per Gallon)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "5 sp",
     "weight": "8 lb.",
     "notes": "A gallon of clean, safe drinking water, bought where water is scarce or suspect.",
@@ -4837,7 +4837,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "cloves",
     "name": "Cloves",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "10 gp",
     "weight": "—",
     "notes": "Cloves, an expensive culinary and medicinal spice.",
@@ -4848,7 +4848,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "cow-ueg1",
     "name": "Cow",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "10 gp",
     "weight": "—",
     "notes": "A cow, bought as livestock for milk, meat or trade.",
@@ -4859,7 +4859,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "flour-ueg1",
     "name": "Flour",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 cp",
     "weight": "1 lb.",
     "notes": "One pound of flour for baking.",
@@ -4870,7 +4870,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "ginger-or-pepper",
     "name": "Ginger or Pepper",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 gp",
     "weight": "1 lb.",
     "notes": "One pound of ginger or of pepper, valuable trade spices.",
@@ -4881,7 +4881,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "goat-ueg1",
     "name": "Goat",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 gp",
     "weight": "—",
     "notes": "A goat, bought as livestock.",
@@ -4892,7 +4892,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "hearty-broth-8-servings",
     "name": "Hearty Broth (8 Servings)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 gp",
     "weight": "1 lb.",
     "notes": "A pot of thick, nourishing broth, enough for eight servings.",
@@ -4903,7 +4903,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "meals-common-per-day",
     "name": "Meals, Common (Per Day)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 sp",
     "weight": "—",
     "notes": "A day of common meals at an inn or cookhouse.",
@@ -4914,7 +4914,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "meals-good-per-day",
     "name": "Meals, Good (Per Day)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "5 sp",
     "weight": "—",
     "notes": "A day of good-quality meals.",
@@ -4925,7 +4925,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "meals-poor-per-day",
     "name": "Meals, Poor (Per Day)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 sp",
     "weight": "—",
     "notes": "A day of poor, meagre meals.",
@@ -4936,7 +4936,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "meat-ueg1",
     "name": "Meat",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 sp",
     "weight": "1/2 lb.",
     "notes": "A piece of meat for cooking.",
@@ -4947,7 +4947,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "ox-ueg1",
     "name": "Ox",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "15 gp",
     "weight": "—",
     "notes": "An ox, bought as a draft animal or livestock.",
@@ -4958,7 +4958,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "pig-ueg1",
     "name": "Pig",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 gp",
     "weight": "—",
     "notes": "A pig, bought as livestock.",
@@ -4969,7 +4969,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "pomegranate-per-fruit",
     "name": "Pomegranate (Per Fruit)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "5 gp",
     "weight": "—",
     "notes": "A single pomegranate, a costly fruit with herbal uses detailed in the chapter.",
@@ -4991,7 +4991,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "rations-trail-per-day-ueg1",
     "name": "Rations, Trail (Per Day)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "5 sp",
     "weight": "1 lb.",
     "notes": "One day of dried trail food for one person.",
@@ -5002,7 +5002,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "saffron",
     "name": "Saffron",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "15 gp",
     "weight": "1 lb.",
     "notes": "One pound of saffron, among the most expensive of spices.",
@@ -5013,7 +5013,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "sheep-ueg1",
     "name": "Sheep",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 gp",
     "weight": "—",
     "notes": "A sheep, bought as livestock.",
@@ -5024,7 +5024,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "sleepy-tea-12-servings",
     "name": "Sleepy Tea (12 Servings)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 gp",
     "weight": "—",
     "notes": "A mild soporific tea that helps the drinker sleep; twelve servings per purchase.",
@@ -5035,7 +5035,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "starberry-fruit-3-pieces",
     "name": "Starberry Fruit (3 Pieces)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 gp",
     "weight": "1 lb.",
     "notes": "Three pieces of starberry fruit, a delicacy with a mild restorative reputation.",
@@ -5046,7 +5046,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "starberry-fruit-preserves-12-servings",
     "name": "Starberry Fruit Preserves (12 Servings)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "5 gp",
     "weight": "1 lb.",
     "notes": "Preserved starberry fruit, twelve servings, keeping far longer than the fresh fruit.",
@@ -5057,7 +5057,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "tea-leaves",
     "name": "Tea Leaves",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 sp",
     "weight": "1 lb.",
     "notes": "One pound of ordinary tea leaves.",
@@ -5068,7 +5068,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "travel-bread-per-loaf",
     "name": "Travel Bread (Per Loaf)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 gp",
     "weight": "1/2 lb.",
     "notes": "A hard, dense loaf baked to keep for weeks on the road.",
@@ -5079,7 +5079,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "universal-rations-20-servings",
     "name": "Universal Rations (20 Servings)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 gp",
     "weight": "1 lb.",
     "notes": "Compact ration blocks formulated to feed almost any creature; twenty servings per purchase.",
@@ -5101,7 +5101,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "wheat-ueg1",
     "name": "Wheat",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 cp",
     "weight": "1 lb.",
     "notes": "One pound of wheat grain, ground into flour for baking.",
@@ -5112,7 +5112,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "wine-common-pitcher",
     "name": "Wine, Common (Pitcher)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 sp",
     "weight": "6 lb.",
     "notes": "A pitcher of common wine.",
@@ -5123,7 +5123,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "wine-fine-bottle",
     "name": "Wine, Fine (Bottle)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "10 gp",
     "weight": "1 1/2 lb.",
     "notes": "A bottle of fine, aged wine.",
@@ -8843,7 +8843,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "rations-mindmeal-per-meal",
     "name": "Rations, Mindmeal (Per Meal)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "25 gp",
     "weight": "1/2 lb.",
     "notes": "A meal formulated to feed a psionic mind as well as the body, restoring mental sharpness.",

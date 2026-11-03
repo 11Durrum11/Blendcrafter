@@ -6513,7 +6513,7 @@ export const AEG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "dragonbite-bitter",
     "name": "Dragonbite Bitter",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "15 gp per gallon",
     "weight": "\u2014",
     "notes": "Named alcoholic beverage; potency and intoxication effects per the book's drinking rules (pp. 30\u201332)",
@@ -6524,7 +6524,7 @@ export const AEG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "dwarfhead-stout",
     "name": "Dwarfhead Stout",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "30 gp per gallon",
     "weight": "\u2014",
     "notes": "Named alcoholic beverage; potency and intoxication effects per the book's drinking rules (pp. 30\u201332)",
@@ -6535,7 +6535,7 @@ export const AEG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "elven-mead",
     "name": "Elven Mead",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "60 gp per gallon",
     "weight": "\u2014",
     "notes": "Named alcoholic beverage; potency and intoxication effects per the book's drinking rules (pp. 30\u201332)",
@@ -6546,7 +6546,7 @@ export const AEG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "gnome-golden-light",
     "name": "Gnome Golden Light",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "10 gp per gallon",
     "weight": "\u2014",
     "notes": "Named alcoholic beverage; potency and intoxication effects per the book's drinking rules (pp. 30\u201332)",
@@ -6557,7 +6557,7 @@ export const AEG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "goblin-thudrud",
     "name": "Goblin Thudrud",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 gp per gallon",
     "weight": "\u2014",
     "notes": "Named alcoholic beverage; potency and intoxication effects per the book's drinking rules (pp. 30\u201332)",
@@ -6568,7 +6568,7 @@ export const AEG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "pulsch-brown-ale",
     "name": "Pulsch Brown Ale",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "8 gp per gallon",
     "weight": "\u2014",
     "notes": "Named alcoholic beverage; potency and intoxication effects per the book's drinking rules (pp. 30\u201332)",
@@ -6579,7 +6579,7 @@ export const AEG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "frostwine",
     "name": "Frostwine",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "40 gp per bottle",
     "weight": "\u2014",
     "notes": "Named alcoholic beverage; potency and intoxication effects per the book's drinking rules (pp. 30\u201332)",
@@ -6590,7 +6590,7 @@ export const AEG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "elven-aleeian-wine",
     "name": "Elven Aleeian Wine",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "100 gp per bottle",
     "weight": "\u2014",
     "notes": "Named alcoholic beverage; potency and intoxication effects per the book's drinking rules (pp. 30\u201332)",
@@ -6601,7 +6601,7 @@ export const AEG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "dwarven-garnet-wine",
     "name": "Dwarven Garnet Wine",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "90 gp per bottle",
     "weight": "\u2014",
     "notes": "Named alcoholic beverage; potency and intoxication effects per the book's drinking rules (pp. 30\u201332)",
@@ -6612,7 +6612,7 @@ export const AEG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "mushroom-wine",
     "name": "Mushroom Wine",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "20\u2013135 gp per bottle",
     "weight": "\u2014",
     "notes": "Named alcoholic beverage; potency and intoxication effects per the book's drinking rules (pp. 30\u201332)",
@@ -6623,7 +6623,7 @@ export const AEG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "drow-spiderblood",
     "name": "Drow Spiderblood",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "150 gp per bottle",
     "weight": "\u2014",
     "notes": "Named alcoholic beverage; potency and intoxication effects per the book's drinking rules (pp. 30\u201332)",
@@ -6634,7 +6634,7 @@ export const AEG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "frenzywater",
     "name": "Frenzywater",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "15 gp per bottle",
     "weight": "\u2014",
     "notes": "Named alcoholic beverage; potency and intoxication effects per the book's drinking rules (pp. 30\u201332)",
@@ -6645,7 +6645,7 @@ export const AEG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "elven-moondrop",
     "name": "Elven Moondrop",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "220 gp per bottle",
     "weight": "\u2014",
     "notes": "Named alcoholic beverage; potency and intoxication effects per the book's drinking rules (pp. 30\u201332)",
@@ -6656,7 +6656,7 @@ export const AEG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "orc-kragg",
     "name": "Orc Kragg",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "30 gp per bottle",
     "weight": "\u2014",
     "notes": "Named alcoholic beverage; potency and intoxication effects per the book's drinking rules (pp. 30\u201332)",

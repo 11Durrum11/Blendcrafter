@@ -5485,3 +5485,23 @@ dose of poison"), Caduceus (ego 6 matches the item's own entry),
 Trapdoor Floor (its modifier price is corroborated by the book's
 sample build at 7,500 gp) — no edits made on those. Audit files:
 ~/workspace/final-audit/.
+
+## Food & Drink recategorization (2026-11-03) — Shaun: "hard to believe there's only three types of food and drink"
+He was right to doubt it. The "food and drink" category held only the 3 priced
+entries from the Complete Guide to Alcoholic Beverages (that book prints almost
+no prices), while the catalog's actual food sat misfiled under "gear"/"service"
+because each sweep builder had used its own default category. Fix is
+source-anchored recategorization only — no records added, removed, or repriced:
+Goods & Gear Ch. 8 "Food and Drink" (309, incl. its 3 per-day Meals moved out of
+"service") + G&G's Ch. 7 trail ration; UEG Vol. 1 "Food, Drink, Drugs and Herbs"
+gear subset (35 — the PHB food table: ale, banquet, bread, cheese, meals, meat,
+wine — plus Mindmeal rations); More Ultimate Equipment "Food, Drink, Poisons
+and Herbs" gear subset (18 exotic foods); UEG Vol. 2 "Faella's Fabulous
+Foodstuffs" (35); A&EG Table 2-4 beverages (14); SRD "Rations, trail (1 day)";
+Complete Scoundrel "Trail Bar". Deliberately NOT moved: the same UEG chapters'
+drugs/herbs/poisons/incense (they stay "alchemical gear"), livestock in the
+"animal" category, and spellcasting services. 415 file records changed; after
+the catalog's id-dedupe the merged Equipment list shows food and drink 3 -> 411
+(gear 3,914 -> 3,509, service 361 -> 358; equipment total unchanged 8,120, dup
+ids 0). step-equipment.tsx: "Food & Drink" added to EQUIPMENT_CATEGORY_ORDER
+after Adventuring Gear. tsc clean, production build passes.

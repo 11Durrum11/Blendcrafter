@@ -762,7 +762,7 @@ export const CORE_EQUIPMENT: EquipmentItem[] = [
   {
     "id": "rations-trail-1-day",
     "name": "Rations, trail (1 day)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "5 sp",
     "weight": "1 lb.",
     "notes": "One day of preserved food.",

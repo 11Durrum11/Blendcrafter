@@ -204,7 +204,7 @@ export const COMPLETE_SCOUNDREL_EQUIPMENT: EquipmentItem[] = [
   {
     "id": "trail-bar",
     "name": "Trail Bar",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 gp",
     "weight": "—",
     "notes": "Alchemical item, Craft (Alchemy) DC 20. A tough 4-inch bar of vegetable matter providing one day's worth of food (eating it takes about 10 minutes). Consuming a second trail bar before 24 hours have passed sickens the creature for 1 hour.",

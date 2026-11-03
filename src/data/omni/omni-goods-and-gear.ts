@@ -15021,7 +15021,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "rations-trail-per-day",
     "name": "Rations, Trail (per day)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "5 sp",
     "weight": "1 lb.",
     "notes": "One day's trail rations",
@@ -17507,7 +17507,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "meal-poor-per-day",
     "name": "Meal, Poor (per day)",
-    "category": "service",
+    "category": "food and drink",
     "cost": "1 sp",
     "weight": "—",
     "notes": "One day of meals of this quality at an inn or tavern",
@@ -17518,7 +17518,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "meal-common-per-day",
     "name": "Meal, Common (per day)",
-    "category": "service",
+    "category": "food and drink",
     "cost": "3 sp",
     "weight": "—",
     "notes": "One day of meals of this quality at an inn or tavern",
@@ -17529,7 +17529,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "meal-good-per-day",
     "name": "Meal, Good (per day)",
-    "category": "service",
+    "category": "food and drink",
     "cost": "5 sp",
     "weight": "—",
     "notes": "One day of meals of this quality at an inn or tavern",
@@ -17540,7 +17540,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "corn-dodgers-1-wk-rations",
     "name": "Corn Dodgers (1 wk rations)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "4 gp",
     "weight": "37.5 lb.",
     "notes": "Foodstuff of Tellene",
@@ -17551,7 +17551,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "darukan-seed-per-loaf",
     "name": "Darukan Seed (per loaf)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "5 sp",
     "weight": "1/2 lb.",
     "notes": "Foodstuff of Tellene",
@@ -17562,7 +17562,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "emmer-wheat-per-loaf",
     "name": "Emmer-Wheat (per loaf)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 cp",
     "weight": "1/2 lb.",
     "notes": "Foodstuff of Tellene",
@@ -17573,7 +17573,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "frybread-per-serving",
     "name": "Frybread (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 cp",
     "weight": "1/4 lb.",
     "notes": "Thin, puffed, deep-fried flat bread popular among the plains Dejy",
@@ -17584,7 +17584,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "horse-per-loaf",
     "name": "Horse (per loaf)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 cp",
     "weight": "1/2 lb.",
     "notes": "Poor bread of beans, grains and peas, eaten by horses and commoners alike",
@@ -17595,7 +17595,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "maboza-per-serving",
     "name": "Maboza (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 cp",
     "weight": "—",
     "notes": "Light, thin cornmeal bread of Svimohzia",
@@ -17606,7 +17606,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "manchet-per-loaf",
     "name": "Manchet (per loaf)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 gp",
     "weight": "1/2 lb.",
     "notes": "Fine white bread of well-sieved wheat flour, the bread of choice at a noble's table",
@@ -17617,7 +17617,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "maslin-per-loaf",
     "name": "Maslin (per loaf)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "4 cp",
     "weight": "1/2 lb.",
     "notes": "Standard middle-class bread of mixed grains such as wheat and rye",
@@ -17628,7 +17628,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "nonsha-per-serving",
     "name": "Nonsha (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 cp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -17639,7 +17639,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "pan-and-egg-per-serving",
     "name": "Pan and Egg (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "4 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -17650,7 +17650,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "ration-dry",
     "name": "Ration, Dry",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "10 gp",
     "weight": "65 lb.",
     "notes": "Superior rations that keep for months and provide a balanced meal",
@@ -17661,7 +17661,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "ration-iron",
     "name": "Ration, Iron",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "5 gp",
     "weight": "25 lb.",
     "notes": "Long-keeping rations of preserved meat, biscuit, tea, sugar, salt, cheese and meat extract",
@@ -17672,7 +17672,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "ration-std",
     "name": "Ration, Std.",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 gp",
     "weight": "50 lb.",
     "notes": "Standard rations lasting several weeks, with meat, bread, bacon, cheese, tea, jam and vegetables",
@@ -17683,7 +17683,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "strongbread-per-loaf",
     "name": "Strongbread (per loaf)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "5 cp",
     "weight": "1/2 lb.",
     "notes": "Wheat bread heavily flavored with pepper and honey",
@@ -17694,7 +17694,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "wastel-per-loaf",
     "name": "Wastel (per loaf)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "6 cp",
     "weight": "1/2 lb.",
     "notes": "Foodstuff of Tellene",
@@ -17705,7 +17705,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "butter-per-lb",
     "name": "Butter (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "6 cp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -17716,7 +17716,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "cheese-per-lb",
     "name": "Cheese (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -17727,7 +17727,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "eggs-per-dozen",
     "name": "Eggs (per dozen)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "5 cp",
     "weight": "1 1/2 lb.",
     "notes": "Foodstuff of Tellene",
@@ -17738,7 +17738,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "milk-per-gallon",
     "name": "Milk (per gallon)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 cp",
     "weight": "8 1/2 lb.",
     "notes": "Foodstuff of Tellene",
@@ -17749,7 +17749,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "ale-common-mug",
     "name": "Ale, Common (mug)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "4 cp",
     "weight": "1 lb.",
     "notes": "Drink of Tellene; alcoholic: Fortitude DC 11, initial damage 0, secondary damage 1 Dex + 1 Wis (ability damage heals 1 point per hour after drinking stops)",
@@ -17760,7 +17760,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "ale-cut-weak-mug",
     "name": "Ale, Cut/Weak (mug)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 cp",
     "weight": "1 lb.",
     "notes": "Drink of Tellene",
@@ -17771,7 +17771,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "ale-dead-fhokki-mug",
     "name": "Ale, Dead Fhokki (mug)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 sp",
     "weight": "1 lb.",
     "notes": "One of the stiffest ales, found only in northern Torakk; each drink also lets the drinker use speak with the dead once per hour for an hour, but only on a dead viking; alcoholic: Fortitude DC 15, initial damage 1d3 Wis, secondary damage 1d3 Dex (ability damage heals 1 point per hour after drinking stops)",
@@ -17782,7 +17782,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "ale-lambs-wool-mug",
     "name": "Ale, Lamb's Wool (mug)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "4 cp",
     "weight": "1 lb.",
     "notes": "Spiced ale traditionally drunk on the first of Renewal; alcoholic: Fortitude DC 10, initial damage 0, secondary damage 1 Dex (ability damage heals 1 point per hour after drinking stops)",
@@ -17793,7 +17793,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "ale-pekal-stout-mug",
     "name": "Ale, Pekal Stout (mug)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "5 cp",
     "weight": "1 lb.",
     "notes": "Drink of Tellene; alcoholic: Fortitude DC 11, initial damage 1 Int, secondary damage 1 Dex (ability damage heals 1 point per hour after drinking stops)",
@@ -17804,7 +17804,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "almond-milk-mug",
     "name": "Almond Milk (mug)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 cp",
     "weight": "1 lb.",
     "notes": "Drink of Tellene",
@@ -17815,7 +17815,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "barley-broth-mug",
     "name": "Barley-Broth (mug)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "4 cp",
     "weight": "1 lb.",
     "notes": "Drink of Tellene; alcoholic: Fortitude DC 11, initial damage 1 Wis, secondary damage 1 Dex (ability damage heals 1 point per hour after drinking stops)",
@@ -17826,7 +17826,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "bitter-broth-mug",
     "name": "Bitter Broth (mug)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 sp",
     "weight": "1 lb.",
     "notes": "Drink of Tellene; alcoholic: Fortitude DC 11, initial damage 1 Wis, secondary damage 1 Dex (ability damage heals 1 point per hour after drinking stops)",
@@ -17837,7 +17837,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "braggart-mug",
     "name": "Braggart (mug)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "5 cp",
     "weight": "1 lb.",
     "notes": "Drink of Tellene; alcoholic: Fortitude DC 10, initial damage 0, secondary damage 1 Wis (ability damage heals 1 point per hour after drinking stops)",
@@ -17848,7 +17848,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "bandy-orluian-mug",
     "name": "Bandy, Orluian (mug)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "5 gp",
     "weight": "1 lb.",
     "notes": "Drink of Tellene; alcoholic: Fortitude DC 13, initial damage 1 Wis, secondary damage 1d3 Dex (ability damage heals 1 point per hour after drinking stops)",
@@ -17859,7 +17859,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "celaar-mug",
     "name": "Celaar (mug)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 sp",
     "weight": "1 lb.",
     "notes": "Drink of Tellene; alcoholic: Fortitude DC 12, initial damage 1 Wis, secondary damage 1 Wis + 1 Dex (ability damage heals 1 point per hour after drinking stops)",
@@ -17870,7 +17870,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "clarroan-mug",
     "name": "Clarroan (mug)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "8 cp",
     "weight": "1 lb.",
     "notes": "Drink of Tellene; alcoholic: Fortitude DC 11, initial damage 0, secondary damage 1 Wis (ability damage heals 1 point per hour after drinking stops)",
@@ -17881,7 +17881,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "dikarma-mug",
     "name": "Dikarma (mug)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 sp",
     "weight": "1 lb.",
     "notes": "Drink of Tellene; alcoholic: Fortitude DC 12, initial damage 0, secondary damage 1 Dex (ability damage heals 1 point per hour after drinking stops)",
@@ -17892,7 +17892,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "finch-yager-mug",
     "name": "Finch-Yager (mug)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "5 gp",
     "weight": "1 lb.",
     "notes": "Drink of Tellene; alcoholic: Fortitude DC 11, initial damage 1 Wis, secondary damage 1 Dex (ability damage heals 1 point per hour after drinking stops)",
@@ -17903,7 +17903,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "furmore-mug",
     "name": "Furmore (mug)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "5 cp",
     "weight": "1 lb.",
     "notes": "Drink of Tellene; alcoholic: Fortitude DC 15, initial damage 1d3 Wis, secondary damage 1d3 Dex (ability damage heals 1 point per hour after drinking stops)",
@@ -17914,7 +17914,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "grog-mug",
     "name": "Grog (mug)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 sp",
     "weight": "1 lb.",
     "notes": "Sailors' drink of rum diluted with water",
@@ -17925,7 +17925,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "gut-bruiser-mug",
     "name": "Gut Bruiser (mug)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 gp",
     "weight": "1 lb.",
     "notes": "Drink of Tellene; alcoholic: Fortitude DC 15, initial damage 1 Wis + 1d3 Dex, secondary damage 0 (ability damage heals 1 point per hour after drinking stops)",
@@ -17936,7 +17936,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "honey-brew-mug",
     "name": "Honey Brew (mug)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "8 sp",
     "weight": "1 lb.",
     "notes": "Drink of Tellene",
@@ -17947,7 +17947,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "hordeate-mug",
     "name": "Hordeate (mug)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "4 cp",
     "weight": "1 lb.",
     "notes": "Drink of Tellene; alcoholic: Fortitude DC 11, initial damage 1 Int, secondary damage 1 Dex (ability damage heals 1 point per hour after drinking stops)",
@@ -17958,7 +17958,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "joda-mug",
     "name": "Joda (mug)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 cp",
     "weight": "1 lb.",
     "notes": "Drink of Tellene; alcoholic: Fortitude DC 13, initial damage 1 Wis, secondary damage 1d3 Dex (ability damage heals 1 point per hour after drinking stops)",
@@ -17969,7 +17969,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "kaerzee-mug",
     "name": "Kaerzee (mug)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "5 cp",
     "weight": "1 lb.",
     "notes": "Drink of Tellene; alcoholic: Fortitude DC 10, initial damage 0, secondary damage 1 Wis (ability damage heals 1 point per hour after drinking stops)",
@@ -17980,7 +17980,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "kamage-mug",
     "name": "Kamage (mug)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 cp",
     "weight": "1 lb.",
     "notes": "Drink of Tellene; alcoholic: Fortitude DC 10, initial damage 0, secondary damage 1 Dex (ability damage heals 1 point per hour after drinking stops)",
@@ -17991,7 +17991,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "liver-squeezings-mug",
     "name": "Liver Squeezings (mug)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 gp",
     "weight": "1 lb.",
     "notes": "Drink of Tellene; alcoholic: Fortitude DC 13, initial damage 0, secondary damage 1 Int (ability damage heals 1 point per hour after drinking stops)",
@@ -18002,7 +18002,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "maziwaya-mug",
     "name": "Maziwaya (mug)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 cp",
     "weight": "1 lb.",
     "notes": "Drink of Tellene",
@@ -18013,7 +18013,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "miracle-water-mug",
     "name": "Miracle Water (mug)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 cp",
     "weight": "1 lb.",
     "notes": "Drink of Tellene; alcoholic: Fortitude DC 11, initial damage 0, secondary damage 1 Wis (ability damage heals 1 point per hour after drinking stops)",
@@ -18024,7 +18024,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "mead-common-mug",
     "name": "Mead, Common (mug)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 sp",
     "weight": "1 lb.",
     "notes": "Drink of Tellene; alcoholic: Fortitude DC 11, initial damage 1 Wis, secondary damage 1 Dex (ability damage heals 1 point per hour after drinking stops)",
@@ -18035,7 +18035,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "mead-dwarven-cask",
     "name": "Mead, Dwarven (cask)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "300 gp",
     "weight": "336 lb.",
     "notes": "Highly potent dwarven mead, sold by the 42-gallon cask; alcoholic: Fortitude DC 15, initial damage 1d3 Wis, secondary damage 1d3 Dex (ability damage heals 1 point per hour after drinking stops)",
@@ -18046,7 +18046,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "mead-nordlar-mug",
     "name": "Mead, Nordlar (mug)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 gp",
     "weight": "1 lb.",
     "notes": "Drink of Tellene; alcoholic: Fortitude DC 10, initial damage 0, secondary damage 1 Dex (ability damage heals 1 point per hour after drinking stops)",
@@ -18057,7 +18057,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "mead-orluian-mug",
     "name": "Mead, Orluian (mug)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "18 gp",
     "weight": "1 lb.",
     "notes": "Drink of Tellene; alcoholic: Fortitude DC 11, initial damage 1 Wis, secondary damage 1 Dex (ability damage heals 1 point per hour after drinking stops)",
@@ -18068,7 +18068,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "must-mug",
     "name": "Must (mug)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 cp",
     "weight": "1 lb.",
     "notes": "Drink of Tellene",
@@ -18079,7 +18079,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "ousoo-mug",
     "name": "Ousoo (mug)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "4 cp",
     "weight": "1 lb.",
     "notes": "Drink of Tellene; alcoholic: Fortitude DC 11, initial damage 1 Wis, secondary damage 1 Dex (ability damage heals 1 point per hour after drinking stops)",
@@ -18090,7 +18090,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "posset-mug",
     "name": "Posset (mug)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 cp",
     "weight": "1 lb.",
     "notes": "Spiced sweetened milk, warmed and curdled with wine or ale",
@@ -18101,7 +18101,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "rianaabi-mug",
     "name": "Rianaabi (mug)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 cp",
     "weight": "1 lb.",
     "notes": "Reanaarian drink of lemon and sugar",
@@ -18112,7 +18112,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "roshova-mug",
     "name": "Roshova (mug)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 sp",
     "weight": "1 lb.",
     "notes": "Drink of Tellene; alcoholic: Fortitude DC 11, initial damage 0, secondary damage 1 Wis + 1 Dex (ability damage heals 1 point per hour after drinking stops)",
@@ -18123,7 +18123,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "rum-mug",
     "name": "Rum (mug)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "4 sp",
     "weight": "1 lb.",
     "notes": "Drink of Tellene; alcoholic: Fortitude DC 13, initial damage 1 Wis, secondary damage 1d3 Dex (ability damage heals 1 point per hour after drinking stops)",
@@ -18134,7 +18134,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "spicewood-tea-mug",
     "name": "Spicewood Tea (mug)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 cp",
     "weight": "1 lb.",
     "notes": "Drink of Tellene",
@@ -18145,7 +18145,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "stout-brown-mug",
     "name": "Stout Brown (mug)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "5 sp",
     "weight": "1 lb.",
     "notes": "Drink of Tellene; alcoholic: Fortitude DC 15, initial damage 1d3 Dex, secondary damage 1 Wis + 1 Int (ability damage heals 1 point per hour after drinking stops)",
@@ -18156,7 +18156,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "sweet-froth-mug",
     "name": "Sweet Froth (mug)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 cp",
     "weight": "1 lb.",
     "notes": "Drink of Tellene",
@@ -18167,7 +18167,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "tozulka-ran-mug",
     "name": "Tozulka-Ran (mug)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 cp",
     "weight": "1 lb.",
     "notes": "Drink of Tellene; alcoholic: Fortitude DC 11, initial damage 0, secondary damage 1 Con + 1 Dex (ability damage heals 1 point per hour after drinking stops)",
@@ -18178,7 +18178,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "whiskey-bitter-korn-mug",
     "name": "Whiskey, Bitter-Korn (mug)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 gp",
     "weight": "1 lb.",
     "notes": "Drink of Tellene; alcoholic: Fortitude DC 15, initial damage 1 Wis + 1 Dex, secondary damage 1 Wis + 1 Dex (ability damage heals 1 point per hour after drinking stops)",
@@ -18189,7 +18189,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "wine-bajdar-bottle",
     "name": "Wine, Bajdar (bottle)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "40 gp",
     "weight": "1 1/2 lb.",
     "notes": "Drink of Tellene; alcoholic: Fortitude DC 11, initial damage 1 Wis, secondary damage 1 Dex (ability damage heals 1 point per hour after drinking stops)",
@@ -18200,7 +18200,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "wine-basiran-gold-bottle",
     "name": "Wine, Basiran Gold (bottle)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "15 gp",
     "weight": "1 1/2 lb.",
     "notes": "Drink of Tellene; alcoholic: Fortitude DC 11, initial damage 0, secondary damage 1 Int + 1 Dex (ability damage heals 1 point per hour after drinking stops)",
@@ -18211,7 +18211,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "wine-blackberry-pitcher",
     "name": "Wine, Blackberry (pitcher)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "5 sp",
     "weight": "1 lb.",
     "notes": "Drink of Tellene; alcoholic: Fortitude DC 12, initial damage 0, secondary damage 1 Wis (ability damage heals 1 point per hour after drinking stops)",
@@ -18222,7 +18222,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "wine-common-pitcher",
     "name": "Wine, Common (pitcher)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 sp",
     "weight": "6 lb.",
     "notes": "Drink of Tellene; alcoholic: Fortitude DC 11, initial damage 0, secondary damage 1 Wis (ability damage heals 1 point per hour after drinking stops)",
@@ -18233,7 +18233,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "wine-cut-pitcher",
     "name": "Wine, Cut (pitcher)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 sp",
     "weight": "6 lb.",
     "notes": "Drink of Tellene",
@@ -18244,7 +18244,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "wine-dopromond-dry-bottle",
     "name": "Wine, Dopromond Dry (bottle)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "11 gp",
     "weight": "1 1/2 lb.",
     "notes": "Drink of Tellene; alcoholic: Fortitude DC 11, initial damage 0, secondary damage 1 Wis + 1 Dex (ability damage heals 1 point per hour after drinking stops)",
@@ -18255,7 +18255,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "wine-elderberry-pitcher",
     "name": "Wine, Elderberry (pitcher)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 gp",
     "weight": "1 lb.",
     "notes": "Drink of Tellene; alcoholic: Fortitude DC 11, initial damage 0, secondary damage 1 Wis (ability damage heals 1 point per hour after drinking stops)",
@@ -18266,7 +18266,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "wine-fine-bottle",
     "name": "Wine, Fine (bottle)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "10 gp",
     "weight": "1 1/2 lb.",
     "notes": "Drink of Tellene; alcoholic: Fortitude DC 12, initial damage 0, secondary damage 1 Dex (ability damage heals 1 point per hour after drinking stops)",
@@ -18277,7 +18277,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "wine-faldhaad-bottle",
     "name": "Wine, Faldhaad (bottle)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "10 gp",
     "weight": "1 1/2 lb.",
     "notes": "Drink of Tellene; alcoholic: Fortitude DC 10, initial damage 0, secondary damage 1 Dex (ability damage heals 1 point per hour after drinking stops)",
@@ -18288,7 +18288,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "wine-gakite-scarlet-bottle",
     "name": "Wine, Gakite Scarlet (bottle)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "12 gp",
     "weight": "1 1/2 lb.",
     "notes": "Drink of Tellene; alcoholic: Fortitude DC 11, initial damage 0, secondary damage 1 Wis + 1 Dex (ability damage heals 1 point per hour after drinking stops)",
@@ -18299,7 +18299,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "wine-gutberry-pitcher",
     "name": "Wine, Gutberry (pitcher)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 gp",
     "weight": "1 lb.",
     "notes": "Drink of Tellene; alcoholic: Fortitude DC 13, initial damage 1 Wis + 1 Dex, secondary damage 0 (ability damage heals 1 point per hour after drinking stops)",
@@ -18310,7 +18310,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "wine-iced-mug",
     "name": "Wine, Iced (mug)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 cp",
     "weight": "1 lb.",
     "notes": "Drink of Tellene",
@@ -18321,7 +18321,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "wine-kalamaran-rosaleta-bottle",
     "name": "Wine, Kalamaran Rosaleta (bottle)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "15 gp",
     "weight": "1 1/2 lb.",
     "notes": "Drink of Tellene; alcoholic: Fortitude DC 10, initial damage 0, secondary damage 1 Dex (ability damage heals 1 point per hour after drinking stops)",
@@ -18332,7 +18332,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "wine-malvasia-bottle",
     "name": "Wine, Malvasia (bottle)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "18 gp",
     "weight": "1 1/2 lb.",
     "notes": "Drink of Tellene; alcoholic: Fortitude DC 13, initial damage 0, secondary damage 1d3 Int + 1 Dex (ability damage heals 1 point per hour after drinking stops)",
@@ -18343,7 +18343,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "wine-morleen-bottle",
     "name": "Wine, Morleen (bottle)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "10 gp",
     "weight": "1 1/2 lb.",
     "notes": "Drink of Tellene; alcoholic: Fortitude DC 11, initial damage 1 Wis, secondary damage 1 Dex (ability damage heals 1 point per hour after drinking stops)",
@@ -18354,7 +18354,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "wine-noerataal-bottle",
     "name": "Wine, Noerataal (bottle)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "12 gp",
     "weight": "1 1/2 lb.",
     "notes": "Drink of Tellene; alcoholic: Fortitude DC 12, initial damage 1 Dex, secondary damage 1 Wis + 1 Dex (ability damage heals 1 point per hour after drinking stops)",
@@ -18365,7 +18365,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "wine-taohuu-bottle",
     "name": "Wine, Taohuu (bottle)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "12 gp",
     "weight": "1 1/2 lb.",
     "notes": "Drink of Tellene; alcoholic: Fortitude DC 12, initial damage 0, secondary damage 1 Wis + 1 Dex (ability damage heals 1 point per hour after drinking stops)",
@@ -18376,7 +18376,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "wine-tarisato-clear-bottle",
     "name": "Wine, Tarisato Clear (bottle)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "14 gp",
     "weight": "1 1/2 lb.",
     "notes": "Drink of Tellene; alcoholic: Fortitude DC 12, initial damage 0, secondary damage 1 Wis + 1 Dex (ability damage heals 1 point per hour after drinking stops)",
@@ -18387,7 +18387,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "wine-thokka-pitcher",
     "name": "Wine, Thokka (pitcher)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 sp",
     "weight": "6 lb.",
     "notes": "Spiced apple and cinnamon Fhokki wine; alcoholic: Fortitude DC 12, initial damage 0, secondary damage 1 Wis + 1 Dex (ability damage heals 1 point per hour after drinking stops)",
@@ -18398,7 +18398,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "wine-urakil-bottle",
     "name": "Wine, Urakil (bottle)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "10 gp",
     "weight": "1 1/2 lb.",
     "notes": "Fine, strong, sweet dwarven wine with a brandy-like consistency; alcoholic: Fortitude DC 15, initial damage 1d3 Wis, secondary damage 1d3 Dex (ability damage heals 1 point per hour after drinking stops)",
@@ -18409,7 +18409,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "barberries-per-lb",
     "name": "Barberries (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -18420,7 +18420,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "bush-tomato-per-lb",
     "name": "Bush Tomato (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "8 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -18431,7 +18431,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "canabens-per-lb",
     "name": "Canabens (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -18442,7 +18442,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "cardoons-per-lb",
     "name": "Cardoons (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "8 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -18453,7 +18453,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "carrots-per-lb",
     "name": "Carrots (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -18464,7 +18464,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "celozia-per-lb",
     "name": "Celozia (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -18475,7 +18475,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "currants-per-lb",
     "name": "Currants (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "4 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -18486,7 +18486,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "flattops-per-lb",
     "name": "Flattops (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "10 gp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -18497,7 +18497,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "fruits-common-per-lb",
     "name": "Fruits, Common (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -18508,7 +18508,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "lemons-per-lb",
     "name": "Lemons (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 gp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -18519,7 +18519,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "liakeer-per-lb",
     "name": "Liakeer (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "4 gp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -18530,7 +18530,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "limes-per-lb",
     "name": "Limes (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 gp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -18541,7 +18541,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "meat-grass-per-serving",
     "name": "Meat Grass (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -18552,7 +18552,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "muntries-per-lb",
     "name": "Muntries (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "4 gp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -18563,7 +18563,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "onions-per-lb",
     "name": "Onions (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -18574,7 +18574,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "orange-per-lb",
     "name": "Orange (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 gp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -18585,7 +18585,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "pippins-per-lb",
     "name": "Pippins (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -18596,7 +18596,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "pomace-per-lb",
     "name": "Pomace (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -18607,7 +18607,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "potherbs-common-per-lb",
     "name": "Potherbs, Common (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -18618,7 +18618,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "quadong-per-lb",
     "name": "Quadong (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "4 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -18629,7 +18629,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "quinces-per-lb",
     "name": "Quinces (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -18640,7 +18640,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "raisins-lb",
     "name": "Raisins (lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -18651,7 +18651,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "roundberries-per-lb",
     "name": "Roundberries (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -18662,7 +18662,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "rozele-per-lb",
     "name": "Rozele (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -18673,7 +18673,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "salad-per-serving",
     "name": "Salad (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -18684,7 +18684,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "smalledge-per-lb",
     "name": "Smalledge (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -18695,7 +18695,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "skyrwits-per-lb",
     "name": "Skyrwits (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "4 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -18706,7 +18706,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "spinach-per-lb",
     "name": "Spinach (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 gp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -18717,7 +18717,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "taola-per-serving",
     "name": "Taola (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "6 cp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -18728,7 +18728,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "wardons-per-lb",
     "name": "Wardons (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "4 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -18739,7 +18739,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "warrigals-per-lb",
     "name": "Warrigals (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "5 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -18750,7 +18750,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "wortes-per-lb",
     "name": "Wortes (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -18761,7 +18761,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "adagy-per-serving",
     "name": "Adagy (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -18772,7 +18772,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "akagh-karz-ran-per-serving",
     "name": "Akagh-Karz-Ran (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -18783,7 +18783,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "bear-per-lb",
     "name": "Bear (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "8 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -18794,7 +18794,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "bear-fat-dumplings-per-serving",
     "name": "Bear Fat Dumplings (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "4 cp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -18805,7 +18805,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "bedroll-per-serving",
     "name": "Bedroll (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -18816,7 +18816,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "beef-per-lb",
     "name": "Beef (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "6 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -18827,7 +18827,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "boar-per-lb",
     "name": "Boar (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 gp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -18838,7 +18838,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "celedol-per-serving",
     "name": "Celedol (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 gp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -18849,7 +18849,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "charmeat-per-serving",
     "name": "Charmeat (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "5 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -18860,7 +18860,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "civet-per-lb",
     "name": "Civet (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "10 gp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -18871,7 +18871,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "daintiers-per-lb",
     "name": "Daintiers (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 gp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -18882,7 +18882,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "eel-fresh-per-lb",
     "name": "Eel, Fresh (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "6 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -18893,7 +18893,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "eel-pickled-per-lb",
     "name": "Eel, Pickled (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "8 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -18904,7 +18904,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "eel-salted-per-lb",
     "name": "Eel, Salted (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "7 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -18915,7 +18915,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "eel-smoked-per-lb",
     "name": "Eel, Smoked (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "7 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -18926,7 +18926,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "enjon-per-serving",
     "name": "Enjon (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -18937,7 +18937,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "farmeta-per-serving",
     "name": "Farmeta (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -18948,7 +18948,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "fish-fresh-per-lb",
     "name": "Fish, Fresh (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -18959,7 +18959,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "fish-pickled-per-lb",
     "name": "Fish, Pickled (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "5 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -18970,7 +18970,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "fish-salted-per-lb",
     "name": "Fish, Salted (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "4 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -18981,7 +18981,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "fish-smoked-per-lb",
     "name": "Fish, Smoked (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "4 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -18992,7 +18992,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "forcemeat-per-lb",
     "name": "Forcemeat (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "8 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -19003,7 +19003,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "fowl-domestic-per-lb",
     "name": "Fowl, Domestic (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "4 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -19014,7 +19014,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "fowl-game-per-lb",
     "name": "Fowl, Game (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "9 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -19025,7 +19025,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "fox-per-lb",
     "name": "Fox (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 gp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -19036,7 +19036,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "galantine-per-serving",
     "name": "Galantine (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "4 sp",
     "weight": "—",
     "notes": "Dish of meat in jelly, served with breads and spices",
@@ -19047,7 +19047,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "gelana-per-lb",
     "name": "Gelana (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -19058,7 +19058,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "giblets-chicken-per-lb",
     "name": "Giblets, Chicken (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -19069,7 +19069,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "giblets-other-per-lb",
     "name": "Giblets, Other (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "5 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -19080,7 +19080,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "grampus-per-lb",
     "name": "Grampus (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 gp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -19091,7 +19091,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "grohz-per-lb",
     "name": "Grohz (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 gp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -19102,7 +19102,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "hare-per-lb",
     "name": "Hare (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "6 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -19113,7 +19113,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "hare-coney-per-lb",
     "name": "Hare, Coney (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 gp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -19124,7 +19124,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "karanis-per-serving",
     "name": "Karanis (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 sp",
     "weight": "—",
     "notes": "Spicy smoked pork sausage, heavily seasoned",
@@ -19135,7 +19135,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "keevin-per-serving",
     "name": "Keevin (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -19146,7 +19146,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "koritsa-per-serving",
     "name": "Korit'Sa (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -19157,7 +19157,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "laobou-per-lb",
     "name": "Laobou (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "6 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -19168,7 +19168,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "limon-per-oz",
     "name": "Limon (per oz.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "5 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -19179,7 +19179,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "liver-per-lb",
     "name": "Liver (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "6 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -19190,7 +19190,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "manarkka-per-serving",
     "name": "Manarkka (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -19201,7 +19201,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "mugget-per-lb",
     "name": "Mugget (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "6 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -19212,7 +19212,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "mutton-per-lb",
     "name": "Mutton (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 gp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -19223,7 +19223,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "nice-drippings-per-lb",
     "name": "Nice Drippings (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -19234,7 +19234,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "numbles-per-lb",
     "name": "Numbles (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "4 gp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -19245,7 +19245,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "pork-per-lb",
     "name": "Pork (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "6 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -19256,7 +19256,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "quenelle-per-serving",
     "name": "Quenelle (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -19267,7 +19267,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "roe-per-oz",
     "name": "Roe (per oz.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 gp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -19278,7 +19278,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "routarai-per-lb",
     "name": "Routarai (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "6 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -19289,7 +19289,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "sausage-blood-per-lb",
     "name": "Sausage, Blood (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -19300,7 +19300,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "sausage-peppered-per-lb",
     "name": "Sausage, Peppered (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -19311,7 +19311,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "sausage-sailors-per-lb",
     "name": "Sausage, Sailor's (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "7 cp",
     "weight": "1 lb.",
     "notes": "Cheap sausage; each day lived on it alone (after the first) brings a cumulative 1% chance of scurvy",
@@ -19322,7 +19322,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "scincus-per-lb",
     "name": "Scincus (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 gp",
     "weight": "1 lb.",
     "notes": "Dried and salted skink lizard, sometimes used as an aphrodisiac",
@@ -19333,7 +19333,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "soringue-per-serving",
     "name": "Soringue (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "4 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -19344,7 +19344,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "veirsevi-per-lb",
     "name": "Veirsevi (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 gp",
     "weight": "1 lb.",
     "notes": "Elven term for meat from the breast cut of a wild boar",
@@ -19355,7 +19355,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "venison-per-lb",
     "name": "Venison (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 gp",
     "weight": "1 lb.",
     "notes": "Deer meat, eaten by nobles and nomadic peoples",
@@ -19366,7 +19366,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "wolf-per-lb",
     "name": "Wolf (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "8 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -19377,7 +19377,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "betony",
     "name": "Betony",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 cp",
     "weight": "—",
     "notes": "Culinary/medicinal herb of Tellene",
@@ -19388,7 +19388,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "boltleaf",
     "name": "Boltleaf",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "6 cp",
     "weight": "—",
     "notes": "Culinary/medicinal herb of Tellene",
@@ -19399,7 +19399,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "cloves",
     "name": "Cloves",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 gp",
     "weight": "—",
     "notes": "Culinary/medicinal herb of Tellene",
@@ -19410,7 +19410,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "dythlarra",
     "name": "Dythlarra",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 cp",
     "weight": "—",
     "notes": "Culinary/medicinal herb of Tellene",
@@ -19421,7 +19421,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "garlic-per-bulb",
     "name": "Garlic (per bulb)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 cp",
     "weight": "—",
     "notes": "Culinary/medicinal herb of Tellene",
@@ -19432,7 +19432,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "graz-makran-dar",
     "name": "Graz-Makran-Dar",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 cp",
     "weight": "—",
     "notes": "Culinary/medicinal herb of Tellene",
@@ -19443,7 +19443,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "henavozh",
     "name": "Henavozh",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "4 cp",
     "weight": "—",
     "notes": "Culinary/medicinal herb of Tellene",
@@ -19454,7 +19454,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "henelevi",
     "name": "Henelevi",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "5 cp",
     "weight": "—",
     "notes": "Culinary/medicinal herb of Tellene",
@@ -19465,7 +19465,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "herbs-other-common",
     "name": "Herbs, Other Common",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 cp",
     "weight": "—",
     "notes": "Culinary/medicinal herb of Tellene",
@@ -19476,7 +19476,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "ildorn",
     "name": "Ildorn",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "4 cp",
     "weight": "—",
     "notes": "Culinary/medicinal herb of Tellene",
@@ -19487,7 +19487,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "lenamosha",
     "name": "Lenamosha",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 cp",
     "weight": "—",
     "notes": "Culinary/medicinal herb of Tellene",
@@ -19498,7 +19498,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "mallemar",
     "name": "Mal'Lemar",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 cp",
     "weight": "—",
     "notes": "Culinary/medicinal herb of Tellene",
@@ -19509,7 +19509,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "robusar",
     "name": "Robusar",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 cp",
     "weight": "—",
     "notes": "Culinary/medicinal herb of Tellene",
@@ -19520,7 +19520,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "saffron",
     "name": "Saffron",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 gp",
     "weight": "—",
     "notes": "Culinary/medicinal herb of Tellene",
@@ -19531,7 +19531,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "tea-leaves",
     "name": "Tea Leaves",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 cp",
     "weight": "—",
     "notes": "Culinary/medicinal herb of Tellene",
@@ -19542,7 +19542,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "wolvesbane",
     "name": "Wolvesbane",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "5 cp",
     "weight": "—",
     "notes": "Culinary/medicinal herb of Tellene",
@@ -19553,7 +19553,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "banquet-per-person",
     "name": "Banquet (per person)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "10 gp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -19564,7 +19564,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "benioone-per-oz",
     "name": "Benioone (per oz.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "8 cp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -19575,7 +19575,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "bezoar",
     "name": "Bezoar",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -19586,7 +19586,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "brimstone-per-oz",
     "name": "Brimstone (per oz.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -19597,7 +19597,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "cheese",
     "name": "Cheese",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "4 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -19608,7 +19608,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "cheese-rank-hard",
     "name": "Cheese, Rank (hard)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "7 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -19619,7 +19619,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "kuala-per-oz",
     "name": "Ku'Ala (per oz.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "5 cp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -19630,7 +19630,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "nettle-per-sprig",
     "name": "Nettle (per sprig)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 cp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -19641,7 +19641,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "rose-water-per-oz",
     "name": "Rose-Water (per oz.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "6 cp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -19652,7 +19652,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "royal-tree-dye-per-oz",
     "name": "Royal Tree Dye (per oz.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "5 cp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -19663,7 +19663,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "sandragon-per-oz",
     "name": "Sandragon (per oz.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "4 cp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -19674,7 +19674,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "sea-scent-per-oz",
     "name": "Sea Scent (per oz.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -19685,7 +19685,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "tail-per-oz",
     "name": "Tail (per oz.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 cp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -19696,7 +19696,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "umber-grease-per-oz",
     "name": "Umber-Grease (per oz.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "4 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -19707,7 +19707,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "aaraun-per-serving",
     "name": "Aaraun (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "6 cp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -19718,7 +19718,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "alegorn-per-gallon",
     "name": "Alegorn (per gallon)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 sp",
     "weight": "8 lb.",
     "notes": "Foodstuff of Tellene",
@@ -19729,7 +19729,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "almond-cream-per-oz",
     "name": "Almond-Cream (per oz.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "5 cp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -19740,7 +19740,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "alojas-per-lb",
     "name": "Alojas (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -19751,7 +19751,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "bhodanee-per-serving",
     "name": "Bhodanee (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -19762,7 +19762,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "blood-per-oz",
     "name": "Blood (per oz.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 cp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -19773,7 +19773,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "boulikaar-per-oz",
     "name": "Boulikaar (per oz.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 cp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -19784,7 +19784,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "bree-per-serving",
     "name": "Bree (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "6 cp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -19795,7 +19795,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "brides-finger-per-pastry",
     "name": "Bride's Finger (per pastry)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "4 cp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -19806,7 +19806,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "brose-common-per-serving",
     "name": "Brose, Common (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "5 cp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -19817,7 +19817,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "brose-noble-per-serving",
     "name": "Brose, Noble (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -19828,7 +19828,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "broth-per-serving",
     "name": "Broth (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 cp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -19839,7 +19839,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "candy-per-lb",
     "name": "Candy (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -19850,7 +19850,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "candy-rock-per-lb",
     "name": "Candy, Rock (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "4 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -19861,7 +19861,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "comfits-per-lb",
     "name": "Comfits (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -19872,7 +19872,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "crisps-per-lb",
     "name": "Crisps (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -19883,7 +19883,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "couzez-per-serving",
     "name": "Couzez (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -19894,7 +19894,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "dolendor-per-serving",
     "name": "Dolendor (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -19905,7 +19905,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "dolmaadaa-per-serving",
     "name": "Dolmaadaa (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -19916,7 +19916,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "ear-per-pastry",
     "name": "Ear (per pastry)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 cp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -19927,7 +19927,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "eggs-per-dozen-gg",
     "name": "Eggs (per dozen)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "6 cp",
     "weight": "1.5 lb.",
     "notes": "Foodstuff of Tellene",
@@ -19938,7 +19938,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "fish-glass-per-oz",
     "name": "Fish Glass (per oz.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 cp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -19949,7 +19949,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "flour-per-pound",
     "name": "Flour (per pound)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 cp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -19960,7 +19960,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "fry-per-serving",
     "name": "Fry (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 cp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -19971,7 +19971,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "galo-galo-per-serving",
     "name": "Galo-Galo (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "5 cp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -19982,7 +19982,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "gesaanar-per-serving",
     "name": "Gesaanar (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "4 cp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -19993,7 +19993,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "giouvesiari-per-serving",
     "name": "Giouvesiari (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -20004,7 +20004,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "golenay-per-serving",
     "name": "Golenay (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -20015,7 +20015,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "gormeta-per-serving",
     "name": "Gormeta (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -20026,7 +20026,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "grouse-onion-stew-per-serving",
     "name": "Grouse Onion Stew (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 cp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -20037,7 +20037,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "gum-dragon-per-oz",
     "name": "Gum Dragon (per oz.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 cp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -20048,7 +20048,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "gut-warmer-per-serving",
     "name": "Gut Warmer (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 cp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -20059,7 +20059,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "handpie-per-serving",
     "name": "Handpie (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -20070,7 +20070,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "honey-per-gallon",
     "name": "Honey (per gallon)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "4 gp",
     "weight": "8 lb.",
     "notes": "Foodstuff of Tellene",
@@ -20081,7 +20081,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "honeyleaf-per-serving",
     "name": "Honeyleaf (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -20092,7 +20092,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "hot-water-pastry-per-serving",
     "name": "Hot Water Pastry (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -20103,7 +20103,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "jakarla-per-serving",
     "name": "Jakarla (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "6 cp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -20114,7 +20114,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "jhekdhadd-per-serving",
     "name": "Jhekdhadd (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -20125,7 +20125,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "jowtis-per-serving",
     "name": "Jowtis (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -20136,7 +20136,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "kaataifis-per-serving",
     "name": "Kaataifis (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "8 cp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -20147,7 +20147,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "keaftao-per-serving",
     "name": "Keaftao (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "6 cp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -20158,7 +20158,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "keep-cake-per-cake",
     "name": "Keep-Cake (per cake)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "7 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -20169,7 +20169,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "kingsthrone-per-oz",
     "name": "Kingsthrone (per oz.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "6 cp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -20180,7 +20180,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "koorazix-per-serving",
     "name": "Koorazix (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -20191,7 +20191,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "kozranga-per-serving",
     "name": "Kozranga (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -20202,7 +20202,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "ladafo-per-gallon",
     "name": "Ladafo (per gallon)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 sp",
     "weight": "8 lb.",
     "notes": "Foodstuff of Tellene",
@@ -20213,7 +20213,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "lard-per-oz",
     "name": "Lard (per oz.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 cp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -20224,7 +20224,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "lettuce-per-serving",
     "name": "Lettuce (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -20235,7 +20235,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "lesynge",
     "name": "Lesynge",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "5 cp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -20246,7 +20246,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "loukou-per-serving",
     "name": "Loukou (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -20257,7 +20257,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "mastic-per-oz",
     "name": "Mastic (per oz.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 cp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -20268,7 +20268,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "mearg-per-oz",
     "name": "Mearg (per oz.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 cp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -20279,7 +20279,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "meliazanoo-per-serving",
     "name": "Meliazanoo (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "5 cp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -20290,7 +20290,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "mombazah-per-serving",
     "name": "Mombazah (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -20301,7 +20301,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "moretum-per-oz",
     "name": "Moretum (per oz.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 cp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -20312,7 +20312,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "nuts-per-lb",
     "name": "Nuts (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 gp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -20323,7 +20323,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "paasesti-per-serving",
     "name": "Paasesti (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "8 cp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -20334,7 +20334,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "pasta-per-serving",
     "name": "Pasta (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "4 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -20345,7 +20345,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "pap-per-serving",
     "name": "Pap (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "4 cp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -20356,7 +20356,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "pearls-ground-per-oz",
     "name": "Pearls, Ground (per oz.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 gp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -20367,7 +20367,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "peesaso-per-serving",
     "name": "Peesaso (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -20378,7 +20378,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "pie-per-pastry",
     "name": "Pie (per pastry)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -20389,7 +20389,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "pottage-per-serving",
     "name": "Pottage (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -20400,7 +20400,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "preserves-fruit-1-days-rations",
     "name": "Preserves, Fruit (1 day's rations)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 cp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -20411,7 +20411,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "pynepaste-per-oz",
     "name": "Pynepaste (per oz.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -20422,7 +20422,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "quoses-per-serving",
     "name": "Quoses (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -20433,7 +20433,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "salt-per-lb",
     "name": "Salt (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 gp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -20444,7 +20444,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "scratch-root-stew-per-serving",
     "name": "Scratch-Root Stew (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "5 cp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -20455,7 +20455,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "smallsweet",
     "name": "Smallsweet",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -20466,7 +20466,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "soorea-per-serving",
     "name": "Soorea (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 cp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -20477,7 +20477,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "sour-juice-per-gallon",
     "name": "Sour Juice (per gallon)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 sp",
     "weight": "8 lb.",
     "notes": "Foodstuff of Tellene",
@@ -20488,7 +20488,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "sugar-cane-per-lb",
     "name": "Sugar, Cane (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "5 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -20499,7 +20499,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "sugar-ronazagh-per-lb",
     "name": "Sugar, Ronazagh (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "8 sp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -20510,7 +20510,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "sugar-white-per-lb",
     "name": "Sugar, White (per lb.)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 gp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -20521,7 +20521,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "syrup-per-gallon",
     "name": "Syrup (per gallon)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "4 sp",
     "weight": "8 lb.",
     "notes": "Foodstuff of Tellene",
@@ -20532,7 +20532,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "temelpe",
     "name": "Temelpe",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 cp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -20543,7 +20543,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "tilatabi-per-serving",
     "name": "Tilatabi (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "4 cp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -20554,7 +20554,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "varoukei-per-pastry",
     "name": "Varoukei (per pastry)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "4 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -20565,7 +20565,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "veuwao-per-serving",
     "name": "Veuwao (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -20576,7 +20576,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "wheat-per-pound",
     "name": "Wheat (per pound)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 cp",
     "weight": "1 lb.",
     "notes": "Foodstuff of Tellene",
@@ -20587,7 +20587,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "whemin-per-serving",
     "name": "Whemin (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -20598,7 +20598,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "zamoam-per-serving",
     "name": "Zamoam (per serving)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 cp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -20609,7 +20609,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "zabaglone-per-pastry",
     "name": "Zabaglone (per pastry)",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 sp",
     "weight": "—",
     "notes": "Foodstuff of Tellene",
@@ -20620,7 +20620,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "altanath",
     "name": "Altanath",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "6 cp",
     "weight": "1 oz.",
     "notes": "Sauce, priced per ounce",
@@ -20631,7 +20631,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "boe",
     "name": "Boe",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "4 cp",
     "weight": "1 oz.",
     "notes": "Sauce, priced per ounce",
@@ -20642,7 +20642,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "browncap",
     "name": "Browncap",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "5 cp",
     "weight": "1 oz.",
     "notes": "Sauce, priced per ounce",
@@ -20653,7 +20653,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "dandril",
     "name": "Dandril",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 cp",
     "weight": "1 oz.",
     "notes": "Sauce, priced per ounce",
@@ -20664,7 +20664,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "falama",
     "name": "Falama",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "8 cp",
     "weight": "1 oz.",
     "notes": "Sauce, priced per ounce",
@@ -20675,7 +20675,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "garum",
     "name": "Garum",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "5 cp",
     "weight": "1 oz.",
     "notes": "Sauce, priced per ounce",
@@ -20686,7 +20686,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "haz-brak",
     "name": "Haz-Brak",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 cp",
     "weight": "1 oz.",
     "notes": "Sauce, priced per ounce",
@@ -20697,7 +20697,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "musted",
     "name": "Musted",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "5 cp",
     "weight": "1 oz.",
     "notes": "Sauce, priced per ounce",
@@ -20708,7 +20708,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "peawaabi",
     "name": "Peawaabi",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "5 cp",
     "weight": "1 oz.",
     "notes": "Sauce, priced per ounce",
@@ -20719,7 +20719,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "sauces-other-common",
     "name": "Sauces, Other Common",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 cp",
     "weight": "1 oz.",
     "notes": "Sauce, priced per ounce",
@@ -20730,7 +20730,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "souse",
     "name": "Souse",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 cp",
     "weight": "1 oz.",
     "notes": "Sauce, priced per ounce",
@@ -20741,7 +20741,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "zaramar",
     "name": "Zaramar",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "5 cp",
     "weight": "1 oz.",
     "notes": "Sauce, priced per ounce",
@@ -20752,7 +20752,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "balikati",
     "name": "Balikati",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "4 sp",
     "weight": "1 lb.",
     "notes": "Spice or seasoning, priced per pound",
@@ -20763,7 +20763,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "boxwood-leaves",
     "name": "Boxwood Leaves",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "4 sp",
     "weight": "1 lb.",
     "notes": "Spice or seasoning, priced per pound",
@@ -20774,7 +20774,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "cinnamon",
     "name": "Cinnamon",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 gp",
     "weight": "1 lb.",
     "notes": "Spice or seasoning, priced per pound",
@@ -20785,7 +20785,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "dvortha-gg",
     "name": "Dvortha",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "1 gp",
     "weight": "1 lb.",
     "notes": "Spice or seasoning, priced per pound",
@@ -20796,7 +20796,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "elbada",
     "name": "Elbada",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "7 sp",
     "weight": "1 lb.",
     "notes": "Spice or seasoning, priced per pound",
@@ -20807,7 +20807,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "ghashan",
     "name": "Ghashan",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 gp",
     "weight": "1 lb.",
     "notes": "Spice or seasoning, priced per pound",
@@ -20818,7 +20818,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "ginger",
     "name": "Ginger",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "5 cp",
     "weight": "1 lb.",
     "notes": "Spice or seasoning, priced per pound",
@@ -20829,7 +20829,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "hawkweed",
     "name": "Hawkweed",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "4 sp",
     "weight": "1 lb.",
     "notes": "Spice or seasoning, priced per pound",
@@ -20840,7 +20840,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "kingspice",
     "name": "Kingspice",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "10 gp",
     "weight": "1 lb.",
     "notes": "Spice or seasoning, priced per pound",
@@ -20851,7 +20851,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "pepper",
     "name": "Pepper",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "2 gp",
     "weight": "1 lb.",
     "notes": "Spice or seasoning, priced per pound",
@@ -20862,7 +20862,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "pirudil",
     "name": "Pirudil",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "8 sp",
     "weight": "1 lb.",
     "notes": "Spice or seasoning, priced per pound",
@@ -20873,7 +20873,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "spices-other-common",
     "name": "Spices, Other Common",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "4 sp",
     "weight": "1 lb.",
     "notes": "Spice or seasoning, priced per pound",
@@ -20884,7 +20884,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "star",
     "name": "Star",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "12 gp",
     "weight": "1 lb.",
     "notes": "Spice or seasoning, priced per pound",
@@ -20895,7 +20895,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
   {
     "id": "warmleaf",
     "name": "Warmleaf",
-    "category": "gear",
+    "category": "food and drink",
     "cost": "3 sp",
     "weight": "1 lb.",
     "notes": "Spice or seasoning, priced per pound",
