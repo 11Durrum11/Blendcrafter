@@ -56,12 +56,18 @@ interface RefRow {
   name: string;
   source: string;
   ruleset?: Ruleset;
+  /** Rendered grayed out and struck through (Shaun, 2026-11-03: the
+   * summoning & travel list stays in the reference but grayed —
+   * summoning doesn't work in APOC, so it is shown as unavailable;
+   * the entry still opens, and its detail says it does not work). */
+  disabled?: boolean;
   makeDetail: () => EntityDetail;
 }
 
 interface RefCategory {
   key: string;
   label: string;
+  disabled?: boolean;
   rows: RefRow[];
 }
 
@@ -160,9 +166,9 @@ const CATEGORIES: RefCategory[] = [
     })),
   },
   {
-    key: "summoning", label: "Summoning & Travel Spells (APOC)",
+    key: "summoning", label: "Summoning & Travel Spells (APOC)", disabled: true,
     rows: ALL_SUMMONING_SPELL_LIST.map((s) => ({
-      key: `summoning:${s.id}`, category: "Summoning / Travel", name: s.name, source: s.source, ruleset: s.ruleset,
+      key: `summoning:${s.id}`, category: "Summoning / Travel", name: s.name, source: s.source, ruleset: s.ruleset, disabled: true,
       makeDetail: (): EntityDetail => ({
         title: s.name,
         badges: rsBadge(s.ruleset, [s.allowed ? "Allowed in APOC" : "Does not work in APOC", ...(s.badJuJu ? ["Bad Ju-Ju"] : [])]),
@@ -260,6 +266,7 @@ export function StepReference() {
                 key={c.key}
                 size="sm"
                 variant={category === c.key ? "default" : "outline"}
+                className={c.disabled ? "text-muted-foreground line-through opacity-60" : undefined}
                 onClick={() => setCategory(c.key)}
               >
                 {c.label} ({c.rows.length.toLocaleString()})
@@ -296,7 +303,11 @@ export function StepReference() {
                   <li key={row.key}>
                     <button
                       type="button"
-                      className="flex w-full items-center justify-between gap-3 py-2 text-left hover:bg-muted/50"
+                      className={
+                        row.disabled
+                          ? "flex w-full items-center justify-between gap-3 py-2 text-left text-muted-foreground line-through opacity-60 hover:bg-muted/50"
+                          : "flex w-full items-center justify-between gap-3 py-2 text-left hover:bg-muted/50"
+                      }
                       onClick={() => setDetail(row.makeDetail())}
                     >
                       <span className="min-w-0">
