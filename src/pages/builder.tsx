@@ -11,6 +11,7 @@ import { CharacterRepository } from "@/components/character-repository";
 import { OglFooter } from "@/components/ogl-footer";
 import { StepRace } from "@/components/steps/step-race";
 import { StepClasses } from "@/components/steps/step-classes";
+import { StepPrestige } from "@/components/steps/step-prestige";
 import { StepSpells } from "@/components/steps/step-spells";
 import { StepSkills } from "@/components/steps/step-skills";
 import { StepTemplates } from "@/components/steps/step-templates";
@@ -27,16 +28,19 @@ import { CAMPAIGN_DEFAULT_PREFS, CAMPAIGN_DEFAULTS_VERSION, CAMPAIGN_DEFAULTS_VE
 import { useToast } from "@/hooks/use-toast";
 
 const STEPS = [
-  { id: "race", label: "Abilities & Race" },
-  { id: "classes", label: "Classes" },
-  { id: "skills", label: "Skills" },
-  { id: "templates", label: "Templates" },
-  { id: "feats", label: "Feats" },
-  { id: "spells", label: "Spells" },
-  { id: "equipment", label: "Equipment" },
-  { id: "personality", label: "Personality" },
-  { id: "sheet", label: "Character Sheet" },
-  { id: "reference", label: "Player Reference" },
+  { id: "race", label: "Abilities & Race", num: "1" },
+  { id: "classes", label: "Classes", num: "2" },
+  // Prestige classes are their own step, 2B (Shaun, 2026-11-03:
+  // "Separate the classes and the prestige classes. Call it 2B").
+  { id: "prestige", label: "Prestige Classes", num: "2B" },
+  { id: "skills", label: "Skills", num: "3" },
+  { id: "templates", label: "Templates", num: "4" },
+  { id: "feats", label: "Feats", num: "5" },
+  { id: "spells", label: "Spells", num: "6" },
+  { id: "equipment", label: "Equipment", num: "7" },
+  { id: "personality", label: "Personality", num: "8" },
+  { id: "sheet", label: "Character Sheet", num: "9" },
+  { id: "reference", label: "Player Reference", num: "10" },
 ] as const;
 
 type StepId = (typeof STEPS)[number]["id"];
@@ -340,9 +344,9 @@ export default function Builder() {
       <main className="mx-auto max-w-6xl px-4 py-6 sm:px-6">
         <Tabs value={effectiveStep} onValueChange={(v) => goTo(v as StepId)}>
           <TabsList className="flex h-auto flex-wrap justify-start gap-1" data-testid="step-tabs">
-            {visibleSteps.map((s, i) => (
+            {visibleSteps.map((s) => (
               <TabsTrigger key={s.id} value={s.id} data-testid={`tab-step-${s.id}`}>
-                <span className="mr-1.5 font-mono text-xs text-muted-foreground">{i + 1}</span>
+                <span className="mr-1.5 font-mono text-xs text-muted-foreground">{s.num}</span>
                 {s.label}
               </TabsTrigger>
             ))}
@@ -367,13 +371,21 @@ export default function Builder() {
           {effectiveStep === "classes" && (
             <StepClasses
               classLevels={build.classLevels}
+              enabledRulesets={build.enabledRulesets}
+              disabledClassIds={build.disabledClassIds}
+              resolved={resolved}
+              onAdd={cb.addClassLevel}
+              onRemove={cb.removeClassLevel}
+              onToggleClassEnabled={cb.toggleClassEnabled}
+            />
+          )}
+          {effectiveStep === "prestige" && (
+            <StepPrestige
               prestigeClassLevels={build.prestigeClassLevels}
               enabledRulesets={build.enabledRulesets}
               disabledClassIds={build.disabledClassIds}
               certifications={build.prestigePrereqCertifications}
               resolved={resolved}
-              onAdd={cb.addClassLevel}
-              onRemove={cb.removeClassLevel}
               onAddPrestige={cb.addPrestigeLevel}
               onRemovePrestige={cb.removePrestigeLevel}
               onToggleClassEnabled={cb.toggleClassEnabled}
@@ -439,7 +451,7 @@ export default function Builder() {
             <ChevronLeft className="mr-1 h-4 w-4" /> {prev ? prev.label : "Back"}
           </Button>
           <span className="text-xs text-muted-foreground">
-            Step {visibleIndex + 1} of {visibleSteps.length}
+            Step {visibleSteps[visibleIndex]?.num} of {STEPS[STEPS.length - 1].num}
           </span>
           <Button disabled={!next} onClick={() => next && goTo(next.id)} data-testid="button-next-step">
             {next ? next.label : "Done"} <ChevronRight className="ml-1 h-4 w-4" />
