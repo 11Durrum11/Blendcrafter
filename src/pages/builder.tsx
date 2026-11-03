@@ -30,17 +30,20 @@ import { useToast } from "@/hooks/use-toast";
 const STEPS = [
   { id: "race", label: "Abilities & Race", num: "1" },
   { id: "classes", label: "Classes", num: "2" },
-  // Prestige classes are their own step, 2B (Shaun, 2026-11-03:
-  // "Separate the classes and the prestige classes. Call it 2B").
-  { id: "prestige", label: "Prestige Classes", num: "2B" },
   { id: "skills", label: "Skills", num: "3" },
   { id: "templates", label: "Templates", num: "4" },
   { id: "feats", label: "Feats", num: "5" },
   { id: "spells", label: "Spells", num: "6" },
-  { id: "equipment", label: "Equipment", num: "7" },
-  { id: "personality", label: "Personality", num: "8" },
-  { id: "sheet", label: "Character Sheet", num: "9" },
-  { id: "reference", label: "Player Reference", num: "10" },
+  // Prestige classes are their own step (Shaun, 2026-11-03), and sit
+  // AFTER Spells (Shaun, later the same day: "Move it after Spells
+  // and renumber the steps to fit") — the prerequisite gate judges
+  // skills, templates, feats and spell picks, so those steps must
+  // come first for anything to register as met.
+  { id: "prestige", label: "Prestige Classes", num: "7" },
+  { id: "equipment", label: "Equipment", num: "8" },
+  { id: "personality", label: "Personality", num: "9" },
+  { id: "sheet", label: "Character Sheet", num: "10" },
+  { id: "reference", label: "Player Reference", num: "11" },
 ] as const;
 
 type StepId = (typeof STEPS)[number]["id"];

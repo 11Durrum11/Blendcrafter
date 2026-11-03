@@ -15,8 +15,11 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip
 import { describePrestigeClass } from "@/lib/entity-descriptions";
 
 /**
- * Step 2B — Prestige Classes (Shaun, 2026-11-03: "Separate the
- * classes and the prestige classes. Call it 2B, prestige classes.").
+ * Step 7 — Prestige Classes (Shaun, 2026-11-03: "Separate the
+ * classes and the prestige classes." First built as "2B" right after
+ * Classes; moved here, after Spells, at Shaun's order the same day —
+ * the gate judges skills, templates, feats and spell picks, so those
+ * steps must be finished first for anything to register as met.)
  *
  * Ordering law (Shaun, 2026-10-28, restated 2026-11-03): prestige
  * classes whose prerequisites are MET sit on top; ALL non-met drop
@@ -238,7 +241,9 @@ export function StepPrestige({
         <CardHeader>
           <CardTitle className="font-display text-xl">Prestige Classes</CardTitle>
           <CardDescription>
-            Prerequisites are <span className="font-medium">enforced</span>: a prestige class stays grayed out and
+            This step comes after Skills, Templates, Feats and Spells on purpose: prerequisites are judged
+            against the finished build, and you must meet them <span className="font-medium">before</span> taking
+            the class. Prerequisites are <span className="font-medium">enforced</span>: a prestige class stays grayed out and
             blocked until every prerequisite is met, and every class whose prerequisites are not met drops to the
             bottom, under "Prerequisites not met". Requirements the builder can check — base attack bonus, base
             saves, skill ranks, feats, race, alignment — are verified automatically against your build. The rest

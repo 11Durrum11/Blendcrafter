@@ -13,9 +13,10 @@ import { describeClass, type EntityDetail } from "@/lib/entity-descriptions";
 
 /**
  * Step 2 — base classes only. Prestige classes live in their own
- * step, 2B (Shaun, 2026-11-03: "Separate the classes and the
- * prestige classes. Call it 2B, prestige classes."), in
- * step-prestige.tsx.
+ * step (step-prestige.tsx): they started as "2B" right after this
+ * step (Shaun, 2026-11-03), then moved to step 7, after Spells, at
+ * Shaun's order the same day — the prerequisite gate judges skills,
+ * templates, feats and spell picks, so those steps come first.
  */
 
 interface StepClassesProps {
@@ -136,8 +137,8 @@ export function StepClasses({
           <CardDescription>
             Multiclassing is allowed — add levels in any combination up to level 10 per class. Cards are
             crunched three across: <span className="font-medium">hover a name</span> for the short crunch,{" "}
-            <span className="font-medium">click it</span> for the whole thing. Prestige classes are the next
-            step, 2B. Source:{" "}
+            <span className="font-medium">click it</span> for the whole thing. Prestige classes come at
+            step 7, after Skills, Feats and Spells — they're judged against the finished build. Source:{" "}
             <a href="https://www.d20srd.org/srd/classes/" target="_blank" rel="noreferrer" className="text-primary underline underline-offset-2">
               d20 SRD Classes
             </a>
