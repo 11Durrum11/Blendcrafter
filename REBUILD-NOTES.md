@@ -5401,3 +5401,28 @@ Canon flag: Exemplars of Evil's Planar Trestle (portal-forcing
 artifact) cataloged and flagged for Shaun's keep/remove call.
 Ledger: ~/workspace/omni-sweep/LEDGER.md; reports per book in
 ~/workspace/omni-sweep/reports/.
+
+## Omni Sweep Wave 3 (2026-11-02 night) — index cross-check residuals
+The capstone audit (DnD3.5Index bySource/byName vs the merged catalog,
+2,448 pairs) found the DMG's own special abilities and cursed items
+had never been built as records. Wave 3 closes that: omni-dmg-residuals
+(+60: 19 weapon abilities, 22 armor abilities, 4 shield abilities —
+the printed DMG names incl. Keen, Bashing, Animated, Wounding, Spell
+Storing, Brilliant Energy, Spell Resistance 13–19 — 12 cursed items
+incl. Armor of Rage, which the SRD files under cursed items, and the
+DMG Staffs of Life/Passage/Size Alteration) and
+omni-crosscheck-residuals (+5: Bleeding Statue and Executioner's Axe
+at BoED's printed "market price equivalents", MoE's Recalling and
+Thunderbolt chimes, Blue Ice at its printed 400 gp/lb). Merged:
+magic 7,626, equipment 8,077, items 15,703. Verified NOT gaps:
+Mantle of Energy Resistance (no such SRD item — index error);
+Sand Painting (Travelers' Oasis) (already cataloged; apostrophe
+variant); the Book of Exalted Deeds / Book of Vile Darkness artifacts
+(no item entries exist in their own books — lore mentions only);
+Acrola (absent from BoVD). Remaining materials (Rimefire Ice, Stygian
+Ice, Leafweave, BoED metals) print cost modifiers only, no price of
+their own — skips confirmed with figures in the report, unlike the
+older Starmetal/Pandemonic Silver records. Also fixed: "Staff of
+Oakenbattle" -> "Staff of Oaken Battle" in the Complete Divine pack.
+Reports: ~/workspace/omni-sweep/reports/{index-crosscheck,
+dmg-residuals,crosscheck-residuals}.md.

@@ -25,7 +25,7 @@ export const COMPLETE_DIVINE_MAGIC_ITEMS: MagicItemDefinition[] = [
   },
   {
     "id": "staff-of-oakenbattle",
-    "name": "Staff of Oakenbattle",
+    "name": "Staff of Oaken Battle",
     "category": "staff",
     "cost": "13,500 gp",
     "summary": "A thick staff of black oak for a druid's self-defense. Spells: shillelagh (1 charge), spikes (1). (Moderate transmutation; CL 8th.)",
