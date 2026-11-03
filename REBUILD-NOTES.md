@@ -5426,3 +5426,35 @@ older Starmetal/Pandemonic Silver records. Also fixed: "Staff of
 Oakenbattle" -> "Staff of Oaken Battle" in the Complete Divine pack.
 Reports: ~/workspace/omni-sweep/reports/{index-crosscheck,
 dmg-residuals,crosscheck-residuals}.md.
+
+## Omni Sweep Wave 4 (2026-11-02 night) — Shaun's decision list, called
+Shaun delegated the sweep's open decisions ("Call it for number
+one"); Durrum's calls, all executed here: (1) Planar Trestle REMOVED
+from omni-exemplars-of-evil (portal-forcing artifact vs APOC's
+severed-planar canon; restorable from commit 94b2bb26ed). (2) The
+8 modifier-only special materials built Starmetal-style
+(omni-materials-residual: Rimefire Ice, Stygian Ice, Leafweave,
+Aurorum, Frystalline, Serren Wood, Solarian Truesteel, Ysgardian
+Heartwire). (3) Masters of the Wild infusions GENERATED per spell
+(omni-motw-infusions, +1,390): formula spell level x caster level x
+50 gp at minimum CL, divine class lists (Cleric/Druid/Paladin/
+Ranger/Adept/Healer/Blackguard) at each spell's lowest list level,
+category "potion", wand/scroll precedent; domain-only and sanctified/
+corrupt spells excluded. (4) Shaun's 104 house arrows built UNPRICED
+(omni-house-arrows, cost "—", ruleset "homebrew") at his direct
+instruction — 69 magic + 35 equipment; the two source drafts disagree
+on entry #72 (Wyrmslayer vs Doom Slayer Arrow — both built); Sleep
+Arrow skipped (already cataloged from books). (5) Price-correction
+pass under a narrow rule (fan-index records corrected to swept-book
+prices; MIC-sourced records never touched): only TWO records in the
+whole catalog qualified — Mammoth Leather 5 -> 45 gp and Fast-Donning
+Straps +250 -> +150 gp (both crystalkeep records in
+core/new-equipment.json). IMPORTANT FINDING: the 21 "wrong fan-index"
+XPH prices from Wave 2 are actually Magic Item Compendium records —
+MIC reprinted and repriced the XPH chapter (Torc of Power
+Preservation 4,000 gp is MIC p. 143), so all 21 were HELD, as was
+Healing Salve (MIC p. 162). Shaun's Alchemical-doc trio already
+carried the table values; no edits. Merged: magic 9,084, equipment
+8,120, items 17,204, grand total 23,114. Reports:
+~/workspace/omni-sweep/reports/{wave4-builds,house-arrows,
+price-corrections}.md.
