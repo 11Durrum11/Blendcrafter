@@ -5516,3 +5516,14 @@ own full-width row directly under the Wealth title (mt-0.5, left-aligned),
 xl:text-[11px] with xl:whitespace-nowrap on both lines — measured to fit
 the card's full inner width (~1,056 px) with room to spare. Wording
 unchanged; small screens still wrap normally.
+
+## Inventory-value summary moved above Wealth by Level (2026-11-03)
+Shaun read off the summary text — "The gold-piece value of everything in
+your inventory, kept current as you add and remove items below. and 0
+items priced. Level 1 characters use their class's starting gold instead
+of the wealth-by-level guideline." — and said "Put this above the wealth
+by level." The CardDescription and the priced/unpriced-count + guideline /
+level-1 paragraph (previously at the end of the Wealth header and in the
+card content, below the panel) now render in the header directly above
+the Wealth by Level panel. Totals row (total/equipment/magic/limit) stays
+in the card content. No wording or math changes.

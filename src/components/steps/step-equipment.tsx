@@ -217,6 +217,26 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, wealthLimi
               </p>
             </div>
           </div>
+          {/* Inventory-value summary ABOVE the Wealth by Level panel
+              (Shaun, 2026-11-03): the description, the priced count,
+              and the level-1 starting-gold note used to sit below the
+              panel (the description at the end of this header, the
+              counts in the card content); he read them off and said
+              "Put this above the wealth by level." */}
+          <CardDescription className="mt-2">
+            The gold-piece value of everything in your inventory, kept current as you add and remove items below.
+          </CardDescription>
+          <p className="mt-1 text-sm text-muted-foreground">
+            {wealth.pricedCount} item{wealth.pricedCount === 1 ? "" : "s"} priced.
+            {wealth.unpricedCount > 0 && (
+              <> {wealth.unpricedCount} item{wealth.unpricedCount === 1 ? "" : "s"} {wealth.unpricedCount === 1 ? "has" : "have"} no gold price listed (such as a "+bonus" special ability) and {wealth.unpricedCount === 1 ? "isn't" : "aren't"} counted.</>
+            )}
+            {wbl !== null ? (
+              <> Wealth by level for ECL {resolved.ecl.value}: <span className="font-mono text-foreground">{formatGp(wbl)} gp</span> guideline — you're {formatGp(Math.abs(wblDelta))} gp {wblDelta >= 0 ? "over" : "under"} it.</>
+            ) : (
+              resolved.ecl.value < 2 && <> Level 1 characters use their class's starting gold instead of the wealth-by-level guideline.</>
+            )}
+          </p>
           {/* Wealth-by-level chart + calculation beside the Wealth
               header (Shaun, 2026-11-02): the full DMG Table 5–1 chart
               with the build's ECL highlighted, and the 70/30 rule
@@ -343,9 +363,6 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, wealthLimi
               </>
             )}
           </div>
-          <CardDescription>
-            The gold-piece value of everything in your inventory, kept current as you add and remove items below.
-          </CardDescription>
         </CardHeader>
         <CardContent>
           <div className="flex flex-wrap items-baseline gap-x-6 gap-y-2">
@@ -365,17 +382,6 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, wealthLimi
               {wealthLimitLevel !== null && <span> (level {wealthLimitLevel})</span>}
             </div>
           </div>
-          <p className="mt-2 text-sm text-muted-foreground">
-            {wealth.pricedCount} item{wealth.pricedCount === 1 ? "" : "s"} priced.
-            {wealth.unpricedCount > 0 && (
-              <> {wealth.unpricedCount} item{wealth.unpricedCount === 1 ? "" : "s"} {wealth.unpricedCount === 1 ? "has" : "have"} no gold price listed (such as a "+bonus" special ability) and {wealth.unpricedCount === 1 ? "isn't" : "aren't"} counted.</>
-            )}
-            {wbl !== null ? (
-              <> Wealth by level for ECL {resolved.ecl.value}: <span className="font-mono text-foreground">{formatGp(wbl)} gp</span> guideline — you're {formatGp(Math.abs(wblDelta))} gp {wblDelta >= 0 ? "over" : "under"} it.</>
-            ) : (
-              resolved.ecl.value < 2 && <> Level 1 characters use their class's starting gold instead of the wealth-by-level guideline.</>
-            )}
-          </p>
         </CardContent>
       </Card>
 
