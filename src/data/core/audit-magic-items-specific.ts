@@ -50,13 +50,9 @@ export const CORE_AUDIT_SPECIFIC_ITEMS: MagicItemDefinition[] = [
     ["absorbing-shield", "Absorbing Shield", "50,170 gp", "A +2 heavy steel shield that can absorb and negate a spell or magic effect touching it, up to its printed limit."],
   ]),
   ...build("weapon", WEAPONS, WEAPON_URL, [
-    ["sleep-arrow", "Sleep Arrow", "132 gp", "A +1 arrow: a creature struck must succeed on a DC 11 Will save or fall asleep (as the sleep spell, with no Hit Dice limit). A single-use weapon."],
-    ["screaming-bolt", "Screaming Bolt", "267 gp", "A +2 crossbow bolt that screams in flight; creatures in its path must save against fear (Will DC 14) as printed."],
     ["silver-dagger-masterwork", "Silver Dagger, Masterwork", "322 gp", "A masterwork dagger of alchemical silver (damage reduced by one step, as for all alchemical silver weapons)."],
     ["cold-iron-longsword-masterwork", "Cold Iron Longsword, Masterwork", "330 gp", "A masterwork longsword of cold iron, effective against fey and demons."],
     ["javelin-of-lightning", "Javelin of Lightning", "1,500 gp", "When thrown, this javelin becomes a 5d6 lightning bolt along its path (Reflex DC 14 for half). A single-use weapon."],
-    ["slaying-arrow", "Slaying Arrow", "2,282 gp", "A +1 arrow keyed to one creature type: a struck creature of that type must succeed on a DC 20 Fortitude save or die. A single-use weapon."],
-    ["slaying-arrow-greater", "Slaying Arrow, Greater", "4,057 gp", "As a slaying arrow, but +2 and the Fortitude save DC is 23. A single-use weapon."],
     ["adamantine-dagger", "Adamantine Dagger", "3,002 gp", "A dagger of adamantine (counts as masterwork; hardness 20; ignores hardness of less than 20 when used to sunder)."],
     ["adamantine-battleaxe", "Adamantine Battleaxe", "3,010 gp", "A battleaxe of adamantine (counts as masterwork; hardness 20; ignores hardness of less than 20 when used to sunder)."],
     ["shatterspike", "Shatterspike", "4,315 gp", "A +1 longsword that functions as a +4 weapon on sunder attempts and deals extra damage when sundering an opponent's weapon, as printed."],
@@ -83,5 +79,11 @@ export const CORE_AUDIT_SPECIFIC_ITEMS: MagicItemDefinition[] = [
     ["luck-blade-1-wish", "Luck Blade (1 Wish)", "62,360 gp", "A +2 short sword granting a +1 luck bonus on all saving throws and one reroll per day; one wish remains in the blade."],
     ["luck-blade-2-wishes", "Luck Blade (2 Wishes)", "102,660 gp", "A +2 short sword granting a +1 luck bonus on all saving throws and one reroll per day; two wishes remain in the blade."],
     ["luck-blade-3-wishes", "Luck Blade (3 Wishes)", "142,960 gp", "A +2 short sword granting a +1 luck bonus on all saving throws and one reroll per day; three wishes remain in the blade."],
+  ]),
+  ...build("ammunition", WEAPONS, WEAPON_URL, [
+    ["sleep-arrow", "Sleep Arrow", "132 gp", "A +1 arrow: a creature struck must succeed on a DC 11 Will save or fall asleep (as the sleep spell, with no Hit Dice limit). A single-use weapon."],
+    ["screaming-bolt", "Screaming Bolt", "267 gp", "A +2 crossbow bolt that screams in flight; creatures in its path must save against fear (Will DC 14) as printed."],
+    ["slaying-arrow", "Slaying Arrow", "2,282 gp", "A +1 arrow keyed to one creature type: a struck creature of that type must succeed on a DC 20 Fortitude save or die. A single-use weapon."],
+    ["slaying-arrow-greater", "Slaying Arrow, Greater", "4,057 gp", "As a slaying arrow, but +2 and the Fortitude save DC is 23. A single-use weapon."],
   ]),
 ];

@@ -5279,3 +5279,31 @@ wondrous rows live in tuple form in
 src/data/core/audit-magic-items-wondrous.ts — its Row type now
 carries an optional per-row category. Total records unchanged:
 2,128.
+
+**Magic item gaps filled (2026-11-02, Shaun: "you really
+think this game only has two artifacts / two types of magic
+ammunition / four wands and three scrolls?"):** the thin
+categories were exemplar-only builds, now filled out.
+(1) WANDS AND SCROLLS GENERATED from the app's own spell
+data (src/data/core/generated-wands-scrolls.ts): one wand per
+spell of level 0–4 and one scroll per spell on the six core
+class lists, at the spell's lowest list level, priced from
+the DMG standard wand/scroll tables — wands 4 → 1,528,
+scrolls 3 → 2,312. (2) ARTIFACTS: the full SRD list built
+(13 added: Book of Infinite Spells, Hammer of Thunderbolts,
+Philosopher's Stone, Staff of the Magi, three Talismans,
+Moaning Diamond, Orbs of Dragonkind, Saint's Mace,
+Shadowstaff, Shield of the Sun) plus the seven DMG major
+artifacts the SRD omits, with headline summaries (Axe of the
+Dwarvish Lords, Codex of the Infinite Planes, Eye of Vecna,
+Hand of Vecna, Invulnerable Coat of Arnd, Sword of Kas, Wand
+of Orcus) — artifacts 2 → 22. (3) SPECIFICS: Nine Lives
+Stealer, and the five specific armors / two shields that
+previously existed only as equipment records — armor 7 → 12,
+shields 6 → 8. (4) AMMUNITION: +1 to +5 bundles of 50
+(arrows, bolts, sling bullets) at SRD per-50 prices, and the
+Sleep Arrow, Screaming Bolt, and both Slaying Arrows moved
+from "weapon" to "ammunition" where they belong —
+ammunition 2 → 21, weapons 33 → 30. Magic items total:
+2,128 → 6,004. Same exemplar gap exists for POTIONS (103,
+also per-spell items in the game) — not built; Shaun's call.
