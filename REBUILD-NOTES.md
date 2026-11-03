@@ -5208,3 +5208,11 @@ draft comparison, harness-verified both ways).
 test):** the generator wove the background in as "a outlander
 upbringing" (and "a orphaned situation") — now picks a/an by
 the word's first letter for background and family phrases.
+
+**Grayed-out races removed from the picker (2026-11-02,
+Shaun's direction):** turned-off races no longer render in the
+Base Race picker at all — no grayed tiles, no "Turned off"
+section in either the playable or monster group. Their off
+state is untouched in the build / toggle prefs; they are only
+hidden from view. A group whose races are all turned off shows
+a plain note saying so.

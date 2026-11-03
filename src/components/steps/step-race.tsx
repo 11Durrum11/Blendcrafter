@@ -259,10 +259,10 @@ export function StepRace({
   );
   };
 
-  // Segregation (Shaun, 2026-10-28): within each race group, turned-off
-  // races sink below the turned-on ones under their own "Turned off"
-  // subheading, so the active picker stays uncluttered. Turning one back
-  // on (its tile switch) moves it back up immediately.
+  // Turned-off races are hidden entirely (Shaun, 2026-11-02: "Remove
+  // all grayed out races"). Their off state stays exactly as saved in
+  // the build / toggle prefs — they are simply not rendered in the
+  // picker, so the grayed tiles no longer clutter it.
   const renderRaceSection = (
     title: string,
     blurb: string,
@@ -270,17 +270,14 @@ export function StepRace({
     headingClassName: string
   ) => {
     const turnedOn = races.filter((race) => !disabledRaceIds.includes(race.id));
-    const turnedOff = races.filter((race) => disabledRaceIds.includes(race.id));
     return (
       <>
         <h4 className={headingClassName}>{title}</h4>
         <p className="mb-3 mt-1 text-xs text-muted-foreground">{blurb}</p>
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">{turnedOn.map(renderRaceTile)}</div>
-        {turnedOff.length > 0 && (
-          <>
-            <h5 className="mt-5 font-display text-sm font-semibold text-muted-foreground">Turned off</h5>
-            <div className="mt-2 grid grid-cols-2 gap-3 sm:grid-cols-4">{turnedOff.map(renderRaceTile)}</div>
-          </>
+        {turnedOn.length > 0 ? (
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">{turnedOn.map(renderRaceTile)}</div>
+        ) : (
+          <p className="text-sm text-muted-foreground">Every race in this group is turned off.</p>
         )}
       </>
     );
@@ -476,7 +473,8 @@ export function StepRace({
         <CardHeader>
           <CardTitle className="font-display text-xl">Base Race</CardTitle>
           <CardDescription>
-            The base creature every template and class level applies on top of. Source:{" "}
+            The base creature every template and class level applies on top of. Turned-off races are hidden
+            from this picker; their off state is kept. Source:{" "}
             <a href="https://www.d20srd.org/srd/races/" target="_blank" rel="noreferrer" className="text-primary underline underline-offset-2">
               d20 SRD Races
             </a>
