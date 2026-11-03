@@ -1,4 +1,5 @@
 import type { CharacterBuild } from "@/engine/types";
+import type { TogglePrefs } from "@/lib/toggle-prefs";
 
 /**
  * Build deep links — the Blendcrafter side of the APOC hub connection
@@ -73,6 +74,60 @@ export async function decodeBuildToken(token: string): Promise<CharacterBuild | 
       return null;
     }
     return (payload as { build: CharacterBuild }).build;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Settings links — carrying Shaun's toggle state between his devices
+ * (2026-11-02). Toggle prefs live in each browser's own localStorage,
+ * so the phone and the computer drift apart: he turned races off on
+ * one device and the other still showed all of them. A settings link
+ * packs the whole TogglePrefs (rulesets, house rules, and every
+ * turned-off list) into the same token format as a build link;
+ * opening it on another device applies them there.
+ */
+export async function encodeSettingsToken(prefs: TogglePrefs): Promise<string> {
+  const payload = JSON.stringify({ app: "blendcrafter", version: 1, settings: prefs });
+  const raw = new TextEncoder().encode(payload);
+  try {
+    return "z" + bytesToBase64Url(await pipeThrough(raw, new CompressionStream("gzip")));
+  } catch {
+    return "j" + bytesToBase64Url(raw);
+  }
+}
+
+export async function settingsShareUrl(prefs: TogglePrefs): Promise<string> {
+  return `${SHARE_BASE_URL}?settings=${await encodeSettingsToken(prefs)}`;
+}
+
+export async function decodeSettingsToken(token: string): Promise<TogglePrefs | null> {
+  try {
+    if (!token || (token[0] !== "z" && token[0] !== "j")) return null;
+    const bytes = base64UrlToBytes(token.slice(1));
+    const raw =
+      token[0] === "z" ? await pipeThrough(bytes, new DecompressionStream("gzip")) : bytes;
+    const payload: unknown = JSON.parse(new TextDecoder().decode(raw));
+    if (
+      typeof payload !== "object" ||
+      payload === null ||
+      (payload as { app?: unknown }).app !== "blendcrafter" ||
+      typeof (payload as { settings?: unknown }).settings !== "object" ||
+      (payload as { settings?: unknown }).settings === null
+    ) {
+      return null;
+    }
+    return (payload as { settings: TogglePrefs }).settings;
+  } catch {
+    return null;
+  }
+}
+
+/** Extract the settings token from a query string. */
+export function settingsTokenFromSearch(search: string): string | null {
+  try {
+    return new URLSearchParams(search).get("settings");
   } catch {
     return null;
   }

@@ -5216,3 +5216,17 @@ section in either the playable or monster group. Their off
 state is untouched in the build / toggle prefs; they are only
 hidden from view. A group whose races are all turned off shows
 a plain note saying so.
+
+**Settings link — toggle prefs travel between devices
+(2026-11-02, Shaun: phone showed all races):** toggle prefs
+live in each browser's own localStorage, so the phone's
+turned-off list was empty even though the computer's wasn't.
+New "Copy settings link" header button packs the current
+build's whole toggle state (rulesets, house rules, all five
+per-entity disabled lists) into a ?settings= token (same codec
+as build links); opening it on another device saves the prefs
+there and applies them to the open character. Incoming prefs
+pass through sanitizeTogglePrefs, so the cross-class
+double-cost hard lock stays off (harness-verified, along with
+the token round-trip and bad-token rejection). toggle-prefs.ts
+itself untouched — only imported.

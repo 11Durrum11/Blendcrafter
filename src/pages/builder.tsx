@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { Link, useLocation, useRoute } from "wouter";
-import { ChevronLeft, ChevronRight, Download, Link2, Moon, Sun, Upload, UserPlus } from "lucide-react";
+import { ChevronLeft, ChevronRight, Download, Link2, Moon, SlidersHorizontal, Sun, Upload, UserPlus } from "lucide-react";
 import { Logo } from "@/components/logo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -20,7 +20,8 @@ import { StepPersonality } from "@/components/steps/step-personality";
 import { StepSheet } from "@/components/steps/step-sheet";
 import { useCharacterBuild } from "@/lib/use-character-build";
 import { exportCharacterJson, importCharacterJson } from "@/lib/character-io";
-import { buildShareUrl, buildTokenFromSearch, copyText, decodeBuildToken } from "@/lib/build-link";
+import { buildShareUrl, buildTokenFromSearch, copyText, decodeBuildToken, decodeSettingsToken, settingsShareUrl, settingsTokenFromSearch } from "@/lib/build-link";
+import { prefsFromBuild, sanitizeTogglePrefs, saveTogglePrefs } from "@/lib/toggle-prefs";
 import { useToast } from "@/hooks/use-toast";
 
 const STEPS = [
@@ -85,6 +86,54 @@ export default function Builder() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // Settings links (Shaun, 2026-11-02): toggle prefs live in each
+  // browser's own localStorage, so his phone and computer drifted —
+  // the phone showed every race because ITS turned-off list was
+  // empty. Opening a ?settings= link saves the prefs on this device
+  // and applies them to the open character, so both devices match.
+  useEffect(() => {
+    const token = settingsTokenFromSearch(window.location.search);
+    if (!token) return;
+    let cancelled = false;
+    void (async () => {
+      const incoming = await decodeSettingsToken(token);
+      if (cancelled) return;
+      const url = new URL(window.location.href);
+      url.searchParams.delete("settings");
+      window.history.replaceState(null, "", url.toString());
+      if (incoming) {
+        const prefs = sanitizeTogglePrefs(incoming);
+        saveTogglePrefs(prefs);
+        cb.setBuild({
+          ...build,
+          enabledRulesets: prefs.enabledRulesets,
+          houseRules: prefs.houseRules,
+          disabledRaceIds: prefs.disabledRaceIds,
+          disabledClassIds: prefs.disabledClassIds,
+          disabledSkillIds: prefs.disabledSkillIds,
+          disabledFeatIds: prefs.disabledFeatIds,
+          disabledAbilities: prefs.disabledAbilities,
+        });
+        toast({
+          title: "Settings applied",
+          description:
+            "This device now uses the same toggles as the one that sent the link — rulesets, house rules, and every turned-off race, class, skill, and feat.",
+        });
+      } else {
+        toast({
+          title: "Settings link unreadable",
+          description: "That link's settings could not be decoded.",
+          variant: "destructive",
+        });
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+    // Runs once on mount by design.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   async function handleCopyBuildLink() {
     const url = await buildShareUrl(build);
     if (await copyText(url)) {
@@ -118,6 +167,23 @@ export default function Builder() {
   const goTo = (step: StepId) => navigate(`/step/${step}`);
   const prev = visibleSteps[visibleIndex - 1];
   const next = visibleSteps[visibleIndex + 1];
+
+  async function handleCopySettingsLink() {
+    const url = await settingsShareUrl(prefsFromBuild(build));
+    if (await copyText(url)) {
+      toast({
+        title: "Settings link copied",
+        description:
+          "Open it once on your other device — that device takes on these same toggles, including which races are turned off.",
+      });
+    } else {
+      toast({
+        title: "Copy failed",
+        description: "Your browser blocked the copy — try again.",
+        variant: "destructive",
+      });
+    }
+  }
 
   async function handleImport(file: File | undefined) {
     if (!file) return;
@@ -160,6 +226,10 @@ export default function Builder() {
             <Button variant="outline" size="sm" className="px-2 sm:px-3" onClick={() => void handleCopyBuildLink()} data-testid="button-copy-build-link">
               <Link2 className="h-3.5 w-3.5 sm:mr-1.5" />
               <span className="hidden sm:inline">Copy build link</span>
+            </Button>
+            <Button variant="outline" size="sm" className="px-2 sm:px-3" onClick={() => void handleCopySettingsLink()} data-testid="button-copy-settings-link">
+              <SlidersHorizontal className="h-3.5 w-3.5 sm:mr-1.5" />
+              <span className="hidden sm:inline">Copy settings link</span>
             </Button>
             <Button variant="outline" size="sm" className="px-2 sm:px-3" onClick={() => importRef.current?.click()} data-testid="button-import-character">
               <Upload className="h-3.5 w-3.5 sm:mr-1.5" />
