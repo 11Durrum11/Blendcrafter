@@ -22,7 +22,7 @@ import { useCharacterBuild } from "@/lib/use-character-build";
 import { exportCharacterJson, importCharacterJson } from "@/lib/character-io";
 import { buildShareUrl, buildTokenFromSearch, copyText, decodeBuildToken, decodeSettingsToken, settingsShareUrl, settingsTokenFromSearch } from "@/lib/build-link";
 import { loadTogglePrefs, prefsFromBuild, sanitizeTogglePrefs, saveTogglePrefs } from "@/lib/toggle-prefs";
-import { CAMPAIGN_DEFAULT_PREFS, CAMPAIGN_DEFAULTS_VERSION, CAMPAIGN_DEFAULTS_VERSION_KEY, isFactoryDefaultPrefs } from "@/lib/campaign-defaults";
+import { CAMPAIGN_DEFAULT_PREFS, CAMPAIGN_DEFAULTS_VERSION, CAMPAIGN_DEFAULTS_VERSION_KEY, isFactoryDefaultPrefs, withCampaignOffs } from "@/lib/campaign-defaults";
 import { useToast } from "@/hooks/use-toast";
 
 const STEPS = [
@@ -66,19 +66,31 @@ export default function Builder() {
       const applied = Number(globalThis.localStorage?.getItem(CAMPAIGN_DEFAULTS_VERSION_KEY) ?? 0);
       if (applied >= CAMPAIGN_DEFAULTS_VERSION) return;
       globalThis.localStorage?.setItem(CAMPAIGN_DEFAULTS_VERSION_KEY, String(CAMPAIGN_DEFAULTS_VERSION));
-      if (!isFactoryDefaultPrefs(loadTogglePrefs())) return;
-      const prefs = sanitizeTogglePrefs(CAMPAIGN_DEFAULT_PREFS);
-      saveTogglePrefs(prefs);
-      cb.setBuild({
-        ...build,
-        enabledRulesets: prefs.enabledRulesets,
-        houseRules: prefs.houseRules,
-        disabledRaceIds: prefs.disabledRaceIds,
-        disabledClassIds: prefs.disabledClassIds,
-        disabledSkillIds: prefs.disabledSkillIds,
-        disabledFeatIds: prefs.disabledFeatIds,
-        disabledAbilities: prefs.disabledAbilities,
-      });
+      const existing = loadTogglePrefs();
+      if (existing === null || isFactoryDefaultPrefs(existing)) {
+        // First run (or a device that never curated anything):
+        // adopt Shaun's lists wholesale, as v1 did.
+        const prefs = sanitizeTogglePrefs(CAMPAIGN_DEFAULT_PREFS);
+        saveTogglePrefs(prefs);
+        cb.setBuild({
+          ...build,
+          enabledRulesets: prefs.enabledRulesets,
+          houseRules: prefs.houseRules,
+          disabledRaceIds: prefs.disabledRaceIds,
+          disabledClassIds: prefs.disabledClassIds,
+          disabledSkillIds: prefs.disabledSkillIds,
+          disabledFeatIds: prefs.disabledFeatIds,
+          disabledAbilities: prefs.disabledAbilities,
+        });
+      } else {
+        // v2 merge (Shaun's phone had stored prefs that were neither
+        // missing nor factory, so v1 skipped it): union the campaign
+        // offs into the saved prefs and into the open character.
+        // Nothing is removed; rulesets and house rules stay the
+        // device's own.
+        saveTogglePrefs(sanitizeTogglePrefs(withCampaignOffs(existing)));
+        cb.setBuild(withCampaignOffs(build));
+      }
     } catch {
       // Storage unavailable: nothing to seed; the app runs as before.
     }

@@ -5245,3 +5245,16 @@ never overwritten. Versioned via
 blendcrafter:campaign-defaults-version. toggle-prefs.ts and
 use-character-build.ts untouched — the seeding runs from
 builder.tsx through the existing prefs functions.
+
+**Campaign defaults v2 — union migration (2026-11-02, Shaun:
+"still an issue" on the phone):** v1 only adopted the baked-in
+lists on devices with missing or factory-default prefs; Shaun's
+phone had stored prefs that were neither, so it was skipped (and
+any device on a stale cached bundle never sees new code at all).
+v2 merges instead: exactly once per device, the campaign's
+turned-off lists are unioned into the saved prefs and into the
+open character — nothing removed, rulesets and house rules
+untouched, hard lock preserved, and after the one-time merge a
+later manual turn-on sticks. Union helper withCampaignOffs in
+campaign-defaults.ts, harness-verified (all 80 races land,
+device extras kept, idempotent).

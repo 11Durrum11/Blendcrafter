@@ -13,13 +13,19 @@ import type { TogglePrefs } from "@/lib/toggle-prefs";
  * recovered intact from his computer's saved prefs, now shipped as
  * the app's starting state.
  *
- * How it applies (see builder.tsx): on a device whose saved prefs
- * are missing or still the untouched factory default, these become
- * the device's prefs. A device with its own curated prefs (Shaun's
- * computer) is never overwritten. Bump CAMPAIGN_DEFAULTS_VERSION if
- * a future list should re-apply to factory-default devices.
+ * How it applies (see builder.tsx): a one-time, versioned
+ * migration. Version 1 adopted these wholesale on devices whose
+ * prefs were missing or factory-default — but Shaun's phone had
+ * stored prefs that were neither, so it kept showing every race.
+ * Version 2 therefore MERGES: on any device that has not yet
+ * applied v2, the campaign's turned-off lists are unioned into the
+ * device's saved prefs and into the open character. Nothing is
+ * ever removed from a device's lists, and rulesets / house rules
+ * are never touched. After the migration the version key is
+ * current, so if Shaun later turns one of these back on, it
+ * stays on — the merge runs once, not forever.
  */
-export const CAMPAIGN_DEFAULTS_VERSION = 1;
+export const CAMPAIGN_DEFAULTS_VERSION = 2;
 export const CAMPAIGN_DEFAULTS_VERSION_KEY = "blendcrafter:campaign-defaults-version";
 
 export const CAMPAIGN_DEFAULT_PREFS: TogglePrefs = {
@@ -73,4 +79,32 @@ export function isFactoryDefaultPrefs(prefs: TogglePrefs | null): boolean {
     prefs.disabledAbilities.length === 0 &&
     JSON.stringify(prefs.houseRules) === JSON.stringify(DEFAULT_HOUSE_RULES)
   );
+}
+
+/**
+ * Union the campaign's turned-off lists into any object carrying
+ * the five disabled lists (a TogglePrefs or a CharacterBuild's
+ * toggle fields). Rulesets and house rules are NOT touched.
+ */
+export function withCampaignOffs<
+  T extends {
+    disabledRaceIds: string[];
+    disabledClassIds: string[];
+    disabledSkillIds: string[];
+    disabledFeatIds: string[];
+    disabledAbilities: TogglePrefs["disabledAbilities"];
+  },
+>(input: T): T {
+  const union = (a: string[], b: string[]) => Array.from(new Set([...a, ...b]));
+  return {
+    ...input,
+    disabledRaceIds: union(input.disabledRaceIds, CAMPAIGN_DEFAULT_PREFS.disabledRaceIds),
+    disabledClassIds: union(input.disabledClassIds, CAMPAIGN_DEFAULT_PREFS.disabledClassIds),
+    disabledSkillIds: union(input.disabledSkillIds, CAMPAIGN_DEFAULT_PREFS.disabledSkillIds),
+    disabledFeatIds: union(input.disabledFeatIds, CAMPAIGN_DEFAULT_PREFS.disabledFeatIds),
+    disabledAbilities: union(
+      input.disabledAbilities as string[],
+      CAMPAIGN_DEFAULT_PREFS.disabledAbilities as string[]
+    ) as TogglePrefs["disabledAbilities"],
+  };
 }
