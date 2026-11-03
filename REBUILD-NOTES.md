@@ -5258,3 +5258,24 @@ untouched, hard lock preserved, and after the one-time merge a
 later manual turn-on sticks. Union helper withCampaignOffs in
 campaign-defaults.ts, harness-verified (all 80 races land,
 device extras kept, idempotent).
+
+**Magic items recategorized (2026-11-02, Shaun: "do a better
+job recalibrating and recategorizing"):** the two giant buckets
+are split, evidence-only. Wondrous (1,274 + 1 stray
+"wondrous-item") is now organized by body slot — head 79,
+face 94, throat 119, shoulders 66, body 42, torso 54, arms 53,
+hands 81, waist 31, feet 53, slotless 482 — assigned only where
+the item's name or summary proves the slot (explicit summary
+slot statements overrode names); 121 records with no provable
+slot stay "wondrous" (shown as "Wondrous Items — Other"): the
+Teeth of Dahlver-Nar, quori shards, brooches, scarabs,
+talismans, chronocharms and kin. The merged
+armor-or-weapon-special-ability bucket (335) is split into
+armor 114 / weapon 207 / shield 14 (firearm abilities folded
+into weapon per Shaun's pick; heraldic crests are shield
+abilities per their summaries). Mapping + classifier kept in
+~/workspace/mi-rework/. Application note: 269 DMG audit
+wondrous rows live in tuple form in
+src/data/core/audit-magic-items-wondrous.ts — its Row type now
+carries an optional per-row category. Total records unchanged:
+2,128.

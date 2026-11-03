@@ -6,7 +6,7 @@ export const TOME_OF_MAGIC_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "chime-of-suppression",
     "name": "Chime of Suppression",
-    "category": "wondrous",
+    "category": "wondrous-slotless",
     "cost": "3,800 gp",
     "summary": "Triangular brass chime (1/2 lb.) that functions only for a wielder bound to a vestige: as a standard action, up to three times per day, it stifles one of the wielder's bound vestiges for 1 minute - the wielder loses access to all abilities granted by that spirit, but it has no influence over him and he does not show its sign.",
     "source": "Tome of Magic, p. 76",
@@ -16,7 +16,7 @@ export const TOME_OF_MAGIC_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "implements-of-binding",
     "name": "Implements of Binding",
-    "category": "wondrous",
+    "category": "wondrous-slotless",
     "cost": "1,530 gp",
     "summary": "Ivory chalice, bronze serpentine knife, and three crystal spheres in a carved teak box (10 lb.): used during the seal-drawing ritual by a character with the soul binding class feature, they provide a +2 competence bonus on the binding check to make a pact (variants grant +1 for 600 gp, +4 for 2,400 gp, +6 for 6,400 gp, or +8 for 12,000 gp). In combat the knife functions as a nonmagical masterwork dagger.",
     "source": "Tome of Magic, p. 76",
@@ -26,7 +26,7 @@ export const TOME_OF_MAGIC_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "soul-lens",
     "name": "Soul Lens",
-    "category": "wondrous",
+    "category": "wondrous-face",
     "cost": "12,000 gp",
     "summary": "Sapphire monocle in a gold ring (goggles slot) that functions only for a wearer bound to a vestige: the save DC of any supernatural ability granted by a vestige that the wearer uses increases by 1.",
     "source": "Tome of Magic, p. 76",
@@ -36,7 +36,7 @@ export const TOME_OF_MAGIC_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "seal-of-the-spirit",
     "name": "Seal of the Spirit",
-    "category": "wondrous",
+    "category": "wondrous-slotless",
     "cost": "6,000 gp",
     "summary": "Silk cloth embroidered with a particular vestige's seal in gold thread: activated as a standard action by speaking the spirit's name and placing it on a flat surface, it serves as the seal the binder would otherwise draw to contact that vestige, considerably reducing the time the conjuration takes. Usable once per day per seal; only characters with the soul binding class feature can use it.",
     "source": "Tome of Magic, p. 77",
@@ -46,7 +46,7 @@ export const TOME_OF_MAGIC_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "vestige-phylactery",
     "name": "Vestige Phylactery",
-    "category": "wondrous",
+    "category": "wondrous-head",
     "cost": "15,000 gp",
     "summary": "Ornate jade cube (5 lb.) that lets a binder swap bound vestiges without a second ritual: a vestige can be bound into the box (binding DC increases by 10) and later called forth as a full-round action to replace a currently bound vestige, once per day each way; a vestige can remain in the phylactery at most 24 hours. Requires the soul binding ability.",
     "source": "Tome of Magic, p. 79",
@@ -136,7 +136,7 @@ export const TOME_OF_MAGIC_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "shadow-striking",
     "name": "Shadow Striking (weapon ability)",
-    "category": "armor-or-weapon-special-ability",
+    "category": "weapon-special-ability",
     "cost": "+3 bonus",
     "summary": "The weapon attunes itself to a creature it strikes: when it hits a target that has damage reduction, it adjusts to emulate any alignment or substance required to overcome that damage reduction (the attunement fades 1d4 minutes after last contact with such a creature). The striking surface must be metal; bows, crossbows, and slings cannot benefit, but metal ammunition can. Creation must take place on the Plane of Shadow.",
     "source": "Tome of Magic, p. 155",
@@ -146,7 +146,7 @@ export const TOME_OF_MAGIC_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "darklantern",
     "name": "Darklantern",
-    "category": "wondrous",
+    "category": "wondrous-slotless",
     "cost": "2,000 gp",
     "summary": "Hooded black-iron lantern (2 lb.) fueled like a normal lantern and lit with a command word (full-round action): it sheds mystic light that creates shadowy illumination out to 60 feet, modifying the brightness of ambient light and of spells of equal or lower level with the light or darkness descriptor.",
     "source": "Tome of Magic, p. 156",
@@ -156,7 +156,7 @@ export const TOME_OF_MAGIC_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "collar-of-umbral-metamorphosis",
     "name": "Collar of Umbral Metamorphosis",
-    "category": "wondrous",
+    "category": "wondrous-throat",
     "cost": "10,800 gp",
     "summary": "Black leather collar (1 lb.) activated by command word (standard action) for up to 10 minutes per day (divided as desired, minimum 1 minute per use): it transforms the wearer into a being of shadow, bestowing the dark creature template. A continuous version has a market price of 22,000 gp.",
     "source": "Tome of Magic, p. 156",
@@ -166,7 +166,7 @@ export const TOME_OF_MAGIC_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "gem-of-night",
     "name": "Gem of Night",
-    "category": "wondrous",
+    "category": "wondrous-slotless",
     "cost": "1,500 gp",
     "summary": "Piece of solid shadow in the form of a reflective black gemstone: when crushed, smashed, or broken (standard action), it conjures a Large shadow elemental under the control of the creature that broke it; the elemental is banished back to the Plane of Shadow after 13 rounds.",
     "source": "Tome of Magic, p. 156",
@@ -176,7 +176,7 @@ export const TOME_OF_MAGIC_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "orb-of-shadow",
     "name": "Orb of Shadow",
-    "category": "wondrous",
+    "category": "wondrous-slotless",
     "cost": "1,000 gp (1st); 4,000 gp (2nd); 9,000 gp (3rd); 16,000 gp (4th); 25,000 gp (5th); 36,000 gp (6th); 49,000 gp (7th); 64,000 gp (8th); 81,000 gp (9th); 70,000 gp (two mysteries)",
     "summary": "Black pearl that works as a pearl of power for mysteries: once per day, on command (standard action, orb in hand), it recalls a single already-used mystery of the orb's designated level (1st through 9th), whether that mystery functions as a spell, spell-like ability, or supernatural ability. A two-mysteries version recalls two mysteries per day, each of a different level of 6th or lower.",
     "source": "Tome of Magic, p. 156",
@@ -186,7 +186,7 @@ export const TOME_OF_MAGIC_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "shroud-of-night",
     "name": "Shroud of Night",
-    "category": "wondrous",
+    "category": "wondrous-torso",
     "cost": "10,160 gp",
     "summary": "Weightless black gossamer wrap worn over the shoulders (occupies the vest body slot, 1 lb.): grants a constant +2 deflection bonus to Armor Class and can cast the dancing shadows and shadow skin mysteries each once per day, on the wearer only.",
     "source": "Tome of Magic, p. 157",
@@ -196,7 +196,7 @@ export const TOME_OF_MAGIC_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "greater-shroud-of-night",
     "name": "Shroud of Night, Greater",
-    "category": "wondrous",
+    "category": "wondrous-torso",
     "cost": "36,630 gp",
     "summary": "As a shroud of night, but grants a +3 deflection bonus to Armor Class and also enables the wearer to use voyage into shadow once per day (self only) by command word.",
     "source": "Tome of Magic, p. 157",
@@ -216,7 +216,7 @@ export const TOME_OF_MAGIC_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "amulet-of-the-silver-tongue",
     "name": "Amulet of the Silver Tongue",
-    "category": "wondrous",
+    "category": "wondrous-throat",
     "cost": "2,500 gp (lesser); 10,000 gp (greater)",
     "summary": "Silver amulet depicting a grinning open-mouthed face (often worn as a cloak clasp): grants an enhancement bonus on Truespeak checks while worn - +5 (lesser) or +10 (greater). Only creatures with the Truespeak skill benefit. Divine spellcasters sometimes use vestments of the silver tongue instead (add 625 gp for lesser, 5,000 gp for greater).",
     "source": "Tome of Magic, p. 263",
