@@ -5320,3 +5320,24 @@ join is by id suffix in describeMagicItem
 scrolls pick it up too. Other magic items show what their
 records hold (summary + cost) — nothing more exists in
 their data to show.
+
+**MIC specific armor/shields/weapons sweep (2026-11-02,
+Shaun: "Magic Shields are wrong, Magic armor is wrong,
+check them all again"):** the app's 833 Magic Item
+Compendium records were properties, crystals, and wondrous
+items only — the Compendium's SPECIFIC armor, shields, and
+weapons were never built, so those categories held only the
+DMG lists (armor 12, shields 8). Swept from Shaun's own MIC
+PDF (Dropbox, via his laptop after the connector's download
+route failed): new pack
+src/data/core/audit-magic-items-mic-specifics.ts, 91 records
+with printed prices — armor +18 (12 → 30), shields +7
+(8 → 15), weapons +63 built from Chapter 2 plus the two
+boundary weapons (30 → 93 net, after 3 arrows moved to
+ammunition: Arrow of Biting, Fountainhead Arrow, Raptor
+Arrow; ammunition 21 → 24). The sections begin one page
+before the TOC pages (armor p. 15, weapons p. 45); those six
+boundary entries are included. Gauntlet of Gruumsh and
+Storm Gauntlets already existed as hands items. Magic items
+total 6,004 → 6,095. Chapters' augment crystals were
+already cataloged and are not duplicated.
