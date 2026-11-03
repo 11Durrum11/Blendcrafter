@@ -5230,3 +5230,18 @@ pass through sanitizeTogglePrefs, so the cross-class
 double-cost hard lock stays off (harness-verified, along with
 the token round-trip and bad-token rejection). toggle-prefs.ts
 itself untouched — only imported.
+
+**Campaign defaults baked in (2026-11-02, Shaun: the phone and
+the group saw every race — "Fix it"):** toggle prefs are
+per-browser, so every fresh device started all-on. Shaun's own
+curated prefs were recovered intact from his computer's Chrome
+storage (80 races, 11 classes, 2 feats turned off; all ids
+verified to exist in the data) and now ship in
+src/lib/campaign-defaults.ts. On a device whose saved prefs
+are missing or still the untouched factory default, the app
+adopts his lists as its prefs and applies them to the open
+character; a device with its own curation (his computer) is
+never overwritten. Versioned via
+blendcrafter:campaign-defaults-version. toggle-prefs.ts and
+use-character-build.ts untouched — the seeding runs from
+builder.tsx through the existing prefs functions.

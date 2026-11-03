@@ -21,7 +21,8 @@ import { StepSheet } from "@/components/steps/step-sheet";
 import { useCharacterBuild } from "@/lib/use-character-build";
 import { exportCharacterJson, importCharacterJson } from "@/lib/character-io";
 import { buildShareUrl, buildTokenFromSearch, copyText, decodeBuildToken, decodeSettingsToken, settingsShareUrl, settingsTokenFromSearch } from "@/lib/build-link";
-import { prefsFromBuild, sanitizeTogglePrefs, saveTogglePrefs } from "@/lib/toggle-prefs";
+import { loadTogglePrefs, prefsFromBuild, sanitizeTogglePrefs, saveTogglePrefs } from "@/lib/toggle-prefs";
+import { CAMPAIGN_DEFAULT_PREFS, CAMPAIGN_DEFAULTS_VERSION, CAMPAIGN_DEFAULTS_VERSION_KEY, isFactoryDefaultPrefs } from "@/lib/campaign-defaults";
 import { useToast } from "@/hooks/use-toast";
 
 const STEPS = [
@@ -50,6 +51,40 @@ export default function Builder() {
 
   const cb = useCharacterBuild();
   const { build, resolved } = cb;
+
+  // Campaign defaults (Shaun, 2026-11-02): his curated toggle state
+  // ships with the app. Toggle prefs live in each browser's own
+  // storage, so his phone and his group's browsers all started from
+  // the factory default (everything on) and showed races he had
+  // turned off on his computer. On a device whose saved prefs are
+  // missing or still factory-default, his lists become the prefs
+  // (and are applied to the open character); a device with its own
+  // curation is never overwritten. Declared before the build-link
+  // effect so a linked character still wins for itself.
+  useEffect(() => {
+    try {
+      const applied = Number(globalThis.localStorage?.getItem(CAMPAIGN_DEFAULTS_VERSION_KEY) ?? 0);
+      if (applied >= CAMPAIGN_DEFAULTS_VERSION) return;
+      globalThis.localStorage?.setItem(CAMPAIGN_DEFAULTS_VERSION_KEY, String(CAMPAIGN_DEFAULTS_VERSION));
+      if (!isFactoryDefaultPrefs(loadTogglePrefs())) return;
+      const prefs = sanitizeTogglePrefs(CAMPAIGN_DEFAULT_PREFS);
+      saveTogglePrefs(prefs);
+      cb.setBuild({
+        ...build,
+        enabledRulesets: prefs.enabledRulesets,
+        houseRules: prefs.houseRules,
+        disabledRaceIds: prefs.disabledRaceIds,
+        disabledClassIds: prefs.disabledClassIds,
+        disabledSkillIds: prefs.disabledSkillIds,
+        disabledFeatIds: prefs.disabledFeatIds,
+        disabledAbilities: prefs.disabledAbilities,
+      });
+    } catch {
+      // Storage unavailable: nothing to seed; the app runs as before.
+    }
+    // Runs once on mount by design.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Build deep links (APOC hub connection): a ?build= token in the URL
   // carries a whole character — the Campaign Tracker links here. Load it
