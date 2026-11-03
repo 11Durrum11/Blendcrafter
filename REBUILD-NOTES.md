@@ -5505,3 +5505,14 @@ the catalog's id-dedupe the merged Equipment list shows food and drink 3 -> 411
 (gear 3,914 -> 3,509, service 361 -> 358; equipment total unchanged 8,120, dup
 ids 0). step-equipment.tsx: "Food & Drink" added to EQUIPMENT_CATEGORY_ORDER
 after Adventuring Gear. tsc clean, production build passes.
+
+## Currency block moved closer to the Wealth header (2026-11-03)
+Shaun: "Unwrap it, on the large screen" / "Move it over so to leave room so
+it doesn't wrap" / "move this closer to the wealth header". The currency
+block (Coin/Gems/Scripts/Cheqs, two lines since 2026-11-02) sat in the
+header's flex row pushed to the far side, capped at max-w-3xl and
+right-aligned, so each line wrapped even on his laptop. It now sits on its
+own full-width row directly under the Wealth title (mt-0.5, left-aligned),
+xl:text-[11px] with xl:whitespace-nowrap on both lines — measured to fit
+the card's full inner width (~1,056 px) with room to spare. Wording
+unchanged; small screens still wrap normally.

@@ -178,7 +178,7 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, wealthLimi
     <div className="space-y-6">
       <Card>
         <CardHeader>
-          <div className="flex flex-wrap items-start justify-between gap-3">
+          <div>
             <CardTitle className="font-display text-xl flex items-center gap-2">
               <Coins className="h-5 w-5 text-primary" /> Wealth
             </CardTitle>
@@ -189,18 +189,27 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, wealthLimi
                 1 pp = 10 gp, 50 coins to the pound; no electrum. */}
             {/* All four currency types on just two lines (Shaun,
                 2026-11-02): Coin + Gems on the first, Scripts +
-                Cheqs on the second. */}
+                Cheqs on the second. Moved to its own full-width row
+                under the title (Shaun, 2026-11-03: "Move it over so
+                to leave room so it doesn't wrap" and "move this
+                closer to the wealth header"): beside the title the
+                block was squeezed into max-w-3xl at the far side of
+                the header and each line wrapped; it now sits right
+                under the Wealth title and spans the full header
+                width at a slightly smaller size with wrapping off
+                on large screens, so each of the two lines stays on
+                one line. Small screens still wrap normally. */}
             <div
-              className="max-w-3xl space-y-1 text-xs leading-relaxed text-muted-foreground sm:text-right"
+              className="mt-0.5 w-full space-y-1 text-xs leading-relaxed text-muted-foreground xl:text-[11px]"
               data-testid="wealth-currency-types"
             >
-              <p>
+              <p className="xl:whitespace-nowrap">
                 <span className="font-medium text-foreground">Coin:</span> copper (cp), silver (sp), gold (gp),
                 platinum (pp) — 10 cp = 1 sp · 10 sp = 1 gp · 1 pp = 10 gp · 50 coins = 1 lb. ·{" "}
                 <span className="font-medium text-foreground">Gems:</span> 10 to a pound; compound pricing; price
                 is very appraise-dependent.
               </p>
-              <p>
+              <p className="xl:whitespace-nowrap">
                 <span className="font-medium text-foreground">Scripts:</span> paper money, 1 gp each; 500 to a
                 pound; very society-dependent. ·{" "}
                 <span className="font-medium text-foreground">Cheqs:</span> any amount; very lightweight; very
