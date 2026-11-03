@@ -49,7 +49,7 @@ export const RACES_OF_FAERUN_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
   {
     id: "battlerager",
     name: "Battlerager",
-    ruleset: "core",
+    ruleset: "faerun",
     source: `${APX} — Battlerager (pp. 178–179; Table A-6, p. 179)`,
     sourceUrl: ROF_PATH,
     hitDie: "d12",
@@ -90,7 +90,7 @@ export const RACES_OF_FAERUN_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
   {
     id: "bladesinger-rof",
     name: "Bladesinger",
-    ruleset: "core",
+    ruleset: "faerun",
     source: `${APX} — Bladesinger (pp. 179–180; Table A-7, p. 180)`,
     sourceUrl: ROF_PATH,
     hitDie: "d8",
@@ -130,7 +130,7 @@ export const RACES_OF_FAERUN_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
   {
     id: "breachgnome",
     name: "Breachgnome",
-    ruleset: "core",
+    ruleset: "faerun",
     source: `${APX} — Breachgnome (pp. 181–182; Table A-8, p. 181)`,
     sourceUrl: ROF_PATH,
     hitDie: "d10",
@@ -170,7 +170,7 @@ export const RACES_OF_FAERUN_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
   {
     id: "elven-high-mage",
     name: "Elven High Mage",
-    ruleset: "core",
+    ruleset: "faerun",
     source: `${APX} — Elven High Mage (pp. 182–183; Table A-9, p. 182)`,
     sourceUrl: ROF_PATH,
     hitDie: "d4",
@@ -210,7 +210,7 @@ export const RACES_OF_FAERUN_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
   {
     id: "great-rift-skyguard",
     name: "Great Rift Skyguard",
-    ruleset: "core",
+    ruleset: "faerun",
     source: `${APX} — Great Rift Skyguard (pp. 183–184; Table A-10, p. 183)`,
     sourceUrl: ROF_PATH,
     hitDie: "d10",
@@ -248,7 +248,7 @@ export const RACES_OF_FAERUN_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
   {
     id: "orc-warlord",
     name: "Orc Warlord",
-    ruleset: "core",
+    ruleset: "faerun",
     source: `${APX} — Orc Warlord (pp. 184–185; Table A-11, p. 184)`,
     sourceUrl: ROF_PATH,
     hitDie: "d12",
@@ -289,7 +289,7 @@ export const RACES_OF_FAERUN_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
   {
     id: "spellsinger",
     name: "Spellsinger",
-    ruleset: "core",
+    ruleset: "faerun",
     source: `${APX} — Spellsinger (pp. 185–186; Table A-12, p. 186)`,
     sourceUrl: ROF_PATH,
     hitDie: "d6",
@@ -327,7 +327,7 @@ export const RACES_OF_FAERUN_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
   {
     id: "warrior-skald",
     name: "Warrior Skald",
-    ruleset: "core",
+    ruleset: "faerun",
     source: `${APX} — Warrior Skald (pp. 187–188; Table A-13, p. 187)`,
     sourceUrl: ROF_PATH,
     hitDie: "d6",
@@ -364,7 +364,7 @@ export const RACES_OF_FAERUN_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
   {
     id: "warsling-sniper",
     name: "Warsling Sniper",
-    ruleset: "core",
+    ruleset: "faerun",
     source: `${APX} — Warsling Sniper (pp. 188–189; Table A-14, p. 188)`,
     sourceUrl: ROF_PATH,
     hitDie: "d6",

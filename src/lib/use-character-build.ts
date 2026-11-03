@@ -72,10 +72,13 @@ export function normalizeBuild(input: CharacterBuild): CharacterBuild {
     // version does not recognize is migrated to "homebrew" — the only
     // retired id that ever shipped — keeping saved toggle state and
     // homebrew content intact without the old name shipping in the app.
+    // ("faerun" joined the recognized list 2026-11-03, when Shaun had
+    // the Forgotten Realms rule set built; without it here, a build's
+    // faerun toggle would be silently rewritten to "homebrew" on load.)
     enabledRulesets: Array.from(
       new Set(
         (input.enabledRulesets ?? base.enabledRulesets).map((r) =>
-          (["core", "eberron", "iron_kingdoms", "sorcery_steam", "homebrew"] as string[]).includes(r as string)
+          (["core", "eberron", "faerun", "iron_kingdoms", "sorcery_steam", "homebrew"] as string[]).includes(r as string)
             ? r
             : ("homebrew" as Ruleset)
         )

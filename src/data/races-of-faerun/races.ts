@@ -6,9 +6,11 @@
  * Shaun's Dropbox library:
  *   /A POC PC related/5.Splat/Races of series/Races of Faerun.pdf
  *
- * Races of Faerun is a Forgotten Realms book, but the app's
- * sorting scheme has no Faerun toggle, so these records carry
- * ruleset "core" (see the Batch 7 addendum in REBUILD-NOTES.md).
+ * Races of Faerun is a Forgotten Realms book; these records
+ * carried ruleset "core" when built (the app had no Faerun
+ * toggle then — see the Batch 7 addendum in REBUILD-NOTES.md)
+ * and were retagged to ruleset "faerun" on 2026-11-03, when
+ * Shaun had the Forgotten Realms rule set built.
  * The book is a 3.0-era work (first printing March 2003) written
  * against the then-upcoming 3.5 revision; entries are recorded
  * in the app's 3.5 conventions where they differ.
@@ -41,7 +43,7 @@ export const RACES_OF_FAERUN_RACES: RaceDefinition[] = [
   {
     id: "gray-orc",
     name: "Gray Orc",
-    ruleset: "core",
+    ruleset: "faerun",
     source: `${ROF} — Chapter 5: Half-Orcs and Orcs, Gray Orc (p. 66)`,
     sourceUrl: ROF_PATH,
     size: "Medium",
@@ -102,7 +104,7 @@ export const RACES_OF_FAERUN_RACES: RaceDefinition[] = [
   {
     id: "mountain-orc",
     name: "Mountain Orc",
-    ruleset: "core",
+    ruleset: "faerun",
     source: `${ROF} — Chapter 5: Half-Orcs and Orcs, Mountain Orc (p. 70)`,
     sourceUrl: ROF_PATH,
     size: "Medium",
@@ -162,7 +164,7 @@ export const RACES_OF_FAERUN_RACES: RaceDefinition[] = [
   {
     id: "orog",
     name: "Orog",
-    ruleset: "core",
+    ruleset: "faerun",
     source: `${ROF} — Chapter 5: Half-Orcs and Orcs, Orog (p. 72)`,
     sourceUrl: ROF_PATH,
     size: "Medium",
@@ -241,7 +243,7 @@ export const RACES_OF_FAERUN_RACES: RaceDefinition[] = [
   {
     id: "feyri",
     name: "Fey'ri",
-    ruleset: "core",
+    ruleset: "faerun",
     source: `${ROF} — Chapter 8: Planetouched, Fey'ri (pp. 118–120)`,
     sourceUrl: ROF_PATH,
     size: "Medium",
@@ -321,7 +323,7 @@ export const RACES_OF_FAERUN_RACES: RaceDefinition[] = [
   {
     id: "tanarukk",
     name: "Tanarukk",
-    ruleset: "core",
+    ruleset: "faerun",
     source: `${ROF} — Chapter 8: Planetouched, Tanarukk (pp. 123–124)`,
     sourceUrl: ROF_PATH,
     size: "Medium",
@@ -418,7 +420,7 @@ export const RACES_OF_FAERUN_RACES: RaceDefinition[] = [
   {
     id: "aarakocra",
     name: "Aarakocra",
-    ruleset: "core",
+    ruleset: "faerun",
     source: `${ROF} — Chapter 9: Minor Races, Aarakocra (pp. 130–131)`,
     sourceUrl: ROF_PATH,
     size: "Medium",
@@ -489,7 +491,7 @@ export const RACES_OF_FAERUN_RACES: RaceDefinition[] = [
   {
     id: "dekanter-goblin",
     name: "Dekanter Goblin",
-    ruleset: "core",
+    ruleset: "faerun",
     source: `${ROF} — Chapter 9: Minor Races, Goblinoids (p. 137)`,
     sourceUrl: ROF_PATH,
     size: "Medium",
@@ -559,7 +561,7 @@ export const RACES_OF_FAERUN_RACES: RaceDefinition[] = [
   {
     id: "kir-lanan",
     name: "Kir-Lanan",
-    ruleset: "core",
+    ruleset: "faerun",
     source: `${ROF} — Chapter 9: Minor Races, Kir-Lanan (pp. 139–140)`,
     sourceUrl: ROF_PATH,
     size: "Medium",
@@ -659,7 +661,7 @@ export const RACES_OF_FAERUN_RACES: RaceDefinition[] = [
   {
     id: "lizardfolk",
     name: "Lizardfolk",
-    ruleset: "core",
+    ruleset: "faerun",
     source: `${ROF} — Chapter 9: Minor Races, Lizardfolk (p. 141)`,
     sourceUrl: ROF_PATH,
     size: "Medium",
@@ -732,7 +734,7 @@ export const RACES_OF_FAERUN_RACES: RaceDefinition[] = [
   {
     id: "wemic",
     name: "Wemic",
-    ruleset: "core",
+    ruleset: "faerun",
     source: `${ROF} — Chapter 9: Minor Races, Wemic (pp. 149–150)`,
     sourceUrl: ROF_PATH,
     size: "Large",
@@ -796,7 +798,7 @@ export const RACES_OF_FAERUN_RACES: RaceDefinition[] = [
   {
     id: "yuan-ti-pureblood",
     name: "Yuan-ti Pureblood",
-    ruleset: "core",
+    ruleset: "faerun",
     source: `${ROF} — Chapter 9: Minor Races, Yuan-ti (pp. 152–153)`,
     sourceUrl: ROF_PATH,
     size: "Medium",

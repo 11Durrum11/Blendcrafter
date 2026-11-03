@@ -21,7 +21,7 @@ export const ABILITY_LABEL: Record<AbilityKey, string> = {
   cha: "Charisma",
 };
 
-export type Ruleset = "core" | "eberron" | "iron_kingdoms" | "sorcery_steam" | "homebrew";
+export type Ruleset = "core" | "eberron" | "faerun" | "iron_kingdoms" | "sorcery_steam" | "homebrew";
 
 export type CreatureType =
   | "Aberration"

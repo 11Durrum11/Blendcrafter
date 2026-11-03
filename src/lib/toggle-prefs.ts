@@ -27,7 +27,7 @@ export interface TogglePrefs {
 
 const STORAGE_KEY = "blendcrafter:toggle-prefs";
 
-const KNOWN_RULESETS: readonly Ruleset[] = ["core", "eberron", "iron_kingdoms", "sorcery_steam", "homebrew"];
+const KNOWN_RULESETS: readonly Ruleset[] = ["core", "eberron", "faerun", "iron_kingdoms", "sorcery_steam", "homebrew"];
 
 /** First-run default (Shaun's live choice, 2026-10-27): every ruleset on. */
 export const ALL_RULESETS_ON: Ruleset[] = [...KNOWN_RULESETS];

@@ -7,12 +7,13 @@ import type { Ruleset } from "@/engine/types";
 export const RULESET_LABELS: Record<Ruleset, string> = {
   core: "Core / SRD",
   eberron: "Eberron",
+  faerun: "Forgotten Realms",
   iron_kingdoms: "Iron Kingdoms",
   sorcery_steam: "Sorcery & Steam",
   homebrew: "Homebrew",
 };
 
-const TOGGLEABLE_RULESETS: Ruleset[] = ["eberron", "iron_kingdoms", "sorcery_steam", "homebrew"];
+const TOGGLEABLE_RULESETS: Ruleset[] = ["eberron", "faerun", "iron_kingdoms", "sorcery_steam", "homebrew"];
 
 interface RulesetToggleProps {
   enabledRulesets: Ruleset[];

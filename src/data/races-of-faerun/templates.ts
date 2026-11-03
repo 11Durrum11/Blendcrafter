@@ -5,10 +5,11 @@
  * copy in Shaun's Dropbox library:
  *   /A POC PC related/5.Splat/Races of series/Races of Faerun.pdf
  *
- * Races of Faerun is a Forgotten Realms book filed under
- * ruleset "core" (no Faerun toggle exists in the app's sorting
- * scheme), and a 3.0-era book (March 2003) recorded in the
- * app's 3.5 conventions.
+ * Races of Faerun is a Forgotten Realms book, filed under
+ * ruleset "core" when built (no Faerun toggle existed then) and
+ * retagged to ruleset "faerun" on 2026-11-03, when Shaun had the
+ * Forgotten Realms rule set built. It is a 3.0-era book
+ * (March 2003) recorded in the app's 3.5 conventions.
  *
  * The book's lycanthrope chapter (pp. 142–146) prints a full
  * revised lycanthrope template, but a lycanthrope record
@@ -33,7 +34,7 @@ export const RACES_OF_FAERUN_TEMPLATES: TemplateDefinition[] = [
   {
     id: "shade",
     name: "Shade",
-    ruleset: "core",
+    ruleset: "faerun",
     timing: "acquired",
     summary:
       "A humanoid transformed by the Shadovar of Netheril into a creature of the Plane of Shadow: considered an outsider, +2 Constitution and +2 Charisma, and — only while in shadow or darkness — faster movement, a +4 deflection bonus to AC, +2 competence bonus on attacks and damage, +4 luck bonus on all saves, skill bonuses, control light, fast healing 2, invisibility, shadesight, shadow image, and (at higher levels) shadow stride and shadow travel, plus spell resistance. None of the shade's powers function in well-lit surroundings (daylight or the radius of a daylight spell). This book's character presentation prints no Challenge Rating adjustment, so crModifier is 0.",
@@ -149,7 +150,7 @@ export const RACES_OF_FAERUN_TEMPLATES: TemplateDefinition[] = [
   {
     id: "yuan-ti-tainted-one",
     name: "Yuan-ti Tainted One",
-    ruleset: "core",
+    ruleset: "faerun",
     timing: "acquired",
     summary:
       "A humanoid corrupted by drinking the yuan-ti servitor draught, gaining the listed traits in addition to the traits of the base creature: +2 Constitution, a venomous bite (delivered by grapple, not a natural attack), immunity to snake venom, spell resistance that scales with level, two psionic spell-like abilities, and the Alertness feat. This book's presentation prints no Challenge Rating adjustment, so crModifier is 0.",

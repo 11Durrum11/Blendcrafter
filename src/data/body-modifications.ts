@@ -639,7 +639,7 @@ export const BODY_MODIFICATIONS: BodyModificationDefinition[] = [
     "name": "Blazing Skeleton Claw",
     "kind": "graft",
     "family": "Undead grafts (Forgotten Realms)",
-    "ruleset": "core",
+    "ruleset": "faerun",
     "source": "Forgotten Realms compiled graft lists",
     "sourceUrl": "workspace/your_files/dnd-35-grafts-symbionts-components-list.md"
   },
@@ -648,7 +648,7 @@ export const BODY_MODIFICATIONS: BodyModificationDefinition[] = [
     "name": "Lich's Brain",
     "kind": "graft",
     "family": "Undead grafts (Forgotten Realms)",
-    "ruleset": "core",
+    "ruleset": "faerun",
     "source": "Forgotten Realms compiled graft lists",
     "sourceUrl": "workspace/your_files/dnd-35-grafts-symbionts-components-list.md"
   },
@@ -657,7 +657,7 @@ export const BODY_MODIFICATIONS: BodyModificationDefinition[] = [
     "name": "Wight's Claw",
     "kind": "graft",
     "family": "Undead grafts (Forgotten Realms)",
-    "ruleset": "core",
+    "ruleset": "faerun",
     "source": "Forgotten Realms compiled graft lists",
     "sourceUrl": "workspace/your_files/dnd-35-grafts-symbionts-components-list.md"
   },
@@ -666,7 +666,7 @@ export const BODY_MODIFICATIONS: BodyModificationDefinition[] = [
     "name": "Added Tail",
     "kind": "graft",
     "family": "Yuan-ti grafts",
-    "ruleset": "core",
+    "ruleset": "faerun",
     "source": "Fiend Folio — Appendix 2; Serpent Kingdoms",
     "sourceUrl": "workspace/your_files/dnd-35-grafts-symbionts-components-list.md",
     "cost": "6,000 gp"
@@ -676,7 +676,7 @@ export const BODY_MODIFICATIONS: BodyModificationDefinition[] = [
     "name": "Poison Fangs",
     "kind": "graft",
     "family": "Yuan-ti grafts",
-    "ruleset": "core",
+    "ruleset": "faerun",
     "source": "Fiend Folio — Appendix 2; Serpent Kingdoms",
     "sourceUrl": "workspace/your_files/dnd-35-grafts-symbionts-components-list.md",
     "cost": "8,000 gp"
@@ -686,7 +686,7 @@ export const BODY_MODIFICATIONS: BodyModificationDefinition[] = [
     "name": "Replacement Tail",
     "kind": "graft",
     "family": "Yuan-ti grafts",
-    "ruleset": "core",
+    "ruleset": "faerun",
     "source": "Fiend Folio — Appendix 2; Serpent Kingdoms",
     "sourceUrl": "workspace/your_files/dnd-35-grafts-symbionts-components-list.md",
     "cost": "12,000 gp"
@@ -696,7 +696,7 @@ export const BODY_MODIFICATIONS: BodyModificationDefinition[] = [
     "name": "Scaly Skin",
     "kind": "graft",
     "family": "Yuan-ti grafts",
-    "ruleset": "core",
+    "ruleset": "faerun",
     "source": "Fiend Folio — Appendix 2; Serpent Kingdoms",
     "sourceUrl": "workspace/your_files/dnd-35-grafts-symbionts-components-list.md",
     "cost": "36,000 gp"
@@ -706,7 +706,7 @@ export const BODY_MODIFICATIONS: BodyModificationDefinition[] = [
     "name": "Serpent Arm",
     "kind": "graft",
     "family": "Yuan-ti grafts",
-    "ruleset": "core",
+    "ruleset": "faerun",
     "source": "Fiend Folio — Appendix 2; Serpent Kingdoms",
     "sourceUrl": "workspace/your_files/dnd-35-grafts-symbionts-components-list.md"
   },

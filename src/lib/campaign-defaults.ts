@@ -24,12 +24,21 @@ import type { TogglePrefs } from "@/lib/toggle-prefs";
  * are never touched. After the migration the version key is
  * current, so if Shaun later turns one of these back on, it
  * stays on — the merge runs once, not forever.
+ *
+ * Version 3 (2026-11-03, Shaun: "Build the Forgotten Realms rule
+ * set"): the "faerun" ruleset is new — the FR records used to be
+ * tagged "core", so they were visible on every device. To keep
+ * exactly what everyone sees today, the v3 merge also unions
+ * "faerun" into enabledRulesets (saved prefs and open character),
+ * once. That is the one ruleset change a merge has ever made, and
+ * it only ever ADDS the new set: if Shaun later turns Forgotten
+ * Realms off, the version key is already current and it stays off.
  */
-export const CAMPAIGN_DEFAULTS_VERSION = 2;
+export const CAMPAIGN_DEFAULTS_VERSION = 3;
 export const CAMPAIGN_DEFAULTS_VERSION_KEY = "blendcrafter:campaign-defaults-version";
 
 export const CAMPAIGN_DEFAULT_PREFS: TogglePrefs = {
-  enabledRulesets: ["core", "eberron", "iron_kingdoms", "sorcery_steam", "homebrew"],
+  enabledRulesets: ["core", "eberron", "faerun", "iron_kingdoms", "sorcery_steam", "homebrew"],
   houseRules: {
     crossClassSkillDoubleCost: false,
     crossClassSkillHalfCap: true,
@@ -71,7 +80,7 @@ export const CAMPAIGN_DEFAULT_PREFS: TogglePrefs = {
 export function isFactoryDefaultPrefs(prefs: TogglePrefs | null): boolean {
   if (prefs === null) return true;
   return (
-    prefs.enabledRulesets.length === 5 &&
+    prefs.enabledRulesets.length === 6 &&
     prefs.disabledRaceIds.length === 0 &&
     prefs.disabledClassIds.length === 0 &&
     prefs.disabledSkillIds.length === 0 &&
@@ -84,7 +93,12 @@ export function isFactoryDefaultPrefs(prefs: TogglePrefs | null): boolean {
 /**
  * Union the campaign's turned-off lists into any object carrying
  * the five disabled lists (a TogglePrefs or a CharacterBuild's
- * toggle fields). Rulesets and house rules are NOT touched.
+ * toggle fields). House rules are NOT touched. Rulesets are
+ * touched in exactly one way since v3: "faerun" is unioned into
+ * enabledRulesets when the object carries that field, so the new
+ * Forgotten Realms set starts ON (its records were core-tagged
+ * and visible before) instead of silently hiding FR content on
+ * devices whose saved prefs predate the set.
  */
 export function withCampaignOffs<
   T extends {
@@ -93,11 +107,15 @@ export function withCampaignOffs<
     disabledSkillIds: string[];
     disabledFeatIds: string[];
     disabledAbilities: TogglePrefs["disabledAbilities"];
+    enabledRulesets?: TogglePrefs["enabledRulesets"];
   },
 >(input: T): T {
   const union = (a: string[], b: string[]) => Array.from(new Set([...a, ...b]));
   return {
     ...input,
+    ...(input.enabledRulesets
+      ? { enabledRulesets: union(input.enabledRulesets as string[], ["faerun"]) }
+      : {}),
     disabledRaceIds: union(input.disabledRaceIds, CAMPAIGN_DEFAULT_PREFS.disabledRaceIds),
     disabledClassIds: union(input.disabledClassIds, CAMPAIGN_DEFAULT_PREFS.disabledClassIds),
     disabledSkillIds: union(input.disabledSkillIds, CAMPAIGN_DEFAULT_PREFS.disabledSkillIds),

@@ -12,7 +12,7 @@ export const RACES_OF_FAERUN_EQUIPMENT: EquipmentItem[] = [
     "notes": "A heavy aspergillum (1d8 bludgeoning, x2) that holds a flask of holy water and can release it on a successful attack — each such use expends one flask of holy water per attack, whether or not the attack succeeds, up to once per attack. It can also make ranged touch attacks with holy water like a normal aspergillum. Pouring a flask into it is a standard action that provokes attacks of opportunity.",
     "source": "Races of Faerun, p. 155",
     "sourceUrl": "/A POC PC related/5.Splat/Races of series/Races of Faerun.pdf",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "battle-gauntlet",
@@ -23,7 +23,7 @@ export const RACES_OF_FAERUN_EQUIPMENT: EquipmentItem[] = [
     "notes": "Price and weight are for a single battle gauntlet. This thick band of metal covers the forearm and part of the hand, letting the wearer make unarmed strikes as if armed; it can be fitted with spikes or blades (making it function as a spiked gauntlet or claw bracer). While wearing one, the wearer cannot wear any other magical gauntlet or bracer on that arm.",
     "source": "Races of Faerun, p. 155",
     "sourceUrl": "/A POC PC related/5.Splat/Races of series/Races of Faerun.pdf",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "dart-acid",
@@ -34,7 +34,7 @@ export const RACES_OF_FAERUN_EQUIPMENT: EquipmentItem[] = [
     "notes": "A hollow dart that breaks when it hits, splashing the victim with acid: an additional 1d6 points of acid damage on top of the dart's normal 1d4 piercing damage. Once used, the dart is useless. Range increment 20 feet.",
     "source": "Races of Faerun, p. 155",
     "sourceUrl": "/A POC PC related/5.Splat/Races of series/Races of Faerun.pdf",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "dart-stun",
@@ -45,7 +45,7 @@ export const RACES_OF_FAERUN_EQUIPMENT: EquipmentItem[] = [
     "notes": "A hollow dart that releases a small puff of poison gas when it hits: the victim must make a Fortitude save (DC 12) or be stunned for 1 round, and after 1 round must save again (DC 12) or be stunned for an additional 1d4 rounds. Range increment 20 feet.",
     "source": "Races of Faerun, p. 155",
     "sourceUrl": "/A POC PC related/5.Splat/Races of series/Races of Faerun.pdf",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "dart-barbed",
@@ -56,7 +56,7 @@ export const RACES_OF_FAERUN_EQUIPMENT: EquipmentItem[] = [
     "notes": "A crude, heavy throwing dart, both fletched and barbed, measuring two to three feet long (1d4 damage, 18-20/x2). Range increment 20 feet.",
     "source": "Races of Faerun, p. 155",
     "sourceUrl": "/A POC PC related/5.Splat/Races of series/Races of Faerun.pdf",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "jambiya",
@@ -67,7 +67,7 @@ export const RACES_OF_FAERUN_EQUIPMENT: EquipmentItem[] = [
     "notes": "A hooked dagger common among the Calishites and Zakharans that leaves long, thin wounds (1d3 damage, 18-20/x2).",
     "source": "Races of Faerun, p. 157",
     "sourceUrl": "/A POC PC related/5.Splat/Races of series/Races of Faerun.pdf",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "horned-helmet",
@@ -78,7 +78,7 @@ export const RACES_OF_FAERUN_EQUIPMENT: EquipmentItem[] = [
     "notes": "A helmet with bull's horns attached to each side (1d4 damage, x2). It deals double normal damage when used during a charge action, but the helmet has a reach of 0 feet.",
     "source": "Races of Faerun, p. 157",
     "sourceUrl": "/A POC PC related/5.Splat/Races of series/Races of Faerun.pdf",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "spiked-helmet",
@@ -89,7 +89,7 @@ export const RACES_OF_FAERUN_EQUIPMENT: EquipmentItem[] = [
     "notes": "A helmet with a single spike standing straight out from the top (1d3 damage, x2). It deals double normal damage when used during a charge action, but the helmet has a reach of 0 feet.",
     "source": "Races of Faerun, p. 157",
     "sourceUrl": "/A POC PC related/5.Splat/Races of series/Races of Faerun.pdf",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "steelsword-chondathan",
@@ -100,7 +100,7 @@ export const RACES_OF_FAERUN_EQUIPMENT: EquipmentItem[] = [
     "notes": "A Chondathan steelsword (1d8 damage, 19-20/x2), priced as a masterwork longsword.",
     "source": "Races of Faerun, p. 155",
     "sourceUrl": "/A POC PC related/5.Splat/Races of series/Races of Faerun.pdf",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "lance-flight",
@@ -111,7 +111,7 @@ export const RACES_OF_FAERUN_EQUIPMENT: EquipmentItem[] = [
     "notes": "A 10-foot wooden shaft topped by a blade, its back end fletched to keep its flight true (1d8 damage, x3). Normally used with a charge while flying and hurled at the bottom of a swoop maneuver; it may be used as a melee weapon as if it were a shortspear. Range increment 30 feet.",
     "source": "Races of Faerun, p. 157",
     "sourceUrl": "/A POC PC related/5.Splat/Races of series/Races of Faerun.pdf",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "longbow-aquatic",
@@ -122,7 +122,7 @@ export const RACES_OF_FAERUN_EQUIPMENT: EquipmentItem[] = [
     "notes": "A longbow crafted by aquatic elves (1d8 damage, x3; range increment 60 feet) that fires with no penalty for being underwater (ranged attacks underwater ordinarily suffer a -2 penalty for every 5 feet of water they pass through). Mighty composite versions cost 600 gp (+1 Str), 700 gp (+2), 800 gp (+3), or 900 gp (+4).",
     "source": "Races of Faerun, p. 157",
     "sourceUrl": "/A POC PC related/5.Splat/Races of series/Races of Faerun.pdf",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "goblin-stick",
@@ -133,7 +133,7 @@ export const RACES_OF_FAERUN_EQUIPMENT: EquipmentItem[] = [
     "notes": "A forked and hooked pole arm 6 to 9 feet long, first used by bugbears to catch hiding goblins (1d6 damage, 19-20/x2). It is a double weapon and can also be used to make trip attacks.",
     "source": "Races of Faerun, p. 157",
     "sourceUrl": "/A POC PC related/5.Splat/Races of series/Races of Faerun.pdf",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "bolas-two-ball",
@@ -144,7 +144,7 @@ export const RACES_OF_FAERUN_EQUIPMENT: EquipmentItem[] = [
     "notes": "Two heavy spheres of wood, stone, or metal connected by cords (1d4 damage, x2). When thrown, make a ranged touch attack; on a hit, the opponent must succeed on a Dexterity or Strength check opposed by your Strength check or be tripped. They can trip only Medium-size or smaller opponents, and your opponent cannot trip you on your failed attempt. Range increment 10 feet.",
     "source": "Races of Faerun, p. 157",
     "sourceUrl": "/A POC PC related/5.Splat/Races of series/Races of Faerun.pdf",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "lasso-rof",
@@ -155,7 +155,7 @@ export const RACES_OF_FAERUN_EQUIPMENT: EquipmentItem[] = [
     "notes": "A thin rope knotted with a slipknot forming a large loop. Thrown at a Medium-size or smaller target with a ranged touch attack; on a hit you immediately start a grapple against the target with a -4 penalty (all normal grapple modifiers apply), and you may use an attack to attempt to trip the target. You cannot damage or pin the opponent with it, and you are not considered to be grappling. Range increment 10 feet.",
     "source": "Races of Faerun, p. 157",
     "sourceUrl": "/A POC PC related/5.Splat/Races of series/Races of Faerun.pdf",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "warsling-halfling",
@@ -166,7 +166,7 @@ export const RACES_OF_FAERUN_EQUIPMENT: EquipmentItem[] = [
     "notes": "A perfectly balanced, sturdy sling (range increment 50 feet). The listed damage (1d6) assumes skiprock ammunition; ordinary sling bullets deal 1d4 points of damage. If a user proficient in both skiprock and the warsling throws skiprocks with a warsling, they can be ricocheted just as if they were thrown.",
     "source": "Races of Faerun, p. 157",
     "sourceUrl": "/A POC PC related/5.Splat/Races of series/Races of Faerun.pdf",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "harpoon-arctic",
@@ -177,7 +177,7 @@ export const RACES_OF_FAERUN_EQUIPMENT: EquipmentItem[] = [
     "notes": "A broad-bladed barbed spear favored by arctic dwarves, with a 30-foot trailing rope (1d8 damage, x2; range increment 20 feet). If you deal damage, the harpoon may lodge in the victim if it fails a Reflex save against a DC of 10 + the damage dealt: a harpooned creature moves at only half speed, cannot charge or run, and must succeed on a Concentration check (DC 10 + damage dealt) to cast a spell. Removing it takes two free hands and a full-round action and deals the victim damage equal to the initial damage, or can be done safely with a Heal check (DC 10 + damage dealt) taking 1 minute.",
     "source": "Races of Faerun, p. 157",
     "sourceUrl": "/A POC PC related/5.Splat/Races of series/Races of Faerun.pdf",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "arrow-flight",
@@ -188,7 +188,7 @@ export const RACES_OF_FAERUN_EQUIPMENT: EquipmentItem[] = [
     "notes": "A masterwork arrow whose light shaft and special design increase a bow's range increment by 20 feet. Price and weight are for a single arrow.",
     "source": "Races of Faerun, p. 155",
     "sourceUrl": "/A POC PC related/5.Splat/Races of series/Races of Faerun.pdf",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "arrow-sea",
@@ -199,7 +199,7 @@ export const RACES_OF_FAERUN_EQUIPMENT: EquipmentItem[] = [
     "notes": "An arrow (or bolt) fletched by aquatic elves, treated as masterwork but granting no +1 enhancement bonus on attack rolls; instead, when fired from an aquatic longbow, it negates the -2 penalty per 5 feet for making a ranged attack underwater. Price and weight are for a single arrow.",
     "source": "Races of Faerun, p. 155",
     "sourceUrl": "/A POC PC related/5.Splat/Races of series/Races of Faerun.pdf",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "arrow-signal",
@@ -210,7 +210,7 @@ export const RACES_OF_FAERUN_EQUIPMENT: EquipmentItem[] = [
     "notes": "A masterwork arrow specially carved to emulate a bird's call when fired, used by wood elf fletchers to signal (a hawk's cry for attack, an owl's cry for a stealthy advance). Anyone overhearing may make a Survival check (DC 20) to determine whether the call comes from a living bird or another source; the intricate carving makes the arrow clumsy in flight, imposing a -2 penalty on attack rolls. Price and weight are for a single arrow.",
     "source": "Races of Faerun, p. 155",
     "sourceUrl": "/A POC PC related/5.Splat/Races of series/Races of Faerun.pdf",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "mud-armor",
@@ -222,7 +222,7 @@ export const RACES_OF_FAERUN_EQUIPMENT: EquipmentItem[] = [
     "acBonus": 1,
     "source": "Races of Faerun, p. 158",
     "sourceUrl": "/A POC PC related/5.Splat/Races of series/Races of Faerun.pdf",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "sharkskin-armor",
@@ -234,7 +234,7 @@ export const RACES_OF_FAERUN_EQUIPMENT: EquipmentItem[] = [
     "acBonus": 3,
     "source": "Races of Faerun, p. 158",
     "sourceUrl": "/A POC PC related/5.Splat/Races of series/Races of Faerun.pdf",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "chitin-armor",
@@ -246,7 +246,7 @@ export const RACES_OF_FAERUN_EQUIPMENT: EquipmentItem[] = [
     "acBonus": 5,
     "source": "Races of Faerun, p. 158",
     "sourceUrl": "/A POC PC related/5.Splat/Races of series/Races of Faerun.pdf",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "dendritic-crystal-armor",
@@ -258,7 +258,7 @@ export const RACES_OF_FAERUN_EQUIPMENT: EquipmentItem[] = [
     "acBonus": 9,
     "source": "Races of Faerun, p. 158",
     "sourceUrl": "/A POC PC related/5.Splat/Races of series/Races of Faerun.pdf",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "grasping-shield",
@@ -270,7 +270,7 @@ export const RACES_OF_FAERUN_EQUIPMENT: EquipmentItem[] = [
     "acBonus": 1,
     "source": "Races of Faerun, p. 158",
     "sourceUrl": "/A POC PC related/5.Splat/Races of series/Races of Faerun.pdf",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "armor-lubricant",
@@ -281,7 +281,7 @@ export const RACES_OF_FAERUN_EQUIPMENT: EquipmentItem[] = [
     "notes": "A nonmagical oil that reduces the friction impeding movement in metallic armor: one application (1 minute to apply) reduces the armor check penalty by 1 (to a minimum of 0) for 1d4 hours. It cannot be applied to armor currently being worn and provides no benefit to shields or armor not made primarily of metal. Creating one application requires a successful Alchemy check (DC 15).",
     "source": "Races of Faerun, p. 159",
     "sourceUrl": "/A POC PC related/5.Splat/Races of series/Races of Faerun.pdf",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "caltrops-crystal",
@@ -292,7 +292,7 @@ export const RACES_OF_FAERUN_EQUIPMENT: EquipmentItem[] = [
     "notes": "Caltrops made of a tough crystal, deployed like traditional caltrops. When they score a hit, they do normal caltrop damage and release a poisonous gas: the victim must make a Fortitude save (DC 12) or fall asleep for 1 minute, and after 1 minute must save again (DC 12) or sleep for an additional 1d4 minutes. The gas affects creatures immune to magical sleep, but not creatures immune to poison.",
     "source": "Races of Faerun, p. 159",
     "sourceUrl": "/A POC PC related/5.Splat/Races of series/Races of Faerun.pdf",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "drogue-wing",
@@ -303,7 +303,7 @@ export const RACES_OF_FAERUN_EQUIPMENT: EquipmentItem[] = [
     "notes": "A pleated cloak that unfurls into a gliding batlike wing 15 feet across if the wearer falls more than 20 feet. It needs another 20 feet of falling distance to arrest the fall and unrestricted gliding room (at least 50 feet in diameter); if all three conditions are met, it negates falling damage. Once deployed, it must be carefully refolded (1 full hour) before reuse, and there is a 25% chance it is ruined when used (see the book's full description).",
     "source": "Races of Faerun, p. 159",
     "sourceUrl": "/A POC PC related/5.Splat/Races of series/Races of Faerun.pdf",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "footsaw-trap",
@@ -314,7 +314,7 @@ export const RACES_OF_FAERUN_EQUIPMENT: EquipmentItem[] = [
     "notes": "A portable trap (CR 2) whose jaws are fitted with thin spring-mounted saw blades, designed to cut the feet of any captured creature. It can be concealed under a thin layer of leaves or soil (Search DC 15 to discover, Disable Device DC 15 to disable). Anyone who walks over it triggers it: a melee touch attack with a +8 bonus deals 1d6 points of damage, and a caught victim moves at half speed (or cannot move if the trap is chained to another object), taking an additional 1d4 points of damage each round it takes any action; escape requires breaking the attachment, a Strength check (DC 25), or an Escape Artist check (DC 30). Constructed with Craft (trapmaking) DC 20.",
     "source": "Races of Faerun, p. 159",
     "sourceUrl": "/A POC PC related/5.Splat/Races of series/Races of Faerun.pdf",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "mobile-brace",
@@ -325,7 +325,7 @@ export const RACES_OF_FAERUN_EQUIPMENT: EquipmentItem[] = [
     "notes": "A small staff that can extend and lock at any length from 2 to 11 feet, commonly used to make a sturdy brace across a passage, granting a sure purchase for one or more climbers — even on soft, slippery, crumbling, or otherwise unsure walls — so a skilled climber can set a brace on the far side of an obstacle and give less nimble characters something to hang on to while they cross.",
     "source": "Races of Faerun, p. 159",
     "sourceUrl": "/A POC PC related/5.Splat/Races of series/Races of Faerun.pdf",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "potion-bladder",
@@ -336,7 +336,7 @@ export const RACES_OF_FAERUN_EQUIPMENT: EquipmentItem[] = [
     "notes": "A flexible, narrow-necked pouch, usually of oiled leather or the preserved stomach of a small animal, holding 1 ounce of liquid (the same volume as a potion). Used extensively by water-dwelling creatures such as aquatic elves, it can be squeezed carefully to allow drinking of fluids (such as potions) underwater without spilling.",
     "source": "Races of Faerun, p. 160",
     "sourceUrl": "/A POC PC related/5.Splat/Races of series/Races of Faerun.pdf",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "rope-climber",
@@ -347,7 +347,7 @@ export const RACES_OF_FAERUN_EQUIPMENT: EquipmentItem[] = [
     "notes": "A hand-held device of powerful winch and locking wheel assembly that fits most standard ropes. Using it to ascend a rope grants a +5 circumstance bonus on Climb checks but halves the rate of ascent; threading a rope through it (or removing it) is a full-round action. Its locking wheels turn only in one direction, preventing the user from slipping back down.",
     "source": "Races of Faerun, p. 160",
     "sourceUrl": "/A POC PC related/5.Splat/Races of series/Races of Faerun.pdf",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "snowshoes-rof",
@@ -358,7 +358,7 @@ export const RACES_OF_FAERUN_EQUIPMENT: EquipmentItem[] = [
     "notes": "Fashioned of wood and strips of rawhide or sinew, snowshoes eliminate the hampered movement penalty for movement across deep snow but impose a 1/2 movement penalty across other types of terrain.",
     "source": "Races of Faerun, p. 160",
     "sourceUrl": "/A POC PC related/5.Splat/Races of series/Races of Faerun.pdf",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "wagon-shield-standard",
@@ -369,7 +369,7 @@ export const RACES_OF_FAERUN_EQUIPMENT: EquipmentItem[] = [
     "notes": "A large wooden shield of solid oak reinforced with iron (hardness 5, 30 hit points), quickly fitted together with others to protect wagons and similar open-topped vehicles. One person can mount a wagon shield as a full-round action (two people working together, a standard action); once mounted, each shield provides a Small character in the wagon with three-quarters cover and a Medium character with one-half cover. Normally sold in quantities of six.",
     "source": "Races of Faerun, p. 160",
     "sourceUrl": "/A POC PC related/5.Splat/Races of series/Races of Faerun.pdf",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "wagon-shield-sniper",
@@ -380,7 +380,7 @@ export const RACES_OF_FAERUN_EQUIPMENT: EquipmentItem[] = [
     "notes": "A wagon shield fitted with arrow slits, allowing those inside the wagon to fire on attackers without additional exposure; otherwise as a standard wagon shield (hardness 5, 30 hit points; three-quarters cover for a Small character, one-half cover for a Medium character once mounted).",
     "source": "Races of Faerun, p. 160",
     "sourceUrl": "/A POC PC related/5.Splat/Races of series/Races of Faerun.pdf",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "drow-poison",
@@ -391,7 +391,7 @@ export const RACES_OF_FAERUN_EQUIPMENT: EquipmentItem[] = [
     "notes": "Poison, injury, Fortitude DC 13. The dark elves carefully guard the secret of their unconsciousness-inducing venom, and it is exceedingly difficult to find outside drow realms and outposts. Initial damage: unconsciousness for 1 minute; secondary damage: unconsciousness for 2d4 hours.",
     "source": "Races of Faerun, p. 160",
     "sourceUrl": "/A POC PC related/5.Splat/Races of series/Races of Faerun.pdf",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "instant-campfire",
@@ -402,7 +402,7 @@ export const RACES_OF_FAERUN_EQUIPMENT: EquipmentItem[] = [
     "notes": "A leather bag filled with tinder, logs, and fuel, its drawstring studded with tiny flakes of flint and steel and the sack alchemically treated to catch fire easily. When the drawstring is pulled, the entire bag immolates, creating a Tiny campfire (suitable for cooking) in 1 round; the campfire lasts for 30 minutes after ignition but can be fed with dry wood like any other fire. It ignites even in moderate rain but burns out quickly in wet conditions unless shelter is provided.",
     "source": "Races of Faerun, p. 160",
     "sourceUrl": "/A POC PC related/5.Splat/Races of series/Races of Faerun.pdf",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "wild-dwarf-knockout-poison",
@@ -413,7 +413,7 @@ export const RACES_OF_FAERUN_EQUIPMENT: EquipmentItem[] = [
     "notes": "Poison, injury, Fortitude DC 14, made from a plant that grows only in the Jungles of Chult and used to coat blowgun darts (wild dwarves are immune to it). Initial damage: slow effect for 5 rounds; secondary damage: unconsciousness for 1 minute.",
     "source": "Races of Faerun, p. 160",
     "sourceUrl": "/A POC PC related/5.Splat/Races of series/Races of Faerun.pdf",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "calishite-mail",
@@ -425,7 +425,7 @@ export const RACES_OF_FAERUN_EQUIPMENT: EquipmentItem[] = [
     "acBonus": 6,
     "source": "Races of Faerun, p. 171",
     "sourceUrl": "/A POC PC related/5.Splat/Races of series/Races of Faerun.pdf",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "earthskin",
@@ -437,7 +437,7 @@ export const RACES_OF_FAERUN_EQUIPMENT: EquipmentItem[] = [
     "acBonus": 10,
     "source": "Races of Faerun, p. 171",
     "sourceUrl": "/A POC PC related/5.Splat/Races of series/Races of Faerun.pdf",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "roaring-armor-of-ammarindar",
@@ -449,7 +449,7 @@ export const RACES_OF_FAERUN_EQUIPMENT: EquipmentItem[] = [
     "acBonus": 7,
     "source": "Races of Faerun, p. 171",
     "sourceUrl": "/A POC PC related/5.Splat/Races of series/Races of Faerun.pdf",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "burning-battle-gauntlets",
@@ -460,7 +460,7 @@ export const RACES_OF_FAERUN_EQUIPMENT: EquipmentItem[] = [
     "notes": "Price is for a single gauntlet. Created by the fiends of Hellgate Keep for their tanarukk minions, these +1 flaming battle gauntlets are not actually on fire but are constantly hot to the touch, dealing fire damage whenever the wearer punches an opponent (and to grappling damage as well). They are hot enough to ignite flammable objects, and anyone wearing them suffers 1d6 points of fire damage per round, making them unsuitable for anyone not resistant to fire damage. Caster level 10th. Weight is the battle gauntlet weight; the entry prints no weight.",
     "source": "Races of Faerun, p. 172",
     "sourceUrl": "/A POC PC related/5.Splat/Races of series/Races of Faerun.pdf",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "fiendhunter-two-bladed-sword",
@@ -471,7 +471,7 @@ export const RACES_OF_FAERUN_EQUIPMENT: EquipmentItem[] = [
     "notes": "A two-bladed sword whose green tip crackles with green sparks and whose red tip is limned with a dull red glow. The green side is a +1 sure striking weapon that forces any evil extraplanar creature hit by it to succeed on a Will save (DC 16) or suffer a dismissal effect (as the spell from an 8th-level caster), three times per day. The red side is also a +1 sure striking weapon, but evil extraplanar creatures hit by it are unable to engage in extradimensional travel (as the dimensional anchor spell) for 8 minutes, also three times per day. Caster level 8th. Weight is the two-bladed sword weight; the entry prints no weight.",
     "source": "Races of Faerun, p. 172",
     "sourceUrl": "/A POC PC related/5.Splat/Races of series/Races of Faerun.pdf",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "foesplitter-axe",
@@ -482,7 +482,7 @@ export const RACES_OF_FAERUN_EQUIPMENT: EquipmentItem[] = [
     "notes": "A +1 keen battleaxe with a steel haft (hardness 10, 25 hp), crafted by the shield dwarves of the North. Caster level 6th; the creator must be a shield dwarf. Weight is the battleaxe weight; the entry prints no weight.",
     "source": "Races of Faerun, p. 172",
     "sourceUrl": "/A POC PC related/5.Splat/Races of series/Races of Faerun.pdf",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "kerrenderit-arrow",
@@ -493,7 +493,7 @@ export const RACES_OF_FAERUN_EQUIPMENT: EquipmentItem[] = [
     "notes": "A single +1 arrow made from ice crystals from the Great Glacier, fashioned by the arctic dwarves. Kerrenderit arrows have the wounding special ability and a range increment 25 feet farther than normal arrows; if exposed to temperatures above 50 degrees for more than 1 hour, their icy arrowheads melt into uselessness. Caster level 12th.",
     "source": "Races of Faerun, p. 172",
     "sourceUrl": "/A POC PC related/5.Splat/Races of series/Races of Faerun.pdf",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "scimitar-of-the-sirocco",
@@ -504,7 +504,7 @@ export const RACES_OF_FAERUN_EQUIPMENT: EquipmentItem[] = [
     "notes": "A +1 keen scimitar graced by a pommel shaped like the head of a desert hawk. It also doubles the speed of any horse or equine creature the bearer rides, much like horseshoes of speed. Caster level 8th; the creator must be Calishite. Weight is the scimitar weight; the entry prints no weight.",
     "source": "Races of Faerun, p. 172",
     "sourceUrl": "/A POC PC related/5.Splat/Races of series/Races of Faerun.pdf",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "spear-of-impaling",
@@ -515,6 +515,6 @@ export const RACES_OF_FAERUN_EQUIPMENT: EquipmentItem[] = [
     "notes": "A +1 wounding shortspear, deadly to elves and dwarves: if the spear hits an elf or dwarf, the target must succeed on a Reflex save (DC 19) or be impaled by the spear (treat as an extra attack from the spear that hits automatically but cannot score a critical hit). Caster level 12th. Weight is the shortspear weight; the entry prints no weight.",
     "source": "Races of Faerun, p. 172",
     "sourceUrl": "/A POC PC related/5.Splat/Races of series/Races of Faerun.pdf",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
 ];

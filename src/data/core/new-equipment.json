@@ -130,7 +130,7 @@
     "notes": "Armor +2; max Dex +10; check penalty 0; spell failure 5%; hardness —; hp —",
     "source": "Underdark, p.66 (fan index: crystalkeep.com d20 Equipment Index)",
     "sourceUrl": "http://www.crystalkeep.com/d20",
-    "ruleset": "core",
+    "ruleset": "faerun",
     "acBonus": 2
   },
   {
@@ -154,7 +154,7 @@
     "notes": "Armor +3; max Dex +6; check penalty \u20131; spell failure 10%; hardness —; hp —; Deteriorates after 3 months without Chitine maintenance.",
     "source": "Underdark, p.66 (fan index: crystalkeep.com d20 Equipment Index)",
     "sourceUrl": "http://www.crystalkeep.com/d20",
-    "ruleset": "core",
+    "ruleset": "faerun",
     "acBonus": 3
   },
   {
@@ -202,7 +202,7 @@
     "notes": "Armor +3; max Dex +8; check penalty \u20131; spell failure 10%; hardness —; hp —",
     "source": "Underdark, p.66 (fan index: crystalkeep.com d20 Equipment Index)",
     "sourceUrl": "http://www.crystalkeep.com/d20",
-    "ruleset": "core",
+    "ruleset": "faerun",
     "acBonus": 3
   },
   {
@@ -347,7 +347,7 @@
     "notes": "Armor +3; max Dex +5; check penalty \u20133; spell failure 20%; hardness —; hp —; +2 bonus on Strength checks to avoid being tripped.",
     "source": "Underdark, p.66 (fan index: crystalkeep.com d20 Equipment Index)",
     "sourceUrl": "http://www.crystalkeep.com/d20",
-    "ruleset": "core",
+    "ruleset": "faerun",
     "acBonus": 3
   },
   {
@@ -565,7 +565,7 @@
     "notes": "Armor +5; max Dex +2; check penalty \u20135; spell failure 30%; hardness 8; hp 30",
     "source": "Underdark, p.66 (fan index: crystalkeep.com d20 Equipment Index)",
     "sourceUrl": "http://www.crystalkeep.com/d20",
-    "ruleset": "core",
+    "ruleset": "faerun",
     "acBonus": 5
   },
   {
@@ -685,7 +685,7 @@
     "notes": "Armor +8; max Dex +1; check penalty \u20136; spell failure 35%; hardness —; hp 40; Reduce melee miss chance from concealment, blur, invisibility, and similar effects by 10%.",
     "source": "Underdark, p.66 (fan index: crystalkeep.com d20 Equipment Index)",
     "sourceUrl": "http://www.crystalkeep.com/d20",
-    "ruleset": "core",
+    "ruleset": "faerun",
     "acBonus": 8
   },
   {
@@ -936,7 +936,7 @@
     "notes": "Armor only. +1 armor check penalty; Swim checks take only the armor check penalty rather than twice it.",
     "source": "Underdark, p.65 (fan index: crystalkeep.com d20 Equipment Index)",
     "sourceUrl": "http://www.crystalkeep.com/d20",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "signature-crest",
@@ -958,7 +958,7 @@
     "notes": "Armor only. +2 circumstance bonus on Balance and checks to resist bull rush or trip; +10% arcane spell failure; \u20131 maximum Dexterity; treats light as medium and medium as heavy armor.",
     "source": "Underdark, p.66 (fan index: crystalkeep.com d20 Equipment Index)",
     "sourceUrl": "http://www.crystalkeep.com/d20",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "netcutter-spikes",
@@ -1002,7 +1002,7 @@
     "notes": "Armor only. +2 circumstance bonus on Hide checks in one selected terrain: aquatic, desert, forest, hill, marsh, mountain, plain, or underground.",
     "source": "Underdark, p.65 (fan index: crystalkeep.com d20 Equipment Index)",
     "sourceUrl": "http://www.crystalkeep.com/d20",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "muffling",
@@ -1013,7 +1013,7 @@
     "notes": "Armor only. +2 circumstance bonus on Move Silently checks.",
     "source": "Underdark, p.66 (fan index: crystalkeep.com d20 Equipment Index)",
     "sourceUrl": "http://www.crystalkeep.com/d20",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "stinging-polyps",
@@ -1200,7 +1200,7 @@
     "notes": "Light; 1d6 damage; 20/x2 critical; range \u2014; S. Deals damage by grappling or a melee attack.",
     "source": "Underdark, p.65 (fan index: crystalkeep.com d20 Equipment Index)",
     "sourceUrl": "http://www.crystalkeep.com/d20",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "sap",
@@ -1222,7 +1222,7 @@
     "notes": "Light; 1d4 damage; 20/x2 critical; range \u2014; S.",
     "source": "Underdark, p.64 (fan index: crystalkeep.com d20 Equipment Index)",
     "sourceUrl": "http://www.crystalkeep.com/d20",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "spiked-light-metal-shield",
@@ -1244,7 +1244,7 @@
     "notes": "Light; 1d4 damage; 20/x2 critical; range \u2014; S.",
     "source": "Underdark, p.64 (fan index: crystalkeep.com d20 Equipment Index)",
     "sourceUrl": "http://www.crystalkeep.com/d20",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "spiked-light-wood-shield",
@@ -1619,7 +1619,7 @@
     "notes": "Light; 1d4 damage; 20/x2 critical; range \u2014; P. Kata; cannot be disarmed; +1 circumstance bonus on Climb checks.",
     "source": "Underdark, p.64 (fan index: crystalkeep.com d20 Equipment Index)",
     "sourceUrl": "http://www.crystalkeep.com/d20",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "nunchaku",
@@ -1718,7 +1718,7 @@
     "notes": "Light; 1d4 damage; 20/x2 critical; range \u2014; S. Kata; cannot be disarmed.",
     "source": "Underdark, p.64 (fan index: crystalkeep.com d20 Equipment Index)",
     "sourceUrl": "http://www.crystalkeep.com/d20",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "gnome-tortoise-blade",
@@ -1773,7 +1773,7 @@
     "notes": "1Hand; 1d4 damage; 19\u201320/x2 critical; range \u2014; P or S. Switches slashing/piercing as a move action.",
     "source": "Underdark, p.64 (fan index: crystalkeep.com d20 Equipment Index)",
     "sourceUrl": "http://www.crystalkeep.com/d20",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "ghost-spike",
@@ -2214,7 +2214,7 @@
     "notes": "2Hand; 1d10 damage; 20/x2 critical; range \u2014; B. Reach 10 ft.; grapple.",
     "source": "Underdark, p.64 (fan index: crystalkeep.com d20 Equipment Index)",
     "sourceUrl": "http://www.crystalkeep.com/d20",
-    "ruleset": "core"
+    "ruleset": "faerun"
   },
   {
     "id": "heavy-poleaxe",
