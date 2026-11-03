@@ -6,7 +6,7 @@ export const COMPLETE_ADVENTURER_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "beastskin",
     "name": "Beastskin",
-    "category": "armor-or-weapon-special-ability",
+    "category": "armor-special-ability",
     "cost": "+2 bonus",
     "summary": "Armor special ability: when you use wild shape while wearing it, you can expend an additional daily use of wild shape to transform the armor with you into a suit fitted for your new form (it keeps its armor bonus, check penalty, and speed effects, adjusted for size and shape). Armor only. (Strong transmutation; CL 13th.)",
     "source": "Complete Adventurer — Chapter 4: Tools and Equipment, p. 126",
@@ -16,7 +16,7 @@ export const COMPLETE_ADVENTURER_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "focused",
     "name": "Focused",
-    "category": "armor-or-weapon-special-ability",
+    "category": "shield-special-ability",
     "cost": "+1 bonus",
     "summary": "Shield special ability: +10 circumstance bonus on Sense Motive checks to oppose Bluff feints, and whenever you are threatened by only one creature, the shield's bonus to your AC improves by 1. Shields only. (Moderate abjuration; CL 11th.)",
     "source": "Complete Adventurer — Chapter 4: Tools and Equipment, p. 126",
@@ -26,7 +26,7 @@ export const COMPLETE_ADVENTURER_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "sizing",
     "name": "Sizing",
-    "category": "armor-or-weapon-special-ability",
+    "category": "weapon-special-ability",
     "cost": "+1 bonus",
     "summary": "Weapon special ability: as a standard action, the wielder can change the weapon's size category to any other size category. (Moderate transmutation; CL 9th.)",
     "source": "Complete Adventurer — Chapter 4: Tools and Equipment, p. 127",
@@ -126,7 +126,7 @@ export const COMPLETE_ADVENTURER_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "scarf-of-warmth-cad",
     "name": "Scarf of Warmth",
-    "category": "wondrous",
+    "category": "wondrous-throat",
     "cost": "250 gp",
     "summary": "A woolen scarf granting a +4 bonus on Fortitude saves to resist the effects of cold weather. Occupies the neck slot. (Faint abjuration; CL 3rd.)",
     "source": "Complete Adventurer — Chapter 4: Tools and Equipment, p. 135",
@@ -136,7 +136,7 @@ export const COMPLETE_ADVENTURER_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "amulet-of-aberrant-empathy",
     "name": "Amulet of Aberrant Empathy",
-    "category": "wondrous",
+    "category": "wondrous-throat",
     "cost": "1,400 gp",
     "summary": "Lets the wearer use Handle Animal in place of Diplomacy to influence the attitude of aberrations with Intelligence 9 or lower. (Moderate enchantment; CL 11th.)",
     "source": "Complete Adventurer — Chapter 4: Tools and Equipment, p. 132",
@@ -146,7 +146,7 @@ export const COMPLETE_ADVENTURER_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "collar-of-obedience",
     "name": "Collar of Obedience",
-    "category": "wondrous",
+    "category": "wondrous-throat",
     "cost": "1,500 gp",
     "summary": "A collar for an animal or magical beast: the DC of Handle Animal checks to handle, push, teach, train, or rear the wearer decreases by 5. Occupies the neck slot. (Faint enchantment; CL 3rd.) Cross-note: the Miniatures Handbook prints a different, cursed item of the same name (an iron band imposing -2 on Will saves, 3,000 gp), recorded as collar-of-obedience-mh.",
     "source": "Complete Adventurer — Chapter 4: Tools and Equipment, p. 132",
@@ -156,7 +156,7 @@ export const COMPLETE_ADVENTURER_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "possum-pouch",
     "name": "Possum Pouch",
-    "category": "wondrous",
+    "category": "wondrous-waist",
     "cost": "1,800 gp",
     "summary": "A small flat bag sealed against a humanoid's abdomen with a command word, where it blends with the skin (DC 30 Search to detect) — a smuggler's pouch for poison, daggers, and small valuables. Weight 1 lb. (Faint illusion; CL 3rd.)",
     "source": "Complete Adventurer — Chapter 4: Tools and Equipment, p. 134",
@@ -166,7 +166,7 @@ export const COMPLETE_ADVENTURER_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "papyrus-of-deception",
     "name": "Papyrus of Deception",
-    "category": "wondrous",
+    "category": "wondrous-slotless",
     "cost": "2,000 gp",
     "summary": "An enchanted sheet (up to 12 inches square) that changes size, consistency, and appearance to match the forger's mental image: used as the paper for a forgery, it adds a +5 enhancement bonus to the Forgery check. Reusable. (Faint divination; CL 5th.)",
     "source": "Complete Adventurer — Chapter 4: Tools and Equipment, p. 133",
@@ -176,7 +176,7 @@ export const COMPLETE_ADVENTURER_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "vial-of-the-last-gasp",
     "name": "Vial of the Last Gasp",
-    "category": "wondrous",
+    "category": "wondrous-slotless",
     "cost": "2,200 gp",
     "summary": "The preserved last breath of a famous figure: inhaling the vapors grants 1d8 temporary hit points, a +2 enhancement bonus to Strength, a +4 insight bonus on one Craft, Knowledge, or Profession skill the deceased possessed (set at creation), and +1 effective caster level, for 10 minutes. (Faint necromancy; CL 4th.)",
     "source": "Complete Adventurer — Chapter 4: Tools and Equipment, p. 136",
@@ -186,7 +186,7 @@ export const COMPLETE_ADVENTURER_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "stylus-of-the-masterful-hand",
     "name": "Stylus of the Masterful Hand",
-    "category": "wondrous",
+    "category": "wondrous-slotless",
     "cost": "3,000 gp",
     "summary": "A metal stylus granting a +5 competence bonus on Forgery checks; on command it can remember up to three samples of handwriting, later reproducing one for a forgery at the stored check result without needing a sample. A second command word erases a stored sample. (Faint divination; CL 3rd.)",
     "source": "Complete Adventurer — Chapter 4: Tools and Equipment, p. 136",
@@ -196,7 +196,7 @@ export const COMPLETE_ADVENTURER_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "pendant-of-draconic-empathy",
     "name": "Pendant of Draconic Empathy",
-    "category": "wondrous",
+    "category": "wondrous-throat",
     "cost": "3,300 gp",
     "summary": "Lets the wearer use Handle Animal in place of Diplomacy when dealing with dragons of Intelligence 11 or lower. (Moderate enchantment; CL 11th.)",
     "source": "Complete Adventurer — Chapter 4: Tools and Equipment, p. 134",
@@ -206,7 +206,7 @@ export const COMPLETE_ADVENTURER_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "shawl-of-bewitching",
     "name": "Shawl of Bewitching",
-    "category": "wondrous",
+    "category": "wondrous-shoulders",
     "cost": "3,500 gp",
     "summary": "+5 competence bonus on Bluff checks made to conceal the truth (only that use of Bluff), and +1 caster level for enchantment (charm) spells. Occupies the cloak slot. (Faint enchantment; CL 3rd.)",
     "source": "Complete Adventurer — Chapter 4: Tools and Equipment, p. 135",
@@ -216,7 +216,7 @@ export const COMPLETE_ADVENTURER_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "crown-of-steady-rulership",
     "name": "Crown of Steady Rulership",
-    "category": "wondrous",
+    "category": "wondrous-head",
     "cost": "4,500 gp",
     "summary": "+5 competence bonus on Sense Motive checks and on Spot checks to see through disguises. (Faint divination; CL 3rd.)",
     "source": "Complete Adventurer — Chapter 4: Tools and Equipment, p. 132",
@@ -226,7 +226,7 @@ export const COMPLETE_ADVENTURER_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "choker-of-eloquence-lesser",
     "name": "Choker of Eloquence, Lesser",
-    "category": "wondrous",
+    "category": "wondrous-throat",
     "cost": "6,000 gp",
     "summary": "An ivory-and-jade necklace: +5 competence bonus on Diplomacy, Bluff, and Perform (sing) checks. (Moderate transmutation; CL 6th.)",
     "source": "Complete Adventurer — Chapter 4: Tools and Equipment, p. 132",
@@ -236,7 +236,7 @@ export const COMPLETE_ADVENTURER_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "trumpeters-gift",
     "name": "Trumpeter's Gift",
-    "category": "wondrous",
+    "category": "wondrous-slotless",
     "cost": "12,700 gp",
     "summary": "A mouthpiece that fits any wind instrument: +5 competence bonus on Perform (wind instruments) checks with that instrument, and once per day the horn can produce a shout effect (a non-masterwork horn is destroyed by doing so). (Moderate evocation; CL 7th.)",
     "source": "Complete Adventurer — Chapter 4: Tools and Equipment, p. 136",
@@ -246,7 +246,7 @@ export const COMPLETE_ADVENTURER_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "sandals-of-harmonious-balance",
     "name": "Sandals of Harmonious Balance",
-    "category": "wondrous",
+    "category": "wondrous-feet",
     "cost": "14,000 gp",
     "summary": "+10 insight bonus on Balance checks, and the wearer can balance on vertical surfaces (moving as if climbing but keeping her Dexterity bonus and attacking normally); with 10+ ranks in Balance she can even balance on liquids and semisolid surfaces at rising DCs. (Moderate transmutation; CL 8th.)",
     "source": "Complete Adventurer — Chapter 4: Tools and Equipment, p. 134",
@@ -256,7 +256,7 @@ export const COMPLETE_ADVENTURER_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "flute-of-the-snake",
     "name": "Flute of the Snake",
-    "category": "wondrous",
+    "category": "wondrous-slotless",
     "cost": "15,400 gp",
     "summary": "A flute whose music charms snakes: with a DC 15 Perform (wind instruments) check, produce a charm animal effect affecting only snakes, three times per day; once per day, a full round of droning notes and a DC 20 Perform check summons 1d4+1 Medium vipers for 7 rounds. (Moderate conjuration and enchantment; CL 7th.)",
     "source": "Complete Adventurer — Chapter 4: Tools and Equipment, p. 132",
@@ -266,7 +266,7 @@ export const COMPLETE_ADVENTURER_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "choker-of-eloquence-greater",
     "name": "Choker of Eloquence, Greater",
-    "category": "wondrous",
+    "category": "wondrous-throat",
     "cost": "24,000 gp",
     "summary": "An ivory-and-jade necklace: +10 competence bonus on Diplomacy, Bluff, and Perform (sing) checks. (Moderate transmutation; CL 6th.)",
     "source": "Complete Adventurer — Chapter 4: Tools and Equipment, p. 132",
@@ -276,7 +276,7 @@ export const COMPLETE_ADVENTURER_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "lute-of-the-wandering-minstrel",
     "name": "Lute of the Wandering Minstrel",
-    "category": "wondrous",
+    "category": "wondrous-slotless",
     "cost": "29,500 gp",
     "summary": "A masterwork lute: a musician with 1+ ranks in Perform (string instruments) can use levitate and magic circle against evil once per day each; with 5+ ranks, also expeditious retreat, haste, and phantom steed once per day each. Weight 3 lb. (Faint abjuration, conjuration, and transmutation; CL 5th.)",
     "source": "Complete Adventurer — Chapter 4: Tools and Equipment, p. 133",
@@ -286,7 +286,7 @@ export const COMPLETE_ADVENTURER_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "mandolin-of-the-inspiring-muse",
     "name": "Mandolin of the Inspiring Muse",
-    "category": "wondrous",
+    "category": "wondrous-slotless",
     "cost": "42,000 gp",
     "summary": "A masterwork mandolin: a musician with 1+ ranks in Perform (string instruments) can use levitate and magic circle against evil once per day each; with 15 ranks, also crushing despair, dominate person, and good hope once per day each. Weight 3 lb. (Moderate abjuration, enchantment, and transmutation; CL 9th.)",
     "source": "Complete Adventurer — Chapter 4: Tools and Equipment, p. 134",
@@ -296,7 +296,7 @@ export const COMPLETE_ADVENTURER_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "strings-of-spell-storing",
     "name": "Strings of Spell Storing",
-    "category": "wondrous",
+    "category": "wondrous-slotless",
     "cost": "45,000 gp",
     "summary": "Instrument strings that store up to five levels of spells (stored as into a ring of spell storing, except the caster needs 1 rank in Perform (string instruments) and a DC 10 + spell level Perform check). A musician makes a DC 15 Perform check to unleash a stored spell at its minimum caster level, with no components, XP cost, or arcane spell failure. (Moderate evocation; CL 9th.)",
     "source": "Complete Adventurer — Chapter 4: Tools and Equipment, p. 136",
@@ -306,7 +306,7 @@ export const COMPLETE_ADVENTURER_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "harp-of-the-immortal-maestro",
     "name": "Harp of the Immortal Maestro",
-    "category": "wondrous",
+    "category": "wondrous-slotless",
     "cost": "51,000 gp",
     "summary": "A masterwork harp: a musician with 1+ ranks in Perform (string instruments) can use levitate and magic circle against evil once per day each; with 15 ranks, also cure critical wounds, displacement, and summon monster V once per day each. Weight 3 lb. (Moderate abjuration, conjuration, illusion, and transmutation; CL 9th.)",
     "source": "Complete Adventurer — Chapter 4: Tools and Equipment, p. 132",

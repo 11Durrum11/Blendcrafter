@@ -6,7 +6,7 @@ export const COMPLETE_DIVINE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "gauntlet-of-the-talon",
     "name": "Gauntlet of the Talon",
-    "category": "wondrous",
+    "category": "wondrous-hands",
     "cost": "20,000 gp",
     "summary": "Silvery spiked gauntlets: the wearer effectively has natural weapons dealing 1d8 slashing damage that count as magic for overcoming damage reduction and function as ghost touch weapons; the wearer gains a +4 bonus on grapple checks, and a monk wearing them is treated as five levels higher for Armor Class, unarmed damage (which becomes slashing), and the ki strike ability. Weight 2 lb. Relic of Bahamut: to use it, worship Bahamut and either sacrifice a 4th-level divine spell slot or have the True Believer feat and at least 7 HD.",
     "source": "Complete Divine — Chapter 4: Relics and Staffs, p. 98",
@@ -16,7 +16,7 @@ export const COMPLETE_DIVINE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "robe-of-ebonsilk",
     "name": "Robe of Ebonsilk",
-    "category": "wondrous",
+    "category": "wondrous-body",
     "cost": "134,000 gp",
     "summary": "A robe said to be woven from silk extruded by Lolth herself: +8 armor bonus, +4 resistance bonus on all saving throws, and continual spider climb and freedom of movement effects. Weight 1 lb. Relic of Lolth: to use it, worship Lolth and either sacrifice a 8th-level divine spell slot or have the True Believer feat and at least 15 HD.",
     "source": "Complete Divine — Chapter 4: Relics and Staffs, p. 100",

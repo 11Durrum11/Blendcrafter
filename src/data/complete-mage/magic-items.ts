@@ -286,7 +286,7 @@ export const COMPLETE_MAGE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "steadying-robe",
     "name": "Steadying Robe",
-    "category": "wondrous",
+    "category": "wondrous-body",
     "cost": "1,000 gp",
     "summary": "A thick blue-gray robe (1 lb.) that functions only for spellcasters: while worn, it negates the unsteadying effect of vigorous, violent, or extremely violent motion on your spellcasting — you need not make a Concentration check to cast a spell in such a situation. (It doesn't apply when you take damage or are entangled, grappling, or distracted by weather.) It also grants a +2 competence bonus on Balance checks.",
     "source": "Complete Mage, p. 129",
@@ -296,7 +296,7 @@ export const COMPLETE_MAGE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "quill-of-scribing",
     "name": "Quill of Scribing",
-    "category": "wondrous",
+    "category": "wondrous-slotless",
     "cost": "1,750 gp",
     "summary": "A jet-black quill from an exotic bird. You must have the Scribe Scroll feat to activate it: on a command word (a standard action), once per day, the quill animates and scribes a scroll for you (of any single spell that you know), needing no inkwell or other supplies. Treat this just as if you were scribing it, including gp cost, XP cost, time, and all other construction requirements. Taking the quill in hand and pulling it away deactivates it early, wasting any resources spent.",
     "source": "Complete Mage, p. 129",
@@ -306,7 +306,7 @@ export const COMPLETE_MAGE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "cloak-of-comfort-1",
     "name": "Cloak of Comfort (+1)",
-    "category": "wondrous",
+    "category": "wondrous-shoulders",
     "cost": "3,000 gp",
     "summary": "An old, worn cloak (2 lb.): you are protected by a constant endure elements effect, as are any allies within 30 feet of you, and you gain a +1 resistance bonus on saving throws.",
     "source": "Complete Mage, p. 129",
@@ -316,7 +316,7 @@ export const COMPLETE_MAGE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "cloak-of-comfort-2",
     "name": "Cloak of Comfort (+2)",
-    "category": "wondrous",
+    "category": "wondrous-shoulders",
     "cost": "6,000 gp",
     "summary": "As the cloak of comfort (+1), but the resistance bonus on saving throws is +2.",
     "source": "Complete Mage, p. 129",
@@ -326,7 +326,7 @@ export const COMPLETE_MAGE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "cloak-of-comfort-3",
     "name": "Cloak of Comfort (+3)",
-    "category": "wondrous",
+    "category": "wondrous-shoulders",
     "cost": "11,000 gp",
     "summary": "As the cloak of comfort (+1), but the resistance bonus on saving throws is +3.",
     "source": "Complete Mage, p. 129",
@@ -336,7 +336,7 @@ export const COMPLETE_MAGE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "cloak-of-comfort-4",
     "name": "Cloak of Comfort (+4)",
-    "category": "wondrous",
+    "category": "wondrous-shoulders",
     "cost": "18,000 gp",
     "summary": "As the cloak of comfort (+1), but the resistance bonus on saving throws is +4.",
     "source": "Complete Mage, p. 129",
@@ -346,7 +346,7 @@ export const COMPLETE_MAGE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "cloak-of-comfort-5",
     "name": "Cloak of Comfort (+5)",
-    "category": "wondrous",
+    "category": "wondrous-shoulders",
     "cost": "27,000 gp",
     "summary": "As the cloak of comfort (+1), but the resistance bonus on saving throws is +5.",
     "source": "Complete Mage, p. 129",
@@ -356,7 +356,7 @@ export const COMPLETE_MAGE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "hewards-fortifying-bedroll",
     "name": "Heward's Fortifying Bedroll",
-    "category": "wondrous",
+    "category": "wondrous-slotless",
     "cost": "3,000 gp",
     "summary": "A well-made bedroll (2 lb.). Climb in (a move action) and spend 1 uninterrupted hour resting: it grants you the benefits of a full 8 hours of rest, including the elimination of fatigue or exhaustion, natural healing, and the ability to prepare or ready arcane spells (spells cast within the last 8 hours still count against your daily limit as normal). It functions once per day, and after using it you can't gain the same benefit again (from the same or a different bedroll) until 48 hours have passed.",
     "source": "Complete Mage, p. 129",
@@ -366,7 +366,7 @@ export const COMPLETE_MAGE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "familiars-belt",
     "name": "Familiar's Belt",
-    "category": "wondrous",
+    "category": "wondrous-waist",
     "cost": "6,000 gp",
     "summary": "A peculiarly wide leather belt (3 lb.) with a heavy padded pouch. On a command word (a standard action), up to three times per day, your Tiny or smaller familiar instantly appears in the belt's pouch; the familiar can be anywhere on the same plane as you.",
     "source": "Complete Mage, p. 129",
@@ -376,7 +376,7 @@ export const COMPLETE_MAGE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "metamagic-wandgrip",
     "name": "Metamagic Wandgrip",
-    "category": "wondrous",
+    "category": "wondrous-slotless",
     "cost": "6,000 gp",
     "summary": "A copper wand-sized handgrip. Placing a wand into it (or removing one) requires a move action. Three times per day, as part of activating the wand, you can apply any one metamagic feat you know to the wand (functioning as the Metamagic Spell Trigger feat); doing this drains an additional number of charges from the wand equal to the feat's normal spell-slot increase (for example, Extend Spell drains one additional charge).",
     "source": "Complete Mage, p. 130",
@@ -386,7 +386,7 @@ export const COMPLETE_MAGE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "horizon-goggles",
     "name": "Horizon Goggles",
-    "category": "wondrous",
+    "category": "wondrous-face",
     "cost": "8,000 gp",
     "summary": "Small oval lenses in a wire-thin frame, difficult for others to notice (Spot DC 15). While worn, you gain the benefits of the Far Shot feat (increasing the range increment of projectile weapons by 50% and of thrown weapons by 100%), and the goggles also increase the range of spells and spell-like abilities that require ranged attack rolls by 50%.",
     "source": "Complete Mage, p. 130",
@@ -396,7 +396,7 @@ export const COMPLETE_MAGE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "murderers-gloves",
     "name": "Murderer's Gloves",
-    "category": "wondrous",
+    "category": "wondrous-hands",
     "cost": "16,000 gp",
     "summary": "Thin black gloves (1 lb.) that function only for wearers with the sneak attack, skirmish, or sudden strike ability. As a swift action, only upon making a successful sneak attack, skirmish attack, or sudden strike, three times per day: the instant the wearer has delivered the attack, he turns invisible for 1 round (as the invisibility spell).",
     "source": "Complete Mage, p. 130",
@@ -406,7 +406,7 @@ export const COMPLETE_MAGE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "amulet-of-spell-conversion",
     "name": "Amulet of Spell Conversion",
-    "category": "wondrous",
+    "category": "wondrous-throat",
     "cost": "18,000 gp",
     "summary": "A bronze octagonal medallion (1 lb.) functioning only for arcane casters who prepare spells from a spellbook (such as wizards). Once per day, as a full-round action, you can lose one spell you have prepared for the day and replace it with another spell of equal or lower level that is already scribed in your spellbook, casting it as though you had prepared it normally.",
     "source": "Complete Mage, p. 130",
@@ -416,7 +416,7 @@ export const COMPLETE_MAGE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "stormstrider-boots",
     "name": "Stormstrider Boots",
-    "category": "wondrous",
+    "category": "wondrous-feet",
     "cost": "18,000 gp",
     "summary": "Soft leather boots (2 lb.) functioning only for characters with the Spring Attack feat: they provide a constant +5-foot enhancement bonus to your land speed. Once per day, as a swift action taken only when initiating a spring attack, you become pure lightning before and after your attack: you can move through occupied squares during the spring attack, and any creature in a square you move through takes 9d6 points of electricity damage (Reflex DC 17 half), with no additional effect for moving through a creature's space more than once.",
     "source": "Complete Mage, p. 130",

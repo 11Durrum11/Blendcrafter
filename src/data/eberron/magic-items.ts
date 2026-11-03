@@ -6,7 +6,7 @@ export const EBERRON_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "dragonmark-focus",
     "name": "Dragonmark Focus",
-    "category": "wondrous",
+    "category": "wondrous-slotless",
     "cost": "1,500 gp (+1 caster level); 3,000 gp (+2); 6,000 gp (+3); 12,000 gp (+4)",
     "summary": "Amulet holding a small Siberys shard attuned to a specific dragonmark; increases the wearer's effective caster level by +1 to +4 (by shard purity) when using that mark's spell-like abilities.",
     "source": "Eberron Campaign Setting, Chapter 10: Magic Items, p. 259",
@@ -76,7 +76,7 @@ export const EBERRON_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "altar-of-resurrection",
     "name": "Altar of Resurrection",
-    "category": "wondrous",
+    "category": "wondrous-slotless",
     "cost": "13,000 gp",
     "summary": "Marble slab (2,000 lb.) channeling the Mark of Healing: a character with the heal ability of the greater Mark of Healing or mass heal of the Siberys mark can sacrifice one use to cast resurrection on a creature resting on the altar (material components still required).",
     "source": "Eberron Campaign Setting, Chapter 10: Magic Items, p. 261",
@@ -86,7 +86,7 @@ export const EBERRON_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "astral-beacon",
     "name": "Astral Beacon",
-    "category": "wondrous",
+    "category": "wondrous-slotless",
     "cost": "40,000 gp",
     "summary": "Silver and crystal sphere (2 lb.) tied to the Mark of Passage: dimension door/teleport mark abilities used toward a point within 10 feet of the beacon reach twice their usual maximum distance, and the location always counts as 'very familiar.'",
     "source": "Eberron Campaign Setting, Chapter 10: Magic Items, p. 261",
@@ -96,7 +96,7 @@ export const EBERRON_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "bag-of-bounty",
     "name": "Bag of Bounty",
-    "category": "wondrous",
+    "category": "wondrous-slotless",
     "cost": "10,000 gp",
     "summary": "Leather bag (1 lb.) enhancing the Mark of Hospitality: a character with the create food and water ability of the lesser mark can use it two additional times per day, with a 1-minute casting time and food quality set by a Profession (cook) check.",
     "source": "Eberron Campaign Setting, Chapter 10: Magic Items, p. 261",
@@ -106,7 +106,7 @@ export const EBERRON_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "bracelet-of-comfort",
     "name": "Bracelet of Comfort",
-    "category": "wondrous",
+    "category": "wondrous-arms",
     "cost": "30,000 gp",
     "summary": "Enhances Leomund's secure shelter cast through the lesser Mark of Hospitality: duration +12 hours, the shelter is always stone, and the interior stays at 70 degrees F with furnishings for eight.",
     "source": "Eberron Campaign Setting, Chapter 10: Magic Items, p. 261",
@@ -116,7 +116,7 @@ export const EBERRON_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "collar-of-the-wild-bond",
     "name": "Collar of the Wild Bond",
-    "category": "wondrous",
+    "category": "wondrous-throat",
     "cost": "5,000 gp",
     "summary": "Leather collar studded with Mark of Handling dragonshards, with an associated key disk: a character with the dominate animal ability of the lesser mark can dominate the collared creature through the key without expending the mark's power, for as long as the collar is worn and the creature is in range (100 ft. + 10 ft./level).",
     "source": "Eberron Campaign Setting, Chapter 10: Magic Items, p. 261",
@@ -126,7 +126,7 @@ export const EBERRON_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "diadem-of-focused-passage",
     "name": "Diadem of Focused Passage",
-    "category": "wondrous",
+    "category": "wondrous-head",
     "cost": "15,000 gp",
     "summary": "Silver circlet enhancing the Mark of Passage: +2 effective caster level for the wearer's mark abilities, and teleport destinations count as one step more familiar than they actually are (no benefit toward a false destination).",
     "source": "Eberron Campaign Setting, Chapter 10: Magic Items, p. 261",
@@ -136,7 +136,7 @@ export const EBERRON_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "diadem-of-sharpened-senses",
     "name": "Diadem of Sharpened Senses",
-    "category": "wondrous",
+    "category": "wondrous-head",
     "cost": "10,000 gp",
     "summary": "Brass circlet focusing the Mark of Detection (must be worn 24 hours): least mark abilities at will, lesser mark abilities three times per day, +5 insight bonus on opposed caster level checks with detect scrying, and +2 insight on Listen, Spot, and Search.",
     "source": "Eberron Campaign Setting, Chapter 10: Magic Items, p. 261",
@@ -146,7 +146,7 @@ export const EBERRON_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "helm-of-the-sentinel",
     "name": "Helm of the Sentinel",
-    "category": "wondrous",
+    "category": "wondrous-head",
     "cost": "20,000 gp",
     "summary": "Helmet engraved with eyes whose pupils are Mark of Sentinel dragonshards (3 lb.): once per day the wearer can set a contingency that triggers one of his Mark of Sentinel spell-like abilities when a chosen condition is met.",
     "source": "Eberron Campaign Setting, Chapter 10: Magic Items, p. 262",
@@ -156,7 +156,7 @@ export const EBERRON_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "houseward",
     "name": "Houseward",
-    "category": "wondrous",
+    "category": "wondrous-slotless",
     "cost": "25,000 gp",
     "summary": "Heavy lead and alchemical silver block (40 lb.) enhancing Mark of Warding abilities (alarm, guards and wards, misdirection, Mordenkainen's faithful hound, nondetection): their duration is multiplied by 24 when cast on an area containing the houseward or a person/object within 20 feet of it. Printed quirk: the stat block's creator line reads 'creator must have the Mark of Sentinel' although the item enhances Mark of Warding abilities; recorded as printed.",
     "source": "Eberron Campaign Setting, Chapter 10: Magic Items, p. 262",
@@ -166,7 +166,7 @@ export const EBERRON_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "inquisitive-goggles-ecs",
     "name": "Inquisitive Goggles",
-    "category": "wondrous",
+    "category": "wondrous-face",
     "cost": "16,000 gp",
     "summary": "Goggles with a dragonshard between the lenses; the wearer (who must hold the lesser, greater, or Siberys Mark of Finding) can read trace auras left by living creatures, gaining benefits including +5 insight on Survival to track the creature and +2 insight on Sense Motive. Printed quirk: the stat block's creator line reads 'creator must have the Mark of Making' although the item serves the Mark of Finding; recorded as printed.",
     "source": "Eberron Campaign Setting, Chapter 10: Magic Items, p. 262",
@@ -186,7 +186,7 @@ export const EBERRON_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "lightning-reins",
     "name": "Lightning Reins",
-    "category": "wondrous",
+    "category": "wondrous-slotless",
     "cost": "8,000 gp",
     "summary": "Leather cords (1 lb.) affixed at the helm of a lightning rail coach: a character with the dimension door ability of the lesser Mark of Passage can telepathically control the coach's bound air elemental.",
     "source": "Eberron Campaign Setting, Chapter 10: Magic Items, p. 262",
@@ -196,7 +196,7 @@ export const EBERRON_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "pen-of-the-scribe",
     "name": "Pen of the Scribe",
-    "category": "wondrous",
+    "category": "wondrous-slotless",
     "cost": "2,500 gp",
     "summary": "Silver and copper pen with a dragonshard core; in the hands of a Mark of Scribing character it never runs out of ink (color changeable by speaking the color's name in Gnome), doubles writing speed, and grants +5 insight on Forgery checks to duplicate written material.",
     "source": "Eberron Campaign Setting, Chapter 10: Magic Items, p. 262",
@@ -236,7 +236,7 @@ export const EBERRON_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "scrystone",
     "name": "Scrystone",
-    "category": "wondrous",
+    "category": "wondrous-slotless",
     "cost": "25,000 gp",
     "summary": "Stone (1 lb.) usable as the focus for the scrying or greater scrying ability of the Mark of Shadow; the user can also communicate telepathically with a willing creature whose image appears in the stone for the effect's duration.",
     "source": "Eberron Campaign Setting, Chapter 10: Magic Items, p. 263",
@@ -246,7 +246,7 @@ export const EBERRON_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "sky-forge",
     "name": "Sky Forge",
-    "category": "wondrous",
+    "category": "wondrous-slotless",
     "cost": "27,200 gp",
     "summary": "Small cold iron and alchemical silver anvil (35 lb.): a character with the fabricate ability of the greater Mark of Making can use it on 100 cubic feet of material or 10 cubic feet of mineral material, ten times the normal amount.",
     "source": "Eberron Campaign Setting, Chapter 10: Magic Items, p. 263",
@@ -256,7 +256,7 @@ export const EBERRON_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "speaking-stone",
     "name": "Speaking Stone",
-    "category": "wondrous",
+    "category": "wondrous-slotless",
     "cost": "10,000 gp",
     "summary": "Device (30 lb.) powering House Sivis message stations: a character with the whispering wind ability of the least Mark of Scribing can send a message to any other speaking stone whose location he knows, at 1 mile per minute with no maximum range or length.",
     "source": "Eberron Campaign Setting, Chapter 10: Magic Items, p. 263",
@@ -266,7 +266,7 @@ export const EBERRON_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "wheel-of-wind-and-water",
     "name": "Wheel of Wind and Water",
-    "category": "wondrous",
+    "category": "wondrous-slotless",
     "cost": "8,000 gp",
     "summary": "Carved wooden ship's wheel (30 lb.) mounted at the helm of an elemental galleon or airship: a character with the wind's favor ability of the lesser Mark of Storm can telepathically control the vessel's bound elemental; on a mundane ship it creates ideal sailing conditions (6 mph).",
     "source": "Eberron Campaign Setting, Chapter 10: Magic Items, p. 263",
@@ -366,7 +366,7 @@ export const EBERRON_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "aureons-spellshard",
     "name": "Aureon's Spellshard",
-    "category": "wondrous",
+    "category": "wondrous-slotless",
     "cost": "6,250 gp",
     "summary": "Large Eberron shard functioning as a spellbook of 500 pages of spells, imprinted without the usual material component cost; never found with spells already imprinted (1/2 lb.).",
     "source": "Eberron Campaign Setting, Chapter 10: Magic Items, p. 265",
@@ -376,7 +376,7 @@ export const EBERRON_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "everbright-lantern",
     "name": "Everbright Lantern",
-    "category": "wondrous",
+    "category": "wondrous-slotless",
     "cost": "212 gp",
     "summary": "Bullseye lantern (3 lb.) whose Eberron shard is attuned to continual flame: bright light in a 60-foot cone and shadowy illumination in a 120-foot cone, shutterable, and the flame never goes out.",
     "source": "Eberron Campaign Setting, Chapter 10: Magic Items, p. 265",
@@ -386,7 +386,7 @@ export const EBERRON_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "burning-bound-armor",
     "name": "Burning (bound elemental armor property)",
-    "category": "armor-or-weapon-special-ability",
+    "category": "armor-special-ability",
     "cost": "+90,000 gp",
     "summary": "A Large fire elemental is bound into the armor: the wearer gains resistance to cold 10, and three times per day can burst into flames for 11 rounds — creatures hitting the wearer with body or handheld weapons take 2d6 fire damage and catch fire (DC 17 Reflex negates catching fire).",
     "source": "Eberron Campaign Setting, Chapter 10: Magic Items, p. 266",
@@ -396,7 +396,7 @@ export const EBERRON_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "stonemeld-armor",
     "name": "Stonemeld (bound elemental armor property)",
-    "category": "armor-or-weapon-special-ability",
+    "category": "armor-special-ability",
     "cost": "+80,000 gp",
     "summary": "A Large earth elemental is bound into the armor: the wearer gains damage reduction 5/- and can use meld into stone on command three times per day.",
     "source": "Eberron Campaign Setting, Chapter 10: Magic Items, p. 266",
@@ -406,7 +406,7 @@ export const EBERRON_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "underwater-action-armor",
     "name": "Underwater Action (bound elemental armor property)",
-    "category": "armor-or-weapon-special-ability",
+    "category": "armor-special-ability",
     "cost": "+86,000 gp",
     "summary": "A Large water elemental is bound into the armor: the wearer can breathe water and takes no armor check penalty on Swim checks; twice per day the armor can produce a quench effect on command.",
     "source": "Eberron Campaign Setting, Chapter 10: Magic Items, p. 266",
@@ -416,7 +416,7 @@ export const EBERRON_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "whirlwind-armor",
     "name": "Whirlwind (bound elemental armor property)",
-    "category": "armor-or-weapon-special-ability",
+    "category": "armor-special-ability",
     "cost": "+90,000 gp",
     "summary": "A Large air elemental is bound into the armor: on command the wearer flies at 60 feet (good maneuverability), and once per day can transform (with all gear) into a whirlwind as a Large air elemental for up to 4 rounds.",
     "source": "Eberron Campaign Setting, Chapter 10: Magic Items, p. 266",
@@ -426,7 +426,7 @@ export const EBERRON_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "burning-bound-weapon",
     "name": "Burning (bound elemental weapon property)",
-    "category": "armor-or-weapon-special-ability",
+    "category": "weapon-special-ability",
     "cost": "+2 bonus",
     "summary": "A Small fire elemental is bound into the weapon: it behaves as a flaming weapon, and creatures hit must succeed on a DC 11 Reflex save or catch fire (burning 1d4 rounds); the wielder gains +2 on initiative checks while holding it at the start of combat.",
     "source": "Eberron Campaign Setting, Chapter 10: Magic Items, p. 266",
@@ -436,7 +436,7 @@ export const EBERRON_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "earthbound-weapon",
     "name": "Earthbound (bound elemental weapon property)",
-    "category": "armor-or-weapon-special-ability",
+    "category": "weapon-special-ability",
     "cost": "+1 bonus",
     "summary": "A Small earth elemental is bound into the weapon: while both the wielder and his opponent are touching the ground, the weapon grants an additional +2 bonus on attack and damage rolls.",
     "source": "Eberron Campaign Setting, Chapter 10: Magic Items, p. 266",
@@ -446,7 +446,7 @@ export const EBERRON_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "finesse-weapon-property",
     "name": "Finesse (bound elemental weapon property)",
-    "category": "armor-or-weapon-special-ability",
+    "category": "weapon-special-ability",
     "cost": "+3 bonus",
     "summary": "A Small air elemental is bound into the weapon (light weapons, rapiers, whips, and spiked chains only, sized for the wielder): the wielder uses it as if he had the Weapon Finesse feat and gains a +2 enhancement bonus to Dexterity.",
     "source": "Eberron Campaign Setting, Chapter 10: Magic Items, p. 266",
@@ -456,7 +456,7 @@ export const EBERRON_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "keepers-fang",
     "name": "Keeper's Fang (bound elemental weapon property)",
-    "category": "armor-or-weapon-special-ability",
+    "category": "weapon-special-ability",
     "cost": "+4 bonus",
     "summary": "Melee weapon consecrated to the Keeper with a Khyber shard in the hilt; evil-aligned. A victim slain by it has its soul trapped in the Keeper's domain and cannot be raised by resurrection, raise dead, reincarnate, or similar effects.",
     "source": "Eberron Campaign Setting, Chapter 10: Magic Items, p. 266",
@@ -466,7 +466,7 @@ export const EBERRON_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "waterborn-weapon",
     "name": "Waterborn (bound elemental weapon property)",
-    "category": "armor-or-weapon-special-ability",
+    "category": "weapon-special-ability",
     "cost": "+1 bonus",
     "summary": "A Small water elemental is bound into the weapon: slashing and bludgeoning weapons ignore underwater penalties (as freedom of movement), piercing weapons gain +2 attack and damage when both parties touch water, and attacks from land ignore the cover of swimming creatures.",
     "source": "Eberron Campaign Setting, Chapter 10: Magic Items, p. 266",
@@ -496,7 +496,7 @@ export const EBERRON_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "orrery-of-the-planes",
     "name": "Orrery of the Planes",
-    "category": "wondrous",
+    "category": "wondrous-slotless",
     "cost": "50,000 gp",
     "summary": "Model of Eberron and the Ring of Siberys in adamantine and dragonshards (8 lb.): once per day it creates a localized manifest zone 60 feet in diameter linked to one of the outer planes for 24 hours, with an effect depending on the plane; moving the orrery ends the effect.",
     "source": "Eberron Campaign Setting, Chapter 10: Magic Items, p. 271",

@@ -6,7 +6,7 @@ export const DRAGON_MAGIC_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "amulet-of-fearsome-might",
     "name": "Amulet of Fearsome Might",
-    "category": "wondrous",
+    "category": "wondrous-throat",
     "cost": "11,000 gp",
     "summary": "A bronze necklace shaped as a roaring draconic head with ruby eyes (1 lb.). While worn, it doubles the radius of the wearer's innate frightful presence and increases its save DC by 2 (it does not bestow frightful presence on a wearer who lacks it), and it increases by 2 the save DCs of any fear spells or spell-like abilities the wearer casts (not stacking with Spell Focus or Greater Spell Focus). Caster level 7th; the creator must possess the frightful presence special ability.",
     "source": "Dragon Magic, p. 93",
@@ -16,7 +16,7 @@ export const DRAGON_MAGIC_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "cloak-of-mysterious-emergence",
     "name": "Cloak of Mysterious Emergence",
-    "category": "wondrous",
+    "category": "wondrous-shoulders",
     "cost": "13,000 gp",
     "summary": "A fine silk cloak hemmed with red dragon scales (1 lb.) with three charges per day. Stepping through the ghostly dragon maw it creates (a standard action) functions like a dimension door with a range of 120 feet; the wearer can't take other actions until his next turn after arriving. By expending all three charges, the wearer instead teleports himself and up to 50 pounds of items up to 120 miles away. Caster level 9th.",
     "source": "Dragon Magic, p. 93",
@@ -26,7 +26,7 @@ export const DRAGON_MAGIC_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "dragonslayer-claws",
     "name": "Dragonslayer Claws",
-    "category": "wondrous",
+    "category": "wondrous-hands",
     "cost": "2,500 gp",
     "summary": "Heavy dark metal blades that fit over the wearer's claws (occupying the gloves slot; 6 lb.), resizing to fit any creature with a claw attack. As a free action, once per round up to three times per day, the wearer can declare a claw attack to deal an extra 1d6 points of damage — or an extra 3d6 against a creature of the dragon type or dragonblood subtype, treated as a magic weapon for overcoming damage reduction. A wearer who is not of the dragon type or dragonblood subtype takes a negative level while wearing the claws. Caster level 8th.",
     "source": "Dragon Magic, p. 93",
@@ -96,7 +96,7 @@ export const DRAGON_MAGIC_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "tailbands-of-impact",
     "name": "Tailbands of Impact",
-    "category": "wondrous",
+    "category": "wondrous-feet",
     "cost": "6,000 gp",
     "summary": "Three progressively larger adamantine bands that slip over the wearer's tail (occupying the boots slot; 10 lb.), resizing to fit any creature with a tail slap attack. A tail attack with them counts as adamantine and magic for overcoming damage reduction, and the wearer applies more of his Strength bonus to tail slap damage rolls: a x1/2 bonus becomes x1, x1 becomes x1-1/2, and x1-1/2 becomes x2. Caster level 11th.",
     "source": "Dragon Magic, p. 96",
@@ -106,7 +106,7 @@ export const DRAGON_MAGIC_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "tome-of-the-wyrm",
     "name": "Tome of the Wyrm",
-    "category": "wondrous",
+    "category": "wondrous-slotless",
     "cost": "15,000 gp",
     "summary": "A leather-bound grimoire (5 lb.) that records battles against dragons, magically adding a page after each new battle (200 pages; new entries overwrite the oldest). A spellcaster carrying it in one hand gains a +1 insight bonus to caster level on any spell targeting an enemy dragon or including one in its area (applying to all creatures affected); at the end of each of the caster's turns the bonus rises by 1 if he harmed an enemy dragon with a spell that turn and falls by 1 if not (minimum +1, maximum the highest-level spell he can cast), fading one hour after he last harms a dragon. Caster level 10th.",
     "source": "Dragon Magic, p. 96",
@@ -116,7 +116,7 @@ export const DRAGON_MAGIC_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "vial-of-explosive-breath-lesser",
     "name": "Vial of Explosive Breath, Lesser",
-    "category": "wondrous",
+    "category": "wondrous-slotless",
     "cost": "1,000 gp",
     "summary": "A smoky crystal vial holding a tightly controlled quantity of dragon breath energy. Hurled as a splash weapon aimed at a grid intersection, it shatters and releases the breath weapon in a 20-foot-radius spread, dealing 6d6 points of damage of the creating dragon's breath type (acid, cold, electricity, or fire; Reflex DC 18 half). Caster level 6th; the creator must be a true dragon of adult age or greater with a matching breath weapon.",
     "source": "Dragon Magic, p. 96",
@@ -126,7 +126,7 @@ export const DRAGON_MAGIC_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "vial-of-explosive-breath-greater",
     "name": "Vial of Explosive Breath, Greater",
-    "category": "wondrous",
+    "category": "wondrous-slotless",
     "cost": "2,000 gp",
     "summary": "As a lesser vial of explosive breath, except it deals 10d6 points of damage (Reflex DC 22 half) and can be crafted only by true dragons of ancient age or older. Caster level 6th.",
     "source": "Dragon Magic, p. 96",
@@ -136,7 +136,7 @@ export const DRAGON_MAGIC_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "amber-pinwheel",
     "name": "Amber Pinwheel",
-    "category": "wondrous",
+    "category": "wondrous-slotless",
     "cost": "3,900 gp",
     "summary": "A gilded brown dragon scale resembling an ornate child's toy, fastened to a short silver rod (3 lb.). Set into the ground and activated with a command word (a standard action), it creates an invisible dome of force 10 feet high and 20 feet in diameter that blocks particulate matter and nonmagic projectiles (magic projectiles, spells, water, gas, and wind pass through, from either side); a second command word creates the illusion of a sand dune of the same dimensions. Each effect lasts up to 12 hours, can be used once per day, and ends if the pinwheel is dislodged. Caster level 10th.",
     "source": "Dragon Magic, p. 98",
@@ -146,7 +146,7 @@ export const DRAGON_MAGIC_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "azure-skullcap",
     "name": "Azure Skullcap",
-    "category": "wondrous",
+    "category": "wondrous-head",
     "cost": "15,000 gp",
     "summary": "A large blue dragon scale edged in mithral and set with sapphires and tourmalines, worn as a helm or hat (1 lb.). It continuously grants resistance to electricity 5 and a +1 enhancement bonus to natural armor, and once per day the wearer can produce a lightning bolt with a purely mental standard action. Caster level 8th.",
     "source": "Dragon Magic, p. 99",
@@ -156,7 +156,7 @@ export const DRAGON_MAGIC_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "beruto-of-the-carp-dragon",
     "name": "Beruto of the Carp Dragon",
-    "category": "wondrous",
+    "category": "wondrous-waist",
     "cost": "2,200 gp",
     "summary": "A hemp belt decorated with seashells, its buckle fashioned from a yu lung dragon scale (1 lb.). While worn, the wearer gains the ability to breathe water (but loses the ability to breathe air) and a swim speed equal to his base land speed, with the other benefits of having a swim speed; removing the belt restores normal air breathing. Caster level 7th.",
     "source": "Dragon Magic, p. 99",
@@ -166,7 +166,7 @@ export const DRAGON_MAGIC_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "brassy-bracers",
     "name": "Brassy Bracers",
-    "category": "wondrous",
+    "category": "wondrous-arms",
     "cost": "5,100 gp",
     "summary": "A pair of brass dragon scales edged in mithral and set with moonstones, worn on the forearms (1 lb.). Once per day, with a purely mental swift action, the wearer surrounds himself in a shield of superheated air for up to 10 rounds: the heat waves grant concealment (20% miss chance) and deal 2d6 points of fire damage to any creature striking him with a natural attack or nonreach melee weapon (the wearer is immune to his own bracers' heat). Caster level 10th.",
     "source": "Dragon Magic, p. 99",
@@ -176,7 +176,7 @@ export const DRAGON_MAGIC_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "bronzed-cuff",
     "name": "Bronzed Cuff",
-    "category": "wondrous",
+    "category": "wondrous-arms",
     "cost": "18,000 gp",
     "summary": "A bronze dragon scale shaped to fit the wrist, set with tiger's eye topazes. Twice per day, as a swift action, the wearer summons a +1 brilliant energy shock whip into the hand of the cuffed arm (failing if that hand already holds something); the whip remains for 5 rounds or until dismissed (a free action) and cannot leave the wielder's hand. It can be worn with magic bracers on the same arm, but does not work when a magic ring is worn on that hand. Caster level 16th.",
     "source": "Dragon Magic, p. 99",
@@ -186,7 +186,7 @@ export const DRAGON_MAGIC_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "crimson-claw",
     "name": "Crimson Claw",
-    "category": "wondrous",
+    "category": "wondrous-hands",
     "cost": "10,000 gp",
     "summary": "A small red dragon scale resembling a false fingernail, decorated with a flame pattern in gold leaf (a DC 15 Search check reveals it isn't part of the wearer's body). It functions continuously (occupying the glove/gauntlet slot), granting resistance to fire 5 and a +1 enhancement bonus to natural armor, and once per day the wearer can produce a burning hands effect with a purely mental standard action. Caster level 5th.",
     "source": "Dragon Magic, p. 100",
@@ -206,7 +206,7 @@ export const DRAGON_MAGIC_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "dark-clasp",
     "name": "Dark Clasp",
-    "category": "wondrous",
+    "category": "wondrous-throat",
     "cost": "2,400 gp",
     "summary": "A purple-black deep dragon scale in two parts forming a twining serpent, worn as a cloak clasp (occupying the amulet slot). Three times per day, as a swift action, the wearer can make a single melee attack with 5 feet of additional reach by elongating the attacking limb (not usable with a two-handed weapon), or perform a single move or standard action that can be done with one limb with 5 extra feet of reach. Caster level 3rd.",
     "source": "Dragon Magic, p. 100",
@@ -216,7 +216,7 @@ export const DRAGON_MAGIC_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "ebon-mask",
     "name": "Ebon Mask",
-    "category": "wondrous",
+    "category": "wondrous-face",
     "cost": "9,000 gp",
     "summary": "A dull black dragon scale edged in iron that adheres to the face over the nose and mouth (occupying the goggles/lenses slot; 1 lb.). It functions continuously, granting the ability to breathe water (without preventing air breathing), resistance to acid 5, and a +1 enhancement bonus to natural armor — but it muffles speech, imposing a 20% spell failure chance on spells with verbal components. Only the wearer can remove it unless he is unconscious or killed. Caster level 6th.",
     "source": "Dragon Magic, p. 100",
@@ -226,7 +226,7 @@ export const DRAGON_MAGIC_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "emerald-eye-patch",
     "name": "Emerald Eye Patch",
-    "category": "wondrous",
+    "category": "wondrous-face",
     "cost": "12,000 gp",
     "summary": "A scintillating green dragon scale with a faceted emerald, adhering over one eye. The wearer can rebuke or command plant creatures as a 10th-level cleric with the Plant domain granted power (three times per day) and can detect plants at will (as detect animals or plants, but plants only). Only the wearer can remove it unless she is unconscious or killed. Caster level 10th.",
     "source": "Dragon Magic, p. 101",
@@ -246,7 +246,7 @@ export const DRAGON_MAGIC_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "fiery-kabuto-of-the-celestial-dragon",
     "name": "Fiery Kabuto of the Celestial Dragon",
-    "category": "wondrous",
+    "category": "wondrous-head",
     "cost": "9,000 gp",
     "summary": "An extremely ornate helm (3 lb.) featuring a large t'ien lung dragon scale; wearing a kabuto is normally a right reserved for samurai. Once per day (a standard action to activate or turn off), it creates a sheath of fire around the wearer for 10 rounds: the wearer gains immunity to cold and fire, and creatures striking him with natural weapons or nonreach melee weapons take 1d6 points of fire damage. As a full-round action he can attempt a DC 15 Concentration check to expand the flames to a 20-foot-radius sphere dealing 2d6 fire damage per round to creatures inside (which then take no damage from striking him). Caster level 13th.",
     "source": "Dragon Magic, p. 101",
@@ -256,7 +256,7 @@ export const DRAGON_MAGIC_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "golden-visor",
     "name": "Golden Visor",
-    "category": "wondrous",
+    "category": "wondrous-face",
     "cost": "24,000 gp",
     "summary": "A gold dragon scale edged in steel and pierced with viewing slits, attached to a helm (occupying the goggles/lenses slot). While the helm is worn, it continuously grants darkvision out to 60 feet and a dragon's low-light vision, and once per day each it grants blindsense out to 30 feet and an aura of menace: an enemy with fewer Hit Dice than the wearer who tries to approach within 20 feet must succeed on a DC 20 Will save or be unable to approach for 1 round. Caster level not fully legible in the scan.",
     "source": "Dragon Magic, p. 101",
@@ -276,7 +276,7 @@ export const DRAGON_MAGIC_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "kuribune-of-the-river-dragon",
     "name": "Kuribune of the River Dragon",
-    "category": "wondrous",
+    "category": "wondrous-slotless",
     "cost": "3,000 gp",
     "summary": "A small river dragon scale item (1 lb.) that, when activated, enlarges into a normal 12-foot rowboat holding up to three Medium creatures. The boat obeys simple one-word commands (such as \"start,\" \"stop,\" \"left,\" \"right\") spoken by someone sitting in the prow and travels at a constant speed of 10 feet per round (subject to current and rowing). Caster level 12th.",
     "source": "Dragon Magic, p. 102",
@@ -286,7 +286,7 @@ export const DRAGON_MAGIC_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "opalescent-amulet",
     "name": "Opalescent Amulet",
-    "category": "wondrous",
+    "category": "wondrous-throat",
     "cost": "9,000 gp",
     "summary": "A milky white dragon scale in a silver setting studded with opals. It functions continuously, granting the icewalking ability of a white dragon (as spider climb, but only in icy areas), resistance to cold 5, and a +1 enhancement bonus to natural armor. Caster level 6th.",
     "source": "Dragon Magic, p. 102",
@@ -296,7 +296,7 @@ export const DRAGON_MAGIC_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "pearly-okimono-of-the-sea-dragon",
     "name": "Pearly Okimono of the Sea Dragon",
-    "category": "wondrous",
+    "category": "wondrous-slotless",
     "cost": "7,500 gp",
     "summary": "An ornate lung wang dragon scale 12 inches in diameter, inlaid with mother-of-pearl, coral, and white pearls (6 lb.). Affixed to a water vessel, it functions continuously: anyone aboard gains a +5 bonus on Profession (sailor) checks made to control the ship, the vessel's hardness increases by 5, and any chance the ship will capsize in rough water is halved. Caster level 11th.",
     "source": "Dragon Magic, p. 103",
@@ -306,7 +306,7 @@ export const DRAGON_MAGIC_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "shadowy-diadem",
     "name": "Shadowy Diadem",
-    "category": "wondrous",
+    "category": "wondrous-head",
     "cost": "4,400 gp",
     "summary": "A black iron headband studded with onyx and black sapphires, with a shadow dragon scale at its center (1 lb.). Three times per day, as a swift action, it cloaks the wearer in a swirling mass of darkness providing concealment and immunity to energy drain effects, lasting 10 rounds or until the wearer enters the area of a light spell of 3rd level or higher. Caster level 7th.",
     "source": "Dragon Magic, p. 103",
@@ -326,7 +326,7 @@ export const DRAGON_MAGIC_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "sterling-collar",
     "name": "Sterling Collar",
-    "category": "wondrous",
+    "category": "wondrous-throat",
     "cost": "12,000 gp",
     "summary": "A silver dragon scale shaped to fit around the throat, studded with chrysoberyls and white pearls (1 lb.). It continuously grants resistance to cold 5 and a +1 enhancement bonus to natural armor, and once per day (an immediate action) the wearer can walk on clouds as a silver dragon does (as air walk, but only in fog or clouds) for up to 10 minutes. Caster level 9th.",
     "source": "Dragon Magic, p. 103",
@@ -336,7 +336,7 @@ export const DRAGON_MAGIC_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "tarekazari-of-the-coiled-dragon",
     "name": "Tarekazari of the Coiled Dragon",
-    "category": "wondrous",
+    "category": "wondrous-throat",
     "cost": "3,600 gp",
     "summary": "An amulet fashioned from a pan lung dragon scale, decorated with silver and amethysts. Once per day, placed on the remains of a creature with a command word (a standard action), it either recites the names of five generations of the dead creature's ancestors and allows three questions of its spirit (as speak with dead cast by a 7th-level caster), or renders the remains permanently immune to reanimation as an undead creature — one effect must be chosen. Caster level 7th.",
     "source": "Dragon Magic, p. 104",
@@ -346,7 +346,7 @@ export const DRAGON_MAGIC_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "watery-hachimaki-of-the-typhoon-dragon",
     "name": "Watery Hachimaki of the Typhoon Dragon",
-    "category": "wondrous",
+    "category": "wondrous-head",
     "cost": "24,000 gp",
     "summary": "A blue silk headband sewn with black pearls and featuring a tun mi lung dragon scale. Each of its effects functions once per day (a standard action): a control weather effect and a control winds effect. Caster level 13th.",
     "source": "Dragon Magic, p. 104",

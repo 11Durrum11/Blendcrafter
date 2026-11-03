@@ -227,7 +227,7 @@ export const CORE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "bag-of-holding-type-i",
     "name": "Bag of Holding, Type I",
-    "category": "wondrous",
+    "category": "wondrous-slotless",
     "cost": "2,500 gp",
     "summary": "Holds more than its exterior volume suggests.",
     "source": "d20SRD — Magic Items",
@@ -237,7 +237,7 @@ export const CORE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "boots-of-elvenkind",
     "name": "Boots of Elvenkind",
-    "category": "wondrous",
+    "category": "wondrous-feet",
     "cost": "2,500 gp",
     "summary": "Grant a +5 competence bonus on Move Silently checks.",
     "source": "d20SRD — Magic Items",
@@ -247,7 +247,7 @@ export const CORE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "cloak-of-resistance-1",
     "name": "Cloak of Resistance +1",
-    "category": "wondrous",
+    "category": "wondrous-shoulders",
     "cost": "1,000 gp",
     "summary": "Grants a +1 resistance bonus on all saving throws.",
     "source": "d20SRD — Magic Items",
@@ -257,7 +257,7 @@ export const CORE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "cloak-of-elvenkind",
     "name": "Cloak of Elvenkind",
-    "category": "wondrous",
+    "category": "wondrous-shoulders",
     "cost": "2,500 gp",
     "summary": "Grants a +5 competence bonus on Hide checks.",
     "source": "d20SRD — Magic Items",
@@ -267,7 +267,7 @@ export const CORE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "gloves-of-dexterity-2",
     "name": "Gloves of Dexterity +2",
-    "category": "wondrous",
+    "category": "wondrous-hands",
     "cost": "4,000 gp",
     "summary": "Grant a +2 enhancement bonus to Dexterity.",
     "source": "d20SRD — Magic Items",
@@ -277,7 +277,7 @@ export const CORE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "headband-of-intellect-2",
     "name": "Headband of Intellect +2",
-    "category": "wondrous",
+    "category": "wondrous-head",
     "cost": "4,000 gp",
     "summary": "Grant a +2 enhancement bonus to Intelligence.",
     "source": "d20SRD — Magic Items",
@@ -287,7 +287,7 @@ export const CORE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "belt-of-giant-strength-2",
     "name": "Belt of Giant Strength +2",
-    "category": "wondrous",
+    "category": "wondrous-waist",
     "cost": "4,000 gp",
     "summary": "Grants a +2 enhancement bonus to Strength.",
     "source": "d20SRD — Magic Items",
@@ -297,7 +297,7 @@ export const CORE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "amulet-of-natural-armor-1",
     "name": "Amulet of Natural Armor +1",
-    "category": "wondrous",
+    "category": "wondrous-throat",
     "cost": "2,000 gp",
     "summary": "Grants a +1 enhancement bonus to natural armor.",
     "source": "d20SRD — Magic Items",
@@ -307,7 +307,7 @@ export const CORE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "bracers-of-armor-1",
     "name": "Bracers of Armor +1",
-    "category": "wondrous",
+    "category": "wondrous-arms",
     "cost": "1,000 gp",
     "summary": "Grant a +1 armor bonus to AC.",
     "source": "d20SRD — Magic Items",
@@ -317,7 +317,7 @@ export const CORE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "handy-haversack",
     "name": "Handy Haversack",
-    "category": "wondrous",
+    "category": "wondrous-slotless",
     "cost": "2,000 gp",
     "summary": "Stores gear in easily retrieved extradimensional compartments.",
     "source": "d20SRD — Magic Items",
@@ -327,7 +327,7 @@ export const CORE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "pearl-of-power-1st-level",
     "name": "Pearl of Power, 1st-level",
-    "category": "wondrous",
+    "category": "wondrous-slotless",
     "cost": "1,000 gp",
     "summary": "Recovers one prepared 1st-level spell.",
     "source": "d20SRD — Magic Items",
@@ -337,7 +337,7 @@ export const CORE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "stone-of-good-luck",
     "name": "Stone of Good Luck",
-    "category": "wondrous",
+    "category": "wondrous-slotless",
     "cost": "20,000 gp",
     "summary": "Grants a +1 luck bonus on saves, ability checks, and skill checks.",
     "source": "d20SRD — Magic Items",
@@ -347,7 +347,7 @@ export const CORE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "winged-boots",
     "name": "Winged Boots",
-    "category": "wondrous",
+    "category": "wondrous-feet",
     "cost": "12,000 gp",
     "summary": "Permit flight for up to 5 minutes per day.",
     "source": "d20SRD — Magic Items",
@@ -357,7 +357,7 @@ export const CORE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "portable-hole",
     "name": "Portable Hole",
-    "category": "wondrous",
+    "category": "wondrous-slotless",
     "cost": "20,000 gp",
     "summary": "Creates an extradimensional circular opening.",
     "source": "d20SRD — Magic Items",
@@ -367,7 +367,7 @@ export const CORE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "robe-of-the-archmagi",
     "name": "Robe of the Archmagi",
-    "category": "wondrous",
+    "category": "wondrous-body",
     "cost": "75,000 gp",
     "summary": "Provides AC, resistance, spell resistance, and caster-level benefits.",
     "source": "d20SRD — Magic Items",
@@ -377,7 +377,7 @@ export const CORE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "vorpal-weapon-special-ability",
     "name": "Vorpal Weapon Special Ability",
-    "category": "armor-or-weapon-special-ability",
+    "category": "weapon-special-ability",
     "cost": "+5 bonus",
     "summary": "A slashing weapon may sever heads on a natural 20 confirmation.",
     "source": "d20SRD — Magic Items",
@@ -387,7 +387,7 @@ export const CORE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "flaming-weapon-special-ability",
     "name": "Flaming Weapon Special Ability",
-    "category": "armor-or-weapon-special-ability",
+    "category": "weapon-special-ability",
     "cost": "+1 bonus",
     "summary": "Weapon deals an extra 1d6 fire damage on a hit.",
     "source": "d20SRD — Magic Items",
@@ -397,7 +397,7 @@ export const CORE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "holy-weapon-special-ability",
     "name": "Holy Weapon Special Ability",
-    "category": "armor-or-weapon-special-ability",
+    "category": "weapon-special-ability",
     "cost": "+2 bonus",
     "summary": "Weapon deals extra damage to evil creatures and counts as good-aligned.",
     "source": "d20SRD — Magic Items",
@@ -407,7 +407,7 @@ export const CORE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "ghost-touch-weapon-special-ability",
     "name": "Ghost Touch Weapon Special Ability",
-    "category": "armor-or-weapon-special-ability",
+    "category": "weapon-special-ability",
     "cost": "+1 bonus",
     "summary": "Weapon affects incorporeal creatures normally.",
     "source": "d20SRD — Magic Items",
@@ -417,7 +417,7 @@ export const CORE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "fortification-light-armor-special-ability",
     "name": "Fortification, Light Armor Special Ability",
-    "category": "armor-or-weapon-special-ability",
+    "category": "armor-special-ability",
     "cost": "+1 bonus",
     "summary": "25% chance to negate extra damage from critical hits and sneak attacks.",
     "source": "d20SRD — Magic Items",
@@ -427,7 +427,7 @@ export const CORE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "shadow-armor-special-ability",
     "name": "Shadow Armor Special Ability",
-    "category": "armor-or-weapon-special-ability",
+    "category": "armor-special-ability",
     "cost": "+1 bonus",
     "summary": "Grants a +5 competence bonus on Hide checks.",
     "source": "d20SRD — Magic Items",
@@ -437,7 +437,7 @@ export const CORE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "mithral-armor",
     "name": "Mithral Armor",
-    "category": "armor-or-weapon-special-ability",
+    "category": "armor-special-ability",
     "cost": "Varies",
     "summary": "Special material that reduces armor weight and improves mobility.",
     "source": "d20SRD — Magic Items",
@@ -447,7 +447,7 @@ export const CORE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "adamantine-weapon",
     "name": "Adamantine Weapon",
-    "category": "armor-or-weapon-special-ability",
+    "category": "weapon-special-ability",
     "cost": "+3,000 gp",
     "summary": "Special material that ignores hardness below 20 when sundering.",
     "source": "d20SRD — Magic Items",
@@ -457,7 +457,7 @@ export const CORE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "apparatus-of-kwalish",
     "name": "Apparatus of Kwalish",
-    "category": "wondrous",
+    "category": "wondrous-slotless",
     "cost": "90,000 gp",
     "summary": "A vehicle-like magic item with multiple controls and capabilities.",
     "source": "d20SRD — Magic Items",
@@ -487,7 +487,7 @@ export const CORE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "amulet-of-health-2",
     "name": "Amulet of Health +2",
-    "category": "wondrous",
+    "category": "wondrous-throat",
     "cost": "4,000 gp",
     "summary": "Grants a +2 enhancement bonus to Constitution.",
     "source": "d20SRD — Magic Items",
@@ -497,7 +497,7 @@ export const CORE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "periapt-of-wisdom-2",
     "name": "Periapt of Wisdom +2",
-    "category": "wondrous",
+    "category": "wondrous-throat",
     "cost": "4,000 gp",
     "summary": "Grants a +2 enhancement bonus to Wisdom.",
     "source": "d20SRD — Magic Items",
@@ -507,7 +507,7 @@ export const CORE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "cloak-of-charisma-2",
     "name": "Cloak of Charisma +2",
-    "category": "wondrous",
+    "category": "wondrous-shoulders",
     "cost": "4,000 gp",
     "summary": "Grants a +2 enhancement bonus to Charisma.",
     "source": "d20SRD — Magic Items",
@@ -517,7 +517,7 @@ export const CORE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "boots-of-speed",
     "name": "Boots of Speed",
-    "category": "wondrous",
+    "category": "wondrous-feet",
     "cost": "12,000 gp",
     "summary": "Allows the wearer to use haste for up to 10 rounds per day.",
     "source": "d20SRD — Magic Items",
@@ -567,7 +567,7 @@ export const CORE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "decanter-of-endless-water",
     "name": "Decanter of Endless Water",
-    "category": "wondrous",
+    "category": "wondrous-slotless",
     "cost": "9,000 gp",
     "summary": "Produces fresh or salt water on command.",
     "source": "d20SRD — Magic Items",
@@ -577,7 +577,7 @@ export const CORE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "figurine-of-wondrous-power-onyx-dog",
     "name": "Figurine of Wondrous Power, Onyx Dog",
-    "category": "wondrous",
+    "category": "wondrous-slotless",
     "cost": "15,500 gp",
     "summary": "Transforms into a capable canine creature for limited periods.",
     "source": "d20SRD — Magic Items",
@@ -587,7 +587,7 @@ export const CORE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "ioun-stone-dusty-rose-prism",
     "name": "Ioun Stone, Dusty Rose Prism",
-    "category": "wondrous",
+    "category": "wondrous-slotless",
     "cost": "5,000 gp",
     "summary": "Orbits the bearer and grants a +1 insight bonus to AC.",
     "source": "d20SRD — Magic Items",
@@ -597,7 +597,7 @@ export const CORE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "bead-of-force",
     "name": "Bead of Force",
-    "category": "wondrous",
+    "category": "wondrous-slotless",
     "cost": "3,000 gp",
     "summary": "Creates a force globe after striking a target or surface.",
     "source": "d20SRD — Magic Items",
@@ -607,7 +607,7 @@ export const CORE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "horn-of-blasting",
     "name": "Horn of Blasting",
-    "category": "wondrous",
+    "category": "wondrous-slotless",
     "cost": "20,000 gp",
     "summary": "Emits a damaging sonic blast when sounded.",
     "source": "d20SRD — Magic Items",
@@ -617,7 +617,7 @@ export const CORE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "necklace-of-fireballs-type-i",
     "name": "Necklace of Fireballs, Type I",
-    "category": "wondrous",
+    "category": "wondrous-throat",
     "cost": "1,650 gp",
     "summary": "Contains detachable beads that explode as fireballs.",
     "source": "d20SRD — Magic Items",
@@ -627,7 +627,7 @@ export const CORE_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "carpet-of-flying-5-ft-by-5-ft",
     "name": "Carpet of Flying, 5 ft. by 5 ft.",
-    "category": "wondrous",
+    "category": "wondrous-slotless",
     "cost": "20,000 gp",
     "summary": "Carries creatures through the air at the listed speed.",
     "source": "d20SRD — Magic Items",
