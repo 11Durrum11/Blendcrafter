@@ -75,6 +75,38 @@ function rsBadge(ruleset: Ruleset | undefined, extra: string[] = []): string[] {
   return [...extra, ...(ruleset && ruleset !== "core" ? [RULESET_LABELS[ruleset]] : [])];
 }
 
+/**
+ * Transdimensional spells (Shaun, 2026-11-03: "Gray out all
+ * transdimensional spells"). Planar travel is severed in APOC, so
+ * these are shown grayed in the reference like the summoning list.
+ * The set: every spell of the Calling subschool (creatures called
+ * across planes), plus the named extra-dimensional / cross-planar
+ * spells below — Banishment and Dismissal (Shaun's canon names
+ * Banishment as failing), the extra-dimensional spaces (Familiar
+ * Pocket, Force Chest, Hungry Gizzard, Pavilion of Grandeur),
+ * cross-planar contact (Contact Other Plane, Interplanar Message,
+ * Interplanar Telepathic Bond), Reality Maelstrom, Black Blade of
+ * Disaster (a planar rift), Contingent Spell Lock (Ethereal-keyed),
+ * and Ethereal Breath (reaches across the Ethereal boundary).
+ * Deliberately NOT grayed: the anti-dimensional wards — Dimensional
+ * Anchor, Dimensional Lock, Anticipate Teleportation (both),
+ * Forbiddance, and the planar-protection spells — those enforce the
+ * severance and still work. The classic teleport spells (Teleport,
+ * Dimension Door, Plane Shift, Gate, Blink…) are not in the set
+ * because they are no longer in the catalog at all: they were
+ * deleted in the 2026-11-02 spell removals.
+ */
+const TRANSDIMENSIONAL_EXTRA_IDS = new Set([
+  "banishment", "dismissal", "familiar-pocket", "force-chest",
+  "hungry-gizzard", "pavilion-of-grandeur", "reality-maelstrom",
+  "black-blade-of-disaster", "contact-other-plane", "interplanar-message",
+  "interplanar-telepathic-bond", "contingent-spell-lock", "ethereal-breath",
+]);
+
+function isTransdimensionalSpell(s: { id: string; subschool?: string }): boolean {
+  return s.subschool === "Calling" || TRANSDIMENSIONAL_EXTRA_IDS.has(s.id);
+}
+
 const CATEGORIES: RefCategory[] = [
   {
     key: "races", label: "Races",
@@ -117,7 +149,17 @@ const CATEGORIES: RefCategory[] = [
   },
   {
     key: "spells", label: "Spells",
-    rows: ALL_SPELLS.map((s) => ({ key: `spells:${s.id}`, category: "Spell", name: s.name, source: s.source, ruleset: s.ruleset, makeDetail: () => describeSpell(s) })),
+    rows: ALL_SPELLS.map((s) => {
+      const td = isTransdimensionalSpell(s);
+      return {
+        key: `spells:${s.id}`, category: "Spell", name: s.name, source: s.source, ruleset: s.ruleset,
+        ...(td ? { disabled: true } : {}),
+        makeDetail: (): EntityDetail => {
+          const d = describeSpell(s);
+          return td ? { ...d, badges: ["Transdimensional — does not work in APOC", ...d.badges] } : d;
+        },
+      };
+    }),
   },
   {
     key: "equipment", label: "Equipment",
