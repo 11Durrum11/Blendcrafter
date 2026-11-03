@@ -16,7 +16,7 @@ export const LOCK_AND_LOAD_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     id: "robe-of-gobberkind",
     name: "Robe of Gobberkind",
-    category: "wondrous-item",
+    category: "wondrous-body",
     cost: "1,000+ gp",
     summary:
       "A coat woven from three gobber ponchos by a knowledgeable wizard of 9th level or higher (the book calls it a coat of gobberkind in the text and a Robe of Gobberkind in the stat line). Unlike an ordinary gobber poncho, it functions for non-gobbers, granting the wearer a +4 circumstance bonus to Hide and Move Silently checks. Weight 3 pounds.",

@@ -6,7 +6,7 @@ export const MONSTERNOMICON_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "helm-of-the-hunt",
     "name": "Helm of the Hunt",
-    "category": "wondrous",
+    "category": "wondrous-head",
     "cost": "4,000 gp",
     "summary": "Helm made from an imbued duskwolf skull trophy (3 lb.): the wearer gains the scent ability.",
     "source": "Monsternomicon vol. 2 (Duskwolf), p. 60",
@@ -16,7 +16,7 @@ export const MONSTERNOMICON_MAGIC_ITEMS: MagicItemDefinition[] = [
   {
     "id": "duskwolf-cloak",
     "name": "Duskwolf Cloak",
-    "category": "wondrous",
+    "category": "wondrous-shoulders",
     "cost": "2,500 gp",
     "summary": "Hooded cloak (2 lb.) made from the properly cured pelt of a female duskwolf, whose shadow-blending ability persists in the pelt: +5 competence bonus on Hide checks.",
     "source": "Monsternomicon vol. 2 (Duskwolf), p. 60",
