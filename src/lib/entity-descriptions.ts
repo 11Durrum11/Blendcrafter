@@ -12,6 +12,9 @@ import {
   type SpellDefinition,
 } from "@/engine/types";
 import { raceStartingEcl } from "@/lib/race-groups";
+import { ALL_SPELLS } from "@/data/index";
+
+const SPELL_BY_ID = new Map(ALL_SPELLS.map((sp) => [sp.id, sp]));
 
 /**
  * Read-only detail views for the shared EntityDetailDialog. Every describe*
@@ -196,11 +199,43 @@ export function describeEquipment(item: EquipmentItem): EntityDetail {
 }
 
 export function describeMagicItem(item: MagicItemDefinition): EntityDetail {
+  const sections: EntityDetailSection[] = [{ heading: "Cost", body: item.cost }];
+  // Generated wands and scrolls (2026-11-02): the item IS a spell in a
+  // stick / on a page, so its detail view carries the spell's full
+  // crunch — description where the spell record has one, plus the
+  // full stat block (lists, casting time, components, range, target,
+  // duration, saving throw, spell resistance). The three hand-built
+  // scrolls pick the same treatment up by the same id join.
+  const spellId = item.id.startsWith("wand-of-")
+    ? item.id.slice("wand-of-".length)
+    : item.id.startsWith("scroll-of-")
+      ? item.id.slice("scroll-of-".length)
+      : null;
+  const spell = spellId ? SPELL_BY_ID.get(spellId) : undefined;
+  if (spell) {
+    if (spell.description) sections.push({ heading: "Spell Description", body: spell.description });
+    sections.push(
+      {
+        heading: "Spell Lists",
+        body: Object.entries(spell.levels)
+          .sort(([a], [b]) => a.localeCompare(b))
+          .map(([list, lvl]) => `${list} ${lvl}`)
+          .join("\n"),
+      },
+      { heading: "Casting Time", body: spell.castingTime },
+      { heading: "Components", body: spell.components },
+      { heading: "Range", body: spell.range },
+      { heading: "Target / Area / Effect", body: spell.targetOrArea },
+      { heading: "Duration", body: spell.duration },
+      { heading: "Saving Throw", body: spell.savingThrow },
+      { heading: "Spell Resistance", body: spell.spellResistance }
+    );
+  }
   return {
     title: item.name,
     badges: ["Magic Item", item.category],
     summary: item.summary,
-    sections: [{ heading: "Cost", body: item.cost }],
+    sections,
     source: item.source,
     sourceUrl: item.sourceUrl,
   };

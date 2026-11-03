@@ -5307,3 +5307,16 @@ from "weapon" to "ammunition" where they belong —
 ammunition 2 → 21, weapons 33 → 30. Magic items total:
 2,128 → 6,004. Same exemplar gap exists for POTIONS (103,
 also per-spell items in the game) — not built; Shaun's call.
+
+**Wand/scroll crunch (2026-11-02, Shaun: "the crunches
+there now too"):** a generated wand or scroll's detail view
+now carries its spell's full crunch — the spell description
+where the spell record has one (the 560 SRD-text spells),
+plus the full stat block (spell lists, casting time,
+components, range, target/area, duration, saving throw,
+spell resistance) for every generated wand and scroll. The
+join is by id suffix in describeMagicItem
+(src/lib/entity-descriptions.ts); the three hand-built
+scrolls pick it up too. Other magic items show what their
+records hold (summary + cost) — nothing more exists in
+their data to show.
