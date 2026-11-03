@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState, type ReactNode } from "react";
-import { Brain, Dices, Sparkles } from "lucide-react";
+import { Brain, ChevronDown, ChevronRight, Dices, Sparkles } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -192,10 +192,20 @@ function PickedBox({title,items,selectedIds,onRemove,onShowDetail,testidPrefix}:
   </div>;
 }
 function FlawTraitPicker({title,items,selectedIds,query,onQuery,onToggle,onShowDetail,testidPrefix}:{title:string;items:FlawTraitDefinition[];selectedIds:string[];query:string;onQuery:(v:string)=>void;onToggle:(id:string)=>void;onShowDetail:(item:FlawTraitDefinition)=>void;testidPrefix:string}) {
+  // Minimized by default (Shaun, 2026-11-03): the list stays closed
+  // until its title head is clicked; the note beside the head says so.
+  const [open, setOpen] = useState(false);
   const visible = items.filter(i=>i.name.toLowerCase().includes(query.toLowerCase()));
   const sorted = [...visible].sort((a,b)=>(Number(selectedIds.includes(b.id))-Number(selectedIds.includes(a.id)))||a.name.localeCompare(b.name));
   return <div className="space-y-2" data-testid={`picker-${testidPrefix}`}>
-    <h3 className="text-sm font-semibold">{title} <span className="font-normal text-muted-foreground">({selectedIds.length} selected · {items.length} in the library)</span></h3>
+    <h3 className="text-sm font-semibold">
+      <button type="button" className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-left" onClick={()=>setOpen(v=>!v)} aria-expanded={open} data-testid={`picker-toggle-${testidPrefix}`}>
+        {open ? <ChevronDown className="h-4 w-4 shrink-0 text-muted-foreground"/> : <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground"/>}
+        <span>{title} <span className="font-normal text-muted-foreground">({selectedIds.length} selected · {items.length} in the library)</span></span>
+        <span className="text-xs font-normal text-muted-foreground">{open ? "(click the title to close)" : "(click the title to open the list)"}</span>
+      </button>
+    </h3>
+    {open && <>
     <Input value={query} onChange={e=>onQuery(e.target.value)} placeholder={`Search ${title.toLowerCase()}…`} className="h-8" data-testid={`input-${testidPrefix}-search`} />
     {/* Names only, four across (Shaun, 2026-11-02): the initial list
         shows just each flaw/trait name to save space; everything
@@ -208,6 +218,7 @@ function FlawTraitPicker({title,items,selectedIds,query,onQuery,onToggle,onShowD
       </label>)}
       {sorted.length===0 && <p className="col-span-full p-1 text-sm text-muted-foreground">No matches.</p>}
     </div>
+    </>}
   </div>;
 }
 function Field({label,children}:{label:string;children:ReactNode}){return <div className="space-y-1.5"><Label>{label}</Label>{children}</div>}
