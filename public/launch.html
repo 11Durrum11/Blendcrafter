@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blendcrafter</title>
+    <style>
+      body { background: #14171F; color: #d8d3c3; font-family: system-ui, sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+    </style>
+  </head>
+  <body>
+    <p>Opening Blendcrafter…</p>
+    <script>
+      // Always-newest launcher (Shaun, 2026-11-03): the home-screen icon
+      // starts here, not at the app root, so every launch first asks the
+      // server for the current version stamp — with caching disabled —
+      // and then jumps to the app with that stamp in the address. A new
+      // stamp means a new address, which means the phone cannot serve a
+      // stale cached copy. If the stamp can't be fetched, fall back to
+      // the current time, which is still a brand-new address.
+      (function () {
+        function go(stamp) {
+          location.replace("./?v=" + encodeURIComponent(stamp));
+        }
+        fetch("version.json", { cache: "no-store" })
+          .then(function (r) { return r.json(); })
+          .then(function (j) { go(j.version || String(Date.now())); })
+          .catch(function () { go(String(Date.now())); });
+      })();
+    </script>
+  </body>
+</html>
