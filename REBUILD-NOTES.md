@@ -5458,3 +5458,30 @@ carried the table values; no edits. Merged: magic 9,084, equipment
 8,120, items 17,204, grand total 23,114. Reports:
 ~/workspace/omni-sweep/reports/{wave4-builds,house-arrows,
 price-corrections}.md.
+
+## Final audit fixes (2026-11-03) — Shaun: "Make sure all the information is right"
+Exhaustive structural audit of all 17,204 item records (fields,
+categories, rulesets, cost formats, duplicates): clean. All 5,223
+generated records (wands/scrolls/infusions) re-derived against their
+price formulas: zero errors. Live-bundle parity: all 17,204 record
+names present; price sample matched. Independent 170-record content
+sample against the book texts: 157 verified exact, 2 true mismatches
+(fixed here), 1 corroborated, 10 unverifiable — every unverifiable
+traces to an image-only/stub source extraction (Tome of Magic teeth,
+Liber Mechanika, Complete Divine staff) or a price line lost in a
+two-column extraction (Murder Chair); none is a price disagreement.
+FIXES: Droplets of the Storm 7,650 -> 15,000 gp (A&EG stat block;
+7,650 was the Eversoaking Sponge's price, one row off) and Sorcerer's
+Hand 18,335 -> 38,708 gp (A&EG stat block; 18,335 was the book's own
+random-table figure) in omni-arms-and-equipment-guide.ts. Placeholder
+cleanup: 10 fan-index records carried cost "TBD" (Dragon #319
+primitive armors, MM weapons) -> "—", 25 "hardness TBD" notes ->
+"hardness —", Mud Armor "0 gp" -> "—" (core/new-equipment.json,
+races-of-faerun/equipment.ts); no "TBD" remains in the data.
+Parent re-checks OVERTURNED four auditor flags — Rhinoceros (200 gp
+is the book's Young Price on the DC 21/28 stat line; record exact),
+Spring Needle Trap (225 gp price line found in BoVD, "including one
+dose of poison"), Caduceus (ego 6 matches the item's own entry),
+Trapdoor Floor (its modifier price is corroborated by the book's
+sample build at 7,500 gp) — no edits made on those. Audit files:
+~/workspace/final-audit/.

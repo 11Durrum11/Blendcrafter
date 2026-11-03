@@ -216,7 +216,7 @@ export const RACES_OF_FAERUN_EQUIPMENT: EquipmentItem[] = [
     "id": "mud-armor",
     "name": "Mud Armor",
     "category": "armor",
-    "cost": "0 gp",
+    "cost": "—",
     "weight": "8 lbs.",
     "notes": "Armor fashioned from the right sort of clays by wild dwarves, who are normally the only people to employ it: armor bonus +1, maximum Dex bonus +8, armor check penalty -1, arcane spell failure 0%, speed 30 ft./20 ft. Adorning yourself or another creature with mud armor takes 10 minutes, as does washing it off.",
     "acBonus": 1,
