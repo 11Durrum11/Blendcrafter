@@ -281,8 +281,8 @@ export function StepReference() {
     <div className="space-y-4">
       <Card>
         <CardHeader>
-          <CardTitle className="text-2xl">Player Reference</CardTitle>
-          <CardDescription className="text-base">
+          <CardTitle className="text-3xl">Player Reference</CardTitle>
+          <CardDescription className="text-lg">
             Every entry in the library — {TOTAL_ROWS.toLocaleString()} records — in one lookup. Search by name or by
             book, or pick a category and browse. Nothing here changes your character; it is purely for looking
             things up, so nobody has to go dig through the Dropbox.
@@ -295,12 +295,12 @@ export function StepReference() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Look up anything — a feat, a spell, an item, a race…"
-              className="h-11 pl-9 text-base"
+              className="h-12 pl-9 text-lg"
               data-testid="input-reference-search"
             />
           </div>
           <div className="flex flex-wrap gap-1.5">
-            <Button size="sm" className="text-sm" variant={category === "all" ? "default" : "outline"} onClick={() => setCategory("all")}>
+            <Button size="sm" className="text-base" variant={category === "all" ? "default" : "outline"} onClick={() => setCategory("all")}>
               All ({TOTAL_ROWS.toLocaleString()})
             </Button>
             {CATEGORIES.map((c) => (
@@ -308,7 +308,7 @@ export function StepReference() {
                 key={c.key}
                 size="sm"
                 variant={category === c.key ? "default" : "outline"}
-                className={c.disabled ? "text-sm text-muted-foreground line-through opacity-60" : "text-sm"}
+                className={c.disabled ? "text-base text-muted-foreground line-through opacity-60" : "text-base"}
                 onClick={() => setCategory(c.key)}
               >
                 {c.label} ({c.rows.length.toLocaleString()})
@@ -319,26 +319,26 @@ export function StepReference() {
       </Card>
 
       {query.trim() === "" && category === "all" ? (
-        <p className="px-1 text-base text-muted-foreground">
+        <p className="px-1 text-lg text-muted-foreground">
           Type above to search the whole library at once, or pick a category to browse it. Tap any entry to read
           its full details and where it comes from.
         </p>
       ) : (
         <Card>
           <CardHeader className="pb-2">
-            <CardTitle className="text-lg">
+            <CardTitle className="text-xl">
               {results.length.toLocaleString()} {results.length === 1 ? "match" : "matches"}
               {browsing ? ` in ${CATEGORIES.find((c) => c.key === category)?.label}` : ""}
             </CardTitle>
             {results.length > RENDER_CAP && (
-              <CardDescription className="text-base">
+              <CardDescription className="text-lg">
                 Showing the first {RENDER_CAP}. Add more words to the search to narrow it down.
               </CardDescription>
             )}
           </CardHeader>
           <CardContent>
             {shown.length === 0 ? (
-              <p className="text-base text-muted-foreground">Nothing in the library matches that. Try a different spelling or a shorter search.</p>
+              <p className="text-lg text-muted-foreground">Nothing in the library matches that. Try a different spelling or a shorter search.</p>
             ) : (
               <ul className="divide-y">
                 {shown.map((row) => (
@@ -353,11 +353,11 @@ export function StepReference() {
                       onClick={() => setDetail(row.makeDetail())}
                     >
                       <span className="min-w-0">
-                        <span className="block truncate text-base font-medium">{row.name}</span>
-                        <span className="block truncate text-sm text-muted-foreground">{row.source}</span>
+                        <span className="block truncate text-lg font-medium">{row.name}</span>
+                        <span className="block truncate text-base text-muted-foreground">{row.source}</span>
                       </span>
                       <span className="flex shrink-0 items-center gap-1.5">
-                        <Badge variant="secondary" className="text-xs">{row.category}</Badge>
+                        <Badge variant="secondary" className="text-sm">{row.category}</Badge>
                         {row.ruleset && row.ruleset !== "core" && (
                           <ProductIdentityBadge rulesetLabel={RULESET_LABELS[row.ruleset]} />
                         )}
