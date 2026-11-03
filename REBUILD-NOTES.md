@@ -5369,3 +5369,35 @@ empty with an explanatory header (same status: PHB II, Complete
 Psionic). ~200 price conflicts logged across the wave, nearly all MIC
 repricing (catalog keeps MIC values); two books (G&G, UEG1) agree the
 catalog's 10 gp Spyglass is wrong vs the printed 1,000 gp.
+
+## Omni Sweep Wave 2 (2026-11-02 night) — ~50 more sources
+Second wave of Shaun's omni sweep: every remaining readable source in
+the Dropbox + laptop union with item/equipment content. 41 new packs
+under src/data/omni/; built 2,317 records, all net (one id collision —
+ELH's epic Staff of Winter vs Frostburn's — resolved by renaming the
+epic record staff-of-winter-epic). Merged catalog: magic items 6,706
+-> 7,562, equipment 6,615 -> 8,076 (items total 15,638; the sweep's
+two waves built 8,089 records). Highlights: Epic Level Handbook's
+items chapter was essentially absent (+149); Unearthed Arcana's
+metamagic components (+510 equipment); Weapons of Legacy (+49 with
+ritual costs); Shaun's house documents (+70, ruleset "homebrew":
+prosthetics, grafts, consumables); the five 3.0 guidebooks (+166);
+Steamworks (+100); Adventurer Essentials (+189); Gygax World Builder
+(+203) and Living Fantasy's spellcasting services (+123); Poisoncraft
+(+94). Verified already-complete: Heroes of Battle, Miniatures
+Handbook, Dragon Magic, Frostburn Ch.4, Sandstorm (bar 5 mounts).
+Verified no-item-content: Book of Curses, Guildcraft, Races of
+Destiny, Quintessential Elf (Shaun's file is a character sheet).
+UNREADABLE copies (image-only/garbled OCR, logged as gaps, nothing
+invented): Tome of Magic, Races of Faerun, Liber Mechanika, Alchemy
+& Herbalists, Bastards and Bloodlines, Constructs: It Is Alive,
+Familiars, Heroes of High Favor (Dwarves, Half-Orcs), Magic
+(Penumbra), Relics, Spells & Magic, Quintessential Dwarf,
+Quintessential Rogue, Way of the Rogue. Price conflicts again
+reported-only (~150 this wave): the fan-index XPH prices are
+systematically wrong vs the printed book (Torc of Power Preservation
+4,000 catalog vs 36,000 printed) — correction awaits Shaun's ruling.
+Canon flag: Exemplars of Evil's Planar Trestle (portal-forcing
+artifact) cataloged and flagged for Shaun's keep/remove call.
+Ledger: ~/workspace/omni-sweep/LEDGER.md; reports per book in
+~/workspace/omni-sweep/reports/.
