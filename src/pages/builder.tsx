@@ -18,6 +18,7 @@ import { StepFeats } from "@/components/steps/step-feats";
 import { StepEquipment } from "@/components/steps/step-equipment";
 import { StepPersonality } from "@/components/steps/step-personality";
 import { StepSheet } from "@/components/steps/step-sheet";
+import { StepReference } from "@/components/steps/step-reference";
 import { useCharacterBuild } from "@/lib/use-character-build";
 import { exportCharacterJson, importCharacterJson } from "@/lib/character-io";
 import { buildShareUrl, buildTokenFromSearch, copyText, decodeBuildToken, decodeSettingsToken, settingsShareUrl, settingsTokenFromSearch } from "@/lib/build-link";
@@ -35,6 +36,7 @@ const STEPS = [
   { id: "equipment", label: "Equipment" },
   { id: "personality", label: "Personality" },
   { id: "sheet", label: "Character Sheet" },
+  { id: "reference", label: "Player Reference" },
 ] as const;
 
 type StepId = (typeof STEPS)[number]["id"];
@@ -429,6 +431,7 @@ export default function Builder() {
             <StepPersonality build={build} resolved={resolved} onChange={cb.updatePersonality} />
           )}
           {currentStep === "sheet" && <StepSheet character={resolved} />}
+          {currentStep === "reference" && <StepReference />}
         </div>
 
         <div className="mt-8 flex items-center justify-between">
