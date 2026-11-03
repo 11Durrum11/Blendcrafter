@@ -5341,3 +5341,31 @@ boundary entries are included. Gauntlet of Gruumsh and
 Storm Gauntlets already existed as hands items. Magic items
 total 6,004 → 6,095. Chapters' augment crystals were
 already cataloged and are not duplicated.
+
+## Omni Sweep Wave 1 (2026-11-02 evening) — 21 books, line-by-line
+Shaun ordered a full parse of every magic-item/equipment source in his
+Dropbox AND on his laptop ("every single solitary piece of information"),
+after the MIC specifics sweep exposed how partial the earlier per-book
+item coverage was. Method: per-book enumeration of every priced entry,
+dedupe by name against the catalog, price conflicts REPORTED never edited.
+Ledger: ~/workspace/omni-sweep/LEDGER.md; per-book reports in
+~/workspace/omni-sweep/reports/. 17 new packs under src/data/omni/
+(Complete Divine's pack is intentionally empty — see below).
+Built 5,772 records raw; merged catalog: magic items 6,095 -> 6,706,
+equipment 1,577 -> 6,615. 123 omni records lost the id-dedupe to an
+earlier pack's printing of the same item (all cross-book reprints —
+Regalia artifacts via A&EG; mundane gear across A&EG/GG/UEG1/UEG2/MUE);
+every dropped name survives via the winning record, and losing prices
+are itemized in the reports. 51 same-name groups remain in the merged
+catalog (mostly pre-existing; the GG-vs-UEG reprint block is itemized
+in the ledger). Highlights: Goods and Gear +2,524 (the mundane-gear
+backbone the catalog never had), UEG1 +1,374, A&EG +781, UEG2 +601,
+MUE +229, DMG II +45, Magic of Eberron +65, ECS +35, BoVD +51 (incl.
+its entire artifact list), CW +23, Ghostwalk +16, CArc +12, CSc +8,
+BoED +7, CAdv +1. Complete Mage and Complete Champion verified already
+complete (0 built, all prices match). Complete Divine is IMAGE-ONLY in
+both of Shaun's copies — Ch.4 relics could not be read; its pack is
+empty with an explanatory header (same status: PHB II, Complete
+Psionic). ~200 price conflicts logged across the wave, nearly all MIC
+repricing (catalog keeps MIC values); two books (G&G, UEG1) agree the
+catalog's 10 gp Spyglass is wrong vs the printed 1,000 gp.
