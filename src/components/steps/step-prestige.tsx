@@ -28,6 +28,17 @@ import { describePrestigeClass } from "@/lib/entity-descriptions";
  * "Turned off" (the 2026-10-28 segregation, as with the races);
  * within every group met floats above non-met. The sort is stable —
  * original order is preserved inside each tier.
+ *
+ * Minimized to names (Shaun, 2026-11-03): "Minimize the prestige
+ * classes down to their names. Unless they are prerequisites met."
+ * Only a prerequisites-MET class renders as a full card. A non-met
+ * class renders as just its name (the name still opens the full
+ * breakdown dialog) — with one necessity kept: a class blocked
+ * only by player-certifiable "special" prerequisites still shows
+ * those certify checkboxes under its name, or it could never
+ * become met. A class the build has already TAKEN also keeps its
+ * full card even if its prerequisites later break — its levels
+ * have to stay manageable (remove button, warning).
  */
 export function sortPrestigeByPrereqMet<T extends { id: string }>(
   list: T[],
@@ -258,6 +269,66 @@ export function StepPrestige({
     );
   };
 
+  // The minimized form (Shaun, 2026-11-03): a non-met prestige
+  // class is just its name. The name still opens the full
+  // breakdown dialog, so no information is lost. The one extra
+  // kept under the name is any "special" prerequisite's certify
+  // checkbox — for a class blocked only by those, ticking them is
+  // what makes it met, so they have to stay reachable here.
+  const renderPrestigeNameRow = (cls: (typeof visiblePrestige)[number]) => {
+    const gate = prestigeGates.get(cls.id);
+    const specials = (gate?.entries ?? [])
+      .map((entry, i) => ({ entry, i }))
+      .filter(({ entry }) => entry.status === "special");
+    return (
+      <div key={cls.id} className="rounded-md px-1.5 py-1 opacity-50" data-testid={`prestige-card-${cls.id}`}>
+        <button
+          type="button"
+          onClick={() => setDetailClass(cls)}
+          className="text-left text-sm font-medium leading-tight text-muted-foreground underline-offset-2 hover:underline"
+          aria-label={`View description of ${cls.name}`}
+          data-testid={`button-info-prestige-${cls.id}`}
+        >
+          {cls.name}
+        </button>
+        {specials.length > 0 && (
+          <div className="mt-1 space-y-1.5">
+            {specials.map(({ entry, i }) => (
+              <div key={i} className="text-xs">
+                <div className="text-muted-foreground">{entry.text}</div>
+                <div className="mt-0.5 flex items-center gap-2">
+                  <Checkbox
+                    id={`certify-${cls.id}-${i}`}
+                    checked={entry.certified}
+                    onCheckedChange={(checked) =>
+                      onTogglePrestigeCertification(cls.id, entry.text, checked === true)
+                    }
+                    data-testid={`checkbox-certify-${cls.id}-${i}`}
+                  />
+                  <Label htmlFor={`certify-${cls.id}-${i}`} className="text-xs font-normal text-muted-foreground">
+                    {entry.certified
+                      ? "Confirmed — you meet this requirement"
+                      : "Can't be auto-checked — I meet this requirement"}
+                  </Label>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    );
+  };
+
+  // Per tier: full cards first (met classes in the met tier;
+  // taken classes anywhere — their levels stay manageable), then
+  // the minimized name rows.
+  const isTaken = (cls: (typeof visiblePrestige)[number]) =>
+    (prestigeClassLevels.find((c) => c.classId === cls.id)?.levels ?? 0) > 0;
+  const nonMetFull = prestigeNonMet.filter(isTaken);
+  const nonMetNames = prestigeNonMet.filter((cls) => !isTaken(cls));
+  const offFull = prestigeOff.filter((cls) => isTaken(cls) || prestigeGates.get(cls.id)?.selectable);
+  const offNames = prestigeOff.filter((cls) => !isTaken(cls) && !prestigeGates.get(cls.id)?.selectable);
+
   return (
     <div className="space-y-6">
       <Card>
@@ -268,7 +339,8 @@ export function StepPrestige({
             against the finished build, and you must meet them <span className="font-medium">before</span> taking
             the class. Prerequisites are <span className="font-medium">enforced</span>: a prestige class stays grayed out and
             blocked until every prerequisite is met, and every class whose prerequisites are not met drops to the
-            bottom, under "Prerequisites not met". Requirements the builder can check — base attack bonus, base
+            bottom, under "Prerequisites not met", where they are listed by name only until their prerequisites
+            are met (tap a name for its full breakdown). Requirements the builder can check — base attack bonus, base
             saves, skill ranks, feats, race, alignment — are verified automatically against your build. The rest
             are listed with a checkbox so you can confirm you meet them. If a build changes so a taken class's
             prerequisites are no longer met, its levels are kept but further levels are blocked. Toggle additional
@@ -286,13 +358,23 @@ export function StepPrestige({
               {prestigeNonMet.length > 0 && (
                 <>
                   <h4 className="mt-5 font-display text-sm font-semibold text-muted-foreground">Prerequisites not met</h4>
-                  <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{prestigeNonMet.map(renderPrestigeCard)}</div>
+                  {nonMetFull.length > 0 && (
+                    <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{nonMetFull.map(renderPrestigeCard)}</div>
+                  )}
+                  {nonMetNames.length > 0 && (
+                    <div className="mt-3 grid gap-1 sm:grid-cols-2 lg:grid-cols-3">{nonMetNames.map(renderPrestigeNameRow)}</div>
+                  )}
                 </>
               )}
               {prestigeOff.length > 0 && (
                 <>
                   <h4 className="mt-5 font-display text-sm font-semibold text-muted-foreground">Turned off</h4>
-                  <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{prestigeOff.map(renderPrestigeCard)}</div>
+                  {offFull.length > 0 && (
+                    <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{offFull.map(renderPrestigeCard)}</div>
+                  )}
+                  {offNames.length > 0 && (
+                    <div className="mt-3 grid gap-1 sm:grid-cols-2 lg:grid-cols-3">{offNames.map(renderPrestigeNameRow)}</div>
+                  )}
                 </>
               )}
             </>
