@@ -56,13 +56,20 @@
     @apply border-border;
   }
 
+  html,
   body {
-    @apply bg-background text-foreground font-sans antialiased;
     /* No left-right sliding, ever (Shaun, 2026-11-03, phone): the page
        must never scroll sideways — anything too wide gets clipped, not
-       scrolled to. "clip" (unlike "hidden") keeps position: sticky
-       working for the header. */
+       scrolled to. Set on BOTH html and body (some phone browsers only
+       honor the html one), "hidden" first as the fallback for engines
+       without "clip", then "clip", which keeps position: sticky
+       working for the header where supported. */
+    overflow-x: hidden;
     overflow-x: clip;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
   }
 }
 

@@ -5573,3 +5573,6 @@ Shaun: "At the very top, you got the nine boxes and the moon. Put the last four 
 
 ## No sideways sliding on the phone; header buttons squeezed in (2026-11-03)
 Shaun: "Move all the buttons in more so I don't have to slide left and right on the website on the phone. That was the point of breaking up the boxes." Two parts: (1) body gets overflow-x: clip in index.css — the page can never scroll sideways again, whatever element is too wide; "clip" is used instead of "hidden" so the sticky header keeps working. (2) The header buttons squeezed: row gaps gap-1 on phones, action-button padding px-1.5 on phones (desktop unchanged), and the character-name input narrowed to w-44 on phones (sm:w-64 as before). Deploy included the standing version.json stamp bump.
+
+## Sideways-slide guard strengthened (2026-11-03, later)
+Shaun reported the sliding still resided on his phone after the first guard. The rule now sits on html AND body (some phone browsers only honor the html element), declared as overflow-x: hidden first (fallback for engines without clip) and overflow-x: clip second. Deploy included the standing version.json stamp bump. Note: an already-open tab keeps running the old bundle until it is closed/reloaded — the home-screen launcher forces the newest stamp on a fresh open.
