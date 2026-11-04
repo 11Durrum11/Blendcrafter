@@ -272,18 +272,28 @@ export default function Builder() {
             d20 SRD 3.5 template-blending character builder
           </span>
           {/* Two even lines of five (Shaun, 2026-11-03): line one is
-              Rule Sets (the book), House Rules, Save, Characters,
-              Export; the moon sits UNDER THE BOOK — first on line
-              two, beneath Rule Sets — followed by the link, import,
-              and new boxes. */}
+              Rule Sets (the book), House Rules, Save, Characters
+              (the other book), New. Line two: the moon under the
+              Rule Sets book, the two copy-link boxes, the download
+              (Export) under the Characters book, and Import. */}
           <div className="ml-auto flex flex-col items-start gap-1 sm:gap-2">
             <div className="flex items-center gap-1 sm:gap-2">
               <RulesetToggle enabledRulesets={build.enabledRulesets} onToggle={cb.toggleRuleset} />
               <HouseRulesToggle houseRules={build.houseRules} onToggle={cb.toggleHouseRule} />
               <CharacterRepository build={build} onLoad={cb.setBuild} />
-              <Button variant="outline" size="sm" className="px-1.5 sm:px-3" onClick={() => exportCharacterJson(build)} data-testid="button-export-character">
-                <Download className="h-3.5 w-3.5 sm:mr-1.5" />
-                <span className="hidden sm:inline">Export</span>
+              <Button
+                variant="outline"
+                size="sm"
+                className="px-1.5 sm:px-3"
+                onClick={() => {
+                  cb.reset();
+                  goTo("race");
+                  toast({ title: "New character", description: "Started a fresh build." });
+                }}
+                data-testid="button-new-character"
+              >
+                <UserPlus className="h-3.5 w-3.5 sm:mr-1.5" />
+                <span className="hidden sm:inline">New</span>
               </Button>
             </div>
             <div className="flex items-center gap-1 sm:gap-2">
@@ -299,6 +309,10 @@ export default function Builder() {
                 <SlidersHorizontal className="h-3.5 w-3.5 sm:mr-1.5" />
                 <span className="hidden sm:inline">Copy settings link</span>
               </Button>
+              <Button variant="outline" size="sm" className="px-1.5 sm:px-3" onClick={() => exportCharacterJson(build)} data-testid="button-export-character">
+                <Download className="h-3.5 w-3.5 sm:mr-1.5" />
+                <span className="hidden sm:inline">Export</span>
+              </Button>
               <Button variant="outline" size="sm" className="px-1.5 sm:px-3" onClick={() => importRef.current?.click()} data-testid="button-import-character">
                 <Upload className="h-3.5 w-3.5 sm:mr-1.5" />
                 <span className="hidden sm:inline">Import</span>
@@ -313,20 +327,6 @@ export default function Builder() {
                   e.target.value = "";
                 }}
               />
-              <Button
-                variant="outline"
-                size="sm"
-                className="px-1.5 sm:px-3"
-                onClick={() => {
-                  cb.reset();
-                  goTo("race");
-                  toast({ title: "New character", description: "Started a fresh build." });
-                }}
-                data-testid="button-new-character"
-              >
-                <UserPlus className="h-3.5 w-3.5 sm:mr-1.5" />
-                <span className="hidden sm:inline">New</span>
-              </Button>
             </div>
           </div>
         </div>
