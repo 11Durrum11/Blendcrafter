@@ -28,35 +28,39 @@ import { CAMPAIGN_DEFAULT_PREFS, CAMPAIGN_DEFAULTS_VERSION, CAMPAIGN_DEFAULTS_VE
 import { useToast } from "@/hooks/use-toast";
 
 const STEPS = [
-  // Player Reference is number one (Shaun, 2026-11-04: "Put the
-  // player reference as number number one") — it leads the step
-  // list so players hit the whole-library lookup first. It is a
-  // read-only lookup and changes no build state, so leading with
-  // it disturbs nothing downstream; the builder itself still
-  // opens on Abilities & Race unless a step is chosen.
+  // Two top-level sections (Shaun, 2026-11-04): "number one is
+  // player reference, make number two character creation. Inside
+  // that put the ability and races, classes, skills, blah blah
+  // blah." So Player Reference stands alone as section 1, and
+  // every build step lives INSIDE section 2, Character Creation,
+  // numbered 1–12 within it (the `num` on a creation step is its
+  // number inside Character Creation). Player Reference is a
+  // read-only lookup and changes no build state; the builder
+  // itself still opens on Abilities & Race unless a step is
+  // chosen.
   { id: "reference", label: "Player Reference", num: "1" },
-  { id: "race", label: "Abilities & Race", num: "2" },
-  { id: "classes", label: "Classes", num: "3" },
-  { id: "skills", label: "Skills", num: "4" },
-  { id: "templates", label: "Templates", num: "5" },
-  { id: "feats", label: "Feats", num: "6" },
-  { id: "spells", label: "Spells", num: "7" },
+  { id: "race", label: "Abilities & Race", num: "1" },
+  { id: "classes", label: "Classes", num: "2" },
+  { id: "skills", label: "Skills", num: "3" },
+  { id: "templates", label: "Templates", num: "4" },
+  { id: "feats", label: "Feats", num: "5" },
+  { id: "spells", label: "Spells", num: "6" },
   // Prestige classes are their own step (Shaun, 2026-11-03), and sit
   // AFTER Spells (Shaun, later the same day: "Move it after Spells
   // and renumber the steps to fit") — the prerequisite gate judges
   // skills, templates, feats and spell picks, so those steps must
   // come first for anything to register as met.
-  { id: "prestige", label: "Prestige Classes", num: "8" },
-  { id: "equipment", label: "Equipment", num: "9" },
+  { id: "prestige", label: "Prestige Classes", num: "7" },
+  { id: "equipment", label: "Equipment", num: "8" },
   // Magic Items and Inventory are their own steps now (Shaun,
   // 2026-11-04: "give equipment magic items and inventory their
-  // own windows" — now Equipment 9, Magic Items 10, Inventory 11
-  // after the Player Reference move), which pushes Personality
-  // and the Sheet to 12 and 13.
-  { id: "magic-items", label: "Magic Items", num: "10" },
-  { id: "inventory", label: "Inventory", num: "11" },
-  { id: "personality", label: "Personality", num: "12" },
-  { id: "sheet", label: "Character Sheet", num: "13" },
+  // own windows" — Equipment 8, Magic Items 9, Inventory 10
+  // inside Character Creation), which pushes Personality and
+  // the Sheet to 11 and 12 inside the group.
+  { id: "magic-items", label: "Magic Items", num: "9" },
+  { id: "inventory", label: "Inventory", num: "10" },
+  { id: "personality", label: "Personality", num: "11" },
+  { id: "sheet", label: "Character Sheet", num: "12" },
 ] as const;
 
 type StepId = (typeof STEPS)[number]["id"];
@@ -446,12 +450,39 @@ export default function Builder() {
       <main className="mx-auto max-w-6xl px-4 py-6 sm:px-6">
         <Tabs value={effectiveStep} onValueChange={(v) => goTo(v as StepId)}>
           <TabsList className="flex h-auto flex-wrap justify-start gap-1" data-testid="step-tabs">
-            {visibleSteps.map((s) => (
-              <TabsTrigger key={s.id} value={s.id} data-testid={`tab-step-${s.id}`}>
-                <span className="mr-1.5 font-mono text-xs text-muted-foreground">{s.num}</span>
-                {s.label}
-              </TabsTrigger>
-            ))}
+            {/* Section 1 — Player Reference, standing alone
+                (Shaun, 2026-11-04). */}
+            {visibleSteps
+              .filter((s) => s.id === "reference")
+              .map((s) => (
+                <TabsTrigger key={s.id} value={s.id} data-testid={`tab-step-${s.id}`}>
+                  <span className="mr-1.5 font-mono text-xs text-muted-foreground">{s.num}</span>
+                  {s.label}
+                </TabsTrigger>
+              ))}
+            {/* Section 2 — Character Creation: every build step
+                sits inside this one group, in order, numbered
+                1–12 within it (Shaun, 2026-11-04: "make number
+                two character creation. Inside that put the
+                ability and races, classes, skills, blah blah
+                blah"). */}
+            <div
+              className="flex basis-full flex-wrap items-center gap-1 rounded-md border border-border p-1.5"
+              data-testid="step-group-character-creation"
+            >
+              <span className="px-1.5 font-display text-sm font-semibold" data-testid="step-group-character-creation-label">
+                <span className="mr-1.5 font-mono text-xs text-muted-foreground">2</span>
+                Character Creation
+              </span>
+              {visibleSteps
+                .filter((s) => s.id !== "reference")
+                .map((s) => (
+                  <TabsTrigger key={s.id} value={s.id} data-testid={`tab-step-${s.id}`}>
+                    <span className="mr-1.5 font-mono text-xs text-muted-foreground">{s.num}</span>
+                    {s.label}
+                  </TabsTrigger>
+                ))}
+            </div>
           </TabsList>
         </Tabs>
 
@@ -577,7 +608,9 @@ export default function Builder() {
             <ChevronLeft className="mr-1 h-4 w-4" /> {prev ? prev.label : "Back"}
           </Button>
           <span className="text-xs text-muted-foreground">
-            Step {visibleSteps[visibleIndex]?.num} of {STEPS[STEPS.length - 1].num}
+            {effectiveStep === "reference"
+              ? "Section 1 of 2 — Player Reference"
+              : `Section 2 of 2 — Character Creation · Step ${visibleSteps[visibleIndex]?.num} of 12`}
           </span>
           <Button disabled={!next} onClick={() => next && goTo(next.id)} data-testid="button-next-step">
             {next ? next.label : "Done"} <ChevronRight className="ml-1 h-4 w-4" />

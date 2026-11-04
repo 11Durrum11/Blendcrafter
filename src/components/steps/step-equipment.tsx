@@ -108,8 +108,8 @@ function groupByCategory<T extends { category: string }>(
 
 // One shell, three step windows (Shaun, 2026-11-04: "give
 // equipment magic items and inventory their own windows" —
-// Equipment is step 9, Magic Items step 10, Inventory step 11
-// since Player Reference took number one, 2026-11-04).
+// Equipment is step 8, Magic Items step 9, Inventory step 10
+// inside Character Creation, the top-level section 2).
 // The Wealth header rides with Equipment, where it has always
 // headed the step. Each window is the same shell rendering only
 // its own card(s); state and handlers are shared code, and the
@@ -744,8 +744,8 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
   );
 }
 
-// The three step windows (Shaun, 2026-11-04): step 9 Equipment
-// (with the Wealth header), step 10 Magic Items, step 11
+// The three step windows (Shaun, 2026-11-04): step 8 Equipment
+// (with the Wealth header), step 9 Magic Items, step 10
 // Inventory — thin wrappers over the shared shell above.
 export function StepEquipment(props: StepEquipmentProps) {
   return <StepEquipmentShell {...props} part="equipment" />;

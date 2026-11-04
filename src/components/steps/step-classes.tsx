@@ -11,9 +11,9 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip
 import { describeClass, type EntityDetail } from "@/lib/entity-descriptions";
 
 /**
- * Step 3 — base classes only. Prestige classes live in their own
+ * Step 2 inside Character Creation — base classes only. Prestige classes live in their own
  * step (step-prestige.tsx): they started as "2B" right after this
- * step (Shaun, 2026-11-03), then moved after Spells (step 8 since the 2026-11-04 Player Reference renumber), at
+ * step (Shaun, 2026-11-03), then moved to step 7, after Spells, at
  * Shaun's order the same day — the prerequisite gate judges skills,
  * templates, feats and spell picks, so those steps come first.
  */
@@ -163,7 +163,7 @@ export function StepClasses({
             crunched three across: <span className="font-medium">hover a name</span> for the short crunch,{" "}
             <span className="font-medium">tap the ⓘ button</span> (or the name) for the full breakdown — every
             level of the progression table and every class feature. Prestige classes come at
-            step 8, after Skills, Feats and Spells — they're judged against the finished build. Source:{" "}
+            step 7, after Skills, Feats and Spells — they're judged against the finished build. Source:{" "}
             <a href="https://www.d20srd.org/srd/classes/" target="_blank" rel="noreferrer" className="text-primary underline underline-offset-2">
               d20 SRD Classes
             </a>

@@ -15,7 +15,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip
 import { describePrestigeClass } from "@/lib/entity-descriptions";
 
 /**
- * Step 8 — Prestige Classes (Shaun, 2026-11-03: "Separate the
+ * Step 7 inside Character Creation — Prestige Classes (Shaun, 2026-11-03: "Separate the
  * classes and the prestige classes." First built as "2B" right after
  * Classes; moved here, after Spells, at Shaun's order the same day —
  * the gate judges skills, templates, feats and spell picks, so those

@@ -6256,3 +6256,25 @@ Equipment were updated to match, and the builder still opens
 on Abilities & Race when no step is chosen.
 version.json stamp bumped in the same push.
 stamp=20261104115312
+
+## Two sections: Player Reference 1, Character Creation 2 (2026-11-04)
+
+Shaun (voice call): "Okay, number one is player reference
+make number two character creation. Inside that put the
+ability and races classes, skills, blah blah blah blah
+blah." The flat 13-step list is now two top-level sections:
+1 Player Reference standing alone, and 2 Character Creation,
+a headed group box in the step bar containing every build
+step in its existing order, numbered 1-12 inside the group
+(Abilities & Race 1, Classes 2, Skills 3, Templates 4,
+Feats 5, Spells 6, Prestige Classes 7, Equipment 8, Magic
+Items 9, Inventory 10, Personality 11, Character Sheet 12).
+The footer now reads "Section 1 of 2 — Player Reference" or
+"Section 2 of 2 — Character Creation · Step N of 12".
+Routing, step ids, and Back/Next flow are unchanged (Next
+from Player Reference lands on Abilities & Race, the first
+creation step); the builder still opens on Abilities & Race
+when no step is chosen. In-text step references in Classes/
+Prestige/Equipment now use the in-group numbers.
+version.json stamp bumped in the same push.
+stamp=20261104122043
