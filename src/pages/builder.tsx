@@ -274,26 +274,26 @@ export default function Builder() {
           {/* Two deliberate lines (Shaun, 2026-11-03): the first five
               boxes on line one; the last four boxes and the moon on
               line two, under the first five. */}
-          <div className="ml-auto flex flex-col items-start gap-1.5 sm:gap-2">
-            <div className="flex items-center gap-1.5 sm:gap-2">
+          <div className="ml-auto flex flex-col items-start gap-1 sm:gap-2">
+            <div className="flex items-center gap-1 sm:gap-2">
               <RulesetToggle enabledRulesets={build.enabledRulesets} onToggle={cb.toggleRuleset} />
               <HouseRulesToggle houseRules={build.houseRules} onToggle={cb.toggleHouseRule} />
               <CharacterRepository build={build} onLoad={cb.setBuild} />
-              <Button variant="outline" size="sm" className="px-2 sm:px-3" onClick={() => exportCharacterJson(build)} data-testid="button-export-character">
+              <Button variant="outline" size="sm" className="px-1.5 sm:px-3" onClick={() => exportCharacterJson(build)} data-testid="button-export-character">
                 <Download className="h-3.5 w-3.5 sm:mr-1.5" />
                 <span className="hidden sm:inline">Export</span>
               </Button>
             </div>
-            <div className="flex items-center gap-1.5 sm:gap-2">
-              <Button variant="outline" size="sm" className="px-2 sm:px-3" onClick={() => void handleCopyBuildLink()} data-testid="button-copy-build-link">
+            <div className="flex items-center gap-1 sm:gap-2">
+              <Button variant="outline" size="sm" className="px-1.5 sm:px-3" onClick={() => void handleCopyBuildLink()} data-testid="button-copy-build-link">
                 <Link2 className="h-3.5 w-3.5 sm:mr-1.5" />
                 <span className="hidden sm:inline">Copy build link</span>
               </Button>
-              <Button variant="outline" size="sm" className="px-2 sm:px-3" onClick={() => void handleCopySettingsLink()} data-testid="button-copy-settings-link">
+              <Button variant="outline" size="sm" className="px-1.5 sm:px-3" onClick={() => void handleCopySettingsLink()} data-testid="button-copy-settings-link">
                 <SlidersHorizontal className="h-3.5 w-3.5 sm:mr-1.5" />
                 <span className="hidden sm:inline">Copy settings link</span>
               </Button>
-              <Button variant="outline" size="sm" className="px-2 sm:px-3" onClick={() => importRef.current?.click()} data-testid="button-import-character">
+              <Button variant="outline" size="sm" className="px-1.5 sm:px-3" onClick={() => importRef.current?.click()} data-testid="button-import-character">
                 <Upload className="h-3.5 w-3.5 sm:mr-1.5" />
                 <span className="hidden sm:inline">Import</span>
               </Button>
@@ -310,7 +310,7 @@ export default function Builder() {
               <Button
                 variant="outline"
                 size="sm"
-                className="px-2 sm:px-3"
+                className="px-1.5 sm:px-3"
                 onClick={() => {
                   cb.reset();
                   goTo("race");
@@ -337,7 +337,7 @@ export default function Builder() {
             data-testid="input-character-name"
             value={build.name}
             onChange={(e) => cb.setName(e.target.value)}
-            className="h-9 w-64 font-display"
+            className="h-9 w-44 font-display sm:w-64"
             placeholder="Unnamed Character"
           />
           <span className="text-sm text-muted-foreground">
