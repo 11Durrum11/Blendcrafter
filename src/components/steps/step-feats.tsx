@@ -95,8 +95,9 @@ export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved,
   // GripVertical "six little dots" handle, the pointer-drag
   // handlers, and the localStorage-persisted custom order
   // (blendcrafter:feat-section-order) — is removed entirely.
-  // Sections render in their built order: class bonus-feat
-  // sections first, then categories in FEAT_CATEGORY_ORDER. Any
+  // Sections render in their built order: General feats first
+  // (Shaun, 2026-11-04), then the class bonus-feat sections,
+  // then the remaining categories in FEAT_CATEGORY_ORDER. Any
   // order a device saved earlier is simply never read again.
   // Section titles still click to expand/collapse.
   const visible = ALL_FEATS.filter(
@@ -127,14 +128,23 @@ export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved,
       shadowed: matching.length - feats.length,
     };
   });
+  const categorySections = FEAT_CATEGORY_ORDER.map((cat) => ({
+    id: cat as string,
+    label: CATEGORY_LABELS[cat],
+    feats: visible.filter((f) => f.category === cat && !claimed.has(f.id)),
+    shadowed: 0,
+  }));
+  // General feats sit at the very top (Shaun, 2026-11-04: "In
+  // feats bring general feats up to the top") — above the class
+  // bonus-feat sections. Display order only: the class sections
+  // still claim their feats first (the `claimed` set above), so
+  // no feat changes which section it is listed in; the remaining
+  // categories keep FEAT_CATEGORY_ORDER after the class sections.
+  const generalSection = categorySections.find((s) => s.id === "general");
   const featSections: { id: string; label: string; note?: string; feats: FeatDefinition[]; shadowed: number }[] = [
+    ...(generalSection ? [generalSection] : []),
     ...classSections,
-    ...FEAT_CATEGORY_ORDER.map((cat) => ({
-      id: cat as string,
-      label: CATEGORY_LABELS[cat],
-      feats: visible.filter((f) => f.category === cat && !claimed.has(f.id)),
-      shadowed: 0,
-    })),
+    ...categorySections.filter((s) => s.id !== "general"),
   ].filter((s) => s.feats.length > 0 || (query === "" && s.shadowed > 0));
 
 

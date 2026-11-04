@@ -106,7 +106,14 @@ function groupByCategory<T extends { category: string }>(
   return sections;
 }
 
-export function StepEquipment({ inventory, enabledRulesets, resolved, wealthLimitLevel, onAdd, onRemove, onToggleEquipped, onSetWealthLimitLevel }: StepEquipmentProps) {
+// One shell, three step windows (Shaun, 2026-11-04: "give
+// equipment magic items and inventory their own windows" —
+// Equipment is step 8, Magic Items step 9, Inventory step 10).
+// The Wealth header rides with Equipment, where it has always
+// headed the step. Each window is the same shell rendering only
+// its own card(s); state and handlers are shared code, and the
+// builder hands every window the same props.
+function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitLevel, onAdd, onRemove, onToggleEquipped, onSetWealthLimitLevel, part }: StepEquipmentProps & { part: "equipment" | "magic" | "inventory" }) {
   const [equipQuery, setEquipQuery] = useState("");
   const [itemQuery, setItemQuery] = useState("");
   const [detail, setDetail] = useState<EntityDetail | null>(null);
@@ -215,6 +222,7 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, wealthLimi
 
   return (
     <div className="space-y-6">
+      {part === "equipment" && (<>
       <Card>
         <CardHeader>
           <div>
@@ -533,6 +541,8 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, wealthLimi
         </CardContent>
       </Card>
 
+      </>)}
+      {part === "magic" && (
       <Card>
         <CardHeader>
           <CardTitle className="font-display text-xl">Magic Items</CardTitle>
@@ -606,6 +616,8 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, wealthLimi
         </CardContent>
       </Card>
 
+      )}
+      {part === "inventory" && (
       <Card>
         <CardHeader>
           <CardTitle className="font-display text-xl">Inventory</CardTitle>
@@ -655,7 +667,23 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, wealthLimi
           )}
         </CardContent>
       </Card>
+      )}
       <EntityDetailDialog detail={detail} onOpenChange={(open) => !open && setDetail(null)} />
     </div>
   );
+}
+
+// The three step windows (Shaun, 2026-11-04): step 8 Equipment
+// (with the Wealth header), step 9 Magic Items, step 10
+// Inventory — thin wrappers over the shared shell above.
+export function StepEquipment(props: StepEquipmentProps) {
+  return <StepEquipmentShell {...props} part="equipment" />;
+}
+
+export function StepMagicItems(props: StepEquipmentProps) {
+  return <StepEquipmentShell {...props} part="magic" />;
+}
+
+export function StepInventory(props: StepEquipmentProps) {
+  return <StepEquipmentShell {...props} part="inventory" />;
 }

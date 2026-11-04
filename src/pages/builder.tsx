@@ -16,7 +16,7 @@ import { StepSpells } from "@/components/steps/step-spells";
 import { StepSkills } from "@/components/steps/step-skills";
 import { StepTemplates } from "@/components/steps/step-templates";
 import { StepFeats } from "@/components/steps/step-feats";
-import { StepEquipment } from "@/components/steps/step-equipment";
+import { StepEquipment, StepMagicItems, StepInventory } from "@/components/steps/step-equipment";
 import { StepPersonality } from "@/components/steps/step-personality";
 import { StepSheet } from "@/components/steps/step-sheet";
 import { StepReference } from "@/components/steps/step-reference";
@@ -41,9 +41,16 @@ const STEPS = [
   // come first for anything to register as met.
   { id: "prestige", label: "Prestige Classes", num: "7" },
   { id: "equipment", label: "Equipment", num: "8" },
-  { id: "personality", label: "Personality", num: "9" },
-  { id: "sheet", label: "Character Sheet", num: "10" },
-  { id: "reference", label: "Player Reference", num: "11" },
+  // Magic Items and Inventory are their own steps now (Shaun,
+  // 2026-11-04: "give equipment magic items and inventory their
+  // own windows" — Equipment 8, Magic Items 9, Inventory 10),
+  // which pushes Personality, the Sheet, and Player Reference
+  // to 11, 12, and 13.
+  { id: "magic-items", label: "Magic Items", num: "9" },
+  { id: "inventory", label: "Inventory", num: "10" },
+  { id: "personality", label: "Personality", num: "11" },
+  { id: "sheet", label: "Character Sheet", num: "12" },
+  { id: "reference", label: "Player Reference", num: "13" },
 ] as const;
 
 type StepId = (typeof STEPS)[number]["id"];
@@ -518,6 +525,30 @@ export default function Builder() {
           )}
           {currentStep === "equipment" && (
             <StepEquipment
+              inventory={build.inventory}
+              enabledRulesets={build.enabledRulesets}
+              resolved={resolved}
+              wealthLimitLevel={build.wealthLimitLevel ?? null}
+              onAdd={cb.addInventory}
+              onRemove={cb.removeInventory}
+              onToggleEquipped={cb.toggleEquipped}
+              onSetWealthLimitLevel={cb.setWealthLimitLevel}
+            />
+          )}
+          {currentStep === "magic-items" && (
+            <StepMagicItems
+              inventory={build.inventory}
+              enabledRulesets={build.enabledRulesets}
+              resolved={resolved}
+              wealthLimitLevel={build.wealthLimitLevel ?? null}
+              onAdd={cb.addInventory}
+              onRemove={cb.removeInventory}
+              onToggleEquipped={cb.toggleEquipped}
+              onSetWealthLimitLevel={cb.setWealthLimitLevel}
+            />
+          )}
+          {currentStep === "inventory" && (
+            <StepInventory
               inventory={build.inventory}
               enabledRulesets={build.enabledRulesets}
               resolved={resolved}
