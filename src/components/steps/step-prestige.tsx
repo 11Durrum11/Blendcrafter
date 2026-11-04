@@ -270,16 +270,23 @@ export function StepPrestige({
   };
 
   // The minimized form (Shaun, 2026-11-03): a non-met prestige
-  // class is just its name. The name still opens the full
-  // breakdown dialog, so no information is lost. The one extra
-  // kept under the name is any "special" prerequisite's certify
-  // checkbox — for a class blocked only by those, ticking them is
-  // what makes it met, so they have to stay reachable here.
+  // class is listed by name. The name still opens the full
+  // breakdown dialog, so no information is lost. Kept under the
+  // name: any "special" prerequisite's certify checkbox — for a
+  // class blocked only by those, ticking them is what makes it
+  // met, so they have to stay reachable here — and, since
+  // 2026-11-04, the class's UNMET requirements as well. Shaun
+  // read the bare names as "empty" (Archmage and a score of
+  // others carry only hard-checked prerequisites, so nothing at
+  // all printed under their names) and approved printing what
+  // is unmet under every not-met name, the way the full cards
+  // show it.
   const renderPrestigeNameRow = (cls: (typeof visiblePrestige)[number]) => {
     const gate = prestigeGates.get(cls.id);
     const specials = (gate?.entries ?? [])
       .map((entry, i) => ({ entry, i }))
       .filter(({ entry }) => entry.status === "special");
+    const unmet = (gate?.entries ?? []).filter((entry) => entry.status === "unmet");
     return (
       <div key={cls.id} className="rounded-md px-1.5 py-1 opacity-50" data-testid={`prestige-card-${cls.id}`}>
         <button
@@ -291,6 +298,21 @@ export function StepPrestige({
         >
           {cls.name}
         </button>
+        {unmet.length > 0 && (
+          <div className="mt-1 space-y-1" data-testid={`unmet-list-${cls.id}`}>
+            {unmet.map((entry, i) => {
+              const reasons = entry.fragments
+                .filter((f) => f.status === "unmet")
+                .map((f) => f.reason ?? f.text);
+              return (
+                <div key={i} className="text-xs">
+                  <div className="text-muted-foreground">{entry.text}</div>
+                  {reasons.length > 0 && <div className="text-destructive">{reasons.join("; ")}</div>}
+                </div>
+              );
+            })}
+          </div>
+        )}
         {specials.length > 0 && (
           <div className="mt-1 space-y-1.5">
             {specials.map(({ entry, i }) => (
