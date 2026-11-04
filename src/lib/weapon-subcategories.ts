@@ -23,6 +23,12 @@ import type { EquipmentItem } from "@/engine/types";
  *   throwing axe) and blades that merely attach to a bow, crossbow,
  *   or firearm (bayonets, bow blades, crossbow blades), a club made
  *   from a gun stock, and the Bowie knife.
+ *
+ * Standing ruling (Shaun, 2026-11-03): under the general rules,
+ * firearms are SIMPLE weapons — the skill comes in reloading them,
+ * tinkering with them, and trick shots. The Firearms list in the
+ * Equipment step carries that note; the books' own printed
+ * proficiency lines in individual records are not rewritten.
  */
 export type WeaponSubcategory = "melee" | "ranged" | "firearms";
 

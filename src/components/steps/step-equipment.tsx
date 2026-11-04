@@ -498,6 +498,11 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, wealthLimi
                           return (
                             <div key={sub.key} data-testid={`weapon-sub-list-${sub.key}`}>
                               <p className="border-t border-card-border bg-muted/40 px-3 py-1.5 font-display text-xs font-semibold uppercase tracking-wide text-muted-foreground">{sub.label}</p>
+                              {sub.key === "firearms" && (
+                                <p className="border-t border-card-border px-3 py-1.5 text-xs italic text-muted-foreground" data-testid="firearms-simple-note">
+                                  Firearms are simple weapons. The skill comes in reloading them, tinkering with them, and trick shots.
+                                </p>
+                              )}
                               <div className="max-h-80 divide-y divide-card-border overflow-y-auto">
                                 {subItems.map(renderEquipmentRow)}
                               </div>
