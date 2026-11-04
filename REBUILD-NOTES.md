@@ -6304,3 +6304,37 @@ step tabs always showing. Now:
   no renumbering was needed.
 version.json stamp bumped in the same push.
 stamp=20261104122751
+
+## Item rows: tags removed, names get the room (2026-11-04)
+
+Shaun, on a live voice call, restarting an earlier point: in
+Magic Items the Wondrous sections (Head, Face, Throat,
+Shoulders, Body, Torso, Arms, Hands, Waist, Feet, Slotless,
+Wondrous Items — Other) — all of them — were "missing their
+names for their items on the front": the tags on each item
+("Magic Item", "Wondrous Items — Other", and the like) ate
+the room. "Remove those tags. Leave room for the actual name
+of the item. For all the magic items." Then generalized:
+"Do that for everything. Make sure all that stuff is like
+that. Equipment."
+
+Removed, in step-equipment.tsx: the category badge and the
+rule-set (Product Identity) badge from Equipment rows and
+Magic Items rows, and the category + kind ("Equipment" /
+"Magic Item") badges from Inventory rows. Rows are now name
++ price (the AC +N stat badge stays on equipment that has
+one — it is a stat, not a category tag). Category and source
+still live behind each row's info button / detail dialog.
+
+Removed, in step-reference.tsx: the category, subcategory,
+and rule-set badges from every Player Reference row, for
+every category — and the row name no longer truncates; it
+wraps, with the whole row to itself. Category/subcategory
+still live in the reference's category picker and in the
+detail dialog badges.
+
+Unused Badge / ProductIdentityBadge imports dropped from
+both files (RULESET_LABELS stays in step-reference.tsx — the
+detail-dialog badge builder still uses it).
+version.json stamp bumped in the same push.
+stamp=20261104123744

@@ -10,8 +10,6 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
-import { ProductIdentityBadge } from "@/components/product-identity-badge";
-import { RULESET_LABELS } from "@/components/ruleset-toggle";
 import { EntityDetailDialog } from "@/components/entity-detail-dialog";
 import { describeEquipment, describeMagicItem, type EntityDetail } from "@/lib/entity-descriptions";
 
@@ -223,9 +221,12 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
           >
             <Info className="h-3.5 w-3.5" />
           </button>
-          <Badge variant="outline" className="text-[10px] capitalize">{item.category}</Badge>
+          {/* No category / rule-set tags on item rows (Shaun,
+              2026-11-04): the tags crowded the item's name off the
+              front of the row. Rows are name + price (+ the AC
+              stat where an item has one); the category and source
+              still live behind the info button. */}
           {typeof item.acBonus === "number" && <Badge variant="secondary" className="text-[10px]">AC +{item.acBonus}</Badge>}
-          {item.ruleset !== "core" && <ProductIdentityBadge rulesetLabel={RULESET_LABELS[item.ruleset]} />}
         </div>
       </div>
       <Button type="button" size="sm" variant="outline" onClick={() => onAdd("equipment", item.id)} data-testid={`button-add-equipment-${item.id}`}>
@@ -665,8 +666,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
                       >
                         <Info className="h-3.5 w-3.5" />
                       </button>
-                      <Badge variant="outline" className="text-[10px] capitalize">{item.category}</Badge>
-                      {item.ruleset !== "core" && <ProductIdentityBadge rulesetLabel={RULESET_LABELS[item.ruleset]} />}
+                      {/* Category / rule-set tags removed (Shaun, 2026-11-04) — name + price only, so the name has the room. */}
                     </div>
                   </div>
                   <Button type="button" size="sm" variant="outline" onClick={() => onAdd("magic-item", item.id)} data-testid={`button-add-magic-item-${item.id}`}>
@@ -713,8 +713,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
                       >
                         <Info className="h-3.5 w-3.5" />
                       </button>
-                      <Badge variant="outline" className="text-[10px] capitalize">{ri.category}</Badge>
-                      <Badge variant="outline" className="text-[10px]">{ri.entry.kind === "equipment" ? "Equipment" : "Magic Item"}</Badge>
+                      {/* Category / kind tags removed (Shaun, 2026-11-04) — same treatment as the shop lists. */}
                     </div>
                   </div>
                   <div className="flex items-center gap-3">

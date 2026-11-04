@@ -34,10 +34,8 @@ import {
 import { weaponSubcategory, WEAPON_SUBCATEGORIES } from "@/lib/weapon-subcategories";
 import { EntityDetailDialog } from "@/components/entity-detail-dialog";
 import { RULESET_LABELS } from "@/components/ruleset-toggle";
-import { ProductIdentityBadge } from "@/components/product-identity-badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 
 /**
@@ -541,15 +539,17 @@ export function StepReference() {
                       onClick={() => setDetail(row.makeDetail())}
                     >
                       <span className="min-w-0">
-                        <span className="block truncate text-lg font-medium">{row.name}</span>
+                        {/* No category / subcategory / rule-set tags
+                            on reference rows (Shaun, 2026-11-04): the
+                            tags ("Magic Item", "Wondrous Items —
+                            Other", …) ate the room and the item's
+                            name went missing off the front. The name
+                            gets the whole row and wraps instead of
+                            truncating; category/subcategory still
+                            live in the category picker above and in
+                            the detail dialog. */}
+                        <span className="block text-lg font-medium">{row.name}</span>
                         <span className="block truncate text-base text-muted-foreground">{row.source}</span>
-                      </span>
-                      <span className="flex shrink-0 items-center gap-1.5">
-                        <Badge variant="secondary" className="text-sm">{row.category}</Badge>
-                        <Badge variant="outline" className="hidden text-sm sm:inline-flex">{row.subcategory}</Badge>
-                        {row.ruleset && row.ruleset !== "core" && (
-                          <ProductIdentityBadge rulesetLabel={RULESET_LABELS[row.ruleset]} />
-                        )}
                       </span>
                     </button>
                   </li>
