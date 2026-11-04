@@ -1,7 +1,8 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Link, useLocation, useRoute } from "wouter";
 import { ChevronLeft, ChevronRight, Download, Link2, Moon, SlidersHorizontal, Sun, Upload, UserPlus } from "lucide-react";
 import { Logo } from "@/components/logo";
+import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -48,11 +49,65 @@ const STEPS = [
 
 type StepId = (typeof STEPS)[number]["id"];
 
+/**
+ * The ten boxes at the top of the site, in the order Shaun settled
+ * on 2026-11-03 (the Rule Sets book over the moon, the Characters
+ * book over the download/Export, three more boxes to the right on
+ * each line). Later the same day he made the boxes MOVABLE —
+ * "Put the six button movable action on the boxes at the top of
+ * the very site", the drag action he had just taken off the Feats
+ * sections — so this list is now the DEFAULT order and the full
+ * id set; each device's own arrangement persists in localStorage
+ * under HEADER_BOX_ORDER_KEY.
+ */
+const HEADER_BOX_DEFAULT_ORDER = [
+  "rulesets",
+  "characters",
+  "house-rules",
+  "save",
+  "new",
+  "theme",
+  "export",
+  "copy-build",
+  "copy-settings",
+  "import",
+] as const;
+
+const HEADER_BOX_ORDER_KEY = "blendcrafter:header-box-order";
+
 export default function Builder() {
   const [, params] = useRoute<{ step: string }>("/step/:step");
   const [location, navigate] = useLocation();
   const { toast } = useToast();
   const importRef = useRef<HTMLInputElement>(null);
+
+  // Movable header boxes (Shaun, 2026-11-03): press a box at the
+  // top of the site and drag it over another box to trade places;
+  // a plain click still does the box's own job. The order state
+  // always holds all ten ids — a saved arrangement is merged over
+  // the default so a box added later still lands somewhere sane.
+  const [headerBoxOrder, setHeaderBoxOrder] = useState<string[]>(() => {
+    let saved: string[] = [];
+    try {
+      const parsed: unknown = JSON.parse(localStorage.getItem(HEADER_BOX_ORDER_KEY) ?? "null");
+      if (Array.isArray(parsed)) saved = parsed.filter((x): x is string => typeof x === "string");
+    } catch {
+      saved = [];
+    }
+    const merged = saved.filter((id) => (HEADER_BOX_DEFAULT_ORDER as readonly string[]).includes(id));
+    for (const id of HEADER_BOX_DEFAULT_ORDER) if (!merged.includes(id)) merged.push(id);
+    return merged;
+  });
+  useEffect(() => {
+    try {
+      localStorage.setItem(HEADER_BOX_ORDER_KEY, JSON.stringify(headerBoxOrder));
+    } catch {
+      /* storage unavailable — arrangement just won't persist */
+    }
+  }, [headerBoxOrder]);
+  const headerDragRef = useRef<{ id: string; startX: number; startY: number; dragging: boolean } | null>(null);
+  const headerJustDraggedRef = useRef(false);
+  const [headerDraggingId, setHeaderDraggingId] = useState<string | null>(null);
 
   const stepParam = (params?.step ?? (location === "/" ? "race" : "race")) as StepId;
   const currentStep: StepId = STEPS.some((s) => s.id === stepParam) ? stepParam : "race";
@@ -260,6 +315,134 @@ export default function Builder() {
     document.documentElement.classList.toggle("dark");
   }
 
+  // The header boxes themselves, by id. Their order comes from
+  // headerBoxOrder; the first five render on line one, the rest on
+  // line two.
+  const headerBoxNodes: Record<string, ReactNode> = {
+    rulesets: <RulesetToggle enabledRulesets={build.enabledRulesets} onToggle={cb.toggleRuleset} />,
+    characters: <CharacterRepository build={build} onLoad={cb.setBuild} part="characters" />,
+    "house-rules": <HouseRulesToggle houseRules={build.houseRules} onToggle={cb.toggleHouseRule} />,
+    save: <CharacterRepository build={build} onLoad={cb.setBuild} part="save" />,
+    new: (
+      <Button
+        variant="outline"
+        size="sm"
+        className="px-1.5 sm:px-3"
+        onClick={() => {
+          cb.reset();
+          goTo("race");
+          toast({ title: "New character", description: "Started a fresh build." });
+        }}
+        data-testid="button-new-character"
+      >
+        <UserPlus className="h-3.5 w-3.5 sm:mr-1.5" />
+        <span className="hidden sm:inline">New</span>
+      </Button>
+    ),
+    theme: (
+      <Button variant="outline" size="sm" className="px-1.5 sm:px-3" onClick={toggleTheme} aria-label="Toggle dark/light theme" data-testid="button-theme-toggle">
+        <Sun className="h-3.5 w-3.5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+        <Moon className="absolute h-3.5 w-3.5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+      </Button>
+    ),
+    export: (
+      <Button variant="outline" size="sm" className="px-1.5 sm:px-3" onClick={() => exportCharacterJson(build)} data-testid="button-export-character">
+        <Download className="h-3.5 w-3.5 sm:mr-1.5" />
+        <span className="hidden sm:inline">Export</span>
+      </Button>
+    ),
+    "copy-build": (
+      <Button variant="outline" size="sm" className="px-1.5 sm:px-3" onClick={() => void handleCopyBuildLink()} data-testid="button-copy-build-link">
+        <Link2 className="h-3.5 w-3.5 sm:mr-1.5" />
+        <span className="hidden sm:inline">Copy build link</span>
+      </Button>
+    ),
+    "copy-settings": (
+      <Button variant="outline" size="sm" className="px-1.5 sm:px-3" onClick={() => void handleCopySettingsLink()} data-testid="button-copy-settings-link">
+        <SlidersHorizontal className="h-3.5 w-3.5 sm:mr-1.5" />
+        <span className="hidden sm:inline">Copy settings link</span>
+      </Button>
+    ),
+    import: (
+      <Button variant="outline" size="sm" className="px-1.5 sm:px-3" onClick={() => importRef.current?.click()} data-testid="button-import-character">
+        <Upload className="h-3.5 w-3.5 sm:mr-1.5" />
+        <span className="hidden sm:inline">Import</span>
+      </Button>
+    ),
+  };
+
+  // One movable header box. The drag works like the Feats section
+  // titles' did (Shaun, 2026-11-03, moved here at his order):
+  // press, move past a small threshold, and the box trades places
+  // with the one under the pointer, live. Two guards keep a drag
+  // from firing the box's own action: once a drag starts, pointer
+  // capture retargets the ending click to this wrapper instead of
+  // the button inside; and the capture-phase click check swallows
+  // any click that still slips through right after a drag.
+  const renderHeaderBox = (id: string) => (
+    <div
+      key={id}
+      data-header-box={id}
+      className={cn(
+        "flex cursor-grab touch-none select-none active:cursor-grabbing",
+        headerDraggingId === id && "rounded-md ring-2 ring-primary/50"
+      )}
+      onClickCapture={(e) => {
+        if (headerJustDraggedRef.current) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+      }}
+      onPointerDown={(e) => {
+        headerDragRef.current = { id, startX: e.clientX, startY: e.clientY, dragging: false };
+      }}
+      onPointerMove={(e) => {
+        const d = headerDragRef.current;
+        if (!d || d.id !== id) return;
+        if (!d.dragging && Math.hypot(e.clientX - d.startX, e.clientY - d.startY) > 8) {
+          d.dragging = true;
+          setHeaderDraggingId(d.id);
+          try {
+            e.currentTarget.setPointerCapture(e.pointerId);
+          } catch {
+            /* capture unsupported — drag still tracks via the box */
+          }
+        }
+        if (d.dragging) {
+          const over = document
+            .elementFromPoint(e.clientX, e.clientY)
+            ?.closest<HTMLElement>("[data-header-box]")?.dataset.headerBox;
+          if (over && over !== d.id) {
+            setHeaderBoxOrder((prev) => {
+              const ids = [...prev];
+              const from = ids.indexOf(d.id);
+              const to = ids.indexOf(over);
+              if (from === -1 || to === -1) return prev;
+              ids.splice(to, 0, ids.splice(from, 1)[0]);
+              return ids;
+            });
+          }
+        }
+      }}
+      onPointerUp={() => {
+        if (headerDragRef.current?.dragging) {
+          headerJustDraggedRef.current = true;
+          setTimeout(() => {
+            headerJustDraggedRef.current = false;
+          }, 50);
+        }
+        headerDragRef.current = null;
+        setHeaderDraggingId(null);
+      }}
+      onPointerCancel={() => {
+        headerDragRef.current = null;
+        setHeaderDraggingId(null);
+      }}
+    >
+      {headerBoxNodes[id]}
+    </div>
+  );
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
@@ -271,55 +454,20 @@ export default function Builder() {
           <span className="hidden text-xs text-muted-foreground md:inline">
             d20 SRD 3.5 template-blending character builder
           </span>
-          {/* The two double stacks on the left, three to the right on
-              each line (Shaun, 2026-11-03): the Rule Sets book sits
-              over the moon, and the Characters book sits over the
-              download (Export) — those two stacked pairs come first.
-              Line one then carries House Rules, Save, New to their
-              right; line two carries the two copy-link boxes and
-              Import to their right. */}
+          {/* The header boxes, five to a line. Their DEFAULT order
+              is the arrangement Shaun settled on 2026-11-03 — the
+              two double stacks on the left (the Rule Sets book over
+              the moon, the Characters book over the download/
+              Export), three more boxes to the right on each line —
+              but the boxes are movable now (Shaun, later the same
+              day): press any box and drag it over another to trade
+              places, and the arrangement persists on the device. */}
           <div className="ml-auto flex flex-col items-start gap-1 sm:gap-2">
             <div className="flex items-center gap-1 sm:gap-2">
-              <RulesetToggle enabledRulesets={build.enabledRulesets} onToggle={cb.toggleRuleset} />
-              <CharacterRepository build={build} onLoad={cb.setBuild} part="characters" />
-              <HouseRulesToggle houseRules={build.houseRules} onToggle={cb.toggleHouseRule} />
-              <CharacterRepository build={build} onLoad={cb.setBuild} part="save" />
-              <Button
-                variant="outline"
-                size="sm"
-                className="px-1.5 sm:px-3"
-                onClick={() => {
-                  cb.reset();
-                  goTo("race");
-                  toast({ title: "New character", description: "Started a fresh build." });
-                }}
-                data-testid="button-new-character"
-              >
-                <UserPlus className="h-3.5 w-3.5 sm:mr-1.5" />
-                <span className="hidden sm:inline">New</span>
-              </Button>
+              {headerBoxOrder.slice(0, 5).map(renderHeaderBox)}
             </div>
             <div className="flex items-center gap-1 sm:gap-2">
-              <Button variant="outline" size="sm" className="px-1.5 sm:px-3" onClick={toggleTheme} aria-label="Toggle dark/light theme" data-testid="button-theme-toggle">
-                <Sun className="h-3.5 w-3.5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-                <Moon className="absolute h-3.5 w-3.5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-              </Button>
-              <Button variant="outline" size="sm" className="px-1.5 sm:px-3" onClick={() => exportCharacterJson(build)} data-testid="button-export-character">
-                <Download className="h-3.5 w-3.5 sm:mr-1.5" />
-                <span className="hidden sm:inline">Export</span>
-              </Button>
-              <Button variant="outline" size="sm" className="px-1.5 sm:px-3" onClick={() => void handleCopyBuildLink()} data-testid="button-copy-build-link">
-                <Link2 className="h-3.5 w-3.5 sm:mr-1.5" />
-                <span className="hidden sm:inline">Copy build link</span>
-              </Button>
-              <Button variant="outline" size="sm" className="px-1.5 sm:px-3" onClick={() => void handleCopySettingsLink()} data-testid="button-copy-settings-link">
-                <SlidersHorizontal className="h-3.5 w-3.5 sm:mr-1.5" />
-                <span className="hidden sm:inline">Copy settings link</span>
-              </Button>
-              <Button variant="outline" size="sm" className="px-1.5 sm:px-3" onClick={() => importRef.current?.click()} data-testid="button-import-character">
-                <Upload className="h-3.5 w-3.5 sm:mr-1.5" />
-                <span className="hidden sm:inline">Import</span>
-              </Button>
+              {headerBoxOrder.slice(5).map(renderHeaderBox)}
               <input
                 ref={importRef}
                 type="file"
