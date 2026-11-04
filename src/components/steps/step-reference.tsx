@@ -31,6 +31,7 @@ import {
   describeSpell,
   type EntityDetail,
 } from "@/lib/entity-descriptions";
+import { weaponSubcategory, WEAPON_SUBCATEGORIES } from "@/lib/weapon-subcategories";
 import { EntityDetailDialog } from "@/components/entity-detail-dialog";
 import { RULESET_LABELS } from "@/components/ruleset-toggle";
 import { ProductIdentityBadge } from "@/components/product-identity-badge";
@@ -48,11 +49,21 @@ import { Input } from "@/components/ui/input";
  * It deliberately ignores the rule-set toggles and the per-entity
  * off lists: a reference shows ALL the information in the library;
  * the badges still say which rule set each entry belongs to.
+ * Every category also breaks down into its own subcategories
+ * (Shaun, 2026-11-03): picking a category shows its subcategory
+ * buttons with counts, and picking one narrows the list to it.
  */
 
 interface RefRow {
   key: string;
   category: string;
+  /** The subcategory this entry falls under within its category
+   * (Shaun, 2026-11-03: "break down all of the categories into their
+   * subcategories within themselves"). Each category breaks down by
+   * the grouping its own records already carry — creature type for
+   * races, key ability for skills, feat type for feats, school for
+   * spells, the equipment / magic-item sections for items, and so on. */
+  subcategory: string;
   name: string;
   source: string;
   ruleset?: Ruleset;
@@ -68,11 +79,116 @@ interface RefCategory {
   key: string;
   label: string;
   disabled?: boolean;
+  /** Display order for this category's subcategory buttons, where the
+   * category has a canonical one; unlisted subcategories follow
+   * alphabetically. */
+  subcategoryOrder?: string[];
   rows: RefRow[];
 }
 
 function rsBadge(ruleset: Ruleset | undefined, extra: string[] = []): string[] {
   return [...extra, ...(ruleset && ruleset !== "core" ? [RULESET_LABELS[ruleset]] : [])];
+}
+
+/* ------------------------------------------------------------------ */
+/* Subcategory breakdowns (Shaun, 2026-11-03). Every category breaks  */
+/* down by the grouping its own records carry; the label maps below   */
+/* mirror the ones the builder steps themselves use, so the           */
+/* reference and the builder agree.                                   */
+/* ------------------------------------------------------------------ */
+
+/** Classes carry no finer printed grouping, so they break down by
+ * rule set — the same split as the Rule Sets tab. */
+function rulesetSubcategory(ruleset: Ruleset | undefined): string {
+  return ruleset ? RULESET_LABELS[ruleset] : RULESET_LABELS.core;
+}
+
+const ABILITY_SUBCATEGORY_LABELS: Record<string, string> = {
+  str: "Strength", dex: "Dexterity", con: "Constitution",
+  int: "Intelligence", wis: "Wisdom", cha: "Charisma",
+};
+
+const FEAT_SUBCATEGORY_LABELS: Record<string, string> = {
+  general: "General",
+  combat: "Combat",
+  "item-creation": "Item Creation",
+  metamagic: "Metamagic",
+  "race-specific": "Race-Specific",
+  "setting-specific": "Setting-Specific",
+};
+const FEAT_SUBCATEGORY_ORDER = ["General", "Combat", "Item Creation", "Metamagic", "Race-Specific", "Setting-Specific"];
+
+/** Equipment sections, in the Equipment step's own order. Weapons
+ * split further into Melee / Ranged / Firearms, exactly as the
+ * Equipment step's subcategory buttons do. */
+const EQUIPMENT_SUBCATEGORY_LABELS: Record<string, string> = {
+  weapon: "Weapons",
+  armor: "Armor",
+  shield: "Shields",
+  ammunition: "Ammunition",
+  "alchemical gear": "Alchemical Gear",
+  tool: "Tools",
+  gear: "Adventuring Gear",
+  "food and drink": "Food & Drink",
+  service: "Services",
+  animal: "Animals",
+};
+const EQUIPMENT_SUBCATEGORY_ORDER = [
+  "Weapons — Melee", "Weapons — Ranged", "Weapons — Firearms",
+  "Armor", "Shields", "Ammunition", "Alchemical Gear", "Tools",
+  "Adventuring Gear", "Food & Drink", "Services", "Animals",
+];
+
+/** Magic item sections, in the Equipment step's own order. */
+const MAGIC_SUBCATEGORY_ORDER = [
+  "Wondrous — Head", "Wondrous — Face", "Wondrous — Throat",
+  "Wondrous — Shoulders", "Wondrous — Body", "Wondrous — Torso",
+  "Wondrous — Arms", "Wondrous — Hands", "Wondrous — Waist",
+  "Wondrous — Feet", "Wondrous — Slotless", "Wondrous Items — Other",
+  "Rings", "Rods", "Staffs", "Wands", "Scrolls", "Potions",
+  "Magic Weapons", "Magic Armor", "Magic Shields",
+  "Armor Special Abilities", "Weapon Special Abilities",
+  "Shield Special Abilities", "Augment Crystals", "Magic Ammunition",
+  "Artifacts",
+];
+const MAGIC_SUBCATEGORY_LABELS: Record<string, string> = {
+  "wondrous-head": "Wondrous — Head",
+  "wondrous-face": "Wondrous — Face",
+  "wondrous-throat": "Wondrous — Throat",
+  "wondrous-shoulders": "Wondrous — Shoulders",
+  "wondrous-body": "Wondrous — Body",
+  "wondrous-torso": "Wondrous — Torso",
+  "wondrous-arms": "Wondrous — Arms",
+  "wondrous-hands": "Wondrous — Hands",
+  "wondrous-waist": "Wondrous — Waist",
+  "wondrous-feet": "Wondrous — Feet",
+  "wondrous-slotless": "Wondrous — Slotless",
+  wondrous: "Wondrous Items — Other",
+  ring: "Rings",
+  rod: "Rods",
+  staff: "Staffs",
+  wand: "Wands",
+  scroll: "Scrolls",
+  potion: "Potions",
+  weapon: "Magic Weapons",
+  armor: "Magic Armor",
+  shield: "Magic Shields",
+  "armor-special-ability": "Armor Special Abilities",
+  "weapon-special-ability": "Weapon Special Abilities",
+  "shield-special-ability": "Shield Special Abilities",
+  "augment-crystal": "Augment Crystals",
+  ammunition: "Magic Ammunition",
+  artifact: "Artifacts",
+};
+
+/** Flaws and traits come from exactly two places in the library. */
+const FLAW_TRAIT_SUBCATEGORY_LABELS: Record<string, string> = {
+  "unearthed-arcana": "Unearthed Arcana",
+  dandwiki: "D&D Wiki (Homebrew)",
+};
+
+function capitalize(text: string): string {
+  return text.length > 0 ? text[0].toUpperCase() + text.slice(1) : text;
 }
 
 /**
@@ -110,20 +226,20 @@ function isTransdimensionalSpell(s: { id: string; subschool?: string }): boolean
 const CATEGORIES: RefCategory[] = [
   {
     key: "races", label: "Races",
-    rows: ALL_RACES.map((r) => ({ key: `races:${r.id}`, category: "Race", name: r.name, source: r.source, ruleset: r.ruleset, makeDetail: () => describeRace(r) })),
+    rows: ALL_RACES.map((r) => ({ key: `races:${r.id}`, category: "Race", subcategory: r.type, name: r.name, source: r.source, ruleset: r.ruleset, makeDetail: () => describeRace(r) })),
   },
   {
     key: "classes", label: "Base Classes",
-    rows: ALL_CLASSES.map((c) => ({ key: `classes:${c.id}`, category: "Base Class", name: c.name, source: c.source, ruleset: c.ruleset, makeDetail: () => describeClass(c) })),
+    rows: ALL_CLASSES.map((c) => ({ key: `classes:${c.id}`, category: "Base Class", subcategory: rulesetSubcategory(c.ruleset), name: c.name, source: c.source, ruleset: c.ruleset, makeDetail: () => describeClass(c) })),
   },
   {
     key: "prestige", label: "Prestige Classes",
-    rows: ALL_PRESTIGE_CLASSES.map((c) => ({ key: `prestige:${c.id}`, category: "Prestige Class", name: c.name, source: c.source, ruleset: c.ruleset, makeDetail: () => describePrestigeClass(c) })),
+    rows: ALL_PRESTIGE_CLASSES.map((c) => ({ key: `prestige:${c.id}`, category: "Prestige Class", subcategory: rulesetSubcategory(c.ruleset), name: c.name, source: c.source, ruleset: c.ruleset, makeDetail: () => describePrestigeClass(c) })),
   },
   {
     key: "templates", label: "Templates",
     rows: ALL_TEMPLATES.map((t) => ({
-      key: `templates:${t.id}`, category: "Template", name: t.name, source: t.source, ruleset: t.ruleset,
+      key: `templates:${t.id}`, category: "Template", subcategory: t.timing === "inherited" ? "Inherited" : "Acquired", name: t.name, source: t.source, ruleset: t.ruleset,
       makeDetail: (): EntityDetail => ({
         title: t.name,
         badges: rsBadge(t.ruleset, ["Template", t.timing === "inherited" ? "Inherited" : "Acquired"]),
@@ -141,18 +257,18 @@ const CATEGORIES: RefCategory[] = [
   },
   {
     key: "skills", label: "Skills",
-    rows: ALL_SKILLS.map((s) => ({ key: `skills:${s.id}`, category: "Skill", name: s.name, source: s.source, ruleset: s.ruleset, makeDetail: () => describeSkill(s) })),
+    rows: ALL_SKILLS.map((s) => ({ key: `skills:${s.id}`, category: "Skill", subcategory: ABILITY_SUBCATEGORY_LABELS[s.keyAbility] ?? capitalize(s.keyAbility), name: s.name, source: s.source, ruleset: s.ruleset, makeDetail: () => describeSkill(s) })),
   },
   {
-    key: "feats", label: "Feats",
-    rows: ALL_FEATS.map((f) => ({ key: `feats:${f.id}`, category: "Feat", name: f.name, source: f.source, ruleset: f.ruleset, makeDetail: () => describeFeat(f) })),
+    key: "feats", label: "Feats", subcategoryOrder: FEAT_SUBCATEGORY_ORDER,
+    rows: ALL_FEATS.map((f) => ({ key: `feats:${f.id}`, category: "Feat", subcategory: FEAT_SUBCATEGORY_LABELS[f.category] ?? capitalize(f.category), name: f.name, source: f.source, ruleset: f.ruleset, makeDetail: () => describeFeat(f) })),
   },
   {
     key: "spells", label: "Spells",
     rows: ALL_SPELLS.map((s) => {
       const td = isTransdimensionalSpell(s);
       return {
-        key: `spells:${s.id}`, category: "Spell", name: s.name, source: s.source, ruleset: s.ruleset,
+        key: `spells:${s.id}`, category: "Spell", subcategory: s.school, name: s.name, source: s.source, ruleset: s.ruleset,
         ...(td ? { disabled: true } : {}),
         makeDetail: (): EntityDetail => {
           const d = describeSpell(s);
@@ -162,25 +278,31 @@ const CATEGORIES: RefCategory[] = [
     }),
   },
   {
-    key: "equipment", label: "Equipment",
-    rows: ALL_EQUIPMENT.map((i) => ({ key: `equipment:${i.id}`, category: "Equipment", name: i.name, source: i.source, ruleset: i.ruleset, makeDetail: () => describeEquipment(i) })),
+    key: "equipment", label: "Equipment", subcategoryOrder: EQUIPMENT_SUBCATEGORY_ORDER,
+    rows: ALL_EQUIPMENT.map((i) => ({
+      key: `equipment:${i.id}`, category: "Equipment",
+      subcategory: i.category === "weapon"
+        ? `Weapons — ${WEAPON_SUBCATEGORIES.find((w) => w.key === weaponSubcategory(i))?.label ?? "Melee"}`
+        : (EQUIPMENT_SUBCATEGORY_LABELS[i.category] ?? capitalize(i.category)),
+      name: i.name, source: i.source, ruleset: i.ruleset, makeDetail: () => describeEquipment(i),
+    })),
   },
   {
-    key: "magic", label: "Magic Items",
-    rows: ALL_MAGIC_ITEMS.map((i) => ({ key: `magic:${i.id}`, category: "Magic Item", name: i.name, source: i.source, ruleset: i.ruleset, makeDetail: () => describeMagicItem(i) })),
+    key: "magic", label: "Magic Items", subcategoryOrder: MAGIC_SUBCATEGORY_ORDER,
+    rows: ALL_MAGIC_ITEMS.map((i) => ({ key: `magic:${i.id}`, category: "Magic Item", subcategory: MAGIC_SUBCATEGORY_LABELS[i.category] ?? capitalize(i.category), name: i.name, source: i.source, ruleset: i.ruleset, makeDetail: () => describeMagicItem(i) })),
   },
   {
     key: "flaws", label: "Flaws",
-    rows: ALL_FLAWS.map((f) => ({ key: `flaws:${f.id}`, category: "Flaw", name: f.name, source: f.source, ruleset: f.ruleset as Ruleset, makeDetail: () => describeFlawTrait(f) })),
+    rows: ALL_FLAWS.map((f) => ({ key: `flaws:${f.id}`, category: "Flaw", subcategory: FLAW_TRAIT_SUBCATEGORY_LABELS[f.ruleset] ?? capitalize(f.ruleset), name: f.name, source: f.source, ruleset: f.ruleset as Ruleset, makeDetail: () => describeFlawTrait(f) })),
   },
   {
     key: "traits", label: "Traits",
-    rows: ALL_TRAITS.map((t) => ({ key: `traits:${t.id}`, category: "Trait", name: t.name, source: t.source, ruleset: t.ruleset as Ruleset, makeDetail: () => describeFlawTrait(t) })),
+    rows: ALL_TRAITS.map((t) => ({ key: `traits:${t.id}`, category: "Trait", subcategory: FLAW_TRAIT_SUBCATEGORY_LABELS[t.ruleset] ?? capitalize(t.ruleset), name: t.name, source: t.source, ruleset: t.ruleset as Ruleset, makeDetail: () => describeFlawTrait(t) })),
   },
   {
     key: "bodymods", label: "Body Modifications",
     rows: ALL_BODY_MODIFICATIONS.map((b) => ({
-      key: `bodymods:${b.id}`, category: "Body Modification", name: b.name, source: b.source, ruleset: b.ruleset,
+      key: `bodymods:${b.id}`, category: "Body Modification", subcategory: b.family, name: b.name, source: b.source, ruleset: b.ruleset,
       makeDetail: (): EntityDetail => ({
         title: b.name,
         badges: rsBadge(b.ruleset, [b.kind, b.family]),
@@ -197,7 +319,7 @@ const CATEGORIES: RefCategory[] = [
   {
     key: "tables", label: "Random Tables",
     rows: ALL_RANDOM_TABLES.map((t) => ({
-      key: `tables:${t.id}`, category: "Random Table", name: t.name, source: t.source, ruleset: t.ruleset,
+      key: `tables:${t.id}`, category: "Random Table", subcategory: `Roll ${t.die}`, name: t.name, source: t.source, ruleset: t.ruleset,
       makeDetail: (): EntityDetail => ({
         title: t.name,
         badges: rsBadge(t.ruleset, ["Random Table", `Roll ${t.die}`]),
@@ -210,7 +332,7 @@ const CATEGORIES: RefCategory[] = [
   {
     key: "summoning", label: "Summoning & Travel Spells (APOC)", disabled: true,
     rows: ALL_SUMMONING_SPELL_LIST.map((s) => ({
-      key: `summoning:${s.id}`, category: "Summoning / Travel", name: s.name, source: s.source, ruleset: s.ruleset, disabled: true,
+      key: `summoning:${s.id}`, category: "Summoning / Travel", subcategory: s.allowed ? (s.badJuJu ? "Allowed but Bad Ju-Ju" : "Allowed in APOC") : "Does not work in APOC", name: s.name, source: s.source, ruleset: s.ruleset, disabled: true,
       makeDetail: (): EntityDetail => ({
         title: s.name,
         badges: rsBadge(s.ruleset, [s.allowed ? "Allowed in APOC" : "Does not work in APOC", ...(s.badJuJu ? ["Bad Ju-Ju"] : [])]),
@@ -226,7 +348,7 @@ const CATEGORIES: RefCategory[] = [
   {
     key: "houserules", label: "House Rules Index",
     rows: ALL_HOUSE_RULES_INDEX.map((h) => ({
-      key: `houserules:${h.id}`, category: "House Rule", name: h.name, source: h.source, ruleset: h.ruleset,
+      key: `houserules:${h.id}`, category: "House Rule", subcategory: h.section, name: h.name, source: h.source, ruleset: h.ruleset,
       makeDetail: (): EntityDetail => ({
         title: h.name,
         badges: rsBadge(h.ruleset, ["House Rule", h.section]),
@@ -240,7 +362,7 @@ const CATEGORIES: RefCategory[] = [
   {
     key: "dandwiki", label: "DandWiki Reference Index",
     rows: ALL_DANDWIKI_REFERENCE_INDEX.map((d) => ({
-      key: `dandwiki:${d.id}`, category: "Reference", name: d.name, source: d.source, ruleset: d.ruleset,
+      key: `dandwiki:${d.id}`, category: "Reference", subcategory: d.list, name: d.name, source: d.source, ruleset: d.ruleset,
       makeDetail: (): EntityDetail => ({
         title: d.name,
         badges: rsBadge(d.ruleset, ["Reference", d.list]),
@@ -259,23 +381,57 @@ const RENDER_CAP = 200;
 export function StepReference() {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<string>("all");
+  const [subcategory, setSubcategory] = useState<string>("all");
   const [detail, setDetail] = useState<EntityDetail | null>(null);
+
+  const activeCategory = CATEGORIES.find((c) => c.key === category);
+
+  /** The selected category's subcategory breakdown, with counts, in
+   * the category's own order where it has one (alphabetical after). */
+  const subcategories = useMemo(() => {
+    if (!activeCategory) return [];
+    const counts = new Map<string, number>();
+    for (const row of activeCategory.rows) {
+      counts.set(row.subcategory, (counts.get(row.subcategory) ?? 0) + 1);
+    }
+    const order = activeCategory.subcategoryOrder ?? [];
+    return [...counts.entries()]
+      .map(([label, count]) => ({ label, count }))
+      .sort((a, b) => {
+        const ai = order.indexOf(a.label);
+        const bi = order.indexOf(b.label);
+        if (ai !== -1 || bi !== -1) {
+          if (ai === -1) return 1;
+          if (bi === -1) return -1;
+          return ai - bi;
+        }
+        return a.label.localeCompare(b.label);
+      });
+  }, [activeCategory]);
 
   const results = useMemo(() => {
     const q = query.trim().toLowerCase();
     const pools = category === "all" ? CATEGORIES : CATEGORIES.filter((c) => c.key === category);
     const out: RefRow[] = [];
     for (const pool of pools) {
-      const rows = q
-        ? pool.rows.filter((r) => r.name.toLowerCase().includes(q) || r.source.toLowerCase().includes(q))
-        : [...pool.rows].sort((a, b) => a.name.localeCompare(b.name));
+      let rows = subcategory === "all" || category === "all"
+        ? pool.rows
+        : pool.rows.filter((r) => r.subcategory === subcategory);
+      rows = q
+        ? rows.filter((r) => r.name.toLowerCase().includes(q) || r.source.toLowerCase().includes(q))
+        : [...rows].sort((a, b) => a.name.localeCompare(b.name));
       out.push(...rows);
     }
     return out;
-  }, [query, category]);
+  }, [query, category, subcategory]);
 
   const shown = results.slice(0, RENDER_CAP);
   const browsing = query.trim() === "" && category !== "all";
+
+  function pickCategory(key: string) {
+    setCategory(key);
+    setSubcategory("all");
+  }
 
   return (
     <div className="space-y-4">
@@ -300,7 +456,7 @@ export function StepReference() {
             />
           </div>
           <div className="flex flex-wrap gap-1.5">
-            <Button size="sm" className="text-base" variant={category === "all" ? "default" : "outline"} onClick={() => setCategory("all")}>
+            <Button size="sm" className="text-base" variant={category === "all" ? "default" : "outline"} onClick={() => pickCategory("all")}>
               All ({TOTAL_ROWS.toLocaleString()})
             </Button>
             {CATEGORIES.map((c) => (
@@ -309,12 +465,38 @@ export function StepReference() {
                 size="sm"
                 variant={category === c.key ? "default" : "outline"}
                 className={c.disabled ? "text-base text-muted-foreground line-through opacity-60" : "text-base"}
-                onClick={() => setCategory(c.key)}
+                onClick={() => pickCategory(c.key)}
               >
                 {c.label} ({c.rows.length.toLocaleString()})
               </Button>
             ))}
           </div>
+          {activeCategory && subcategories.length > 1 && (
+            <div className="flex flex-wrap items-center gap-1.5 border-t border-border pt-3">
+              <span className="text-base text-muted-foreground">{activeCategory.label}:</span>
+              <Button
+                size="sm"
+                className="text-base"
+                variant={subcategory === "all" ? "default" : "outline"}
+                onClick={() => setSubcategory("all")}
+                data-testid="button-reference-subcategory-all"
+              >
+                All in {activeCategory.label} ({activeCategory.rows.length.toLocaleString()})
+              </Button>
+              {subcategories.map((s) => (
+                <Button
+                  key={s.label}
+                  size="sm"
+                  className={activeCategory.disabled ? "text-base text-muted-foreground line-through opacity-60" : "text-base"}
+                  variant={subcategory === s.label ? "default" : "outline"}
+                  onClick={() => setSubcategory(s.label)}
+                  data-testid={`button-reference-subcategory-${s.label.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
+                >
+                  {s.label} ({s.count.toLocaleString()})
+                </Button>
+              ))}
+            </div>
+          )}
         </CardContent>
       </Card>
 
@@ -328,7 +510,8 @@ export function StepReference() {
           <CardHeader className="pb-2">
             <CardTitle className="text-xl">
               {results.length.toLocaleString()} {results.length === 1 ? "match" : "matches"}
-              {browsing ? ` in ${CATEGORIES.find((c) => c.key === category)?.label}` : ""}
+              {browsing ? ` in ${activeCategory?.label}` : ""}
+              {subcategory !== "all" && activeCategory ? ` — ${subcategory}` : ""}
             </CardTitle>
             {results.length > RENDER_CAP && (
               <CardDescription className="text-lg">
@@ -358,6 +541,7 @@ export function StepReference() {
                       </span>
                       <span className="flex shrink-0 items-center gap-1.5">
                         <Badge variant="secondary" className="text-sm">{row.category}</Badge>
+                        <Badge variant="outline" className="hidden text-sm sm:inline-flex">{row.subcategory}</Badge>
                         {row.ruleset && row.ruleset !== "core" && (
                           <ProductIdentityBadge rulesetLabel={RULESET_LABELS[row.ruleset]} />
                         )}
