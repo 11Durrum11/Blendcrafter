@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Minus, Plus } from "lucide-react";
+import { Info, Minus, Plus } from "lucide-react";
 import { ALL_CLASSES } from "@/data";
 import type { ClassDefinition, ClassLevelChoice, ResolvedCharacter, Ruleset } from "@/engine/types";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -50,9 +50,11 @@ export function StepClasses({
   // Crunched cards, three across (Shaun, 2026-11-02): the card
   // carries the name, the level badge, the current-level stat row
   // and the level steppers. The name hovers for the short crunch
-  // and clicks for the full-crunch dialog; the ruleset badge, the
-  // hit-die line and the enable switch moved into that dialog
-  // (the switch sits in its footer, like the Feats step).
+  // and clicks for the full-breakdown dialog; since 2026-11-03 the
+  // card also carries a visible round info button (like the race
+  // tiles) opening that same dialog, at Shaun's order. (The
+  // dialog's old footer switch is gone with the 2026-11-03 toggle
+  // removal.)
   const renderClassCard = (cls: (typeof visibleClasses)[number]) => {
     const current = classLevels.find((c) => c.classId === cls.id);
     const row = current ? cls.progression.find((r) => r.level === current.levels) : undefined;
@@ -88,9 +90,30 @@ export function StepClasses({
               )}
             </TooltipContent>
           </Tooltip>
-          <Badge variant="outline" className="shrink-0 font-mono">
-            Lv {current?.levels ?? 0}
-          </Badge>
+          <div className="flex shrink-0 items-center gap-1.5">
+            {/* The breakdown button (Shaun, 2026-11-03: "give an
+                exclamation point that breaks down the entire class
+                fully") — the same round info button the race tiles
+                carry, opening the full class breakdown dialog:
+                every level of the progression table and every
+                class feature. The name still opens it too. */}
+            <button
+              type="button"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                setDetailClass(cls);
+              }}
+              className="shrink-0 rounded-full p-0.5 text-muted-foreground hover-elevate hover:text-foreground"
+              aria-label={`Full breakdown of ${cls.name}`}
+              data-testid={`button-breakdown-class-${cls.id}`}
+            >
+              <Info className="h-3.5 w-3.5" />
+            </button>
+            <Badge variant="outline" className="shrink-0 font-mono">
+              Lv {current?.levels ?? 0}
+            </Badge>
+          </div>
         </div>
         {row && (
           <div className="mt-1.5 flex gap-3 text-xs text-muted-foreground font-mono">
@@ -138,7 +161,8 @@ export function StepClasses({
           <CardDescription>
             Multiclassing is allowed — add levels in any combination up to level 10 per class. Cards are
             crunched three across: <span className="font-medium">hover a name</span> for the short crunch,{" "}
-            <span className="font-medium">click it</span> for the whole thing. Prestige classes come at
+            <span className="font-medium">tap the ⓘ button</span> (or the name) for the full breakdown — every
+            level of the progression table and every class feature. Prestige classes come at
             step 7, after Skills, Feats and Spells — they're judged against the finished build. Source:{" "}
             <a href="https://www.d20srd.org/srd/classes/" target="_blank" rel="noreferrer" className="text-primary underline underline-offset-2">
               d20 SRD Classes

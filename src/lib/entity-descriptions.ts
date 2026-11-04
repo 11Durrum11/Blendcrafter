@@ -95,25 +95,62 @@ export function describeRace(race: RaceDefinition): EntityDetail {
   };
 }
 
+/**
+ * The FULL class breakdown (Shaun, 2026-11-03: "give an exclamation
+ * point that breaks down the entire class fully"). Until now the
+ * class dialog showed only the final level's numbers and no class
+ * features at all. Now it carries everything the record holds:
+ * the vitals, the progression table for EVERY level, every class
+ * feature with its full text (level-gated features marked with the
+ * level they arrive at), and the class skill list.
+ */
 function classSections(cls: ClassDefinition): EntityDetailSection[] {
-  const lastRow = cls.progression[cls.progression.length - 1];
-  return [
+  const sections: EntityDetailSection[] = [
     {
-      heading: "Progression",
-      body: `Hit Die ${cls.hitDie} · ${cls.babProgression} BAB progression · ${cls.skillPointsPerLevel} + Int skill points per level.\nGood saves: ${cls.goodSaves.map((s) => s.toUpperCase()).join(", ") || "none"}.\nAt level ${lastRow.level}: BAB ${signed(lastRow.bab)}, Fort ${signed(lastRow.fort)}, Ref ${signed(lastRow.ref)}, Will ${signed(lastRow.will)}.`,
+      heading: "Overview",
+      body: `Hit Die ${cls.hitDie} · ${cls.babProgression} BAB progression · ${cls.skillPointsPerLevel} + Int skill points per level.\nGood saves: ${cls.goodSaves.map((s) => s.toUpperCase()).join(", ") || "none"}.`,
     },
     {
-      heading: "Class Skills",
-      body: cls.classSkills.join(", "),
+      heading: "Progression — level by level",
+      body: cls.progression
+        .map(
+          (r) =>
+            `Level ${r.level}: BAB ${signed(r.bab)} · Fort ${signed(r.fort)} · Ref ${signed(r.ref)} · Will ${signed(r.will)}`
+        )
+        .join("\n"),
     },
   ];
+  const features = cls.features ?? [];
+  if (features.length > 0) {
+    // General features (no level gate — basics, proficiencies) first,
+    // then level-gated features in the order they arrive.
+    const ordered = [...features].sort(
+      (a, b) =>
+        ((a as { levelsNeeded?: number }).levelsNeeded ?? 0) -
+        ((b as { levelsNeeded?: number }).levelsNeeded ?? 0)
+    );
+    sections.push({
+      heading: "Class Features",
+      body: ordered
+        .map((f) => {
+          const lvl = (f as { levelsNeeded?: number }).levelsNeeded;
+          return `${f.name}${lvl ? ` (from level ${lvl})` : ""}: ${f.description}`;
+        })
+        .join("\n"),
+    });
+  }
+  sections.push({
+    heading: "Class Skills",
+    body: cls.classSkills.join(", "),
+  });
+  return sections;
 }
 
 export function describeClass(cls: ClassDefinition): EntityDetail {
   return {
     title: cls.name,
     badges: ["Class", `Hit Die ${cls.hitDie}`],
-    summary: `${cls.name} — ${cls.babProgression} base attack progression, ${cls.skillPointsPerLevel} skill points per level.`,
+    summary: `${cls.name} — ${cls.babProgression} base attack progression, ${cls.skillPointsPerLevel} skill points per level. Full breakdown below: the progression table for every level and every class feature.`,
     sections: classSections(cls),
     source: cls.source,
     sourceUrl: cls.sourceUrl,
@@ -128,7 +165,7 @@ export function describePrestigeClass(cls: PrestigeClassDefinition): EntityDetai
   return {
     title: cls.name,
     badges: ["Prestige Class", `Hit Die ${cls.hitDie}`],
-    summary: `${cls.name} (prestige) — prerequisites are enforced by the builder: the class stays unavailable until every prerequisite the builder can check is met, and each remaining prerequisite has been confirmed on the Classes step.`,
+    summary: `${cls.name} (prestige) — prerequisites are enforced by the builder: the class stays unavailable until every prerequisite the builder can check is met, and each remaining prerequisite has been confirmed on the Prestige Classes step. Full breakdown below: the progression table for every level and every class feature.`,
     sections,
     source: cls.source,
     sourceUrl: cls.sourceUrl,

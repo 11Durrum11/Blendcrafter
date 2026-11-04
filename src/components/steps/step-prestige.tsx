@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { AlertTriangle, Check, HelpCircle, Lock, Minus, Plus, X } from "lucide-react";
+import { AlertTriangle, Check, HelpCircle, Info, Lock, Minus, Plus, X } from "lucide-react";
 import { ALL_PRESTIGE_CLASSES } from "@/data";
 import type { ClassLevelChoice, PrestigeClassDefinition, ResolvedCharacter, Ruleset } from "@/engine/types";
 import { buildPrereqContext, evaluatePrestigeClass, type PrestigeGateResult } from "@/engine/prestige-prerequisites";
@@ -137,9 +137,30 @@ export function StepPrestige({
               )}
             </TooltipContent>
           </Tooltip>
-          <Badge variant="outline" className="shrink-0 font-mono">
-            Lv {current?.levels ?? 0}
-          </Badge>
+          <div className="flex shrink-0 items-center gap-1.5">
+            {/* The breakdown button, same as the Classes step
+                (Shaun, 2026-11-03) — the round info button opening
+                the full prestige-class breakdown dialog:
+                prerequisites, every level of the progression table
+                and every class feature. The name still opens it
+                too. */}
+            <button
+              type="button"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                setDetailClass(cls);
+              }}
+              className="shrink-0 rounded-full p-0.5 text-muted-foreground hover-elevate hover:text-foreground"
+              aria-label={`Full breakdown of ${cls.name}`}
+              data-testid={`button-breakdown-prestige-${cls.id}`}
+            >
+              <Info className="h-3.5 w-3.5" />
+            </button>
+            <Badge variant="outline" className="shrink-0 font-mono">
+              Lv {current?.levels ?? 0}
+            </Badge>
+          </div>
         </div>
         {gate && gate.entries.length > 0 && (
           <div className="mt-2 space-y-1.5" data-testid={`prereq-list-${cls.id}`}>
