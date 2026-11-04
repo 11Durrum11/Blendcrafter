@@ -1,8 +1,7 @@
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { Fragment, useEffect, useRef, useState, type ReactNode } from "react";
 import { Link, useLocation, useRoute } from "wouter";
 import { ChevronLeft, ChevronRight, Download, Link2, Moon, SlidersHorizontal, Sun, Upload, UserPlus } from "lucide-react";
 import { Logo } from "@/components/logo";
-import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -56,9 +55,15 @@ type StepId = (typeof STEPS)[number]["id"];
  * each line). Later the same day he made the boxes MOVABLE —
  * "Put the six button movable action on the boxes at the top of
  * the very site", the drag action he had just taken off the Feats
- * sections — so this list is now the DEFAULT order and the full
- * id set; each device's own arrangement persists in localStorage
- * under HEADER_BOX_ORDER_KEY.
+ * sections — arranged them on his phone, and then ordered the
+ * moving removed again: "I've put them where I wanted to." His
+ * choice when offered the trade-off: freeze the arrangement on
+ * his phone rather than bake it in for every device. So this
+ * list is the DEFAULT order and the full id set, and the site
+ * still READS a device's saved arrangement from localStorage
+ * under HEADER_BOX_ORDER_KEY — Shaun's phone keeps the layout he
+ * put the boxes in — but nothing can change it anymore: no drag,
+ * and the order is never written back.
  */
 const HEADER_BOX_DEFAULT_ORDER = [
   "rulesets",
@@ -81,12 +86,16 @@ export default function Builder() {
   const { toast } = useToast();
   const importRef = useRef<HTMLInputElement>(null);
 
-  // Movable header boxes (Shaun, 2026-11-03): press a box at the
-  // top of the site and drag it over another box to trade places;
-  // a plain click still does the box's own job. The order state
-  // always holds all ten ids — a saved arrangement is merged over
-  // the default so a box added later still lands somewhere sane.
-  const [headerBoxOrder, setHeaderBoxOrder] = useState<string[]>(() => {
+  // Header box order — FROZEN (Shaun, 2026-11-03). The boxes were
+  // briefly movable; Shaun arranged them on his phone, then
+  // ordered the moving removed and chose "just freeze it on my
+  // phone" over baking his arrangement in for every device. So
+  // the order is read ONCE from the device's saved arrangement
+  // (merged over the default, so the state always holds all ten
+  // ids) and never changes or gets written back: his phone keeps
+  // exactly the layout he put them in, and there is no way to
+  // move a box anymore.
+  const [headerBoxOrder] = useState<string[]>(() => {
     let saved: string[] = [];
     try {
       const parsed: unknown = JSON.parse(localStorage.getItem(HEADER_BOX_ORDER_KEY) ?? "null");
@@ -98,16 +107,6 @@ export default function Builder() {
     for (const id of HEADER_BOX_DEFAULT_ORDER) if (!merged.includes(id)) merged.push(id);
     return merged;
   });
-  useEffect(() => {
-    try {
-      localStorage.setItem(HEADER_BOX_ORDER_KEY, JSON.stringify(headerBoxOrder));
-    } catch {
-      /* storage unavailable — arrangement just won't persist */
-    }
-  }, [headerBoxOrder]);
-  const headerDragRef = useRef<{ id: string; startX: number; startY: number; dragging: boolean } | null>(null);
-  const headerJustDraggedRef = useRef(false);
-  const [headerDraggingId, setHeaderDraggingId] = useState<string | null>(null);
 
   const stepParam = (params?.step ?? (location === "/" ? "race" : "race")) as StepId;
   const currentStep: StepId = STEPS.some((s) => s.id === stepParam) ? stepParam : "race";
@@ -371,77 +370,9 @@ export default function Builder() {
     ),
   };
 
-  // One movable header box. The drag works like the Feats section
-  // titles' did (Shaun, 2026-11-03, moved here at his order):
-  // press, move past a small threshold, and the box trades places
-  // with the one under the pointer, live. Two guards keep a drag
-  // from firing the box's own action: once a drag starts, pointer
-  // capture retargets the ending click to this wrapper instead of
-  // the button inside; and the capture-phase click check swallows
-  // any click that still slips through right after a drag.
-  const renderHeaderBox = (id: string) => (
-    <div
-      key={id}
-      data-header-box={id}
-      className={cn(
-        "flex cursor-grab touch-none select-none active:cursor-grabbing",
-        headerDraggingId === id && "rounded-md ring-2 ring-primary/50"
-      )}
-      onClickCapture={(e) => {
-        if (headerJustDraggedRef.current) {
-          e.preventDefault();
-          e.stopPropagation();
-        }
-      }}
-      onPointerDown={(e) => {
-        headerDragRef.current = { id, startX: e.clientX, startY: e.clientY, dragging: false };
-      }}
-      onPointerMove={(e) => {
-        const d = headerDragRef.current;
-        if (!d || d.id !== id) return;
-        if (!d.dragging && Math.hypot(e.clientX - d.startX, e.clientY - d.startY) > 8) {
-          d.dragging = true;
-          setHeaderDraggingId(d.id);
-          try {
-            e.currentTarget.setPointerCapture(e.pointerId);
-          } catch {
-            /* capture unsupported — drag still tracks via the box */
-          }
-        }
-        if (d.dragging) {
-          const over = document
-            .elementFromPoint(e.clientX, e.clientY)
-            ?.closest<HTMLElement>("[data-header-box]")?.dataset.headerBox;
-          if (over && over !== d.id) {
-            setHeaderBoxOrder((prev) => {
-              const ids = [...prev];
-              const from = ids.indexOf(d.id);
-              const to = ids.indexOf(over);
-              if (from === -1 || to === -1) return prev;
-              ids.splice(to, 0, ids.splice(from, 1)[0]);
-              return ids;
-            });
-          }
-        }
-      }}
-      onPointerUp={() => {
-        if (headerDragRef.current?.dragging) {
-          headerJustDraggedRef.current = true;
-          setTimeout(() => {
-            headerJustDraggedRef.current = false;
-          }, 50);
-        }
-        headerDragRef.current = null;
-        setHeaderDraggingId(null);
-      }}
-      onPointerCancel={() => {
-        headerDragRef.current = null;
-        setHeaderDraggingId(null);
-      }}
-    >
-      {headerBoxNodes[id]}
-    </div>
-  );
+  // One header box, rendered bare — the drag wrappers the boxes
+  // briefly wore are gone with the moving (Shaun, 2026-11-03).
+  const renderHeaderBox = (id: string) => <Fragment key={id}>{headerBoxNodes[id]}</Fragment>;
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -454,14 +385,15 @@ export default function Builder() {
           <span className="hidden text-xs text-muted-foreground md:inline">
             d20 SRD 3.5 template-blending character builder
           </span>
-          {/* The header boxes, five to a line. Their DEFAULT order
+          {/* The header boxes, five to a line. The DEFAULT order
               is the arrangement Shaun settled on 2026-11-03 — the
               two double stacks on the left (the Rule Sets book over
               the moon, the Characters book over the download/
-              Export), three more boxes to the right on each line —
-              but the boxes are movable now (Shaun, later the same
-              day): press any box and drag it over another to trade
-              places, and the arrangement persists on the device. */}
+              Export), three more boxes to the right on each line.
+              A device with a saved arrangement from the brief
+              movable window shows that instead — Shaun's phone
+              keeps the layout he put them in — and the boxes can
+              no longer be moved (frozen at his order). */}
           <div className="ml-auto flex flex-col items-start gap-1 sm:gap-2">
             <div className="flex items-center gap-1 sm:gap-2">
               {headerBoxOrder.slice(0, 5).map(renderHeaderBox)}
