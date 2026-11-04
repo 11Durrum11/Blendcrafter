@@ -95,8 +95,7 @@ const MAGIC_ITEM_CREATION_LINES: { label: string; text: string }[] = [
  * throwing — set where the creation panel used to sit, to the right
  * of the Magic Items header. Mechanics only, no flavor text. */
 const POTION_RULE_LINES: { label: string; text: string }[] = [
-  { label: "Magical potions", text: "the full effect happens immediately upon consumption." },
-  { label: "Alchemical potions", text: "brewed, not magic — the effect is spread evenly over a number of rounds equal to the spell's level." },
+  { label: "Magical vs alchemical — the difference", text: "magical potion effects happen instantaneously, whereas alchemical ones happen over the course of time (rounds). Alchemical potions are brewed, not magic, and the effect is spread evenly over a number of rounds equal to the spell's level." },
   { label: "Cure line (alchemical)", text: "Nd8+N hit points total, delivered at 1d8+1 per round — Cure Light 1 round, Cure Moderate 2 rounds, Cure Serious 3 rounds, Cure Critical 4 rounds." },
   { label: "Mixing potions", text: "imbibing a second potion while one is already active, or mixing potions together, rolls on the Potion Miscibility tables." },
   { label: "Throwing potions", text: "a standard action that provokes an attack of opportunity; ranged touch attack — AC 5 against a space, the creature's AC against a creature; 10 ft range increment; a creature of Small size or larger can throw two vials held in one hand with a single attack roll." },
