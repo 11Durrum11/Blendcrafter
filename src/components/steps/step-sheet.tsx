@@ -1,8 +1,11 @@
+import { useState } from "react";
 import type { ResolvedCharacter } from "@/engine/types";
 import { ABILITY_KEYS, ABILITY_LABEL } from "@/engine/types";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { AuditTrail } from "@/components/audit-trail";
+import { downloadInteractiveSheet } from "@/lib/interactive-sheet";
 
 interface StepSheetProps {
   character: ResolvedCharacter;
@@ -42,8 +45,103 @@ export function StepSheet({ character }: StepSheetProps) {
 
   const errors = validation.filter((v) => v.severity === "error");
 
+  /* Sheet format choice (Shaun, 2026-11-04): the built-in sheet, or the
+     interactive PDF he supplied — filled with this build's numbers, its
+     own calculation scripts stripped. Remembered per device. */
+  const [sheetFormat, setSheetFormat] = useState<"builtin" | "pdf">(() =>
+    typeof window !== "undefined" &&
+    window.localStorage.getItem("blendcrafter:sheet-format") === "pdf"
+      ? "pdf"
+      : "builtin",
+  );
+  const [sheetBusy, setSheetBusy] = useState(false);
+  const [sheetError, setSheetError] = useState<string | null>(null);
+  const chooseFormat = (format: "builtin" | "pdf") => {
+    setSheetFormat(format);
+    try {
+      window.localStorage.setItem("blendcrafter:sheet-format", format);
+    } catch {
+      /* storage unavailable — the choice still applies for this visit */
+    }
+  };
+  const sheetFormatToggle = (
+    <Card>
+      <CardContent className="flex flex-wrap items-center gap-3 pt-6">
+        <span className="text-sm font-medium text-foreground">Sheet format:</span>
+        <Button
+          type="button"
+          variant={sheetFormat === "builtin" ? "default" : "outline"}
+          onClick={() => chooseFormat("builtin")}
+          data-testid="button-sheet-format-builtin"
+        >
+          Built-in sheet
+        </Button>
+        <Button
+          type="button"
+          variant={sheetFormat === "pdf" ? "default" : "outline"}
+          onClick={() => chooseFormat("pdf")}
+          data-testid="button-sheet-format-pdf"
+        >
+          Interactive sheet (PDF)
+        </Button>
+      </CardContent>
+    </Card>
+  );
+
+  if (sheetFormat === "pdf") {
+    return (
+      <div className="space-y-6" data-testid="character-sheet">
+        {sheetFormatToggle}
+        <Card>
+          <CardHeader>
+            <CardTitle className="font-display text-2xl">
+              {character.build.name} — Interactive Sheet
+            </CardTitle>
+            <CardDescription>
+              The classic two-page character sheet, filled in from this build.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <p className="text-sm leading-6 text-muted-foreground">
+              Every number on it is this builder&apos;s number. The sheet&apos;s own built-in
+              calculation scripts are removed in the copy you download, so nothing inside the
+              file can recompute over your build — and every box stays editable by hand
+              afterward, for the notes and changes you make at the table.
+            </p>
+            <Button
+              type="button"
+              disabled={sheetBusy}
+              onClick={async () => {
+                setSheetBusy(true);
+                setSheetError(null);
+                try {
+                  await downloadInteractiveSheet(character);
+                } catch {
+                  setSheetError(
+                    "The sheet could not be built just now. The built-in sheet above still has everything.",
+                  );
+                } finally {
+                  setSheetBusy(false);
+                }
+              }}
+              data-testid="button-download-interactive-sheet"
+            >
+              {sheetBusy ? "Filling in your sheet…" : "Download the filled sheet (PDF)"}
+            </Button>
+            {sheetError ? (
+              <p className="text-sm text-destructive" data-testid="interactive-sheet-error">
+                {sheetError}
+              </p>
+            ) : null}
+          </CardContent>
+        </Card>
+      </div>
+    );
+  }
+
   return (
     <div className="space-y-6" data-testid="character-sheet">
+      {sheetFormatToggle}
       <Card>
         <CardHeader>
           <div className="flex flex-wrap items-center justify-between gap-3">
