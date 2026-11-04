@@ -716,7 +716,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
       {part === "magic" && (
       <Card>
         <CardHeader>
-          <div className="flex flex-wrap items-start justify-between gap-4">
+          <div>
             <div>
               <CardTitle className="font-display text-xl">Magic Items</CardTitle>
               <CardDescription>
@@ -728,9 +728,8 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
               </CardDescription>
             </div>
             {/* The one creation-mechanics panel (Shaun, 2026-11-04):
-                in the clear space to the right of the Magic Items
-                header; it stacks underneath on narrow screens. */}
-            <div className="max-w-xl rounded-md border border-card-border bg-muted/40 p-3" data-testid="panel-magic-item-creation">
+                directly under the Magic Items header. */}
+            <div className="mt-3 max-w-xl rounded-md border border-card-border bg-muted/40 p-3" data-testid="panel-magic-item-creation">
               <p className="font-display text-xs font-semibold uppercase tracking-wide">Creating Magic Items</p>
               <ul className="mt-1.5 space-y-1 text-xs leading-snug text-muted-foreground">
                 {MAGIC_ITEM_CREATION_LINES.map((line) => (
