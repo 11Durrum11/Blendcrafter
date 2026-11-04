@@ -524,7 +524,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
               equipmentSections.map((section) => {
                 const equipOpen = equipQuery.trim() !== "" || openEquipSections.has(section.key);
                 return (
-                <div key={section.key} className={cn("rounded-md border border-card-border bg-card", equipOpen && "col-span-full")}>
+                <div key={section.key} className={cn("rounded-md border border-card-border bg-card", equipOpen && "col-span-full ml-[calc(50%-50vw)] w-screen")}>
                   <button
                     type="button"
                     id={`equip-cat-${section.key}`}
@@ -625,7 +625,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
               magicSections.map((section) => {
                 const magicOpen = itemQuery.trim() !== "" || openMagicSections.has(section.key);
                 return (
-                <div key={section.key} className={cn("rounded-md border border-card-border bg-card", magicOpen && "col-span-full")}>
+                <div key={section.key} className={cn("rounded-md border border-card-border bg-card", magicOpen && "col-span-full ml-[calc(50%-50vw)] w-screen")}>
                   <button
                     type="button"
                     id={`magic-cat-${section.key}`}
