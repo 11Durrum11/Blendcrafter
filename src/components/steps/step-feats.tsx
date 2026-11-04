@@ -4,7 +4,7 @@ import { ALL_FEATS } from "@/data";
 import type { FeatDefinition, ResolvedCharacter, Ruleset } from "@/engine/types";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Switch } from "@/components/ui/switch";
+
 import { cn } from "@/lib/utils";
 import { CLASS_BONUS_FEAT_RULES } from "@/lib/class-bonus-feats";
 import { EntityDetailDialog } from "@/components/entity-detail-dialog";
@@ -17,6 +17,9 @@ interface StepFeatsProps {
   disabledFeatIds: string[];
   resolved: ResolvedCharacter;
   onToggleFeat: (featId: string, selected: boolean) => void;
+  /** Still passed by the builder and still part of the build's toggle
+   * state — but no longer rendered: the feats carry no toggle switch
+   * (Shaun, 2026-11-03). */
   onToggleFeatEnabled: (featId: string, enabled: boolean) => void;
 }
 
@@ -70,7 +73,7 @@ function looksUnmet(feat: FeatDefinition, resolved: ResolvedCharacter, selectedF
   return false;
 }
 
-export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved, onToggleFeat, onToggleFeatEnabled }: StepFeatsProps) {
+export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved, onToggleFeat }: StepFeatsProps) {
   const [query, setQuery] = useState("");
   const [detailFeat, setDetailFeat] = useState<FeatDefinition | null>(null);
   // Sections collapsed to their titles (Shaun, 2026-11-02): every
@@ -373,19 +376,14 @@ export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved,
           )}
         </CardContent>
       </Card>
+      {/* No toggle switch in the feat detail dialog (Shaun,
+          2026-11-03: "Take all the toggles off. All of them."). A
+          feat's on/off state still lives in the build / toggle prefs
+          and turned-off feats still sink under their "Turned off"
+          heading — there is just no switch here to flip it with. */}
       <EntityDetailDialog
         detail={detailFeat ? describeFeat(detailFeat) : null}
         onOpenChange={(open) => !open && setDetailFeat(null)}
-        headerAction={
-          detailFeat ? (
-            <Switch
-              checked={!disabledFeatIds.includes(detailFeat.id)}
-              onCheckedChange={(checked) => onToggleFeatEnabled(detailFeat.id, checked)}
-              aria-label={disabledFeatIds.includes(detailFeat.id) ? `Enable ${detailFeat.name}` : `Disable ${detailFeat.name}`}
-              data-testid={`switch-enable-feat-${detailFeat.id}`}
-            />
-          ) : undefined
-        }
       />
     </div>
   );

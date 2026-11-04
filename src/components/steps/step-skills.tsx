@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
-import { Switch } from "@/components/ui/switch";
+
 import { cn } from "@/lib/utils";
 import { ProductIdentityBadge } from "@/components/product-identity-badge";
 import { RULESET_LABELS } from "@/components/ruleset-toggle";
@@ -19,10 +19,13 @@ interface StepSkillsProps {
   disabledSkillIds: string[];
   resolved: ResolvedCharacter;
   onSetRank: (skillId: string, ranks: number) => void;
+  /** Still passed by the builder and still part of the build's toggle
+   * state — but no longer rendered: the skills carry no toggle switch
+   * (Shaun, 2026-11-03). */
   onToggleSkillEnabled: (skillId: string, enabled: boolean) => void;
 }
 
-export function StepSkills({ skillRanks, enabledRulesets, disabledSkillIds, resolved, onSetRank, onToggleSkillEnabled }: StepSkillsProps) {
+export function StepSkills({ skillRanks, enabledRulesets, disabledSkillIds, resolved, onSetRank }: StepSkillsProps) {
   const [query, setQuery] = useState("");
   const [detail, setDetail] = useState<EntityDetail | null>(null);
   const skillsById = new Map(ALL_SKILLS.filter((s) => enabledRulesets.includes(s.ruleset)).map((s) => [s.id, s]));
@@ -163,13 +166,11 @@ export function StepSkills({ skillRanks, enabledRulesets, disabledSkillIds, reso
                       >
                         <Plus className="h-3.5 w-3.5" />
                       </Button>
-                      <Switch
-                        checked={!isDisabled}
-                        onCheckedChange={(checked) => onToggleSkillEnabled(skill.id, checked)}
-                        className="shrink-0 scale-75"
-                        aria-label={isDisabled ? `Enable ${def.name}` : `Disable ${def.name}`}
-                        data-testid={`switch-enable-skill-${skill.id}`}
-                      />
+                      {/* No toggle switch on skills (Shaun, 2026-11-03:
+                          "Take all the toggles off. All of them."). A
+                          skill's disabled state still lives in the
+                          build / toggle prefs exactly as set — there
+                          is just no switch here to flip it with. */}
                     </div>
                   </div>
                 );

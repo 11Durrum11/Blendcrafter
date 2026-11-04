@@ -7,7 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
-import { Switch } from "@/components/ui/switch";
+
 import { cn } from "@/lib/utils";
 import { ProductIdentityBadge } from "@/components/product-identity-badge";
 import { RULESET_LABELS } from "@/components/ruleset-toggle";
@@ -57,7 +57,6 @@ function capLabel(profile: CastingProfile): string {
 
 export function StepSpells({ build, resolved, onToggleSpell }: StepSpellsProps) {
   const [query, setQuery] = useState("");
-  const [selectedOnly, setSelectedOnly] = useState(false);
   const [expandedTypes, setExpandedTypes] = useState<Set<string>>(new Set());
   const [detail, setDetail] = useState<EntityDetail | null>(null);
 
@@ -127,10 +126,10 @@ export function StepSpells({ build, resolved, onToggleSpell }: StepSpellsProps) 
                 data-testid="input-spell-search"
               />
             </div>
-            <label className="flex items-center gap-2 text-sm text-muted-foreground">
-              <Switch checked={selectedOnly} onCheckedChange={setSelectedOnly} data-testid="switch-spell-selected-only" />
-              Selected only
-            </label>
+            {/* No "Selected only" toggle switch (Shaun, 2026-11-03:
+                "Take all the toggles off. All of them."). The lists
+                show every spell; the search box above still narrows
+                them. */}
           </div>
           {casterClasses.length === 0 && (
             <p className="mt-3 text-sm text-muted-foreground">
@@ -278,13 +277,10 @@ export function StepSpells({ build, resolved, onToggleSpell }: StepSpellsProps) 
                 const inLevel = byLevel.get(lvl) ?? [];
                 const selectedInLevel = inLevel.filter((s) => selected.includes(s.id));
                 const atCap = cap !== null && selectedInLevel.length >= cap;
-                const visible = inLevel.filter(
-                  (s) =>
-                    s.name.toLowerCase().includes(query.toLowerCase()) &&
-                    (!selectedOnly || selected.includes(s.id))
+                const visible = inLevel.filter((s) =>
+                  s.name.toLowerCase().includes(query.toLowerCase())
                 );
                 if (query && visible.length === 0) return null;
-                if (selectedOnly && visible.length === 0) return null;
                 return (
                   <div key={lvl}>
                     <div className="mb-2 flex items-baseline gap-2">
