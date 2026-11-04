@@ -391,7 +391,7 @@ export const COMPLETE_MAGE_SPELLS: SpellDefinition[] = [
   "name": "Channeled Sound Blast",
   "ruleset": "core",
   "school": "Evocation",
-  "descriptors": [],
+  "descriptors": ["Sonic"],
   "levels": {
     "Bard": 5,
     "Sorcerer/Wizard": 5
@@ -405,8 +405,7 @@ export const COMPLETE_MAGE_SPELLS: SpellDefinition[] = [
   "spellResistance": "Yes",
   "summary": "You channel energy into waves of sound over several rounds, then release a cone of sonic energy; the longer you channel, the stronger the blast.",
   "source": "Complete Mage, p. 100",
-  "sourceUrl": "/A POC PC related/5.Splat/Complete sereies/D&D 3.5 - Complete Mage.pdf",
-  "subschool": "Sonic"
+  "sourceUrl": "/A POC PC related/5.Splat/Complete sereies/D&D 3.5 - Complete Mage.pdf"
 },
 {
   "id": "choking-cobwebs",

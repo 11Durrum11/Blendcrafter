@@ -197,8 +197,7 @@ export const COMPLETE_SCOUNDREL_SPELLS: SpellDefinition[] = [
   "spellResistance": "Yes",
   "summary": "You place a tiny quantity of pure elemental fire within a creature's body, where it waits silently for its death, as the text describes.",
   "source": "Complete Scoundrel, p. 99",
-  "sourceUrl": "/A POC PC related/5.Splat/Complete sereies/D&D 3.5 - Complete Scoundrel.pdf",
-  "subschool": ""
+  "sourceUrl": "/A POC PC related/5.Splat/Complete sereies/D&D 3.5 - Complete Scoundrel.pdf"
 },
 {
   "id": "grasping-wall",

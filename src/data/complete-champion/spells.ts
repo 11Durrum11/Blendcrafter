@@ -401,7 +401,7 @@ export const COMPLETE_CHAMPION_SPELLS: SpellDefinition[] = [
   "name": "Forest Voice",
   "ruleset": "core",
   "school": "Transmutation",
-  "descriptors": [],
+  "descriptors": ["Language-Dependent"],
   "levels": {
     "Druid": 3
   },
@@ -414,8 +414,7 @@ export const COMPLETE_CHAMPION_SPELLS: SpellDefinition[] = [
   "spellResistance": "No",
   "summary": "You touch a plant or tree and can carry on a conversation with anyone within 10 feet of another plant or tree of the same kind that you designate.",
   "source": "Complete Champion, p. 122",
-  "sourceUrl": "/A POC PC related/5.Splat/Complete sereies/D&D 3.5 - Complete Champion.pdf",
-  "subschool": "Language-Dependent"
+  "sourceUrl": "/A POC PC related/5.Splat/Complete sereies/D&D 3.5 - Complete Champion.pdf"
 },
 {
   "id": "healing-circle",

@@ -2191,7 +2191,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "name": "Crushing Hand",
     "ruleset": "core",
     "school": "Evocation",
-    "descriptors": [],
+    "descriptors": ["Force"],
     "levels": {
       "Sorcerer/Wizard": 9,
       "Strength": 9
@@ -2206,8 +2206,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "summary": "As grasping hand, but the huge hand of force can also grapple and crush the target for heavy damage each round.",
     "description": "This spell functions like interposing hand, except that the hand can interpose itself, push, or crush one opponent that you select.\n\nThe crushing hand can grapple an opponent like grasping hand does. Its grapple bonus equals your caster level + your Intelligence, Wisdom, or Charisma modifier (for a wizard, cleric, or sorcerer, respectively), +12 for the hand’s Strength score (35), +4 for being Large. The hand deals 2d6+12 points of damage (lethal, not nonlethal) on each successful grapple check against an opponent.\n\nThe crushing hand can also interpose itself as interposing hand does, or it can bull rush an opponent as forceful hand does, but at a +18 bonus.\n\nDirecting the spell to a new target is a move action.\n\nClerics who cast this spell name it for their deities.",
     "source": "System Reference Document (SRD) spells",
-    "sourceUrl": "https://www.d20srd.org/srd/spells/crushingHand.htm",
-    "subschool": "Force"
+    "sourceUrl": "https://www.d20srd.org/srd/spells/crushingHand.htm"
   },
   {
     "id": "cure-critical-wounds",
@@ -4559,7 +4558,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "name": "Floating Disk",
     "ruleset": "core",
     "school": "Evocation",
-    "descriptors": [],
+    "descriptors": ["Force"],
     "levels": {
       "Sorcerer/Wizard": 1
     },
@@ -4573,8 +4572,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "summary": "Creates a horizontal disk of force that follows you and can hold 100 pounds per level.",
     "description": "You create a slightly concave, circular plane of force that follows you about and carries loads for you. The disk is 3 feet in diameter and 1 inch deep at its center. It can hold 100 pounds of weight per caster level. (If used to transport a liquid, its capacity is 2 gallons.) The disk floats approximately 3 feet above the ground at all times and remains level. It floats along horizontally within spell range and will accompany you at a rate of no more than your normal speed each round. If not otherwise directed, it maintains a constant interval of 5 feet between itself and you. The disk winks out of existence when the spell duration expires. The disk also winks out if you move beyond range or try to take the disk more than 3 feet away from the surface beneath it. When the disk winks out, whatever it was supporting falls to the surface beneath it.",
     "source": "System Reference Document (SRD) spells",
-    "sourceUrl": "https://www.d20srd.org/srd/spells/floatingDisk.htm",
-    "subschool": "Force"
+    "sourceUrl": "https://www.d20srd.org/srd/spells/floatingDisk.htm"
   },
   {
     "id": "fly",
@@ -6333,7 +6331,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "name": "Interposing Hand",
     "ruleset": "core",
     "school": "Evocation",
-    "descriptors": [],
+    "descriptors": ["Force"],
     "levels": {
       "Sorcerer/Wizard": 5,
       "Gun Mage": 5,
@@ -6349,8 +6347,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "summary": "A Large hand of force interposes itself between you and a designated opponent, providing cover (+4 AC) and blocking its path.",
     "description": "Interposing hand creates a Large magic hand that appears between you and one opponent. This floating, disembodied hand then moves to remain between the two of you, regardless of where you move or how the opponent tries to get around it, providing cover (+4 AC) for you against that opponent. Nothing can fool the hand—it sticks with the selected opponent in spite of darkness, invisibility, polymorphing, or any other attempt at hiding or disguise. The hand does not pursue an opponent, however.\n\nAn interposing hand is 10 feet long and about that wide with its fingers outstretched. It has as many hit points as you do when you’re undamaged, and its AC is 20 (-1 size, +11 natural). It takes damage as a normal creature, but most magical effects that don’t cause damage do not affect it.\n\nThe hand never provokes attacks of opportunity from opponents. It cannot push through a wall of force or enter an antimagic field, but it suffers the full effect of a prismatic wall or prismatic sphere. The hand makes saving throws as its caster.\n\nDisintegrate or a successful dispel magic destroys it.\n\nAny creature weighing 2,000 pounds or less that tries to push past the hand is slowed to half its normal speed. The hand cannot reduce the speed of a creature weighing more than 2,000 pounds, but it still affects the creature’s attacks.\n\nDirecting the spell to a new target is a move action.",
     "source": "System Reference Document (SRD) spells",
-    "sourceUrl": "https://www.d20srd.org/srd/spells/interposingHand.htm",
-    "subschool": "Force"
+    "sourceUrl": "https://www.d20srd.org/srd/spells/interposingHand.htm"
   },
   {
     "id": "invisibility",
@@ -7010,7 +7007,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "name": "Mage's Sword",
     "ruleset": "core",
     "school": "Evocation",
-    "descriptors": [],
+    "descriptors": ["Force"],
     "levels": {
       "Sorcerer/Wizard": 7,
       "Warmage": 7
@@ -7025,8 +7022,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "summary": "A sword of force attacks a designated target each round using your base attack bonus plus your Intelligence or Charisma modifier, dealing 4d6+3 force damage.",
     "description": "This spell brings into being a shimmering, swordlike plane of force. The sword strikes at any opponent within its range, as you desire, starting in the round that you cast the spell. The sword attacks its designated target once each round on your turn. Its attack bonus is equal to your caster level + your Int bonus or your Cha bonus (for wizards or sorcerers, respectively) with an additional +3 enhancement bonus. As a force effect, it can strike ethereal and incorporeal creatures. It deals 4d6+3 points of force damage, with a threat range of 19-20 and a critical multiplier of ×2.\n\nThe sword always strikes from your direction. It does not get a bonus for flanking or help a combatant get one. If the sword goes beyond the spell range from you, if it goes out of your sight, or if you are not directing it, the sword returns to you and hovers.\n\nEach round after the first, you can use a standard action to switch the sword to a new target. If you do not, the sword continues to attack the previous round’s target.\n\nThe sword cannot be attacked or harmed by physical attacks, but dispel magic, disintegrate, a sphere of annihilation, or a rod of cancellation affects it. The sword’s AC is 13 (10, +0 size bonus for Medium object, +3 deflection bonus).\n\nIf an attacked creature has spell resistance, the resistance is checked the first time Mage’s sword strikes it. If the sword is successfully resisted, the spell is dispelled. If not, the sword has its normal full effect on that creature for the duration of the spell.\n\nFocus: A miniature platinum sword with a grip and pommel of copper and zinc. It costs 250 gp to construct.",
     "source": "System Reference Document (SRD) spells",
-    "sourceUrl": "https://www.d20srd.org/srd/spells/magesSword.htm",
-    "subschool": "Force"
+    "sourceUrl": "https://www.d20srd.org/srd/spells/magesSword.htm"
   },
   {
     "id": "magic-aura",
