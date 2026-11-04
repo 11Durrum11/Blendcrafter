@@ -134,8 +134,14 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, wealthLimi
     });
   // One equipment row, shared by the plain category lists and the
   // Weapons subcategory lists.
+  // Item rows are name + price only: the wording that used to sit
+  // under each name (weight / notes here, the summary on magic
+  // items and inventory rows) is minimized away at Shaun's order
+  // (2026-11-04) — the full text still lives behind the row's
+  // info button. The lists themselves doubled from one column
+  // to two (same order).
   const renderEquipmentRow = (item: EquipmentItem) => (
-    <div key={item.id} className="flex flex-wrap items-center justify-between gap-2 p-3" data-testid={`equipment-row-${item.id}`}>
+    <div key={item.id} className="flex flex-wrap items-center justify-between gap-2 border-b border-card-border p-3" data-testid={`equipment-row-${item.id}`}>
       <div className="min-w-0 flex-1">
         <div className="flex items-center gap-1.5 flex-wrap">
           <span className="font-medium">{item.name}</span>
@@ -154,7 +160,6 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, wealthLimi
           {typeof item.acBonus === "number" && <Badge variant="secondary" className="text-[10px]">AC +{item.acBonus}</Badge>}
           {item.ruleset !== "core" && <ProductIdentityBadge rulesetLabel={RULESET_LABELS[item.ruleset]} />}
         </div>
-        <p className="text-xs text-muted-foreground">{[item.weight, item.notes].filter(Boolean).join(" · ")}</p>
       </div>
       <Button type="button" size="sm" variant="outline" onClick={() => onAdd("equipment", item.id)} data-testid={`button-add-equipment-${item.id}`}>
         <Plus className="mr-1 h-3.5 w-3.5" /> Add
@@ -221,31 +226,34 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, wealthLimi
                 document: coin, gems, scripts, and cheqs. Coin uses
                 book-standard conversions — 10 cp = 1 sp, 10 sp = 1 gp,
                 1 pp = 10 gp, 50 coins to the pound; no electrum. */}
-            {/* All four currency types on just two lines (Shaun,
-                2026-11-02): Coin + Gems on the first, Scripts +
-                Cheqs on the second. Moved to its own full-width row
-                under the title (Shaun, 2026-11-03: "Move it over so
-                to leave room so it doesn't wrap" and "move this
-                closer to the wealth header"): beside the title the
-                block was squeezed into max-w-3xl at the far side of
-                the header and each line wrapped; it now sits right
-                under the Wealth title and spans the full header
-                width at a slightly smaller size with wrapping off
-                on large screens, so each of the two lines stays on
-                one line. Small screens still wrap normally. */}
+            {/* The four currency types used to share two lines
+                (Shaun, 2026-11-02: Coin + Gems, then Scripts +
+                Cheqs). On 2026-11-04 Shaun split them onto four
+                lines of their own — "I want gems and its wording
+                in the second line, I want checks and its wording
+                on the fourth line" — so: Coin first, Gems second,
+                Scripts third, Cheqs fourth, wording unchanged.
+                The block sits in its own full-width row under the
+                Wealth title (Shaun, 2026-11-03) with wrapping off
+                on large screens so each line stays on one line;
+                small screens still wrap normally. */}
             <div
               className="mt-0.5 w-full space-y-1 text-xs leading-relaxed text-muted-foreground xl:text-[11px]"
               data-testid="wealth-currency-types"
             >
               <p className="xl:whitespace-nowrap">
                 <span className="font-medium text-foreground">Coin:</span> copper (cp), silver (sp), gold (gp),
-                platinum (pp) — 10 cp = 1 sp · 10 sp = 1 gp · 1 pp = 10 gp · 50 coins = 1 lb. ·{" "}
+                platinum (pp) — 10 cp = 1 sp · 10 sp = 1 gp · 1 pp = 10 gp · 50 coins = 1 lb.
+              </p>
+              <p className="xl:whitespace-nowrap">
                 <span className="font-medium text-foreground">Gems:</span> 10 to a pound; compound pricing; price
                 is very appraise-dependent.
               </p>
               <p className="xl:whitespace-nowrap">
                 <span className="font-medium text-foreground">Scripts:</span> paper money, 1 gp each; 500 to a
-                pound; very society-dependent. ·{" "}
+                pound; very society-dependent.
+              </p>
+              <p className="xl:whitespace-nowrap">
                 <span className="font-medium text-foreground">Cheqs:</span> any amount; very lightweight; very
                 society-dependent.
               </p>
@@ -503,7 +511,7 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, wealthLimi
                                   Firearms are simple weapons. The skill comes in reloading them, tinkering with them, and trick shots.
                                 </p>
                               )}
-                              <div className="max-h-80 divide-y divide-card-border overflow-y-auto">
+                              <div className="grid max-h-80 overflow-y-auto sm:grid-cols-2">
                                 {subItems.map(renderEquipmentRow)}
                               </div>
                             </div>
@@ -513,7 +521,7 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, wealthLimi
                     );
                   })()}
                   {equipOpen && section.key !== "weapon" && (
-                  <div className="max-h-80 divide-y divide-card-border overflow-y-auto">
+                  <div className="grid max-h-80 overflow-y-auto sm:grid-cols-2">
                     {section.items.map(renderEquipmentRow)}
                   </div>
                   )}
@@ -562,9 +570,9 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, wealthLimi
                     <span className="text-xs font-normal text-muted-foreground">({section.items.length})</span>
                   </button>
                   {magicOpen && (
-                  <div className="max-h-80 divide-y divide-card-border overflow-y-auto">
+                  <div className="grid max-h-80 overflow-y-auto sm:grid-cols-2">
                     {section.items.map((item) => (
-                <div key={item.id} className="flex flex-wrap items-center justify-between gap-2 p-3" data-testid={`magic-item-row-${item.id}`}>
+                <div key={item.id} className="flex flex-wrap items-center justify-between gap-2 border-b border-card-border p-3" data-testid={`magic-item-row-${item.id}`}>
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center gap-1.5 flex-wrap">
                       <span className="font-medium">{item.name}</span>
@@ -582,7 +590,6 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, wealthLimi
                       <Badge variant="outline" className="text-[10px] capitalize">{item.category}</Badge>
                       {item.ruleset !== "core" && <ProductIdentityBadge rulesetLabel={RULESET_LABELS[item.ruleset]} />}
                     </div>
-                    <p className="text-xs text-muted-foreground">{item.summary}</p>
                   </div>
                   <Button type="button" size="sm" variant="outline" onClick={() => onAdd("magic-item", item.id)} data-testid={`button-add-magic-item-${item.id}`}>
                     <Plus className="mr-1 h-3.5 w-3.5" /> Add
@@ -626,7 +633,6 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, wealthLimi
                       <Badge variant="outline" className="text-[10px] capitalize">{ri.category}</Badge>
                       <Badge variant="outline" className="text-[10px]">{ri.entry.kind === "equipment" ? "Equipment" : "Magic Item"}</Badge>
                     </div>
-                    <p className="text-xs text-muted-foreground">{ri.summary}</p>
                   </div>
                   <div className="flex items-center gap-3">
                     {(ri.category === "armor" || ri.category === "shield") && (
