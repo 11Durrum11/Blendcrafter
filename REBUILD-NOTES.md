@@ -6338,3 +6338,35 @@ both files (RULESET_LABELS stays in step-reference.tsx — the
 detail-dialog badge builder still uses it).
 version.json stamp bumped in the same push.
 stamp=20261104123744
+
+## Alchemical cure potions added (2026-11-04)
+
+Shaun, on a live voice call, laid down the APOC potion rule:
+magic-item potions work immediately upon consumption, but
+ALCHEMICAL potions are brewed, not magic, and deliver their
+effect spread evenly over a number of rounds equal to the
+spell's level ("you get one quarter of the healing per round"
+for the 4th-level one). He then ordered: "add the alchemical
+versions or do you have the alchemical versions in stock or
+if not, create them... Cure Light, Cure Moderate, Cure
+Critical. All the cures."
+
+Checked: the magic-item cure potions already exist (Light in
+core magic-items; Moderate and Serious in the audit potions;
+no magic-item Cure Critical — potions cap at 3rd level). No
+alchemical cure potions existed anywhere in the catalog.
+
+Created src/data/homebrew/equipment.ts (HOMEBREW_EQUIPMENT,
+wired into ALL_EQUIPMENT and the export list): four Equipment
+records, category "alchemical gear", rule set Homebrew —
+Potion of Cure Light Wounds (Alchemical) 50 gp, heals 1d8+1
+over 1 round; Moderate 300 gp, 2d8+2 over 2 rounds (1d8+1 per
+round); Serious 750 gp, 3d8+3 over 3 rounds (1d8+1 per
+round); Critical 1,400 gp, 4d8+4 over 4 rounds (1d8+1 per
+round — a quarter each round). Filed in Equipment /
+Alchemical Gear per the catalog's standing treatment of
+alchemical items, NOT in Magic Items. Prices mirror the
+magic-item potions; Critical uses the potion formula
+(4 x 7 x 50 gp) since no magic version exists — a modeling
+choice flagged to Shaun, easy to change.
+stamp=20261104124341
