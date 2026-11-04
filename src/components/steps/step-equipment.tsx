@@ -80,7 +80,7 @@ const MAGIC_CATEGORY_ORDER: { key: string; label: string }[] = [
  * panel beside the Magic Items header — not repeated next to each
  * section. The creation method per family, standard SRD/DMG
  * figures, plus Shaun's house line for brewing potions and oils. */
-const MAGIC_ITEM_CREATION_LINES: { label: string; text: string }[] = [
+export const MAGIC_ITEM_CREATION_LINES: { label: string; text: string }[] = [
   { label: "Any item", text: "materials cost half the base price; XP cost is 1/25 of the base price; time is 1 day per 1,000 gp of the base price. You must meet the item's prerequisites and set its caster level." },
   { label: "Scroll", text: "spell level × caster level × 25 gp — any spell you know, any level; the per-spell listings are just examples of this method." },
   { label: "Potion or oil", text: "spell level × caster level × 50 gp, for spells up to 3rd level that target creatures. House rule: Brew Potion or Oil from caster level 1st; Improved halves it (× 25 gp); Greater allows 4th–5th level spells at × 50 gp." },

@@ -19,6 +19,7 @@ import { StepFeats } from "@/components/steps/step-feats";
 import { StepEquipment, StepMagicItems, StepInventory } from "@/components/steps/step-equipment";
 import { StepPersonality } from "@/components/steps/step-personality";
 import { StepSheet } from "@/components/steps/step-sheet";
+import { StepItemCreation } from "@/components/steps/step-item-creation";
 import { StepReference } from "@/components/steps/step-reference";
 import { useCharacterBuild } from "@/lib/use-character-build";
 import { exportCharacterJson, importCharacterJson } from "@/lib/character-io";
@@ -28,7 +29,7 @@ import { CAMPAIGN_DEFAULT_PREFS, CAMPAIGN_DEFAULTS_VERSION, CAMPAIGN_DEFAULTS_VE
 import { useToast } from "@/hooks/use-toast";
 
 const STEPS = [
-  // Two top-level sections (Shaun, 2026-11-04): "number one is
+  // Top-level sections (Shaun, 2026-11-04): "number one is
   // player reference, make number two character creation. Inside
   // that put the ability and races, classes, skills, blah blah
   // blah." So Player Reference stands alone as section 1, and
@@ -61,6 +62,13 @@ const STEPS = [
   { id: "inventory", label: "Inventory", num: "10" },
   { id: "personality", label: "Personality", num: "11" },
   { id: "sheet", label: "Character Sheet", num: "12" },
+  // Section 3 (Shaun, 2026-11-04, later): "New line. Next to
+  // Character Creation. — Magic Item Creation." A top-level
+  // reference section standing beside Character Creation, the
+  // way Player Reference stands alone as section 1; its `num`
+  // is its section number, 3. Like Player Reference it is
+  // read-only and changes no build state.
+  { id: "item-creation", label: "Magic Item Creation", num: "3" },
 ] as const;
 
 type StepId = (typeof STEPS)[number]["id"];
@@ -291,12 +299,17 @@ export default function Builder() {
     window.scrollTo(0, 0);
   }, [effectiveStep]);
   const visibleIndex = visibleSteps.findIndex((s) => s.id === effectiveStep);
+  // A step belongs to Character Creation unless it is one of the
+  // standalone top-level sections (Player Reference, Magic Item
+  // Creation).
+  const inCreation = effectiveStep !== "reference" && effectiveStep !== "item-creation";
 
   const goTo = (step: StepId) => navigate(`/step/${step}`);
   const toggleCreation = () => {
-    if (!creationOpen && effectiveStep === "reference") {
-      // Coming from Player Reference, clicking Character Creation
-      // ENTERS it: open the group and land on its first step.
+    if (!creationOpen && !inCreation) {
+      // Coming from a standalone section (Player Reference or
+      // Magic Item Creation), clicking Character Creation ENTERS
+      // it: open the group and land on its first step.
       setCreationOpen(true);
       goTo("race");
     } else {
@@ -493,7 +506,7 @@ export default function Builder() {
               data-testid="step-group-character-creation-toggle"
               className={
                 "inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 font-display text-sm font-semibold ring-offset-background transition-all " +
-                (effectiveStep !== "reference"
+                (inCreation
                   ? "bg-background text-foreground shadow-sm"
                   : "text-foreground/70 hover:text-foreground")
               }
@@ -508,13 +521,23 @@ export default function Builder() {
                 <ChevronRight className="ml-1.5 h-4 w-4 shrink-0" />
               )}
             </button>
+            {/* Section 3 — Magic Item Creation, a top-level line
+                right next to Character Creation (Shaun, 2026-11-04). */}
+            {visibleSteps
+              .filter((s) => s.id === "item-creation")
+              .map((s) => (
+                <TabsTrigger key={s.id} value={s.id} data-testid={`tab-step-${s.id}`}>
+                  <span className="mr-1.5 font-mono text-xs text-muted-foreground">{s.num}</span>
+                  {s.label}
+                </TabsTrigger>
+              ))}
             {creationOpen && (
               <div
                 className="flex basis-full flex-wrap items-center gap-1 rounded-md border border-border p-1.5"
                 data-testid="step-group-character-creation"
               >
                 {visibleSteps
-                  .filter((s) => s.id !== "reference")
+                  .filter((s) => s.id !== "reference" && s.id !== "item-creation")
                   .map((s) => (
                     <TabsTrigger key={s.id} value={s.id} data-testid={`tab-step-${s.id}`}>
                       <span className="mr-1.5 font-mono text-xs text-muted-foreground">{s.num}</span>
@@ -641,6 +664,7 @@ export default function Builder() {
           )}
           {currentStep === "sheet" && <StepSheet character={resolved} />}
           {currentStep === "reference" && <StepReference />}
+          {currentStep === "item-creation" && <StepItemCreation />}
         </div>
 
         <div className="mt-8 flex items-center justify-between">
@@ -649,8 +673,10 @@ export default function Builder() {
           </Button>
           <span className="text-xs text-muted-foreground">
             {effectiveStep === "reference"
-              ? "Section 1 of 2 — Player Reference"
-              : `Section 2 of 2 — Character Creation · Step ${visibleSteps[visibleIndex]?.num} of 12`}
+              ? "Section 1 of 3 — Player Reference"
+              : effectiveStep === "item-creation"
+                ? "Section 3 of 3 — Magic Item Creation"
+                : `Section 2 of 3 — Character Creation · Step ${visibleSteps[visibleIndex]?.num} of 12`}
           </span>
           <Button disabled={!next} onClick={() => next && goTo(next.id)} data-testid="button-next-step">
             {next ? next.label : "Done"} <ChevronRight className="ml-1 h-4 w-4" />
