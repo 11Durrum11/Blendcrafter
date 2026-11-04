@@ -282,7 +282,7 @@ export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved,
               return (
                 <div
                   key={section.id}
-                  className={cn("rounded-md", draggingId === section.id && "ring-2 ring-primary/50")}
+                  className={cn("rounded-md", expanded && "col-span-full", draggingId === section.id && "ring-2 ring-primary/50")}
                   data-testid={`feat-section-${section.id}`}
                   data-feat-section={section.id}
                 >

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Coins, Info, Plus, Search, Shield, Trash2, ChevronDown, ChevronRight } from "lucide-react";
+import { cn } from "@/lib/utils";
 import { ALL_EQUIPMENT, ALL_MAGIC_ITEMS } from "@/data";
 import type { InventoryEntry, ResolvedCharacter, Ruleset } from "@/engine/types";
 import { formatGp, initialWealthSplit, WEALTH_BY_LEVEL, wealthByLevel } from "@/engine/wealth";
@@ -415,7 +416,7 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, wealthLimi
               equipmentSections.map((section) => {
                 const equipOpen = equipQuery.trim() !== "" || openEquipSections.has(section.key);
                 return (
-                <div key={section.key} className="rounded-md border border-card-border bg-card">
+                <div key={section.key} className={cn("rounded-md border border-card-border bg-card", equipOpen && "col-span-full")}>
                   <button
                     type="button"
                     id={`equip-cat-${section.key}`}
@@ -490,7 +491,7 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, wealthLimi
               magicSections.map((section) => {
                 const magicOpen = itemQuery.trim() !== "" || openMagicSections.has(section.key);
                 return (
-                <div key={section.key} className="rounded-md border border-card-border bg-card">
+                <div key={section.key} className={cn("rounded-md border border-card-border bg-card", magicOpen && "col-span-full")}>
                   <button
                     type="button"
                     id={`magic-cat-${section.key}`}
