@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useRef, useState, type ReactNode } from "react";
+import { Fragment, useEffect, useRef, type ReactNode } from "react";
 import { Link, useLocation, useRoute } from "wouter";
 import { ChevronLeft, ChevronRight, Download, Link2, Moon, SlidersHorizontal, Sun, Upload, UserPlus } from "lucide-react";
 import { Logo } from "@/components/logo";
@@ -49,36 +49,41 @@ const STEPS = [
 type StepId = (typeof STEPS)[number]["id"];
 
 /**
- * The ten boxes at the top of the site, in the order Shaun settled
- * on 2026-11-03 (the Rule Sets book over the moon, the Characters
- * book over the download/Export, three more boxes to the right on
- * each line). Later the same day he made the boxes MOVABLE —
- * "Put the six button movable action on the boxes at the top of
- * the very site", the drag action he had just taken off the Feats
- * sections — arranged them on his phone, and then ordered the
- * moving removed again: "I've put them where I wanted to." His
- * choice when offered the trade-off: freeze the arrangement on
- * his phone rather than bake it in for every device. So this
- * list is the DEFAULT order and the full id set, and the site
- * still READS a device's saved arrangement from localStorage
- * under HEADER_BOX_ORDER_KEY — Shaun's phone keeps the layout he
- * put the boxes in — but nothing can change it anymore: no drag,
- * and the order is never written back.
+ * The ten boxes at the top of the site, in their PERMANENT order —
+ * Shaun's own arrangement, baked in at his order (2026-11-03).
+ * History: the boxes started in a settled layout, were briefly
+ * movable ("Put the six button movable action on the boxes at the
+ * top of the very site"), and Shaun arranged them on his phone,
+ * then had the moving removed. Offered freeze-on-his-phone vs
+ * bake-it-in, he first picked the freeze, then reversed — "No
+ * make it baked in then" — and confirmed with a screenshot of his
+ * phone: "The way you see it now bake it in." This list is that
+ * screenshot, read icon by icon and checked against the code
+ * (Rule Sets = book with the ruleset-count badge; Characters =
+ * book without; Save = the checkmark button; House Rules =
+ * sliders with the off-default badge):
+ *
+ *   Line one: Rule Sets · Import · Characters · New · Moon
+ *   Line two: House Rules · Export · Save · Copy build link ·
+ *             Copy settings link
+ *
+ * It is a plain constant now: no drag, and no per-device saved
+ * arrangement is read anymore (the old localStorage key
+ * blendcrafter:header-box-order is simply never looked at), so
+ * every device shows exactly this, forever, cache clears or not.
  */
-const HEADER_BOX_DEFAULT_ORDER = [
+const HEADER_BOX_ORDER = [
   "rulesets",
+  "import",
   "characters",
-  "house-rules",
-  "save",
   "new",
   "theme",
+  "house-rules",
   "export",
+  "save",
   "copy-build",
   "copy-settings",
-  "import",
 ] as const;
-
-const HEADER_BOX_ORDER_KEY = "blendcrafter:header-box-order";
 
 export default function Builder() {
   const [, params] = useRoute<{ step: string }>("/step/:step");
@@ -86,27 +91,9 @@ export default function Builder() {
   const { toast } = useToast();
   const importRef = useRef<HTMLInputElement>(null);
 
-  // Header box order — FROZEN (Shaun, 2026-11-03). The boxes were
-  // briefly movable; Shaun arranged them on his phone, then
-  // ordered the moving removed and chose "just freeze it on my
-  // phone" over baking his arrangement in for every device. So
-  // the order is read ONCE from the device's saved arrangement
-  // (merged over the default, so the state always holds all ten
-  // ids) and never changes or gets written back: his phone keeps
-  // exactly the layout he put them in, and there is no way to
-  // move a box anymore.
-  const [headerBoxOrder] = useState<string[]>(() => {
-    let saved: string[] = [];
-    try {
-      const parsed: unknown = JSON.parse(localStorage.getItem(HEADER_BOX_ORDER_KEY) ?? "null");
-      if (Array.isArray(parsed)) saved = parsed.filter((x): x is string => typeof x === "string");
-    } catch {
-      saved = [];
-    }
-    const merged = saved.filter((id) => (HEADER_BOX_DEFAULT_ORDER as readonly string[]).includes(id));
-    for (const id of HEADER_BOX_DEFAULT_ORDER) if (!merged.includes(id)) merged.push(id);
-    return merged;
-  });
+  // The header box order is the baked-in HEADER_BOX_ORDER
+  // constant (Shaun's own arrangement, 2026-11-03) — no state,
+  // no storage, nothing movable. See the constant's comment.
 
   const stepParam = (params?.step ?? (location === "/" ? "race" : "race")) as StepId;
   const currentStep: StepId = STEPS.some((s) => s.id === stepParam) ? stepParam : "race";
@@ -315,7 +302,7 @@ export default function Builder() {
   }
 
   // The header boxes themselves, by id. Their order comes from
-  // headerBoxOrder; the first five render on line one, the rest on
+  // HEADER_BOX_ORDER; the first five render on line one, the rest on
   // line two.
   const headerBoxNodes: Record<string, ReactNode> = {
     rulesets: <RulesetToggle enabledRulesets={build.enabledRulesets} onToggle={cb.toggleRuleset} />,
@@ -385,21 +372,18 @@ export default function Builder() {
           <span className="hidden text-xs text-muted-foreground md:inline">
             d20 SRD 3.5 template-blending character builder
           </span>
-          {/* The header boxes, five to a line. The DEFAULT order
-              is the arrangement Shaun settled on 2026-11-03 — the
-              two double stacks on the left (the Rule Sets book over
-              the moon, the Characters book over the download/
-              Export), three more boxes to the right on each line.
-              A device with a saved arrangement from the brief
-              movable window shows that instead — Shaun's phone
-              keeps the layout he put them in — and the boxes can
-              no longer be moved (frozen at his order). */}
+          {/* The header boxes, five to a line, in Shaun's baked-in
+              arrangement (2026-11-03, from his phone screenshot —
+              see HEADER_BOX_ORDER): line one Rule Sets · Import ·
+              Characters · New · Moon; line two House Rules ·
+              Export · Save · Copy build link · Copy settings link.
+              The boxes cannot be moved. */}
           <div className="ml-auto flex flex-col items-start gap-1 sm:gap-2">
             <div className="flex items-center gap-1 sm:gap-2">
-              {headerBoxOrder.slice(0, 5).map(renderHeaderBox)}
+              {HEADER_BOX_ORDER.slice(0, 5).map(renderHeaderBox)}
             </div>
             <div className="flex items-center gap-1 sm:gap-2">
-              {headerBoxOrder.slice(5).map(renderHeaderBox)}
+              {HEADER_BOX_ORDER.slice(5).map(renderHeaderBox)}
               <input
                 ref={importRef}
                 type="file"
