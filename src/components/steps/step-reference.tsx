@@ -528,9 +528,9 @@ export function StepReference() {
             {shown.length === 0 ? (
               <p className="text-lg text-muted-foreground">Nothing in the library matches that. Try a different spelling or a shorter search.</p>
             ) : (
-              <ul className="divide-y">
+              <ul className="grid grid-cols-1 gap-x-4 sm:grid-cols-2 lg:grid-cols-4">
                 {shown.map((row) => (
-                  <li key={row.key}>
+                  <li key={row.key} className="border-b">
                     <button
                       type="button"
                       className={

@@ -519,7 +519,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
                                   Firearms are simple weapons. The skill comes in reloading them, tinkering with them, and trick shots.
                                 </p>
                               )}
-                              <div className="grid max-h-80 overflow-y-auto sm:grid-cols-2">
+                              <div className="grid max-h-80 overflow-y-auto sm:grid-cols-2 lg:grid-cols-4">
                                 {subItems.map(renderEquipmentRow)}
                               </div>
                             </div>
@@ -529,7 +529,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
                     );
                   })()}
                   {equipOpen && section.key !== "weapon" && (
-                  <div className="grid max-h-80 overflow-y-auto sm:grid-cols-2">
+                  <div className="grid max-h-80 overflow-y-auto sm:grid-cols-2 lg:grid-cols-4">
                     {section.items.map(renderEquipmentRow)}
                   </div>
                   )}
@@ -580,7 +580,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
                     <span className="text-xs font-normal text-muted-foreground">({section.items.length})</span>
                   </button>
                   {magicOpen && (
-                  <div className="grid max-h-80 overflow-y-auto sm:grid-cols-2">
+                  <div className="grid max-h-80 overflow-y-auto sm:grid-cols-2 lg:grid-cols-4">
                     {section.items.map((item) => (
                 <div key={item.id} className="flex flex-wrap items-center justify-between gap-2 border-b border-card-border p-3" data-testid={`magic-item-row-${item.id}`}>
                   <div className="min-w-0 flex-1">
@@ -627,9 +627,9 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
           {resolved.inventory.length === 0 ? (
             <p className="text-sm text-muted-foreground">Nothing in inventory yet — add items above.</p>
           ) : (
-            <div className="divide-y divide-card-border rounded-md border border-card-border bg-card">
+            <div className="grid grid-cols-1 rounded-md border border-card-border bg-card sm:grid-cols-2 lg:grid-cols-4">
               {resolved.inventory.map((ri) => (
-                <div key={ri.entry.id} className="flex flex-wrap items-center justify-between gap-2 p-3" data-testid={`inventory-row-${ri.entry.id}`}>
+                <div key={ri.entry.id} className="flex flex-wrap items-center justify-between gap-2 border-b border-card-border p-3" data-testid={`inventory-row-${ri.entry.id}`}>
                   <div className="min-w-0">
                     <div className="flex items-center gap-1.5 flex-wrap">
                       <span className="font-medium">{ri.name}</span>

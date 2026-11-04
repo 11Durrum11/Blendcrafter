@@ -296,7 +296,7 @@ export function StepSpells({ build, resolved, onToggleSpell }: StepSpellsProps) 
                       </span>
                       {atCap && <Badge variant="secondary" className="text-[10px]">Limit reached</Badge>}
                     </div>
-                    <div className="grid gap-3 sm:grid-cols-2">
+                    <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                       {visible.map((spell) => {
                         const isSelected = selected.includes(spell.id);
                         const blocked = !isSelected && atCap;
