@@ -94,7 +94,7 @@ export const MAGIC_ITEM_CREATION_LINES: { label: string; text: string }[] = [
  * pills/potions document — magical vs alchemical delivery, mixing,
  * throwing — set where the creation panel used to sit, to the right
  * of the Magic Items header. Mechanics only, no flavor text. */
-const POTION_RULE_LINES: { label: string; text: string }[] = [
+export const POTION_RULE_LINES: { label: string; text: string }[] = [
   { label: "Magical vs alchemical — the difference", text: "magical potion effects happen instantaneously, whereas alchemical ones happen over the course of time (rounds). Alchemical potions are brewed, not magic, and the effect is spread evenly over a number of rounds equal to the spell's level." },
   { label: "Cure line (alchemical)", text: "Nd8+N hit points total, delivered at 1d8+1 per round — Cure Light 1 round, Cure Moderate 2 rounds, Cure Serious 3 rounds, Cure Critical 4 rounds." },
   { label: "Mixing potions", text: "imbibing a second potion while one is already active, or mixing potions together, rolls on the Potion Miscibility tables." },

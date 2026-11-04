@@ -137,6 +137,10 @@ export default function Builder() {
   // inside it until its button — which sits right beside the
   // Player Reference tab — is clicked open.
   const [creationOpen, setCreationOpen] = useState(false);
+  // Magic Item Creation is clickable the same way (Shaun,
+  // 2026-11-04, later): its line opens a panel with jump links
+  // into its page.
+  const [itemCreationOpen, setItemCreationOpen] = useState(false);
 
   const cb = useCharacterBuild();
   const { build, resolved } = cb;
@@ -311,10 +315,25 @@ export default function Builder() {
       // Magic Item Creation), clicking Character Creation ENTERS
       // it: open the group and land on its first step.
       setCreationOpen(true);
+      setItemCreationOpen(false);
       goTo("race");
     } else {
       setCreationOpen((o) => !o);
     }
+  };
+  const toggleItemCreation = () => {
+    if (!itemCreationOpen && effectiveStep !== "item-creation") {
+      // Coming from anywhere else, clicking Magic Item Creation
+      // ENTERS it: open its panel and land on its page.
+      setItemCreationOpen(true);
+      setCreationOpen(false);
+      goTo("item-creation");
+    } else {
+      setItemCreationOpen((o) => !o);
+    }
+  };
+  const jumpToCreationBlock = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
   const prev = visibleSteps[visibleIndex - 1];
   const next = visibleSteps[visibleIndex + 1];
@@ -522,15 +541,55 @@ export default function Builder() {
               )}
             </button>
             {/* Section 3 — Magic Item Creation, a top-level line
-                right next to Character Creation (Shaun, 2026-11-04). */}
-            {visibleSteps
-              .filter((s) => s.id === "item-creation")
-              .map((s) => (
-                <TabsTrigger key={s.id} value={s.id} data-testid={`tab-step-${s.id}`}>
-                  <span className="mr-1.5 font-mono text-xs text-muted-foreground">{s.num}</span>
-                  {s.label}
-                </TabsTrigger>
-              ))}
+                right next to Character Creation (Shaun, 2026-11-04).
+                CLICKABLE like Character Creation: it opens a panel
+                with jump links into its page, which carries the
+                whole creation mechanics. */}
+            <button
+              type="button"
+              onClick={toggleItemCreation}
+              aria-expanded={itemCreationOpen}
+              data-testid="step-group-item-creation-toggle"
+              className={
+                "inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 font-display text-sm font-semibold ring-offset-background transition-all " +
+                (effectiveStep === "item-creation"
+                  ? "bg-background text-foreground shadow-sm"
+                  : "text-foreground/70 hover:text-foreground")
+              }
+            >
+              <span data-testid="step-group-item-creation-label">
+                <span className="mr-1.5 font-mono text-xs text-muted-foreground">3</span>
+                Magic Item Creation
+              </span>
+              {itemCreationOpen ? (
+                <ChevronDown className="ml-1.5 h-4 w-4 shrink-0" />
+              ) : (
+                <ChevronRight className="ml-1.5 h-4 w-4 shrink-0" />
+              )}
+            </button>
+            {itemCreationOpen && (
+              <div
+                className="flex basis-full flex-wrap items-center gap-1 rounded-md border border-border p-1.5"
+                data-testid="step-group-item-creation"
+              >
+                {[
+                  { id: "creation-general", label: "The General Method" },
+                  { id: "creation-families", label: "By Family" },
+                  { id: "creation-alchemy", label: "Alchemy" },
+                  { id: "creation-feats", label: "Item Creation Feats" },
+                ].map((block) => (
+                  <button
+                    key={block.id}
+                    type="button"
+                    onClick={() => jumpToCreationBlock(block.id)}
+                    className="inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium text-foreground/80 transition-all hover:text-foreground"
+                    data-testid={`button-creation-jump-${block.id}`}
+                  >
+                    {block.label}
+                  </button>
+                ))}
+              </div>
+            )}
             {creationOpen && (
               <div
                 className="flex basis-full flex-wrap items-center gap-1 rounded-md border border-border p-1.5"
