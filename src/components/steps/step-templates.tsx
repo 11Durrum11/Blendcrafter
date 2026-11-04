@@ -32,6 +32,19 @@ export function StepTemplates({ templates, baseType, enabledRulesets, onAdd, onR
   const templatesById = new Map(visibleTemplates.map((t) => [t.id, t]));
   const availableTemplates = visibleTemplates.filter((t) => !templates.some((chosen) => chosen.templateId === t.id));
 
+  // Shaun's pinned order for the "Add a Template" picker
+  // (2026-11-04): Half-Forged sits at the very top and Half-Dragon
+  // at the very bottom; everything else keeps its catalog order.
+  // (He first asked for Half-Dragon greyed out too, then cancelled
+  // that part — "Just sink it to the bottom.")
+  const TEMPLATE_TOP_ID = "half-forged";
+  const TEMPLATE_BOTTOM_ID = "half-dragon";
+  const orderedAvailableTemplates = [
+    ...availableTemplates.filter((t) => t.id === TEMPLATE_TOP_ID),
+    ...availableTemplates.filter((t) => t.id !== TEMPLATE_TOP_ID && t.id !== TEMPLATE_BOTTOM_ID),
+    ...availableTemplates.filter((t) => t.id === TEMPLATE_BOTTOM_ID),
+  ];
+
   // Simulate the running type as templates are applied in order (shown to
   // the user for context), but SRD template prerequisites such as "humanoid
   // or monstrous humanoid base creature only" (vampire) are phrased in
@@ -183,7 +196,7 @@ export function StepTemplates({ templates, baseType, enabledRulesets, onAdd, onR
         </CardHeader>
         <CardContent>
           <div className="grid gap-3 sm:grid-cols-2">
-            {availableTemplates.map((t) => {
+            {orderedAvailableTemplates.map((t) => {
               const issues = checkPrerequisites(t, { baseType, type: simulatedType, subtypes: [], appliedTemplateIds: appliedIdsSoFar });
               const blocked = issues.some((i) => i.severity === "error");
               return (
