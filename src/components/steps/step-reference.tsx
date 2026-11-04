@@ -292,12 +292,17 @@ const CATEGORIES: RefCategory[] = [
     rows: ALL_MAGIC_ITEMS.map((i) => ({ key: `magic:${i.id}`, category: "Magic Item", subcategory: MAGIC_SUBCATEGORY_LABELS[i.category] ?? capitalize(i.category), name: i.name, source: i.source, ruleset: i.ruleset, makeDetail: () => describeMagicItem(i) })),
   },
   {
+    // Flaw/trait records carry an origin string ("unearthed-arcana" /
+    // "dandwiki"), not a Ruleset — the audit of 2026-11-03 caught them
+    // being cast to Ruleset anyway, which rendered a Product Identity
+    // badge with an empty label on all 316 rows. Their origin rides on
+    // the subcategory badge instead, so no ruleset is passed here.
     key: "flaws", label: "Flaws",
-    rows: ALL_FLAWS.map((f) => ({ key: `flaws:${f.id}`, category: "Flaw", subcategory: FLAW_TRAIT_SUBCATEGORY_LABELS[f.ruleset] ?? capitalize(f.ruleset), name: f.name, source: f.source, ruleset: f.ruleset as Ruleset, makeDetail: () => describeFlawTrait(f) })),
+    rows: ALL_FLAWS.map((f) => ({ key: `flaws:${f.id}`, category: "Flaw", subcategory: FLAW_TRAIT_SUBCATEGORY_LABELS[f.ruleset] ?? capitalize(f.ruleset), name: f.name, source: f.source, makeDetail: () => describeFlawTrait(f) })),
   },
   {
     key: "traits", label: "Traits",
-    rows: ALL_TRAITS.map((t) => ({ key: `traits:${t.id}`, category: "Trait", subcategory: FLAW_TRAIT_SUBCATEGORY_LABELS[t.ruleset] ?? capitalize(t.ruleset), name: t.name, source: t.source, ruleset: t.ruleset as Ruleset, makeDetail: () => describeFlawTrait(t) })),
+    rows: ALL_TRAITS.map((t) => ({ key: `traits:${t.id}`, category: "Trait", subcategory: FLAW_TRAIT_SUBCATEGORY_LABELS[t.ruleset] ?? capitalize(t.ruleset), name: t.name, source: t.source, makeDetail: () => describeFlawTrait(t) })),
   },
   {
     key: "bodymods", label: "Body Modifications",
