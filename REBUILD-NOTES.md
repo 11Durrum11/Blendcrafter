@@ -6278,3 +6278,29 @@ when no step is chosen. In-text step references in Classes/
 Prestige/Equipment now use the in-group numbers.
 version.json stamp bumped in the same push.
 stamp=20261104122043
+
+## Character Creation is a clickable folder, minimized (2026-11-04)
+
+Shaun, on a voice call: "Minimize one through 12 into character
+creation" / "Make character creation clickable" / "put character
+creation next to player reference" / "With one through 12 inside
+character creation." The two-section bar from 8622fe47 had
+Character Creation as a plain label on its own row with all 12
+step tabs always showing. Now:
+- The Character Creation label is a real button sitting right
+  beside the Player Reference tab in the same row
+  (data-testid step-group-character-creation-toggle,
+  aria-expanded tracks it, chevron shows open/closed).
+- Steps 1-12 stay MINIMIZED inside it: the step-tab panel only
+  renders when the button has been clicked open; clicking again
+  folds it away. From Player Reference, clicking Character
+  Creation enters it — opens the panel and lands on step 1,
+  Abilities & Race.
+- Nothing else moved: Player Reference is section 1, Character
+  Creation section 2, and inside it Inventory keeps its own
+  step (10) right after Magic Items (9) — Shaun re-specified
+  this on the same call ("Give inventory its own... No, after
+  magic items"), which the existing order already matched, so
+  no renumbering was needed.
+version.json stamp bumped in the same push.
+stamp=20261104122751

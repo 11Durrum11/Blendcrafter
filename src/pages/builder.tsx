@@ -1,6 +1,6 @@
-import { Fragment, useEffect, useRef, type ReactNode } from "react";
+import { Fragment, useEffect, useRef, useState, type ReactNode } from "react";
 import { Link, useLocation, useRoute } from "wouter";
-import { ChevronLeft, ChevronRight, Download, Link2, Moon, SlidersHorizontal, Sun, Upload, UserPlus } from "lucide-react";
+import { ChevronDown, ChevronLeft, ChevronRight, Download, Link2, Moon, SlidersHorizontal, Sun, Upload, UserPlus } from "lucide-react";
 import { Logo } from "@/components/logo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -121,6 +121,14 @@ export default function Builder() {
   const stepParam = (params?.step ?? (location === "/" ? "race" : "race")) as StepId;
   const currentStep: StepId = STEPS.some((s) => s.id === stepParam) ? stepParam : "race";
   const stepIndex = STEPS.findIndex((s) => s.id === currentStep);
+
+  // Character Creation is a clickable folder (Shaun, 2026-11-04:
+  // "Minimize one through 12 into character creation" / "Make
+  // character creation clickable" / "put character creation next
+  // to player reference"). The 1-12 step tabs stay minimized
+  // inside it until its button — which sits right beside the
+  // Player Reference tab — is clicked open.
+  const [creationOpen, setCreationOpen] = useState(false);
 
   const cb = useCharacterBuild();
   const { build, resolved } = cb;
@@ -285,6 +293,16 @@ export default function Builder() {
   const visibleIndex = visibleSteps.findIndex((s) => s.id === effectiveStep);
 
   const goTo = (step: StepId) => navigate(`/step/${step}`);
+  const toggleCreation = () => {
+    if (!creationOpen && effectiveStep === "reference") {
+      // Coming from Player Reference, clicking Character Creation
+      // ENTERS it: open the group and land on its first step.
+      setCreationOpen(true);
+      goTo("race");
+    } else {
+      setCreationOpen((o) => !o);
+    }
+  };
   const prev = visibleSteps[visibleIndex - 1];
   const next = visibleSteps[visibleIndex + 1];
 
@@ -460,29 +478,51 @@ export default function Builder() {
                   {s.label}
                 </TabsTrigger>
               ))}
-            {/* Section 2 — Character Creation: every build step
-                sits inside this one group, in order, numbered
-                1–12 within it (Shaun, 2026-11-04: "make number
-                two character creation. Inside that put the
-                ability and races, classes, skills, blah blah
-                blah"). */}
-            <div
-              className="flex basis-full flex-wrap items-center gap-1 rounded-md border border-border p-1.5"
-              data-testid="step-group-character-creation"
+            {/* Section 2 — Character Creation, sitting right next
+                to Player Reference (Shaun, 2026-11-04). It is a
+                CLICKABLE folder: steps 1–12 stay minimized inside
+                it until its button is clicked open ("Minimize one
+                through 12 into character creation" / "Make
+                character creation clickable" / "With one through
+                12 inside character creation"). Clicking it from
+                Player Reference enters it at its first step. */}
+            <button
+              type="button"
+              onClick={toggleCreation}
+              aria-expanded={creationOpen}
+              data-testid="step-group-character-creation-toggle"
+              className={
+                "inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 font-display text-sm font-semibold ring-offset-background transition-all " +
+                (effectiveStep !== "reference"
+                  ? "bg-background text-foreground shadow-sm"
+                  : "text-foreground/70 hover:text-foreground")
+              }
             >
-              <span className="px-1.5 font-display text-sm font-semibold" data-testid="step-group-character-creation-label">
+              <span data-testid="step-group-character-creation-label">
                 <span className="mr-1.5 font-mono text-xs text-muted-foreground">2</span>
                 Character Creation
               </span>
-              {visibleSteps
-                .filter((s) => s.id !== "reference")
-                .map((s) => (
-                  <TabsTrigger key={s.id} value={s.id} data-testid={`tab-step-${s.id}`}>
-                    <span className="mr-1.5 font-mono text-xs text-muted-foreground">{s.num}</span>
-                    {s.label}
-                  </TabsTrigger>
-                ))}
-            </div>
+              {creationOpen ? (
+                <ChevronDown className="ml-1.5 h-4 w-4 shrink-0" />
+              ) : (
+                <ChevronRight className="ml-1.5 h-4 w-4 shrink-0" />
+              )}
+            </button>
+            {creationOpen && (
+              <div
+                className="flex basis-full flex-wrap items-center gap-1 rounded-md border border-border p-1.5"
+                data-testid="step-group-character-creation"
+              >
+                {visibleSteps
+                  .filter((s) => s.id !== "reference")
+                  .map((s) => (
+                    <TabsTrigger key={s.id} value={s.id} data-testid={`tab-step-${s.id}`}>
+                      <span className="mr-1.5 font-mono text-xs text-muted-foreground">{s.num}</span>
+                      {s.label}
+                    </TabsTrigger>
+                  ))}
+              </div>
+            )}
           </TabsList>
         </Tabs>
 
