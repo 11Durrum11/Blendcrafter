@@ -68,6 +68,17 @@ const SIZE_GRAPPLE_MODIFIER: Record<Size, number> = {
 };
 
 const RACES_BY_ID = new Map(ALL_RACES.map((r) => [r.id, r]));
+/* Legacy race-id alias (2026-11-03): Shaun's house-ruled warforged
+ * took the standard warforged's place under id "warforged" (see
+ * src/data/homebrew/races.ts). Builds saved while the house version
+ * lived under its old variant id "warforged-house" resolve to the
+ * same record here instead of falling back to ALL_RACES[0]. The
+ * alias lives only in this lookup map — the picker and the catalog
+ * still hold exactly one warforged record. */
+{
+  const houseWarforged = RACES_BY_ID.get("warforged");
+  if (houseWarforged) RACES_BY_ID.set("warforged-house", houseWarforged);
+}
 const CLASSES_BY_ID = new Map(ALL_CLASSES.map((c) => [c.id, c]));
 const PRESTIGE_BY_ID = new Map(ALL_PRESTIGE_CLASSES.map((c) => [c.id, c]));
 const TEMPLATES_BY_ID = new Map(ALL_TEMPLATES.map((t) => [t.id, t]));

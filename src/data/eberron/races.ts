@@ -1,6 +1,11 @@
 /**
- * Eberron race data pack: the four playable races introduced in the
- * Eberron Campaign Setting (Changeling, Kalashtar, Shifter, Warforged).
+ * Eberron race data pack: the playable races introduced in the
+ * Eberron Campaign Setting (Changeling, Kalashtar, Shifter).
+ *
+ * Warforged is deliberately NOT here: at Shaun's order (2026-11-03)
+ * the standard Eberron warforged record was removed and his
+ * house-ruled warforged (src/data/homebrew/races.ts, from his
+ * house-rules doc #4) took its place under the same id "warforged".
  *
  * Built 2026-10-26 from the copy of the Eberron Campaign Setting in
  * Shaun's Dropbox library:
@@ -169,57 +174,6 @@ export const EBERRON_RACES: RaceDefinition[] = [
           "+2 racial bonus on Balance, Climb, and Jump checks (included in this race's skill bonuses).",
         category: "trait",
         source: `${ECS} — Shifter Racial Traits`,
-        sourceUrl: ECS_PATH,
-      },
-    ],
-  },
-  {
-    id: "warforged",
-    name: "Warforged",
-    ruleset: "eberron",
-    source: `${ECS} — Races: Warforged (pp. 22–23)`,
-    sourceUrl: ECS_PATH,
-    size: "Medium",
-    baseSpeed: 30,
-    type: "Construct",
-    subtypes: ["Living Construct"],
-    abilityModifiers: { con: 2, wis: -2, cha: -2 },
-    favoredClass: "Fighter",
-    traits: [
-      {
-        key: "warforged-living-construct",
-        name: "Living Construct Traits",
-        description:
-          "A warforged has a Constitution score and is subject to critical hits, nonlethal damage, stunning, ability damage/drain, and death and necromancy effects. Immune to poison, sleep effects, paralysis, disease, nausea, fatigue, exhaustion, sickened effects, and energy drain. Cannot heal damage naturally; healing spells and effects cure only half their normal amount, while repair spells heal fully. Reduced to 0 hit points a warforged is disabled; below 0 (above –10) it is inert but stable, losing no further hit points. Can be raised or resurrected. Does not need to eat, sleep, or breathe, but a warforged wizard must still rest 8 hours to prepare spells. Vulnerable to heat metal, chill metal, repel metal or stone, repel wood, and rusting grasp as if wearing metal armor.",
-        category: "special-quality",
-        source: `${ECS} — Warforged Racial Traits: Living Construct Subtype`,
-        sourceUrl: ECS_PATH,
-      },
-      {
-        key: "warforged-composite-plating",
-        name: "Composite Plating",
-        description:
-          "+2 armor bonus to AC from built-in plating. This is an armor bonus, not natural armor: it does not stack with other armor bonuses, occupies the body slot as a suit of armor or robe (a warforged cannot wear armor or magic robes), and can be enchanted exactly as armor can. The plating imposes a 5% arcane spell failure chance, treated as light armor for class features that ignore light-armor spell failure.",
-        category: "special-quality",
-        source: `${ECS} — Warforged Racial Traits`,
-        sourceUrl: ECS_PATH,
-      },
-      {
-        key: "warforged-light-fortification",
-        name: "Light Fortification (Ex)",
-        description:
-          "When a critical hit or sneak attack is scored on a warforged, there is a 25% chance the extra damage is negated and damage is rolled normally.",
-        category: "special-quality",
-        source: `${ECS} — Warforged Racial Traits`,
-        sourceUrl: ECS_PATH,
-      },
-      {
-        key: "warforged-slam",
-        name: "Slam Attack",
-        description:
-          "A warforged has a natural weapon slam attack that deals 1d4 points of damage.",
-        category: "special-attack",
-        source: `${ECS} — Warforged Racial Traits`,
         sourceUrl: ECS_PATH,
       },
     ],

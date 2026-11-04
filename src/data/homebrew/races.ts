@@ -4,11 +4,18 @@
  * uploaded 2026-11-02 as
  * workspace/user/files/4._MISC_OTHER_HOUSE_RULES_6_xpih.docx).
  *
- * This is a VARIANT record (id "warforged-house", ruleset
- * "homebrew"). The Eberron Campaign Setting warforged record in
- * src/data/eberron/races.ts is untouched. Shaun's document reprints
- * the living construct traits with his own changes, and this record
- * is modeled on the Eberron record's shape with his text governing:
+ * This record started (2026-11-02) as a VARIANT alongside the
+ * Eberron Campaign Setting warforged, under id "warforged-house"
+ * and name "Warforged (House Version)". At Shaun's order
+ * (2026-11-03: "Remove the standard warforged and put the house
+ * ruled one in its place") the Eberron record was deleted and THIS
+ * record took its place: id "warforged", name "Warforged" (so
+ * "Race: Warforged" prerequisites — Warforged Juggernaut and kin —
+ * match it by name). The resolver keeps a legacy alias so builds
+ * saved with "warforged-house" still resolve to this record.
+ * Shaun's document reprints the living construct traits with his
+ * own changes, and this record is modeled on the Eberron record's
+ * shape with his text governing:
  *
  * - Warforged DO heal damage naturally — "Do to the biological
  *   nanites within their makeup" (Eberron print: cannot heal
@@ -29,8 +36,8 @@ const TRAITS_SOURCE = `${DOC4} — Warforged Racial Traits`;
 
 export const HOMEBREW_RACES: RaceDefinition[] = [
   {
-    id: "warforged-house",
-    name: "Warforged (House Version)",
+    id: "warforged",
+    name: "Warforged",
     ruleset: "homebrew",
     source: `${DOC4} — Warforged Racial Traits`,
     sourceUrl: DOC4_URL,
