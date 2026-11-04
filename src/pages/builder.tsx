@@ -271,20 +271,25 @@ export default function Builder() {
           <span className="hidden text-xs text-muted-foreground md:inline">
             d20 SRD 3.5 template-blending character builder
           </span>
-          {/* Two deliberate lines (Shaun, 2026-11-03): the first five
-              boxes on line one; the last four boxes and the moon on
-              line two, under the first five. */}
+          {/* Two even lines of five (Shaun, 2026-11-03): four boxes and
+              the moon — now in a box of its own like the rest — on line
+              one; the slid-down Export plus the remaining four boxes on
+              line two, under line one. */}
           <div className="ml-auto flex flex-col items-start gap-1 sm:gap-2">
             <div className="flex items-center gap-1 sm:gap-2">
               <RulesetToggle enabledRulesets={build.enabledRulesets} onToggle={cb.toggleRuleset} />
               <HouseRulesToggle houseRules={build.houseRules} onToggle={cb.toggleHouseRule} />
               <CharacterRepository build={build} onLoad={cb.setBuild} />
+              <Button variant="outline" size="sm" className="px-1.5 sm:px-3" onClick={toggleTheme} aria-label="Toggle dark/light theme" data-testid="button-theme-toggle">
+                <Sun className="h-3.5 w-3.5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+                <Moon className="absolute h-3.5 w-3.5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+              </Button>
+            </div>
+            <div className="flex items-center gap-1 sm:gap-2">
               <Button variant="outline" size="sm" className="px-1.5 sm:px-3" onClick={() => exportCharacterJson(build)} data-testid="button-export-character">
                 <Download className="h-3.5 w-3.5 sm:mr-1.5" />
                 <span className="hidden sm:inline">Export</span>
               </Button>
-            </div>
-            <div className="flex items-center gap-1 sm:gap-2">
               <Button variant="outline" size="sm" className="px-1.5 sm:px-3" onClick={() => void handleCopyBuildLink()} data-testid="button-copy-build-link">
                 <Link2 className="h-3.5 w-3.5 sm:mr-1.5" />
                 <span className="hidden sm:inline">Copy build link</span>
@@ -320,10 +325,6 @@ export default function Builder() {
               >
                 <UserPlus className="h-3.5 w-3.5 sm:mr-1.5" />
                 <span className="hidden sm:inline">New</span>
-              </Button>
-              <Button variant="ghost" size="icon" className="h-8 w-8" onClick={toggleTheme} aria-label="Toggle dark/light theme" data-testid="button-theme-toggle">
-                <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-                <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
               </Button>
             </div>
           </div>

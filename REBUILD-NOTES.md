@@ -5576,3 +5576,6 @@ Shaun: "Move all the buttons in more so I don't have to slide left and right on 
 
 ## Sideways-slide guard strengthened (2026-11-03, later)
 Shaun reported the sliding still resided on his phone after the first guard. The rule now sits on html AND body (some phone browsers only honor the html element), declared as overflow-x: hidden first (fallback for engines without clip) and overflow-x: clip second. Deploy included the standing version.json stamp bump. Note: an already-open tab keeps running the old bundle until it is closed/reloaded — the home-screen launcher forces the newest stamp on a fresh open.
+
+## Header lines made even — moon boxed, Export slid down (2026-11-03)
+Shaun: "Put a box [around] the moon and slide one of those boxes down so it's all even." The theme toggle is now an outline box like every other button (was a bare ghost icon), moved up to line one; Export slid down to line two. Both lines now hold exactly five: line one — Rule Sets, House Rules, Save, Characters, Moon; line two — Export, Copy build link, Copy settings link, Import, New. Deploy included the standing version.json stamp bump.
