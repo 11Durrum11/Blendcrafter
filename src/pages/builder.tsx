@@ -271,16 +271,19 @@ export default function Builder() {
           <span className="hidden text-xs text-muted-foreground md:inline">
             d20 SRD 3.5 template-blending character builder
           </span>
-          {/* Two even lines of five (Shaun, 2026-11-03): line one is
-              Rule Sets (the book), House Rules, Save, Characters
-              (the other book), New. Line two: the moon under the
-              Rule Sets book, the two copy-link boxes, the download
-              (Export) under the Characters book, and Import. */}
+          {/* The two double stacks on the left, three to the right on
+              each line (Shaun, 2026-11-03): the Rule Sets book sits
+              over the moon, and the Characters book sits over the
+              download (Export) — those two stacked pairs come first.
+              Line one then carries House Rules, Save, New to their
+              right; line two carries the two copy-link boxes and
+              Import to their right. */}
           <div className="ml-auto flex flex-col items-start gap-1 sm:gap-2">
             <div className="flex items-center gap-1 sm:gap-2">
               <RulesetToggle enabledRulesets={build.enabledRulesets} onToggle={cb.toggleRuleset} />
+              <CharacterRepository build={build} onLoad={cb.setBuild} part="characters" />
               <HouseRulesToggle houseRules={build.houseRules} onToggle={cb.toggleHouseRule} />
-              <CharacterRepository build={build} onLoad={cb.setBuild} />
+              <CharacterRepository build={build} onLoad={cb.setBuild} part="save" />
               <Button
                 variant="outline"
                 size="sm"
@@ -301,6 +304,10 @@ export default function Builder() {
                 <Sun className="h-3.5 w-3.5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
                 <Moon className="absolute h-3.5 w-3.5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
               </Button>
+              <Button variant="outline" size="sm" className="px-1.5 sm:px-3" onClick={() => exportCharacterJson(build)} data-testid="button-export-character">
+                <Download className="h-3.5 w-3.5 sm:mr-1.5" />
+                <span className="hidden sm:inline">Export</span>
+              </Button>
               <Button variant="outline" size="sm" className="px-1.5 sm:px-3" onClick={() => void handleCopyBuildLink()} data-testid="button-copy-build-link">
                 <Link2 className="h-3.5 w-3.5 sm:mr-1.5" />
                 <span className="hidden sm:inline">Copy build link</span>
@@ -308,10 +315,6 @@ export default function Builder() {
               <Button variant="outline" size="sm" className="px-1.5 sm:px-3" onClick={() => void handleCopySettingsLink()} data-testid="button-copy-settings-link">
                 <SlidersHorizontal className="h-3.5 w-3.5 sm:mr-1.5" />
                 <span className="hidden sm:inline">Copy settings link</span>
-              </Button>
-              <Button variant="outline" size="sm" className="px-1.5 sm:px-3" onClick={() => exportCharacterJson(build)} data-testid="button-export-character">
-                <Download className="h-3.5 w-3.5 sm:mr-1.5" />
-                <span className="hidden sm:inline">Export</span>
               </Button>
               <Button variant="outline" size="sm" className="px-1.5 sm:px-3" onClick={() => importRef.current?.click()} data-testid="button-import-character">
                 <Upload className="h-3.5 w-3.5 sm:mr-1.5" />

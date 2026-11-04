@@ -11,6 +11,13 @@ import { deleteSavedCharacter, listSavedCharacters, saveCharacter, type SavedCha
 interface CharacterRepositoryProps {
   build: CharacterBuild;
   onLoad: (build: CharacterBuild) => void;
+  /**
+   * Which part of the repository controls to render. The header toolbar
+   * (Shaun, 2026-11-03) places the Characters book in its own slot,
+   * separated from the Save button, so the two halves render as separate
+   * instances there. Defaults to "all" (both, side by side).
+   */
+  part?: "all" | "save" | "characters";
 }
 
 function formatDate(value: string) {
@@ -20,7 +27,7 @@ function formatDate(value: string) {
   }).format(new Date(value));
 }
 
-export function CharacterRepository({ build, onLoad }: CharacterRepositoryProps) {
+export function CharacterRepository({ build, onLoad, part = "all" }: CharacterRepositoryProps) {
   const [open, setOpen] = useState(false);
   const [records, setRecords] = useState<SavedCharacter[]>([]);
   const [query, setQuery] = useState("");
@@ -114,11 +121,14 @@ export function CharacterRepository({ build, onLoad }: CharacterRepositoryProps)
 
   return (
     <div className="flex items-center gap-1.5 sm:gap-2">
-      <Button variant="outline" size="sm" onClick={handleSave} disabled={busy} className="px-2 sm:px-3" data-testid="button-save-character">
-        {busy ? <Loader2 className="h-3.5 w-3.5 animate-spin sm:mr-1.5" /> : <Check className="h-3.5 w-3.5 sm:mr-1.5" />}
-        <span className="hidden sm:inline">Save</span>
-      </Button>
+      {part !== "characters" && (
+        <Button variant="outline" size="sm" onClick={handleSave} disabled={busy} className="px-2 sm:px-3" data-testid="button-save-character">
+          {busy ? <Loader2 className="h-3.5 w-3.5 animate-spin sm:mr-1.5" /> : <Check className="h-3.5 w-3.5 sm:mr-1.5" />}
+          <span className="hidden sm:inline">Save</span>
+        </Button>
+      )}
 
+      {part !== "save" && (
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
           <Button variant="outline" size="sm" className="px-2 sm:px-3" data-testid="button-character-repository">
@@ -191,6 +201,7 @@ export function CharacterRepository({ build, onLoad }: CharacterRepositoryProps)
           </div>
         </DialogContent>
       </Dialog>
+      )}
     </div>
   );
 }
