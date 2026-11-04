@@ -90,6 +90,18 @@ const MAGIC_ITEM_CREATION_LINES: { label: string; text: string }[] = [
   { label: "Arms & armor", text: "enhancement bonus squared × 1,000 gp (armor and shields) or × 2,000 gp (weapons), on top of the masterwork item." },
 ];
 
+/* Potion rules annotation (Shaun, 2026-11-04): the crunch of his
+ * pills/potions document — magical vs alchemical delivery, mixing,
+ * throwing — set where the creation panel used to sit, to the right
+ * of the Magic Items header. Mechanics only, no flavor text. */
+const POTION_RULE_LINES: { label: string; text: string }[] = [
+  { label: "Magical potions", text: "the full effect happens immediately upon consumption." },
+  { label: "Alchemical potions", text: "brewed, not magic — the effect is spread evenly over a number of rounds equal to the spell's level." },
+  { label: "Cure line (alchemical)", text: "Nd8+N hit points total, delivered at 1d8+1 per round — Cure Light 1 round, Cure Moderate 2 rounds, Cure Serious 3 rounds, Cure Critical 4 rounds." },
+  { label: "Mixing potions", text: "imbibing a second potion while one is already active, or mixing potions together, rolls on the Potion Miscibility tables." },
+  { label: "Throwing potions", text: "a standard action that provokes an attack of opportunity; ranged touch attack — AC 5 against a space, the creature's AC against a creature; 10 ft range increment; a creature of Small size or larger can throw two vials held in one hand with a single attack roll." },
+];
+
 interface CategorySection<T> {
   key: string;
   label: string;
@@ -716,7 +728,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
       {part === "magic" && (
       <Card>
         <CardHeader>
-          <div>
+          <div className="flex flex-wrap items-start justify-between gap-4">
             <div>
               <CardTitle className="font-display text-xl">Magic Items</CardTitle>
               <CardDescription>
@@ -727,9 +739,23 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
                 .
               </CardDescription>
             </div>
-            {/* The one creation-mechanics panel (Shaun, 2026-11-04):
-                directly under the Magic Items header. */}
-            <div className="mt-3 max-w-xl rounded-md border border-card-border bg-muted/40 p-3" data-testid="panel-magic-item-creation">
+            {/* The potion-rules panel (Shaun, 2026-11-04): in the
+                spot the creation-mechanics panel used to occupy, to
+                the right of the Magic Items header. */}
+            <div className="max-w-xl rounded-md border border-card-border bg-muted/40 p-3" data-testid="panel-potion-rules">
+              <p className="font-display text-xs font-semibold uppercase tracking-wide">Potions — Magical &amp; Alchemical</p>
+              <ul className="mt-1.5 space-y-1 text-xs leading-snug text-muted-foreground">
+                {POTION_RULE_LINES.map((line) => (
+                  <li key={line.label}>
+                    <span className="font-semibold text-foreground">{line.label}:</span> {line.text}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          {/* The one creation-mechanics panel (Shaun, 2026-11-04):
+              directly under the Magic Items header. */}
+          <div className="mt-3 max-w-xl rounded-md border border-card-border bg-muted/40 p-3" data-testid="panel-magic-item-creation">
               <p className="font-display text-xs font-semibold uppercase tracking-wide">Creating Magic Items</p>
               <ul className="mt-1.5 space-y-1 text-xs leading-snug text-muted-foreground">
                 {MAGIC_ITEM_CREATION_LINES.map((line) => (
@@ -739,7 +765,6 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
                 ))}
               </ul>
             </div>
-          </div>
         </CardHeader>
         <CardContent>
           <div className="relative">
