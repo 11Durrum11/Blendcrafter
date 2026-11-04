@@ -171,11 +171,11 @@ export function StepClasses({
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{classesOn.map(renderClassCard)}</div>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">{classesOn.map(renderClassCard)}</div>
           {classesOff.length > 0 && (
             <>
               <h4 className="mt-5 font-display text-sm font-semibold text-muted-foreground">Turned off</h4>
-              <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{classesOff.map(renderClassCard)}</div>
+              <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">{classesOff.map(renderClassCard)}</div>
             </>
           )}
           <p className="mt-4 text-sm text-muted-foreground">

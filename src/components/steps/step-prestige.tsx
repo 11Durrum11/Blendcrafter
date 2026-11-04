@@ -353,16 +353,16 @@ export function StepPrestige({
           ) : (
             <>
               {prestigeMet.length > 0 && (
-                <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{prestigeMet.map(renderPrestigeCard)}</div>
+                <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">{prestigeMet.map(renderPrestigeCard)}</div>
               )}
               {prestigeNonMet.length > 0 && (
                 <>
                   <h4 className="mt-5 font-display text-sm font-semibold text-muted-foreground">Prerequisites not met</h4>
                   {nonMetFull.length > 0 && (
-                    <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{nonMetFull.map(renderPrestigeCard)}</div>
+                    <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">{nonMetFull.map(renderPrestigeCard)}</div>
                   )}
                   {nonMetNames.length > 0 && (
-                    <div className="mt-3 grid gap-1 sm:grid-cols-2 lg:grid-cols-3">{nonMetNames.map(renderPrestigeNameRow)}</div>
+                    <div className="mt-3 grid gap-1 sm:grid-cols-2 lg:grid-cols-4">{nonMetNames.map(renderPrestigeNameRow)}</div>
                   )}
                 </>
               )}
@@ -370,10 +370,10 @@ export function StepPrestige({
                 <>
                   <h4 className="mt-5 font-display text-sm font-semibold text-muted-foreground">Turned off</h4>
                   {offFull.length > 0 && (
-                    <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{offFull.map(renderPrestigeCard)}</div>
+                    <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">{offFull.map(renderPrestigeCard)}</div>
                   )}
                   {offNames.length > 0 && (
-                    <div className="mt-3 grid gap-1 sm:grid-cols-2 lg:grid-cols-3">{offNames.map(renderPrestigeNameRow)}</div>
+                    <div className="mt-3 grid gap-1 sm:grid-cols-2 lg:grid-cols-4">{offNames.map(renderPrestigeNameRow)}</div>
                   )}
                 </>
               )}
