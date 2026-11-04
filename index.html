@@ -21,6 +21,38 @@
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-title" content="Blendcrafter" />
+    <style>
+      /* Pre-boot splash (Shaun, 2026-11-04): the app ships as one
+         large bundle, and until it downloads and starts, an empty
+         page paints the browser's default white — on a phone that
+         reads as a white-screen hang. Paint the app's own dark
+         slate from the very first frame instead, and show a
+         loading splash inside #root; React replaces it the moment
+         the app mounts. All inline: nothing here waits on a
+         download. */
+      html { background: #14171f; }
+      #boot-splash {
+        min-height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        color: #e8ddc9;
+        font-family: Georgia, "Times New Roman", serif;
+        text-align: center;
+        padding: 24px;
+      }
+      #boot-splash .boot-title { font-size: 28px; letter-spacing: 0.02em; }
+      #boot-splash .boot-sub { font-size: 14px; opacity: 0.75; font-family: system-ui, sans-serif; }
+      #boot-splash .boot-ring {
+        width: 38px; height: 38px; border-radius: 50%;
+        border: 3px solid rgba(232, 221, 201, 0.25);
+        border-top-color: #d9a441;
+        animation: boot-spin 0.9s linear infinite;
+      }
+      @keyframes boot-spin { to { transform: rotate(360deg); } }
+    </style>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -33,7 +65,13 @@
     />
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div id="boot-splash">
+        <div class="boot-ring"></div>
+        <div class="boot-title">Blendcrafter</div>
+        <div class="boot-sub">Loading the library — 23,000+ entries take a moment…</div>
+      </div>
+    </div>
     <script type="module" src="./src/main.tsx"></script>
   </body>
 </html>
