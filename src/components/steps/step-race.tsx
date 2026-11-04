@@ -153,7 +153,9 @@ export function StepRace({
   const [detail, setDetail] = useState<EntityDetail | null>(null);
   const visibleRaces = ALL_RACES.filter((race) => enabledRulesets.includes(race.ruleset));
   // Race grouping (Shaun, 2026-10-28): playable character races first,
-  // monster races under their own heading below. Both stay selectable.
+  // monster races after them. Both stay selectable. The monster
+  // group has carried no heading since 2026-11-03 (Shaun's order);
+  // its notation sits at the top of the Base Race card instead.
   const playableRaces = visibleRaces.filter((race) => !isMonsterRace(race));
   const monsterRaces = visibleRaces.filter((race) => isMonsterRace(race));
 
@@ -263,19 +265,27 @@ export function StepRace({
   // all grayed out races"). Their off state stays exactly as saved in
   // the build / toggle prefs — they are simply not rendered in the
   // picker, so the grayed tiles no longer clutter it.
+  // A null title renders the group with NO heading and NO blurb —
+  // the monster races render that way at Shaun's order (2026-11-03:
+  // "Remove the monster races header and put the notation at the
+  // top. With the other notations."). Their races still follow the
+  // playable ones in the same picker; only the header is gone, and
+  // the notation lives in the card description at the top.
   const renderRaceSection = (
-    title: string,
-    blurb: string,
+    title: string | null,
+    blurb: string | null,
     races: typeof visibleRaces,
     headingClassName: string
   ) => {
     const turnedOn = races.filter((race) => !disabledRaceIds.includes(race.id));
     return (
       <>
-        <h4 className={headingClassName}>{title}</h4>
-        <p className="mb-3 mt-1 text-xs text-muted-foreground">{blurb}</p>
+        {title !== null && <h4 className={headingClassName}>{title}</h4>}
+        {blurb !== null && <p className="mb-3 mt-1 text-xs text-muted-foreground">{blurb}</p>}
         {turnedOn.length > 0 ? (
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">{turnedOn.map(renderRaceTile)}</div>
+          <div className={cn("grid grid-cols-2 gap-3 sm:grid-cols-4", title === null && "mt-3")}>
+            {turnedOn.map(renderRaceTile)}
+          </div>
         ) : (
           <p className="text-sm text-muted-foreground">Every race in this group is turned off.</p>
         )}
@@ -473,7 +483,8 @@ export function StepRace({
           <CardTitle className="font-display text-xl">Base Race</CardTitle>
           <CardDescription>
             The base creature every template and class level applies on top of. Turned-off races are hidden
-            from this picker; their off state is kept. Source:{" "}
+            from this picker; their off state is kept. Some races come from monster-book entries — playable,
+            but they start with racial Hit Dice and level adjustments. Source:{" "}
             <a href="https://www.d20srd.org/srd/races/" target="_blank" rel="noreferrer" className="text-primary underline underline-offset-2">
               d20 SRD Races
             </a>
@@ -488,12 +499,7 @@ export function StepRace({
             "font-display text-base font-semibold"
           )}
           {monsterRaces.length > 0 &&
-            renderRaceSection(
-              "Monster Races",
-              "From monster-book entries \u2014 playable, but they start with racial Hit Dice and level adjustments.",
-              monsterRaces,
-              "mt-6 font-display text-base font-semibold"
-            )}
+            renderRaceSection(null, null, monsterRaces, "mt-6 font-display text-base font-semibold")}
         </CardContent>
       </Card>
 
