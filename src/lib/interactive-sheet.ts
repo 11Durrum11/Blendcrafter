@@ -19,9 +19,11 @@
 import {
   ALL_CLASSES,
   ALL_EQUIPMENT,
+  ALL_FLAWS,
   ALL_MAGIC_ITEMS,
   ALL_PRESTIGE_CLASSES,
   ALL_SKILLS,
+  ALL_TRAITS,
   CASTING_PROFILES_BY_ID,
   SPELLS_BY_ID,
 } from "@/data";
@@ -471,7 +473,8 @@ export function buildInteractiveSheetValues(
 export async function fillInteractiveSheet(
   character: ResolvedCharacter,
 ): Promise<Uint8Array> {
-  const { PDFDocument, PDFName, PDFNumber, PDFDict } = await import("pdf-lib");
+  const lib = await import("pdf-lib");
+  const { PDFDocument, PDFName, PDFNumber, PDFDict } = lib;
   const binary = atob(INTERACTIVE_SHEET_B64);
   const blank = new Uint8Array(binary.length);
   for (let i = 0; i < binary.length; i++) blank[i] = binary.charCodeAt(i);
@@ -506,6 +509,7 @@ export async function fillInteractiveSheet(
       // Not a text field (checkbox etc.) — left exactly as the sheet has it.
     }
   }
+  addExtraPages(doc, form, character, lib);
   return doc.save();
 }
 
@@ -520,4 +524,244 @@ export async function downloadInteractiveSheet(
   a.download = `${character.build.name || "Character"} — Interactive Sheet.pdf`;
   a.click();
   setTimeout(() => URL.revokeObjectURL(url), 5000);
+}
+
+/* ------------------------------------------------------------------ */
+/* Extra pages (Shaun, 2026-11-04: "make room")                        */
+/*                                                                     */
+/* The classic two pages have no boxes for Blendcrafter's personality  */
+/* profile, flaws and traits, templates, or the build bookkeeping.     */
+/* The filled copy grows two plain pages at the back carrying those.   */
+/* Everything on them — headings and labels included — is a real text  */
+/* field, so the pages stay editable like the rest of the form and     */
+/* nothing depends on drawn-text rendering.                            */
+/* ------------------------------------------------------------------ */
+
+type PdfLib = typeof import("pdf-lib");
+type PdfDoc = import("pdf-lib").PDFDocument;
+type PdfForm = import("pdf-lib").PDFForm;
+type PdfPage = import("pdf-lib").PDFPage;
+
+function addExtraPages(
+  doc: PdfDoc,
+  form: PdfForm,
+  character: ResolvedCharacter,
+  lib: PdfLib,
+): void {
+  const { rgb } = lib;
+  const ink = rgb(0.1, 0.1, 0.1);
+  const gray = rgb(0.35, 0.35, 0.35);
+  const border = rgb(0.55, 0.55, 0.55);
+
+  // Same geometry as the sheet's own pages: oversized media box, the
+  // visible sheet inside the crop box.
+  const PAGE_W = 702;
+  const PAGE_H = 891;
+  const CROP_X = 53.25;
+  const CROP_Y = 54.69;
+  const CROP_W = 594.06;
+  const CROP_H = 783.78;
+  const X = CROP_X + 30;
+  const W = CROP_W - 60;
+
+  let page: PdfPage;
+  let y = 0;
+  let labelCount = 0;
+  const newPage = () => {
+    page = doc.addPage([PAGE_W, PAGE_H]);
+    page.setCropBox(CROP_X, CROP_Y, CROP_W, CROP_H);
+    y = CROP_Y + CROP_H - 30;
+  };
+  /** A read-only label field standing in for printed text. */
+  const label = (
+    text: string,
+    height: number,
+    fontSize: number,
+    color: typeof ink,
+    x: number = X,
+    width: number = W,
+  ) => {
+    labelCount += 1;
+    const f = form.createTextField(`extra_lbl_${labelCount}`);
+    f.addToPage(page, { x, y: y - height, width, height, borderWidth: 0, textColor: color });
+    if (text) f.setText(text);
+    try {
+      f.setFontSize(fontSize);
+    } catch {
+      /* default size is acceptable */
+    }
+    f.enableReadOnly();
+    y -= height;
+  };
+  const field = (
+    name: string,
+    labelText: string,
+    value: string,
+    height: number,
+    multiline = false,
+    x: number = X,
+    width: number = W,
+  ) => {
+    label(labelText.toUpperCase(), 10, 8, gray, x, width);
+    y -= 1;
+    const f = form.createTextField(name);
+    if (multiline) f.enableMultiline();
+    f.addToPage(page, {
+      x,
+      y: y - height,
+      width,
+      height,
+      borderWidth: 0.75,
+      borderColor: border,
+      backgroundColor: rgb(1, 1, 1),
+      textColor: ink,
+    });
+    if (value) f.setText(value);
+    try {
+      f.setFontSize(10);
+    } catch {
+      /* default size is acceptable */
+    }
+    y -= height + 7;
+  };
+  const title = (text: string) => {
+    label(text, 22, 16, ink);
+    y -= 2;
+  };
+  const section = (text: string) => {
+    y -= 6;
+    label(text.toUpperCase(), 16, 12, ink);
+    y -= 6;
+  };
+  const row2 = (
+    a: [string, string, string],
+    b: [string, string, string],
+  ) => {
+    const half = (W - 14) / 2;
+    const topY = y;
+    field(a[0], a[1], a[2], 15, false, X, half);
+    const afterA = y;
+    y = topY;
+    field(b[0], b[1], b[2], 15, false, X + half + 14, half);
+    y = Math.min(afterA, y);
+  };
+
+  const { build } = character;
+  const p = build.personality;
+  const flawName = new Map(ALL_FLAWS.map((f) => [f.id, f.name]));
+  const traitName = new Map(ALL_TRAITS.map((t) => [t.id, t.name]));
+  const speedText = Object.entries(character.speed)
+    .map(([mode, ft]) => `${mode === "base" ? "Land" : mode} ${ft} ft.`)
+    .join("; ");
+  const synergyText = [
+    ...character.synergyNotes,
+    ...character.skills
+      .filter((s) => s.synergyNotes && s.synergyNotes.length > 0)
+      .map((s) => `${s.name}: ${(s.synergyNotes ?? []).join("; ")}`),
+  ].join("\n");
+
+  /* Page 3: build bookkeeping, flaws & traits, the story so far. */
+  newPage();
+  title(`${build.name || "Character"} — Extra`);
+  label(
+    "The room the classic sheet doesn't have: build details and personality, from Blendcrafter.",
+    13,
+    9,
+    gray,
+  );
+  y -= 9;
+  section("Creature & Build");
+  field(
+    "extra_type",
+    "Type",
+    `${character.type}${character.subtypes.length > 0 ? ` (${character.subtypes.join(", ")})` : ""}`,
+    15,
+  );
+  field(
+    "extra_templates",
+    "Templates",
+    character.appliedTemplates.map((t) => t.name).join(", "),
+    26,
+    true,
+  );
+  row2(
+    ["extra_ecl", "Effective character level", num(character.ecl.value)],
+    [
+      "extra_level_adjustment",
+      "Level adjustment",
+      `${signed(character.levelAdjustment.current)}${character.levelAdjustment.boughtOff > 0 ? ` (${character.levelAdjustment.boughtOff} bought off)` : ""}`,
+    ],
+  );
+  row2(
+    ["extra_cr", "Challenge rating", num(character.cr.value)],
+    ["extra_speed", "Speed", speedText],
+  );
+  row2(
+    [
+      "extra_skill_points",
+      "Skill points",
+      `${character.skillPoints.spent} spent of ${character.skillPoints.total}`,
+    ],
+    [
+      "extra_feat_slots",
+      "Feat slots",
+      `${character.featSlots.used} used of ${character.featSlots.total}`,
+    ],
+  );
+  field("extra_synergy", "Synergy & special benefits", synergyText, 30, true);
+  section("Flaws & Traits");
+  field(
+    "extra_flaws",
+    "Flaws",
+    p.flawIds.map((id) => flawName.get(id)).filter(Boolean).join("\n"),
+    30,
+    true,
+  );
+  field(
+    "extra_traits",
+    "Traits",
+    p.traitIds.map((id) => traitName.get(id)).filter(Boolean).join("\n"),
+    30,
+    true,
+  );
+  section("Personality");
+  field("extra_background", "Background", p.background, 46, true);
+  field("extra_goals", "Goals", p.goals, 34, true);
+  field("extra_secrets", "Secrets", p.secrets, 34, true);
+  field("extra_trauma", "Trauma", p.trauma, 28, true);
+  field("extra_circumstances", "Circumstances", p.circumstances, 28, true);
+
+  /* Page 4: people, standing, and open notes room. */
+  newPage();
+  title(`${build.name || "Character"} — Extra (continued)`);
+  section("People & Standing");
+  field("extra_allies", "Allies", p.allies, 30, true);
+  field("extra_enemies", "Enemies", p.enemies, 30, true);
+  row2(
+    ["extra_family_status", "Family status", p.familyStatus],
+    ["extra_occupation", "Occupation", p.occupation],
+  );
+  row2(
+    ["extra_faction_guild", "Faction / Guild", p.factionGuild],
+    ["extra_social_standing", "Social standing", p.socialStanding > 0 ? num(p.socialStanding) : ""],
+  );
+  row2(
+    ["extra_wealth_rating", "Wealth (rating)", p.wealth > 0 ? num(p.wealth) : ""],
+    [
+      "extra_personal_reputation",
+      "Personal reputation",
+      p.personalReputation > 0 ? num(p.personalReputation) : "",
+    ],
+  );
+  field(
+    "extra_public_reputation",
+    "Public reputation",
+    p.publicReputation > 0 ? num(p.publicReputation) : "",
+    15,
+    false,
+    X,
+    (W - 14) / 2,
+  );
+  section("Notes");
+  field("extra_notes", "", "", 300, true);
 }

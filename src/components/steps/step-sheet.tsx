@@ -98,7 +98,9 @@ export function StepSheet({ character }: StepSheetProps) {
               {character.build.name} — Interactive Sheet
             </CardTitle>
             <CardDescription>
-              The classic two-page character sheet, filled in from this build.
+              The classic character sheet, filled in from this build — with extra pages at
+              the back for the personality and campaign details the classic sheet has no
+              room for.
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
