@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { ResolvedCharacter } from "@/engine/types";
 import { ABILITY_KEYS, ABILITY_LABEL } from "@/engine/types";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { AuditTrail } from "@/components/audit-trail";
-import { downloadInteractiveSheet } from "@/lib/interactive-sheet";
+import { downloadInteractiveSheet, fillInteractiveSheet } from "@/lib/interactive-sheet";
 
 interface StepSheetProps {
   character: ResolvedCharacter;
@@ -56,6 +56,45 @@ export function StepSheet({ character }: StepSheetProps) {
   );
   const [sheetBusy, setSheetBusy] = useState(false);
   const [sheetError, setSheetError] = useState<string | null>(null);
+  /* When the Interactive sheet is chosen, it is SHOWN in the page, not
+     just offered as a download (Shaun, 2026-11-04: "When clicked, show
+     the interactive character sheet"). The preview is the same filled,
+     neutralized file the download button saves. */
+  const [sheetUrl, setSheetUrl] = useState<string | null>(null);
+  const [previewBusy, setPreviewBusy] = useState(false);
+  const [previewError, setPreviewError] = useState<string | null>(null);
+  useEffect(() => {
+    if (sheetFormat !== "pdf") {
+      setSheetUrl(null);
+      return;
+    }
+    let cancelled = false;
+    let url: string | null = null;
+    setPreviewBusy(true);
+    setPreviewError(null);
+    fillInteractiveSheet(character)
+      .then((bytes) => {
+        if (cancelled) return;
+        url = URL.createObjectURL(
+          new Blob([bytes as BlobPart], { type: "application/pdf" }),
+        );
+        setSheetUrl(url);
+      })
+      .catch(() => {
+        if (!cancelled) {
+          setPreviewError(
+            "The sheet could not be built just now. The built-in sheet above still has everything.",
+          );
+        }
+      })
+      .finally(() => {
+        if (!cancelled) setPreviewBusy(false);
+      });
+    return () => {
+      cancelled = true;
+      if (url) URL.revokeObjectURL(url);
+    };
+  }, [sheetFormat, character]);
   const chooseFormat = (format: "builtin" | "pdf") => {
     setSheetFormat(format);
     try {
@@ -106,10 +145,28 @@ export function StepSheet({ character }: StepSheetProps) {
           <CardContent className="space-y-4">
             <p className="text-sm leading-6 text-muted-foreground">
               Every number on it is this builder&apos;s number. The sheet&apos;s own built-in
-              calculation scripts are removed in the copy you download, so nothing inside the
+              calculation scripts are removed from this copy, so nothing inside the
               file can recompute over your build — and every box stays editable by hand
               afterward, for the notes and changes you make at the table.
             </p>
+            {previewBusy && !sheetUrl ? (
+              <p className="text-sm text-muted-foreground" data-testid="interactive-sheet-loading">
+                Filling in your sheet…
+              </p>
+            ) : null}
+            {previewError ? (
+              <p className="text-sm text-destructive" data-testid="interactive-sheet-preview-error">
+                {previewError}
+              </p>
+            ) : null}
+            {sheetUrl ? (
+              <iframe
+                src={sheetUrl}
+                title="Interactive character sheet"
+                className="h-[80vh] w-full rounded-md border border-card-border bg-white"
+                data-testid="interactive-sheet-viewer"
+              />
+            ) : null}
             <Button
               type="button"
               disabled={sheetBusy}
@@ -133,6 +190,20 @@ export function StepSheet({ character }: StepSheetProps) {
             {sheetError ? (
               <p className="text-sm text-destructive" data-testid="interactive-sheet-error">
                 {sheetError}
+              </p>
+            ) : null}
+            {sheetUrl ? (
+              <p className="text-sm">
+                <a
+                  href={sheetUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-primary underline underline-offset-2"
+                  data-testid="link-open-interactive-sheet"
+                >
+                  Open the sheet in a new tab
+                </a>{" "}
+                — handy on a phone, where the built-in viewer may not show it in the page.
               </p>
             ) : null}
           </CardContent>
