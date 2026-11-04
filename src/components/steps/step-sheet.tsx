@@ -163,7 +163,7 @@ export function StepSheet({ character }: StepSheetProps) {
               <iframe
                 src={sheetUrl}
                 title="Interactive character sheet"
-                className="h-[80vh] w-full rounded-md border border-card-border bg-white"
+                className="h-screen w-full rounded-md border border-card-border bg-white"
                 data-testid="interactive-sheet-viewer"
               />
             ) : null}
