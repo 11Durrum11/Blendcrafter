@@ -1,6 +1,7 @@
 import { Fragment, useEffect, useRef, useState, type ReactNode } from "react";
 import { Link, useLocation, useRoute } from "wouter";
-import { ChevronDown, ChevronLeft, ChevronRight, Download, Link2, Moon, SlidersHorizontal, Sun, Upload, UserPlus } from "lucide-react";
+import { ChevronDown, ChevronLeft, ChevronRight, Download, Link2, Moon, SlidersHorizontal, Sun, Upload, UserPlus, Volume2, VolumeX } from "lucide-react";
+import { ambience, type AmbienceScene } from "@/lib/ambience";
 import { Logo } from "@/components/logo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -104,16 +105,21 @@ type StepId = (typeof STEPS)[number]["id"];
  * buttons and handlers stay in headerBoxNodes below; dropping
  * their ids from this list is all the hiding does, and putting
  * the ids back restores them.
+ *
+ * 2026-11-04 (later, voice call): three more rulings — the New
+ * button goes second, Export sits next to Import, and the Moon
+ * (theme) button goes last. The order below satisfies all three.
  */
 const HEADER_BOX_ORDER = [
   "rulesets",
-  "import",
-  "characters",
   "new",
-  "theme",
-  "house-rules",
+  "import",
   "export",
+  "characters",
+  "ambience",
+  "house-rules",
   "save",
+  "theme",
 ] as const;
 
 export default function Builder() {
@@ -141,6 +147,39 @@ export default function Builder() {
   // 2026-11-04, later): its line opens a panel with jump links
   // into its page.
   const [itemCreationOpen, setItemCreationOpen] = useState(false);
+
+  // Ambience (Shaun, 2026-11-04): the per-area backdrop scenes are
+  // animated and carry matching ambient sound, with ONE toggle for
+  // both ("make those scenes animated and give me an option as to
+  // animate them or not" / "with the appropriate ambient sounds").
+  // Persisted per device; defaults ON unless the OS asks for
+  // reduced motion. Sound itself can only start after the first
+  // tap/click/keypress (browser autoplay rule) — the engine in
+  // lib/ambience arms that itself.
+  const [ambienceOn, setAmbienceOn] = useState<boolean>(() => {
+    try {
+      const saved = window.localStorage.getItem("blendcrafter:ambience");
+      if (saved !== null) return saved === "1";
+    } catch {
+      /* storage unavailable */
+    }
+    return !(
+      typeof window !== "undefined" &&
+      typeof window.matchMedia === "function" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    );
+  });
+  useEffect(() => {
+    try {
+      window.localStorage.setItem(
+        "blendcrafter:ambience",
+        ambienceOn ? "1" : "0",
+      );
+    } catch {
+      /* storage unavailable */
+    }
+    ambience.setEnabled(ambienceOn);
+  }, [ambienceOn]);
 
   const cb = useCharacterBuild();
   const { build, resolved } = cb;
@@ -302,6 +341,14 @@ export default function Builder() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [effectiveStep]);
+
+  // The backdrop scene and its ambient sound follow the area. The
+  // Character Sheet is left alone (Shaun): it keeps the default
+  // street scene and the street sounds.
+  const sceneKey = effectiveStep === "sheet" ? "street" : effectiveStep;
+  useEffect(() => {
+    ambience.setScene(sceneKey as AmbienceScene);
+  }, [sceneKey]);
   const visibleIndex = visibleSteps.findIndex((s) => s.id === effectiveStep);
   // A step belongs to Character Creation unless it is one of the
   // standalone top-level sections (Player Reference, Magic Item
@@ -405,6 +452,12 @@ export default function Builder() {
         <Moon className="absolute h-3.5 w-3.5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
       </Button>
     ),
+    ambience: (
+      <Button variant="outline" size="sm" className="px-1.5 sm:px-3" onClick={() => setAmbienceOn((v) => !v)} aria-pressed={ambienceOn} aria-label="Toggle background animation and ambient sound" data-testid="button-ambience-toggle">
+        {ambienceOn ? <Volume2 className="h-3.5 w-3.5 sm:mr-1.5" /> : <VolumeX className="h-3.5 w-3.5 sm:mr-1.5" />}
+        <span className="hidden sm:inline">Ambience</span>
+      </Button>
+    ),
     export: (
       <Button variant="outline" size="sm" className="px-1.5 sm:px-3" onClick={() => exportCharacterJson(build)} data-testid="button-export-character">
         <Download className="h-3.5 w-3.5 sm:mr-1.5" />
@@ -436,7 +489,7 @@ export default function Builder() {
   const renderHeaderBox = (id: string) => <Fragment key={id}>{headerBoxNodes[id]}</Fragment>;
 
   return (
-    <div className="app-backdrop min-h-screen bg-background text-foreground">
+    <div className={`app-backdrop min-h-screen bg-background text-foreground${ambienceOn ? " bg-animated" : ""}`} data-scene={effectiveStep === "sheet" ? undefined : effectiveStep}>
       <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-2 px-4 py-3 sm:px-6">
           <Link href="/" className="flex items-center gap-2">
