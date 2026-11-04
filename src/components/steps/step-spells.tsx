@@ -196,7 +196,12 @@ export function StepSpells({ build, resolved, onToggleSpell }: StepSpellsProps) 
                           {LEVEL_LABELS[lvl]}{" "}
                           <span className="text-sm font-normal text-muted-foreground">({spells.length})</span>
                         </h4>
-                        <div className="mt-1 grid grid-cols-1 gap-y-0">
+                        {/* Spell names in four columns within
+                            each level group (Shaun, 2026-11-04 —
+                            same treatment as the feat categories);
+                            narrower screens step down to two,
+                            then one. */}
+                        <div className="mt-1 grid grid-cols-1 gap-x-4 gap-y-0 sm:grid-cols-2 lg:grid-cols-4">
                           {spells.map((s) => (
                             <Tooltip key={s.id}>
                               <TooltipTrigger asChild>

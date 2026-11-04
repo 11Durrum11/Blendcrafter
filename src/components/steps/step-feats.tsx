@@ -282,17 +282,20 @@ export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved,
                   {section.feats.length === 0 && (
                     <p className="mt-1 text-xs italic text-muted-foreground">Every feat on this list is listed in an earlier section above.</p>
                   )}
-                  {active.length > 0 && <div className="mt-2 grid grid-cols-1 gap-1">{active.map(renderFeatName)}</div>}
+                  {/* Feat names in four columns inside every
+                      category (Shaun, 2026-11-04); narrower screens
+                      step down to two, then one. */}
+                  {active.length > 0 && <div className="mt-2 grid grid-cols-1 gap-x-4 gap-y-1 sm:grid-cols-2 lg:grid-cols-4">{active.map(renderFeatName)}</div>}
                   {grayedOut.length > 0 && (
                     <>
                       <h5 className="mt-4 font-display text-sm font-semibold text-muted-foreground">Prerequisites not met</h5>
-                      <div className="mt-2 grid grid-cols-1 gap-1">{grayedOut.map(renderFeatName)}</div>
+                      <div className="mt-2 grid grid-cols-1 gap-x-4 gap-y-1 sm:grid-cols-2 lg:grid-cols-4">{grayedOut.map(renderFeatName)}</div>
                     </>
                   )}
                   {turnedOff.length > 0 && (
                     <>
                       <h5 className="mt-4 font-display text-sm font-semibold text-muted-foreground">Turned off</h5>
-                      <div className="mt-2 grid grid-cols-1 gap-1">{turnedOff.map(renderFeatName)}</div>
+                      <div className="mt-2 grid grid-cols-1 gap-x-4 gap-y-1 sm:grid-cols-2 lg:grid-cols-4">{turnedOff.map(renderFeatName)}</div>
                     </>
                   )}
                     </>
