@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
-import { Switch } from "@/components/ui/switch";
+
 import { cn } from "@/lib/utils";
 import { ProductIdentityBadge } from "@/components/product-identity-badge";
 import { RULESET_LABELS } from "@/components/ruleset-toggle";
@@ -29,6 +29,8 @@ interface StepRaceProps {
    * state — but no longer rendered: the race tiles carry no toggle
    * switch (Shaun, 2026-11-03). */
   onToggleRaceEnabled: (raceId: string, enabled: boolean) => void;
+  /** Same standing as onToggleRaceEnabled above: still passed, still
+   * part of the toggle state, no longer rendered (Shaun, 2026-11-03). */
   onToggleAbilityEnabled: (key: AbilityKey, enabled: boolean) => void;
 }
 
@@ -143,7 +145,6 @@ export function StepRace({
   onRaceChange,
   onAbilityChange,
   onAllAbilitiesChange,
-  onToggleAbilityEnabled,
 }: StepRaceProps) {
   const [diceGrid, setDiceGrid] = useState<DiceCell[][] | null>(null);
   const [pickedLineId, setPickedLineId] = useState<string | null>(null);
@@ -441,13 +442,12 @@ export function StepRace({
                     >
                       <Info className="h-3 w-3" />
                     </button>
-                    <Switch
-                      checked={!isDisabled}
-                      onCheckedChange={(checked) => onToggleAbilityEnabled(key, checked)}
-                      className="ml-auto shrink-0 scale-75"
-                      aria-label={isDisabled ? `Enable ${ABILITY_LABEL[key]}` : `Disable ${ABILITY_LABEL[key]}`}
-                      data-testid={`switch-enable-ability-${key}`}
-                    />
+                    {/* No toggle switch on abilities either (Shaun,
+                        2026-11-03: "Take off the toggles on the
+                        abilities too"), following the race/class switch
+                        removal. An ability's disabled state still lives
+                        in the build / toggle prefs exactly as set —
+                        there is just no switch here to flip it with. */}
                   </Label>
                   <Input
                     id={`ability-${key}`}
