@@ -52,7 +52,7 @@ export const SORCERY_STEAM_FEATS: FeatDefinition[] = [
     category: "item-creation",
     prerequisites: ["Spellcaster level 3rd"],
     benefitSummary:
-      "Create a magical injection, as brewing a potion except that an injection can affect an unwilling or unconscious target and needs no action from the recipient: deliver it with a melee attack that inflicts at least 1 point of damage (injecting is a free action immediately after), and the injection's save DCs are increased by 2. Injections are held in injector syringes.",
+      "Create a magical injection, as brewing a potion except that an injection can affect an unwilling or unconscious target and needs no action from the recipient: deliver it with a melee attack that inflicts at least 1 point of damage (injecting is a free action immediately after), and the injection's save DCs are increased by 2 per spell level of the injection. Injections are held in injector syringes.",
     modifiers: [],
     source: `${CH3} — Feats: Brew Injection (p. 102)`,
     sourceUrl: SS_PATH,

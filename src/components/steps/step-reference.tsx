@@ -123,6 +123,7 @@ const EQUIPMENT_SUBCATEGORY_LABELS: Record<string, string> = {
   weapon: "Weapons",
   armor: "Armor",
   shield: "Shields",
+  helmet: "Helmets",
   ammunition: "Ammunition",
   "alchemical gear": "Alchemical Gear",
   tool: "Tools",
@@ -133,23 +134,24 @@ const EQUIPMENT_SUBCATEGORY_LABELS: Record<string, string> = {
 };
 const EQUIPMENT_SUBCATEGORY_ORDER = [
   "Weapons — Melee", "Weapons — Ranged", "Weapons — Firearms",
-  "Armor", "Shields", "Ammunition", "Alchemical Gear", "Tools",
+  "Armor", "Shields", "Helmets", "Ammunition", "Alchemical Gear", "Tools",
   "Adventuring Gear", "Food & Drink", "Services", "Animals",
 ];
 
 /** Magic item sections, in the Equipment step's own order. */
 const MAGIC_SUBCATEGORY_ORDER = [
-  "Wondrous — Head", "Wondrous — Face", "Wondrous — Throat",
+  "Helmets", "Wondrous — Head", "Wondrous — Face", "Wondrous — Throat",
   "Wondrous — Shoulders", "Wondrous — Body", "Wondrous — Torso",
   "Wondrous — Arms", "Wondrous — Hands", "Wondrous — Waist",
   "Wondrous — Feet", "Wondrous — Slotless", "Wondrous Items — Other",
-  "Rings", "Rods", "Staffs", "Wands", "Scrolls", "Potions",
+  "Rings", "Rods", "Staffs", "Wands", "Scrolls", "Schemas", "Potions",
   "Magic Weapons", "Magic Armor", "Magic Shields",
   "Armor Special Abilities", "Weapon Special Abilities",
   "Shield Special Abilities", "Augment Crystals", "Magic Ammunition",
   "Artifacts",
 ];
 const MAGIC_SUBCATEGORY_LABELS: Record<string, string> = {
+  "wondrous-helmets": "Helmets",
   "wondrous-head": "Wondrous — Head",
   "wondrous-face": "Wondrous — Face",
   "wondrous-throat": "Wondrous — Throat",
@@ -167,6 +169,7 @@ const MAGIC_SUBCATEGORY_LABELS: Record<string, string> = {
   staff: "Staffs",
   wand: "Wands",
   scroll: "Scrolls",
+  schema: "Schemas",
   potion: "Potions",
   weapon: "Magic Weapons",
   armor: "Magic Armor",
@@ -287,7 +290,9 @@ const CATEGORIES: RefCategory[] = [
   },
   {
     key: "magic", label: "Magic Items", subcategoryOrder: MAGIC_SUBCATEGORY_ORDER,
-    rows: ALL_MAGIC_ITEMS.map((i) => ({ key: `magic:${i.id}`, category: "Magic Item", subcategory: MAGIC_SUBCATEGORY_LABELS[i.category] ?? capitalize(i.category), name: i.name, source: i.source, ruleset: i.ruleset, makeDetail: () => describeMagicItem(i) })),
+    // Magic helmets split out of Wondrous — Head by name, exactly as
+    // the Magic Items step groups them (Shaun, 2026-11-04).
+    rows: ALL_MAGIC_ITEMS.map((i) => ({ key: `magic:${i.id}`, category: "Magic Item", subcategory: i.category === "wondrous-head" && /helm/i.test(i.name) ? "Helmets" : (MAGIC_SUBCATEGORY_LABELS[i.category] ?? capitalize(i.category)), name: i.name, source: i.source, ruleset: i.ruleset, makeDetail: () => describeMagicItem(i) })),
   },
   {
     // Flaw/trait records carry an origin string ("unearthed-arcana" /

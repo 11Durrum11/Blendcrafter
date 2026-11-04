@@ -6370,3 +6370,141 @@ magic-item potions; Critical uses the potion formula
 (4 x 7 x 50 gp) since no magic version exists — a modeling
 choice flagged to Shaun, easy to change.
 stamp=20261104124341
+
+## Barrel purity sweep: magic in Magic Items, non-magic in Equipment; Helmets category; ammunition facets (2026-11-04)
+
+Shaun, on a live voice call: "Do that with everything magic
+non magic" — "But keep the magic in the magic item section"
+— "And the non-magic in the equipment section." The
+magic/non-magic split lives BETWEEN the two steps, not as
+filter buttons inside sections: anything that is a magic item
+belongs in ALL_MAGIC_ITEMS (Magic Items step), anything
+non-magic in ALL_EQUIPMENT (Equipment step). Same call:
+helmets get their own category in both steps, ammunition gets
+Normal / Alchemical and Gun / Other subcategory buttons, the
+alchemical gear still sitting in Adventuring Gear moves to
+Alchemical Gear, and every Equipment section list renders in
+alphabetical order.
+
+Barrel purity sweep (src/data/relocated-magic-items-2.ts +
+src/data/barrel-overrides.ts, wired in src/data/index.ts):
+
+- Equipment -> Magic: 104 records converted in the 2026-11-03
+  relocation style (summary = notes verbatim + printed weight
+  and total armor bonus appended). Found by two scans of the
+  equipment barrel — magic-item signals (aura/CL lines, command
+  words, per-day activations, item powers) and an enhancement
+  scan ("+1 keen unholy…", intelligent items) that surfaced the
+  named specific items the Ghostwalk / Book of Exalted Deeds /
+  Book of Vile Darkness equipment chapters had filed as gear.
+- All 27 cross-barrel duplicate ids resolved; each item now
+  exists exactly once across the barrels (verified: zero
+  cross-barrel duplicate ids). Where both copies existed, the
+  fuller text won — 10 equipment texts converted over their
+  magic copies, 10 magic texts kept, 5 "Nonmagical"
+  special-material items (adamantine breastplate, dragonhide
+  plate, dwarven plate, darkwood buckler, mithral heavy shield)
+  kept as the fuller equipment records and removed from the
+  magic barrel, the condensed magic "bladed-crossbow" superseded
+  by the fuller record as "bladed-crossbow-mic" (the mundane
+  Dragon crossbow keeps the plain id in Equipment), and the
+  Eberron warforged wand sheath renamed "wand-sheath-warforged"
+  so it no longer collides with the mundane wand sheath.
+- Magic -> Equipment: 5 plainly non-magic records converted
+  back (Elven Chain — its own summary calls it nonmagical
+  mithral chainmail — plus masterwork silver dagger, masterwork
+  cold iron longsword, adamantine dagger, adamantine battleaxe).
+- Totals: ALL_EQUIPMENT 8,050 -> 7,941; ALL_MAGIC_ITEMS
+  9,088 -> 9,171. Per-section: Equipment Weapons 1,609 ->
+  1,532, Armor 443 -> 413, Shields 100 -> 96, Ammunition
+  213 -> 204; Magic Weapons 402 -> 461, Magic Armor 57 -> 70,
+  Magic Shields 21 -> 23, Magic Ammunition 113 -> 122.
+- Borderline NOT moved (books file them as equipment, or they
+  merely mention magic): Holy Staff and Arcane Flux Detector,
+  spell-effect foods, the Joyful Horn, reliquary containers,
+  charged instrument strings, alignment-keyed ritual
+  instruments, divine candles, the Portable Star, Terran
+  Brandy, Llorannion wood and the other special materials,
+  steam armor rigs, and anything whose text states it is
+  nonmagical.
+
+Helmets: barrel-level override remaps 14 mundane helmets
+(scattered through Armor, Adventuring Gear, and Weapons) to a
+new "helmet" category — Helmets section in Equipment, right
+after Shields. The 14th is the Armet, a close helmet the name
+scan missed because its name contains no "helm". Magic Items
+gets its own Helmets section (render-time split in
+step-equipment.tsx and mirrored in the Player Reference):
+28 helm-named items split out of Wondrous — Head (93 -> 65
+shown there). The 133 Spelljamming ship helms stay in
+Wondrous — Slotless: ship components, not headgear.
+
+Alchemical migration: 363 Adventuring Gear records remapped
+to Alchemical Gear at barrel level (Alchemical Gear 709 ->
+1,072; Adventuring Gear 3,508 -> 3,142). Source-anchored
+only: Shaun's Alchemical_stuff.docx (every table except its
+own "Tools, Devices and Kits"), Liber Mechanika's alchemical
+supplies table (p. 57), Book of Vile Darkness drugs and
+poisons, the Frostburn / Sandstorm / Complete Adventurer /
+Complete Scoundrel / Races alchemical tables, the SRD
+canonical alchemical items, and named alchemical items from
+other books. NOT moved: tools, devices, kits, containers,
+capsule retainers, clerical implements, spell/metamagic
+components (all 83 Unearthed Arcana Table 5-2 components
+stay), special materials, firearms ammunition and powder,
+vehicles, saddles, clothing.
+
+Ammunition facets (src/lib/item-facets.ts): the Ammunition
+section renders two button rows mirroring the Weapons
+buttons — Normal 163 / Alchemical 41, Gun 21 / Other 183
+(of 204). Judgment calls documented in the lib: tracer shot
+and the Siegemaster's glass load (alchemical glass +
+explosive charge) count as alchemical; live-creature loads,
+pitch/flare arrows, hot oil/sand and disease siege loads are
+Normal; cannon shells are Normal but Gun; sling bullets —
+including the alchemical exploding bullet and firesling
+bullets — are Other, not Gun.
+
+Alphabetical order: every Equipment section list now sorts
+by name at render time (plain sections, Weapons subcategory
+lists, Ammunition facet lists). Magic Items keep their
+level-then-alphabetical order, untouched.
+
+Built and verified locally (barrel audit: totals, per-category
+counts, zero cross-barrel duplicates, every moved id exactly
+once; tsc + vite build pass). Not pushed from this session —
+the push and its version.json stamp are the parent agent's
+step.
+
+Addenda to the purity sweep (same call, 2026-11-04):
+
+- Schemas section: the Minor Schema (Magic of Eberron
+  p. 122) was filed under Scrolls, but a schema is a
+  reusable once-per-day spell-completion plate, not a
+  consumable scroll. It now carries category "schema" via a
+  barrel-level category override (MAGIC_CATEGORY_OVERRIDES
+  in barrel-overrides.ts; its source record is untouched),
+  and Magic Items has a Schemas section next to Scrolls and
+  Wands (Player Reference mirrors it). The Spelljamming ship
+  helms and the Whelm spells/weapons are not schemas and
+  were not touched.
+- Creating Magic Items panel: one compact annotation panel
+  in the clear space to the right of the Magic Items header
+  (stacks underneath on narrow screens) — not repeated next
+  to section headers. It gives the creation method per
+  family (any item: materials half price, XP 1/25, 1 day per
+  1,000 gp; scroll SL x CL x 25 gp; potion/oil SL x CL x
+  50 gp with Shaun's house line — Brew from CL 1st, Improved
+  halves it, Greater allows 4th-5th; wand SL x CL x 750 gp;
+  staff 750 gp x CL x highest spell level, second spell 75%,
+  further 50%; wondrous/ring/rod priced by effect; arms &
+  armor bonus squared x 1,000 / 2,000 gp).
+- Brew Injection (Sorcery & Steam feats): the benefit text
+  flattened the save-DC rule to a flat increase; corrected
+  to Shaun's document wording — save DCs increased by 2 per
+  spell level of the injection. Nothing else in the record
+  changed.
+- Add buttons on item rows (Equipment and Magic Items):
+  Plus icon removed, label is just "Add", tighter horizontal
+  padding — the buttons are visibly shorter. Nothing else
+  about the rows changed.

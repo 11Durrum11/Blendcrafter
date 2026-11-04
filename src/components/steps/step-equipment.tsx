@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { Coins, Info, Plus, Search, Shield, Trash2, ChevronDown, ChevronRight } from "lucide-react";
+import { Coins, Info, Search, Shield, Trash2, ChevronDown, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ALL_EQUIPMENT, ALL_MAGIC_ITEMS, SPELLS_BY_ID } from "@/data";
 import type { EquipmentItem, InventoryEntry, MagicItemDefinition, ResolvedCharacter, Ruleset } from "@/engine/types";
 import { weaponSubcategory, WEAPON_SUBCATEGORIES } from "@/lib/weapon-subcategories";
+import { ammoFacet, ammoDelivery, AMMO_FACETS, AMMO_DELIVERIES } from "@/lib/item-facets";
 import { formatGp, initialWealthSplit, WEALTH_BY_LEVEL, wealthByLevel } from "@/engine/wealth";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -35,6 +36,7 @@ const EQUIPMENT_CATEGORY_ORDER: { key: string; label: string }[] = [
   { key: "weapon", label: "Weapons" },
   { key: "armor", label: "Armor" },
   { key: "shield", label: "Shields" },
+  { key: "helmet", label: "Helmets" },
   { key: "ammunition", label: "Ammunition" },
   { key: "alchemical gear", label: "Alchemical Gear" },
   { key: "tool", label: "Tools" },
@@ -43,6 +45,7 @@ const EQUIPMENT_CATEGORY_ORDER: { key: string; label: string }[] = [
 ];
 
 const MAGIC_CATEGORY_ORDER: { key: string; label: string }[] = [
+  { key: "wondrous-helmets", label: "Helmets" },
   { key: "wondrous-head", label: "Wondrous — Head" },
   { key: "wondrous-face", label: "Wondrous — Face" },
   { key: "wondrous-throat", label: "Wondrous — Throat" },
@@ -60,6 +63,7 @@ const MAGIC_CATEGORY_ORDER: { key: string; label: string }[] = [
   { key: "staff", label: "Staffs" },
   { key: "wand", label: "Wands" },
   { key: "scroll", label: "Scrolls" },
+  { key: "schema", label: "Schemas" },
   { key: "potion", label: "Potions" },
   { key: "weapon", label: "Magic Weapons" },
   { key: "armor", label: "Magic Armor" },
@@ -72,6 +76,20 @@ const MAGIC_CATEGORY_ORDER: { key: string; label: string }[] = [
   { key: "artifact", label: "Artifacts" },
 ];
 
+/* Creation mechanics annotation (Shaun, 2026-11-04): ONE compact
+ * panel beside the Magic Items header — not repeated next to each
+ * section. The creation method per family, standard SRD/DMG
+ * figures, plus Shaun's house line for brewing potions and oils. */
+const MAGIC_ITEM_CREATION_LINES: { label: string; text: string }[] = [
+  { label: "Any item", text: "materials cost half the base price; XP cost is 1/25 of the base price; time is 1 day per 1,000 gp of the base price. You must meet the item's prerequisites and set its caster level." },
+  { label: "Scroll", text: "spell level × caster level × 25 gp — any spell you know, any level; the per-spell listings are just examples of this method." },
+  { label: "Potion or oil", text: "spell level × caster level × 50 gp, for spells up to 3rd level that target creatures. House rule: Brew Potion or Oil from caster level 1st; Improved halves it (× 25 gp); Greater allows 4th–5th level spells at × 50 gp." },
+  { label: "Wand", text: "spell level × caster level × 750 gp, spells up to 4th level, 50 charges." },
+  { label: "Staff", text: "750 gp × caster level × highest spell level; the second spell at 75% of that rate; each further spell at 50%." },
+  { label: "Wondrous item, ring, rod", text: "priced by the effect — ability or save bonus squared × 1,000 gp; skill bonus squared × 100 gp; a spell effect at spell level × caster level × 1,800 gp (command word) or × 2,000 gp (use-activated); a no-space (slotless) item costs double." },
+  { label: "Arms & armor", text: "enhancement bonus squared × 1,000 gp (armor and shields) or × 2,000 gp (weapons), on top of the masterwork item." },
+];
+
 interface CategorySection<T> {
   key: string;
   label: string;
@@ -81,11 +99,12 @@ interface CategorySection<T> {
 function groupByCategory<T extends { category: string }>(
   items: T[],
   order: { key: string; label: string }[],
-  normalize?: (category: string) => string
+  normalize?: (category: string) => string,
+  keyOf?: (item: T) => string
 ): CategorySection<T>[] {
   const byKey = new Map<string, T[]>();
   for (const item of items) {
-    const key = normalize ? normalize(item.category) : item.category;
+    const key = keyOf ? keyOf(item) : normalize ? normalize(item.category) : item.category;
     const list = byKey.get(key) ?? [];
     list.push(item);
     byKey.set(key, list);
@@ -102,6 +121,14 @@ function groupByCategory<T extends { category: string }>(
     sections.push({ key, label: key[0].toUpperCase() + key.slice(1), items: byKey.get(key)! });
   }
   return sections;
+}
+
+// Alphabetical order inside every Equipment section list (Shaun,
+// 2026-11-04), applied at render time — the data order is untouched.
+// Magic Items keep their level-then-alphabetical order instead
+// (groupMagicItems below).
+function sortedByName<T extends { name: string }>(items: T[]): T[] {
+  return items.slice().sort((a, b) => a.name.localeCompare(b.name));
 }
 
 // One shell, three step windows (Shaun, 2026-11-04: "give
@@ -190,6 +217,12 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
   // Weapons split into Melee / Ranged / Firearms behind subcategory
   // buttons (Shaun, 2026-11-03); each button opens its own list.
   const [openWeaponSubs, setOpenWeaponSubs] = useState<Set<string>>(new Set());
+  // Ammunition splits behind two button rows (Shaun, 2026-11-04):
+  // Normal / Alchemical and Gun / Other, mirroring the Weapons
+  // subcategory buttons; a list shows the ammunition matching both
+  // an open facet and an open delivery.
+  const [openAmmoFacets, setOpenAmmoFacets] = useState<Set<string>>(new Set());
+  const [openAmmoDeliveries, setOpenAmmoDeliveries] = useState<Set<string>>(new Set());
   const toggleSet = (fn: React.Dispatch<React.SetStateAction<Set<string>>>, key: string) =>
     fn((prev) => {
       const next = new Set(prev);
@@ -229,8 +262,8 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
           {typeof item.acBonus === "number" && <Badge variant="secondary" className="text-[10px]">AC +{item.acBonus}</Badge>}
         </div>
       </div>
-      <Button type="button" size="sm" variant="outline" onClick={() => onAdd("equipment", item.id)} data-testid={`button-add-equipment-${item.id}`}>
-        <Plus className="mr-1 h-3.5 w-3.5" /> Add
+      <Button type="button" size="sm" variant="outline" className="px-2" onClick={() => onAdd("equipment", item.id)} data-testid={`button-add-equipment-${item.id}`}>
+        Add
       </Button>
     </div>
   );
@@ -262,8 +295,17 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
   const equipmentSections = groupByCategory(visibleEquipment, EQUIPMENT_CATEGORY_ORDER);
   // "wondrous-item" is a one-record spelling variant of "wondrous" in
   // the data; the two display as one Wondrous Items section.
-  const magicSections = groupByCategory(visibleMagicItems, MAGIC_CATEGORY_ORDER, (c) =>
-    c === "wondrous-item" ? "wondrous" : c
+  // Magic helmets get their own Helmets section (Shaun, 2026-11-04:
+  // helmets in their own category, magic ones here, non-magic ones
+  // in Equipment): head-slot items with "helm" in the name split out
+  // of Wondrous — Head at grouping time. The Spelljamming ship helms
+  // stay in Wondrous — Slotless — they are ship components, not
+  // headgear.
+  const magicSections = groupByCategory(
+    visibleMagicItems,
+    MAGIC_CATEGORY_ORDER,
+    (c) => (c === "wondrous-item" ? "wondrous" : c),
+    (m) => (m.category === "wondrous-head" && /helm/i.test(m.name) ? "wondrous-helmets" : m.category === "wondrous-item" ? "wondrous" : m.category)
   );
 
 
@@ -570,7 +612,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
                         {WEAPON_SUBCATEGORIES.map((sub) => {
                           const subOpen = searching || openWeaponSubs.has(sub.key);
                           if (!subOpen) return null;
-                          const subItems = section.items.filter((i) => weaponSubcategory(i) === sub.key);
+                          const subItems = sortedByName(section.items.filter((i) => weaponSubcategory(i) === sub.key));
                           if (subItems.length === 0) return null;
                           return (
                             <div key={sub.key} data-testid={`weapon-sub-list-${sub.key}`}>
@@ -589,9 +631,77 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
                       </div>
                     );
                   })()}
-                  {equipOpen && section.key !== "weapon" && (
+                  {equipOpen && section.key === "ammunition" && (() => {
+                    // Ammunition opens onto two button rows (Shaun,
+                    // 2026-11-04), mirroring the Weapons subcategory
+                    // buttons: Normal / Alchemical, then Gun / Other.
+                    // Each facet button opens its list, filtered to
+                    // the open deliveries; while searching, every
+                    // facet and delivery shows so matches are visible.
+                    const searching = equipQuery.trim() !== "";
+                    const facetOpen = (key: string) => searching || openAmmoFacets.has(key);
+                    const deliveryOpen = (key: string) => searching || openAmmoDeliveries.has(key);
+                    return (
+                      <div>
+                        <div className="flex flex-wrap gap-1.5 px-3 py-2">
+                          {AMMO_FACETS.map((facet) => {
+                            const count = section.items.filter((i) => ammoFacet(i) === facet.key).length;
+                            if (count === 0) return null;
+                            const open = facetOpen(facet.key);
+                            return (
+                              <Button
+                                key={facet.key}
+                                type="button"
+                                size="sm"
+                                variant={open && !searching ? "default" : "outline"}
+                                onClick={() => toggleSet(setOpenAmmoFacets, facet.key)}
+                                aria-expanded={open}
+                                data-testid={`button-ammo-facet-${facet.key}`}
+                              >
+                                {facet.label} <span className="ml-1 text-xs opacity-75">({count})</span>
+                              </Button>
+                            );
+                          })}
+                        </div>
+                        <div className="flex flex-wrap gap-1.5 px-3 pb-2">
+                          {AMMO_DELIVERIES.map((delivery) => {
+                            const count = section.items.filter((i) => ammoDelivery(i) === delivery.key).length;
+                            if (count === 0) return null;
+                            const open = deliveryOpen(delivery.key);
+                            return (
+                              <Button
+                                key={delivery.key}
+                                type="button"
+                                size="sm"
+                                variant={open && !searching ? "default" : "outline"}
+                                onClick={() => toggleSet(setOpenAmmoDeliveries, delivery.key)}
+                                aria-expanded={open}
+                                data-testid={`button-ammo-delivery-${delivery.key}`}
+                              >
+                                {delivery.label} <span className="ml-1 text-xs opacity-75">({count})</span>
+                              </Button>
+                            );
+                          })}
+                        </div>
+                        {AMMO_FACETS.map((facet) => {
+                          if (!facetOpen(facet.key)) return null;
+                          const facetItems = sortedByName(section.items.filter((i) => ammoFacet(i) === facet.key && deliveryOpen(ammoDelivery(i))));
+                          if (facetItems.length === 0) return null;
+                          return (
+                            <div key={facet.key} data-testid={`ammo-facet-list-${facet.key}`}>
+                              <p className="border-t border-card-border bg-muted/40 px-3 py-1.5 font-display text-xs font-semibold uppercase tracking-wide text-muted-foreground">{facet.label}</p>
+                              <div className="grid sm:grid-cols-2 lg:grid-cols-4">
+                                {facetItems.map(renderEquipmentRow)}
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    );
+                  })()}
+                  {equipOpen && section.key !== "weapon" && section.key !== "ammunition" && (
                   <div className="grid sm:grid-cols-2 lg:grid-cols-4">
-                    {section.items.map(renderEquipmentRow)}
+                    {sortedByName(section.items).map(renderEquipmentRow)}
                   </div>
                   )}
                 </div>
@@ -606,14 +716,31 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
       {part === "magic" && (
       <Card>
         <CardHeader>
-          <CardTitle className="font-display text-xl">Magic Items</CardTitle>
-          <CardDescription>
-            Source:{" "}
-            <a href="https://www.d20srd.org/srd/magicItems/" target="_blank" rel="noreferrer" className="text-primary underline underline-offset-2">
-              d20 SRD Magic Items
-            </a>
-            .
-          </CardDescription>
+          <div className="flex flex-wrap items-start justify-between gap-4">
+            <div>
+              <CardTitle className="font-display text-xl">Magic Items</CardTitle>
+              <CardDescription>
+                Source:{" "}
+                <a href="https://www.d20srd.org/srd/magicItems/" target="_blank" rel="noreferrer" className="text-primary underline underline-offset-2">
+                  d20 SRD Magic Items
+                </a>
+                .
+              </CardDescription>
+            </div>
+            {/* The one creation-mechanics panel (Shaun, 2026-11-04):
+                in the clear space to the right of the Magic Items
+                header; it stacks underneath on narrow screens. */}
+            <div className="max-w-xl rounded-md border border-card-border bg-muted/40 p-3" data-testid="panel-magic-item-creation">
+              <p className="font-display text-xs font-semibold uppercase tracking-wide">Creating Magic Items</p>
+              <ul className="mt-1.5 space-y-1 text-xs leading-snug text-muted-foreground">
+                {MAGIC_ITEM_CREATION_LINES.map((line) => (
+                  <li key={line.label}>
+                    <span className="font-semibold text-foreground">{line.label}:</span> {line.text}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </CardHeader>
         <CardContent>
           <div className="relative">
@@ -669,8 +796,8 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
                       {/* Category / rule-set tags removed (Shaun, 2026-11-04) — name + price only, so the name has the room. */}
                     </div>
                   </div>
-                  <Button type="button" size="sm" variant="outline" onClick={() => onAdd("magic-item", item.id)} data-testid={`button-add-magic-item-${item.id}`}>
-                    <Plus className="mr-1 h-3.5 w-3.5" /> Add
+                  <Button type="button" size="sm" variant="outline" className="px-2" onClick={() => onAdd("magic-item", item.id)} data-testid={`button-add-magic-item-${item.id}`}>
+                    Add
                   </Button>
                 </div>
                     ))}
