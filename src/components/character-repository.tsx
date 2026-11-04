@@ -136,7 +136,7 @@ export function CharacterRepository({ build, onLoad, part = "all" }: CharacterRe
             <span className="hidden sm:inline">Characters</span>
           </Button>
         </DialogTrigger>
-        <DialogContent className="max-w-2xl">
+        <DialogContent className="flex h-[100dvh] max-h-[100dvh] w-[100vw] max-w-none flex-col rounded-none sm:max-w-none sm:rounded-none">
           <DialogHeader>
             <DialogTitle className="font-display text-xl">Character Repository</DialogTitle>
             <DialogDescription>
@@ -161,7 +161,7 @@ export function CharacterRepository({ build, onLoad, part = "all" }: CharacterRe
             </Button>
           </div>
 
-          <div className="max-h-[55vh] overflow-y-auto pr-1">
+          <div className="flex-1 overflow-y-auto pr-1">
             {filtered.length === 0 ? (
               <div className="rounded-md border border-dashed border-card-border p-8 text-center text-sm text-muted-foreground">
                 {records.length === 0 ? "No characters have been saved yet." : "No saved characters match your search."}

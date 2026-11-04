@@ -170,7 +170,7 @@ export function StepSpells({ build, resolved, onToggleSpell }: StepSpellsProps) 
               .filter((g) => g.spells.length > 0);
             if (searching && visibleLevels.length === 0) return null;
             return (
-              <div key={profile.listName} className={expanded ? "col-span-full ml-[calc(50%-50vw)] w-screen rounded-md border border-card-border" : "rounded-md border border-card-border"} data-testid={`library-type-${profile.classId}`}>
+              <div key={profile.listName} className={expanded ? "col-span-full ml-[calc(50%-50vw)] min-h-[100dvh] w-screen rounded-md border border-card-border" : "rounded-md border border-card-border"} data-testid={`library-type-${profile.classId}`}>
                 <button
                   type="button"
                   className="flex w-full items-center gap-2 px-3 py-2 text-left"

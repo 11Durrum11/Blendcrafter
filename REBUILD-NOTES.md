@@ -5610,3 +5610,649 @@ Shaun: "Take off the toggle buttons for races and classes." The per-entity on/of
 
 ## Ability toggle switches removed (2026-11-03)
 Shaun (follow-up to the race/class switch removal): "Take off the toggles on the abilities too." The per-ability on/off Switch beside each ability score label in step-race (switch-enable-ability) is removed, along with the file's now-unused Switch import. Same pattern as races/classes: the disabledAbilities state, toggle prefs, and resolver behavior are untouched — a disabled ability would still render locked at 10 with its note, exactly as set (Shaun's own prefs have no abilities off); there is just no switch to flip it with. Remaining toggle switches in the app, not named by Shaun and left alone: skills (switch-enable-skill) and feats (switch-enable-feat) — verified still present in the built bundle, with switch-enable-ability/race/class/prestige all absent. Deploy included the standing version.json stamp bump.
+
+## All remaining toggle switches removed (2026-11-03)
+
+Shaun, after the race/class and ability removals: "Take all the
+toggles off. All of them." (dictation first rendered it "tacos"; he
+corrected it himself.) Inventory first: the only rendered Switch
+components left in the app were the skill switch, the feat switch,
+and the Spells step's "Selected only" filter switch — all three are
+now removed:
+
+- step-skills.tsx: the Switch beside each skill's rank buttons is
+  gone. `onToggleSkillEnabled` stays in the props interface
+  (documented) so builder wiring is unchanged.
+- step-feats.tsx: the feat detail dialog no longer takes a
+  headerAction — the switch WAS the header action.
+  `onToggleFeatEnabled` stays in the props interface (documented).
+- step-spells.tsx: the "Selected only" label + switch beside the
+  spell search box is gone, along with the `selectedOnly` state and
+  its two filter uses. The picking lists now always show every spell
+  for the level (the search box still narrows them). This one was a
+  display filter, not an entity on/off state — Shaun was told
+  plainly in the report that it went too, and that any of these can
+  be put back by name.
+
+The app now renders NO Switch components anywhere (the ui/switch.tsx
+primitive remains in the component library, unused). The Rule Sets
+and House Rules header popovers are untouched — those are Shaun's
+settings controls (checkboxes, not switches; the cross-class
+double-cost hard lock lives there). The toggle state underneath is
+untouched everywhere: disabled lists, toggle-prefs, campaign
+defaults, normalizeBuild, settings-link codec. Mobility and Spring
+Attack stay off and sunk under "Turned off"; a disabled skill would
+still show locked exactly as set (Shaun's prefs have no skills off).
+Verified by tsc, a clean production build, and bundle greps:
+"switch-enable" 0, "switch-spell-selected-only" 0, "Selected only" 0
+— down from the one remaining marker of each kind in the previous
+bundle. version.json stamp bumped in the same push:
+20261103203307.
+
+## Standard Warforged removed; house-ruled Warforged in its place (2026-11-03)
+
+Shaun: "Remove the standard warforged and put the house ruled one
+in its place." The Eberron Campaign Setting warforged record is
+deleted from src/data/eberron/races.ts (that pack now holds
+Changeling, Kalashtar, Shifter). The house-ruled record in
+src/data/homebrew/races.ts — Shaun's Doc #4 version: natural
+healing via biological nanites, healing spells and supernatural
+curing at FULL effect, +2 Con / −2 Wis / −2 Cha, composite plating,
+light fortification, 1d4 slam — took its place completely:
+
+- Its id changed "warforged-house" → "warforged" and its name
+  "Warforged (House Version)" → "Warforged". The rename matters:
+  prestige prerequisites match race by NAME (norm() in
+  prestige-prerequisites.ts), so "Race: Warforged" — Warforged
+  Juggernaut (ECS) and two Races of Eberron classes — now gates
+  correctly for this record; under the "(House Version)" name it
+  silently never matched. Its ruleset stays "homebrew" and its
+  source stays Shaun's Doc #4, so it still badges as his house
+  version in the picker and the Reference.
+- resolver.ts: RACES_BY_ID gained a legacy alias — builds saved
+  with raceId "warforged-house" resolve to this same record
+  instead of falling back to ALL_RACES[0]. Alias lives only in the
+  lookup map; there is exactly one warforged record in the catalog.
+  Builds saved with the standard "warforged" simply land on the
+  house version now — that is the replacement working as ordered.
+- Warforged Charger and Warforged Scout (MM III) were NOT touched;
+  they are separate variant races, not "the standard warforged".
+
+Verified: tsc clean; data audit over the real barrel — ALL_RACES
+115 (was 116), Eberron races exactly changeling/kalashtar/shifter,
+exactly one id "warforged" carrying the Natural Healing (House
+Rule) trait, zero "warforged-house" records, zero duplicate race
+ids. Grand total 23,044 → 23,043; Player Reference total is
+computed from the rows and follows automatically. Bundle greps:
+"Warforged (House Version)" 0, the standard's "cure only half
+their normal amount" 0, "biological nanites" 1. version.json stamp
+bumped in the same push: 20261103204021.
+
+## "Monster Races" header removed; its notation moved to the top (2026-11-03)
+
+Work order from Shaun via the main chat (he corrected his own first
+phrasing — the notation is NOT deleted with the header): "Remove
+the monster races header and put the notation at the top. With the
+other notations."
+
+- step-race.tsx: renderRaceSection now accepts a null title/blurb
+  and renders the group headless. The monster races render exactly
+  as before — same order (after the playable races), same tiles,
+  turned-off ones still hidden — but with no "Monster Races"
+  heading and no blurb under it. The "Playable Character Races"
+  heading and its blurb are untouched.
+- The notation moved to the top of the Base Race card, into the
+  CardDescription alongside the existing notations (the
+  base-creature line, the turned-off-races line, the Source line).
+  Because the original was a fragment tied to its heading ("From
+  monster-book entries — playable, but they start with racial Hit
+  Dice and level adjustments."), it gained a subject in its new
+  home and now reads: "Some races come from monster-book entries —
+  playable, but they start with racial Hit Dice and level
+  adjustments." Every content word of Shaun's notation is preserved.
+- Stale comments updated in step-race.tsx and race-groups.ts; the
+  grouping logic (isMonsterRace / MONSTER_RACE_IDS) is unchanged.
+
+Verified: tsc clean; bundle greps — "Monster Races" 0, the old
+blurb 0, the moved notation 1, "Playable Character Races" and its
+blurb still 1 each. version.json stamp bumped in the same push:
+20261103205243.
+
+## Class breakdown button + FULL class dialog (2026-11-03)
+
+Shaun: "In classes, give an exclamation point that breaks down the
+entire class fully." Two gaps closed:
+
+1. THE BUTTON. Base-class cards opened their detail dialog only by
+   clicking the class name — no visible button like the race tiles'
+   round info (ⓘ) button. Each class card now carries that same
+   round info button beside the level badge (testid
+   button-breakdown-class-<id>), and the Classes card description
+   points at it. The name still opens the dialog too. The Prestige
+   Classes cards got the identical button
+   (button-breakdown-prestige-<id>) so the two steps match.
+
+2. THE BREAKDOWN ITSELF. describeClass's dialog was thin: vitals
+   plus only the FINAL level's numbers, and the class's features
+   were never shown at all. classSections (shared by describeClass
+   and describePrestigeClass) now renders the entire class:
+   Overview (hit die, BAB kind, skill points, good saves);
+   "Progression — level by level" (every row: BAB/Fort/Ref/Will);
+   "Class Features" (every feature with its full text, level-gated
+   features marked "(from level N)" via the records' levelsNeeded,
+   general features first, then by arrival level); Class Skills.
+   Prestige keeps its Prerequisites section on top. Also fixed a
+   stale line in the prestige summary ("confirmed on the Classes
+   step" → the Prestige Classes step, where certifications live).
+
+Audit over the real data: all 63 base classes and all 361 prestige
+classes carry features; 630 base + 3,034 prestige progression rows
+render. Fighter and Wizard breakdowns eyeballed end to end
+(Wizard: Spells, Summon Familiar, Scribe Scroll, Spellbooks,
+Bonus Feats from level 5 — the whole class). Note the builder's
+classes are modeled to level 10 per class, so the tables show
+every level the builder has. version.json stamp bumped in the
+same push: 20261103205938.
+
+## Feat-section drag-to-reorder removed — "the six little dots" (2026-11-03)
+
+Shaun: "Remove the ability to move all the feats around. The six
+little dots." The six dots were the GripVertical handle on the
+Feats step's category section titles: pressing a title and
+dragging rearranged the sections (class bonus-feat sections and
+the six category sections), with the custom order persisted in
+localStorage (blendcrafter:feat-section-order). All of it is
+removed from step-feats.tsx:
+
+- the GripVertical icon on every section title;
+- the pointer-drag handlers (down/move/up/cancel), the drag
+  state/refs, the drag ring highlight, the grab cursors, and the
+  data-feat-section targeting attribute;
+- the sectionOrder state, its localStorage persistence, and the
+  orderedSections sort — sections now render in their built
+  order (class bonus-feat sections first, then General, Combat,
+  Item Creation, Metamagic, Race-Specific, Setting-Specific).
+  An order saved on a device earlier is simply never read again.
+
+Section titles still click to expand/collapse exactly as before,
+an open section still stretches full-width, and nothing about
+picking feats changed. Verified: tsc clean; bundle greps —
+"blendcrafter:feat-section-order" 0, "data-feat-section" 0,
+"cursor-grab" 0, section toggle buttons still present.
+version.json stamp bumped in the same push: 20261103210633.
+
+## Header boxes are movable — the drag action moved to the top of the site (2026-11-03)
+
+Shaun, right after ordering the Feats drag removed: "Put the six
+button movable action on the boxes at the top of the very site."
+The ten header boxes in src/pages/builder.tsx (Rule Sets,
+Characters, House Rules, Save, New / theme moon, Export, Copy
+build link, Copy settings link, Import) are now drag-to-reorder,
+using the same interaction the Feats section titles had:
+
+- Each box renders inside a wrapper (data-header-box) carrying
+  the pointer handlers. Press and move past 8px and the drag
+  starts (the box rings); dragging over another box trades their
+  places live, across both lines — the pool is all ten, rendered
+  five to a line from one order list.
+- A plain click still does the box's own job. Two guards stop a
+  drag from firing the box's action on release: pointer capture
+  (taken only once a drag actually starts) retargets the ending
+  click to the wrapper, and a capture-phase onClickCapture
+  swallows any click that slips through within 50ms of a drag.
+  No child component was touched — the toggles and the character
+  repository are wrapped, not edited.
+- The arrangement persists per device in localStorage
+  (blendcrafter:header-box-order). State always holds all ten
+  ids: a saved order is merged over HEADER_BOX_DEFAULT_ORDER,
+  which is the layout Shaun settled earlier the same day (Rule
+  Sets over the moon, Characters over Export, three right on
+  each line) — so a fresh device sees exactly that.
+- No grip dots were added inside the boxes — the boxes
+  themselves are the handles (grab cursor). Shaun was told
+  plainly; dots can be added if he asks.
+
+Verified: tsc clean; bundle carries the order key, the
+data-header-box targeting and the grab cursor, and every header
+box's own testid still renders. version.json stamp bumped in
+the same push: 20261103211502.
+
+## Header boxes frozen — moving removed, Shaun's phone arrangement kept (2026-11-03)
+
+Shaun, minutes after the movable header shipped: "Now remove
+the ability to move them. I've put them where I wanted to."
+Offered the two ways to freeze — bake his arrangement in for
+every device, or freeze it on his phone only — he tapped
+"Just freeze it on my phone."
+
+So in src/pages/builder.tsx: all the drag machinery is removed
+(the wrappers, pointer handlers, click guards, drag state, grab
+cursors, and the localStorage WRITE), and the boxes render bare
+again in two rows of five. What deliberately STAYS is the
+one-time READ of the saved arrangement
+(blendcrafter:header-box-order, merged over the default order):
+Shaun's phone loads the layout he put the boxes in and shows it
+frozen, exactly as chosen. The trade-off he accepted: the
+arrangement lives only in that phone's browser storage — clear
+the site data there and that phone falls back to the default
+layout; other devices show the default unless they saved an
+arrangement of their own during the movable window.
+
+Verified: tsc clean; bundle keeps the order-key read (1) with
+data-header-box 0 and cursor-grab 0, and every header box still
+renders. version.json stamp bumped in the same push:
+20261103213450.
+
+## Header arrangement BAKED IN — Shaun's screenshot order, permanent for every device (2026-11-03)
+
+Minutes after the phone-freeze shipped, Shaun reversed: "No
+make it baked in then." Asked to read off his order, he answered
+in the main chat with a screenshot of his phone (9:40 PM) and
+"The way you see it now bake it in." The arrangement read off
+the screenshot, with every icon-to-function mapping verified
+against the code before building (Rule Sets = BookOpen + the
+ruleset-count badge "5"; Characters = BookOpen, no badge; House
+Rules = Settings2 + the off-default badge "1"; Save = the Check
+button in character-repository; Import = Upload; Export =
+Download; New = UserPlus; Moon = theme; Copy build = Link2;
+Copy settings = SlidersHorizontal):
+
+  Line one: Rule Sets · Import · Characters · New · Moon
+  Line two: House Rules · Export · Save · Copy build link ·
+            Copy settings link
+
+HEADER_BOX_ORDER in src/pages/builder.tsx is now this exact
+list as a plain constant. The localStorage read is gone too —
+the blendcrafter:header-box-order key is never looked at, so
+any arrangement a device saved during the movable window is
+ignored, and every device (Shaun's phone included, cache clears
+or not) shows exactly his arrangement. This supersedes both
+the earlier settled layout and the phone-only freeze.
+
+Verified: tsc clean; bundle has the header-box-order key at 0,
+data-header-box 0, and every header box's testid still renders.
+version.json stamp bumped in the same push: 20261103214348.
+
+## Prestige classes minimized to names unless prerequisites are met (2026-11-03)
+
+Shaun: "Minimize the prestige classes down to their names.
+Unless they are prerequisites met." In step-prestige.tsx the
+tiers now render in two forms:
+
+- Prerequisites MET (and not turned off): the full card, exactly
+  as before — prereq checklist, level controls, breakdown button.
+- Everything not met: just the name (renderPrestigeNameRow),
+  grayed, in a tight name grid under its tier heading. Tapping
+  the name still opens the full breakdown dialog, so nothing is
+  hidden away. The same rule is applied inside "Turned off":
+  met ones keep full cards, non-met ones are names.
+
+Two deliberate exceptions, both forced by how the step works:
+(1) A non-met class blocked by player-certifiable "special"
+prerequisites (e.g. bardic music) keeps those certify checkboxes
+under its name — without them the class could never become met.
+(2) A class the build has already TAKEN keeps its full card even
+if its prerequisites later break, so its levels stay manageable
+(remove button + the red warning). The step's description text
+now says the not-met classes are listed by name only.
+
+Verified: tsc clean; bundle carries the new description line,
+the certify checkboxes, and both card forms. version.json stamp
+bumped in the same push: 20261103215120.
+
+## Spell category audit + descriptor-as-subschool fix (2026-11-03)
+
+Shaun: "I don't think the spells are in their right categories."
+Full audit over all 2,497 spells (schools, subschools, list
+memberships and levels):
+
+- Schools: correct. All 30 iconic spells sit in their book
+  schools; Summon/Cure name patterns clean; subschool-to-school
+  consistency holds across the catalog.
+- Levels/lists: correct on every check — iconic spells at their
+  book levels on their book lists, Summon Monster/Nature's Ally
+  numerals exact, ~97 SRD cleric staples all present with Cleric
+  keys under their catalog names ("Cure Light Wounds, Mass",
+  "Dispel Magic, Greater", …). Apparent absences (Gate, Astral
+  Projection, Ethereal Jaunt, Word of Recall, Refuge) are the
+  deliberate 2026-11-02 transdimensional deletions, not errors.
+- Odd-looking but AS PRINTED in their books, left alone:
+  healing spells filed under Necromancy by their own books
+  (Healing Sting and Healing Touch, Spell Compendium; Blood of
+  the Martyr, Book of Exalted Deeds — printed Necromancy
+  (Healing)); four Player's Handbook II spells printed with two
+  schools (Doom Scarabs, Kelgore's Fire Bolt, Kelgore's Grave
+  Mist, Slashing Dispel).
+- Actually wrong, now fixed: 7 records carried a bracketed
+  DESCRIPTOR in the subschool field, so they displayed like
+  "Evocation (Force)". The descriptor moved to descriptors and
+  the subschool cleared: Crushing Hand, Floating Disk,
+  Interposing Hand, Mage's Sword ([Force], SRD); Channeled
+  Sound Blast ([Sonic], Complete Mage); Forest Voice
+  ([Language-Dependent], Complete Champion); Fatal Flame
+  (empty-string subschool removed, Complete Scoundrel).
+  Verified against the real barrel: still 2,497 spells, zero
+  descriptor-subschools left.
+
+Shaun was asked to name any specific spell he saw misfiled —
+the bulk audit says the categories hold, so his sighting is
+the best lead for anything remaining.
+
+## Class grids: four across instead of three (2026-11-04)
+
+Shaun: "In the class section make it four rows instead of
+three." Every card grid in the Classes step and the Prestige
+Classes step went from lg:grid-cols-3 to lg:grid-cols-4 — base
+class cards (on and turned-off), prestige full cards in all
+three tiers, and the minimized prestige name rows. Phones are
+unchanged (one column, two at sm:). version.json stamp bumped
+in the same push.
+stamp=20261104050358
+
+
+## Header cleanup: copy-link buttons hidden, tagline removed, one row on laptop (2026-11-04)
+
+Shaun, on a live voice call: "Hide them" (Copy build link /
+Copy settings link - he confirmed he had never used either),
+then "remove the Blendcrafter d20 SRD 3.5 template blending
+character builder words", then "put the boxes all in one row
+on the top" - "just for the purposes of the laptop."
+
+- HEADER_BOX_ORDER drops "copy-build" and "copy-settings";
+  the buttons and handlers remain in headerBoxNodes, so
+  re-adding the ids restores them. Opening an incoming
+  build/settings link still works.
+- The tagline span beside the Blendcrafter title is deleted
+  (it was md:inline - wider screens only - so its removal is
+  inherently a laptop-view change).
+- The header box container is flex-col on small widths and
+  lg:flex-row on laptop widths: the two box groups sit side
+  by side in one row on the laptop; phones keep the two
+  stacked lines.
+version.json stamp bumped in the same push.
+stamp=20261104051629
+commit=1a9007dc
+
+
+## Templates picker: Half-Forged to the top, Half-Dragon to the bottom (2026-11-04)
+
+Shaun, on a live voice call: "Grey out and sink to the bottom
+half dragon template" - then cancelled the grey-out ("Don't
+bother" / "Don't do it" / "Just sink it to the bottom"), and
+added "Bring half forge to the top" (Half-Forged).
+
+step-templates.tsx: the "Add a Template" list is now a stable
+partition of availableTemplates - half-forged first, then
+everything else in catalog order, then half-dragon last.
+Half-Dragon renders completely normally; only its position
+changed. Applied (already-chosen) template chips are
+unaffected - they follow the character's own application
+order.
+version.json stamp bumped in the same push.
+stamp=20261104052809
+commit=e08fe839
+
+
+## Feats and Spells: name lists in four columns (2026-11-04)
+
+Shaun, on a live voice call (laptop view): in Feats, clicking
+a category (e.g. Fighter Bonus Feats) drops down all the
+names in a single column - "put all those in four columns.
+And do that for all the feat titles." Then the same for
+Spells: "within each type category, for example zero level
+cantrips, first level spells, put them in four columns also
+... per level."
+
+- step-feats.tsx: all three in-section name lists (active,
+  "Prerequisites not met", "Turned off") are now
+  grid-cols-1 gap-x-4 sm:grid-cols-2 lg:grid-cols-4.
+- step-spells.tsx: the Spell Library's per-level name list
+  inside each casting-type section got the identical grid.
+  The per-class picking cards below the library are unchanged
+  (full cards, not name lists).
+
+Push history worth remembering: the feats-only push was
+DECLINED at Shaun's approval card and stayed unpublished;
+the spells change was built locally, then Shaun said yes to
+one combined push, which he approved (this commit).
+version.json stamp bumped in the same push.
+stamp=20261104053411
+commit=6403d4c3
+
+## 2026-11-04 — Equipment lists minimized + doubled; Wealth currency block on four lines (Shaun, voice call) — commit f3e6a57e, stamp 20261104054025, bundle index-Br0wuGHo.js
+
+step-equipment.tsx only. (1) "Minimize all the wordings under the item names": the under-name line is gone from equipment rows (weight · notes), magic item rows (summary), and inventory rows (summary) — rows are name + price + badges + Add; full text still behind each row's info button. (2) "Double up on the columns": the item lists inside open Equipment sections, weapon subcategory lists, and Magic Items sections went from a single-column stack to `grid sm:grid-cols-2` (one column on phones, two from sm up); rows carry their own bottom border now that divide-y is gone. Inventory stays one column. (3) Wealth currency block: split from two shared lines (Coin + Gems / Scripts + Cheqs) onto FOUR lines at his direction — Coin 1st, Gems 2nd ("gems and its wording in the second line"), Scripts 3rd, Cheqs 4th ("checks and its wording on the fourth line") — wording verbatim, only line breaks changed. tsc clean, vite build clean; live md5 bd15400ed5b2a3c929b4f265518600bf == local dist; version.json flipped to 20261104054025.
+
+## 2026-11-04 — Three windows for step 8 + Skills two columns + General feats on top (Shaun, voice call) — commit 70586061, stamp 20261104054834, bundle index-NoXZ_Acl.js
+
+(1) Step split at Shaun's numbering: Equipment 8, Magic Items 9, Inventory 10, Personality 11, Character Sheet 12, Player Reference 13 (builder.tsx STEPS + render blocks). step-equipment.tsx is now one shell (StepEquipmentShell) with a `part` switch and three thin exported wrappers — StepEquipment renders the Wealth header + Equipment card, StepMagicItems the Magic Items card, StepInventory the Inventory card; all three receive the same props from the builder. (2) Skills step: the skill list runs two columns (grid sm:grid-cols-2, gap-px hairlines over the border color, rows on bg-card; phones stay one column). (3) Feats step: the General category section renders FIRST, above the class bonus-feat sections (display order only — class sections still claim their feats first, so no feat changed sections); remaining categories follow in FEAT_CATEGORY_ORDER after the class sections. tsc clean, vite build clean; live md5 b8cd8ae4ea36c37b7f8e7efa5de341e3 == local dist; version.json flipped to 20261104054834.
+
+## 2026-11-04 — "Empty" prestige classes investigated (Shaun, voice call) — NO data gap; display artifact of the gate
+
+Shaun named ~20 prestige classes (Archmage, Extreme Explorer, Master Inquisitive, Warforged Juggernaut, the Sorcery & Steam Eberron-flavored set, Blade Bravo, Cragtop Archer, Earth Dreamer, Runesmith, Stonedeath Assassin, Luckstealer, Bloodhound, Peregrine Runner) as "empty" in the Prestige Classes step. Audit against the real barrel + engine (temporary esbuild scripts, deleted after): ALL 361 prestige classes have features, feature text, and progression — zero empty records. describePrestigeClass output verified full for Archmage / Extreme Explorer / Luckstealer / Bloodhound (Prerequisites, Overview, Progression, Class Features, Class Skills all carry text). The actual cause: every named class's prerequisites parse to gate entries with NO "special" (self-certify) fragment (verified on a blank-character context — all unmet, zero special), and the minimized name-row in the "Prerequisites not met" list only ever prints the certify block for special entries under a name — so these names sit bare while classes with a special (Assassin, Loremaster, Eldritch Knight…) show a requirement line. Content is one tap away (name opens the full breakdown). Notes: no prestige class named plain "Inquisitive" exists (only Master Inquisitive); "Purgrind Runner" = Peregrine Runner. Possible fix if Shaun wants it: print unmet requirement lines under not-met names. Not built — his call.
+
+## 2026-11-04 — Unmet requirements printed under not-met prestige names (Shaun approved on voice call) — commit f51fa543, stamp 20261104055325, bundle index-Cwu0znln.js
+
+Follow-through on the "empty" prestige investigation above: renderPrestigeNameRow in step-prestige.tsx now lists each not-met class's UNMET gate entries under its name — entry text plus the failing fragments' reasons in destructive red, mirroring the full cards — above the unchanged special/certify block. Applies to both name-row lists (Prerequisites not met, and Turned off). tsc clean, vite build clean; live md5 b98b93e637e707725ed123f0a2823641 == local dist; version.json flipped to 20261104055325.
+
+## Everything four columns across the board (2026-11-04)
+
+Shaun: "Give everything four columns across the board."
+Audit first: Classes, Prestige, feat name lists, spell
+library per-level lists, race tiles, section-title grids and
+the Personality picker were already four across on laptop.
+The lists still short of four, now fixed (laptop lg: width;
+phones/sm unchanged):
+
+- Equipment step: the scrollable item lists inside open
+  Equipment sections, the weapon subcategory lists, and the
+  Magic Items section lists went sm:grid-cols-2 ->
+  + lg:grid-cols-4.
+- Inventory (its own step since 70586061): the single-column
+  divided list is now a grid (1 / sm:2 / lg:4); rows carry
+  their own bottom border since divide-y is gone.
+- Skills: sm:grid-cols-2 -> + lg:grid-cols-4 (empty-state
+  span widened to match).
+- Spells: the per-class picking cards under the library
+  went sm:grid-cols-2 -> + lg:grid-cols-4 (the library name
+  lists were already four).
+- Templates: the Add a Template cards went sm:grid-cols-2
+  -> + lg:grid-cols-4.
+- Player Reference: the results list is now a grid
+  (1 / sm:2 / lg:4) with a bottom border per row.
+
+Deliberately NOT four-columned: the six ability-score fields
+(a fixed set of six), the My Way dice grids, Personality's
+form/generator panels, and the Character Sheet's own layout
+(a sheet, not a list).
+version.json stamp bumped in the same push.
+stamp=20261104060038
+
+## Magic items ordered by level, then name; Flaws/Traits heads bigger (2026-11-04)
+
+Shaun, on a live voice call: "Subcategorize the scrolls by
+level and in alphabetical order" — then "Do that for all the
+magic items"; confirmed on the call: sort by level first,
+then alphabetically, and items with no level go at the top
+of their section, alphabetical. (He raised the Inventory for
+the same treatment, then cancelled it — "No, no, no, it's
+fine" — inventory ordering is untouched.)
+
+step-equipment.tsx: the Magic Items sections now render
+through groupMagicItems(). The spell level is derived from
+the item id's spell slug via SPELLS_BY_ID (lowest level on
+the six core class lists — the basis the generated
+wands/scrolls were priced on), scoped to the scroll / wand /
+potion categories, unwinding CL suffixes, variant numbers,
+source prefixes (motw-, snf-) and ", Greater"-style names.
+Verified against the real catalog before building: scrolls
+2,312 of 2,313 leveled (L0:51 L1:359 L2:429 L3:377 L4:311
+L5:243 L6:199 L7:138 L8:113 L9:92; only Minor Schema has no
+level), wands 1,527 of 1,529 (L0-L4; Eternal Wand and the
+psionic Dorje unleveled), potions 100 of 1,512 (L1-L3; the
+rest are elixirs, ointments, MotW infusions and foods whose
+spells are not in the catalog). Leveled groups render under
+"Level N (count)" headers in the weapon-subcategory header
+style; the unleveled group renders first with no header.
+Every other magic section is now sorted alphabetically by
+name (previously catalog order).
+
+step-personality.tsx: the Flaws and Traits picker heads —
+the word "Flaws"/"Traits" with the arrow beside it (Shaun
+corrected the target twice: not the card title, not each
+item's name) — and the matching "Your Flaws"/"Your Traits"
+picked-box heads went text-sm -> text-base. Nothing else in
+the step changed size.
+version.json stamp bumped in the same push.
+stamp=20261104061754
+
+## Interactive character sheet option (2026-11-04, Shaun)
+- Character Sheet step gains a Sheet format choice: "Built-in sheet" or
+  "Interactive sheet (PDF)" (remembered per device in localStorage
+  `blendcrafter:sheet-format`). The PDF is the interactive 3.5 sheet Shaun
+  supplied from his Dropbox (`Interactive_DnD_3.5_Character_Sheet.pdf`),
+  shipped base64-encoded in `src/lib/interactive-sheet-data.ts` (the push
+  tool moves text only) and filled in the browser with pdf-lib.
+- "My way, not its own way": the blank sheet carries 113 calculated fields
+  driven by its own JavaScript Calculate actions. The fill
+  (`src/lib/interactive-sheet.ts`) writes Blendcrafter's RESOLVED values
+  into every field — totals and parts, decomposed as the printed sheet lays
+  them out (skill total = ability mod + ranks + misc remainder; saves =
+  base from class progressions + ability + misc remainder; AC parts from
+  the resolved components with misc as the exact remainder) — then strips
+  every Calculate action and clears the read-only flags, blanking any
+  calculated field the build has no value for. Nothing left in the file
+  can recompute over the build; every box stays hand-editable.
+- Coverage: header (name, class/level string, career level, race,
+  alignment, religion, size, age), abilities + mods, HP, speed, AC block
+  (total/touch/flat-footed + parts), saves with parts, initiative, BAB,
+  grapple block, max class/cross-class ranks, all 47 printed skill rows
+  (Craft/Knowledge/Perform/Profession slots with sub-labels; unmapped
+  skills fall into the three extra rows with name + ability), feats (12),
+  special abilities (20), possessions (33 rows + weights + total weight),
+  weapon attack rows (5; damage only when the record's notes lead with
+  the dice), armor/shield blocks, protective items from AC-modifier magic
+  items, carrying capacity from Strength and size, spells known/prepared
+  grouped by level on each class's own list. Not filled (no resolved
+  source): player, campaign, XP, money, languages, save magic/conditional
+  boxes (magic written as 0 inside the decomposition), bonus spells and
+  spell DCs.
+- Verified offline against a real resolved Fighter 4 / Wizard 3: output
+  PDF keeps all 635 fields, carries ZERO Calculate actions and ZERO
+  read-only calculated fields, 285 mapped values with zero phantom field
+  names, and every decomposition sums exactly to the resolved totals.
+
+## Interactive sheet: extra pages (2026-11-04, Shaun — "make room")
+Shaun: "If that sheet doesn't have room for some of the extra stuff on
+our sheet like personality or whatever, make room." The filled PDF now
+grows two pages at the back (pages 3–4) carrying what the classic sheet
+has no boxes for, all as editable form fields (headings and labels are
+read-only label fields — drawn text trips a pdf-lib font check in this
+toolchain, fields render identically everywhere):
+- Page 3 "— Extra": type & subtypes, templates, ECL, level adjustment,
+  CR, all speed modes, skill points spent/total, feat slots used/total,
+  synergy notes; Flaws and Traits by name; Background, Goals, Secrets,
+  Trauma, Circumstances from the personality profile.
+- Page 4 "— Extra (continued)": Allies, Enemies, Family status,
+  Occupation, Faction/Guild, Social standing, Wealth rating, Personal
+  and Public reputation, and a large blank Notes field.
+Verified on the Half-Dragon test build: 4 pages, 695 fields (635
+original + 26 extra data + 34 labels), still zero Calculate actions,
+extra values exact (ECL 10 = 7 levels + 3 LA), pages rendered and
+visually checked.
+
+## Expanded sections go to the whole screen (2026-11-04)
+
+Shaun: "In all the different sections, when expanded, expand
+to the whole screen." Audit: the four grid-trapped section
+types (Equipment categories, Magic Items sections, Feats
+sections, Spells library types) already took col-span-full
+when open (2026-11-03, c87ef754) — but the page itself is
+capped at max-w-6xl, so on the laptop an open section spanned
+the container, not the screen. The other expandables (Wealth
+by Level, Personality pickers and picked boxes) already fill
+their containers edge to edge and are unchanged.
+
+Fix: an OPEN section in those four grids now also breaks out
+to viewport width — ml-[calc(50%-50vw)] w-screen alongside
+col-span-full — so it runs edge to edge of the screen on
+laptop and phone alike, and folds back into its grid spot
+when closed. The html/body overflow-x: clip guard (the
+sideways-slide fix) keeps the 100vw breakout from ever
+scrolling sideways. The page cap itself is untouched:
+everything else keeps the normal centered width.
+version.json stamp bumped in the same push.
+stamp=20261104094515
+commit=25c5f93f
+
+## Interactive sheet is SHOWN when clicked (2026-11-04)
+
+Shaun: "When clicked, show the interactive character sheet."
+Until now the Interactive sheet (PDF) choice only offered a
+Download button. Now picking it builds the filled sheet (the
+same fillInteractiveSheet bytes the download saves — numbers
+in, calculation scripts stripped, extra pages at the back)
+and displays it in an embedded viewer right on the Character
+Sheet step, with an "Open the sheet in a new tab" link for
+screens where the in-page viewer cannot render a PDF. The
+Download button is unchanged. The preview rebuilds whenever
+the character changes; blob URLs are revoked on rebuild,
+format switch, and unmount.
+version.json stamp bumped in the same push.
+stamp=20261104095243
+commit=ab5cc259
+
+## Interactive sheet viewer: full height (2026-11-04)
+
+Shaun, on a live voice call: "On the secondary character
+sheet expand the expanded window all the way down." The
+embedded Interactive sheet viewer went from h-[80vh] to
+h-screen — the window now runs the full height of the
+screen. Nothing else on the sheet step changed.
+version.json stamp bumped in the same push.
+stamp=20261104100009
+commit=d59fb528
+
+## All expandable windows full screen + Player Reference number one (2026-11-04)
+
+Shaun: "Take all expandable windows expand all the way the way
+across and down full screen full use" and, minutes later, "Put
+the player reference as number number one." Both in one push.
+
+Full screen, across AND down (superseding the 2026-11-04 audit
+that left Wealth by Level and the Personality boxes at container
+size, and the Personality picked box's 2026-11-02 fixed-height
+mechanics):
+- Equipment, Magic Items, Feats, and Spell Library sections:
+  open sections keep the w-screen breakout and now also run
+  min-h-[100dvh]; the item grids inside Equipment/Magic Items
+  lose their max-h-80 scroll caps, so an open list uses the
+  whole screen down instead of a 20rem window.
+- Wealth by Level: the open panel breaks out to w-screen and
+  its chart loses the max-h-64 cap — all levels show at once.
+- Personality: open Flaws/Traits pickers and picked boxes break
+  out to w-screen and run min-h-[100dvh]; the picker name grid
+  loses its max-h-64 cap.
+- Interactive sheet viewer: keeps full height, now also breaks
+  out across — ml-[calc(50%-50vw)] w-screen h-[100dvh].
+- True windows go literally full screen: the entity detail
+  dialog, the Character Repository dialog (its list now flexes
+  to the full height instead of max-h-[55vh]), and the About &
+  Attribution (OGL) dialog are h-[100dvh] w-[100vw] max-w-none.
+  Closed/folded states are untouched everywhere — everything
+  still folds back into its place when closed.
+- Not counted as windows: tooltips, the header popover menus
+  (Rule Sets / House Rules), and the sheet's audit-trail folds,
+  which already expand uncapped in place.
+
+Player Reference is step 1: builder.tsx STEPS now leads with
+Player Reference (num "1"); every other step renumbers up one —
+Abilities & Race 2, Classes 3, Skills 4, Templates 5, Feats 6,
+Spells 7, Prestige Classes 8, Equipment 9, Magic Items 10,
+Inventory 11, Personality 12, Character Sheet 13. Relative
+order of the build steps is unchanged (Prestige still after
+Spells, etc.), in-text step references in Classes/Prestige/
+Equipment were updated to match, and the builder still opens
+on Abilities & Race when no step is chosen.
+version.json stamp bumped in the same push.
+stamp=20261104115312

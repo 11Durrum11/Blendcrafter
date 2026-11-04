@@ -21,7 +21,7 @@ interface EntityDetailDialogProps {
 export function EntityDetailDialog({ detail, onOpenChange, footer, headerAction }: EntityDetailDialogProps) {
   return (
     <Dialog open={detail !== null} onOpenChange={onOpenChange}>
-      <DialogContent className="max-h-[85vh] overflow-y-auto sm:max-w-lg" data-testid="dialog-entity-detail">
+      <DialogContent className="h-[100dvh] max-h-[100dvh] w-[100vw] max-w-none overflow-y-auto rounded-none sm:max-w-none sm:rounded-none" data-testid="dialog-entity-detail">
         {detail && (
           <>
             <DialogHeader>

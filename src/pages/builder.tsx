@@ -28,29 +28,35 @@ import { CAMPAIGN_DEFAULT_PREFS, CAMPAIGN_DEFAULTS_VERSION, CAMPAIGN_DEFAULTS_VE
 import { useToast } from "@/hooks/use-toast";
 
 const STEPS = [
-  { id: "race", label: "Abilities & Race", num: "1" },
-  { id: "classes", label: "Classes", num: "2" },
-  { id: "skills", label: "Skills", num: "3" },
-  { id: "templates", label: "Templates", num: "4" },
-  { id: "feats", label: "Feats", num: "5" },
-  { id: "spells", label: "Spells", num: "6" },
+  // Player Reference is number one (Shaun, 2026-11-04: "Put the
+  // player reference as number number one") — it leads the step
+  // list so players hit the whole-library lookup first. It is a
+  // read-only lookup and changes no build state, so leading with
+  // it disturbs nothing downstream; the builder itself still
+  // opens on Abilities & Race unless a step is chosen.
+  { id: "reference", label: "Player Reference", num: "1" },
+  { id: "race", label: "Abilities & Race", num: "2" },
+  { id: "classes", label: "Classes", num: "3" },
+  { id: "skills", label: "Skills", num: "4" },
+  { id: "templates", label: "Templates", num: "5" },
+  { id: "feats", label: "Feats", num: "6" },
+  { id: "spells", label: "Spells", num: "7" },
   // Prestige classes are their own step (Shaun, 2026-11-03), and sit
   // AFTER Spells (Shaun, later the same day: "Move it after Spells
   // and renumber the steps to fit") — the prerequisite gate judges
   // skills, templates, feats and spell picks, so those steps must
   // come first for anything to register as met.
-  { id: "prestige", label: "Prestige Classes", num: "7" },
-  { id: "equipment", label: "Equipment", num: "8" },
+  { id: "prestige", label: "Prestige Classes", num: "8" },
+  { id: "equipment", label: "Equipment", num: "9" },
   // Magic Items and Inventory are their own steps now (Shaun,
   // 2026-11-04: "give equipment magic items and inventory their
-  // own windows" — Equipment 8, Magic Items 9, Inventory 10),
-  // which pushes Personality, the Sheet, and Player Reference
-  // to 11, 12, and 13.
-  { id: "magic-items", label: "Magic Items", num: "9" },
-  { id: "inventory", label: "Inventory", num: "10" },
-  { id: "personality", label: "Personality", num: "11" },
-  { id: "sheet", label: "Character Sheet", num: "12" },
-  { id: "reference", label: "Player Reference", num: "13" },
+  // own windows" — now Equipment 9, Magic Items 10, Inventory 11
+  // after the Player Reference move), which pushes Personality
+  // and the Sheet to 12 and 13.
+  { id: "magic-items", label: "Magic Items", num: "10" },
+  { id: "inventory", label: "Inventory", num: "11" },
+  { id: "personality", label: "Personality", num: "12" },
+  { id: "sheet", label: "Character Sheet", num: "13" },
 ] as const;
 
 type StepId = (typeof STEPS)[number]["id"];

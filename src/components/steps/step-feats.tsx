@@ -272,7 +272,7 @@ export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved,
               return (
                 <div
                   key={section.id}
-                  className={cn("rounded-md", expanded && "col-span-full ml-[calc(50%-50vw)] w-screen")}
+                  className={cn("rounded-md", expanded && "col-span-full ml-[calc(50%-50vw)] min-h-[100dvh] w-screen")}
                   data-testid={`feat-section-${section.id}`}
                 >
                   <button

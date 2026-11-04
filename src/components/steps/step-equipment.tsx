@@ -108,7 +108,8 @@ function groupByCategory<T extends { category: string }>(
 
 // One shell, three step windows (Shaun, 2026-11-04: "give
 // equipment magic items and inventory their own windows" —
-// Equipment is step 8, Magic Items step 9, Inventory step 10).
+// Equipment is step 9, Magic Items step 10, Inventory step 11
+// since Player Reference took number one, 2026-11-04).
 // The Wealth header rides with Equipment, where it has always
 // headed the step. Each window is the same shell rendering only
 // its own card(s); state and handlers are shared code, and the
@@ -351,7 +352,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
               with the build's ECL highlighted, and the 70/30 rule
               calculated from it — at least 70% of the chart amount
               must be spent on gear, at most 30% may stay liquid. */}
-          <div className="mt-3 rounded-md border border-card-border bg-card p-3" data-testid="wealth-by-level-panel">
+          <div className={cn("mt-3 rounded-md border border-card-border bg-card p-3", wblOpen && "ml-[calc(50%-50vw)] w-screen px-3")} data-testid="wealth-by-level-panel">
             <button
               type="button"
               className="flex w-full flex-wrap items-baseline justify-between gap-2 text-left"
@@ -376,7 +377,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
               Click a level to set it as your total gp limit — the limit shows beside Magic items in the
               summary below.
             </p>
-            <div className="mt-2 max-h-64 overflow-y-auto" data-testid="wealth-by-level-chart">
+            <div className="mt-2" data-testid="wealth-by-level-chart">
               <table className="w-full text-xs">
                 <thead>
                   <tr className="border-b border-card-border text-left text-muted-foreground">
@@ -524,7 +525,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
               equipmentSections.map((section) => {
                 const equipOpen = equipQuery.trim() !== "" || openEquipSections.has(section.key);
                 return (
-                <div key={section.key} className={cn("rounded-md border border-card-border bg-card", equipOpen && "col-span-full ml-[calc(50%-50vw)] w-screen")}>
+                <div key={section.key} className={cn("rounded-md border border-card-border bg-card", equipOpen && "col-span-full ml-[calc(50%-50vw)] min-h-[100dvh] w-screen")}>
                   <button
                     type="button"
                     id={`equip-cat-${section.key}`}
@@ -578,7 +579,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
                                   Firearms are simple weapons. The skill comes in reloading them, tinkering with them, and trick shots.
                                 </p>
                               )}
-                              <div className="grid max-h-80 overflow-y-auto sm:grid-cols-2 lg:grid-cols-4">
+                              <div className="grid sm:grid-cols-2 lg:grid-cols-4">
                                 {subItems.map(renderEquipmentRow)}
                               </div>
                             </div>
@@ -588,7 +589,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
                     );
                   })()}
                   {equipOpen && section.key !== "weapon" && (
-                  <div className="grid max-h-80 overflow-y-auto sm:grid-cols-2 lg:grid-cols-4">
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-4">
                     {section.items.map(renderEquipmentRow)}
                   </div>
                   )}
@@ -625,7 +626,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
               magicSections.map((section) => {
                 const magicOpen = itemQuery.trim() !== "" || openMagicSections.has(section.key);
                 return (
-                <div key={section.key} className={cn("rounded-md border border-card-border bg-card", magicOpen && "col-span-full ml-[calc(50%-50vw)] w-screen")}>
+                <div key={section.key} className={cn("rounded-md border border-card-border bg-card", magicOpen && "col-span-full ml-[calc(50%-50vw)] min-h-[100dvh] w-screen")}>
                   <button
                     type="button"
                     id={`magic-cat-${section.key}`}
@@ -647,7 +648,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
                         Level {group.level} <span className="font-normal normal-case tracking-normal">({group.items.length})</span>
                       </p>
                       )}
-                  <div className="grid max-h-80 overflow-y-auto sm:grid-cols-2 lg:grid-cols-4">
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-4">
                     {group.items.map((item) => (
                 <div key={item.id} className="flex flex-wrap items-center justify-between gap-2 border-b border-card-border p-3" data-testid={`magic-item-row-${item.id}`}>
                   <div className="min-w-0 flex-1">
@@ -743,8 +744,8 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
   );
 }
 
-// The three step windows (Shaun, 2026-11-04): step 8 Equipment
-// (with the Wealth header), step 9 Magic Items, step 10
+// The three step windows (Shaun, 2026-11-04): step 9 Equipment
+// (with the Wealth header), step 10 Magic Items, step 11
 // Inventory — thin wrappers over the shared shell above.
 export function StepEquipment(props: StepEquipmentProps) {
   return <StepEquipmentShell {...props} part="equipment" />;

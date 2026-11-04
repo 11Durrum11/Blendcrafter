@@ -41,7 +41,7 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 
 /**
- * Player Reference (step 11 — renumbered from 10 when Prestige Classes moved to step 7, 2026-11-03; added 2026-11-03 at Shaun's direction):
+ * Player Reference (step 1 — moved to number one by Shaun, 2026-11-04; previously step 13, and step 11/10 before that; added 2026-11-03 at Shaun's direction):
  * one lookup for the whole library, so a player who wants to check
  * anything — a feat, a spell, an item, a house rule — finds it right
  * here in the app instead of hunting through the builder steps or

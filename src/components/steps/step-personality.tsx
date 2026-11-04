@@ -183,12 +183,12 @@ function PickedBox({title,items,selectedIds,onRemove,onShowDetail,testidPrefix}:
   if (!open) {
     return <div className="rounded-md border border-card-border bg-muted/20 p-3" data-testid={`picked-box-${testidPrefix}`}>{head}</div>;
   }
-  // Textarea mechanics (Shaun, 2026-11-02): like the Goals / Secrets /
-  // Allies / Enemies / Trauma / Current Circumstances boxes, this box
-  // does NOT auto-expand to fit its content — it sits at a fixed
-  // height, the entries scroll inside, and the player pulls the
-  // corner handle to extend it and see as much as they want.
-  return <div className="flex h-64 max-h-[85vh] min-h-[7rem] flex-col resize-y overflow-hidden rounded-md border border-card-border bg-muted/20 p-3" data-testid={`picked-box-${testidPrefix}`}>
+  // Full-screen when open (Shaun, 2026-11-04: "Take all expandable
+  // windows expand all the way across and down full screen full
+  // use") — this supersedes the 2026-11-02 fixed-height / corner-
+  // handle mechanics for this box: open, it runs the full width
+  // and full height of the screen, entries scrolling inside.
+  return <div className="flex min-h-[100dvh] w-screen ml-[calc(50%-50vw)] flex-col overflow-hidden rounded-md border border-card-border bg-muted/20 p-3" data-testid={`picked-box-${testidPrefix}`}>
     {head}
     {picked.length===0 ? <p className="mt-1 text-sm text-muted-foreground">None picked yet — tick names in the Flaws & Traits lists below, hit Confirm, and they land here, fully written out.</p> :
     <div className="mt-2 flex-1 space-y-3 overflow-y-auto pr-1">
@@ -213,7 +213,7 @@ function FlawTraitPicker({title,items,selectedIds,query,onQuery,onToggle,onShowD
   const [open, setOpen] = useState(false);
   const visible = items.filter(i=>i.name.toLowerCase().includes(query.toLowerCase()));
   const sorted = [...visible].sort((a,b)=>(Number(selectedIds.includes(b.id))-Number(selectedIds.includes(a.id)))||a.name.localeCompare(b.name));
-  return <div className="space-y-2" data-testid={`picker-${testidPrefix}`}>
+  return <div className={open ? "space-y-2 min-h-[100dvh] w-screen ml-[calc(50%-50vw)] px-3 py-2" : "space-y-2"} data-testid={`picker-${testidPrefix}`}>
     <h3 className="text-base font-semibold">
       <button type="button" className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-left" onClick={()=>setOpen(v=>!v)} aria-expanded={open} data-testid={`picker-toggle-${testidPrefix}`}>
         {open ? <ChevronDown className="h-4 w-4 shrink-0 text-muted-foreground"/> : <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground"/>}
@@ -227,7 +227,7 @@ function FlawTraitPicker({title,items,selectedIds,query,onQuery,onToggle,onShowD
         shows just each flaw/trait name to save space; everything
         else — summary, full description, prerequisite, source —
         lives in the click (the name opens the detail dialog). */}
-    <div className="grid max-h-64 grid-cols-2 gap-1 overflow-y-auto rounded-md border border-card-border p-2 md:grid-cols-4">
+    <div className="grid grid-cols-2 gap-1 rounded-md border border-card-border p-2 md:grid-cols-4">
       {sorted.map(item=><label key={item.id} className="flex cursor-pointer items-start gap-1.5 rounded p-1.5 hover:bg-muted/40" data-testid={`${testidPrefix}-option-${item.id}`}>
         <input type="checkbox" className="mt-0.5 shrink-0 accent-primary" checked={selectedIds.includes(item.id)} onChange={()=>onToggle(item.id)} />
         <button type="button" className="text-left text-sm font-medium leading-tight underline-offset-2 hover:underline" onClick={(e)=>{e.preventDefault();e.stopPropagation();onShowDetail(item);}} data-testid={`${testidPrefix}-name-${item.id}`}>{item.name}</button>

@@ -18,7 +18,7 @@ export function OglFooter() {
                 About &amp; Attribution
               </Button>
             </DialogTrigger>
-            <DialogContent className="max-h-[80vh] overflow-y-auto sm:max-w-xl">
+            <DialogContent className="h-[100dvh] max-h-[100dvh] w-[100vw] max-w-none overflow-y-auto rounded-none sm:max-w-none sm:rounded-none">
               <DialogHeader>
                 <DialogTitle className="font-display text-xl">About Blendcrafter</DialogTitle>
                 <DialogDescription>Open Game License and SRD attribution</DialogDescription>
