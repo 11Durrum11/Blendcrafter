@@ -5,7 +5,6 @@ import type { ClassDefinition, ClassLevelChoice, ResolvedCharacter, Ruleset } fr
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Switch } from "@/components/ui/switch";
 import { cn } from "@/lib/utils";
 import { EntityDetailDialog } from "@/components/entity-detail-dialog";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
@@ -26,6 +25,9 @@ interface StepClassesProps {
   resolved: ResolvedCharacter;
   onAdd: (classId: string) => void;
   onRemove: (classId: string) => void;
+  /** Still passed by the builder and still part of the build's toggle
+   * state — but no longer rendered: the class dialog carries no
+   * toggle switch (Shaun, 2026-11-03). */
   onToggleClassEnabled: (classId: string, enabled: boolean) => void;
 }
 
@@ -35,7 +37,6 @@ export function StepClasses({
   disabledClassIds,
   onAdd,
   onRemove,
-  onToggleClassEnabled,
 }: StepClassesProps) {
   const [detailClass, setDetailClass] = useState<ClassDefinition | null>(null);
   const totalLevels = classLevels.reduce((s, c) => s + c.levels, 0);
@@ -158,26 +159,15 @@ export function StepClasses({
           </p>
         </CardContent>
       </Card>
+      {/* No toggle switch in the class detail dialog (Shaun,
+          2026-11-03: "Take off the toggle buttons for races and
+          classes"). A class's on/off state still lives in the build /
+          toggle prefs and turned-off classes still sink under their
+          "Turned off" heading — there is just no switch here to flip
+          it with. */}
       <EntityDetailDialog
         detail={detailClass ? describeClass(detailClass) : null}
         onOpenChange={(open) => !open && setDetailClass(null)}
-        footer={
-          detailClass ? (
-            <div className="flex items-center justify-between gap-3 border-t border-card-border pt-3">
-              <span className="text-sm">
-                {disabledClassIds.includes(detailClass.id)
-                  ? "This class is turned off for your characters."
-                  : "This class is turned on."}
-              </span>
-              <Switch
-                checked={!disabledClassIds.includes(detailClass.id)}
-                onCheckedChange={(checked) => onToggleClassEnabled(detailClass.id, checked)}
-                aria-label={disabledClassIds.includes(detailClass.id) ? `Enable ${detailClass.name}` : `Disable ${detailClass.name}`}
-                data-testid={`switch-enable-class-${detailClass.id}`}
-              />
-            </div>
-          ) : undefined
-        }
       />
     </div>
   );

@@ -25,6 +25,9 @@ interface StepRaceProps {
   onRaceChange: (raceId: string) => void;
   onAbilityChange: (key: AbilityKey, value: number) => void;
   onAllAbilitiesChange: (scores: Record<AbilityKey, number>) => void;
+  /** Still passed by the builder and still part of the build's toggle
+   * state — but no longer rendered: the race tiles carry no toggle
+   * switch (Shaun, 2026-11-03). */
   onToggleRaceEnabled: (raceId: string, enabled: boolean) => void;
   onToggleAbilityEnabled: (key: AbilityKey, enabled: boolean) => void;
 }
@@ -140,7 +143,6 @@ export function StepRace({
   onRaceChange,
   onAbilityChange,
   onAllAbilitiesChange,
-  onToggleRaceEnabled,
   onToggleAbilityEnabled,
 }: StepRaceProps) {
   const [diceGrid, setDiceGrid] = useState<DiceCell[][] | null>(null);
@@ -227,14 +229,11 @@ export function StepRace({
         >
           <Info className="h-3.5 w-3.5" />
         </button>
-        <Switch
-          checked={!isDisabled}
-          onCheckedChange={(checked) => onToggleRaceEnabled(race.id, checked)}
-          onClick={(e) => e.stopPropagation()}
-          className="shrink-0 scale-75"
-          aria-label={isDisabled ? `Enable ${race.name}` : `Disable ${race.name}`}
-          data-testid={`switch-enable-race-${race.id}`}
-        />
+        {/* No toggle switch on race tiles (Shaun, 2026-11-03: "Take
+            off the toggle buttons for races and classes"). A race's
+            on/off state still lives in the build / toggle prefs and
+            turned-off races stay hidden, exactly as set — there is
+            just no switch in the picker to flip it with. */}
       </div>
       <div className="mt-1 text-xs text-muted-foreground">
         {race.size} · Speed {race.baseSpeed} ft

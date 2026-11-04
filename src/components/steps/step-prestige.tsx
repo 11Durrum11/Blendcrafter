@@ -6,7 +6,7 @@ import { buildPrereqContext, evaluatePrestigeClass, type PrestigeGateResult } fr
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Switch } from "@/components/ui/switch";
+
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
@@ -46,6 +46,9 @@ interface StepPrestigeProps {
   resolved: ResolvedCharacter;
   onAddPrestige: (classId: string) => void;
   onRemovePrestige: (classId: string) => void;
+  /** Still passed by the builder and still part of the build's toggle
+   * state — but no longer rendered: the prestige dialog carries no
+   * toggle switch (Shaun, 2026-11-03). */
   onToggleClassEnabled: (classId: string, enabled: boolean) => void;
   onTogglePrestigeCertification: (classId: string, prereqText: string, certified: boolean) => void;
 }
@@ -58,7 +61,6 @@ export function StepPrestige({
   resolved,
   onAddPrestige,
   onRemovePrestige,
-  onToggleClassEnabled,
   onTogglePrestigeCertification,
 }: StepPrestigeProps) {
   const [detailClass, setDetailClass] = useState<PrestigeClassDefinition | null>(null);
@@ -279,26 +281,16 @@ export function StepPrestige({
           </p>
         </CardContent>
       </Card>
+      {/* No toggle switch in the prestige detail dialog either
+          (Shaun, 2026-11-03: "Take off the toggle buttons for races
+          and classes") — prestige classes share the classes' on/off
+          list and handler, so their switch goes with the classes'
+          switch. The on/off state itself is untouched: turned-off
+          prestige classes still sit under their "Turned off"
+          heading, exactly as set. */}
       <EntityDetailDialog
         detail={detailClass ? describePrestigeClass(detailClass) : null}
         onOpenChange={(open) => !open && setDetailClass(null)}
-        footer={
-          detailClass ? (
-            <div className="flex items-center justify-between gap-3 border-t border-card-border pt-3">
-              <span className="text-sm">
-                {disabledClassIds.includes(detailClass.id)
-                  ? "This class is turned off for your characters."
-                  : "This class is turned on."}
-              </span>
-              <Switch
-                checked={!disabledClassIds.includes(detailClass.id)}
-                onCheckedChange={(checked) => onToggleClassEnabled(detailClass.id, checked)}
-                aria-label={disabledClassIds.includes(detailClass.id) ? `Enable ${detailClass.name}` : `Disable ${detailClass.name}`}
-                data-testid={`switch-enable-prestige-${detailClass.id}`}
-              />
-            </div>
-          ) : undefined
-        }
       />
     </div>
   );
