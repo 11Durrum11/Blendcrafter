@@ -172,7 +172,7 @@ function PickedBox({title,items,selectedIds,onRemove,onShowDetail,testidPrefix}:
   // the title head shows until it's clicked, same as the pickers.
   const [open, setOpen] = useState(false);
   const head = (
-    <h4 className="shrink-0 font-display text-sm font-semibold">
+    <h4 className="shrink-0 font-display text-base font-semibold">
       <button type="button" className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-left" onClick={()=>setOpen(v=>!v)} aria-expanded={open} data-testid={`picked-toggle-${testidPrefix}`}>
         {open ? <ChevronDown className="h-4 w-4 shrink-0 text-muted-foreground"/> : <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground"/>}
         <span>Your {title} <span className="font-normal text-muted-foreground">({picked.length} picked)</span></span>
@@ -214,7 +214,7 @@ function FlawTraitPicker({title,items,selectedIds,query,onQuery,onToggle,onShowD
   const visible = items.filter(i=>i.name.toLowerCase().includes(query.toLowerCase()));
   const sorted = [...visible].sort((a,b)=>(Number(selectedIds.includes(b.id))-Number(selectedIds.includes(a.id)))||a.name.localeCompare(b.name));
   return <div className="space-y-2" data-testid={`picker-${testidPrefix}`}>
-    <h3 className="text-sm font-semibold">
+    <h3 className="text-base font-semibold">
       <button type="button" className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-left" onClick={()=>setOpen(v=>!v)} aria-expanded={open} data-testid={`picker-toggle-${testidPrefix}`}>
         {open ? <ChevronDown className="h-4 w-4 shrink-0 text-muted-foreground"/> : <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground"/>}
         <span>{title} <span className="font-normal text-muted-foreground">({selectedIds.length} selected · {items.length} in the library)</span></span>

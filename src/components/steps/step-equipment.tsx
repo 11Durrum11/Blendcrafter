@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Coins, Info, Plus, Search, Shield, Trash2, ChevronDown, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { ALL_EQUIPMENT, ALL_MAGIC_ITEMS } from "@/data";
-import type { EquipmentItem, InventoryEntry, ResolvedCharacter, Ruleset } from "@/engine/types";
+import { ALL_EQUIPMENT, ALL_MAGIC_ITEMS, SPELLS_BY_ID } from "@/data";
+import type { EquipmentItem, InventoryEntry, MagicItemDefinition, ResolvedCharacter, Ruleset } from "@/engine/types";
 import { weaponSubcategory, WEAPON_SUBCATEGORIES } from "@/lib/weapon-subcategories";
 import { formatGp, initialWealthSplit, WEALTH_BY_LEVEL, wealthByLevel } from "@/engine/wealth";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -113,6 +113,65 @@ function groupByCategory<T extends { category: string }>(
 // headed the step. Each window is the same shell rendering only
 // its own card(s); state and handlers are shared code, and the
 // builder hands every window the same props.
+
+/* Magic item ordering (Shaun, 2026-11-04): "Subcategorize the
+ * scrolls by level and in alphabetical order" — then "do that
+ * for all the magic items." Items that carry a spell level
+ * (scrolls, wands, potions/oils of a catalog spell) group by
+ * level under a Level header, lowest first, alphabetical
+ * inside each level; items with no derivable level sit at the
+ * top of their section, alphabetical (Shaun confirmed); every
+ * other section is simply alphabetical. The level is the
+ * spell's lowest level on the six core class lists — the same
+ * basis the generated wands/scrolls were priced on — derived
+ * from the item id's spell slug, with the catalog's naming
+ * variants (CL suffixes, variant numbers, ", Greater" files)
+ * unwound the same way describeMagicItem joins them. */
+const MAGIC_LEVEL_LISTS = ["Sorcerer/Wizard", "Cleric", "Druid", "Bard", "Paladin", "Ranger"];
+const MAGIC_LEVEL_CATEGORIES = new Set(["scroll", "wand", "potion"]);
+
+function magicItemSpellLevel(item: MagicItemDefinition): number | null {
+  if (!MAGIC_LEVEL_CATEGORIES.has(item.category)) return null;
+  const m = item.id.match(/(?:^|-)(?:wand|scroll|potion|oil)-of-(.+)$/);
+  if (!m) return null;
+  const raw = m[1];
+  const candidates = [raw];
+  const noCl = raw.replace(/-cl-\d+(st|nd|rd|th)$/, "");
+  if (noCl !== raw) candidates.push(noCl);
+  const noNum = noCl.replace(/-\d+$/, "");
+  if (noNum !== noCl) candidates.push(noNum);
+  for (const base of [...candidates]) {
+    const g = base.match(/^(greater|lesser)-(.+)$/);
+    if (g) candidates.push(`${g[2]}-${g[1]}`);
+  }
+  for (const cand of candidates) {
+    const sp = SPELLS_BY_ID[cand];
+    if (!sp) continue;
+    const vals = MAGIC_LEVEL_LISTS.map((l) => sp.levels[l]).filter((v): v is number => typeof v === "number");
+    if (vals.length) return Math.min(...vals);
+  }
+  return null;
+}
+
+interface MagicLevelGroup {
+  level: number | null;
+  items: MagicItemDefinition[];
+}
+
+function groupMagicItems(items: MagicItemDefinition[]): MagicLevelGroup[] {
+  const byLevel = new Map<number | null, MagicItemDefinition[]>();
+  for (const item of items) {
+    const lvl = magicItemSpellLevel(item);
+    if (!byLevel.has(lvl)) byLevel.set(lvl, []);
+    byLevel.get(lvl)!.push(item);
+  }
+  const levels = [...byLevel.keys()].sort((a, b) => (a === null ? -1 : b === null ? 1 : a - b));
+  return levels.map((level) => ({
+    level,
+    items: byLevel.get(level)!.slice().sort((x, y) => x.name.localeCompare(y.name)),
+  }));
+}
+
 function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitLevel, onAdd, onRemove, onToggleEquipped, onSetWealthLimitLevel, part }: StepEquipmentProps & { part: "equipment" | "magic" | "inventory" }) {
   const [equipQuery, setEquipQuery] = useState("");
   const [itemQuery, setItemQuery] = useState("");
@@ -580,8 +639,16 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
                     <span className="text-xs font-normal text-muted-foreground">({section.items.length})</span>
                   </button>
                   {magicOpen && (
+                  <div>
+                    {groupMagicItems(section.items).map((group) => (
+                    <div key={group.level === null ? "unleveled" : group.level}>
+                      {group.level !== null && (
+                      <p className="border-t border-card-border bg-muted/40 px-3 py-1.5 font-display text-xs font-semibold uppercase tracking-wide text-muted-foreground" data-testid={`magic-level-${section.key}-${group.level}`}>
+                        Level {group.level} <span className="font-normal normal-case tracking-normal">({group.items.length})</span>
+                      </p>
+                      )}
                   <div className="grid max-h-80 overflow-y-auto sm:grid-cols-2 lg:grid-cols-4">
-                    {section.items.map((item) => (
+                    {group.items.map((item) => (
                 <div key={item.id} className="flex flex-wrap items-center justify-between gap-2 border-b border-card-border p-3" data-testid={`magic-item-row-${item.id}`}>
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center gap-1.5 flex-wrap">
@@ -605,6 +672,9 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
                     <Plus className="mr-1 h-3.5 w-3.5" /> Add
                   </Button>
                 </div>
+                    ))}
+                  </div>
+                    </div>
                     ))}
                   </div>
                   )}
