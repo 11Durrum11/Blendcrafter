@@ -2,7 +2,8 @@ import { useState } from "react";
 import { Coins, Info, Plus, Search, Shield, Trash2, ChevronDown, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ALL_EQUIPMENT, ALL_MAGIC_ITEMS } from "@/data";
-import type { InventoryEntry, ResolvedCharacter, Ruleset } from "@/engine/types";
+import type { EquipmentItem, InventoryEntry, ResolvedCharacter, Ruleset } from "@/engine/types";
+import { weaponSubcategory, WEAPON_SUBCATEGORIES } from "@/lib/weapon-subcategories";
 import { formatGp, initialWealthSplit, WEALTH_BY_LEVEL, wealthByLevel } from "@/engine/wealth";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -121,6 +122,9 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, wealthLimi
   // they jump to.
   const [openEquipSections, setOpenEquipSections] = useState<Set<string>>(new Set());
   const [openMagicSections, setOpenMagicSections] = useState<Set<string>>(new Set());
+  // Weapons split into Melee / Ranged / Firearms behind subcategory
+  // buttons (Shaun, 2026-11-03); each button opens its own list.
+  const [openWeaponSubs, setOpenWeaponSubs] = useState<Set<string>>(new Set());
   const toggleSet = (fn: React.Dispatch<React.SetStateAction<Set<string>>>, key: string) =>
     fn((prev) => {
       const next = new Set(prev);
@@ -128,6 +132,35 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, wealthLimi
       else next.add(key);
       return next;
     });
+  // One equipment row, shared by the plain category lists and the
+  // Weapons subcategory lists.
+  const renderEquipmentRow = (item: EquipmentItem) => (
+    <div key={item.id} className="flex flex-wrap items-center justify-between gap-2 p-3" data-testid={`equipment-row-${item.id}`}>
+      <div className="min-w-0 flex-1">
+        <div className="flex items-center gap-1.5 flex-wrap">
+          <span className="font-medium">{item.name}</span>
+          {/* Price right beside the item's name (Shaun, 2026-11-02). */}
+          <span className="ml-1.5 font-mono text-sm font-semibold" data-testid={`price-equipment-${item.id}`}>{item.cost}</span>
+          <button
+            type="button"
+            className="text-muted-foreground hover:text-foreground"
+            onClick={(e) => { e.preventDefault(); e.stopPropagation(); setDetail(describeEquipment(item)); }}
+            data-testid={`button-info-equipment-${item.id}`}
+            aria-label={`View description of ${item.name}`}
+          >
+            <Info className="h-3.5 w-3.5" />
+          </button>
+          <Badge variant="outline" className="text-[10px] capitalize">{item.category}</Badge>
+          {typeof item.acBonus === "number" && <Badge variant="secondary" className="text-[10px]">AC +{item.acBonus}</Badge>}
+          {item.ruleset !== "core" && <ProductIdentityBadge rulesetLabel={RULESET_LABELS[item.ruleset]} />}
+        </div>
+        <p className="text-xs text-muted-foreground">{[item.weight, item.notes].filter(Boolean).join(" · ")}</p>
+      </div>
+      <Button type="button" size="sm" variant="outline" onClick={() => onAdd("equipment", item.id)} data-testid={`button-add-equipment-${item.id}`}>
+        <Plus className="mr-1 h-3.5 w-3.5" /> Add
+      </Button>
+    </div>
+  );
   // Click-a-level gp limit (Shaun, 2026-11-02): clicking a level
   // in the wealth-by-level chart sets the total gp limit, shown
   // beside Magic items in the summary below (0 gp until a level
@@ -429,35 +462,54 @@ export function StepEquipment({ inventory, enabledRulesets, resolved, wealthLimi
                     {section.label}{" "}
                     <span className="text-xs font-normal text-muted-foreground">({section.items.length})</span>
                   </button>
-                  {equipOpen && (
+                  {equipOpen && section.key === "weapon" && (() => {
+                    // Weapons open onto subcategory buttons (Shaun,
+                    // 2026-11-03): Melee / Ranged / Firearms, each
+                    // button opening its own list. While searching,
+                    // every subcategory shows so matches are visible.
+                    const searching = equipQuery.trim() !== "";
+                    return (
+                      <div>
+                        <div className="flex flex-wrap gap-1.5 px-3 py-2">
+                          {WEAPON_SUBCATEGORIES.map((sub) => {
+                            const count = section.items.filter((i) => weaponSubcategory(i) === sub.key).length;
+                            if (count === 0) return null;
+                            const subOpen = searching || openWeaponSubs.has(sub.key);
+                            return (
+                              <Button
+                                key={sub.key}
+                                type="button"
+                                size="sm"
+                                variant={subOpen && !searching ? "default" : "outline"}
+                                onClick={() => toggleSet(setOpenWeaponSubs, sub.key)}
+                                aria-expanded={subOpen}
+                                data-testid={`button-weapon-sub-${sub.key}`}
+                              >
+                                {sub.label} <span className="ml-1 text-xs opacity-75">({count})</span>
+                              </Button>
+                            );
+                          })}
+                        </div>
+                        {WEAPON_SUBCATEGORIES.map((sub) => {
+                          const subOpen = searching || openWeaponSubs.has(sub.key);
+                          if (!subOpen) return null;
+                          const subItems = section.items.filter((i) => weaponSubcategory(i) === sub.key);
+                          if (subItems.length === 0) return null;
+                          return (
+                            <div key={sub.key} data-testid={`weapon-sub-list-${sub.key}`}>
+                              <p className="border-t border-card-border bg-muted/40 px-3 py-1.5 font-display text-xs font-semibold uppercase tracking-wide text-muted-foreground">{sub.label}</p>
+                              <div className="max-h-80 divide-y divide-card-border overflow-y-auto">
+                                {subItems.map(renderEquipmentRow)}
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    );
+                  })()}
+                  {equipOpen && section.key !== "weapon" && (
                   <div className="max-h-80 divide-y divide-card-border overflow-y-auto">
-                    {section.items.map((item) => (
-                <div key={item.id} className="flex flex-wrap items-center justify-between gap-2 p-3" data-testid={`equipment-row-${item.id}`}>
-                  <div className="min-w-0 flex-1">
-                    <div className="flex items-center gap-1.5 flex-wrap">
-                      <span className="font-medium">{item.name}</span>
-                      {/* Price right beside the item's name (Shaun, 2026-11-02). */}
-                      <span className="ml-1.5 font-mono text-sm font-semibold" data-testid={`price-equipment-${item.id}`}>{item.cost}</span>
-                      <button
-                        type="button"
-                        className="text-muted-foreground hover:text-foreground"
-                        onClick={(e) => { e.preventDefault(); e.stopPropagation(); setDetail(describeEquipment(item)); }}
-                        data-testid={`button-info-equipment-${item.id}`}
-                        aria-label={`View description of ${item.name}`}
-                      >
-                        <Info className="h-3.5 w-3.5" />
-                      </button>
-                      <Badge variant="outline" className="text-[10px] capitalize">{item.category}</Badge>
-                      {typeof item.acBonus === "number" && <Badge variant="secondary" className="text-[10px]">AC +{item.acBonus}</Badge>}
-                      {item.ruleset !== "core" && <ProductIdentityBadge rulesetLabel={RULESET_LABELS[item.ruleset]} />}
-                    </div>
-                    <p className="text-xs text-muted-foreground">{[item.weight, item.notes].filter(Boolean).join(" · ")}</p>
-                  </div>
-                  <Button type="button" size="sm" variant="outline" onClick={() => onAdd("equipment", item.id)} data-testid={`button-add-equipment-${item.id}`}>
-                    <Plus className="mr-1 h-3.5 w-3.5" /> Add
-                  </Button>
-                </div>
-                    ))}
+                    {section.items.map(renderEquipmentRow)}
                   </div>
                   )}
                 </div>
