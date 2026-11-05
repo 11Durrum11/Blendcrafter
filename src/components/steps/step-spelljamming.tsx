@@ -1,4 +1,5 @@
-import { useMemo } from "react";
+import { useMemo, type ReactNode } from "react";
+import { ChevronRight } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ALL_EQUIPMENT, ALL_MAGIC_ITEMS, ALL_RACES, ALL_SPELLS } from "@/data";
 
@@ -17,6 +18,12 @@ import { ALL_EQUIPMENT, ALL_MAGIC_ITEMS, ALL_RACES, ALL_SPELLS } from "@/data";
  * everything else. This page gathers them back into one place.
  * Read-only, like Magic Item Creation; it changes no build
  * state.
+ *
+ * NESTED HEADERS (Shaun, 2026-11-04, voice call): each block's
+ * information sits INSIDE its header — the six headers are
+ * collapsible <details> nests, closed until tapped, so the page
+ * opens as six clean headers. The header jump buttons in
+ * builder.tsx open the target nest before scrolling to it.
  */
 
 // How spelljamming works, distilled from the Concordance of
@@ -75,6 +82,18 @@ export const SPELLJAMMING_RULE_LINES: { label: string; text: string }[] = [
 const isSpelljammerSource = (source: string) =>
   source.startsWith("Spelljammer") || source.startsWith("Helms (3e Spelljammer)") || source.startsWith("Ship Combat (3e Spelljammer)");
 
+function NestBlock({ id, label, children }: { id: string; label: string; children: ReactNode }) {
+  return (
+    <details id={id} className="sj-nest rounded-md border border-border" data-testid={`spelljamming-block-${id}`}>
+      <summary className="flex cursor-pointer list-none items-center gap-2 px-3 py-2.5 font-display text-sm font-semibold [&::-webkit-details-marker]:hidden">
+        <ChevronRight className="sj-chevron h-4 w-4 shrink-0 transition-transform" />
+        {label}
+      </summary>
+      <div className="grid gap-3 p-3 pt-0 sm:grid-cols-2">{children}</div>
+    </details>
+  );
+}
+
 export function StepSpelljamming() {
   const ships = useMemo(
     () => ALL_EQUIPMENT.filter((i) => i.category === "spelljamming ship").sort((a, b) => a.name.localeCompare(b.name)),
@@ -105,96 +124,78 @@ export function StepSpelljamming() {
       <CardHeader>
         <CardTitle className="font-display text-xl">Spelljamming</CardTitle>
         <CardDescription>
-          The whole of it — how sailing the stars works, the ships, the helms, the peoples of space, the spells, and the gear, converted from the Spelljammer box sets to 3.5. The same records also sit in their ordinary places: races with the races, spells with the spells, ships and gear with the equipment, helms with the magic items.
+          The whole of it — how sailing the stars works, the ships, the helms, the peoples of space, the spells, and the gear, converted from the Spelljammer box sets to 3.5. Each header holds its information inside it — tap a header to open it. The same records also sit in their ordinary places: races with the races, spells with the spells, ships and gear with the equipment, helms with the magic items.
         </CardDescription>
       </CardHeader>
-      <CardContent className="space-y-6">
-        <div id="spelljamming-how">
-          <p className="font-display text-sm font-semibold">How It Works</p>
-          <div className="mt-2 grid gap-3 sm:grid-cols-2">
-            {SPELLJAMMING_RULE_LINES.map((line) => (
-              <div key={line.label} className="rounded-md border border-card-border bg-muted/40 p-3" data-testid={`spelljamming-rule-${line.label}`}>
-                <p className="font-display text-xs font-semibold uppercase tracking-wide">{line.label}</p>
-                <p className="mt-1.5 text-sm leading-snug text-muted-foreground">{line.text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+      <CardContent className="space-y-3">
+        <NestBlock id="spelljamming-how" label="How It Works">
+          {SPELLJAMMING_RULE_LINES.map((line) => (
+            <div key={line.label} className="rounded-md border border-card-border bg-muted/40 p-3" data-testid={`spelljamming-rule-${line.label}`}>
+              <p className="font-display text-xs font-semibold uppercase tracking-wide">{line.label}</p>
+              <p className="mt-1.5 text-sm leading-snug text-muted-foreground">{line.text}</p>
+            </div>
+          ))}
+        </NestBlock>
 
-        <div id="spelljamming-ships">
-          <p className="font-display text-sm font-semibold">The Ships</p>
-          <div className="mt-2 grid gap-3 sm:grid-cols-2">
-            {ships.map((item) => (
-              <div key={item.id} className="rounded-md border border-card-border bg-muted/40 p-3" data-testid={`spelljamming-ship-${item.id}`}>
-                <p className="font-display text-xs font-semibold uppercase tracking-wide">
-                  {item.name} — {item.cost}
-                </p>
-                <p className="mt-1.5 text-sm leading-snug text-muted-foreground">{item.notes}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+        <NestBlock id="spelljamming-ships" label="The Ships">
+          {ships.map((item) => (
+            <div key={item.id} className="rounded-md border border-card-border bg-muted/40 p-3" data-testid={`spelljamming-ship-${item.id}`}>
+              <p className="font-display text-xs font-semibold uppercase tracking-wide">
+                {item.name} — {item.cost}
+              </p>
+              <p className="mt-1.5 text-sm leading-snug text-muted-foreground">{item.notes}</p>
+            </div>
+          ))}
+        </NestBlock>
 
-        <div id="spelljamming-helms">
-          <p className="font-display text-sm font-semibold">Helms</p>
-          <div className="mt-2 grid gap-3 sm:grid-cols-2">
-            {helms.map((item) => (
-              <div key={item.id} className="rounded-md border border-card-border bg-muted/40 p-3" data-testid={`spelljamming-helm-${item.id}`}>
-                <p className="font-display text-xs font-semibold uppercase tracking-wide">
-                  {item.name} — {item.cost}
-                </p>
-                <p className="mt-1.5 text-sm leading-snug text-muted-foreground">{item.summary}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+        <NestBlock id="spelljamming-helms" label="Helms">
+          {helms.map((item) => (
+            <div key={item.id} className="rounded-md border border-card-border bg-muted/40 p-3" data-testid={`spelljamming-helm-${item.id}`}>
+              <p className="font-display text-xs font-semibold uppercase tracking-wide">
+                {item.name} — {item.cost}
+              </p>
+              <p className="mt-1.5 text-sm leading-snug text-muted-foreground">{item.summary}</p>
+            </div>
+          ))}
+        </NestBlock>
 
-        <div id="spelljamming-races">
-          <p className="font-display text-sm font-semibold">Peoples of Space</p>
-          <div className="mt-2 grid gap-3 sm:grid-cols-2">
-            {races.map((race) => (
-              <div key={race.id} className="rounded-md border border-card-border bg-muted/40 p-3" data-testid={`spelljamming-race-${race.id}`}>
-                <p className="font-display text-xs font-semibold uppercase tracking-wide">
-                  {race.name} — {race.size} {race.type}
-                  {race.levelAdjustment ? `, LA +${race.levelAdjustment}` : ""}
-                </p>
-                <p className="mt-1.5 text-sm leading-snug text-muted-foreground">
-                  Speed {race.baseSpeed} ft.
-                  {race.favoredClass ? ` Favored class: ${race.favoredClass}.` : ""} Picked like any other race in Abilities &amp; Race.
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
+        <NestBlock id="spelljamming-races" label="Peoples of Space">
+          {races.map((race) => (
+            <div key={race.id} className="rounded-md border border-card-border bg-muted/40 p-3" data-testid={`spelljamming-race-${race.id}`}>
+              <p className="font-display text-xs font-semibold uppercase tracking-wide">
+                {race.name} — {race.size} {race.type}
+                {race.levelAdjustment ? `, LA +${race.levelAdjustment}` : ""}
+              </p>
+              <p className="mt-1.5 text-sm leading-snug text-muted-foreground">
+                Speed {race.baseSpeed} ft.
+                {race.favoredClass ? ` Favored class: ${race.favoredClass}.` : ""} Picked like any other race in Abilities &amp; Race.
+              </p>
+            </div>
+          ))}
+        </NestBlock>
 
-        <div id="spelljamming-spells">
-          <p className="font-display text-sm font-semibold">Spells</p>
-          <div className="mt-2 grid gap-3 sm:grid-cols-2">
-            {spells.map((spell) => (
-              <div key={spell.id} className="rounded-md border border-card-border bg-muted/40 p-3" data-testid={`spelljamming-spell-${spell.id}`}>
-                <p className="font-display text-xs font-semibold uppercase tracking-wide">
-                  {spell.name} — {spell.school}
-                  {spell.subschool ? ` (${spell.subschool})` : ""}
-                </p>
-                <p className="mt-1.5 text-sm leading-snug text-muted-foreground">{spell.summary}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+        <NestBlock id="spelljamming-spells" label="Spells">
+          {spells.map((spell) => (
+            <div key={spell.id} className="rounded-md border border-card-border bg-muted/40 p-3" data-testid={`spelljamming-spell-${spell.id}`}>
+              <p className="font-display text-xs font-semibold uppercase tracking-wide">
+                {spell.name} — {spell.school}
+                {spell.subschool ? ` (${spell.subschool})` : ""}
+              </p>
+              <p className="mt-1.5 text-sm leading-snug text-muted-foreground">{spell.summary}</p>
+            </div>
+          ))}
+        </NestBlock>
 
-        <div id="spelljamming-gear">
-          <p className="font-display text-sm font-semibold">Gear</p>
-          <div className="mt-2 grid gap-3 sm:grid-cols-2">
-            {gear.map((item) => (
-              <div key={item.id} className="rounded-md border border-card-border bg-muted/40 p-3" data-testid={`spelljamming-gear-${item.id}`}>
-                <p className="font-display text-xs font-semibold uppercase tracking-wide">
-                  {item.name} — {item.cost}
-                </p>
-                <p className="mt-1.5 text-sm leading-snug text-muted-foreground">{item.notes}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+        <NestBlock id="spelljamming-gear" label="Gear">
+          {gear.map((item) => (
+            <div key={item.id} className="rounded-md border border-card-border bg-muted/40 p-3" data-testid={`spelljamming-gear-${item.id}`}>
+              <p className="font-display text-xs font-semibold uppercase tracking-wide">
+                {item.name} — {item.cost}
+              </p>
+              <p className="mt-1.5 text-sm leading-snug text-muted-foreground">{item.notes}</p>
+            </div>
+          ))}
+        </NestBlock>
       </CardContent>
     </Card>
   );

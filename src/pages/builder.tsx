@@ -463,7 +463,11 @@ export default function Builder() {
     }
   };
   const jumpToCreationBlock = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    const el = document.getElementById(id);
+    // Nested headers (Spelljamming, Shaun 2026-11-04): a jump
+    // opens the target nest before scrolling to it.
+    if (el instanceof HTMLDetailsElement) el.open = true;
+    el?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
   const prev = visibleSteps[visibleIndex - 1];
   const next = visibleSteps[visibleIndex + 1];
