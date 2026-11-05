@@ -32,28 +32,28 @@
     /* Dark theme: dark slate + parchment/amber (default).
        Fields at 50% (Shaun, 2026-11-04): the surface tokens
        (--background, --card, --popover, --secondary, --muted,
-       --accent) carry a 0.1 alpha (90% transparent — Shaun raised
-       it from 50% to 75% to 90% the same evening), so every panel,
-       card, dialog and
+       --accent) carry a 0 alpha (100% transparent — Shaun stepped
+       it 50% -> 75% -> 90% -> 100% the same evening), so every
+       panel, card, dialog and
        form field lets the per-area scene show through at half
        strength; the parchment text still sits on a dark blend and
        stays readable. Text, border, primary and ring tokens stay
        opaque so words and edges keep their definition. The page
        base itself stays opaque (see the .dark body rule below). */
-    --background: 222 22% 10% / 0.1;
+    --background: 222 22% 10% / 0;
     --foreground: 42 38% 88%;
-    --card: 222 20% 14% / 0.1;
+    --card: 222 20% 14% / 0;
     --card-foreground: 42 38% 88%;
     --card-border: 220 16% 24%;
-    --popover: 222 20% 13% / 0.1;
+    --popover: 222 20% 13% / 0;
     --popover-foreground: 42 38% 88%;
     --primary: 38 92% 50%;
     --primary-foreground: 30 40% 10%;
-    --secondary: 220 16% 20% / 0.1;
+    --secondary: 220 16% 20% / 0;
     --secondary-foreground: 42 38% 88%;
-    --muted: 220 16% 20% / 0.1;
+    --muted: 220 16% 20% / 0;
     --muted-foreground: 220 12% 62%;
-    --accent: 222 18% 22% / 0.1;
+    --accent: 222 18% 22% / 0;
     --accent-foreground: 42 38% 90%;
     --destructive: 0 62% 46%;
     --destructive-foreground: 0 0% 98%;
