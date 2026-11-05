@@ -69,7 +69,7 @@ import type { DeckPlan } from "@/data/deck-plans";
  * Ships, Airships, Sea Ships — each minimized until tapped,
  * the same nesting the Spelljamming section uses.
  *
- * BACK INSIDE SPELLJAMMING (Shaun, 2026-11-04, 23:28 MST —
+ * FRONT AREA COLLAPSED (Shaun, later that night: 'collapse that front ships area' / 'just nested'): the open intro and count cards that sat at the front of this content are GONE — the Ships nest opens straight onto its sub-nests, and the flat per-ship card list that trailed the Maps sub-nest is gone too (it duplicated the hull nests). BACK INSIDE SPELLJAMMING (Shaun, 2026-11-04, 23:28 MST —
  * "Put the ships not as number five but put it nested in
  * spell jamming"): the Section 5 experiment is reversed.
  * This component no longer renders a standalone section; it
@@ -241,24 +241,6 @@ export function ShipsNestContent() {
 
   return (
     <>
-      <div className="rounded-md border border-card-border bg-muted/40 p-3 sm:col-span-2" data-testid="ships-intro">
-        <p className="font-display text-xs font-semibold uppercase tracking-wide">Every ship in one place</p>
-        <p className="mt-1.5 text-sm leading-snug text-muted-foreground">
-          Spelljamming ships, airships, and sea ships: the hulls, the weapons they fight with, and each
-          ship&apos;s maps and deck plans — converted to 3.5 in the same format as everything else. The helms
-          that drive these ships sit under Helms on this same page, and the same records also sit in their
-          ordinary place in Equipment.
-        </p>
-      </div>
-          <div className="rounded-md border border-card-border bg-muted/40 p-3 sm:col-span-2" data-testid="ships-count">
-            <p className="font-display text-xs font-semibold uppercase tracking-wide">{shipCounts.total} ships in all</p>
-            <p className="mt-1.5 text-sm leading-snug text-muted-foreground">
-              {shipCounts.spelljamming} spelljamming ships, {shipCounts.airship} airships, and {shipCounts.sea} sea
-              ships — every hull in the catalog, from the Spelljammer box sets, the wider Spelljammer line, Bastion
-              Press Airships, the Pirates! sea-ship table, and Shaun&apos;s own homebrew ship files. The hulls are
-              broken up by kind below — each group sits in its own nest, minimized until you tap it.
-            </p>
-          </div>
           <SubNest id="ships-hulls-spelljamming" label={`Spelljamming Ships — ${shipCounts.spelljamming}`}>
             {ships
               .filter((i) => i.category === "spelljamming ship")
@@ -297,9 +279,9 @@ export function ShipsNestContent() {
             <p className="font-display text-xs font-semibold uppercase tracking-wide">Where the plans live</p>
             <p className="mt-1.5 text-sm leading-snug text-muted-foreground">
               The Adventures in Space boxed set ends with fold-out deck plans for its ships, and every ship&apos;s full
-              description and plan references ride in its book entry. One card per ship below names the book and page
-              its printed plans and description come from — open the ship&apos;s own record in Equipment for its full
-              converted stats.
+              description and plan references ride in its book entry. Each ship&apos;s plans ride on its own
+              card in the hull nests above — tap the ship&apos;s title there to see them, and open its record in
+              Equipment for its full converted stats.
             </p>
           </div>
           <div className="rounded-md border border-card-border bg-muted/40 p-3" data-testid="ships-map-zanderin">
@@ -352,12 +334,6 @@ export function ShipsNestContent() {
               Lorebook also prints deck plans with its ship write-ups as standard, as in Shaun&apos;s own scan.
             </p>
           </div>
-          {ships.map((item) => (
-            <div key={item.id} className="rounded-md border border-card-border bg-muted/40 p-3" data-testid={`ships-map-${item.id}`}>
-              <p className="font-display text-xs font-semibold uppercase tracking-wide">{item.name}</p>
-              <p className="mt-1.5 text-sm leading-snug text-muted-foreground">{item.source}</p>
-            </div>
-          ))}
         </SubNest>
     {zoomPlan &&
       createPortal(
