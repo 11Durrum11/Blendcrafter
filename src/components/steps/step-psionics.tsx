@@ -10,12 +10,13 @@ import { isApocDisabledPower } from "@/lib/apoc-disabled";
  * Creation — step 10, between Magic Items and Inventory
  * ("make the psionics number ten... So inventory will become
  * 11, personality become number 12 and character sheet will
- * become 13"). Everything psionic sits in this step with its
- * own jump buttons across the top — Powers, Classes, Prestige
- * Classes, Feats, Races, Psionic Items, Equipment — each
- * opening its nested header and scrolling to it, the
- * Spelljamming pattern ("nested in, minimized until
- * clicked").
+ * become 13"). Everything psionic sits in this step under
+ * nested headers (Powers, Classes, Prestige Classes, Feats,
+ * Races, Psionic Items, Equipment), minimized until clicked —
+ * the Spelljamming pattern. A jump-button row across the top
+ * duplicated those headers and Shaun ordered it removed
+ * (2026-11-05: "you got the buttons twice... Get rid of the
+ * buttons on top"); the nest headers are the list you click.
  *
  * Gathering: the two psionics books' records — source starts
  * with "Expanded Psionics Handbook" or "Complete Psionic" —
@@ -100,16 +101,6 @@ function NestBlock({ id, label, children }: { id: string; label: string; childre
   );
 }
 
-const JUMP_BLOCKS = [
-  { id: "psionics-powers", label: "Powers" },
-  { id: "psionics-classes", label: "Classes" },
-  { id: "psionics-prestige", label: "Prestige Classes" },
-  { id: "psionics-feats", label: "Feats" },
-  { id: "psionics-races", label: "Races" },
-  { id: "psionics-items", label: "Psionic Items" },
-  { id: "psionics-equipment", label: "Equipment" },
-];
-
 export function StepPsionics({
   build,
   onToggleSpell,
@@ -117,12 +108,6 @@ export function StepPsionics({
   build: CharacterBuild;
   onToggleSpell: (classId: string, spellId: string, selected: boolean) => void;
 }) {
-  const jumpTo = (id: string) => {
-    const el = document.getElementById(id);
-    if (el instanceof HTMLDetailsElement) el.open = true;
-    el?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
-
   const powersByDiscipline = useMemo(() => {
     const groups = new Map<string, SpellDefinition[]>();
     for (const s of ALL_SPELLS) {
@@ -223,20 +208,6 @@ export function StepPsionics({
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-3">
-        <div className="flex flex-wrap items-center gap-1" data-testid="psionics-jump-row">
-          {JUMP_BLOCKS.map((block) => (
-            <button
-              key={block.id}
-              type="button"
-              onClick={() => jumpTo(block.id)}
-              className="inline-flex items-center justify-center whitespace-nowrap rounded-full border border-border px-3 py-1.5 text-sm font-medium text-foreground/80 transition-all hover:text-foreground"
-              data-testid={`button-psionics-jump-${block.id}`}
-            >
-              {block.label}
-            </button>
-          ))}
-        </div>
-
         <NestBlock id="psionics-powers" label="Powers">
           {powersByDiscipline.map(({ discipline, list }) => (
             <div key={discipline} className="col-span-full space-y-3">
