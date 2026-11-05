@@ -853,14 +853,13 @@ export default function Builder() {
                 Item Creation | Spelljamming. The Character
                 Creation panel opens full-width under the grid,
                 where it always opened. */}
-            <div className="grid basis-full grid-cols-2 gap-1" data-testid="section-grid">
+            <div className="grid basis-full auto-rows-fr grid-cols-2 gap-1" data-testid="section-grid">
             {/* Section 1 — Player Reference, standing alone
                 (Shaun, 2026-11-04). */}
             {visibleSteps
               .filter((s) => s.id === "reference")
               .map((s) => (
-                <TabsTrigger key={s.id} value={s.id} data-testid={`tab-step-${s.id}`} className="w-full">
-                  <span className="mr-1.5 font-mono text-xs text-muted-foreground">{s.num}</span>
+                <TabsTrigger key={s.id} value={s.id} data-testid={`tab-step-${s.id}`} className="h-full w-full">
                   {s.label}
                 </TabsTrigger>
               ))}
@@ -878,15 +877,14 @@ export default function Builder() {
               aria-expanded={creationOpen}
               data-testid="step-group-character-creation-toggle"
               className={
-                "inline-flex w-full items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 font-display text-sm font-semibold ring-offset-background transition-all " +
+                "inline-flex h-full w-full items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 font-display text-sm font-semibold ring-offset-background transition-all " +
                 (inCreation
                   ? "bg-background text-foreground shadow-sm"
                   : "text-foreground/70 hover:text-foreground")
               }
             >
               <span data-testid="step-group-character-creation-label">
-                <span className="mr-1.5 font-mono text-xs text-muted-foreground">2</span>
-                Character Creation
+                                Character Creation
               </span>
               {creationOpen ? (
                 <ChevronDown className="ml-1.5 h-4 w-4 shrink-0" />
@@ -905,15 +903,14 @@ export default function Builder() {
               onClick={toggleItemCreation}
               data-testid="step-group-item-creation-toggle"
               className={
-                "inline-flex w-full items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 font-display text-sm font-semibold ring-offset-background transition-all " +
+                "inline-flex h-full w-full items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 font-display text-sm font-semibold ring-offset-background transition-all " +
                 (effectiveStep === "item-creation"
                   ? "bg-background text-foreground shadow-sm"
                   : "text-foreground/70 hover:text-foreground")
               }
             >
               <span data-testid="step-group-item-creation-label">
-                <span className="mr-1.5 font-mono text-xs text-muted-foreground">3</span>
-                Magic Item Creation
+                                Magic Item Creation
               </span>
             </button>
             {/* Section 4 — Spelljamming, a top-level line right
@@ -928,15 +925,14 @@ export default function Builder() {
               onClick={toggleSpelljamming}
               data-testid="step-group-spelljamming-toggle"
               className={
-                "inline-flex w-full items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 font-display text-sm font-semibold ring-offset-background transition-all " +
+                "inline-flex h-full w-full items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 font-display text-sm font-semibold ring-offset-background transition-all " +
                 (effectiveStep === "spelljamming"
                   ? "bg-background text-foreground shadow-sm"
                   : "text-foreground/70 hover:text-foreground")
               }
             >
               <span data-testid="step-group-spelljamming-label">
-                <span className="mr-1.5 font-mono text-xs text-muted-foreground">4</span>
-                Spelljamming
+                                Spelljamming
               </span>
             </button>
             </div>
