@@ -199,7 +199,6 @@ export default function Builder() {
   // Magic Item Creation is clickable the same way (Shaun,
   // 2026-11-04, later): its line opens a panel with jump links
   // into its page.
-  const [itemCreationOpen, setItemCreationOpen] = useState(false);
   // Spelljamming is clickable the same way again (Shaun,
   // 2026-11-04, voice call): its line opens a panel with jump
   // links into its page.
@@ -455,22 +454,22 @@ export default function Builder() {
       // Character Creation ENTERS it: open the group and land
       // on its first step.
       setCreationOpen(true);
-      setItemCreationOpen(false);
       goTo("race");
     } else {
       setCreationOpen((o) => !o);
     }
   };
   const toggleItemCreation = () => {
-    if (!itemCreationOpen && effectiveStep !== "item-creation") {
-      // Coming from anywhere else, clicking Magic Item Creation
-      // ENTERS it: open its panel and land on its page.
-      setItemCreationOpen(true);
-      setCreationOpen(false);
-      goTo("item-creation");
-    } else {
-      setItemCreationOpen((o) => !o);
-    }
+    // No jump panel for Magic Item Creation either (standing
+    // pattern, Shaun 2026-11-05: when he gives an order like
+    // this he wants it to land like this — nested, minimized,
+    // clickable, nothing duplicated): its jump buttons (The
+    // General Method / By Family / Alchemy / Item Creation
+    // Feats) duplicated the headers on its own page, the same
+    // duplication removed from Spelljamming and Psionics.
+    // Clicking lands straight on the page.
+    setCreationOpen(false);
+    goTo("item-creation");
   };
   const toggleSpelljamming = () => {
     // No jump panel for Spelljamming (Shaun, voice call
@@ -480,15 +479,7 @@ export default function Builder() {
     // Clicking Spelljamming lands on its page; the nests are
     // the navigation.
     setCreationOpen(false);
-    setItemCreationOpen(false);
     goTo("spelljamming");
-  };
-  const jumpToCreationBlock = (id: string) => {
-    const el = document.getElementById(id);
-    // Nested headers (Spelljamming, Shaun 2026-11-04): a jump
-    // opens the target nest before scrolling to it.
-    if (el instanceof HTMLDetailsElement) el.open = true;
-    el?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
   const prev = visibleSteps[visibleIndex - 1];
   const next = visibleSteps[visibleIndex + 1];
@@ -720,14 +711,14 @@ export default function Builder() {
               )}
             </button>
             {/* Section 3 — Magic Item Creation, a top-level line
-                right next to Character Creation (Shaun, 2026-11-04).
-                CLICKABLE like Character Creation: it opens a panel
-                with jump links into its page, which carries the
-                whole creation mechanics. */}
+                right next to Character Creation (Shaun, 2026-11-04),
+                carrying the whole creation mechanics on its page.
+                NO jump panel (standing pattern, Shaun 2026-11-05):
+                the button lands straight on the page, like
+                Spelljamming. */}
             <button
               type="button"
               onClick={toggleItemCreation}
-              aria-expanded={itemCreationOpen}
               data-testid="step-group-item-creation-toggle"
               className={
                 "inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 font-display text-sm font-semibold ring-offset-background transition-all " +
@@ -740,11 +731,6 @@ export default function Builder() {
                 <span className="mr-1.5 font-mono text-xs text-muted-foreground">3</span>
                 Magic Item Creation
               </span>
-              {itemCreationOpen ? (
-                <ChevronDown className="ml-1.5 h-4 w-4 shrink-0" />
-              ) : (
-                <ChevronRight className="ml-1.5 h-4 w-4 shrink-0" />
-              )}
             </button>
             {/* Section 4 — Spelljamming, a top-level line right
                 next to Magic Item Creation (Shaun, 2026-11-04,
@@ -769,29 +755,6 @@ export default function Builder() {
                 Spelljamming
               </span>
             </button>
-            {itemCreationOpen && (
-              <div
-                className="flex basis-full flex-wrap items-center gap-1 rounded-md border border-border p-1.5"
-                data-testid="step-group-item-creation"
-              >
-                {[
-                  { id: "creation-general", label: "The General Method" },
-                  { id: "creation-families", label: "By Family" },
-                  { id: "creation-alchemy", label: "Alchemy" },
-                  { id: "creation-feats", label: "Item Creation Feats" },
-                ].map((block) => (
-                  <button
-                    key={block.id}
-                    type="button"
-                    onClick={() => jumpToCreationBlock(block.id)}
-                    className="inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium text-foreground/80 transition-all hover:text-foreground"
-                    data-testid={`button-creation-jump-${block.id}`}
-                  >
-                    {block.label}
-                  </button>
-                ))}
-              </div>
-            )}
             {creationOpen && (
               <div
                 className="flex basis-full flex-wrap items-center gap-1 rounded-md border border-border p-1.5"
