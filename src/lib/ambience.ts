@@ -475,6 +475,62 @@ class AmbienceEngine {
     });
   }
 
+  /**
+   * A crowd as an EVENT, not a bed: a few seconds of band-passed
+   * noise that swells and fades like conversation passing. (Second
+   * redesign, 2026-11-04: Shaun on v20.7 — "it all just sounds like
+   * rushing waves." Every continuous noise bed reads as surf, so
+   * the beds are GONE; scenes are now built from discrete tonal and
+   * percussive events over quiet, which is also what survives a
+   * phone speaker.)
+   */
+  murmurSwell(gain = 0.05, freq = 480, dur = 4) {
+    if (!this.ctx || !this.master || !this.noiseBuf) return;
+    const ctx = this.ctx;
+    const t = ctx.currentTime;
+    const src = ctx.createBufferSource();
+    src.buffer = this.noiseBuf;
+    src.loop = true;
+    src.playbackRate.value = 0.95 + Math.random() * 0.2;
+    const filter = ctx.createBiquadFilter();
+    filter.type = "bandpass";
+    filter.frequency.setValueAtTime(freq, t);
+    filter.frequency.linearRampToValueAtTime(freq * 1.15, t + dur * 0.5);
+    filter.frequency.linearRampToValueAtTime(freq * 0.95, t + dur);
+    filter.Q.value = 0.9;
+    const g = ctx.createGain();
+    g.gain.setValueAtTime(0, t);
+    g.gain.linearRampToValueAtTime(gain, t + dur * 0.35);
+    g.gain.linearRampToValueAtTime(gain * 0.55, t + dur * 0.7);
+    g.gain.linearRampToValueAtTime(0, t + dur);
+    src.connect(filter).connect(g).connect(this.master);
+    src.start(t);
+    src.stop(t + dur + 0.1);
+  }
+
+  /** A saw stroke: a band-passed noise sweep, up and back down. */
+  sawStroke(gain = 0.03) {
+    if (!this.ctx || !this.master || !this.noiseBuf) return;
+    const ctx = this.ctx;
+    const t = ctx.currentTime;
+    const src = ctx.createBufferSource();
+    src.buffer = this.noiseBuf;
+    src.playbackRate.value = 1.6;
+    const filter = ctx.createBiquadFilter();
+    filter.type = "bandpass";
+    filter.frequency.setValueAtTime(500, t);
+    filter.frequency.linearRampToValueAtTime(1050, t + 0.35);
+    filter.frequency.linearRampToValueAtTime(480, t + 0.72);
+    filter.Q.value = 2;
+    const g = ctx.createGain();
+    g.gain.setValueAtTime(0, t);
+    g.gain.linearRampToValueAtTime(gain, t + 0.06);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + 0.75);
+    src.connect(filter).connect(g).connect(this.master);
+    src.start(t);
+    src.stop(t + 0.8);
+  }
+
   /** A water drip with a faint echo — eaves in the fog, cave roofs. */
   drip(gain = 0.05) {
     this.blip(1150 + Math.random() * 250, 240, 0.14, gain);
@@ -615,142 +671,142 @@ class AmbienceEngine {
 }
 
 /**
- * One recipe per scene. Redesigned 2026-11-04 after Shaun reported
- * every scene sounded the same: the old recipes all sat on the same
- * loud lowpassed-noise bed, so the bed was all you heard. Now each
- * scene leads with its own signature sounds, beds sit well under
- * them, and some scenes are defined by near-quiet instead of a bed.
+ * One recipe per scene. Third design, 2026-11-04: v20.6's recipes
+ * all sat on the same loud noise bed (Shaun: "the same sound");
+ * v20.7 quieted the beds and added signatures, but continuous
+ * filtered noise still dominated (Shaun: "rushing waves"). So the
+ * continuous noise beds are gone entirely. Every scene is now
+ * discrete events over quiet — drips, bells, hammers, pages,
+ * bubbles, crackle — plus at most a faint tonal drone. Nothing
+ * left that can read as surf.
  */
 const RECIPES: Record<AmbienceScene, (e: AmbienceEngine) => void> = {
-  // The Bastion's fog street: wind, drips off the eaves, footsteps
-  // on wet stone passing by, a far bell, steam vents.
+  // The Bastion's fog street: emptiness first — drips, a deep far
+  // bell, footsteps passing, a faint machinery hum under it all.
   street: (e) => {
-    e.loopNoise("bandpass", 300, 0.05, 0.06, 120);
-    e.every(3, 7, () => e.drip(0.045));
-    e.every(18, 34, () => e.steps(0.05));
-    e.every(50, 90, () => e.bell(330, 0.025));
-    e.every(16, 28, () => e.creak(0.012));
-    e.every(40, 70, () => e.hiss(0.015, 1.1));
+    e.drone(55, 0.008);
+    e.every(2.5, 5, () => e.drip(0.05));
+    e.every(55, 95, () => e.bell(196, 0.03));
+    e.every(16, 30, () => e.steps(0.05));
+    e.every(18, 30, () => e.creak(0.014));
+    e.every(35, 60, () => e.whoosh(0.02));
   },
-  // The great library: near hush, page turns, a clock, a quill.
+  // The great library: a ticking clock, page turns, a quill. Quiet.
   reference: (e) => {
-    e.loopNoise("lowpass", 240, 0.018, 0.05, 40);
-    e.every(5, 10, () => e.rustle(0.05));
-    e.every(1.8, 2.4, () => e.tick(0.011));
-    e.every(9, 16, () => e.scratch(0.018));
-    e.every(20, 35, () => e.creak(0.01));
-  },
-  // The hall of the peoples: a crowd that breathes, feet passing.
-  race: (e) => {
-    e.murmur(0.05, 520);
-    e.every(12, 22, () => e.steps(0.04));
-    e.every(14, 24, () => e.clink(0.015));
-    e.every(60, 100, () => e.bell(262, 0.012));
-  },
-  // The lecture hall: a low lecturer murmur, chalk, benches.
-  classes: (e) => {
-    e.murmur(0.028, 420);
-    e.every(6, 11, () => {
-      e.tick(0.028);
-      window.setTimeout(() => e.tick(0.022), 160);
-      window.setTimeout(() => e.tick(0.018), 330);
-    });
-    e.every(8, 15, () => e.creak(0.03));
-    e.every(10, 18, () => e.rustle(0.025));
-  },
-  // The guild workshop: tools, mallet knocks, leather and canvas.
-  skills: (e) => {
-    e.loopNoise("lowpass", 500, 0.035, 0.06, 120);
-    e.every(3, 7, () => e.clink(0.04));
-    e.every(7, 13, () => e.clack(0.06));
-    e.every(9, 16, () => e.creak(0.02));
-    e.every(8, 14, () => e.rustle(0.03));
-  },
-  // The transformation laboratory: dark, deep bubbles, a low hum.
-  templates: (e) => {
-    e.loopNoise("lowpass", 200, 0.05, 0.05, 50);
-    e.drone(72, 0.016);
-    e.every(1.4, 3, () => e.blip(180 + Math.random() * 120, 700, 0.5, 0.03));
-    e.every(9, 15, () => e.clink(0.02));
-    e.every(20, 34, () => e.hiss(0.02, 0.9));
-  },
-  // The training yard: dummy drills in bursts, staves, rope.
-  feats: (e) => {
-    e.loopNoise("bandpass", 420, 0.06, 0.08, 160);
-    e.every(5, 9, () => {
-      e.thud(0.12);
-      window.setTimeout(() => e.thud(0.09), 260);
-    });
-    e.every(6, 11, () => e.clack(0.05));
-    e.every(12, 20, () => e.creak(0.02));
-  },
-  // The spellbook: pages, a quill, a candle, faint sparkles of magic.
-  spells: (e) => {
-    e.loopNoise("lowpass", 260, 0.022, 0.05, 50);
-    e.every(4, 8, () => e.rustle(0.05));
-    e.every(10, 17, () => e.scratch(0.02));
-    e.every(14, 24, () => e.sparkle(0.016));
-    e.every(1, 3, () => e.crackle(0.02));
-  },
-  // The school: the bell runs this place. Stone steps, far murmur.
-  prestige: (e) => {
-    e.loopNoise("bandpass", 380, 0.04, 0.06, 110);
-    e.murmur(0.014, 460);
-    e.every(26, 44, () => e.bell(392, 0.05));
-    e.every(14, 24, () => e.steps(0.045));
-    e.every(12, 20, () => e.rustle(0.02));
-  },
-  // The market: bustle, coin, canvas, crates.
-  equipment: (e) => {
-    e.murmur(0.055, 540);
-    e.every(5, 10, () => {
-      e.clink(0.045);
-      window.setTimeout(() => e.clink(0.03), 120);
-    });
+    e.every(1.8, 2.4, () => e.tick(0.012));
     e.every(4, 8, () => e.rustle(0.055));
-    e.every(11, 19, () => e.thud(0.07));
-    e.every(16, 26, () => e.steps(0.04));
+    e.every(8, 14, () => e.scratch(0.02));
+    e.every(22, 36, () => e.creak(0.01));
   },
-  // The magical laboratory: bright bubbles, glass, sparkle, fizz.
+  // The hall of the peoples: conversation swells passing, feet, a
+  // low bell now and then.
+  race: (e) => {
+    e.every(9, 16, () => e.murmurSwell(0.05, 520, 4.5));
+    e.every(11, 20, () => e.steps(0.04));
+    e.every(15, 25, () => e.clink(0.015));
+    e.every(70, 110, () => e.bell(262, 0.012));
+  },
+  // The lecture hall: chalk taps, bench creaks, pages, and the
+  // lecturer's low swell of voice.
+  classes: (e) => {
+    e.every(5, 10, () => {
+      e.tick(0.03);
+      window.setTimeout(() => e.tick(0.024), 160);
+      window.setTimeout(() => e.tick(0.02), 330);
+    });
+    e.every(7, 13, () => e.creak(0.032));
+    e.every(9, 16, () => e.rustle(0.028));
+    e.every(14, 22, () => e.murmurSwell(0.022, 420, 5));
+  },
+  // The guild workshop: tool clinks, mallet knocks, a saw at work.
+  skills: (e) => {
+    e.every(2.5, 5.5, () => e.clink(0.045));
+    e.every(6, 11, () => e.clack(0.06));
+    e.every(12, 20, () => e.sawStroke(0.032));
+    e.every(10, 17, () => e.creak(0.02));
+    e.every(9, 15, () => e.rustle(0.03));
+  },
+  // The transformation laboratory: a low hum and slow, deep bubbles.
+  templates: (e) => {
+    e.drone(72, 0.018);
+    e.every(1.2, 2.6, () => e.blip(180 + Math.random() * 120, 700, 0.5, 0.032));
+    e.every(10, 16, () => e.clink(0.02));
+    e.every(18, 30, () => e.hiss(0.02, 0.9));
+  },
+  // The training yard: dummy drills, staff clacks, a gust now and then.
+  feats: (e) => {
+    e.every(4, 8, () => {
+      e.thud(0.13);
+      window.setTimeout(() => e.thud(0.1), 260);
+    });
+    e.every(5, 10, () => e.clack(0.055));
+    e.every(14, 22, () => e.steps(0.04));
+    e.every(25, 45, () => e.whoosh(0.025));
+  },
+  // The spellbook: pages, a quill, a candle's crackle, faint sparkles.
+  spells: (e) => {
+    e.every(3.5, 7, () => e.rustle(0.055));
+    e.every(9, 15, () => e.scratch(0.02));
+    e.every(11, 20, () => e.sparkle(0.018));
+    e.every(1.2, 3, () => e.crackle(0.018));
+  },
+  // The school: the bell runs this place. Stone steps between bells.
+  prestige: (e) => {
+    e.every(24, 40, () => e.bell(392, 0.05));
+    e.every(12, 20, () => e.steps(0.045));
+    e.every(12, 19, () => e.rustle(0.02));
+    e.every(18, 28, () => e.murmurSwell(0.016, 460, 4));
+  },
+  // The market: crowd swells, coin, canvas, crates, passing feet.
+  equipment: (e) => {
+    e.every(7, 13, () => e.murmurSwell(0.055, 540, 4.5));
+    e.every(4, 8, () => {
+      e.clink(0.048);
+      window.setTimeout(() => e.clink(0.032), 120);
+    });
+    e.every(3.5, 7, () => e.rustle(0.055));
+    e.every(10, 17, () => e.thud(0.07));
+    e.every(14, 24, () => e.steps(0.04));
+  },
+  // The magical laboratory: a brighter hum, quick bubbles, glass,
+  // sparkles, fizz.
   "magic-items": (e) => {
-    e.drone(96, 0.012);
-    e.loopNoise("lowpass", 280, 0.025, 0.05, 60);
-    e.every(0.9, 2.2, () => e.blip(300 + Math.random() * 150, 950, 0.4, 0.03));
-    e.every(6, 11, () => e.clink(0.04));
-    e.every(9, 16, () => e.sparkle(0.02));
-    e.every(16, 26, () => e.hiss(0.025, 0.8));
+    e.drone(96, 0.013);
+    e.every(0.8, 1.8, () => e.blip(300 + Math.random() * 150, 950, 0.4, 0.032));
+    e.every(5, 9, () => e.clink(0.04));
+    e.every(8, 14, () => e.sparkle(0.02));
+    e.every(15, 24, () => e.hiss(0.025, 0.8));
   },
-  // The warehouse: cavernous quiet, big timber creaks, chains, drips.
+  // The warehouse: big creaks, echoing drips, chains, a crate set down.
   inventory: (e) => {
-    e.loopNoise("lowpass", 180, 0.03, 0.05, 40);
-    e.every(7, 13, () => e.creak(0.04));
-    e.every(6, 11, () => e.drip(0.035));
-    e.every(15, 25, () => {
+    e.every(6, 11, () => e.creak(0.042));
+    e.every(5, 9, () => e.drip(0.038));
+    e.every(14, 22, () => {
       e.clink(0.02);
       window.setTimeout(() => e.clink(0.016), 130);
       window.setTimeout(() => e.clink(0.013), 270);
     });
-    e.every(18, 30, () => e.thud(0.09));
+    e.every(16, 26, () => e.thud(0.09));
   },
-  // The tavern: the fire, warm murmur, mugs, chairs.
+  // The tavern: the fire is the bed — crackle pops, not noise —
+  // with mugs, chairs, and warm conversation swells.
   personality: (e) => {
-    e.murmur(0.04, 380);
-    e.every(0.6, 1.6, () => e.crackle(0.05));
-    e.every(7, 13, () => e.clink(0.03));
-    e.every(10, 17, () => e.creak(0.02));
+    e.every(0.5, 1.3, () => e.crackle(0.05));
+    e.every(6, 11, () => e.clink(0.032));
+    e.every(10, 17, () => e.murmurSwell(0.04, 380, 5));
+    e.every(11, 18, () => e.creak(0.02));
     e.every(20, 34, () => e.thud(0.05));
   },
-  // The forge: bellows, hammer bursts, coal, the quench.
+  // The forge: coal crackle, bellows, hammer bursts, the quench.
   "item-creation": (e) => {
-    e.loopNoise("lowpass", 220, 0.045, 0.06, 50);
-    e.every(0.7, 1.8, () => e.crackle(0.055));
-    e.every(9, 15, () => e.whoosh(0.07));
-    e.every(7, 13, () => {
+    e.every(0.6, 1.5, () => e.crackle(0.05));
+    e.every(8, 13, () => e.whoosh(0.07));
+    e.every(6, 11, () => {
       e.hammer();
       window.setTimeout(() => e.hammer(), 300);
       window.setTimeout(() => e.hammer(), 620);
     });
-    e.every(24, 40, () => e.hiss(0.05, 1.1));
+    e.every(22, 36, () => e.hiss(0.05, 1.1));
   },
 };
 
