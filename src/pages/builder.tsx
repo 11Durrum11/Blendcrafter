@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useRef, useState, type ReactNode } from "react";
+import { Fragment, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { Link, useLocation, useRoute } from "wouter";
 import { ChevronDown, ChevronLeft, ChevronRight, Download, Link2, Moon, SlidersHorizontal, Sun, Upload, UserPlus, Volume2, VolumeX } from "lucide-react";
 import { ambience, type AmbienceScene } from "@/lib/ambience";
@@ -25,7 +25,9 @@ import { StepItemCreation } from "@/components/steps/step-item-creation";
 import { StepSpelljamming } from "@/components/steps/step-spelljamming";
 import { StepPsionics, buildHasPsionics } from "@/components/steps/step-psionics";
 import { StepReference } from "@/components/steps/step-reference";
-import { useCharacterBuild } from "@/lib/use-character-build";
+import { useCharacterBuild, createZeroBuild } from "@/lib/use-character-build";
+import type { CharacterBuild } from "@/engine/types";
+import { resolveCharacter } from "@/engine/resolver";
 import { exportCharacterJson, importCharacterJson } from "@/lib/character-io";
 import { buildShareUrl, buildTokenFromSearch, copyText, decodeBuildToken, decodeSettingsToken, settingsShareUrl, settingsTokenFromSearch } from "@/lib/build-link";
 import { loadTogglePrefs, prefsFromBuild, sanitizeTogglePrefs, saveTogglePrefs } from "@/lib/toggle-prefs";
@@ -142,11 +144,16 @@ type StepId = (typeof STEPS)[number]["id"];
  *
  * 2026-11-04 (later, voice call): three more rulings — the New
  * button goes second, Export sits next to Import, and the Moon
- * (theme) button goes last. The order below satisfies all three.
+ * (theme) button goes last. The order below satisfied all three.
+ *
+ * 2026-11-05: superseded in part — "put it first": the New
+ * button now leads the header (it is also 2x2 now, and it is
+ * the gate that starts a character; see the gate note in
+ * Builder). Export still sits next to Import, Moon still last.
  */
 const HEADER_BOX_ORDER = [
-  "rulesets",
   "new",
+  "rulesets",
   "import",
   "export",
   "characters",
@@ -272,6 +279,58 @@ export default function Builder() {
 
   const cb = useCharacterBuild();
   const { build, resolved } = cb;
+  // The gate (Shaun, 2026-11-05): "On character creation, unless
+  // a character is being made zero everything out" — and "the
+  // way to know if the character is being made is if the new
+  // character button is clicked first." Until New is clicked
+  // (or a character is opened — loaded, imported, or arrived by
+  // build link), every Character Creation step renders the ZERO
+  // build and its zeroed resolution, and every build-changing
+  // callback the steps receive is inert, so nothing can start a
+  // character by accident. The header's own controls (Rule
+  // Sets, House Rules, Save, Characters) keep the real build:
+  // those are the library and Shaun's settings, not the canvas.
+  const [characterStarted, setCharacterStarted] = useState(false);
+  const zeroBuild = useMemo(createZeroBuild, []);
+  const zeroResolved = useMemo(() => resolveCharacter(zeroBuild), [zeroBuild]);
+  const viewBuild = characterStarted ? build : zeroBuild;
+  const viewResolved = characterStarted ? resolved : zeroResolved;
+  const handleLoadBuild = (next: CharacterBuild) => {
+    cb.setBuild(next);
+    setCharacterStarted(true);
+  };
+  const noop = () => {};
+  const idleCb: typeof cb = {
+    ...cb,
+    updateBuild: noop,
+    setName: noop,
+    setRace: noop,
+    setAbility: noop,
+    setAllAbilities: noop,
+    addClassLevel: noop,
+    removeClassLevel: noop,
+    addPrestigeLevel: noop,
+    removePrestigeLevel: noop,
+    togglePrestigeCertification: noop,
+    addTemplate: noop,
+    removeTemplate: noop,
+    reorderTemplate: noop,
+    setTemplateForm: noop,
+    setSkillRank: noop,
+    toggleFeat: noop,
+    toggleSpell: noop,
+    addInventory: noop,
+    removeInventory: noop,
+    toggleEquipped: noop,
+    toggleRaceEnabled: noop,
+    toggleClassEnabled: noop,
+    toggleSkillEnabled: noop,
+    toggleFeatEnabled: noop,
+    toggleAbilityEnabled: noop,
+    updatePersonality: noop,
+    setWealthLimitLevel: noop,
+  };
+  const viewCb = characterStarted ? cb : idleCb;
 
   // Campaign defaults (Shaun, 2026-11-02): his curated toggle state
   // ships with the app. Toggle prefs live in each browser's own
@@ -335,6 +394,7 @@ export default function Builder() {
       window.history.replaceState(null, "", url.toString());
       if (linked) {
         cb.setBuild(linked);
+        setCharacterStarted(true);
         toast({
           title: "Character loaded from link",
           description: `${linked.name || "Character"} arrived via its build link. Save it from the Characters menu to keep it in this browser.`,
@@ -515,6 +575,7 @@ export default function Builder() {
     try {
       const imported = await importCharacterJson(file);
       cb.setBuild(imported);
+      setCharacterStarted(true);
       toast({ title: "Character imported", description: `Loaded ${imported.name || "character"} from file.` });
     } catch (error) {
       toast({
@@ -535,23 +596,28 @@ export default function Builder() {
   // laptop widths and stack into two lines on phone widths.
   const headerBoxNodes: Record<string, ReactNode> = {
     rulesets: <RulesetToggle enabledRulesets={build.enabledRulesets} onToggle={cb.toggleRuleset} />,
-    characters: <CharacterRepository build={build} onLoad={cb.setBuild} part="characters" />,
+    characters: <CharacterRepository build={build} onLoad={handleLoadBuild} part="characters" />,
     "house-rules": <HouseRulesToggle houseRules={build.houseRules} onToggle={cb.toggleHouseRule} />,
-    save: <CharacterRepository build={build} onLoad={cb.setBuild} part="save" />,
+    save: <CharacterRepository build={build} onLoad={handleLoadBuild} part="save" />,
+    // The New button (Shaun, 2026-11-05): FIRST in the header,
+    // two by two (double width, double height), and it is the
+    // gate — clicking it is what starts a character being made
+    // (see the gate note in Builder). Before it is clicked,
+    // Character Creation sits zeroed out.
     new: (
       <Button
         variant="outline"
-        size="sm"
-        className="px-1.5 sm:px-3"
+        className="h-16 px-6 text-base"
         onClick={() => {
           cb.reset();
+          setCharacterStarted(true);
           goTo("abilities");
           toast({ title: "New character", description: "Started a fresh build." });
         }}
         data-testid="button-new-character"
       >
-        <UserPlus className="h-3.5 w-3.5 sm:mr-1.5" />
-        <span className="hidden sm:inline">New</span>
+        <UserPlus className="mr-2 h-7 w-7" />
+        <span>New Character</span>
       </Button>
     ),
     theme: (
@@ -624,8 +690,9 @@ export default function Builder() {
               2026-11-04 at Shaun's order. */}
           {/* The header boxes, in Shaun's baked-in arrangement
               (2026-11-03, from his phone screenshot — see
-              HEADER_BOX_ORDER): Rule Sets · Import · Characters ·
-              New · Moon · House Rules · Export · Save. One row on
+              HEADER_BOX_ORDER): New first (2026-11-05), then
+              Rule Sets · Import · Export · Characters ·
+              House Rules · Save · Ambience · Moon. One row on
               laptop widths, two stacked lines on phone widths
               (2026-11-04, Shaun: the one-row layout is for the
               laptop). Copy build link and Copy settings link were
@@ -657,17 +724,17 @@ export default function Builder() {
           <Input
             id="character-name"
             data-testid="input-character-name"
-            value={build.name}
-            onChange={(e) => cb.setName(e.target.value)}
+            value={viewBuild.name}
+            onChange={(e) => viewCb.setName(e.target.value)}
             className="h-9 w-44 font-display sm:w-64"
             placeholder="Unnamed Character"
           />
           <span className="text-sm text-muted-foreground">
-            {resolved.race.name} · ECL {resolved.ecl.value} · CR {resolved.cr.value} · HP {resolved.hp.total} · AC {resolved.ac.total}
+            {viewResolved.race.name} · ECL {viewResolved.ecl.value} · CR {viewResolved.cr.value} · HP {viewResolved.hp.total} · AC {viewResolved.ac.total}
           </span>
-          {resolved.validation.some((v) => v.severity === "error") && (
+          {viewResolved.validation.some((v) => v.severity === "error") && (
             <span className="text-sm text-destructive">
-              {resolved.validation.filter((v) => v.severity === "error").length} template issue(s) — see the Templates step
+              {viewResolved.validation.filter((v) => v.severity === "error").length} template issue(s) — see the Templates step
             </span>
           )}
         </div>
@@ -783,7 +850,7 @@ export default function Builder() {
                       // step still opens for reference; the gray
                       // lifts when a psionic class is on the build.
                       className={
-                        s.id === "psionics" && !buildHasPsionics(build) ? "text-muted-foreground/60 opacity-60" : undefined
+                        s.id === "psionics" && !buildHasPsionics(viewBuild) ? "text-muted-foreground/60 opacity-60" : undefined
                       }
                     >
                       <span className="mr-1.5 font-mono text-xs text-muted-foreground">{s.num}</span>
@@ -798,134 +865,134 @@ export default function Builder() {
         <div className="mt-6">
           {currentStep === "abilities" && (
             <StepAbilities
-              baseAbilityScores={build.baseAbilityScores}
-              disabledAbilities={build.disabledAbilities}
-              onAbilityChange={cb.setAbility}
-              onAllAbilitiesChange={cb.setAllAbilities}
-              onToggleAbilityEnabled={cb.toggleAbilityEnabled}
+              baseAbilityScores={viewBuild.baseAbilityScores}
+              disabledAbilities={viewBuild.disabledAbilities}
+              onAbilityChange={viewCb.setAbility}
+              onAllAbilitiesChange={viewCb.setAllAbilities}
+              onToggleAbilityEnabled={viewCb.toggleAbilityEnabled}
             />
           )}
           {currentStep === "race" && (
             <StepRace
-              raceId={build.raceId}
-              enabledRulesets={build.enabledRulesets}
-              disabledRaceIds={build.disabledRaceIds}
-              onRaceChange={cb.setRace}
-              onToggleRaceEnabled={cb.toggleRaceEnabled}
+              raceId={viewBuild.raceId}
+              enabledRulesets={viewBuild.enabledRulesets}
+              disabledRaceIds={viewBuild.disabledRaceIds}
+              onRaceChange={viewCb.setRace}
+              onToggleRaceEnabled={viewCb.toggleRaceEnabled}
             />
           )}
           {effectiveStep === "classes" && (
             <StepClasses
-              classLevels={build.classLevels}
-              enabledRulesets={build.enabledRulesets}
-              disabledClassIds={build.disabledClassIds}
-              resolved={resolved}
-              onAdd={cb.addClassLevel}
-              onRemove={cb.removeClassLevel}
-              onToggleClassEnabled={cb.toggleClassEnabled}
+              classLevels={viewBuild.classLevels}
+              enabledRulesets={viewBuild.enabledRulesets}
+              disabledClassIds={viewBuild.disabledClassIds}
+              resolved={viewResolved}
+              onAdd={viewCb.addClassLevel}
+              onRemove={viewCb.removeClassLevel}
+              onToggleClassEnabled={viewCb.toggleClassEnabled}
             />
           )}
           {effectiveStep === "prestige" && (
             <StepPrestige
-              prestigeClassLevels={build.prestigeClassLevels}
-              enabledRulesets={build.enabledRulesets}
-              disabledClassIds={build.disabledClassIds}
-              certifications={build.prestigePrereqCertifications}
-              resolved={resolved}
-              onAddPrestige={cb.addPrestigeLevel}
-              onRemovePrestige={cb.removePrestigeLevel}
-              onToggleClassEnabled={cb.toggleClassEnabled}
-              onTogglePrestigeCertification={cb.togglePrestigeCertification}
+              prestigeClassLevels={viewBuild.prestigeClassLevels}
+              enabledRulesets={viewBuild.enabledRulesets}
+              disabledClassIds={viewBuild.disabledClassIds}
+              certifications={viewBuild.prestigePrereqCertifications}
+              resolved={viewResolved}
+              onAddPrestige={viewCb.addPrestigeLevel}
+              onRemovePrestige={viewCb.removePrestigeLevel}
+              onToggleClassEnabled={viewCb.toggleClassEnabled}
+              onTogglePrestigeCertification={viewCb.togglePrestigeCertification}
             />
           )}
           {effectiveStep === "spells" && (
-            <StepSpells build={build} resolved={resolved} onToggleSpell={cb.toggleSpell} />
+            <StepSpells build={viewBuild} resolved={viewResolved} onToggleSpell={viewCb.toggleSpell} />
           )}
           {currentStep === "skills" && (
             <StepSkills
-              skillRanks={build.skillRanks}
-              enabledRulesets={build.enabledRulesets}
-              disabledSkillIds={build.disabledSkillIds}
-              resolved={resolved}
-              onSetRank={cb.setSkillRank}
-              onToggleSkillEnabled={cb.toggleSkillEnabled}
+              skillRanks={viewBuild.skillRanks}
+              enabledRulesets={viewBuild.enabledRulesets}
+              disabledSkillIds={viewBuild.disabledSkillIds}
+              resolved={viewResolved}
+              onSetRank={viewCb.setSkillRank}
+              onToggleSkillEnabled={viewCb.toggleSkillEnabled}
             />
           )}
           {currentStep === "templates" && (
             <StepTemplates
-              templates={build.templates}
-              baseType={resolved.race.type}
-              enabledRulesets={build.enabledRulesets}
-              onAdd={cb.addTemplate}
-              onRemove={cb.removeTemplate}
-              onReorder={cb.reorderTemplate}
-              onSetForm={cb.setTemplateForm}
-              validation={resolved.validation}
+              templates={viewBuild.templates}
+              baseType={viewResolved.race.type}
+              enabledRulesets={viewBuild.enabledRulesets}
+              onAdd={viewCb.addTemplate}
+              onRemove={viewCb.removeTemplate}
+              onReorder={viewCb.reorderTemplate}
+              onSetForm={viewCb.setTemplateForm}
+              validation={viewResolved.validation}
             />
           )}
           {currentStep === "feats" && (
             <StepFeats
-              featIds={build.featIds}
-              enabledRulesets={build.enabledRulesets}
-              disabledFeatIds={build.disabledFeatIds}
-              resolved={resolved}
-              onToggleFeat={cb.toggleFeat}
-              onToggleFeatEnabled={cb.toggleFeatEnabled}
+              featIds={viewBuild.featIds}
+              enabledRulesets={viewBuild.enabledRulesets}
+              disabledFeatIds={viewBuild.disabledFeatIds}
+              resolved={viewResolved}
+              onToggleFeat={viewCb.toggleFeat}
+              onToggleFeatEnabled={viewCb.toggleFeatEnabled}
             />
           )}
           {currentStep === "equipment" && (
             <StepEquipment
-              inventory={build.inventory}
-              enabledRulesets={build.enabledRulesets}
-              resolved={resolved}
-              wealthLimitLevel={build.wealthLimitLevel ?? null}
-              onAdd={cb.addInventory}
-              onRemove={cb.removeInventory}
-              onToggleEquipped={cb.toggleEquipped}
-              onSetWealthLimitLevel={cb.setWealthLimitLevel}
+              inventory={viewBuild.inventory}
+              enabledRulesets={viewBuild.enabledRulesets}
+              resolved={viewResolved}
+              wealthLimitLevel={viewBuild.wealthLimitLevel ?? null}
+              onAdd={viewCb.addInventory}
+              onRemove={viewCb.removeInventory}
+              onToggleEquipped={viewCb.toggleEquipped}
+              onSetWealthLimitLevel={viewCb.setWealthLimitLevel}
             />
           )}
           {currentStep === "magic-items" && (
             <StepMagicItems
-              inventory={build.inventory}
-              enabledRulesets={build.enabledRulesets}
-              resolved={resolved}
-              wealthLimitLevel={build.wealthLimitLevel ?? null}
-              onAdd={cb.addInventory}
-              onRemove={cb.removeInventory}
-              onToggleEquipped={cb.toggleEquipped}
-              onSetWealthLimitLevel={cb.setWealthLimitLevel}
+              inventory={viewBuild.inventory}
+              enabledRulesets={viewBuild.enabledRulesets}
+              resolved={viewResolved}
+              wealthLimitLevel={viewBuild.wealthLimitLevel ?? null}
+              onAdd={viewCb.addInventory}
+              onRemove={viewCb.removeInventory}
+              onToggleEquipped={viewCb.toggleEquipped}
+              onSetWealthLimitLevel={viewCb.setWealthLimitLevel}
             />
           )}
           {currentStep === "psionics" && (
             <StepPsionics
-              build={build}
-              resolved={resolved}
-              onToggleSpell={cb.toggleSpell}
-              onToggleFeat={cb.toggleFeat}
-              onAddClass={cb.addClassLevel}
-              onRemoveClass={cb.removeClassLevel}
-              onAddPrestige={cb.addPrestigeLevel}
-              onRemovePrestige={cb.removePrestigeLevel}
-              onAddInventory={cb.addInventory}
+              build={viewBuild}
+              resolved={viewResolved}
+              onToggleSpell={viewCb.toggleSpell}
+              onToggleFeat={viewCb.toggleFeat}
+              onAddClass={viewCb.addClassLevel}
+              onRemoveClass={viewCb.removeClassLevel}
+              onAddPrestige={viewCb.addPrestigeLevel}
+              onRemovePrestige={viewCb.removePrestigeLevel}
+              onAddInventory={viewCb.addInventory}
             />
           )}
           {currentStep === "inventory" && (
             <StepInventory
-              inventory={build.inventory}
-              enabledRulesets={build.enabledRulesets}
-              resolved={resolved}
-              wealthLimitLevel={build.wealthLimitLevel ?? null}
-              onAdd={cb.addInventory}
-              onRemove={cb.removeInventory}
-              onToggleEquipped={cb.toggleEquipped}
-              onSetWealthLimitLevel={cb.setWealthLimitLevel}
+              inventory={viewBuild.inventory}
+              enabledRulesets={viewBuild.enabledRulesets}
+              resolved={viewResolved}
+              wealthLimitLevel={viewBuild.wealthLimitLevel ?? null}
+              onAdd={viewCb.addInventory}
+              onRemove={viewCb.removeInventory}
+              onToggleEquipped={viewCb.toggleEquipped}
+              onSetWealthLimitLevel={viewCb.setWealthLimitLevel}
             />
           )}
           {currentStep === "personality" && (
-            <StepPersonality build={build} resolved={resolved} onChange={cb.updatePersonality} />
+            <StepPersonality build={viewBuild} resolved={viewResolved} onChange={viewCb.updatePersonality} />
           )}
-          {currentStep === "sheet" && <StepSheet character={resolved} />}
+          {currentStep === "sheet" && <StepSheet character={viewResolved} />}
           {currentStep === "reference" && <StepReference />}
           {currentStep === "item-creation" && <StepItemCreation />}
           {currentStep === "spelljamming" && <StepSpelljamming />}

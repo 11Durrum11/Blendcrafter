@@ -52,6 +52,44 @@ export function createDefaultBuild(): CharacterBuild {
   };
 }
 
+/** Deep-zero a value: numbers to 0, strings to "", arrays to []. */
+function zeroValue(value: unknown): unknown {
+  if (typeof value === "number") return 0;
+  if (typeof value === "string") return "";
+  if (Array.isArray(value)) return [];
+  if (value && typeof value === "object") {
+    return Object.fromEntries(Object.entries(value).map(([k, v]) => [k, zeroValue(v)]));
+  }
+  return value;
+}
+
+/**
+ * The zeroed build (Shaun, 2026-11-05): "On character creation,
+ * unless a character is being made zero everything out" — and
+ * the way to know a character is being made is the New
+ * character button having been clicked. Until then the builder
+ * shows THIS build in every Character Creation step: no name,
+ * no race, every ability score 0, and nothing picked anywhere.
+ * The toggle-derived fields (rulesets, house rules, the
+ * disabled lists) are inherited exactly like a default build's
+ * — those are Shaun's settings, not character numbers, and his
+ * settings lock keeps them as he set them.
+ */
+export function createZeroBuild(): CharacterBuild {
+  const base = createDefaultBuild();
+  const baseAbilityScores = {} as Record<AbilityKey, number>;
+  ABILITY_KEYS.forEach((key) => {
+    baseAbilityScores[key] = 0;
+  });
+  return {
+    ...base,
+    name: "",
+    raceId: "",
+    baseAbilityScores,
+    personality: zeroValue(structuredClone(DEFAULT_PERSONALITY)) as PersonalityProfile,
+  };
+}
+
 /** Fill any missing fields on an imported/loaded build with defaults. */
 export function normalizeBuild(input: CharacterBuild): CharacterBuild {
   const base = createDefaultBuild();

@@ -88,7 +88,83 @@ const FEATS_BY_ID = new Map(ALL_FEATS.map((f) => [f.id, f]));
 const FLAWS_BY_ID = new Map(ALL_FLAWS.map((f) => [f.id, f]));
 const TRAITS_BY_ID = new Map(ALL_TRAITS.map((t) => [t.id, t]));
 
+/** The race a zeroed build resolves against: none at all. */
+const ZERO_RACE: RaceDefinition = {
+  id: "",
+  name: "None",
+  ruleset: "core",
+  source: "",
+  sourceUrl: "",
+  size: "Medium",
+  baseSpeed: 0,
+  type: "Humanoid",
+  subtypes: [],
+  abilityModifiers: {},
+  traits: [],
+};
+
+/**
+ * The zeroed resolution (Shaun, 2026-11-05): a build with no
+ * race (the not-being-made state, see createZeroBuild) resolves
+ * to a clean slate of zeros — every total 0, no features, no
+ * skills above 0, no validation noise — instead of the numbers
+ * a fallback race would invent. Ability modifiers are 0 too:
+ * this is a blank slate, not a creature with 0 scores run
+ * through the modifier math.
+ */
+function zeroResolvedCharacter(build: CharacterBuild): ResolvedCharacter {
+  const abilityScores = {} as ResolvedCharacter["abilityScores"];
+  for (const key of ABILITY_KEYS) abilityScores[key] = { total: 0, modifier: 0, audit: [] };
+  const zeroValue = (): ResolvedValue => ({ total: 0, audit: [] });
+  const saves = {} as ResolvedCharacter["saves"];
+  for (const key of ["fort", "ref", "will"] as SaveKey[]) saves[key] = zeroValue();
+  return {
+    build,
+    race: ZERO_RACE,
+    size: ZERO_RACE.size,
+    type: ZERO_RACE.type,
+    subtypes: [],
+    speed: { base: 0 },
+    speedAudit: [],
+    abilityScores,
+    ac: { total: 0, touch: 0, flatFooted: 0, components: {}, audit: [] },
+    bab: zeroValue(),
+    attack: { melee: zeroValue(), ranged: zeroValue(), grapple: zeroValue() },
+    initiative: zeroValue(),
+    saves,
+    hp: zeroValue(),
+    cr: { value: 0, audit: [] },
+    levelAdjustment: { base: 0, boughtOff: 0, current: 0, audit: [] },
+    ecl: { value: 0, audit: [] },
+    totalHitDice: 0,
+    classHitDice: 0,
+    racialHitDice: 0,
+    features: [],
+    appliedTemplates: [],
+    selectedFeats: [],
+    skills: ALL_SKILLS.map((skill) => ({
+      id: skill.id,
+      name: skill.name,
+      ranks: 0,
+      total: 0,
+      isClassSkill: false,
+      maxRanks: 0,
+      rankCost: 1,
+      audit: [],
+    })),
+    synergyNotes: [],
+    skillPoints: { total: 0, spent: 0, audit: [] },
+    featSlots: { total: 0, used: 0, audit: [] },
+    inventory: [],
+    wealth: { equipmentGp: 0, magicItemGp: 0, totalGp: 0, pricedCount: 0, unpricedCount: 0 },
+    validation: [],
+  };
+}
+
 export function resolveCharacter(build: CharacterBuild): ResolvedCharacter {
+  // Zeroed state (Shaun, 2026-11-05): no race picked means no
+  // character is being made — resolve to the blank slate.
+  if (build.raceId === "") return zeroResolvedCharacter(build);
   /* ---------------- Phase 1: normalize base creature ---------------- */
   const race: RaceDefinition = RACES_BY_ID.get(build.raceId) ?? ALL_RACES[0];
   const baseType = race.type;
