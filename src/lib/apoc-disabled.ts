@@ -17,12 +17,15 @@
  *    travel, extradimensional movement or spaces, calling).
  *    STAYING LIVE by the same test: the time powers (Time Hop
  *    family, Temporal Acceleration, Time Regression — they
- *    never leave the world), the anti-teleport defensives
+ *    never leave the world), and the anti-teleport defensives
  *    (Dimensional Anchor, Psionic; Divert Teleport; Trace
- *    Teleport — the Dimensional Anchor precedent), and Astral
- *    Construct, which Shaun reviews by name: it shapes
- *    ectoplasm drawn from the Astral Plane but creates the
- *    construct on the Material and calls no one across.
+ *    Teleport — the Dimensional Anchor precedent).
+ *    ASTRAL CONSTRUCT: at integration it was left live as the
+ *    named borderline case (it shapes ectoplasm drawn from
+ *    the Astral Plane but creates the construct on the
+ *    Material and calls no one across). Shaun ruled on it
+ *    the same night (2026-11-04): "Leave out the construct."
+ *    It is OUT — it joins this set below.
  *
  * 2. No tieflings (Shaun, 2026-11-04): tieflings do not exist
  *    in APOC — by definition of their bloodline, the
@@ -46,6 +49,7 @@ export const APOC_DISABLED_POWER_IDS = new Set([
   "teleportation-circle-psionic",
   "teleport-trigger",
   // Expanded Psionics Handbook — planar verbiage
+  "astral-construct",
   "astral-caravan",
   "ethereal-jaunt-psionic",
   "etherealness-psionic",

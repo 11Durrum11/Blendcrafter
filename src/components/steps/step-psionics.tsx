@@ -30,9 +30,10 @@ import { isApocDisabledPower } from "@/lib/apoc-disabled";
  * transparency is in force, and psychoportation powers that
  * breach the world's boundaries don't work — those render
  * grayed and cannot be picked (src/lib/apoc-disabled.ts).
- * Astral Construct stays LIVE by Shaun's direct order:
- * summoning does not work in APOC, but he ruled the construct
- * is shaped ectoplasm, not a summoned creature.
+ * Astral Construct was left live at integration as the named
+ * borderline case; Shaun ruled on it the same night —
+ * "Leave out the construct" — so it is grayed with the rest
+ * (src/lib/apoc-disabled.ts).
  *
  * The step's tab in the step navigation renders GRAYED when
  * the current build has no psionic class (builder.tsx,
