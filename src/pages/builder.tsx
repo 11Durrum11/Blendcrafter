@@ -45,33 +45,33 @@ const STEPS = [
   // read-only lookup and changes no build state; the builder
   // itself opens on the Name step unless a step is chosen.
   { id: "reference", label: "Player Reference", num: "1" },
-  // The Name step is number one (Shaun, 2026-11-05: the merged
-  // name box "as one" — "and abilities two, and everything else
-  // follows"). Before it, Abilities and Race were split into
-  // separate steps (Shaun, 2026-11-05: "Separate abilities and
-  // races"); both splits stand, renumbered: Name 1, Abilities 2,
-  // Race 3, and everything else follows to Character Sheet 15.
-  { id: "name", label: "Name", num: "1" },
-  { id: "abilities", label: "Abilities", num: "2" },
-  { id: "race", label: "Race", num: "3" },
-  { id: "classes", label: "Classes", num: "4" },
-  { id: "skills", label: "Skills", num: "5" },
-  { id: "templates", label: "Templates", num: "6" },
-  { id: "feats", label: "Feats", num: "7" },
-  { id: "spells", label: "Spells", num: "8" },
+  // Name and Abilities are ONE step (Shaun, 2026-11-05, later:
+  // "combine name and the abilities. Put the name on top in the
+  // abilities and call that one and then everything else
+  // after"). The name box sits on top inside the Abilities
+  // step, which is Step 1; there is no separate Name step.
+  // Renumbered: Abilities 1, Race 2, and everything else
+  // follows to Character Sheet 14.
+  { id: "abilities", label: "Abilities", num: "1" },
+  { id: "race", label: "Race", num: "2" },
+  { id: "classes", label: "Classes", num: "3" },
+  { id: "skills", label: "Skills", num: "4" },
+  { id: "templates", label: "Templates", num: "5" },
+  { id: "feats", label: "Feats", num: "6" },
+  { id: "spells", label: "Spells", num: "7" },
   // Prestige classes are their own step (Shaun, 2026-11-03), and sit
   // AFTER Spells (Shaun, later the same day: "Move it after Spells
   // and renumber the steps to fit") — the prerequisite gate judges
   // skills, templates, feats and spell picks, so those steps must
   // come first for anything to register as met.
-  { id: "prestige", label: "Prestige Classes", num: "9" },
-  { id: "equipment", label: "Equipment", num: "10" },
+  { id: "prestige", label: "Prestige Classes", num: "8" },
+  { id: "equipment", label: "Equipment", num: "9" },
   // Magic Items and Inventory are their own steps now (Shaun,
   // 2026-11-04: "give equipment magic items and inventory their
   // own windows" — Equipment 8, Magic Items 9, Inventory 10
   // inside Character Creation), which pushes Personality and
   // the Sheet to 11 and 12 inside the group.
-  { id: "magic-items", label: "Magic Items", num: "11" },
+  { id: "magic-items", label: "Magic Items", num: "10" },
   // Psionics is a step of its own inside Character Creation
   // (Shaun, 2026-11-04, voice call: "make the psionics number
   // ten" — "So inventory will become 11, personality become
@@ -80,10 +80,10 @@ const STEPS = [
   // also live in their ordinary steps. The step's tab renders
   // grayed when the build has no psionic class (APOC style);
   // it still opens for reference.
-  { id: "psionics", label: "Psionics", num: "12" },
-  { id: "inventory", label: "Inventory", num: "13" },
-  { id: "personality", label: "Personality", num: "14" },
-  { id: "sheet", label: "Character Sheet", num: "15" },
+  { id: "psionics", label: "Psionics", num: "11" },
+  { id: "inventory", label: "Inventory", num: "12" },
+  { id: "personality", label: "Personality", num: "13" },
+  { id: "sheet", label: "Character Sheet", num: "14" },
   // Section 3 (Shaun, 2026-11-04, later): "New line. Next to
   // Character Creation. — Magic Item Creation." A top-level
   // reference section standing beside Character Creation, the
@@ -239,8 +239,8 @@ export default function Builder() {
   // now); each device remembers its arrangement. The state and
   // drag handlers live just above headerBoxNodes below.
 
-  const stepParam = (params?.step ?? (location === "/" ? "name" : "name")) as StepId;
-  const currentStep: StepId = STEPS.some((s) => s.id === stepParam) ? stepParam : "name";
+  const stepParam = (params?.step ?? (location === "/" ? "abilities" : "abilities")) as StepId;
+  const currentStep: StepId = STEPS.some((s) => s.id === stepParam) ? stepParam : "abilities";
   const stepIndex = STEPS.findIndex((s) => s.id === currentStep);
 
   // Character Creation is a clickable folder (Shaun, 2026-11-04:
@@ -538,7 +538,7 @@ export default function Builder() {
   // Spelljamming does (a dedicated scene is a follow-up,
   // noted 2026-11-04).
   const sceneKey =
-    effectiveStep === "sheet" || effectiveStep === "spelljamming" || effectiveStep === "psionics" || effectiveStep === "name"
+    effectiveStep === "sheet" || effectiveStep === "spelljamming" || effectiveStep === "psionics"
       ? "street"
       : effectiveStep === "abilities"
         ? "race"
@@ -563,7 +563,7 @@ export default function Builder() {
       // Character Creation ENTERS it: open the group and land
       // on its first step.
       setCreationOpen(true);
-      goTo("name");
+      goTo("abilities");
     } else {
       setCreationOpen((o) => !o);
     }
@@ -966,7 +966,7 @@ export default function Builder() {
                   onClick={() => {
                     cb.reset();
                     setCharacterStarted(true);
-                    goTo("name");
+                    goTo("abilities");
                     toast({ title: "New character", description: "Started a fresh build." });
                   }}
                   data-testid="button-new-character"
@@ -1001,21 +1001,17 @@ export default function Builder() {
         </Tabs>
 
         <div className="mt-6">
-          {currentStep === "name" && (
-            <div data-testid="step-panel-name">
-              {/* Step 1 is the ONE name box (Shaun, 2026-11-05:
-                  the character name box and the "Unnamed
-                  Character" box merged "as one", and that box is
-                  number one in Character Creation — "and
-                  abilities two, and everything else follows").
-                  The name is typed right in this box — it reads
-                  "Unnamed Character" until a name is entered.
-                  The race · ECL · CR · HP · AC summary that
-                  shared this box moved above the New Character
-                  button later the same morning (Shaun's order).
-                  There is no separate name box anywhere else.
-                  While the gate is closed the box shows the
-                  zeroed build. */}
+          {currentStep === "abilities" && (
+            <div data-testid="step-panel-abilities">
+              {/* Step 1 is Abilities with the name box ON TOP
+                  (Shaun, 2026-11-05: "combine name and the
+                  abilities. Put the name on top in the abilities
+                  and call that one and then everything else
+                  after"). The name is typed right in this box —
+                  it reads "Unnamed Character" until a name is
+                  entered. There is no separate Name step and no
+                  name box anywhere else. While the New-button
+                  gate is closed the box shows the zeroed build. */}
               <div
                 className="flex flex-wrap items-center gap-x-3 gap-y-1 rounded-md border border-input bg-background py-1.5 pl-3 pr-3"
                 data-testid="character-heading-box"
@@ -1030,16 +1026,16 @@ export default function Builder() {
                   placeholder="Unnamed Character"
                 />
               </div>
+              <div className="mt-6">
+                <StepAbilities
+                  baseAbilityScores={viewBuild.baseAbilityScores}
+                  disabledAbilities={viewBuild.disabledAbilities}
+                  onAbilityChange={viewCb.setAbility}
+                  onAllAbilitiesChange={viewCb.setAllAbilities}
+                  onToggleAbilityEnabled={viewCb.toggleAbilityEnabled}
+                />
+              </div>
             </div>
-          )}
-          {currentStep === "abilities" && (
-            <StepAbilities
-              baseAbilityScores={viewBuild.baseAbilityScores}
-              disabledAbilities={viewBuild.disabledAbilities}
-              onAbilityChange={viewCb.setAbility}
-              onAllAbilitiesChange={viewCb.setAllAbilities}
-              onToggleAbilityEnabled={viewCb.toggleAbilityEnabled}
-            />
           )}
           {currentStep === "race" && (
             <StepRace
