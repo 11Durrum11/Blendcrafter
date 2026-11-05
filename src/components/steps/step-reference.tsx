@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { Search } from "lucide-react";
+import { Search, ChevronRight } from "lucide-react";
 import {
   ALL_BODY_MODIFICATIONS,
   ALL_CLASSES,
@@ -587,18 +587,22 @@ export function StepReference() {
           licenses; the CC-BY ones require attribution, so the
           credits live here in Player Reference where anyone
           can find them. Full provenance rides in
-          src/data/ambience-audio.ts. */}
-      <Card>
-        <CardHeader className="pb-2">
-          <CardTitle className="text-xl">Ambience Credits</CardTitle>
-          <CardDescription className="text-lg">
+          src/data/ambience-audio.ts. Minimized into its
+          header (Shaun, 2026-11-05): the card sat open at the
+          foot of Player Reference; now it is a collapsed nest
+          like everything else — tap the header to open it. */}
+      <details className="sj-nest rounded-md border border-border" data-testid="reference-ambience-credits">
+        <summary className="flex cursor-pointer list-none items-center gap-2 px-3 py-2.5 font-display text-sm font-semibold [&::-webkit-details-marker]:hidden">
+          <ChevronRight className="sj-chevron h-4 w-4 shrink-0 transition-transform" />
+          Ambience Credits
+        </summary>
+        <div className="p-3 pt-0">
+          <p className="text-base text-muted-foreground">
             The background sounds are real field recordings, one matched to each scene, used under public-domain or
             Creative Commons licenses. The Training Yard has none yet — no lawful recording of wooden-weapon
             training could be found, so that scene stays quiet rather than fake it.
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <ul className="grid grid-cols-1 gap-x-4 text-base text-muted-foreground sm:grid-cols-2">
+          </p>
+          <ul className="mt-2 grid grid-cols-1 gap-x-4 text-base text-muted-foreground sm:grid-cols-2">
             <li className="border-b py-1.5">The Street — “Evening Ambiance: Sevilla Street at Night” by Tiago CarvE (radio aporee) · Public domain</li>
             <li className="border-b py-1.5">Player Reference (the great library) — “TU Delft Library, quiet study room” by el_mar · CC BY 3.0</li>
             <li className="border-b py-1.5">Abilities &amp; Race (hall of the peoples) — “TU Delft Library, ground level” by el_mar · CC BY 3.0</li>
@@ -613,8 +617,8 @@ export function StepReference() {
             <li className="border-b py-1.5">Personality (the tavern) — “Restaurant ambience” by stephan · Public domain</li>
             <li className="border-b py-1.5">Magic Item Creation (the forge) — “Blacksmith’s anvil” by Work With Sounds / La Fonderie · CC BY 4.0</li>
           </ul>
-        </CardContent>
-      </Card>
+        </div>
+      </details>
 
       <EntityDetailDialog detail={detail} onOpenChange={(open) => { if (!open) setDetail(null); }} />
     </div>
