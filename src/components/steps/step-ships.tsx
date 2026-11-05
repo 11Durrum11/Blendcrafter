@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState, type ReactNode } from "react";
-import { ChevronRight } from "lucide-react";
+import { createPortal } from "react-dom";
+import { ChevronRight, X } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ALL_EQUIPMENT, ALL_MAGIC_ITEMS } from "@/data";
 import type { DeckPlan } from "@/data/deck-plans";
@@ -48,6 +49,15 @@ import type { DeckPlan } from "@/data/deck-plans";
  * (dynamic import below) so the images never weigh down the
  * main bundle.
  *
+ * FULLY EXPANDABLE PLANS (Shaun, 2026-11-04, minutes later):
+ * "Make the ship deck plan maps themselves fully expandable
+ * upon clicking." Tapping a plan on a card opens it in a
+ * full-screen overlay (his standing full-screen rule for
+ * expandable windows); tapping the plan in the overlay
+ * switches between fit-to-screen and full natural size (with
+ * pan-by-scroll), and Close / tapping outside / Escape
+ * leaves.
+ *
  * NESTED HEADERS, same as Spelljamming: each block's
  * information sits inside its header — collapsible <details>
  * nests, closed until tapped. The header jump buttons in
@@ -94,9 +104,11 @@ function SubNest({ id, label, children }: { id: string; label: string; children:
 function ShipCard({
   item,
   plans,
+  onZoom,
 }: {
   item: { id: string; name: string; cost: string; notes?: string };
   plans?: DeckPlan[];
+  onZoom: (plan: DeckPlan) => void;
 }) {
   const [open, setOpen] = useState(false);
   return (
@@ -126,8 +138,17 @@ function ShipCard({
         <div className="mt-2 space-y-3">
           {plans.map((p, i) => (
             <figure key={i}>
-              <img src={p.src} alt={p.caption} loading="lazy" className="w-full rounded border border-card-border" />
-              <figcaption className="mt-1 text-xs text-muted-foreground">{p.caption}</figcaption>
+              <button
+                type="button"
+                onClick={() => onZoom(p)}
+                aria-label={`Expand full-screen: ${p.caption}`}
+                className="block w-full cursor-zoom-in"
+              >
+                <img src={p.src} alt={p.caption} loading="lazy" className="w-full rounded border border-card-border" />
+              </button>
+              <figcaption className="mt-1 text-xs text-muted-foreground">
+                {p.caption} <span className="text-muted-foreground/80">(tap the plan to expand it full-screen)</span>
+              </figcaption>
             </figure>
           ))}
         </div>
@@ -155,6 +176,23 @@ export function StepShips() {
       live = false;
     };
   }, []);
+
+  // The fully-expanded deck plan (Shaun's order): one plan at
+  // a time in a full-screen overlay; fullSize switches the
+  // image between fit-to-screen and its natural size.
+  const [zoomPlan, setZoomPlan] = useState<DeckPlan | null>(null);
+  const [fullSize, setFullSize] = useState(false);
+  useEffect(() => {
+    setFullSize(false);
+  }, [zoomPlan]);
+  useEffect(() => {
+    if (!zoomPlan) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setZoomPlan(null);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [zoomPlan]);
   // EVERY ship (Shaun's order): three hull categories gather
   // here — "spelljamming ship" (the boxed set, the web line,
   // and Shaun's own homebrew ships), "airship" (Bastion Press),
@@ -203,6 +241,7 @@ export function StepShips() {
   );
 
   return (
+    <>
     <Card>
       <CardHeader>
         <CardTitle className="font-display text-xl">Ships</CardTitle>
@@ -228,21 +267,21 @@ export function StepShips() {
             {ships
               .filter((i) => i.category === "spelljamming ship")
               .map((item) => (
-                <ShipCard key={item.id} item={item} plans={deckPlans?.[item.id]} />
+                <ShipCard key={item.id} item={item} plans={deckPlans?.[item.id]} onZoom={setZoomPlan} />
               ))}
           </SubNest>
           <SubNest id="ships-hulls-airships" label={`Airships — ${shipCounts.airship}`}>
             {ships
               .filter((i) => i.category === "airship")
               .map((item) => (
-                <ShipCard key={item.id} item={item} plans={deckPlans?.[item.id]} />
+                <ShipCard key={item.id} item={item} plans={deckPlans?.[item.id]} onZoom={setZoomPlan} />
               ))}
           </SubNest>
           <SubNest id="ships-hulls-sea" label={`Sea Ships — ${shipCounts.sea}`}>
             {ships
               .filter((i) => i.category === "ship")
               .map((item) => (
-                <ShipCard key={item.id} item={item} plans={deckPlans?.[item.id]} />
+                <ShipCard key={item.id} item={item} plans={deckPlans?.[item.id]} onZoom={setZoomPlan} />
               ))}
           </SubNest>
         </NestBlock>
@@ -327,5 +366,44 @@ export function StepShips() {
         </NestBlock>
       </CardContent>
     </Card>
+    {zoomPlan &&
+      createPortal(
+        <div
+          className="fixed inset-0 z-[100] flex flex-col bg-black/95"
+          role="dialog"
+          aria-modal="true"
+          aria-label={zoomPlan.caption}
+          data-testid="ships-plan-overlay"
+        >
+          <div className="flex items-center justify-between gap-3 px-3 py-2 text-white">
+            <p className="font-display text-sm font-semibold">{zoomPlan.caption}</p>
+            <button
+              type="button"
+              onClick={() => setZoomPlan(null)}
+              className="flex shrink-0 items-center gap-1 rounded border border-white/40 px-2.5 py-1.5 text-sm font-semibold"
+            >
+              <X className="h-4 w-4" /> Close
+            </button>
+          </div>
+          <div className="min-h-0 flex-1 overflow-auto" onClick={() => setZoomPlan(null)}>
+            <img
+              src={zoomPlan.src}
+              alt={zoomPlan.caption}
+              onClick={(e) => {
+                e.stopPropagation();
+                setFullSize((z) => !z);
+              }}
+              className={
+                fullSize ? "mx-auto w-auto max-w-none cursor-zoom-out" : "mx-auto h-auto w-full cursor-zoom-in"
+              }
+            />
+          </div>
+          <p className="px-3 py-2 text-center text-xs text-white/70">
+            Tap the plan to switch between fit-to-screen and full size. Tap outside it, or Close, to go back.
+          </p>
+        </div>,
+        document.body,
+      )}
+    </>
   );
 }
