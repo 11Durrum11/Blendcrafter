@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { Fragment, useEffect, useMemo, useRef, useState, type PointerEvent as ReactPointerEvent, type ReactNode, type SyntheticEvent as ReactSyntheticEvent } from "react";
 import { Link, useLocation, useRoute } from "wouter";
 import { ChevronDown, ChevronLeft, ChevronRight, Download, Link2, Moon, SlidersHorizontal, Sun, Upload, UserPlus, Volume2, VolumeX } from "lucide-react";
 import { ambience, type AmbienceScene } from "@/lib/ambience";
@@ -163,6 +163,40 @@ const HEADER_BOX_ORDER = [
   "theme",
 ] as const;
 
+// Movable header boxes (Shaun, 2026-11-05: "Make those top
+// buttons movable" — supersedes the fixed 2026-11-03
+// arrangement): HEADER_BOX_ORDER above is now the DEFAULT
+// order. Each device keeps its own arrangement in
+// localStorage, the way it keeps Shaun's toggle prefs; press
+// and hold a box, then slide it onto the box it should swap
+// with. A stored order is validated against the known ids —
+// anything unknown drops out, anything new joins at the end.
+const HEADER_BOX_ORDER_STORAGE_KEY = "blendcrafter:header-box-order";
+
+function loadHeaderBoxOrder(): string[] {
+  try {
+    const raw = globalThis.localStorage?.getItem(HEADER_BOX_ORDER_STORAGE_KEY);
+    if (!raw) return [...HEADER_BOX_ORDER];
+    const parsed: unknown = JSON.parse(raw);
+    if (!Array.isArray(parsed)) return [...HEADER_BOX_ORDER];
+    const known = parsed.filter(
+      (x): x is string => typeof x === "string" && (HEADER_BOX_ORDER as readonly string[]).includes(x),
+    );
+    const missing = HEADER_BOX_ORDER.filter((id) => !known.includes(id));
+    return [...known, ...missing];
+  } catch {
+    return [...HEADER_BOX_ORDER];
+  }
+}
+
+function saveHeaderBoxOrder(order: string[]): void {
+  try {
+    globalThis.localStorage?.setItem(HEADER_BOX_ORDER_STORAGE_KEY, JSON.stringify(order));
+  } catch {
+    // Storage unavailable: the arrangement lasts for this visit.
+  }
+}
+
 // The little version indicator at the top of the site (Shaun,
 // 2026-11-04): a simple human version like "20.2" so he can see at a
 // glance what build he is looking at. The number lives in
@@ -195,9 +229,10 @@ export default function Builder() {
   const { toast } = useToast();
   const importRef = useRef<HTMLInputElement>(null);
 
-  // The header box order is the baked-in HEADER_BOX_ORDER
-  // constant (Shaun's own arrangement, 2026-11-03) — no state,
-  // no storage, nothing movable. See the constant's comment.
+  // The header box order starts from HEADER_BOX_ORDER and is
+  // Shaun's to rearrange (2026-11-05: the boxes are movable
+  // now); each device remembers its arrangement. The state and
+  // drag handlers live just above headerBoxNodes below.
 
   const stepParam = (params?.step ?? (location === "/" ? "abilities" : "abilities")) as StepId;
   const currentStep: StepId = STEPS.some((s) => s.id === stepParam) ? stepParam : "abilities";
@@ -594,6 +629,82 @@ export default function Builder() {
   // HEADER_BOX_ORDER; the first five form the first group, the rest
   // the second — the two groups sit side by side in one row on
   // laptop widths and stack into two lines on phone widths.
+  // Header box dragging (Shaun, 2026-11-05): press and hold a
+  // box for a beat, then slide — when the pointer crosses
+  // another box, the two swap places live. A short press that
+  // moves early is a scroll or a tap and cancels the drag, so
+  // ordinary taps and page scrolling are untouched. A real
+  // drag swallows the click it ends with, so letting go over
+  // the box's own button never fires it.
+  const [headerOrder, setHeaderOrder] = useState<string[]>(loadHeaderBoxOrder);
+  const [draggingBoxId, setDraggingBoxId] = useState<string | null>(null);
+  const dragRef = useRef<{ id: string; startX: number; startY: number; active: boolean; timer: number } | null>(null);
+  const justDraggedRef = useRef(0);
+  useEffect(() => {
+    saveHeaderBoxOrder(headerOrder);
+  }, [headerOrder]);
+
+  const onHeaderBoxPointerDown = (e: ReactPointerEvent, id: string) => {
+    if (e.pointerType === "mouse" && e.button !== 0) return;
+    const el = e.currentTarget as HTMLElement;
+    const info = { id, startX: e.clientX, startY: e.clientY, active: false, timer: 0 };
+    dragRef.current = info;
+    info.timer = window.setTimeout(() => {
+      if (dragRef.current !== info) return;
+      info.active = true;
+      setDraggingBoxId(id);
+      try {
+        el.setPointerCapture(e.pointerId);
+      } catch {
+        // Pointer capture is a nicety; the drag still tracks
+        // while the pointer stays over the header.
+      }
+    }, 180);
+  };
+  const onHeaderBoxPointerMove = (e: ReactPointerEvent) => {
+    const info = dragRef.current;
+    if (!info) return;
+    if (!info.active) {
+      if (Math.hypot(e.clientX - info.startX, e.clientY - info.startY) > 10) {
+        window.clearTimeout(info.timer);
+        dragRef.current = null;
+      }
+      return;
+    }
+    const nodes = document.querySelectorAll<HTMLElement>("[data-header-box]");
+    nodes.forEach((n) => {
+      const otherId = n.dataset.headerBox;
+      if (!otherId || otherId === info.id) return;
+      const r = n.getBoundingClientRect();
+      if (e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom) {
+        setHeaderOrder((prev) => {
+          const a = prev.indexOf(info.id);
+          const b = prev.indexOf(otherId);
+          if (a === -1 || b === -1 || a === b) return prev;
+          const next = [...prev];
+          [next[a], next[b]] = [next[b], next[a]];
+          return next;
+        });
+      }
+    });
+  };
+  const onHeaderBoxPointerEnd = () => {
+    const info = dragRef.current;
+    if (!info) return;
+    window.clearTimeout(info.timer);
+    if (info.active) {
+      justDraggedRef.current = Date.now();
+      setDraggingBoxId(null);
+    }
+    dragRef.current = null;
+  };
+  const swallowDraggedClick = (e: ReactSyntheticEvent) => {
+    if (Date.now() - justDraggedRef.current < 250) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  };
+
   const headerBoxNodes: Record<string, ReactNode> = {
     rulesets: <RulesetToggle enabledRulesets={build.enabledRulesets} onToggle={cb.toggleRuleset} />,
     characters: <CharacterRepository build={build} onLoad={handleLoadBuild} part="characters" />,
@@ -672,9 +783,22 @@ export default function Builder() {
     ),
   };
 
-  // One header box, rendered bare — the drag wrappers the boxes
-  // briefly wore are gone with the moving (Shaun, 2026-11-03).
-  const renderHeaderBox = (id: string) => <Fragment key={id}>{headerBoxNodes[id]}</Fragment>;
+  // One header box in its drag shell (Shaun, 2026-11-05: the
+  // boxes are movable again — press, hold, and slide to swap).
+  const renderHeaderBox = (id: string) => (
+    <div
+      key={id}
+      data-header-box={id}
+      data-testid={`header-box-${id}`}
+      className={`touch-none select-none${draggingBoxId === id ? " scale-105 opacity-60" : ""}`}
+      onPointerDown={(e) => onHeaderBoxPointerDown(e, id)}
+      onPointerMove={onHeaderBoxPointerMove}
+      onPointerUp={onHeaderBoxPointerEnd}
+      onPointerCancel={onHeaderBoxPointerEnd}
+    >
+      {headerBoxNodes[id]}
+    </div>
+  );
 
   return (
     <div className={`app-backdrop min-h-screen bg-background text-foreground${ambienceOn ? " bg-animated" : ""}`} data-scene={effectiveStep === "sheet" ? undefined : effectiveStep === "abilities" ? "race" : effectiveStep}>
@@ -696,14 +820,15 @@ export default function Builder() {
               laptop widths, two stacked lines on phone widths
               (2026-11-04, Shaun: the one-row layout is for the
               laptop). Copy build link and Copy settings link were
-              hidden 2026-11-04 at Shaun's order. The boxes cannot
-              be moved. */}
+              hidden 2026-11-04 at Shaun's order. The order shown
+              is the device's own: the boxes are movable
+              (2026-11-05) — press, hold, and slide to swap. */}
           <div className="ml-auto flex flex-col items-start gap-1 sm:gap-2 lg:flex-row lg:items-center">
-            <div className="flex items-center gap-1 sm:gap-2">
-              {HEADER_BOX_ORDER.slice(0, 5).map(renderHeaderBox)}
+            <div className="flex items-center gap-1 sm:gap-2" onClickCapture={swallowDraggedClick}>
+              {headerOrder.slice(0, 5).map(renderHeaderBox)}
             </div>
-            <div className="flex items-center gap-1 sm:gap-2">
-              {HEADER_BOX_ORDER.slice(5).map(renderHeaderBox)}
+            <div className="flex items-center gap-1 sm:gap-2" onClickCapture={swallowDraggedClick}>
+              {headerOrder.slice(5).map(renderHeaderBox)}
               <input
                 ref={importRef}
                 type="file"
