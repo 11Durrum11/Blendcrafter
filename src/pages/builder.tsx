@@ -21,6 +21,7 @@ import { StepEquipment, StepMagicItems, StepInventory } from "@/components/steps
 import { StepPersonality } from "@/components/steps/step-personality";
 import { StepSheet } from "@/components/steps/step-sheet";
 import { StepItemCreation } from "@/components/steps/step-item-creation";
+import { StepSpelljamming } from "@/components/steps/step-spelljamming";
 import { StepReference } from "@/components/steps/step-reference";
 import { useCharacterBuild } from "@/lib/use-character-build";
 import { exportCharacterJson, importCharacterJson } from "@/lib/character-io";
@@ -70,6 +71,16 @@ const STEPS = [
   // is its section number, 3. Like Player Reference it is
   // read-only and changes no build state.
   { id: "item-creation", label: "Magic Item Creation", num: "3" },
+  // Section 4 (Shaun, 2026-11-04, voice call): "after Magic Item
+  // Creation number four should be Spelljamming" — corrected in
+  // the same call to "Next to Magic Creation": a fourth top-level
+  // line standing right beside Magic Item Creation, minimized and
+  // clickable the same way, and EVERYTHING about Spelljamming
+  // lives inside it. The Spelljammer records themselves also file
+  // into the ordinary catalogs (races with races, spells with
+  // spells, ships with equipment, helms with magic items), so the
+  // section page is the hub that gathers them all in one place.
+  { id: "spelljamming", label: "Spelljamming", num: "4" },
 ] as const;
 
 type StepId = (typeof STEPS)[number]["id"];
@@ -147,6 +158,10 @@ export default function Builder() {
   // 2026-11-04, later): its line opens a panel with jump links
   // into its page.
   const [itemCreationOpen, setItemCreationOpen] = useState(false);
+  // Spelljamming is clickable the same way again (Shaun,
+  // 2026-11-04, voice call): its line opens a panel with jump
+  // links into its page.
+  const [spelljammingOpen, setSpelljammingOpen] = useState(false);
 
   // Ambience (Shaun, 2026-11-04): the per-area backdrop scenes are
   // animated and carry matching ambient sound, with ONE toggle for
@@ -345,7 +360,7 @@ export default function Builder() {
   // The backdrop scene and its ambient sound follow the area. The
   // Character Sheet is left alone (Shaun): it keeps the default
   // street scene and the street sounds.
-  const sceneKey = effectiveStep === "sheet" ? "street" : effectiveStep;
+  const sceneKey = effectiveStep === "sheet" || effectiveStep === "spelljamming" ? "street" : effectiveStep;
   useEffect(() => {
     ambience.setScene(sceneKey as AmbienceScene);
   }, [sceneKey]);
@@ -353,16 +368,18 @@ export default function Builder() {
   // A step belongs to Character Creation unless it is one of the
   // standalone top-level sections (Player Reference, Magic Item
   // Creation).
-  const inCreation = effectiveStep !== "reference" && effectiveStep !== "item-creation";
+  const inCreation = effectiveStep !== "reference" && effectiveStep !== "item-creation" && effectiveStep !== "spelljamming";
 
   const goTo = (step: StepId) => navigate(`/step/${step}`);
   const toggleCreation = () => {
     if (!creationOpen && !inCreation) {
-      // Coming from a standalone section (Player Reference or
-      // Magic Item Creation), clicking Character Creation ENTERS
-      // it: open the group and land on its first step.
+      // Coming from a standalone section (Player Reference,
+      // Magic Item Creation, or Spelljamming), clicking
+      // Character Creation ENTERS it: open the group and land
+      // on its first step.
       setCreationOpen(true);
       setItemCreationOpen(false);
+      setSpelljammingOpen(false);
       goTo("race");
     } else {
       setCreationOpen((o) => !o);
@@ -374,9 +391,22 @@ export default function Builder() {
       // ENTERS it: open its panel and land on its page.
       setItemCreationOpen(true);
       setCreationOpen(false);
+      setSpelljammingOpen(false);
       goTo("item-creation");
     } else {
       setItemCreationOpen((o) => !o);
+    }
+  };
+  const toggleSpelljamming = () => {
+    if (!spelljammingOpen && effectiveStep !== "spelljamming") {
+      // Coming from anywhere else, clicking Spelljamming ENTERS
+      // it: open its panel and land on its page.
+      setSpelljammingOpen(true);
+      setCreationOpen(false);
+      setItemCreationOpen(false);
+      goTo("spelljamming");
+    } else {
+      setSpelljammingOpen((o) => !o);
     }
   };
   const jumpToCreationBlock = (id: string) => {
@@ -620,6 +650,59 @@ export default function Builder() {
                 <ChevronRight className="ml-1.5 h-4 w-4 shrink-0" />
               )}
             </button>
+            {/* Section 4 — Spelljamming, a top-level line right
+                next to Magic Item Creation (Shaun, 2026-11-04,
+                voice call: "Next to Magic Creation"). CLICKABLE
+                like the others: it opens a panel with jump links
+                into its page, which carries everything about
+                Spelljamming in one place. */}
+            <button
+              type="button"
+              onClick={toggleSpelljamming}
+              aria-expanded={spelljammingOpen}
+              data-testid="step-group-spelljamming-toggle"
+              className={
+                "inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 font-display text-sm font-semibold ring-offset-background transition-all " +
+                (effectiveStep === "spelljamming"
+                  ? "bg-background text-foreground shadow-sm"
+                  : "text-foreground/70 hover:text-foreground")
+              }
+            >
+              <span data-testid="step-group-spelljamming-label">
+                <span className="mr-1.5 font-mono text-xs text-muted-foreground">4</span>
+                Spelljamming
+              </span>
+              {spelljammingOpen ? (
+                <ChevronDown className="ml-1.5 h-4 w-4 shrink-0" />
+              ) : (
+                <ChevronRight className="ml-1.5 h-4 w-4 shrink-0" />
+              )}
+            </button>
+            {spelljammingOpen && (
+              <div
+                className="flex basis-full flex-wrap items-center gap-1 rounded-md border border-border p-1.5"
+                data-testid="step-group-spelljamming"
+              >
+                {[
+                  { id: "spelljamming-how", label: "How It Works" },
+                  { id: "spelljamming-ships", label: "The Ships" },
+                  { id: "spelljamming-helms", label: "Helms" },
+                  { id: "spelljamming-races", label: "Peoples of Space" },
+                  { id: "spelljamming-spells", label: "Spells" },
+                  { id: "spelljamming-gear", label: "Gear" },
+                ].map((block) => (
+                  <button
+                    key={block.id}
+                    type="button"
+                    onClick={() => jumpToCreationBlock(block.id)}
+                    className="inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium text-foreground/80 transition-all hover:text-foreground"
+                    data-testid={`button-spelljamming-jump-${block.id}`}
+                  >
+                    {block.label}
+                  </button>
+                ))}
+              </div>
+            )}
             {itemCreationOpen && (
               <div
                 className="flex basis-full flex-wrap items-center gap-1 rounded-md border border-border p-1.5"
@@ -649,7 +732,7 @@ export default function Builder() {
                 data-testid="step-group-character-creation"
               >
                 {visibleSteps
-                  .filter((s) => s.id !== "reference" && s.id !== "item-creation")
+                  .filter((s) => s.id !== "reference" && s.id !== "item-creation" && s.id !== "spelljamming")
                   .map((s) => (
                     <TabsTrigger key={s.id} value={s.id} data-testid={`tab-step-${s.id}`}>
                       <span className="mr-1.5 font-mono text-xs text-muted-foreground">{s.num}</span>
@@ -777,6 +860,7 @@ export default function Builder() {
           {currentStep === "sheet" && <StepSheet character={resolved} />}
           {currentStep === "reference" && <StepReference />}
           {currentStep === "item-creation" && <StepItemCreation />}
+          {currentStep === "spelljamming" && <StepSpelljamming />}
         </div>
 
         <div className="mt-8 flex items-center justify-between">
@@ -785,10 +869,12 @@ export default function Builder() {
           </Button>
           <span className="text-xs text-muted-foreground">
             {effectiveStep === "reference"
-              ? "Section 1 of 3 — Player Reference"
+              ? "Section 1 of 4 — Player Reference"
               : effectiveStep === "item-creation"
-                ? "Section 3 of 3 — Magic Item Creation"
-                : `Section 2 of 3 — Character Creation · Step ${visibleSteps[visibleIndex]?.num} of 12`}
+                ? "Section 3 of 4 — Magic Item Creation"
+                : effectiveStep === "spelljamming"
+                  ? "Section 4 of 4 — Spelljamming"
+                  : `Section 2 of 4 — Character Creation · Step ${visibleSteps[visibleIndex]?.num} of 12`}
           </span>
           <Button disabled={!next} onClick={() => next && goTo(next.id)} data-testid="button-next-step">
             {next ? next.label : "Done"} <ChevronRight className="ml-1 h-4 w-4" />
