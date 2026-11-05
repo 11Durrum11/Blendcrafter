@@ -1,6 +1,6 @@
 import { useMemo, type ReactNode } from "react";
 import { ChevronRight } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ALL_EQUIPMENT, ALL_MAGIC_ITEMS, ALL_RACES, ALL_SPELLS } from "@/data";
 import { ShipsNestContent } from "./step-ships";
 
@@ -194,9 +194,6 @@ export function StepSpelljamming() {
     <Card>
       <CardHeader>
         <CardTitle className="font-display text-xl">Spelljamming</CardTitle>
-        <CardDescription>
-          How sailing the stars works, the helms, the peoples of space, the spells, and the gear, converted from the Spelljammer box sets to 3.5. Each header holds its information inside it — tap a header to open it. The ships are nested right here under their own header, below. The same records also sit in their ordinary places: races with the races, spells with the spells, gear with the equipment, helms with the magic items.
-        </CardDescription>
       </CardHeader>
       <CardContent className="space-y-3">
         <NestBlock id="spelljamming-how" label="How It Works">
