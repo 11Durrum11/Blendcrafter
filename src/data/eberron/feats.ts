@@ -298,4 +298,45 @@ export const EBERRON_FEATS: FeatDefinition[] = [
     sourceUrl: ECS_PATH,
     ruleset: "eberron",
   },
+  // The three feats below were the catalog's known Eberron gap
+  // (noted 2026-11-04): Player's Guide to Eberron prestige
+  // classes in the catalog require them, and until they were
+  // built (2026-11-05) those prerequisites fell back to player
+  // certification. Text recovered from the book's Chapter 3.
+  {
+    id: "gatekeeper-initiate",
+    name: "Gatekeeper Initiate",
+    category: "general",
+    prerequisites: ["Ability to spontaneously cast summon nature's ally"],
+    benefitSummary:
+      "You have been trained in the ancient druidic tradition of the Gatekeepers, founded to ward off an extraplanar assault by aberrations. You get a +2 bonus on saving throws against the supernatural and spell-like abilities of aberrations. Add Knowledge (the planes) to your list of druid class skills, and you may use Knowledge (the planes) rather than Knowledge (dungeoneering) to identify aberrations and their special abilities. In addition, you can cast the following spells as if they were on the druid spell list at the indicated level: protection from evil (1st), zone of natural purity (2nd), dimensional anchor (3rd), nature's wrath (4th), banishment (5th), dimensional lock (6th), return to nature (7th), mind blank (8th), imprisonment (9th).",
+    modifiers: [],
+    source: `${ECS} — Feats: Gatekeeper Initiate (p. 55)`,
+    sourceUrl: ECS_PATH,
+    ruleset: "eberron",
+  },
+  {
+    id: "repel-aberration",
+    name: "Repel Aberration",
+    category: "general",
+    prerequisites: ["Druid level 3rd", "Gatekeeper Initiate"],
+    benefitSummary:
+      "Your Gatekeeper training allows you to keep aberrations at bay. You can ward off creatures of the aberration type: make a Charisma check and consult Table 8–9: Turning Undead on page 159 of the Player's Handbook, using your druid level to determine the most powerful aberration you can affect (only aberrations within 60 feet). Roll 2d6 and add your druid level + your Cha modifier to determine your turning damage. An affected aberration is held at bay, unable to move toward you for as long as you maintain concentration; its actions are not otherwise restricted. You can use this ability a number of times per day equal to 3 + your Cha modifier, and the Extra Turning feat grants you extra uses of this ability.",
+    modifiers: [],
+    source: `${ECS} — Feats: Repel Aberration (p. 58)`,
+    sourceUrl: ECS_PATH,
+    ruleset: "eberron",
+  },
+  {
+    id: "bind-elemental",
+    name: "Bind Elemental",
+    category: "item-creation",
+    prerequisites: ["Craft Wondrous Item", "Caster level 9th"],
+    benefitSummary:
+      "You can craft magic items that use bound elementals for special effects, including weapons, armor, airships, and elemental galleons. Crafting an item with a bound elemental is similar to making a wondrous item, except that calling and binding an elemental is an integral part of creating the item: all bound-elemental items have a planar binding spell as a prerequisite, and you must cast the spell normally, using the item that is to hold the elemental and a Khyber dragonshard as a receptacle. The elemental receives its normal saving throw to resist; while it resides in the receptacle, you must compel it to accept bondage in the item with an opposed Charisma check, as specified in the lesser planar binding spell description. If you are an artificer, this feat allows you to cast a planar binding spell by emulating it with a Use Magic Device check (DC 20 + caster level) when crafting a bound-elemental item; your effective caster level then equals your check result −20 for opposing the elemental's attempts to escape.",
+    modifiers: [],
+    source: `${ECS} — Feats: Bind Elemental (p. 51)`,
+    sourceUrl: ECS_PATH,
+    ruleset: "eberron",
+  },
 ];
