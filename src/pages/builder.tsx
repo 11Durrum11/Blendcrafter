@@ -828,20 +828,33 @@ export default function Builder() {
           </div>
         </div>
         <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-3 px-4 pb-3 sm:px-6">
-          <label className="text-sm text-muted-foreground" htmlFor="character-name">
-            Character name
-          </label>
-          <Input
-            id="character-name"
-            data-testid="input-character-name"
-            value={viewBuild.name}
-            onChange={(e) => viewCb.setName(e.target.value)}
-            className="h-9 w-44 font-display sm:w-64"
-            placeholder="Unnamed Character"
-          />
-          <span className="text-sm text-muted-foreground">
-            {viewResolved.race.name} · ECL {viewResolved.ecl.value} · CR {viewResolved.cr.value} · HP {viewResolved.hp.total} · AC {viewResolved.ac.total}
-          </span>
+          {/* ONE box for the name and the summary (Shaun,
+              2026-11-05: "Remove the character name and the
+              unnamed character box and put the unnamed character
+              box as one"). The name is typed right in this box —
+              it reads "Unnamed Character" until a name is
+              entered — and the race · ECL · CR · HP · AC summary
+              lives in the same box beside it. There is no
+              separate name box anywhere else. While the gate is
+              closed the box shows the zeroed build exactly as
+              before. */}
+          <div
+            className="flex flex-wrap items-center gap-x-3 gap-y-1 rounded-md border border-input bg-background py-1.5 pl-3 pr-3"
+            data-testid="character-heading-box"
+          >
+            <Input
+              id="character-name"
+              data-testid="input-character-name"
+              aria-label="Character name"
+              value={viewBuild.name}
+              onChange={(e) => viewCb.setName(e.target.value)}
+              className="h-9 w-44 border-0 bg-transparent px-0 font-display shadow-none focus-visible:ring-0 sm:w-56"
+              placeholder="Unnamed Character"
+            />
+            <span className="text-sm text-muted-foreground">
+              {viewResolved.race.name} · ECL {viewResolved.ecl.value} · CR {viewResolved.cr.value} · HP {viewResolved.hp.total} · AC {viewResolved.ac.total}
+            </span>
+          </div>
           {viewResolved.validation.some((v) => v.severity === "error") && (
             <span className="text-sm text-destructive">
               {viewResolved.validation.filter((v) => v.severity === "error").length} template issue(s) — see the Templates step
