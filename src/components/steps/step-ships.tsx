@@ -40,11 +40,33 @@ import { ALL_EQUIPMENT, ALL_MAGIC_ITEMS } from "@/data";
  * information sits inside its header — collapsible <details>
  * nests, closed until tapped. The header jump buttons in
  * builder.tsx open the target nest before scrolling to it.
+ *
+ * THE SHIPS NEST, BROKEN UP (Shaun, 2026-11-04, voice call —
+ * "Give the same nesting" / "break up a nest the ships"):
+ * the hulls no longer sit in one flat run inside The Ships.
+ * The nest holds three sub-nests by kind — Spelljamming
+ * Ships, Airships, Sea Ships — each minimized until tapped,
+ * the same nesting the Spelljamming section uses.
  */
 
 function NestBlock({ id, label, children }: { id: string; label: string; children: ReactNode }) {
   return (
     <details id={id} className="sj-nest rounded-md border border-border" data-testid={`ships-block-${id}`}>
+      <summary className="flex cursor-pointer list-none items-center gap-2 px-3 py-2.5 font-display text-sm font-semibold [&::-webkit-details-marker]:hidden">
+        <ChevronRight className="sj-chevron h-4 w-4 shrink-0 transition-transform" />
+        {label}
+      </summary>
+      <div className="grid gap-3 p-3 pt-0 sm:grid-cols-2">{children}</div>
+    </details>
+  );
+}
+
+/** A sub-nest inside a nest — the break-up of The Ships
+ * (Shaun, 2026-11-04). Spans the parent's full grid width;
+ * its own cards grid inside it. */
+function SubNest({ id, label, children }: { id: string; label: string; children: ReactNode }) {
+  return (
+    <details id={id} className="sj-nest rounded-md border border-border sm:col-span-2" data-testid={`ships-block-${id}`}>
       <summary className="flex cursor-pointer list-none items-center gap-2 px-3 py-2.5 font-display text-sm font-semibold [&::-webkit-details-marker]:hidden">
         <ChevronRight className="sj-chevron h-4 w-4 shrink-0 transition-transform" />
         {label}
@@ -117,22 +139,51 @@ export function StepShips() {
       </CardHeader>
       <CardContent className="space-y-3">
         <NestBlock id="ships-hulls" label="The Ships">
-          <div className="rounded-md border border-card-border bg-muted/40 p-3" data-testid="ships-count">
+          <div className="rounded-md border border-card-border bg-muted/40 p-3 sm:col-span-2" data-testid="ships-count">
             <p className="font-display text-xs font-semibold uppercase tracking-wide">{shipCounts.total} ships in all</p>
             <p className="mt-1.5 text-sm leading-snug text-muted-foreground">
               {shipCounts.spelljamming} spelljamming ships, {shipCounts.airship} airships, and {shipCounts.sea} sea
               ships — every hull in the catalog, from the Spelljammer box sets, the wider Spelljammer line, Bastion
-              Press Airships, the Pirates! sea-ship table, and Shaun&apos;s own homebrew ship files.
+              Press Airships, the Pirates! sea-ship table, and Shaun&apos;s own homebrew ship files. The hulls are
+              broken up by kind below — each group sits in its own nest, minimized until you tap it.
             </p>
           </div>
-          {ships.map((item) => (
-            <div key={item.id} className="rounded-md border border-card-border bg-muted/40 p-3" data-testid={`ships-ship-${item.id}`}>
-              <p className="font-display text-xs font-semibold uppercase tracking-wide">
-                {item.name} — {item.cost}
-              </p>
-              <p className="mt-1.5 text-sm leading-snug text-muted-foreground">{item.notes}</p>
-            </div>
-          ))}
+          <SubNest id="ships-hulls-spelljamming" label={`Spelljamming Ships — ${shipCounts.spelljamming}`}>
+            {ships
+              .filter((i) => i.category === "spelljamming ship")
+              .map((item) => (
+                <div key={item.id} className="rounded-md border border-card-border bg-muted/40 p-3" data-testid={`ships-ship-${item.id}`}>
+                  <p className="font-display text-xs font-semibold uppercase tracking-wide">
+                    {item.name} — {item.cost}
+                  </p>
+                  <p className="mt-1.5 text-sm leading-snug text-muted-foreground">{item.notes}</p>
+                </div>
+              ))}
+          </SubNest>
+          <SubNest id="ships-hulls-airships" label={`Airships — ${shipCounts.airship}`}>
+            {ships
+              .filter((i) => i.category === "airship")
+              .map((item) => (
+                <div key={item.id} className="rounded-md border border-card-border bg-muted/40 p-3" data-testid={`ships-ship-${item.id}`}>
+                  <p className="font-display text-xs font-semibold uppercase tracking-wide">
+                    {item.name} — {item.cost}
+                  </p>
+                  <p className="mt-1.5 text-sm leading-snug text-muted-foreground">{item.notes}</p>
+                </div>
+              ))}
+          </SubNest>
+          <SubNest id="ships-hulls-sea" label={`Sea Ships — ${shipCounts.sea}`}>
+            {ships
+              .filter((i) => i.category === "ship")
+              .map((item) => (
+                <div key={item.id} className="rounded-md border border-card-border bg-muted/40 p-3" data-testid={`ships-ship-${item.id}`}>
+                  <p className="font-display text-xs font-semibold uppercase tracking-wide">
+                    {item.name} — {item.cost}
+                  </p>
+                  <p className="mt-1.5 text-sm leading-snug text-muted-foreground">{item.notes}</p>
+                </div>
+              ))}
+          </SubNest>
         </NestBlock>
 
         <NestBlock id="ships-weapons" label="Ship Weapons & Combat">
