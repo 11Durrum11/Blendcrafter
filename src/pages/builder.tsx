@@ -203,7 +203,6 @@ export default function Builder() {
   // Spelljamming is clickable the same way again (Shaun,
   // 2026-11-04, voice call): its line opens a panel with jump
   // links into its page.
-  const [spelljammingOpen, setSpelljammingOpen] = useState(false);
 
   // Ambience (Shaun, 2026-11-04): the per-area backdrop scenes are
   // animated and carry matching ambient sound, with ONE toggle for
@@ -457,7 +456,6 @@ export default function Builder() {
       // on its first step.
       setCreationOpen(true);
       setItemCreationOpen(false);
-      setSpelljammingOpen(false);
       goTo("race");
     } else {
       setCreationOpen((o) => !o);
@@ -469,23 +467,21 @@ export default function Builder() {
       // ENTERS it: open its panel and land on its page.
       setItemCreationOpen(true);
       setCreationOpen(false);
-      setSpelljammingOpen(false);
       goTo("item-creation");
     } else {
       setItemCreationOpen((o) => !o);
     }
   };
   const toggleSpelljamming = () => {
-    if (!spelljammingOpen && effectiveStep !== "spelljamming") {
-      // Coming from anywhere else, clicking Spelljamming ENTERS
-      // it: open its panel and land on its page.
-      setSpelljammingOpen(true);
-      setCreationOpen(false);
-      setItemCreationOpen(false);
-      goTo("spelljamming");
-    } else {
-      setSpelljammingOpen((o) => !o);
-    }
+    // No jump panel for Spelljamming (Shaun, voice call
+    // 2026-11-04: "Get rid of those little buttons" — the How It
+    // Works / Ships / Helms / Peoples of Space / Spells / Gear
+    // buttons duplicated the nests sitting on the page itself).
+    // Clicking Spelljamming lands on its page; the nests are
+    // the navigation.
+    setCreationOpen(false);
+    setItemCreationOpen(false);
+    goTo("spelljamming");
   };
   const jumpToCreationBlock = (id: string) => {
     const el = document.getElementById(id);
@@ -752,14 +748,14 @@ export default function Builder() {
             </button>
             {/* Section 4 — Spelljamming, a top-level line right
                 next to Magic Item Creation (Shaun, 2026-11-04,
-                voice call: "Next to Magic Creation"). CLICKABLE
-                like the others: it opens a panel with jump links
-                into its page, which carries everything about
-                Spelljamming in one place. */}
+                voice call: "Next to Magic Creation"). NO jump
+                panel: Shaun ordered its little buttons (How It
+                Works / Ships / Helms / Peoples of Space / Spells
+                / Gear) removed — the nests on the page are the
+                navigation. The button lands straight on the page. */}
             <button
               type="button"
               onClick={toggleSpelljamming}
-              aria-expanded={spelljammingOpen}
               data-testid="step-group-spelljamming-toggle"
               className={
                 "inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 font-display text-sm font-semibold ring-offset-background transition-all " +
@@ -772,37 +768,7 @@ export default function Builder() {
                 <span className="mr-1.5 font-mono text-xs text-muted-foreground">4</span>
                 Spelljamming
               </span>
-              {spelljammingOpen ? (
-                <ChevronDown className="ml-1.5 h-4 w-4 shrink-0" />
-              ) : (
-                <ChevronRight className="ml-1.5 h-4 w-4 shrink-0" />
-              )}
             </button>
-            {spelljammingOpen && (
-              <div
-                className="flex basis-full flex-wrap items-center gap-1 rounded-md border border-border p-1.5"
-                data-testid="step-group-spelljamming"
-              >
-                {[
-                  { id: "spelljamming-how", label: "How It Works" },
-                  { id: "spelljamming-ships", label: "Ships" },
-                  { id: "spelljamming-helms", label: "Helms" },
-                  { id: "spelljamming-races", label: "Peoples of Space" },
-                  { id: "spelljamming-spells", label: "Spells" },
-                  { id: "spelljamming-gear", label: "Gear" },
-                ].map((block) => (
-                  <button
-                    key={block.id}
-                    type="button"
-                    onClick={() => jumpToCreationBlock(block.id)}
-                    className="inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium text-foreground/80 transition-all hover:text-foreground"
-                    data-testid={`button-spelljamming-jump-${block.id}`}
-                  >
-                    {block.label}
-                  </button>
-                ))}
-              </div>
-            )}
             {itemCreationOpen && (
               <div
                 className="flex basis-full flex-wrap items-center gap-1 rounded-md border border-border p-1.5"
