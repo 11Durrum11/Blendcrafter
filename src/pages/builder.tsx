@@ -931,6 +931,16 @@ export default function Builder() {
                 className="flex basis-full flex-wrap items-center gap-1 rounded-md border border-border p-1.5"
                 data-testid="step-group-character-creation"
               >
+                {/* The summary line sits ABOVE the New Character
+                    button (Shaun, 2026-11-05: "Put the None / ECL
+                    0 / CR 0 / HP 0 / AC 0 above the new character
+                    box") — first thing in the opened section. Its
+                    content is unchanged: the build's race · ECL ·
+                    CR · HP · AC, zeroed until a character is
+                    started. */}
+                <div className="basis-full text-sm text-muted-foreground" data-testid="character-summary-line">
+                  {viewResolved.race.name} · ECL {viewResolved.ecl.value} · CR {viewResolved.cr.value} · HP {viewResolved.hp.total} · AC {viewResolved.ac.total}
+                </div>
                 {/* The New Character button, nested FIRST inside
                     Character Creation (Shaun, 2026-11-05: "Put the
                     new character button first nested in character
@@ -989,11 +999,13 @@ export default function Builder() {
                   number one in Character Creation — "and
                   abilities two, and everything else follows").
                   The name is typed right in this box — it reads
-                  "Unnamed Character" until a name is entered —
-                  and the race · ECL · CR · HP · AC summary lives
-                  in the same box beside it. There is no separate
-                  name box anywhere else. While the gate is closed
-                  the box shows the zeroed build. */}
+                  "Unnamed Character" until a name is entered.
+                  The race · ECL · CR · HP · AC summary that
+                  shared this box moved above the New Character
+                  button later the same morning (Shaun's order).
+                  There is no separate name box anywhere else.
+                  While the gate is closed the box shows the
+                  zeroed build. */}
               <div
                 className="flex flex-wrap items-center gap-x-3 gap-y-1 rounded-md border border-input bg-background py-1.5 pl-3 pr-3"
                 data-testid="character-heading-box"
@@ -1007,9 +1019,6 @@ export default function Builder() {
                   className="h-9 w-44 border-0 bg-transparent px-0 font-display shadow-none focus-visible:ring-0 sm:w-56"
                   placeholder="Unnamed Character"
                 />
-                <span className="text-sm text-muted-foreground">
-                  {viewResolved.race.name} · ECL {viewResolved.ecl.value} · CR {viewResolved.cr.value} · HP {viewResolved.hp.total} · AC {viewResolved.ac.total}
-                </span>
               </div>
             </div>
           )}
