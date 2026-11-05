@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 import { ChevronRight, X } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ALL_EQUIPMENT, ALL_MAGIC_ITEMS } from "@/data";
 import type { DeckPlan } from "@/data/deck-plans";
 
@@ -69,19 +68,19 @@ import type { DeckPlan } from "@/data/deck-plans";
  * The nest holds three sub-nests by kind — Spelljamming
  * Ships, Airships, Sea Ships — each minimized until tapped,
  * the same nesting the Spelljamming section uses.
+ *
+ * BACK INSIDE SPELLJAMMING (Shaun, 2026-11-04, 23:28 MST —
+ * "Put the ships not as number five but put it nested in
+ * spell jamming"): the Section 5 experiment is reversed.
+ * This component no longer renders a standalone section; it
+ * renders the CONTENT of the "Ships" nest inside the
+ * Spelljamming section (step-spelljamming.tsx), in the nest
+ * slot the ships held before Section 5 — the count/intro
+ * cards, the three hull sub-nests, Ship Weapons & Combat,
+ * and Maps & Deck Plans, deck plans on the titles and the
+ * full-screen plan overlay included. Helms stay in
+ * Spelljamming proper, as they always have.
  */
-
-function NestBlock({ id, label, children }: { id: string; label: string; children: ReactNode }) {
-  return (
-    <details id={id} className="sj-nest rounded-md border border-border" data-testid={`ships-block-${id}`}>
-      <summary className="flex cursor-pointer list-none items-center gap-2 px-3 py-2.5 font-display text-sm font-semibold [&::-webkit-details-marker]:hidden">
-        <ChevronRight className="sj-chevron h-4 w-4 shrink-0 transition-transform" />
-        {label}
-      </summary>
-      <div className="grid gap-3 p-3 pt-0 sm:grid-cols-2">{children}</div>
-    </details>
-  );
-}
 
 /** A sub-nest inside a nest — the break-up of The Ships
  * (Shaun, 2026-11-04). Spans the parent's full grid width;
@@ -159,7 +158,7 @@ function ShipCard({
 
 const isShipCombatSource = (source: string) => source.startsWith("Ship Combat");
 
-export function StepShips() {
+export function ShipsNestContent() {
   // Deck plans, loaded lazily: the module carries the plan
   // images, so it stays out of the main bundle until the
   // Ships section is actually opened (Shaun's order: the
@@ -242,18 +241,15 @@ export function StepShips() {
 
   return (
     <>
-    <Card>
-      <CardHeader>
-        <CardTitle className="font-display text-xl">Ships</CardTitle>
-        <CardDescription>
-          Every ship in one place — spelljamming ships, airships, and sea ships: the hulls, the weapons they fight
-          with, and where each ship&apos;s maps and deck plans live — converted to 3.5 in the same format as everything
-          else. Each header holds its information inside it — tap a header to open it. The helms that drive these ships
-          stay in the Spelljamming section, and the same records also sit in their ordinary place in Equipment.
-        </CardDescription>
-      </CardHeader>
-      <CardContent className="space-y-3">
-        <NestBlock id="ships-hulls" label="The Ships">
+      <div className="rounded-md border border-card-border bg-muted/40 p-3 sm:col-span-2" data-testid="ships-intro">
+        <p className="font-display text-xs font-semibold uppercase tracking-wide">Every ship in one place</p>
+        <p className="mt-1.5 text-sm leading-snug text-muted-foreground">
+          Spelljamming ships, airships, and sea ships: the hulls, the weapons they fight with, and each
+          ship&apos;s maps and deck plans — converted to 3.5 in the same format as everything else. The helms
+          that drive these ships sit under Helms on this same page, and the same records also sit in their
+          ordinary place in Equipment.
+        </p>
+      </div>
           <div className="rounded-md border border-card-border bg-muted/40 p-3 sm:col-span-2" data-testid="ships-count">
             <p className="font-display text-xs font-semibold uppercase tracking-wide">{shipCounts.total} ships in all</p>
             <p className="mt-1.5 text-sm leading-snug text-muted-foreground">
@@ -284,9 +280,8 @@ export function StepShips() {
                 <ShipCard key={item.id} item={item} plans={deckPlans?.[item.id]} onZoom={setZoomPlan} />
               ))}
           </SubNest>
-        </NestBlock>
 
-        <NestBlock id="ships-weapons" label="Ship Weapons & Combat">
+        <SubNest id="ships-weapons" label="Ship Weapons & Combat">
           {weapons.map((item) => (
             <div key={item.id} className="rounded-md border border-card-border bg-muted/40 p-3" data-testid={`ships-weapon-${item.id}`}>
               <p className="font-display text-xs font-semibold uppercase tracking-wide">
@@ -295,9 +290,9 @@ export function StepShips() {
               <p className="mt-1.5 text-sm leading-snug text-muted-foreground">{item.notes}</p>
             </div>
           ))}
-        </NestBlock>
+        </SubNest>
 
-        <NestBlock id="ships-maps" label="Maps & Deck Plans">
+        <SubNest id="ships-maps" label="Maps & Deck Plans">
           <div className="rounded-md border border-card-border bg-muted/40 p-3" data-testid="ships-maps-intro">
             <p className="font-display text-xs font-semibold uppercase tracking-wide">Where the plans live</p>
             <p className="mt-1.5 text-sm leading-snug text-muted-foreground">
@@ -363,9 +358,7 @@ export function StepShips() {
               <p className="mt-1.5 text-sm leading-snug text-muted-foreground">{item.source}</p>
             </div>
           ))}
-        </NestBlock>
-      </CardContent>
-    </Card>
+        </SubNest>
     {zoomPlan &&
       createPortal(
         <div

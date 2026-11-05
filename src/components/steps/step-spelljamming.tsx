@@ -2,18 +2,21 @@ import { useMemo, type ReactNode } from "react";
 import { ChevronRight } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ALL_EQUIPMENT, ALL_MAGIC_ITEMS, ALL_RACES, ALL_SPELLS } from "@/data";
+import { ShipsNestContent } from "./step-ships";
 
 /**
  * Spelljamming (Shaun, 2026-11-04, voice call): a fourth
  * top-level section, its line sitting right next to Magic Item
  * Creation ("Next to Magic Creation"), minimized and clickable
  * like the other sections. Everything about Spelljamming lives
- * on this page: how it works, the helms, the peoples of space,
- * the spells, and the gear. THE SHIPS MOVED OUT (Shaun,
- * 2026-11-04, later the same night): the hulls, ship weapons,
- * and deck plans now live in their own top-level Section 5,
- * Ships (step-ships.tsx) — "give me another number five ships
- * and put all the ship information in there." Helms STAY here.
+ * on this page: how it works, THE SHIPS (nested here again —
+ * Shaun, 2026-11-04, 23:28 MST: "Put the ships not as number
+ * five but put it nested in spell jamming," reversing the
+ * same-night move that had made Ships a top-level Section 5),
+ * the helms, the peoples of space, the spells, and the gear.
+ * The ships nest below renders step-ships.tsx's content: the
+ * hulls by kind, ship weapons, and the maps & deck plans.
+ * Helms STAY here, beside the ships, as they always have.
  *
  * The records themselves also file into the ordinary catalogs —
  * races in Abilities & Race, spells in the Spell Library, ships
@@ -192,7 +195,7 @@ export function StepSpelljamming() {
       <CardHeader>
         <CardTitle className="font-display text-xl">Spelljamming</CardTitle>
         <CardDescription>
-          How sailing the stars works, the helms, the peoples of space, the spells, and the gear, converted from the Spelljammer box sets to 3.5. Each header holds its information inside it — tap a header to open it. The ships themselves live in their own section now (Section 5, Ships). The same records also sit in their ordinary places: races with the races, spells with the spells, gear with the equipment, helms with the magic items.
+          How sailing the stars works, the helms, the peoples of space, the spells, and the gear, converted from the Spelljammer box sets to 3.5. Each header holds its information inside it — tap a header to open it. The ships are nested right here under their own header, below. The same records also sit in their ordinary places: races with the races, spells with the spells, gear with the equipment, helms with the magic items.
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-3">
@@ -203,6 +206,10 @@ export function StepSpelljamming() {
               <p className="mt-1.5 text-sm leading-snug text-muted-foreground">{line.text}</p>
             </div>
           ))}
+        </NestBlock>
+
+        <NestBlock id="spelljamming-ships" label="Ships">
+          <ShipsNestContent />
         </NestBlock>
 
         <NestBlock id="spelljamming-helms" label="Helms">
