@@ -22,7 +22,12 @@ import { isApocDisabledPower } from "@/lib/apoc-disabled";
  * and minimized... and clickable"). A jump-button row across the top
  * duplicated those headers and Shaun ordered it removed
  * (2026-11-05: "you got the buttons twice... Get rid of the
- * buttons on top"); the nest headers are the list you click.
+ * buttons on top"); the nest headers are the list you click. The step's open
+ * description paragraph was nested too (across-the-board
+ * treatment pass, 2026-11-05): the canon text now sits inside
+ * a "Psionics in APOC — the Rules" nest at the top of the
+ * step; only the conditional grayed-step note stays visible,
+ * because it is state feedback, not prose.
  *
  * Gathering: the two psionics books' records — source starts
  * with "Expanded Psionics Handbook" or "Complete Psionic" —
@@ -215,17 +220,24 @@ export function StepPsionics({
     <Card>
       <CardHeader>
         <CardTitle className="font-display text-xl">Psionics</CardTitle>
-        <CardDescription>
-          Everything psionic in one step — the powers, the manifesting classes and prestige classes, the feats, the
-          races, and the psionic items and equipment from the Expanded Psionics Handbook and Complete Psionic. The
-          powers also live in the ordinary Spells step. Psionics–magic transparency is in force in APOC: spell
-          resistance is power resistance, dispel magic works on powers, and dispel psionics works on spells.
-          {hasPsionics
-            ? ""
-            : " This build has no psionic class, so the step is grayed in the step list — it still opens for reference, and the gray lifts when a psionic class is on the build."}
-        </CardDescription>
+        {!hasPsionics && (
+          <CardDescription>
+            This build has no psionic class, so the step is grayed in the step list — it still opens for reference, and the gray lifts when a psionic class is on the build.
+          </CardDescription>
+        )}
       </CardHeader>
       <CardContent className="space-y-3">
+        <NestBlock id="psionics-rules" label="Psionics in APOC — the Rules">
+          <div className="rounded-md border border-card-border bg-muted/40 p-3 sm:col-span-2" data-testid="psionics-rules-card">
+            <p className="text-sm leading-snug text-muted-foreground">
+              Everything psionic in one step — the powers, the manifesting classes and prestige classes, the feats, the
+              races, and the psionic items and equipment from the Expanded Psionics Handbook and Complete Psionic. The
+              powers also live in the ordinary Spells step. Psionics–magic transparency is in force in APOC: spell
+              resistance is power resistance, dispel magic works on powers, and dispel psionics works on spells.
+            </p>
+          </div>
+        </NestBlock>
+
         <NestBlock id="psionics-powers" label="Powers">
           {powersByDiscipline.map(({ discipline, list }) => (
             <SubNest

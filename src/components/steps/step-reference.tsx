@@ -463,11 +463,10 @@ export function StepReference() {
       <Card>
         <CardHeader>
           <CardTitle className="text-3xl">Player Reference</CardTitle>
-          <CardDescription className="text-lg">
-            Every entry in the library — {TOTAL_ROWS.toLocaleString()} records — in one lookup. Search by name or by
-            book, or pick a category and browse. Nothing here changes your character; it is purely for looking
-            things up, so nobody has to go dig through the Dropbox.
-          </CardDescription>
+          {/* No open description paragraph (the treatment,
+              Shaun 2026-11-05, across the board): the page is
+              its title, the lookup, and the nests — the search
+              box and category buttons speak for themselves. */}
         </CardHeader>
         <CardContent className="space-y-3">
           <div className="relative">
@@ -525,12 +524,7 @@ export function StepReference() {
         </CardContent>
       </Card>
 
-      {query.trim() === "" && category === "all" ? (
-        <p className="px-1 text-lg text-muted-foreground">
-          Type above to search the whole library at once, or pick a category to browse it. Tap any entry to read
-          its full details and where it comes from.
-        </p>
-      ) : (
+      {!(query.trim() === "" && category === "all") && (
         <Card>
           <CardHeader className="pb-2">
             <CardTitle className="text-xl">
