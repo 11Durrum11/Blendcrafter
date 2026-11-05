@@ -991,7 +991,6 @@ export default function Builder() {
                         s.id === "psionics" && !buildHasPsionics(viewBuild) ? "text-muted-foreground/60 opacity-60" : undefined
                       }
                     >
-                      <span className="mr-1.5 font-mono text-xs text-muted-foreground">{s.num}</span>
                       {s.label}
                     </TabsTrigger>
                   ))}
@@ -1174,7 +1173,7 @@ export default function Builder() {
                 ? "Section 3 of 4 — Magic Item Creation"
                 : effectiveStep === "spelljamming"
                   ? "Section 4 of 4 — Spelljamming"
-                  : `Section 2 of 4 — Character Creation · Step ${visibleSteps[visibleIndex]?.num} of 13`}
+                  : "Section 2 of 4 — Character Creation"}
           </span>
           <Button disabled={!next} onClick={() => next && goTo(next.id)} data-testid="button-next-step">
             {next ? next.label : "Done"} <ChevronRight className="ml-1 h-4 w-4" />
