@@ -13,7 +13,13 @@ import { isApocDisabledPower } from "@/lib/apoc-disabled";
  * become 13"). Everything psionic sits in this step under
  * nested headers (Powers, Classes, Prestige Classes, Feats,
  * Races, Psionic Items, Equipment), minimized until clicked —
- * the Spelljamming pattern. A jump-button row across the top
+ * the Spelljamming pattern. Inside Powers, the powers are
+ * subcategorized BY TYPE — one clickable sub-nest per
+ * discipline (Clairsentience, Metacreativity, Psychokinesis,
+ * Psychometabolism, Psychoportation, Telepathy), each
+ * minimized until tapped (Shaun, 2026-11-05: "subcategorize
+ * the powers and split them into subcategories... by type...
+ * and minimized... and clickable"). A jump-button row across the top
  * duplicated those headers and Shaun ordered it removed
  * (2026-11-05: "you got the buttons twice... Get rid of the
  * buttons on top"); the nest headers are the list you click.
@@ -97,6 +103,18 @@ function NestBlock({ id, label, children }: { id: string; label: string; childre
         {label}
       </summary>
       <div className="grid gap-3 p-3 pt-0 sm:grid-cols-2">{children}</div>
+    </details>
+  );
+}
+
+function SubNest({ id, label, children }: { id: string; label: string; children: ReactNode }) {
+  return (
+    <details id={id} className="sj-nest col-span-full rounded-md border border-border/70 bg-muted/20" data-testid={`psionics-subnest-${id}`}>
+      <summary className="flex cursor-pointer list-none items-center gap-2 px-2.5 py-2 font-display text-xs font-semibold uppercase tracking-wide [&::-webkit-details-marker]:hidden">
+        <ChevronRight className="sj-chevron h-3.5 w-3.5 shrink-0 transition-transform" />
+        {label}
+      </summary>
+      <div className="grid gap-3 p-2.5 pt-0 sm:grid-cols-2">{children}</div>
     </details>
   );
 }
@@ -210,12 +228,13 @@ export function StepPsionics({
       <CardContent className="space-y-3">
         <NestBlock id="psionics-powers" label="Powers">
           {powersByDiscipline.map(({ discipline, list }) => (
-            <div key={discipline} className="col-span-full space-y-3">
-              <p className="font-display text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                {discipline} — {list.length} powers
-              </p>
-              <div className="grid gap-3 sm:grid-cols-2">{list.map(renderPower)}</div>
-            </div>
+            <SubNest
+              key={discipline}
+              id={`psionics-powers-${discipline.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
+              label={`${discipline} — ${list.length}`}
+            >
+              {list.map(renderPower)}
+            </SubNest>
           ))}
         </NestBlock>
 
