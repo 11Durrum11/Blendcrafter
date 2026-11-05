@@ -1,0 +1,258 @@
+import type { FeatDefinition } from "@/engine/types";
+
+// Spells & Magic (Bastion Press, © 2002, d20 System) —
+// Chapter 1: Feats & Skills, the feat list, printed
+// pp. 3-5, transcribed from Shaun's own scanned copy
+// (read visually; the scan is image-only), 2026-11-04.
+// This is a 3.0-era book: 3.0 notations are kept as
+// printed (subdual damage, "Medium-size," Alchemy as
+// the skill name, spell names such as animate dead,
+// cause fear, resurrection, and true resurrection).
+// Two headings print their type differently from the
+// rest — Blood Power as "(Metamagic Feat)" and Totem
+// Link as "(General)" in parentheses rather than
+// brackets; both are filed under the matching catalog
+// category. All 20 feats of the chapter are here, in
+// the book's alphabetical order; the chapter ends on
+// printed p. 5, where "New Uses for Old Skills" begins
+// (a new use of the existing Alchemy skill only — no
+// new skill is defined, so this pack has no skills
+// file). One name collision: "Shadesight" already
+// exists in the catalog as a shade template feature
+// (Races of Faerun) — a different game element — so
+// this feat's id carries the -spells-magic suffix.
+// Summaries are short mechanical paraphrases in our
+// own words; no book prose is reproduced.
+
+const SAM = "Spells & Magic";
+const SAM_PATH = "/Desktop/DnD-3.5/Supplements/Magic/Spells & Magic.pdf";
+
+export const SPELLS_AND_MAGIC_FEATS: FeatDefinition[] = [
+  {
+    id: "activate-rune",
+    name: "Activate Rune",
+    category: "general",
+    prerequisites: ["Con 12+"],
+    benefitSummary: "You may activate inscribed runes as a standard action.",
+    modifiers: [],
+    source: `${SAM}, p. 3`,
+    sourceUrl: SAM_PATH,
+    ruleset: "core",
+  },
+  {
+    id: "attune-extra-rune",
+    name: "Attune Extra Rune",
+    category: "general",
+    prerequisites: ["Base Fortitude Save +7", "3rd level rune spell slot"],
+    benefitSummary: "You may attune to one rune more than normal. (Normal: runecasters may attune a number of runes equal to their level in the Attune Rune class ability plus their Con bonus.)",
+    modifiers: [],
+    source: `${SAM}, p. 3`,
+    sourceUrl: SAM_PATH,
+    ruleset: "core",
+    special: "This feat may only be taken once.",
+  },
+  {
+    id: "blood-power",
+    name: "Blood Power",
+    category: "metamagic",
+    prerequisites: ["Arcane spellcaster 3rd level+", "10+ hit points"],
+    benefitSummary: "You may cast extra spells by causing hit point damage to yourself: wizards may cast any spell they have currently prepared with this ability and sorcerers may cast any spell they know. The spell is cast normally, including casting time, concentration checks, and attacks of opportunity; if it is successfully cast, you take 5 hit points of damage per level of the spell cast (including any modifiers for using a metamagic feat) but do not expend a spell slot. If you knock yourself unconscious using this feat, the spell is cast and you collapse immediately afterward; if you kill yourself using it, the spell is cast but you die immediately thereafter, and a blood mage dying from such overexertion may only be brought back to life by a resurrection or true resurrection spell. Damage taken from using this feat does not heal naturally.",
+    modifiers: [],
+    source: `${SAM}, p. 3`,
+    sourceUrl: SAM_PATH,
+    ruleset: "core",
+  },
+  {
+    id: "cone-control",
+    name: "Cone Control",
+    category: "metamagic",
+    prerequisites: ["The ability to use a breath weapon or cast an offensive spell with a 'cone' area of effect", "Spellcraft 15 ranks"],
+    benefitSummary: "When this feat is used, the prepared spell or breath weapon no longer has a 'cone' area of effect; instead, the caster/breather may direct a blast of the attack at one target for every 5 ft. of the cone's maximum length (so a breath weapon with a maximum width of 25 ft. could target up to five creatures). The feat does not increase the range of the spell or breath weapon — all targets must still be within the spell's range — and all targets are allowed saves and are otherwise treated exactly as if they had been caught in the blast of a cone spell or breath weapon. Preparing a spell with this feat uses up a spell slot one level higher than the spell's original level; if the feat is used to enhance a breath weapon, it doubles the amount of time that must pass between uses of the breath weapon.",
+    modifiers: [],
+    source: `${SAM}, p. 3`,
+    sourceUrl: SAM_PATH,
+    ruleset: "core",
+  },
+  {
+    id: "craft-necromantic-focus",
+    name: "Craft Necromantic Focus",
+    category: "item-creation",
+    prerequisites: ["Spellcaster level 7th+", "Craft Wondrous Item", "Shadehand"],
+    benefitSummary: "You can create any necromantic focus whose prerequisites you meet.",
+    modifiers: [],
+    source: `${SAM}, p. 3`,
+    sourceUrl: SAM_PATH,
+    ruleset: "core",
+  },
+  {
+    id: "draconic-will",
+    name: "Draconic Will",
+    category: "general",
+    prerequisites: ["Iron Will"],
+    benefitSummary: "You get a +2 bonus to all Will saving throws; this bonus combines with Iron Will.",
+    modifiers: [],
+    source: `${SAM}, p. 3`,
+    sourceUrl: SAM_PATH,
+    ruleset: "core",
+  },
+  {
+    id: "essence-mastery",
+    name: "Essence Mastery",
+    category: "metamagic",
+    prerequisites: ["The ability to perform mirror magic", "Alchemy 10 ranks"],
+    benefitSummary: "The DC for adding more than one essence to the interior of a mirror is calculated as 5 + (the number of additional essences minus 1 times 10). (Normal: the DC is calculated as 5 + (the number of additional essences times 10).)",
+    modifiers: [],
+    source: `${SAM}, p. 3`,
+    sourceUrl: SAM_PATH,
+    ruleset: "core",
+  },
+  {
+    id: "eye-of-knowledge",
+    name: "Eye of Knowledge",
+    category: "general",
+    prerequisites: ["Con 15+", "3rd level rune spell slot"],
+    benefitSummary: "You may learn and attune to one extra rune, and you receive a +2 bonus to all checks to learn runes, attune to runes, or create runestones or runestaves. (Penalty: you are missing one eye, imposing a -2 penalty on all Search and Spot checks and a -2 penalty on all attack rolls; unless you cover up the empty socket, you also receive a -2 penalty on all Charisma checks and all Charisma-based skills.)",
+    modifiers: [],
+    source: `${SAM}, p. 3`,
+    sourceUrl: SAM_PATH,
+    ruleset: "core",
+  },
+  {
+    id: "instinctive-reflection",
+    name: "Instinctive Reflection",
+    category: "metamagic",
+    prerequisites: ["Combat Reflexes"],
+    benefitSummary: "You receive a +3 natural bonus to all attempts to deflect spells with your magical mirrors.",
+    modifiers: [],
+    source: `${SAM}, p. 3`,
+    sourceUrl: SAM_PATH,
+    ruleset: "core",
+  },
+  {
+    id: "item-breaker",
+    name: "Item Breaker",
+    category: "general",
+    prerequisites: ["Base attack bonus +3 or higher", "Proficiency with weapon or attack"],
+    benefitSummary: "When targeting an item that is worn or held by an opponent, you receive a +2 competence bonus to any ranged attack. When attacking a weapon or shield, your ranged attack is considered to target a Medium-size weapon.",
+    modifiers: [],
+    source: `${SAM}, p. 3`,
+    sourceUrl: SAM_PATH,
+    ruleset: "core",
+  },
+  {
+    id: "learn-rune",
+    name: "Learn Rune",
+    category: "general",
+    prerequisites: ["Wis 15+", "Int 15+", "1st level rune spell slot"],
+    benefitSummary: "You may learn one rune more than normal. (Normal: runecasters may learn a number of runes equal to their level in the rune mage class plus their Intelligence modifier.)",
+    modifiers: [],
+    source: `${SAM}, p. 4`,
+    sourceUrl: SAM_PATH,
+    ruleset: "core",
+    special: "This feat may only be taken once.",
+  },
+  {
+    id: "lightburst",
+    name: "Lightburst",
+    category: "metamagic",
+    prerequisites: ["The ability to perform mirror magic"],
+    benefitSummary: "When this ability is used, one spell level stored within a magic mirror is converted to a glowing halo of light around the mirror in which it is stored; the light flares out 60 ft. in all directions, is the equivalent to bright daylight in intensity, and persists for 1 hour per level of the caster.",
+    modifiers: [],
+    source: `${SAM}, p. 4`,
+    sourceUrl: SAM_PATH,
+    ruleset: "core",
+  },
+  {
+    id: "mite-fighter",
+    name: "Mite Fighter",
+    category: "general",
+    prerequisites: ["Base Reflex Save +4", "Base Attack Bonus +4"],
+    benefitSummary: "When fighting a creature smaller than yourself, you gain a +2 bonus on your attack rolls.",
+    modifiers: [],
+    source: `${SAM}, p. 4`,
+    sourceUrl: SAM_PATH,
+    ruleset: "core",
+  },
+  {
+    id: "rapid-movement",
+    name: "Rapid Movement",
+    category: "general",
+    prerequisites: ["A burrow, climb, fly, or swim movement rate"],
+    benefitSummary: "Choose one of those movement rates (that you already possess) and increase your base movement rate by 10 ft./round.",
+    modifiers: [],
+    source: `${SAM}, p. 4`,
+    sourceUrl: SAM_PATH,
+    ruleset: "core",
+  },
+  {
+    id: "shadecall",
+    name: "Shadecall",
+    category: "general",
+    prerequisites: ["Shadehand", "Shadetongue", "Cha 15+"],
+    benefitSummary: "By focusing necromantic energy into a corpse, you can create undead: concentrate on the corpse to be animated for 5 uninterrupted rounds, then make a Charisma check (DC 20) to create a zombie or a skeleton, or a Charisma check (DC 25) to create a shadow. The undead created rises at the end of the round in which the successful check was made, under your control; undead created this way respond to vocal commands and remain under your control indefinitely until released, and you cannot create an undead creature with more HD than you have character levels. You can maintain control over a maximum of 1/2 HD worth of undead creatures per character level (as printed); if you exceed this number, the newest creatures fall under your control and excess undead you have had under your control become uncontrolled, and you may choose which of the previous creatures are released. You may attempt to rebuke or command uncontrolled creatures with the Shadetongue feat or with any clerical rebuke/command abilities you possess; undead controlled with the Shadetongue feat or clerical abilities do not count toward this limit. The feat requires a mostly intact corpse or skeleton and otherwise works as the spell animate dead; abilities granted by this feat are spell-like abilities. Using this feat to create a zombie or a skeleton causes 10 points of subdual damage, while creating a shadow causes 15 points of subdual damage.",
+    modifiers: [],
+    source: `${SAM}, p. 4`,
+    sourceUrl: SAM_PATH,
+    ruleset: "core",
+    special: "Shadeseers receive this feat free at fifth level. Shadeseers may take this feat earlier, whenever they may select a feat, but they do not receive a bonus feat at fifth level to compensate.",
+  },
+  {
+    id: "shadehand",
+    name: "Shadehand",
+    category: "general",
+    prerequisites: ["Shadesight", "Great Fortitude", "Con 15+"],
+    benefitSummary: "You can generate necromantic energy within your body and release it in a variety of ways. By expending a full-round action and making a Constitution check (DC 15), you generate one charge of necromantic energy; for every 5 points by which the check exceeds the base DC, you generate an additional charge, and for each charge generated you suffer 1d4 points of subdual damage. You may hold a number of generated charges equal to your Constitution score but suffer 2 hit points per charge held at the start of each round; if you are slain or rendered unconscious while holding charges, the negative energy is released in a 10 ft. radius burst centered on your body that causes 1d4 points of damage to all living creatures in the area of effect per charge held, with a Fortitude save (DC 15) to avoid the damage. As a standard action, you may release up to 5 held charges to generate one or more of these charge effects (combining effects is allowed, as long as no more than 5 charges are released in a single action): 1 charge — a touch attack causing 1d6 hit points of negative energy damage (Will save, DC 10 + your Charisma bonus, to avoid the damage), or a touch attack that creates a cause fear effect as the spell (Will save, DC 10 + your Charisma bonus, negates), or deliver either the negative energy or cause fear effect as a 30 ft. ranged touch attack, or increase the Will save DC for a negative energy or cause fear effect by 5; 2 charges — a touch attack causing 1d4 points of temporary Strength damage, or project the damage or cause fear effect as a 20 ft. cone area of effect; 3 charges — project the damage or cause fear effect as a 10 ft. radius burst centered on you. You also gain a +2 competence bonus to Fortitude saves to recover from energy drain effects, and abilities granted by this feat are spell-like abilities.",
+    modifiers: [],
+    source: `${SAM}, p. 4`,
+    sourceUrl: SAM_PATH,
+    ruleset: "core",
+    special: "Your body temperature drops 20 degrees. Shadeseers receive this feat free at first level.",
+  },
+  {
+    id: "shadesight-spells-magic",
+    name: "Shadesight",
+    category: "general",
+    prerequisites: ["Wis 15+", "Character must have suffered a negative level from an undead attack"],
+    benefitSummary: "As a full-round action, you can sense the aura of death and necromantic energy in a 20 ft. radius centered on you; the longer you concentrate, the more information you reveal. 1st round: presence or absence of corpses of creatures with at least 1/4 Hit Dice within the radius. 2nd round: number and direction of any corpses detected in the previous round, and presence or absence of necromantic energy auras — this reveals undead, necromantic spells (including spells with the death or evil descriptors), and sources of necromantic energy (such as battlefields, necromantic vortexes, and the like). 3rd round: location of any corpses detected in the previous round, and direction and number of sources of necromantic energy. 4th round: location and strength of the strongest necromantic energy detected. 5th round: location and strength of each source of necromantic energy. Per Table 1 (Necromantic Energy Strength), strength is determined by the HD of the undead creature, the level of the spell, or the bonus provided by the source: Dim = lingering aura / 0-level spell / no bonus; Faint = 1 HD or less / 1st-3rd level / +1 to +3; Moderate = 2-4 HD / 4th-6th level / +4 to +6; Strong = 5-10 HD / 7th-9th level / +7 to +9; Overwhelming = 11+ HD / artifact or deity-level magic / +10 and up. How long an aura lingers depends on its original strength: Faint = 1d6 minutes, Moderate = 1d6 x 10 minutes, Strong = 1d6 hours, Overwhelming = 1d6 days. The feat can penetrate some barriers, but 1 foot of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet of wood or earth blocks it. Intelligent undead creatures (those with at least 10 Int) detected by this feat can make an Intelligence check or a Scry check (DC 20) to notice the faint touch of the shadetouched character's mind, as if they were being affected by the scry spell; a successful check reveals only that someone is observing the target. Abilities granted by this feat are spell-like abilities; using this feat causes 2 hit points of subdual damage per round, and you may select other Shadetouched feats. (Normal: without this feat, you may not learn other Shadetouched feats.)",
+    modifiers: [],
+    source: `${SAM}, p. 4`,
+    sourceUrl: SAM_PATH,
+    ruleset: "core",
+    special: "Your eyes turn pale gray.",
+  },
+  {
+    id: "shadetongue",
+    name: "Shadetongue",
+    category: "general",
+    prerequisites: ["Shadesight", "Cha 15+"],
+    benefitSummary: "You may rebuke or command undead as an evil cleric of half your total character level; you must speak, and the undead must hear you. This ability does not stack with any other turning or rebuking abilities you receive from other classes. You also gain a +2 profane bonus to verbal Intimidate checks due to the power of your voice. Abilities granted by this feat are spell-like abilities, and each use of this feat causes 10 hit points of subdual damage.",
+    modifiers: [],
+    source: `${SAM}, p. 5`,
+    sourceUrl: SAM_PATH,
+    ruleset: "core",
+    special: "Shadeseers receive this feat free at third level. Shadeseers may take this feat earlier, whenever they may select a feat, but they do not receive a bonus feat at third level to compensate.",
+  },
+  {
+    id: "shrug-off",
+    name: "Shrug Off",
+    category: "general",
+    prerequisites: ["Damage reduction 1/- or better"],
+    benefitSummary: "At the beginning of each round of combat, you must declare one opponent against which your damage reduction rating increases: your damage reduction is increased by 2 hit points against any damage caused by that opponent (though the type of weapon needed to overcome the reduction remains the same).",
+    modifiers: [],
+    source: `${SAM}, p. 5`,
+    sourceUrl: SAM_PATH,
+    ruleset: "core",
+  },
+  {
+    id: "totem-link",
+    name: "Totem Link",
+    category: "general",
+    prerequisites: [],
+    benefitSummary: "You receive a +2 bonus to all skill checks involving your totem animal, and your caster level is treated as two levels higher when determining your familiar's abilities if your familiar is of the appropriate type. The totem selected can only be from the following list unless the dungeon master wishes to generate new totems on his own: Bear, Boar, Cat, Dog, Eagle, Horse, Insect, Rat, and Wolf. Not all of these may be available as familiars, so certain totems may be more advantageous than others. (The entry prints no prerequisites.)",
+    modifiers: [],
+    source: `${SAM}, p. 5`,
+    sourceUrl: SAM_PATH,
+    ruleset: "core",
+    special: "This ability may be taken more than once.",
+  },
+];

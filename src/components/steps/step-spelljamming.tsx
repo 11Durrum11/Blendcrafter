@@ -7,9 +7,13 @@ import { ALL_EQUIPMENT, ALL_MAGIC_ITEMS, ALL_RACES, ALL_SPELLS } from "@/data";
  * Spelljamming (Shaun, 2026-11-04, voice call): a fourth
  * top-level section, its line sitting right next to Magic Item
  * Creation ("Next to Magic Creation"), minimized and clickable
- * like the other sections. EVERYTHING about Spelljamming lives
- * on this page: how it works, the ships, the helms, the peoples
- * of space, the spells, and the gear.
+ * like the other sections. Everything about Spelljamming lives
+ * on this page: how it works, the helms, the peoples of space,
+ * the spells, and the gear. THE SHIPS MOVED OUT (Shaun,
+ * 2026-11-04, later the same night): the hulls, ship weapons,
+ * and deck plans now live in their own top-level Section 5,
+ * Ships (step-ships.tsx) — "give me another number five ships
+ * and put all the ship information in there." Helms STAY here.
  *
  * The records themselves also file into the ordinary catalogs —
  * races in Abilities & Race, spells in the Spell Library, ships
@@ -74,6 +78,50 @@ export const SPELLJAMMING_RULE_LINES: { label: string; text: string }[] = [
     text: "Each world floats inside a crystal sphere drifting in the phlogiston. Inside a sphere is wildspace — an airless void where air envelopes and gravity planes rule. The shell itself is unbreakable except at portals: natural ones that open from time to time, or ones made with Locate Portal and Create Portal. (pp. 7, 25-26)",
   },
   {
+    label: "Maneuver Classes",
+    text: "A ship's maneuverability class (MC) rates how it turns in tactical combat, from A (most agile) to F (worst). It is set by the ship's rating, hull design, construction materials, and rigging - sails, oars, fins. Elven ships are the most graceful; an F rating marks a barely modified sea vessel that purpose-built craft will outfly. The helm only supplies the push: the crew works the rigging to tack, heel, and spin the ship. (Spelljammer Wiki, 'Spelljamming ship')",
+  },
+  {
+    label: "Tonnage",
+    text: "Ship tonnage is displacement, not weight: 1 ton equals 100 cubic yards (2,700 cubic feet) of volume, and brings along enough air to sustain one human-sized person for 4 to 8 months. Half of each ton (50 cubic yards) is usable cargo space; the rest is crew, structure, and armament. Tonnage also caps how many people a ship can carry before its air envelope is overstrained - small folk use half a share of air, large ones double, gargantuan five times. (Spelljammer Wiki, 'Spelljamming ship')",
+  },
+  {
+    label: "Helm Endurance",
+    text: "One caster can power a helm for up to 12 hours; past that, the Ship's Rating drops by 1 point for every extra hour, and working a helm uses up the caster's spellcasting for 24 hours regardless. Serious ships carry relief helmsmen, and only one helm or power source can drive a ship at a time - the rest are backups, and a ship with no power running is adrift, unable to control its motion. A minor helm moves up to 50 tons, a major helm up to 100. (Spelljammer helms compilation, after the Concordance and Lost Ships)",
+  },
+  {
+    label: "Series & Pool Helms",
+    text: "Mind flayer inventions. A series helm links three to five helms together; each helm that is manned adds 1 to the Ship's Rating, and they can be worked by creatures with innate spell-like abilities rather than true spellcasters - ships of 5 to 50 tons. A pool helm draws on an elder brain's life-pool instead of any individual, runs at a fixed Ship's Rating of 5, and is rumored to move ships of up to 200 tons. (Spelljammer helms compilation)",
+  },
+  {
+    label: "Lifejammers & Death Helms",
+    text: "The neogi answer to the helm burns a captive's life instead of spells. A lifejammer drains 1d8 hit points from the creature sealed inside for every day of operation, plus a daily save against death; the lost hit points cannot be regained while the victim remains in the helm, and its Ship's Rating is figured as if the victim were a wizard of the same level on a minor helm. A death helm is worse: it drains 2d6 hit points a day, moves a ship as a major helm, and charms its victim into loving the seat, so they resist rescue and waste away content. (Spelljammer helms compilation)",
+  },
+  {
+    label: "Furnaces & Forges",
+    text: "Not every ship burns spellcasters. A furnace helm burns magic items for motive force - roughly a week at Ship's Rating 2 for every 1,000 XP an item is worth, a second item raising it to 3 at a real risk of explosion - and it can burn only inside a crystal sphere: lit in the phlogiston, it explodes catastrophically. Dwarven forges turn labor into motion: every 100 dwarves working the foundry give the ship 1 point of Ship's Rating, powering stone citadels of 100 to 700 tons. (Spelljammer helms compilation)",
+  },
+  {
+    label: "Sailing the Flow",
+    text: "The phlogiston gathers into rainbow rivers running from sphere to sphere, and ships ride them: the denser the flow, the faster the current, and sails help a ship catch it. Most rivers run in both directions, but some flow only one way, forcing a detour through a second or third sphere to reach a destination. A sphere-to-sphere passage takes 10 to 100 days. The spheres themselves drift slowly over time, but the rivers almost never change course, so a good chart stays good. (Spelljammer Wiki, 'Phlogiston')",
+  },
+  {
+    label: "Dangers of the Flow",
+    text: "Extra-dimensional magic does not work in the phlogiston - bags of holding and portable holes fail, and nothing can be summoned in from another plane. A living castaway overboard does not suffocate: the Flow preserves them, skin hardening into a grey, stone-like torpor, until they are hauled back into an air envelope and slowly recover. A few inky Dark Regions of the Flow are shunned by every captain who knows them. (Spelljammer Wiki, 'Phlogiston')",
+  },
+  {
+    label: "Personal Air",
+    text: "A lone spacer's own air envelope runs out fast: the air stays fresh for 2d20 rounds, then turns fouled through round 30 (-2 to attacks and ability checks), then deadly - from round 31 the spacer must save against death each turn or fall unconscious, keeps saving while out, and a failed save is death by suffocation. Fresh - or even merely fouled - air revives the fallen. (Priest's Spell Compendium Vol. 1, p. 151, 'Air in Space')",
+  },
+  {
+    label: "Helm Warfare",
+    text: "Whole spells exist to kill the other ship's engine. Disable helm scrambles an operating helm for 1 round per level and the helm gets no saving throw; destroy minor helm and destroy major helm wreck helms outright - the major version destroys any helm type, though dwarven foundries can usually be repaired - and spark burst deals 1 hull point to a ship for every 10 dice of its damage. A ship whose helm dies in a fight is dead in space. (Wizard's Spell Compendium Vols. 1 and 3)",
+  },
+  {
+    label: "Cosmic Storms",
+    text: "Wildspace's strangest hazard: a cosmic storm is a drifting wormhole mouth that no one controls. It wanders at random, drags every ship within 20 hexes (10,000 ft.) toward itself each turn, and anything that enters its hex is deposited anywhere - sages say possibly anywhen - in the universe. The summon cosmic storm spell calls one up, but the caster cannot steer it, and it dies out only when it strays too far from him or swallows him. (Wizard's Spell Compendium Vol. 4, p. 890)",
+  },
+  {
     label: "In APOC",
     text: "The Bastion's crystal sphere is scarred over and planar travel is severed, so no ship sails the Flow from Toril now. These rules stand as the record of how sailing the stars worked — and what the world has lost.",
   },
@@ -81,6 +129,13 @@ export const SPELLJAMMING_RULE_LINES: { label: string; text: string }[] = [
 
 const isSpelljammerSource = (source: string) =>
   source.startsWith("Spelljammer") || source.startsWith("Helms (3e Spelljammer)") || source.startsWith("Ship Combat (3e Spelljammer)");
+
+// Shaun's fan helm compilation (ships-local sweep, 2026-11-04):
+// the classic named helms — Minor Helm, Major Helm, Gnomish
+// Helm, Crown of the Stars — and the Non-Magical Engines record
+// carry this source. They are helms, so they gather under
+// Helms here, not under Ships.
+const isHelmCompilationSource = (source: string) => source.startsWith("Helm Types and Function");
 
 function NestBlock({ id, label, children }: { id: string; label: string; children: ReactNode }) {
   return (
@@ -95,10 +150,6 @@ function NestBlock({ id, label, children }: { id: string; label: string; childre
 }
 
 export function StepSpelljamming() {
-  const ships = useMemo(
-    () => ALL_EQUIPMENT.filter((i) => i.category === "spelljamming ship").sort((a, b) => a.name.localeCompare(b.name)),
-    [],
-  );
   const gear = useMemo(
     () =>
       ALL_EQUIPMENT.filter((i) => i.category !== "spelljamming ship" && isSpelljammerSource(i.source)).sort((a, b) =>
@@ -107,7 +158,24 @@ export function StepSpelljamming() {
     [],
   );
   const helms = useMemo(
-    () => ALL_MAGIC_ITEMS.filter((i) => isSpelljammerSource(i.source)).sort((a, b) => a.name.localeCompare(b.name)),
+    () =>
+      [
+        ...ALL_MAGIC_ITEMS.filter((i) => isSpelljammerSource(i.source) || isHelmCompilationSource(i.source)).map((i) => ({
+          id: i.id,
+          name: i.name,
+          cost: i.cost,
+          summary: i.summary,
+        })),
+        // Non-Magical Engines is filed as equipment, not a magic
+        // item, but it drives a ship like a helm and belongs with
+        // the helms (ships-local adjudication) — gather it in too.
+        ...ALL_EQUIPMENT.filter((i) => isHelmCompilationSource(i.source)).map((i) => ({
+          id: i.id,
+          name: i.name,
+          cost: i.cost,
+          summary: i.notes,
+        })),
+      ].sort((a, b) => a.name.localeCompare(b.name)),
     [],
   );
   const races = useMemo(
@@ -124,7 +192,7 @@ export function StepSpelljamming() {
       <CardHeader>
         <CardTitle className="font-display text-xl">Spelljamming</CardTitle>
         <CardDescription>
-          The whole of it — how sailing the stars works, the ships, the helms, the peoples of space, the spells, and the gear, converted from the Spelljammer box sets to 3.5. Each header holds its information inside it — tap a header to open it. The same records also sit in their ordinary places: races with the races, spells with the spells, ships and gear with the equipment, helms with the magic items.
+          How sailing the stars works, the helms, the peoples of space, the spells, and the gear, converted from the Spelljammer box sets to 3.5. Each header holds its information inside it — tap a header to open it. The ships themselves live in their own section now (Section 5, Ships). The same records also sit in their ordinary places: races with the races, spells with the spells, gear with the equipment, helms with the magic items.
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-3">
@@ -133,17 +201,6 @@ export function StepSpelljamming() {
             <div key={line.label} className="rounded-md border border-card-border bg-muted/40 p-3" data-testid={`spelljamming-rule-${line.label}`}>
               <p className="font-display text-xs font-semibold uppercase tracking-wide">{line.label}</p>
               <p className="mt-1.5 text-sm leading-snug text-muted-foreground">{line.text}</p>
-            </div>
-          ))}
-        </NestBlock>
-
-        <NestBlock id="spelljamming-ships" label="The Ships">
-          {ships.map((item) => (
-            <div key={item.id} className="rounded-md border border-card-border bg-muted/40 p-3" data-testid={`spelljamming-ship-${item.id}`}>
-              <p className="font-display text-xs font-semibold uppercase tracking-wide">
-                {item.name} — {item.cost}
-              </p>
-              <p className="mt-1.5 text-sm leading-snug text-muted-foreground">{item.notes}</p>
             </div>
           ))}
         </NestBlock>

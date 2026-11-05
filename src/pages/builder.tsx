@@ -22,6 +22,8 @@ import { StepPersonality } from "@/components/steps/step-personality";
 import { StepSheet } from "@/components/steps/step-sheet";
 import { StepItemCreation } from "@/components/steps/step-item-creation";
 import { StepSpelljamming } from "@/components/steps/step-spelljamming";
+import { StepShips } from "@/components/steps/step-ships";
+import { StepPsionics, buildHasPsionics } from "@/components/steps/step-psionics";
 import { StepReference } from "@/components/steps/step-reference";
 import { useCharacterBuild } from "@/lib/use-character-build";
 import { exportCharacterJson, importCharacterJson } from "@/lib/character-io";
@@ -36,7 +38,7 @@ const STEPS = [
   // that put the ability and races, classes, skills, blah blah
   // blah." So Player Reference stands alone as section 1, and
   // every build step lives INSIDE section 2, Character Creation,
-  // numbered 1–12 within it (the `num` on a creation step is its
+  // numbered 1–13 within it (the `num` on a creation step is its
   // number inside Character Creation). Player Reference is a
   // read-only lookup and changes no build state; the builder
   // itself still opens on Abilities & Race unless a step is
@@ -61,9 +63,18 @@ const STEPS = [
   // inside Character Creation), which pushes Personality and
   // the Sheet to 11 and 12 inside the group.
   { id: "magic-items", label: "Magic Items", num: "9" },
-  { id: "inventory", label: "Inventory", num: "10" },
-  { id: "personality", label: "Personality", num: "11" },
-  { id: "sheet", label: "Character Sheet", num: "12" },
+  // Psionics is a step of its own inside Character Creation
+  // (Shaun, 2026-11-04, voice call: "make the psionics number
+  // ten" — "So inventory will become 11, personality become
+  // number 12 and character sheet will become 13"). Everything
+  // psionic gathers there with its own buttons; its records
+  // also live in their ordinary steps. The step's tab renders
+  // grayed when the build has no psionic class (APOC style);
+  // it still opens for reference.
+  { id: "psionics", label: "Psionics", num: "10" },
+  { id: "inventory", label: "Inventory", num: "11" },
+  { id: "personality", label: "Personality", num: "12" },
+  { id: "sheet", label: "Character Sheet", num: "13" },
   // Section 3 (Shaun, 2026-11-04, later): "New line. Next to
   // Character Creation. — Magic Item Creation." A top-level
   // reference section standing beside Character Creation, the
@@ -81,6 +92,16 @@ const STEPS = [
   // spells, ships with equipment, helms with magic items), so the
   // section page is the hub that gathers them all in one place.
   { id: "spelljamming", label: "Spelljamming", num: "4" },
+  // Section 5 (Shaun, 2026-11-04, later the same night, voice
+  // call): "Give me another number five ships. And put all the
+  // ship information in there" — confirmed on read-back as a
+  // fifth top-level section called Ships, standing beside the
+  // others, holding every ship: the hulls (spelljamming ships,
+  // airships, and sea ships), ship weapons and combat, and the
+  // maps and deck plans. The ships moved OUT of Spelljamming
+  // to live here; the helms stayed in Spelljamming. Like the
+  // other standalone sections it is read-only.
+  { id: "ships", label: "Ships", num: "5" },
 ] as const;
 
 type StepId = (typeof STEPS)[number]["id"];
@@ -188,6 +209,10 @@ export default function Builder() {
   // 2026-11-04, voice call): its line opens a panel with jump
   // links into its page.
   const [spelljammingOpen, setSpelljammingOpen] = useState(false);
+  // Ships is clickable the same way again (Shaun, 2026-11-04,
+  // later that night): its line opens a panel with jump links
+  // into its page.
+  const [shipsOpen, setShipsOpen] = useState(false);
 
   // Ambience (Shaun, 2026-11-04): the per-area backdrop scenes are
   // animated and carry matching ambient sound, with ONE toggle for
@@ -413,7 +438,13 @@ export default function Builder() {
   // The backdrop scene and its ambient sound follow the area. The
   // Character Sheet is left alone (Shaun): it keeps the default
   // street scene and the street sounds.
-  const sceneKey = effectiveStep === "sheet" || effectiveStep === "spelljamming" ? "street" : effectiveStep;
+  // Ships and Psionics borrow the street scene for now, like
+  // Spelljamming does (a dedicated scene for each is a
+  // follow-up, noted 2026-11-04).
+  const sceneKey =
+    effectiveStep === "sheet" || effectiveStep === "spelljamming" || effectiveStep === "ships" || effectiveStep === "psionics"
+      ? "street"
+      : effectiveStep;
   useEffect(() => {
     ambience.setScene(sceneKey as AmbienceScene);
   }, [sceneKey]);
@@ -421,7 +452,11 @@ export default function Builder() {
   // A step belongs to Character Creation unless it is one of the
   // standalone top-level sections (Player Reference, Magic Item
   // Creation).
-  const inCreation = effectiveStep !== "reference" && effectiveStep !== "item-creation" && effectiveStep !== "spelljamming";
+  const inCreation =
+    effectiveStep !== "reference" &&
+    effectiveStep !== "item-creation" &&
+    effectiveStep !== "spelljamming" &&
+    effectiveStep !== "ships";
 
   const goTo = (step: StepId) => navigate(`/step/${step}`);
   const toggleCreation = () => {
@@ -433,6 +468,7 @@ export default function Builder() {
       setCreationOpen(true);
       setItemCreationOpen(false);
       setSpelljammingOpen(false);
+      setShipsOpen(false);
       goTo("race");
     } else {
       setCreationOpen((o) => !o);
@@ -445,6 +481,7 @@ export default function Builder() {
       setItemCreationOpen(true);
       setCreationOpen(false);
       setSpelljammingOpen(false);
+      setShipsOpen(false);
       goTo("item-creation");
     } else {
       setItemCreationOpen((o) => !o);
@@ -457,9 +494,23 @@ export default function Builder() {
       setSpelljammingOpen(true);
       setCreationOpen(false);
       setItemCreationOpen(false);
+      setShipsOpen(false);
       goTo("spelljamming");
     } else {
       setSpelljammingOpen((o) => !o);
+    }
+  };
+  const toggleShips = () => {
+    if (!shipsOpen && effectiveStep !== "ships") {
+      // Coming from anywhere else, clicking Ships ENTERS it:
+      // open its panel and land on its page.
+      setShipsOpen(true);
+      setCreationOpen(false);
+      setItemCreationOpen(false);
+      setSpelljammingOpen(false);
+      goTo("ships");
+    } else {
+      setShipsOpen((o) => !o);
     }
   };
   const jumpToCreationBlock = (id: string) => {
@@ -670,7 +721,7 @@ export default function Builder() {
               ))}
             {/* Section 2 — Character Creation, sitting right next
                 to Player Reference (Shaun, 2026-11-04). It is a
-                CLICKABLE folder: steps 1–12 stay minimized inside
+                CLICKABLE folder: steps 1–13 stay minimized inside
                 it until its button is clicked open ("Minimize one
                 through 12 into character creation" / "Make
                 character creation clickable" / "With one through
@@ -753,6 +804,56 @@ export default function Builder() {
                 <ChevronRight className="ml-1.5 h-4 w-4 shrink-0" />
               )}
             </button>
+            {/* Section 5 — Ships, a top-level line right next to
+                Spelljamming (Shaun, 2026-11-04, later that night:
+                "Give me another number five ships"). CLICKABLE
+                like the others: it opens a panel with jump links
+                into its page, which holds every ship — hulls,
+                ship weapons, and the maps and deck plans. */}
+            <button
+              type="button"
+              onClick={toggleShips}
+              aria-expanded={shipsOpen}
+              data-testid="step-group-ships-toggle"
+              className={
+                "inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 font-display text-sm font-semibold ring-offset-background transition-all " +
+                (effectiveStep === "ships"
+                  ? "bg-background text-foreground shadow-sm"
+                  : "text-foreground/70 hover:text-foreground")
+              }
+            >
+              <span data-testid="step-group-ships-label">
+                <span className="mr-1.5 font-mono text-xs text-muted-foreground">5</span>
+                Ships
+              </span>
+              {shipsOpen ? (
+                <ChevronDown className="ml-1.5 h-4 w-4 shrink-0" />
+              ) : (
+                <ChevronRight className="ml-1.5 h-4 w-4 shrink-0" />
+              )}
+            </button>
+            {shipsOpen && (
+              <div
+                className="flex basis-full flex-wrap items-center gap-1 rounded-md border border-border p-1.5"
+                data-testid="step-group-ships"
+              >
+                {[
+                  { id: "ships-hulls", label: "The Ships" },
+                  { id: "ships-weapons", label: "Ship Weapons & Combat" },
+                  { id: "ships-maps", label: "Maps & Deck Plans" },
+                ].map((block) => (
+                  <button
+                    key={block.id}
+                    type="button"
+                    onClick={() => jumpToCreationBlock(block.id)}
+                    className="inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium text-foreground/80 transition-all hover:text-foreground"
+                    data-testid={`button-ships-jump-${block.id}`}
+                  >
+                    {block.label}
+                  </button>
+                ))}
+              </div>
+            )}
             {spelljammingOpen && (
               <div
                 className="flex basis-full flex-wrap items-center gap-1 rounded-md border border-border p-1.5"
@@ -760,7 +861,6 @@ export default function Builder() {
               >
                 {[
                   { id: "spelljamming-how", label: "How It Works" },
-                  { id: "spelljamming-ships", label: "The Ships" },
                   { id: "spelljamming-helms", label: "Helms" },
                   { id: "spelljamming-races", label: "Peoples of Space" },
                   { id: "spelljamming-spells", label: "Spells" },
@@ -807,9 +907,22 @@ export default function Builder() {
                 data-testid="step-group-character-creation"
               >
                 {visibleSteps
-                  .filter((s) => s.id !== "reference" && s.id !== "item-creation" && s.id !== "spelljamming")
+                  .filter((s) => s.id !== "reference" && s.id !== "item-creation" && s.id !== "spelljamming" && s.id !== "ships")
                   .map((s) => (
-                    <TabsTrigger key={s.id} value={s.id} data-testid={`tab-step-${s.id}`}>
+                    <TabsTrigger
+                      key={s.id}
+                      value={s.id}
+                      data-testid={`tab-step-${s.id}`}
+                      // Psionics gray-out (Shaun, 2026-11-04): the
+                      // Psionics step's button renders grayed when
+                      // the build has no psionic class — the
+                      // APOC-style "not applicable" treatment. The
+                      // step still opens for reference; the gray
+                      // lifts when a psionic class is on the build.
+                      className={
+                        s.id === "psionics" && !buildHasPsionics(build) ? "text-muted-foreground/60 opacity-60" : undefined
+                      }
+                    >
                       <span className="mr-1.5 font-mono text-xs text-muted-foreground">{s.num}</span>
                       {s.label}
                     </TabsTrigger>
@@ -917,6 +1030,7 @@ export default function Builder() {
               onSetWealthLimitLevel={cb.setWealthLimitLevel}
             />
           )}
+          {currentStep === "psionics" && <StepPsionics build={build} onToggleSpell={cb.toggleSpell} />}
           {currentStep === "inventory" && (
             <StepInventory
               inventory={build.inventory}
@@ -936,6 +1050,7 @@ export default function Builder() {
           {currentStep === "reference" && <StepReference />}
           {currentStep === "item-creation" && <StepItemCreation />}
           {currentStep === "spelljamming" && <StepSpelljamming />}
+          {currentStep === "ships" && <StepShips />}
         </div>
 
         <div className="mt-8 flex items-center justify-between">
@@ -944,12 +1059,14 @@ export default function Builder() {
           </Button>
           <span className="text-xs text-muted-foreground">
             {effectiveStep === "reference"
-              ? "Section 1 of 4 — Player Reference"
+              ? "Section 1 of 5 — Player Reference"
               : effectiveStep === "item-creation"
-                ? "Section 3 of 4 — Magic Item Creation"
+                ? "Section 3 of 5 — Magic Item Creation"
                 : effectiveStep === "spelljamming"
-                  ? "Section 4 of 4 — Spelljamming"
-                  : `Section 2 of 4 — Character Creation · Step ${visibleSteps[visibleIndex]?.num} of 12`}
+                  ? "Section 4 of 5 — Spelljamming"
+                  : effectiveStep === "ships"
+                    ? "Section 5 of 5 — Ships"
+                    : `Section 2 of 5 — Character Creation · Step ${visibleSteps[visibleIndex]?.num} of 13`}
           </span>
           <Button disabled={!next} onClick={() => next && goTo(next.id)} data-testid="button-next-step">
             {next ? next.label : "Done"} <ChevronRight className="ml-1 h-4 w-4" />

@@ -13,6 +13,7 @@ import { cn } from "@/lib/utils";
 import { ProductIdentityBadge } from "@/components/product-identity-badge";
 import { RULESET_LABELS } from "@/components/ruleset-toggle";
 import { isMonsterRace, raceStartingEcl } from "@/lib/race-groups";
+import { isApocDisabledRace, APOC_TIEFLING_NOTE } from "@/lib/apoc-disabled";
 import { EntityDetailDialog } from "@/components/entity-detail-dialog";
 import { describeAbility, describeRace, type EntityDetail } from "@/lib/entity-descriptions";
 
@@ -195,7 +196,13 @@ export function StepRace({
   }
 
   const renderRaceTile = (race: (typeof visibleRaces)[number]) => {
-  const isDisabled = disabledRaceIds.includes(race.id);
+  // APOC canon gray-out (Shaun, 2026-11-04 — no tieflings):
+  // unlike a turned-off race, which is hidden entirely, an
+  // APOC-disabled race stays VISIBLE as a grayed, unpickable
+  // tile carrying the canon note — the record is kept, it
+  // simply cannot be picked in APOC. See lib/apoc-disabled.ts.
+  const apocOff = isApocDisabledRace(race);
+  const isDisabled = disabledRaceIds.includes(race.id) || apocOff;
   return (
     <div
       key={race.id}
@@ -241,6 +248,11 @@ export function StepRace({
       <div className="mt-1 text-xs text-muted-foreground">
         {race.size} · Speed {race.baseSpeed} ft
       </div>
+      {apocOff && (
+        <p className="mt-1 text-xs font-medium text-destructive" data-testid={`apoc-note-race-${race.id}`}>
+          {APOC_TIEFLING_NOTE}
+        </p>
+      )}
       <div className="mt-2 flex flex-wrap gap-1">
         <Badge variant="secondary" className="text-[10px]" data-testid={`badge-ecl-${race.id}`}>
           ECL {raceStartingEcl(race)}
@@ -277,7 +289,10 @@ export function StepRace({
     races: typeof visibleRaces,
     headingClassName: string
   ) => {
-    const turnedOn = races.filter((race) => !disabledRaceIds.includes(race.id));
+    // APOC-disabled races (the tiefling) are NOT hidden with the
+    // turned-off races — they render grayed with their canon
+    // note (see renderRaceTile), so they pass this filter.
+    const turnedOn = races.filter((race) => !disabledRaceIds.includes(race.id) || isApocDisabledRace(race));
     return (
       <>
         {title !== null && <h4 className={headingClassName}>{title}</h4>}

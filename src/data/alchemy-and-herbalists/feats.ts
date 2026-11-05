@@ -1,0 +1,198 @@
+import type { FeatDefinition } from "@/engine/types";
+
+// Alchemy & Herbalists (Bastion Press, d20) — the Chapter 6
+// feat list, printed pp. 44-47, transcribed from Shaun's own
+// scanned copy (read visually; the scan is image-only, read
+// 2026-11-04; uncertain spots re-rendered at 250 DPI).
+// Appendix Two's Table 29 (p. 95) cross-checks all sixteen
+// feats and confirms Reciprocal Knowledge is a [General]
+// feat. One book inconsistency is recorded as printed, not
+// silently resolved: Grow Swathe's feat text (p. 46) requires
+// spellcaster level 3rd+, while Table 29 prints 5th+; the
+// feat text is used here. The book is 3.0-era (it uses the
+// Alchemy skill, Wilderness Lore, and subdual damage); terms
+// are transcribed as printed. Like the omni-swept third-party
+// books, these records carry ruleset "core". Summaries are
+// short mechanical paraphrases in our own words; no book
+// prose is reproduced.
+
+const AH = "Alchemy & Herbalists";
+
+export const ALCHEMY_HERBALISTS_FEATS: FeatDefinition[] = [
+  {
+    id: "bodily-awareness",
+    name: "Bodily Awareness",
+    category: "general",
+    prerequisites: ["Alchemy 5 ranks or Profession (Herbalist) 5 ranks"],
+    benefitSummary: "You gain a +2 bonus on all Heal checks and Profession (Apothecary) checks. This bonus stacks with synergy bonuses.",
+    modifiers: [],
+    source: `${AH}, p. 44`,
+    sourceUrl: "",
+    ruleset: "core",
+  },
+  {
+    id: "brew-ingestibles",
+    name: "Brew Ingestibles",
+    category: "item-creation",
+    prerequisites: ["Alchemy 9 ranks or Profession (Herbalist) 7 ranks"],
+    benefitSummary: "You can create ingestibles (nonmagical drinkables such as draughts, tinctures, tisanes, and teas), gaining a +3 bonus on the relevant skill when creating one. Brewing takes a number of hours equal to the creation DC. An ingestible's base price is its caster level plus its creation DC, multiplied by 50 gp (tinctures cost double; tisanes and teas cost half). Creating one costs XP equal to 1/50 (2%) of its base price and raw materials costing 30% of its base price. Special: with at least 3 spellcasting levels, this feat also functions as Brew Potion for creating actual potions, using that feat's XP and material costs.",
+    modifiers: [],
+    source: `${AH}, p. 44`,
+    sourceUrl: "",
+    ruleset: "core",
+  },
+  {
+    id: "craft-chymicals",
+    name: "Craft Chymicals",
+    category: "item-creation",
+    prerequisites: ["Alchemy 5 ranks", "Skill Focus (Alchemy)"],
+    benefitSummary: "You can create chymicals (alchemical substances that are not ingestibles, powders, toxins, or unguents), gaining a +3 bonus on Alchemy checks when creating one. Creation takes a minimum of one day (two days if the creation DC is higher than 30). A chymical's base price is its caster level multiplied by 25 gp. Creating one costs XP equal to 1/50 (2%) of its base price and raw materials costing 30% of its base price.",
+    modifiers: [],
+    source: `${AH}, p. 44`,
+    sourceUrl: "",
+    ruleset: "core",
+  },
+  {
+    id: "craft-herbal-restoratives",
+    name: "Craft Herbal Restoratives",
+    category: "item-creation",
+    prerequisites: ["Profession (Herbalist) 8 ranks or Profession (Apothecary) 6 ranks"],
+    benefitSummary: "You can create herbal restoratives (nonmagical healing draughts, powders, poultices, and other medicines), gaining a +3 bonus on the relevant skill when creating one; the +3 bonus can also be used with the Heal skill for this purpose. A restorative's base price is its caster level multiplied by 12 gp. Creating one costs XP equal to 1/50 (2%) of its base price and raw materials costing 30% of its base price.",
+    modifiers: [],
+    source: `${AH}, p. 44`,
+    sourceUrl: "",
+    ruleset: "core",
+  },
+  {
+    id: "craft-powders-and-dusts",
+    name: "Craft Powders & Dusts",
+    category: "item-creation",
+    prerequisites: ["Alchemy 7 ranks or Profession (Herbalist) 6 ranks", "Skill Focus (in the respective skill)"],
+    benefitSummary: "You can create alchemical or herbal powders and dusts, gaining a +3 bonus on the relevant skill when creating one. Creation takes 12 hours plus a number of hours equal to the creation DC. A powder's base price is its caster level plus its creation DC, multiplied by 75 gp. Creating one costs XP equal to 1/50 (2%) of its base price and raw materials costing 30% of its base price. Special: with at least 3 caster levels, this feat also functions as Craft Wondrous Item for creating magical dusts and powders.",
+    modifiers: [],
+    source: `${AH}, p. 44`,
+    sourceUrl: "",
+    ruleset: "core",
+  },
+  {
+    id: "craft-toxins",
+    name: "Craft Toxins",
+    category: "item-creation",
+    prerequisites: ["Alchemy 8 ranks or Profession (Herbalist) 6 ranks", "Great Fortitude"],
+    benefitSummary: "You can create poisons and other toxins, gaining a +3 bonus on the relevant skill when creating one. Creation takes a number of hours equal to the creation DC. A toxin's base price is its caster level plus its creation DC, multiplied by 120 gp. Creating one costs XP equal to 1/50 (2%) of its base price and raw materials costing 30% of its base price. Special: with Knowledge (Nature) or Wilderness Lore 5 ranks, you can also process venoms taken from animals into usable toxins.",
+    modifiers: [],
+    source: `${AH}, p. 45`,
+    sourceUrl: "",
+    ruleset: "core",
+  },
+  {
+    id: "craft-unguents",
+    name: "Craft Unguents",
+    category: "item-creation",
+    prerequisites: ["Alchemy 9 ranks or Profession (Herbalist) 7 ranks", "Craft Powders & Dusts"],
+    benefitSummary: "You can create unguents (ointments, salves, balms, and pastes applied to the skin or to items), gaining a +3 bonus on the relevant skill when creating one. Creation takes a number of hours equal to half the creation DC (minimum 9 hours). An unguent's base price is its caster level plus its creation DC, multiplied by 150 gp. Creating one costs XP equal to 1/50 (2%) of its base price and raw materials costing 30% of its base price. Special: with at least 3 caster levels, this feat also functions as Craft Wondrous Item for creating magical unguents.",
+    modifiers: [],
+    source: `${AH}, p. 45`,
+    sourceUrl: "",
+    ruleset: "core",
+  },
+  {
+    id: "create-alchana",
+    name: "Create Alchana",
+    category: "item-creation",
+    prerequisites: ["Alchemy 9 ranks", "Endurance", "Craft Chymicals", "Craft Wondrous Item"],
+    benefitSummary: "You can create alchana: wondrous alchemagical items that are not arms, armor, wands, staves, rods, potions, or rings. Alchana effects are never canceled by dispel magic. An alchana's base price is its caster level plus its creation DC, multiplied by 400 gp. Creating one costs XP equal to 1/25 (4%) of its base price and raw materials costing 30% of its base price.",
+    modifiers: [],
+    source: `${AH}, p. 45`,
+    sourceUrl: "",
+    ruleset: "core",
+  },
+  {
+    id: "create-erlcana",
+    name: "Create Erlcana",
+    category: "item-creation",
+    prerequisites: ["Profession (Herbalist) 16 ranks", "Grow Swathe", "Knowledge (Nature) 5 ranks"],
+    benefitSummary: "You can create greater erlcana: plant and plant-derived substances and creations with their own sentience and magics. A greater erlcana's base price is its caster level plus its creation DC, multiplied by 1,000 gp. Creating one costs XP equal to 1/25 (4%) of its base price and raw materials costing 30% of its base price.",
+    modifiers: [],
+    source: `${AH}, p. 45`,
+    sourceUrl: "",
+    ruleset: "core",
+  },
+  {
+    id: "create-greater-alchana",
+    name: "Create Greater Alchana",
+    category: "item-creation",
+    prerequisites: ["Alchemy 16 ranks", "Perfect Materials", "Create Alchana"],
+    benefitSummary: "You can create any of the Five Stones of Alchemy (the Alchemist's Stone, Healer's Stone, Mystic's Stone, Philosopher's Stone, and Sorcerer's Stone), subject to any stonecrafting limits of your prestige class. A greater alchana's base price is its caster level plus its creation DC, multiplied by 2,500 gp. Creating one costs XP equal to 1/10 (10%) of its base price and raw materials costing 50% of its base price, including the sacrifice of a Green Tablet; no other item creation savings apply.",
+    modifiers: [],
+    source: `${AH}, p. 45`,
+    sourceUrl: "",
+    ruleset: "core",
+  },
+  {
+    id: "crisis-creation",
+    name: "Crisis Creation",
+    category: "item-creation",
+    prerequisites: ["Concentration", "Skill Focus (Alchemy) or Skill Focus (Profession (Herbalist))", "At least one Item Creation feat"],
+    benefitSummary: "You can create items in an emergency: either complete an item in half the normal time, or jury-rig an item creation process away from a laboratory, negating the circumstance penalties for lacking proper equipment. Raw materials costs are unchanged, but the XP cost of an item created this way doubles. Special: this feat can be stacked — taking it twice reduces item creation time to one-third normal at three times the normal XP cost.",
+    modifiers: [],
+    source: `${AH}, p. 45`,
+    sourceUrl: "",
+    ruleset: "core",
+  },
+  {
+    id: "diagnosis",
+    name: "Diagnosis",
+    category: "general",
+    prerequisites: ["Heal skill", "Profession (Apothecary) 5 ranks"],
+    benefitSummary: "Training in herbal healing grants you insight into ailments and afflictions, which your diagnosis can even detect: you gain a +3 circumstance bonus on Heal checks, stacking with synergy bonuses and with the bonus from Bodily Awareness. Special: if successful in the use of the Heal skill, your proper diagnosis allows the victim to gain 1 hit point back in 1d8 hours (instead of 24) if successful on a Fortitude save.",
+    modifiers: [],
+    source: `${AH}, p. 45`,
+    sourceUrl: "",
+    ruleset: "core",
+  },
+  {
+    id: "flourish-spell",
+    name: "Flourish Spell",
+    category: "metamagic",
+    prerequisites: ["Profession (Herbalist) 12 ranks", "Spellcaster level 4th or higher"],
+    benefitSummary: "You can redirect the energies of any Abjuration, Conjuration, Enchantment, Evocation, or Transmutation spell into a plant, negating the spell's original effects in favor of reviving and affecting the plant's tissues. For each level of the original spell, the plant undergoes the changes of one season of growth. If the plant is damaged or dying, sacrificing one spell level partially heals it rather than forcing a season of growth; two spell levels completely heal it according to its current season. The spell level required is adjusted by the plant's size: +1 level if smaller than a halfling, -1 if over 6 feet, -2 if over 18 feet, -3 if over 50 feet.",
+    modifiers: [],
+    source: `${AH}, p. 45`,
+    sourceUrl: "",
+    ruleset: "core",
+  },
+  {
+    id: "grow-swathe",
+    name: "Grow Swathe",
+    category: "item-creation",
+    prerequisites: ["Profession (Herbalist) 12 ranks", "Craft Powders & Dusts", "Spellcaster level 3rd or higher"],
+    benefitSummary: "You can add a living swathe of plants to enchanted clothing or items, or graft swathes onto magical items, embedding magics within the swathe to enhance and alter the item's existing magic or create new, nature-related magics or druid spells. Swathe graft: the graft's base price is its caster level plus its DC, multiplied by 5 gp; grafting costs XP equal to 1/50 (2%) of the new base price (item base price plus graft base price) and raw materials costing 25% of that new base price. Swathe creation (an independent living swathe, which can be anchored to magical and nonmagical materials of leather or stronger substance): base price is the item's caster level plus its creation DC, multiplied by 200 gp; creation costs XP equal to 1/25 (4%) of the base price and raw materials costing 30% of the base price. Special: swathes cannot be created by the Craft Wondrous Item feat unless the user meets all the prerequisites for this feat. (Table 29, p. 95, prints this feat's spellcaster prerequisite as 5th+; the feat text used here says 3rd+.)",
+    modifiers: [],
+    source: `${AH}, p. 46`,
+    sourceUrl: "",
+    ruleset: "core",
+  },
+  {
+    id: "perfect-materials",
+    name: "Perfect Materials",
+    category: "item-creation",
+    prerequisites: ["Alchemy 12 ranks", "Spellcaster level 7th or higher", "Create Alchana"],
+    benefitSummary: "You know the alchemical methods to refine materials into their strongest or purest forms, or strengthen them beyond their normal hardness: you can create Greater Temperant Baths and Emerald Tablets. Such an item's base price is its caster level plus its creation DC, multiplied by 1,500 gp; creating it costs XP equal to 1/25 (4%) of its base price and raw materials costing 30% of its base price. Special: you can also repair or restore masterwork items, provided all their pieces are present. (The book's prerequisite line spells the required feat 'Craft Alchana'; the feat is Create Alchana.)",
+    modifiers: [],
+    source: `${AH}, p. 46`,
+    sourceUrl: "",
+    ruleset: "core",
+  },
+  {
+    id: "reciprocal-knowledge",
+    name: "Reciprocal Knowledge",
+    category: "general",
+    prerequisites: ["7 ranks in each of two related skills that have synergy bonuses between them"],
+    benefitSummary: "Your cross-training in two related skills grants an advanced synergy: a +3 bonus when using either of the linked skills, stacking with other synergy bonuses. Special: this feat can be taken multiple times, but only one pair of skills can be linked per taking.",
+    modifiers: [],
+    source: `${AH}, p. 46`,
+    sourceUrl: "",
+    ruleset: "core",
+  },
+];
