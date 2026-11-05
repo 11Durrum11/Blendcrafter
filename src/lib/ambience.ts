@@ -41,12 +41,28 @@ class AmbienceEngine {
   private scene: AmbienceScene = "street";
   private started = false;
   private armed = false;
+  // Shaun's volume control (2026-11-04): a 0..1 fraction of the
+  // engine's full-scale gain (0.6 — wallpaper, not a soundtrack).
+  private volume = 1;
+
+  private targetGain() {
+    return 0.6 * this.volume;
+  }
+
+  setVolume(fraction: number) {
+    this.volume = Math.min(1, Math.max(0, fraction));
+    if (this.started && this.enabled) this.fadeTo(this.targetGain());
+  }
+
+  getVolume() {
+    return this.volume;
+  }
 
   setEnabled(on: boolean) {
     this.enabled = on;
     if (on) {
       this.armAutoStart();
-      if (this.started) this.fadeTo(0.6);
+      if (this.started) this.fadeTo(this.targetGain());
     } else if (this.started) {
       this.fadeTo(0);
     }
@@ -95,7 +111,7 @@ class AmbienceEngine {
     }
     this.started = true;
     this.buildRecipe();
-    this.fadeTo(0.6);
+    this.fadeTo(this.targetGain());
   }
 
   private fadeTo(v: number) {

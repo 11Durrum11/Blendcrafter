@@ -222,6 +222,33 @@ export default function Builder() {
     ambience.setEnabled(ambienceOn);
   }, [ambienceOn]);
 
+  // Ambience volume (Shaun, 2026-11-04: "Give the ambiance button a
+  // volume control"). A 0..1 fraction, persisted per device; the
+  // slider rides beside the Ambience button while ambience is on.
+  const [ambienceVolume, setAmbienceVolume] = useState<number>(() => {
+    try {
+      const saved = window.localStorage.getItem("blendcrafter:ambience-volume");
+      if (saved !== null) {
+        const v = Number.parseFloat(saved);
+        if (Number.isFinite(v)) return Math.min(1, Math.max(0, v));
+      }
+    } catch {
+      /* storage unavailable */
+    }
+    return 1;
+  });
+  useEffect(() => {
+    try {
+      window.localStorage.setItem(
+        "blendcrafter:ambience-volume",
+        String(ambienceVolume),
+      );
+    } catch {
+      /* storage unavailable */
+    }
+    ambience.setVolume(ambienceVolume);
+  }, [ambienceVolume]);
+
   const cb = useCharacterBuild();
   const { build, resolved } = cb;
 
@@ -509,10 +536,24 @@ export default function Builder() {
       </Button>
     ),
     ambience: (
-      <Button variant="outline" size="sm" className="px-1.5 sm:px-3" onClick={() => setAmbienceOn((v) => !v)} aria-pressed={ambienceOn} aria-label="Toggle background animation and ambient sound" data-testid="button-ambience-toggle">
-        {ambienceOn ? <Volume2 className="h-3.5 w-3.5 sm:mr-1.5" /> : <VolumeX className="h-3.5 w-3.5 sm:mr-1.5" />}
-        <span className="hidden sm:inline">Ambience</span>
-      </Button>
+      <span className="inline-flex items-center gap-1.5">
+        <Button variant="outline" size="sm" className="px-1.5 sm:px-3" onClick={() => setAmbienceOn((v) => !v)} aria-pressed={ambienceOn} aria-label="Toggle background animation and ambient sound" data-testid="button-ambience-toggle">
+          {ambienceOn ? <Volume2 className="h-3.5 w-3.5 sm:mr-1.5" /> : <VolumeX className="h-3.5 w-3.5 sm:mr-1.5" />}
+          <span className="hidden sm:inline">Ambience</span>
+        </Button>
+        {ambienceOn ? (
+          <input
+            type="range"
+            min={0}
+            max={100}
+            value={Math.round(ambienceVolume * 100)}
+            onChange={(e) => setAmbienceVolume(Number(e.target.value) / 100)}
+            className="w-14 accent-amber-500 sm:w-20"
+            aria-label="Ambience volume"
+            data-testid="ambience-volume-slider"
+          />
+        ) : null}
+      </span>
     ),
     export: (
       <Button variant="outline" size="sm" className="px-1.5 sm:px-3" onClick={() => exportCharacterJson(build)} data-testid="button-export-character">
@@ -607,7 +648,10 @@ export default function Builder() {
         </div>
       </header>
 
-      <main className="mx-auto max-w-6xl px-4 py-6 sm:px-6">
+      {/* Bottom padding (Shaun, 2026-11-04): just enough clear space
+          at the foot of every page that the area's background scene
+          shows unimpeded when he scrolls to the end. */}
+      <main className="mx-auto max-w-6xl px-4 py-6 pb-[45vh] sm:px-6">
         <Tabs value={effectiveStep} onValueChange={(v) => goTo(v as StepId)}>
           <TabsList className="flex h-auto flex-wrap justify-start gap-1" data-testid="step-tabs">
             {/* Section 1 — Player Reference, standing alone
