@@ -809,10 +809,13 @@ export default function Builder() {
               is the device's own: the boxes are movable
               (2026-11-05) — press, hold, and slide to swap. */}
           {/* All the top boxes on ONE row (Shaun, 2026-11-05:
-              "Put all the boxes on top on one row") — the two
-              stacked groups are gone; the boxes flow in their set
-              order in a single row container and stay movable. */}
-          <div className="ml-auto flex flex-wrap items-center gap-1 sm:gap-2" onClickCapture={swallowDraggedClick}>
+              "Put all the boxes on top on one row" — "so it can
+              all fit on one row") — the two stacked groups are
+              gone, and the row does NOT wrap: the boxes are
+              icon-compact on phone widths, so all eight fit
+              across a single line in their set order, and they
+              stay movable. */}
+          <div className="ml-auto flex flex-nowrap items-center gap-1 sm:gap-2" onClickCapture={swallowDraggedClick}>
             {headerOrder.map(renderHeaderBox)}
             <input
               ref={importRef}
@@ -841,12 +844,22 @@ export default function Builder() {
       <main className="mx-auto max-w-6xl px-4 py-6 pb-[45vh] sm:px-6">
         <Tabs value={effectiveStep} onValueChange={(v) => goTo(v as StepId)}>
           <TabsList className="flex h-auto flex-wrap justify-start gap-1" data-testid="step-tabs">
+            {/* The four sections in a two-by-two grid (Shaun,
+                2026-11-05: "Put the player reference one, then
+                character creation next to it, then magic item
+                creation under player reference. And spelljamming
+                next to magic item creation"). Top row: Player
+                Reference | Character Creation. Bottom row: Magic
+                Item Creation | Spelljamming. The Character
+                Creation panel opens full-width under the grid,
+                where it always opened. */}
+            <div className="grid basis-full grid-cols-2 gap-1" data-testid="section-grid">
             {/* Section 1 — Player Reference, standing alone
                 (Shaun, 2026-11-04). */}
             {visibleSteps
               .filter((s) => s.id === "reference")
               .map((s) => (
-                <TabsTrigger key={s.id} value={s.id} data-testid={`tab-step-${s.id}`}>
+                <TabsTrigger key={s.id} value={s.id} data-testid={`tab-step-${s.id}`} className="w-full">
                   <span className="mr-1.5 font-mono text-xs text-muted-foreground">{s.num}</span>
                   {s.label}
                 </TabsTrigger>
@@ -865,7 +878,7 @@ export default function Builder() {
               aria-expanded={creationOpen}
               data-testid="step-group-character-creation-toggle"
               className={
-                "inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 font-display text-sm font-semibold ring-offset-background transition-all " +
+                "inline-flex w-full items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 font-display text-sm font-semibold ring-offset-background transition-all " +
                 (inCreation
                   ? "bg-background text-foreground shadow-sm"
                   : "text-foreground/70 hover:text-foreground")
@@ -892,7 +905,7 @@ export default function Builder() {
               onClick={toggleItemCreation}
               data-testid="step-group-item-creation-toggle"
               className={
-                "inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 font-display text-sm font-semibold ring-offset-background transition-all " +
+                "inline-flex w-full items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 font-display text-sm font-semibold ring-offset-background transition-all " +
                 (effectiveStep === "item-creation"
                   ? "bg-background text-foreground shadow-sm"
                   : "text-foreground/70 hover:text-foreground")
@@ -915,7 +928,7 @@ export default function Builder() {
               onClick={toggleSpelljamming}
               data-testid="step-group-spelljamming-toggle"
               className={
-                "inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 font-display text-sm font-semibold ring-offset-background transition-all " +
+                "inline-flex w-full items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 font-display text-sm font-semibold ring-offset-background transition-all " +
                 (effectiveStep === "spelljamming"
                   ? "bg-background text-foreground shadow-sm"
                   : "text-foreground/70 hover:text-foreground")
@@ -926,6 +939,7 @@ export default function Builder() {
                 Spelljamming
               </span>
             </button>
+            </div>
             {creationOpen && (
               <div
                 className="flex basis-full flex-wrap items-center gap-1 rounded-md border border-border p-1.5"
