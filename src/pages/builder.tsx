@@ -147,12 +147,16 @@ type StepId = (typeof STEPS)[number]["id"];
  * (theme) button goes last. The order below satisfied all three.
  *
  * 2026-11-05: superseded in part — "put it first": the New
- * button now leads the header (it is also 2x2 now, and it is
- * the gate that starts a character; see the gate note in
- * Builder). Export still sits next to Import, Moon still last.
+ * button led the header for a few hours (2x2, and the gate
+ * that starts a character; see the gate note in Builder).
+ * Export still sits next to Import, Moon still last. Later
+ * the same morning Shaun moved New again — out of the
+ * header entirely: it now sits nested FIRST inside the
+ * Character Creation panel, ahead of the Abilities step
+ * (see the step-group JSX). Stored per-device header
+ * orders drop "new" on load.
  */
 const HEADER_BOX_ORDER = [
-  "new",
   "rulesets",
   "import",
   "export",
@@ -710,27 +714,6 @@ export default function Builder() {
     characters: <CharacterRepository build={build} onLoad={handleLoadBuild} part="characters" />,
     "house-rules": <HouseRulesToggle houseRules={build.houseRules} onToggle={cb.toggleHouseRule} />,
     save: <CharacterRepository build={build} onLoad={handleLoadBuild} part="save" />,
-    // The New button (Shaun, 2026-11-05): FIRST in the header,
-    // two by two (double width, double height), and it is the
-    // gate — clicking it is what starts a character being made
-    // (see the gate note in Builder). Before it is clicked,
-    // Character Creation sits zeroed out.
-    new: (
-      <Button
-        variant="outline"
-        className="h-16 px-6 text-base"
-        onClick={() => {
-          cb.reset();
-          setCharacterStarted(true);
-          goTo("abilities");
-          toast({ title: "New character", description: "Started a fresh build." });
-        }}
-        data-testid="button-new-character"
-      >
-        <UserPlus className="mr-2 h-7 w-7" />
-        <span>New Character</span>
-      </Button>
-    ),
     theme: (
       <Button variant="outline" size="sm" className="px-1.5 sm:px-3" onClick={toggleTheme} aria-label="Toggle dark/light theme" data-testid="button-theme-toggle">
         <Sun className="h-3.5 w-3.5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
@@ -814,9 +797,11 @@ export default function Builder() {
               2026-11-04 at Shaun's order. */}
           {/* The header boxes, in Shaun's baked-in arrangement
               (2026-11-03, from his phone screenshot — see
-              HEADER_BOX_ORDER): New first (2026-11-05), then
-              Rule Sets · Import · Export · Characters ·
-              House Rules · Save · Ambience · Moon. One row on
+              HEADER_BOX_ORDER): Rule Sets · Import · Export ·
+              Characters · House Rules · Save · Ambience · Moon
+              (the New Character button left the header
+              2026-11-05; it is nested first inside Character
+              Creation now). One row on
               laptop widths, two stacked lines on phone widths
               (2026-11-04, Shaun: the one-row layout is for the
               laptop). Copy build link and Copy settings link were
@@ -961,6 +946,29 @@ export default function Builder() {
                 className="flex basis-full flex-wrap items-center gap-1 rounded-md border border-border p-1.5"
                 data-testid="step-group-character-creation"
               >
+                {/* The New Character button, nested FIRST inside
+                    Character Creation (Shaun, 2026-11-05: "Put the
+                    new character button first nested in character
+                    creation") — ahead of Step 1 (Abilities). It
+                    keeps its 2x2 size and its job as the gate:
+                    clicking it starts a character being made;
+                    until then Character Creation sits zeroed out
+                    (see the gate note in Builder). It lived in the
+                    header until this order moved it here. */}
+                <Button
+                  variant="outline"
+                  className="h-16 px-6 text-base"
+                  onClick={() => {
+                    cb.reset();
+                    setCharacterStarted(true);
+                    goTo("abilities");
+                    toast({ title: "New character", description: "Started a fresh build." });
+                  }}
+                  data-testid="button-new-character"
+                >
+                  <UserPlus className="mr-2 h-7 w-7" />
+                  <span>New Character</span>
+                </Button>
                 {visibleSteps
                   .filter((s) => s.id !== "reference" && s.id !== "item-creation" && s.id !== "spelljamming")
                   .map((s) => (
