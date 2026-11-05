@@ -582,6 +582,40 @@ export function StepReference() {
         </Card>
       )}
 
+      {/* Ambience credits (2026-11-04): the scene sounds are
+          real field recordings under public-domain / CC-BY
+          licenses; the CC-BY ones require attribution, so the
+          credits live here in Player Reference where anyone
+          can find them. Full provenance rides in
+          src/data/ambience-audio.ts. */}
+      <Card>
+        <CardHeader className="pb-2">
+          <CardTitle className="text-xl">Ambience Credits</CardTitle>
+          <CardDescription className="text-lg">
+            The background sounds are real field recordings, one matched to each scene, used under public-domain or
+            Creative Commons licenses. The Training Yard has none yet — no lawful recording of wooden-weapon
+            training could be found, so that scene stays quiet rather than fake it.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <ul className="grid grid-cols-1 gap-x-4 text-base text-muted-foreground sm:grid-cols-2">
+            <li className="border-b py-1.5">The Street — “Evening Ambiance: Sevilla Street at Night” by Tiago CarvE (radio aporee) · Public domain</li>
+            <li className="border-b py-1.5">Player Reference (the great library) — “TU Delft Library, quiet study room” by el_mar · CC BY 3.0</li>
+            <li className="border-b py-1.5">Abilities &amp; Race (hall of the peoples) — “TU Delft Library, ground level” by el_mar · CC BY 3.0</li>
+            <li className="border-b py-1.5">Classes (lecture hall) — “Ambient classroom mono” by rcrossley · Public domain</li>
+            <li className="border-b py-1.5">Skills (guild workshop) — “Shoemaker hammering wooden nails” by Work With Sounds / Technical Museum of Slovenia · CC BY 4.0</li>
+            <li className="border-b py-1.5">Templates (transformation laboratory) — “Water boiling in pot” by davidw (OpenGameArt) · CC-BY 3.0</li>
+            <li className="border-b py-1.5">Spells (the spellbook) — “Old book” by cori · Public domain</li>
+            <li className="border-b py-1.5">Prestige Classes (the school) — “Plaza el Descanso, Valparaíso — school kids playing” by udo noll (radio aporee) · CC BY 3.0</li>
+            <li className="border-b py-1.5">Equipment (the market) — “In the Market” (Zhonghe, New Taipei City) by Wu, Tsan-Cheng (radio aporee) · CC BY 3.0</li>
+            <li className="border-b py-1.5">Magic Items (magical laboratory) — “Windchime” by stephan · Public domain</li>
+            <li className="border-b py-1.5">Inventory (the warehouse) — “Abandoned Building Ambience” by tcarisland (OpenGameArt) · CC-BY 3.0</li>
+            <li className="border-b py-1.5">Personality (the tavern) — “Restaurant ambience” by stephan · Public domain</li>
+            <li className="border-b py-1.5">Magic Item Creation (the forge) — “Blacksmith’s anvil” by Work With Sounds / La Fonderie · CC BY 4.0</li>
+          </ul>
+        </CardContent>
+      </Card>
+
       <EntityDetailDialog detail={detail} onOpenChange={(open) => { if (!open) setDetail(null); }} />
     </div>
   );
