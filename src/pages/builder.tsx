@@ -859,7 +859,7 @@ export default function Builder() {
             {visibleSteps
               .filter((s) => s.id === "reference")
               .map((s) => (
-                <TabsTrigger key={s.id} value={s.id} data-testid={`tab-step-${s.id}`} className="h-full w-full">
+                <TabsTrigger key={s.id} value={s.id} data-testid={`tab-step-${s.id}`} className="h-full w-full py-2.5 font-semibold">
                   {s.label}
                 </TabsTrigger>
               ))}
@@ -877,7 +877,7 @@ export default function Builder() {
               aria-expanded={creationOpen}
               data-testid="step-group-character-creation-toggle"
               className={
-                "inline-flex h-full w-full items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 font-display text-sm font-semibold ring-offset-background transition-all " +
+                "inline-flex h-full w-full items-center justify-center whitespace-nowrap rounded-sm px-3 py-2.5 font-display text-sm font-semibold font-semibold ring-offset-background transition-all " +
                 (inCreation
                   ? "bg-background text-foreground shadow-sm"
                   : "text-foreground/70 hover:text-foreground")
@@ -903,7 +903,7 @@ export default function Builder() {
               onClick={toggleItemCreation}
               data-testid="step-group-item-creation-toggle"
               className={
-                "inline-flex h-full w-full items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 font-display text-sm font-semibold ring-offset-background transition-all " +
+                "inline-flex h-full w-full items-center justify-center whitespace-nowrap rounded-sm px-3 py-2.5 font-display text-sm font-semibold font-semibold ring-offset-background transition-all " +
                 (effectiveStep === "item-creation"
                   ? "bg-background text-foreground shadow-sm"
                   : "text-foreground/70 hover:text-foreground")
@@ -925,7 +925,7 @@ export default function Builder() {
               onClick={toggleSpelljamming}
               data-testid="step-group-spelljamming-toggle"
               className={
-                "inline-flex h-full w-full items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 font-display text-sm font-semibold ring-offset-background transition-all " +
+                "inline-flex h-full w-full items-center justify-center whitespace-nowrap rounded-sm px-3 py-2.5 font-display text-sm font-semibold font-semibold ring-offset-background transition-all " +
                 (effectiveStep === "spelljamming"
                   ? "bg-background text-foreground shadow-sm"
                   : "text-foreground/70 hover:text-foreground")
