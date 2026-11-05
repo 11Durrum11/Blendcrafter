@@ -127,9 +127,9 @@ const HEADER_BOX_ORDER = [
   "import",
   "export",
   "characters",
-  "ambience",
   "house-rules",
   "save",
+  "ambience",
   "theme",
 ] as const;
 
