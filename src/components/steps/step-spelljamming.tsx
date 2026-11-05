@@ -229,7 +229,7 @@ export function StepSpelljamming() {
               </p>
               <p className="mt-1.5 text-sm leading-snug text-muted-foreground">
                 Speed {race.baseSpeed} ft.
-                {race.favoredClass ? ` Favored class: ${race.favoredClass}.` : ""} Picked like any other race in Abilities &amp; Race.
+                {race.favoredClass ? ` Favored class: ${race.favoredClass}.` : ""} Picked like any other race in the Race step.
               </p>
             </div>
           ))}

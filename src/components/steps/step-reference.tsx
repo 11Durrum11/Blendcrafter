@@ -599,7 +599,7 @@ export function StepReference() {
           <ul className="mt-2 grid grid-cols-1 gap-x-4 text-base text-muted-foreground sm:grid-cols-2">
             <li className="border-b py-1.5">The Street — “Evening Ambiance: Sevilla Street at Night” by Tiago CarvE (radio aporee) · Public domain</li>
             <li className="border-b py-1.5">Player Reference (the great library) — “TU Delft Library, quiet study room” by el_mar · CC BY 3.0</li>
-            <li className="border-b py-1.5">Abilities &amp; Race (hall of the peoples) — “TU Delft Library, ground level” by el_mar · CC BY 3.0</li>
+            <li className="border-b py-1.5">Abilities / Race (hall of the peoples) — “TU Delft Library, ground level” by el_mar · CC BY 3.0</li>
             <li className="border-b py-1.5">Classes (lecture hall) — “Ambient classroom mono” by rcrossley · Public domain</li>
             <li className="border-b py-1.5">Skills (guild workshop) — “Shoemaker hammering wooden nails” by Work With Sounds / Technical Museum of Slovenia · CC BY 4.0</li>
             <li className="border-b py-1.5">Templates (transformation laboratory) — “Water boiling in pot” by davidw (OpenGameArt) · CC-BY 3.0</li>

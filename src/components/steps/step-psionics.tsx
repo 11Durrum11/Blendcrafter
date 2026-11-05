@@ -296,7 +296,7 @@ export function StepPsionics({
               <p className="mt-1.5 text-sm leading-snug text-muted-foreground">
                 Speed {race.baseSpeed} ft.
                 {race.favoredClass ? ` Favored class: ${race.favoredClass}.` : ""} Picked like any other race in
-                Abilities &amp; Race.
+                the Race step.
               </p>
             </div>
           ))}
