@@ -1,7 +1,8 @@
-import { useMemo, type ReactNode } from "react";
+import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { ChevronRight } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ALL_EQUIPMENT, ALL_MAGIC_ITEMS } from "@/data";
+import type { DeckPlan } from "@/data/deck-plans";
 
 /**
  * Ships (Shaun, 2026-11-04, voice call): a fifth top-level
@@ -32,9 +33,20 @@ import { ALL_EQUIPMENT, ALL_MAGIC_ITEMS } from "@/data";
  * Spelljamming, not here), and the two map lines in the
  * Maps nest below. The second Spelljammer web pass added 41
  * more hulls and the fleet deck-plan inventory in the Maps
- * nest: 43 plan images (35 class plans, 8 named-ship plans)
- * staged with the project's source files, named here as
- * text lines only.
+ * nest: 44 plan sheets (35 class plans, 8 named-ship plans,
+ * and the "Zanderin" sheet from Shaun's own files) staged
+ * with the project's source files.
+ *
+ * DECK PLANS ON THE TITLES (Shaun, 2026-11-04, later that
+ * night): "Make all the deck plans connect to the ship
+ * titles. Make the ship titles clickable so you can see the
+ * deck plans." Every plan sheet now rides on its ship's own
+ * card (src/data/deck-plans.ts, keyed by ship record id —
+ * named-ship sheets ride on their class's card): a ship with
+ * plans shows a clickable title, and tapping it opens the
+ * plan(s) right on the card. The data module loads lazily
+ * (dynamic import below) so the images never weigh down the
+ * main bundle.
  *
  * NESTED HEADERS, same as Spelljamming: each block's
  * information sits inside its header — collapsible <details>
@@ -76,9 +88,73 @@ function SubNest({ id, label, children }: { id: string; label: string; children:
   );
 }
 
+/** One ship's card. When deck plans are on file for the hull
+ * (Shaun's order, 2026-11-04), the title is a button: tap it
+ * and the plan sheet(s) open right on the card. */
+function ShipCard({
+  item,
+  plans,
+}: {
+  item: { id: string; name: string; cost: string; notes?: string };
+  plans?: DeckPlan[];
+}) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="rounded-md border border-card-border bg-muted/40 p-3" data-testid={`ships-ship-${item.id}`}>
+      {plans ? (
+        <button
+          type="button"
+          onClick={() => setOpen((o) => !o)}
+          aria-expanded={open}
+          className="flex w-full items-center gap-1.5 text-left font-display text-xs font-semibold uppercase tracking-wide"
+        >
+          <ChevronRight className={`h-3.5 w-3.5 shrink-0 transition-transform ${open ? "rotate-90" : ""}`} />
+          <span>
+            {item.name} — {item.cost}
+          </span>
+          <span className="ml-auto shrink-0 font-normal normal-case text-muted-foreground">
+            Deck plan{plans.length > 1 ? "s" : ""} ({plans.length})
+          </span>
+        </button>
+      ) : (
+        <p className="font-display text-xs font-semibold uppercase tracking-wide">
+          {item.name} — {item.cost}
+        </p>
+      )}
+      <p className="mt-1.5 text-sm leading-snug text-muted-foreground">{item.notes}</p>
+      {plans && open && (
+        <div className="mt-2 space-y-3">
+          {plans.map((p, i) => (
+            <figure key={i}>
+              <img src={p.src} alt={p.caption} loading="lazy" className="w-full rounded border border-card-border" />
+              <figcaption className="mt-1 text-xs text-muted-foreground">{p.caption}</figcaption>
+            </figure>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 const isShipCombatSource = (source: string) => source.startsWith("Ship Combat");
 
 export function StepShips() {
+  // Deck plans, loaded lazily: the module carries the plan
+  // images, so it stays out of the main bundle until the
+  // Ships section is actually opened (Shaun's order: the
+  // plans connect to the ship titles — see ShipCard above).
+  const [deckPlans, setDeckPlans] = useState<Record<string, DeckPlan[]> | null>(null);
+  useEffect(() => {
+    let live = true;
+    import("@/data/deck-plans")
+      .then((m) => {
+        if (live) setDeckPlans(m.DECK_PLANS);
+      })
+      .catch(() => {});
+    return () => {
+      live = false;
+    };
+  }, []);
   // EVERY ship (Shaun's order): three hull categories gather
   // here — "spelljamming ship" (the boxed set, the web line,
   // and Shaun's own homebrew ships), "airship" (Bastion Press),
@@ -152,36 +228,21 @@ export function StepShips() {
             {ships
               .filter((i) => i.category === "spelljamming ship")
               .map((item) => (
-                <div key={item.id} className="rounded-md border border-card-border bg-muted/40 p-3" data-testid={`ships-ship-${item.id}`}>
-                  <p className="font-display text-xs font-semibold uppercase tracking-wide">
-                    {item.name} — {item.cost}
-                  </p>
-                  <p className="mt-1.5 text-sm leading-snug text-muted-foreground">{item.notes}</p>
-                </div>
+                <ShipCard key={item.id} item={item} plans={deckPlans?.[item.id]} />
               ))}
           </SubNest>
           <SubNest id="ships-hulls-airships" label={`Airships — ${shipCounts.airship}`}>
             {ships
               .filter((i) => i.category === "airship")
               .map((item) => (
-                <div key={item.id} className="rounded-md border border-card-border bg-muted/40 p-3" data-testid={`ships-ship-${item.id}`}>
-                  <p className="font-display text-xs font-semibold uppercase tracking-wide">
-                    {item.name} — {item.cost}
-                  </p>
-                  <p className="mt-1.5 text-sm leading-snug text-muted-foreground">{item.notes}</p>
-                </div>
+                <ShipCard key={item.id} item={item} plans={deckPlans?.[item.id]} />
               ))}
           </SubNest>
           <SubNest id="ships-hulls-sea" label={`Sea Ships — ${shipCounts.sea}`}>
             {ships
               .filter((i) => i.category === "ship")
               .map((item) => (
-                <div key={item.id} className="rounded-md border border-card-border bg-muted/40 p-3" data-testid={`ships-ship-${item.id}`}>
-                  <p className="font-display text-xs font-semibold uppercase tracking-wide">
-                    {item.name} — {item.cost}
-                  </p>
-                  <p className="mt-1.5 text-sm leading-snug text-muted-foreground">{item.notes}</p>
-                </div>
+                <ShipCard key={item.id} item={item} plans={deckPlans?.[item.id]} />
               ))}
           </SubNest>
         </NestBlock>
@@ -212,8 +273,8 @@ export function StepShips() {
             <p className="mt-1.5 text-sm leading-snug text-muted-foreground">
               Bastion Press Airships preview, p. 29: the filled record sheet for the Sprint Freighter
               &ldquo;Zanderin&rdquo; prints the ship&apos;s deck plan — the only true ship deck plan in Shaun&apos;s
-              copy of the preview. The plan image is kept with the project&apos;s source files; it is not reproduced
-              in the app.
+              copy of the preview. The sheet rides on the Airship (Sprint Freighter) card in The Ships above — tap
+              its title to see it.
             </p>
           </div>
           <div className="rounded-md border border-card-border bg-muted/40 p-3" data-testid="ships-map-pirate-collection">
@@ -233,8 +294,8 @@ export function StepShips() {
               Ship, Goblin Blade (plus its Arrow sheet), Hummingbird, Lamprey, Leaf Ship (the sheet also covers the
               Thorn Ship), Mammoth, Mantis, Monarch Armada, Nightwolf, Octopus, Porcupine Ship, Pyramid Ship, Quad
               of Thay, Quentin&apos;s Libraria, Shrike, Skeleton Ship, Swan Ship, Turtle Ship, Unity Ship,
-              Vipership, Vodoni Hunter-Killer, Vodoni Werewolf, and Wreckboat. The images stay with the source
-              files; they are not reproduced in the app.
+              Vipership, Vodoni Hunter-Killer, Vodoni Werewolf, and Wreckboat. Every one of these plans now rides
+              on its ship&apos;s own card — tap the ship&apos;s title in The Ships above to see its plans.
             </p>
           </div>
           <div className="rounded-md border border-card-border bg-muted/40 p-3" data-testid="ships-map-named-plans">
@@ -242,7 +303,8 @@ export function StepShips() {
             <p className="mt-1.5 text-sm leading-snug text-muted-foreground">
               Eight plans of specific named ships are on file alongside the class plans: Terigamar (a Dragonfly),
               Raven (a Drakkar), Barracuda (a Hammership), Collector (a Neogi Mindspider), Void Reaper (a
-              Nautiloid), Frostfire (a Squid Ship), Mithril Serpent (a Vipership), and a drow-crewed Wasp.
+              Nautiloid), Frostfire (a Squid Ship), Mithril Serpent (a Vipership), and a drow-crewed Wasp. Each
+              named plan rides on its class&apos;s card the same way — tap the class title in The Ships.
             </p>
           </div>
           <div className="rounded-md border border-card-border bg-muted/40 p-3" data-testid="ships-map-print-only-plans">
