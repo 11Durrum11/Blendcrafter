@@ -133,6 +133,32 @@ const HEADER_BOX_ORDER = [
   "theme",
 ] as const;
 
+// The little version indicator at the top of the site (Shaun,
+// 2026-11-04): a simple human version like "20.2" so he can see at a
+// glance what build he is looking at. The number lives in
+// public/version.json as "display" alongside the cache-busting stamp.
+function VersionBadge() {
+  const [v, setV] = useState("");
+  useEffect(() => {
+    fetch("./version.json", { cache: "no-store" })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => {
+        if (d && typeof d.display === "string" && d.display) setV(d.display);
+        else if (d && typeof d.version === "string") setV(d.version);
+      })
+      .catch(() => {});
+  }, []);
+  if (!v) return null;
+  return (
+    <span
+      className="rounded border border-border px-1.5 py-0.5 text-[11px] font-semibold text-muted-foreground"
+      data-testid="site-version-badge"
+    >
+      v{v}
+    </span>
+  );
+}
+
 export default function Builder() {
   const [, params] = useRoute<{ step: string }>("/step/:step");
   const [location, navigate] = useLocation();
@@ -526,6 +552,7 @@ export default function Builder() {
             <Logo className="h-8 w-8 text-foreground" />
             <span className="font-display text-xl font-semibold">Blendcrafter</span>
           </Link>
+          <VersionBadge />
           {/* The "d20 SRD 3.5 template-blending character builder"
               tagline that used to sit beside the title was removed
               2026-11-04 at Shaun's order. */}
