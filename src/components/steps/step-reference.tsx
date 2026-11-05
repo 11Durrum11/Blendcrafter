@@ -219,6 +219,23 @@ const TRANSDIMENSIONAL_EXTRA_IDS = new Set([
   "hungry-gizzard", "pavilion-of-grandeur", "reality-maelstrom",
   "black-blade-of-disaster", "contact-other-plane", "interplanar-message",
   "interplanar-telepathic-bond", "contingent-spell-lock", "ethereal-breath",
+  // Planar Handbook integration (2026-11-05), screened by the
+  // same test: portal divination and manipulation of Astral
+  // color pools (portals), a portal to a created demiplane,
+  // reshaping another plane's substance, the greater plane
+  // shift, spells that rip the boundary open (planar breaches),
+  // and the cross-planar telepathic bond. The book's Calling
+  // spells gray automatically via the subschool rule above;
+  // its planar-protection spells (Attune Form, Avoid Planar
+  // Effects, Planar Tolerance, Resist Planar Alignment) and
+  // Seal Portal stay live under the Dimensional Anchor
+  // precedent, and its summoning spells are treated exactly
+  // like every other book's — the APOC summoning rework lives
+  // in its own category below.
+  "analyze-portal", "cloak-pool", "discolor-pool", "astral-hospice",
+  "perinarch", "perinarch-planar", "plane-shift-greater",
+  "precipitate-breach", "precipitate-complete-breach",
+  "rarys-interplanar-telepathic-bond",
 ]);
 
 function isTransdimensionalSpell(s: { id: string; subschool?: string }): boolean {
