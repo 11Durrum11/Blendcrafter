@@ -95,6 +95,31 @@ export function StepSheet({ character }: StepSheetProps) {
       if (url) URL.revokeObjectURL(url);
     };
   }, [sheetFormat, character]);
+  const [openBusy, setOpenBusy] = useState(false);
+  const [openError, setOpenError] = useState<string | null>(null);
+  /* Open the sheet (Shaun, 2026-11-05: "The open button on the
+     character sheet on the phone is not working"). The old control
+     was a link to the preview's blob URL with target="_blank" —
+     on a phone that tap goes nowhere: a new tab cannot load
+     another page's blob URL, and the URL is revoked and rebuilt
+     on every build change besides. The Open button instead fills
+     the sheet fresh at tap time and hands the file over through
+     the same anchor-download path the Download button uses,
+     which is the route that works on a phone: the file lands
+     and the phone's PDF app opens it, every box still editable. */
+  const handleOpenSheet = async () => {
+    setOpenBusy(true);
+    setOpenError(null);
+    try {
+      await downloadInteractiveSheet(character);
+    } catch {
+      setOpenError(
+        "The sheet could not be built just now. The built-in sheet above still has everything.",
+      );
+    } finally {
+      setOpenBusy(false);
+    }
+  };
   const chooseFormat = (format: "builtin" | "pdf") => {
     setSheetFormat(format);
     try {
@@ -149,6 +174,51 @@ export function StepSheet({ character }: StepSheetProps) {
               file can recompute over your build — and every box stays editable by hand
               afterward, for the notes and changes you make at the table.
             </p>
+            <div className="flex flex-wrap gap-2">
+              <Button
+                type="button"
+                disabled={openBusy}
+                onClick={handleOpenSheet}
+                data-testid="button-open-interactive-sheet"
+              >
+                {openBusy ? "Filling in your sheet…" : "Open the sheet"}
+              </Button>
+              <Button
+                type="button"
+                variant="outline"
+                disabled={sheetBusy}
+                onClick={async () => {
+                  setSheetBusy(true);
+                  setSheetError(null);
+                  try {
+                    await downloadInteractiveSheet(character);
+                  } catch {
+                    setSheetError(
+                      "The sheet could not be built just now. The built-in sheet above still has everything.",
+                    );
+                  } finally {
+                    setSheetBusy(false);
+                  }
+                }}
+                data-testid="button-download-interactive-sheet"
+              >
+                {sheetBusy ? "Filling in your sheet…" : "Download the filled sheet (PDF)"}
+              </Button>
+            </div>
+            <p className="text-sm text-muted-foreground">
+              On a phone, Open hands the sheet to your PDF app — every box on it stays
+              editable there.
+            </p>
+            {openError ? (
+              <p className="text-sm text-destructive" data-testid="interactive-sheet-open-error">
+                {openError}
+              </p>
+            ) : null}
+            {sheetError ? (
+              <p className="text-sm text-destructive" data-testid="interactive-sheet-error">
+                {sheetError}
+              </p>
+            ) : null}
             {previewBusy && !sheetUrl ? (
               <p className="text-sm text-muted-foreground" data-testid="interactive-sheet-loading">
                 Filling in your sheet…
@@ -166,45 +236,6 @@ export function StepSheet({ character }: StepSheetProps) {
                 className="ml-[calc(50%-50vw)] h-[100dvh] w-screen rounded-md border border-card-border bg-white"
                 data-testid="interactive-sheet-viewer"
               />
-            ) : null}
-            <Button
-              type="button"
-              disabled={sheetBusy}
-              onClick={async () => {
-                setSheetBusy(true);
-                setSheetError(null);
-                try {
-                  await downloadInteractiveSheet(character);
-                } catch {
-                  setSheetError(
-                    "The sheet could not be built just now. The built-in sheet above still has everything.",
-                  );
-                } finally {
-                  setSheetBusy(false);
-                }
-              }}
-              data-testid="button-download-interactive-sheet"
-            >
-              {sheetBusy ? "Filling in your sheet…" : "Download the filled sheet (PDF)"}
-            </Button>
-            {sheetError ? (
-              <p className="text-sm text-destructive" data-testid="interactive-sheet-error">
-                {sheetError}
-              </p>
-            ) : null}
-            {sheetUrl ? (
-              <p className="text-sm">
-                <a
-                  href={sheetUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-primary underline underline-offset-2"
-                  data-testid="link-open-interactive-sheet"
-                >
-                  Open the sheet in a new tab
-                </a>{" "}
-                — handy on a phone, where the built-in viewer may not show it in the page.
-              </p>
             ) : null}
           </CardContent>
         </Card>
