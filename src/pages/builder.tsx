@@ -897,7 +897,19 @@ export default function Builder() {
               onSetWealthLimitLevel={cb.setWealthLimitLevel}
             />
           )}
-          {currentStep === "psionics" && <StepPsionics build={build} onToggleSpell={cb.toggleSpell} />}
+          {currentStep === "psionics" && (
+            <StepPsionics
+              build={build}
+              resolved={resolved}
+              onToggleSpell={cb.toggleSpell}
+              onToggleFeat={cb.toggleFeat}
+              onAddClass={cb.addClassLevel}
+              onRemoveClass={cb.removeClassLevel}
+              onAddPrestige={cb.addPrestigeLevel}
+              onRemovePrestige={cb.removePrestigeLevel}
+              onAddInventory={cb.addInventory}
+            />
+          )}
           {currentStep === "inventory" && (
             <StepInventory
               inventory={build.inventory}

@@ -1,16 +1,19 @@
 import { useMemo, type ReactNode } from "react";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Minus, Plus } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { ALL_CLASSES, ALL_EQUIPMENT, ALL_FEATS, ALL_MAGIC_ITEMS, ALL_PRESTIGE_CLASSES, ALL_RACES, ALL_SPELLS } from "@/data";
-import type { CharacterBuild, SpellDefinition } from "@/engine/types";
+import type { CharacterBuild, InventoryEntry, ResolvedCharacter, SpellDefinition } from "@/engine/types";
+import { buildPrereqContext, evaluatePrestigeClass, type PrestigeGateResult } from "@/engine/prestige-prerequisites";
 import { isApocDisabledPower } from "@/lib/apoc-disabled";
 
 /**
  * Psionics (Shaun, 2026-11-04): its own step inside Character
- * Creation — step 10, between Magic Items and Inventory
- * ("make the psionics number ten... So inventory will become
- * 11, personality become number 12 and character sheet will
- * become 13"). Everything psionic sits in this step under
+ * Creation — between Magic Items and Inventory (step 11 since
+ * the Abilities/Race split of 2026-11-05; it was step 10 when
+ * Shaun ordered "make the psionics number ten... So inventory
+ * will become 11, personality become number 12 and character
+ * sheet will become 13"). Everything psionic sits in this step under
  * nested headers (Powers, Classes, Prestige Classes, Feats,
  * Races, Psionic Items, Equipment), minimized until clicked —
  * the Spelljamming pattern. Inside Powers, the powers are
@@ -46,6 +49,24 @@ import { isApocDisabledPower } from "@/lib/apoc-disabled";
  * borderline case; Shaun ruled on it the same night —
  * "Leave out the construct" — so it is grayed with the rest
  * (src/lib/apoc-disabled.ts).
+ *
+ * Buttons (Shaun, 2026-11-05: "Add buttons to all the
+ * psionics that need them. Like the equipment and so and so
+ * forth."): every nest that holds something a character can
+ * take now carries the same working control its home step
+ * has — Powers already had Add/Remove (filed under a
+ * manifester class on the build, the Spells step's model);
+ * Classes and Prestige Classes get the - / Lv / + level
+ * steppers from their steps (Prestige judged by the SAME
+ * gate evaluator and the build's own certifications, so a
+ * locked class stays locked here — certifying still happens
+ * in the Prestige Classes step); Feats get an Add/Remove
+ * toggle wired to the Feats step's selection; Psionic Items
+ * and Equipment get the "Add" button that files them into
+ * the build's inventory, exactly like the Magic Items and
+ * Equipment steps. Races stay reference-only: a race is
+ * picked once, in the Race step — the Spelljamming pattern.
+ * APOC-grayed powers keep no button at all.
  *
  * The step's tab in the step navigation renders GRAYED when
  * the current build has no psionic class (builder.tsx,
@@ -126,10 +147,24 @@ function SubNest({ id, label, children }: { id: string; label: string; children:
 
 export function StepPsionics({
   build,
+  resolved,
   onToggleSpell,
+  onToggleFeat,
+  onAddClass,
+  onRemoveClass,
+  onAddPrestige,
+  onRemovePrestige,
+  onAddInventory,
 }: {
   build: CharacterBuild;
+  resolved: ResolvedCharacter;
   onToggleSpell: (classId: string, spellId: string, selected: boolean) => void;
+  onToggleFeat: (featId: string, selected: boolean) => void;
+  onAddClass: (classId: string) => void;
+  onRemoveClass: (classId: string) => void;
+  onAddPrestige: (classId: string) => void;
+  onRemovePrestige: (classId: string) => void;
+  onAddInventory: (kind: InventoryEntry["kind"], itemId: string) => void;
 }) {
   const powersByDiscipline = useMemo(() => {
     const groups = new Map<string, SpellDefinition[]>();
@@ -172,6 +207,22 @@ export function StepPsionics({
   const buildClassIds = useMemo(() => build.classLevels.map((c) => c.classId), [build.classLevels]);
   const hasPsionics = buildHasPsionics(build);
 
+  // The prestige gate, judged by the same evaluator the
+  // Prestige Classes step uses, with the build's own
+  // certifications — a psionic prestige class is addable here
+  // only when it is selectable there.
+  const prestigeGates = useMemo(() => {
+    const ctx = buildPrereqContext(resolved);
+    const gates = new Map<string, PrestigeGateResult>();
+    for (const cls of prestige) {
+      gates.set(cls.id, evaluatePrestigeClass(cls, ctx, build.prestigePrereqCertifications[cls.id] ?? []));
+    }
+    return gates;
+  }, [prestige, resolved, build.prestigePrereqCertifications]);
+
+  const toggleBtnClass =
+    "mt-2 inline-flex items-center justify-center whitespace-nowrap rounded-sm border border-border px-2.5 py-1 text-xs font-medium transition-all hover:bg-muted";
+
   const renderPower = (power: SpellDefinition) => {
     const off = isApocDisabledPower(power);
     const matched = off ? [] : manifesterClassIdsFor(power, buildClassIds);
@@ -197,7 +248,7 @@ export function StepPsionics({
         ) : matched.length > 0 ? (
           <button
             type="button"
-            className="mt-2 inline-flex items-center justify-center whitespace-nowrap rounded-sm border border-border px-2.5 py-1 text-xs font-medium transition-all hover:bg-muted"
+            className={toggleBtnClass}
             data-testid={`psionics-power-toggle-${power.id}`}
             onClick={() => {
               if (isSelected) {
@@ -251,39 +302,123 @@ export function StepPsionics({
         </NestBlock>
 
         <NestBlock id="psionics-classes" label="Classes">
-          {classes.map((c) => (
-            <div key={c.id} className="rounded-md border border-card-border bg-muted/40 p-3" data-testid={`psionics-class-${c.id}`}>
-              <p className="font-display text-xs font-semibold uppercase tracking-wide">
-                {c.name} — Hit Die {c.hitDie}
-              </p>
-              <p className="mt-1.5 text-sm leading-snug text-muted-foreground">
-                {c.skillPointsPerLevel} + Int skill points per level. Picked like any other class in the Classes step. (
-                {c.source})
-              </p>
-            </div>
-          ))}
+          {classes.map((c) => {
+            const current = build.classLevels.find((x) => x.classId === c.id);
+            const isDisabled = build.disabledClassIds.includes(c.id);
+            return (
+              <div key={c.id} className="rounded-md border border-card-border bg-muted/40 p-3" data-testid={`psionics-class-${c.id}`}>
+                <p className="font-display text-xs font-semibold uppercase tracking-wide">
+                  {c.name} — Hit Die {c.hitDie}
+                </p>
+                <p className="mt-1.5 text-sm leading-snug text-muted-foreground">
+                  {c.skillPointsPerLevel} + Int skill points per level. ({c.source})
+                </p>
+                <div className="mt-2 flex items-center gap-2">
+                  <Button
+                    type="button"
+                    size="icon"
+                    variant="outline"
+                    className="h-7 w-7"
+                    disabled={!current || isDisabled}
+                    onClick={() => onRemoveClass(c.id)}
+                    data-testid={`psionics-class-remove-${c.id}`}
+                    aria-label={`Remove a level of ${c.name}`}
+                  >
+                    <Minus className="h-3.5 w-3.5" />
+                  </Button>
+                  <span className="font-mono text-xs text-muted-foreground">Lv {current?.levels ?? 0}</span>
+                  <Button
+                    type="button"
+                    size="icon"
+                    variant="outline"
+                    className="h-7 w-7"
+                    disabled={(current?.levels ?? 0) >= 10 || isDisabled}
+                    onClick={() => onAddClass(c.id)}
+                    data-testid={`psionics-class-add-${c.id}`}
+                    aria-label={`Add a level of ${c.name}`}
+                  >
+                    <Plus className="h-3.5 w-3.5" />
+                  </Button>
+                </div>
+              </div>
+            );
+          })}
         </NestBlock>
 
         <NestBlock id="psionics-prestige" label="Prestige Classes">
-          {prestige.map((c) => (
-            <div key={c.id} className="rounded-md border border-card-border bg-muted/40 p-3" data-testid={`psionics-prestige-${c.id}`}>
-              <p className="font-display text-xs font-semibold uppercase tracking-wide">
-                {c.name} — Hit Die {c.hitDie}
-              </p>
-              <p className="mt-1.5 text-sm leading-snug text-muted-foreground">
-                Picked like any other prestige class in the Prestige Classes step, prerequisites and all. ({c.source})
-              </p>
-            </div>
-          ))}
+          {prestige.map((c) => {
+            const current = build.prestigeClassLevels.find((x) => x.classId === c.id);
+            const gate = prestigeGates.get(c.id);
+            const blocked = !(gate?.selectable ?? true);
+            const isDisabled = build.disabledClassIds.includes(c.id);
+            return (
+              <div key={c.id} className="rounded-md border border-card-border bg-muted/40 p-3" data-testid={`psionics-prestige-${c.id}`}>
+                <p className="font-display text-xs font-semibold uppercase tracking-wide">
+                  {c.name} — Hit Die {c.hitDie}
+                </p>
+                <p className="mt-1.5 text-sm leading-snug text-muted-foreground">
+                  Prerequisites judged exactly as in the Prestige Classes step. ({c.source})
+                </p>
+                {blocked && !current ? (
+                  <p className="mt-1.5 text-xs text-muted-foreground">
+                    Locked — meet the prerequisites to take this class; the Prestige Classes step shows what is
+                    missing and takes any certifications.
+                  </p>
+                ) : (
+                  <div className="mt-2 flex items-center gap-2">
+                    <Button
+                      type="button"
+                      size="icon"
+                      variant="outline"
+                      className="h-7 w-7"
+                      disabled={!current}
+                      onClick={() => onRemovePrestige(c.id)}
+                      data-testid={`psionics-prestige-remove-${c.id}`}
+                      aria-label={`Remove a level of ${c.name}`}
+                    >
+                      <Minus className="h-3.5 w-3.5" />
+                    </Button>
+                    <span className="font-mono text-xs text-muted-foreground">Lv {current?.levels ?? 0}</span>
+                    <Button
+                      type="button"
+                      size="icon"
+                      variant="outline"
+                      className="h-7 w-7"
+                      disabled={(current?.levels ?? 0) >= 10 || isDisabled || blocked}
+                      onClick={() => onAddPrestige(c.id)}
+                      data-testid={`psionics-prestige-add-${c.id}`}
+                      aria-label={`Add a level of ${c.name}`}
+                    >
+                      <Plus className="h-3.5 w-3.5" />
+                    </Button>
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </NestBlock>
 
         <NestBlock id="psionics-feats" label="Feats">
-          {feats.map((f) => (
-            <div key={f.id} className="rounded-md border border-card-border bg-muted/40 p-3" data-testid={`psionics-feat-${f.id}`}>
-              <p className="font-display text-xs font-semibold uppercase tracking-wide">{f.name}</p>
-              <p className="mt-1.5 text-sm leading-snug text-muted-foreground">{f.benefitSummary}</p>
-            </div>
-          ))}
+          {feats.map((f) => {
+            const selected = build.featIds.includes(f.id);
+            const isDisabled = build.disabledFeatIds.includes(f.id);
+            return (
+              <div key={f.id} className="rounded-md border border-card-border bg-muted/40 p-3" data-testid={`psionics-feat-${f.id}`}>
+                <p className="font-display text-xs font-semibold uppercase tracking-wide">{f.name}</p>
+                <p className="mt-1.5 text-sm leading-snug text-muted-foreground">{f.benefitSummary}</p>
+                {!isDisabled && (
+                  <button
+                    type="button"
+                    className={toggleBtnClass}
+                    data-testid={`psionics-feat-toggle-${f.id}`}
+                    onClick={() => onToggleFeat(f.id, !selected)}
+                  >
+                    {selected ? "Remove" : "Add"}
+                  </button>
+                )}
+              </div>
+            );
+          })}
         </NestBlock>
 
         <NestBlock id="psionics-races" label="Races">
@@ -309,6 +444,16 @@ export function StepPsionics({
                 {item.name} — {item.cost}
               </p>
               <p className="mt-1.5 text-sm leading-snug text-muted-foreground">{item.summary}</p>
+              <Button
+                type="button"
+                size="sm"
+                variant="outline"
+                className="mt-2 px-2"
+                onClick={() => onAddInventory("magic-item", item.id)}
+                data-testid={`psionics-item-add-${item.id}`}
+              >
+                Add
+              </Button>
             </div>
           ))}
         </NestBlock>
@@ -320,6 +465,16 @@ export function StepPsionics({
                 {item.name} — {item.cost}
               </p>
               <p className="mt-1.5 text-sm leading-snug text-muted-foreground">{item.notes}</p>
+              <Button
+                type="button"
+                size="sm"
+                variant="outline"
+                className="mt-2 px-2"
+                onClick={() => onAddInventory("equipment", item.id)}
+                data-testid={`psionics-equipment-add-${item.id}`}
+              >
+                Add
+              </Button>
             </div>
           ))}
         </NestBlock>
