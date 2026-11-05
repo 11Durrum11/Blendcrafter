@@ -19,7 +19,7 @@ import { ShipsNestContent } from "./step-ships";
  * Helms STAY here, beside the ships, as they always have.
  *
  * The records themselves also file into the ordinary catalogs —
- * races in Abilities & Race, spells in the Spell Library, ships
+ * races in the Race step, spells in the Spell Library, ships
  * and gear in Equipment, helms in Magic Items — converted from
  * Shaun's AD&D Spelljammer box sets to 3.5 in the same format as
  * everything else. This page gathers them back into one place.

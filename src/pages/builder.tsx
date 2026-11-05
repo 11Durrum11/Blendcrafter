@@ -11,6 +11,7 @@ import { HouseRulesToggle } from "@/components/house-rules-toggle";
 import { CharacterRepository } from "@/components/character-repository";
 import { OglFooter } from "@/components/ogl-footer";
 import { StepRace } from "@/components/steps/step-race";
+import { StepAbilities } from "@/components/steps/step-abilities";
 import { StepClasses } from "@/components/steps/step-classes";
 import { StepPrestige } from "@/components/steps/step-prestige";
 import { StepSpells } from "@/components/steps/step-spells";
@@ -37,31 +38,37 @@ const STEPS = [
   // that put the ability and races, classes, skills, blah blah
   // blah." So Player Reference stands alone as section 1, and
   // every build step lives INSIDE section 2, Character Creation,
-  // numbered 1–13 within it (the `num` on a creation step is its
+  // numbered 1–14 within it (the `num` on a creation step is its
   // number inside Character Creation). Player Reference is a
   // read-only lookup and changes no build state; the builder
-  // itself still opens on Abilities & Race unless a step is
+  // itself still opens on Abilities unless a step is
   // chosen.
   { id: "reference", label: "Player Reference", num: "1" },
-  { id: "race", label: "Abilities & Race", num: "1" },
-  { id: "classes", label: "Classes", num: "2" },
-  { id: "skills", label: "Skills", num: "3" },
-  { id: "templates", label: "Templates", num: "4" },
-  { id: "feats", label: "Feats", num: "5" },
-  { id: "spells", label: "Spells", num: "6" },
+  // Abilities and Race are SEPARATE steps (Shaun, 2026-11-05:
+  // "Separate abilities and races. Abilities is number one,
+  // race is number two, and everything else follows"). The
+  // split renumbered every later step: Psionics is 11,
+  // Inventory 12, Personality 13, Character Sheet 14.
+  { id: "abilities", label: "Abilities", num: "1" },
+  { id: "race", label: "Race", num: "2" },
+  { id: "classes", label: "Classes", num: "3" },
+  { id: "skills", label: "Skills", num: "4" },
+  { id: "templates", label: "Templates", num: "5" },
+  { id: "feats", label: "Feats", num: "6" },
+  { id: "spells", label: "Spells", num: "7" },
   // Prestige classes are their own step (Shaun, 2026-11-03), and sit
   // AFTER Spells (Shaun, later the same day: "Move it after Spells
   // and renumber the steps to fit") — the prerequisite gate judges
   // skills, templates, feats and spell picks, so those steps must
   // come first for anything to register as met.
-  { id: "prestige", label: "Prestige Classes", num: "7" },
-  { id: "equipment", label: "Equipment", num: "8" },
+  { id: "prestige", label: "Prestige Classes", num: "8" },
+  { id: "equipment", label: "Equipment", num: "9" },
   // Magic Items and Inventory are their own steps now (Shaun,
   // 2026-11-04: "give equipment magic items and inventory their
   // own windows" — Equipment 8, Magic Items 9, Inventory 10
   // inside Character Creation), which pushes Personality and
   // the Sheet to 11 and 12 inside the group.
-  { id: "magic-items", label: "Magic Items", num: "9" },
+  { id: "magic-items", label: "Magic Items", num: "10" },
   // Psionics is a step of its own inside Character Creation
   // (Shaun, 2026-11-04, voice call: "make the psionics number
   // ten" — "So inventory will become 11, personality become
@@ -70,10 +77,10 @@ const STEPS = [
   // also live in their ordinary steps. The step's tab renders
   // grayed when the build has no psionic class (APOC style);
   // it still opens for reference.
-  { id: "psionics", label: "Psionics", num: "10" },
-  { id: "inventory", label: "Inventory", num: "11" },
-  { id: "personality", label: "Personality", num: "12" },
-  { id: "sheet", label: "Character Sheet", num: "13" },
+  { id: "psionics", label: "Psionics", num: "11" },
+  { id: "inventory", label: "Inventory", num: "12" },
+  { id: "personality", label: "Personality", num: "13" },
+  { id: "sheet", label: "Character Sheet", num: "14" },
   // Section 3 (Shaun, 2026-11-04, later): "New line. Next to
   // Character Creation. — Magic Item Creation." A top-level
   // reference section standing beside Character Creation, the
@@ -185,8 +192,8 @@ export default function Builder() {
   // constant (Shaun's own arrangement, 2026-11-03) — no state,
   // no storage, nothing movable. See the constant's comment.
 
-  const stepParam = (params?.step ?? (location === "/" ? "race" : "race")) as StepId;
-  const currentStep: StepId = STEPS.some((s) => s.id === stepParam) ? stepParam : "race";
+  const stepParam = (params?.step ?? (location === "/" ? "abilities" : "abilities")) as StepId;
+  const currentStep: StepId = STEPS.some((s) => s.id === stepParam) ? stepParam : "abilities";
   const stepIndex = STEPS.findIndex((s) => s.id === currentStep);
 
   // Character Creation is a clickable folder (Shaun, 2026-11-04:
@@ -433,7 +440,9 @@ export default function Builder() {
   const sceneKey =
     effectiveStep === "sheet" || effectiveStep === "spelljamming" || effectiveStep === "psionics"
       ? "street"
-      : effectiveStep;
+      : effectiveStep === "abilities"
+        ? "race"
+        : effectiveStep;
   useEffect(() => {
     ambience.setScene(sceneKey as AmbienceScene);
   }, [sceneKey]);
@@ -454,7 +463,7 @@ export default function Builder() {
       // Character Creation ENTERS it: open the group and land
       // on its first step.
       setCreationOpen(true);
-      goTo("race");
+      goTo("abilities");
     } else {
       setCreationOpen((o) => !o);
     }
@@ -536,7 +545,7 @@ export default function Builder() {
         className="px-1.5 sm:px-3"
         onClick={() => {
           cb.reset();
-          goTo("race");
+          goTo("abilities");
           toast({ title: "New character", description: "Started a fresh build." });
         }}
         data-testid="button-new-character"
@@ -602,7 +611,7 @@ export default function Builder() {
   const renderHeaderBox = (id: string) => <Fragment key={id}>{headerBoxNodes[id]}</Fragment>;
 
   return (
-    <div className={`app-backdrop min-h-screen bg-background text-foreground${ambienceOn ? " bg-animated" : ""}`} data-scene={effectiveStep === "sheet" ? undefined : effectiveStep}>
+    <div className={`app-backdrop min-h-screen bg-background text-foreground${ambienceOn ? " bg-animated" : ""}`} data-scene={effectiveStep === "sheet" ? undefined : effectiveStep === "abilities" ? "race" : effectiveStep}>
       <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-2 px-4 py-3 sm:px-6">
           <Link href="/" className="flex items-center gap-2">
@@ -787,18 +796,22 @@ export default function Builder() {
         </Tabs>
 
         <div className="mt-6">
+          {currentStep === "abilities" && (
+            <StepAbilities
+              baseAbilityScores={build.baseAbilityScores}
+              disabledAbilities={build.disabledAbilities}
+              onAbilityChange={cb.setAbility}
+              onAllAbilitiesChange={cb.setAllAbilities}
+              onToggleAbilityEnabled={cb.toggleAbilityEnabled}
+            />
+          )}
           {currentStep === "race" && (
             <StepRace
               raceId={build.raceId}
-              baseAbilityScores={build.baseAbilityScores}
               enabledRulesets={build.enabledRulesets}
               disabledRaceIds={build.disabledRaceIds}
-              disabledAbilities={build.disabledAbilities}
               onRaceChange={cb.setRace}
-              onAbilityChange={cb.setAbility}
-              onAllAbilitiesChange={cb.setAllAbilities}
               onToggleRaceEnabled={cb.toggleRaceEnabled}
-              onToggleAbilityEnabled={cb.toggleAbilityEnabled}
             />
           )}
           {effectiveStep === "classes" && (
