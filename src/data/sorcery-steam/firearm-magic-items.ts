@@ -147,5 +147,25 @@ export const SORCERY_STEAM_FIREARM_MAGIC_ITEMS: MagicItemDefinition[] = [
     "source": "Pathfinder Ultimate Combat (document source tag UC) — via fire_arms.docx, Shaun Bradley's compiled firearms document",
     "sourceUrl": "workspace/user/files/fire_arms.docx",
     "ruleset": "sorcery_steam"
+  },
+  {
+    "id": "revolver-plus-3-ss",
+    "name": "Revolver +3",
+    "category": "weapon",
+    "cost": "18,800 gp",
+    "summary": "A +3 percussion cap revolver (the Sorcery & Steam firearm: 1d10 damage, crit x3, range increment 50 ft., 6 lbs.), its +3 enhancement bonus applying to attack and damage rolls. Priced by the standard magic weapon creation rules: 500 gp base revolver + 300 gp masterwork + 18,000 gp for the +3 enhancement. Made for Saint James under Shaun's ruling (2026-11-05) that a firearm takes magic under the same creation rules as any other weapon.",
+    "source": "Sorcery & Steam, Chapter 4, p. 143 (base weapon); magic weapon pricing per the standard creation rules; Shaun's ruling 2026-11-05",
+    "sourceUrl": "/A POC DM related/Desktop/Sorcery & Steam.pdf",
+    "ruleset": "sorcery_steam"
+  },
+  {
+    "id": "bullets-plus-1-ss",
+    "name": "Bullets +1 (50)",
+    "category": "ammunition",
+    "cost": "2,350 gp",
+    "summary": "Fifty +1 bullets for a percussion firearm, priced by the standard magic ammunition creation rules: 50 gp base (1 gp per bullet) + 300 gp masterwork + 2,000 gp for the +1 enhancement, per lot of 50. Ammunition and weapon enhancement bonuses do not stack — the higher applies. Saint James's magical ammunition under Shaun's ruling (2026-11-05); the +1 is the assumed grade, raisable on his word.",
+    "source": "Magic ammunition pricing per the standard creation rules; Shaun's ruling 2026-11-05",
+    "sourceUrl": "",
+    "ruleset": "sorcery_steam"
   }
 ];
