@@ -69,9 +69,32 @@
       <div id="boot-splash">
         <div class="boot-ring"></div>
         <div class="boot-title">Blendcrafter</div>
-        <div class="boot-sub">Loading the library — 25,000+ entries take a moment…</div>
+        <div class="boot-sub">Loading the library — <span id="boot-count">26,123</span> entries take a moment…</div>
       </div>
     </div>
+    <script>
+      /* The library count (Shaun, 2026-11-05: the splash number
+         must be accurate — "I want them to feel the whole weight
+         of how much is on here"). The figure is counted from the
+         catalog itself at every version bump and written to
+         library-count.json; this script swaps the live number in
+         while the bundle loads. The baked-in figure in the span
+         above is the same count, refreshed by the same step, so
+         the splash is right even if this fetch fails. */
+      (function () {
+        try {
+          fetch("library-count.json", { cache: "no-store" })
+            .then(function (r) { return r.ok ? r.json() : null; })
+            .then(function (d) {
+              if (d && typeof d.entries === "number") {
+                var el = document.getElementById("boot-count");
+                if (el) el.textContent = d.entries.toLocaleString("en-US");
+              }
+            })
+            .catch(function () {});
+        } catch (e) {}
+      })();
+    </script>
     <style>
       /* Splash backdrop (Shaun, 2026-11-04): his APOC Bastion in
          the Fog of Life, embedded in the page itself so it needs
