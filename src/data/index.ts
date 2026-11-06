@@ -477,6 +477,8 @@ import { HOMEBREW_RACES } from "./homebrew/races";
 import { HOUSE_RULE_ENTRIES, SUMMONING_SPELL_LIST } from "./homebrew/house-rules-index";
 import { PILLS_POTIONS_FEATS, PILLS_POTIONS_TABLES, PILLS_POTIONS_HOUSE_RULES } from "./homebrew/pills-potions";
 import type { HouseRuleEntry, SummoningSpellEntry } from "./homebrew/house-rules-index";
+import { RULES_COMPENDIUM_TOPICS } from "./rules-compendium/topics";
+import type { RulesCompendiumTopic } from "./rules-compendium/topics";
 import { DANDWIKI_CLASSES } from "./homebrew-dandwiki/classes";
 import { DANDWIKI_RACES } from "./homebrew-dandwiki/races";
 import { DANDWIKI_TEMPLATES } from "./homebrew-dandwiki/templates";
@@ -871,6 +873,8 @@ export const ALL_BODY_MODIFICATIONS: BodyModificationDefinition[] = dedupeById([
 export const ALL_DANDWIKI_REFERENCE_INDEX: DandwikiReferenceEntry[] = dedupeById([...DANDWIKI_REFERENCE_INDEX]);
 
 export const ALL_HOUSE_RULES_INDEX: HouseRuleEntry[] = dedupeById([...HOUSE_RULE_ENTRIES, ...PILLS_POTIONS_HOUSE_RULES]);
+
+export const ALL_RULES_COMPENDIUM_TOPICS: RulesCompendiumTopic[] = dedupeById([...RULES_COMPENDIUM_TOPICS]);
 
 export const ALL_SUMMONING_SPELL_LIST: SummoningSpellEntry[] = dedupeById([...SUMMONING_SPELL_LIST]);
 

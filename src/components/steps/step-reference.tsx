@@ -12,6 +12,7 @@ import {
   ALL_PRESTIGE_CLASSES,
   ALL_RACES,
   ALL_RANDOM_TABLES,
+  ALL_RULES_COMPENDIUM_TOPICS,
   ALL_SKILLS,
   ALL_SPELLS,
   ALL_SUMMONING_SPELL_LIST,
@@ -394,6 +395,20 @@ const CATEGORIES: RefCategory[] = [
       makeDetail: (): EntityDetail => ({
         title: h.name,
         badges: rsBadge(h.ruleset, ["House Rule", h.section]),
+        summary: h.summary,
+        sections: [],
+        source: h.source,
+        sourceUrl: h.sourceUrl,
+      }),
+    })),
+  },
+  {
+    key: "rules-compendium", label: "Rules Compendium",
+    rows: ALL_RULES_COMPENDIUM_TOPICS.map((h) => ({
+      key: `rules-compendium:${h.id}`, category: "Rules Topic", subcategory: h.section, name: h.name, source: h.source, ruleset: h.ruleset,
+      makeDetail: (): EntityDetail => ({
+        title: h.name,
+        badges: rsBadge(h.ruleset, ["Rules Compendium", h.section]),
         summary: h.summary,
         sections: [],
         source: h.source,
