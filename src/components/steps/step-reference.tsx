@@ -33,7 +33,7 @@ import {
   type EntityDetail,
 } from "@/lib/entity-descriptions";
 import { weaponSubcategory, WEAPON_SUBCATEGORIES } from "@/lib/weapon-subcategories";
-import { isApocDisabledPower, isApocDisabledRace, APOC_TIEFLING_NOTE } from "@/lib/apoc-disabled";
+import { isApocDisabledPower, isApocDisabledRace, apocRaceNote } from "@/lib/apoc-disabled";
 import { EntityDetailDialog } from "@/components/entity-detail-dialog";
 import { RULESET_LABELS } from "@/components/ruleset-toggle";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -250,16 +250,17 @@ const CATEGORIES: RefCategory[] = [
   {
     key: "races", label: "Races",
     rows: ALL_RACES.map((r) => {
-      // No tieflings in APOC (Shaun, 2026-11-04): the tiefling
-      // record is kept but grayed, like the transdimensional
-      // spells below. See src/lib/apoc-disabled.ts.
+      // No tieflings or drow in APOC (Shaun, 2026-11-04 /
+      // 2026-11-05): those records are kept but grayed, like
+      // the transdimensional spells below. See
+      // src/lib/apoc-disabled.ts.
       const apocOff = isApocDisabledRace(r);
       return {
         key: `races:${r.id}`, category: "Race", subcategory: r.type, name: r.name, source: r.source, ruleset: r.ruleset,
         ...(apocOff ? { disabled: true } : {}),
         makeDetail: (): EntityDetail => {
           const d = describeRace(r);
-          return apocOff ? { ...d, badges: [APOC_TIEFLING_NOTE, ...d.badges] } : d;
+          return apocOff ? { ...d, badges: [apocRaceNote(r), ...d.badges] } : d;
         },
       };
     }),

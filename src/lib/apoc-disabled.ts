@@ -33,6 +33,13 @@
  *    being demons. Races have no other gray-out hook, so the
  *    race step renders these as grayed, unpickable rows with
  *    the canon note. The record itself is kept, not deleted.
+ *
+ * 3. No drow (Shaun, 2026-11-05): drow do not exist in APOC
+ *    either — when the demons first came through, the drow
+ *    as an entire race welcomed them and were all absorbed
+ *    into the demons wholesale. Same handling as the
+ *    tieflings: the race record is kept, grayed, unpickable,
+ *    with its own canon note.
  */
 
 export const APOC_DISABLED_POWER_IDS = new Set([
@@ -74,10 +81,22 @@ export function isApocDisabledPower(s: { id: string }): boolean {
   return APOC_DISABLED_POWER_IDS.has(s.id);
 }
 
-export const APOC_DISABLED_RACE_IDS = new Set(["tiefling"]);
+export const APOC_DISABLED_RACE_IDS = new Set(["tiefling", "drow"]);
 
 export const APOC_TIEFLING_NOTE =
   "In APOC: the fiend-blooded were backdoored into being demons — tieflings do not exist.";
+
+export const APOC_DROW_NOTE =
+  "In APOC: the drow welcomed the demons and were absorbed — drow do not exist.";
+
+const APOC_RACE_NOTES: Record<string, string> = {
+  tiefling: APOC_TIEFLING_NOTE,
+  drow: APOC_DROW_NOTE,
+};
+
+export function apocRaceNote(r: { id: string }): string {
+  return APOC_RACE_NOTES[r.id] ?? APOC_TIEFLING_NOTE;
+}
 
 export function isApocDisabledRace(r: { id: string }): boolean {
   return APOC_DISABLED_RACE_IDS.has(r.id);
