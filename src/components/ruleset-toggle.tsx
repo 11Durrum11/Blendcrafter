@@ -27,14 +27,12 @@ interface RulesetToggleProps {
  * this same `enabledRulesets` array, so toggling here changes what shows up everywhere.
  */
 export function RulesetToggle({ enabledRulesets, onToggle }: RulesetToggleProps) {
-  const extraCount = TOGGLEABLE_RULESETS.filter((r) => enabledRulesets.includes(r)).length;
   return (
     <Popover>
       <PopoverTrigger asChild>
         <Button variant="outline" size="sm" className="px-2 sm:px-3" data-testid="button-ruleset-toggle">
           <BookOpen className="h-3.5 w-3.5 sm:mr-1.5" />
           <span className="hidden sm:inline">Rule Sets</span>
-          {extraCount > 0 && <span className="ml-1 rounded-full bg-primary px-1.5 text-[10px] text-primary-foreground">{extraCount}</span>}
         </Button>
       </PopoverTrigger>
       <PopoverContent align="end" className="w-80">

@@ -18,7 +18,6 @@ interface HouseRulesToggleProps {
  * UI and the resolver, so adding a new toggle only requires editing that file.
  */
 export function HouseRulesToggle({ houseRules, onToggle }: HouseRulesToggleProps) {
-  const offCount = HOUSE_RULE_DEFS.filter((r) => houseRules[r.id] !== r.defaultValue).length;
   const categories = Array.from(new Set(HOUSE_RULE_DEFS.map((r) => r.category)));
   return (
     <Popover>
@@ -26,7 +25,6 @@ export function HouseRulesToggle({ houseRules, onToggle }: HouseRulesToggleProps
         <Button variant="outline" size="sm" className="px-2 sm:px-3" data-testid="button-house-rules-toggle">
           <Settings2 className="h-3.5 w-3.5 sm:mr-1.5" />
           <span className="hidden sm:inline">House Rules</span>
-          {offCount > 0 && <span className="ml-1 rounded-full bg-primary px-1.5 text-[10px] text-primary-foreground">{offCount}</span>}
         </Button>
       </PopoverTrigger>
       <PopoverContent align="end" className="w-96">
