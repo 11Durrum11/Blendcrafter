@@ -81,7 +81,10 @@ export function isApocDisabledPower(s: { id: string }): boolean {
   return APOC_DISABLED_POWER_IDS.has(s.id);
 }
 
-export const APOC_DISABLED_RACE_IDS = new Set(["tiefling", "drow"]);
+export const APOC_DISABLED_RACE_IDS = new Set(["tiefling", "drow", "drow-dotu"]);
+// "drow" is the Races of Eberron record; "drow-dotu" is the Drow
+// of the Underdark record — the same race from its own book, and
+// the same ruling covers both (Shaun, 2026-11-05).
 
 export const APOC_TIEFLING_NOTE =
   "In APOC: the fiend-blooded were backdoored into being demons — tieflings do not exist.";
@@ -92,6 +95,7 @@ export const APOC_DROW_NOTE =
 const APOC_RACE_NOTES: Record<string, string> = {
   tiefling: APOC_TIEFLING_NOTE,
   drow: APOC_DROW_NOTE,
+  "drow-dotu": APOC_DROW_NOTE,
 };
 
 export function apocRaceNote(r: { id: string }): string {
