@@ -494,13 +494,11 @@ export function StepReference() {
   return (
     <div className="space-y-4">
       <Card>
-        <CardHeader>
-          <CardTitle className="text-3xl">Player Reference</CardTitle>
-          {/* No open description paragraph (the treatment,
-              Shaun 2026-11-05, across the board): the page is
-              its title, the lookup, and the nests — the search
-              box and category buttons speak for themselves. */}
-        </CardHeader>
+        {/* No page heading (Shaun, 2026-11-07): the section button
+            already names this page, so the large "Player Reference"
+            title and its header block are gone entirely. With no
+            CardHeader above it, CardContent's built-in pt-0 puts
+            the search box directly under the card's top line. */}
         <CardContent className="space-y-3">
           <div className="relative">
             <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />

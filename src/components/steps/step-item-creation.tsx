@@ -1,6 +1,6 @@
 import { useMemo, type ReactNode } from "react";
 import { ChevronRight } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { ALL_FEATS } from "@/data";
 import type { FeatDefinition } from "@/engine/types";
 import { describeFeat } from "@/lib/entity-descriptions";
@@ -20,10 +20,11 @@ import { MAGIC_ITEM_CREATION_LINES, POTION_RULE_LINES } from "@/components/steps
  * nests (The General Method, By Family, Alchemy, Item
  * Creation Feats), and inside By Family and Alchemy the
  * individual blocks are clickable sub-nests of their own,
- * minimized until tapped. Nothing sits open: the page is its
- * title plus the nest headers, the same shape as
- * Spelljamming. (Its old jump-button panel up top was
- * removed in v20.23, and the open layout went here.)
+ * minimized until tapped. Nothing sits open: the nest headers
+ * are the page, the same shape as Spelljamming. (Its old
+ * jump-button panel up top was removed in v20.23, and the open
+ * layout went here; the page's own large title was removed
+ * 2026-11-07 — the section button names the page.)
  */
 
 function NestBlock({ id, label, children }: { id: string; label: string; children: ReactNode }) {
@@ -87,9 +88,12 @@ export function StepItemCreation() {
   const alchemyCures = POTION_RULE_LINES.find((l) => l.label.startsWith("Cure line"));
   return (
     <Card>
-      <CardHeader>
-        <CardTitle className="font-display text-xl">Magic Item Creation</CardTitle>
-      </CardHeader>
+      {/* No page heading (Shaun, 2026-11-07): the section button
+          already names this page, so the large "Magic Item
+          Creation" title and its header block are gone entirely —
+          the same treatment as Player Reference. With no
+          CardHeader above it, CardContent's built-in pt-0 puts
+          the nests directly under the card's top line. */}
       <CardContent className="space-y-3">
         <NestBlock id="creation-general" label="The General Method">
           <div className="rounded-md border border-card-border bg-muted/40 p-3 sm:col-span-2" data-testid="creation-general-method">
