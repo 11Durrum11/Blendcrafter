@@ -183,11 +183,7 @@ export function StepAbilities({
   return (
     <div className="space-y-6">
       <Card>
-        {/* pb-3 (Shaun, 2026-11-07): with the description
-            paragraph below removed, the header's bottom padding
-            tightens too, so the content closes up into the freed
-            space — no empty gap where the paragraph was. */}
-        <CardHeader className="pb-3">
+        <CardHeader>
           <div>
             <CardTitle className="font-display text-xl">Ability Scores</CardTitle>
             {/* The "Base scores before racial adjustments…"
