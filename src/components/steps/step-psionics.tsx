@@ -123,12 +123,12 @@ function manifesterClassIdsFor(power: SpellDefinition, buildClassIds: string[]):
 
 function NestBlock({ id, label, children }: { id: string; label: string; children: ReactNode }) {
   return (
-    <details id={id} className="sj-nest rounded-md border border-border" data-testid={`psionics-block-${id}`}>
-      <summary className="flex cursor-pointer list-none items-center gap-2 px-3 py-2.5 font-display text-sm font-semibold [&::-webkit-details-marker]:hidden">
+    <details id={id} className="sj-nest rounded-md border border-border sm:[&[open]]:col-span-2 lg:[&[open]]:col-span-3" data-testid={`psionics-block-${id}`}>
+      <summary className="flex cursor-pointer list-none items-center gap-2 px-2.5 py-2 font-display text-[13px] font-semibold [&::-webkit-details-marker]:hidden">
         <ChevronRight className="sj-chevron h-4 w-4 shrink-0 transition-transform" />
         {label}
       </summary>
-      <div className="grid gap-3 p-3 pt-0 sm:grid-cols-2">{children}</div>
+      <div className="grid gap-2 p-2.5 pt-0 sm:grid-cols-2 lg:grid-cols-4">{children}</div>
     </details>
   );
 }
@@ -136,11 +136,11 @@ function NestBlock({ id, label, children }: { id: string; label: string; childre
 function SubNest({ id, label, children }: { id: string; label: string; children: ReactNode }) {
   return (
     <details id={id} className="sj-nest col-span-full rounded-md border border-border/70 bg-muted/20" data-testid={`psionics-subnest-${id}`}>
-      <summary className="flex cursor-pointer list-none items-center gap-2 px-2.5 py-2 font-display text-xs font-semibold uppercase tracking-wide [&::-webkit-details-marker]:hidden">
+      <summary className="flex cursor-pointer list-none items-center gap-2 px-2 py-1.5 font-display text-xs font-semibold uppercase tracking-wide [&::-webkit-details-marker]:hidden">
         <ChevronRight className="sj-chevron h-3.5 w-3.5 shrink-0 transition-transform" />
         {label}
       </summary>
-      <div className="grid gap-3 p-2.5 pt-0 sm:grid-cols-2">{children}</div>
+      <div className="grid gap-2 p-2 pt-0 sm:grid-cols-2 lg:grid-cols-4">{children}</div>
     </details>
   );
 }
@@ -220,8 +220,9 @@ export function StepPsionics({
     return gates;
   }, [prestige, resolved, build.prestigePrereqCertifications]);
 
+  // Toggle buttons at half footprint (Shaun, 2026-11-07).
   const toggleBtnClass =
-    "mt-2 inline-flex items-center justify-center whitespace-nowrap rounded-sm border border-border px-2.5 py-1 text-xs font-medium transition-all hover:bg-muted";
+    "mt-1.5 inline-flex items-center justify-center whitespace-nowrap rounded-sm border border-border px-2 py-0.5 text-[11px] font-medium transition-all hover:bg-muted";
 
   const renderPower = (power: SpellDefinition) => {
     const off = isApocDisabledPower(power);
@@ -234,7 +235,7 @@ export function StepPsionics({
     return (
       <div
         key={power.id}
-        className={`rounded-md border border-card-border bg-muted/40 p-3 ${off ? "opacity-50" : ""}`}
+        className={`rounded-md border border-card-border bg-muted/40 p-2.5 ${off ? "opacity-50" : ""}`}
         data-testid={`psionics-power-${power.id}`}
       >
         <p className="font-display text-xs font-semibold uppercase tracking-wide">
@@ -269,17 +270,31 @@ export function StepPsionics({
 
   return (
     <Card>
-      <CardHeader>
-        <CardTitle className="font-display text-xl">Psionics</CardTitle>
-        {!hasPsionics && (
-          <CardDescription>
-            This build has no psionic class, so the step is grayed in the step list — it still opens for reference, and the gray lifts when a psionic class is on the build.
-          </CardDescription>
-        )}
+      <CardHeader className="pb-3">
+        <div className="flex flex-wrap items-start gap-x-4 gap-y-1">
+          <CardTitle className="font-display text-xl">Psionics</CardTitle>
+          {/* The verbiage sits NEXT TO the header (Shaun,
+              2026-11-07, same pattern as the other steps): the
+              note moved up beside the title, wording unchanged;
+              everything below pulls up into the space it left. */}
+          {!hasPsionics && (
+            <CardDescription className="min-w-0 flex-1 basis-72">
+              This build has no psionic class, so the step is grayed in the step list — it still opens for reference, and the gray lifts when a psionic class is on the build.
+            </CardDescription>
+          )}
+        </div>
       </CardHeader>
-      <CardContent className="space-y-3">
+      {/* The nests stand THREE across (Shaun, 2026-11-07:
+          "No, three by three. Sorry." — his final word on the
+          grid, superseding his four-by-four and six-by-six
+          tries on the same call): footprints cut down, filled
+          in order, instead of one tall stack. An opened nest
+          spans the whole row so its contents stay readable —
+          the same expand-to-full pattern the Equipment
+          category boxes use. */}
+      <CardContent className="grid grid-cols-1 items-start gap-3 sm:grid-cols-2 lg:grid-cols-3">
         <NestBlock id="psionics-rules" label="Psionics in APOC — the Rules">
-          <div className="rounded-md border border-card-border bg-muted/40 p-3 sm:col-span-2" data-testid="psionics-rules-card">
+          <div className="rounded-md border border-card-border bg-muted/40 p-2.5" data-testid="psionics-rules-card">
             <p className="text-sm leading-snug text-muted-foreground">
               Everything psionic in one step — the powers, the manifesting classes and prestige classes, the feats, the
               races, and the psionic items and equipment from the Expanded Psionics Handbook and Complete Psionic. The
@@ -306,7 +321,7 @@ export function StepPsionics({
             const current = build.classLevels.find((x) => x.classId === c.id);
             const isDisabled = build.disabledClassIds.includes(c.id);
             return (
-              <div key={c.id} className="rounded-md border border-card-border bg-muted/40 p-3" data-testid={`psionics-class-${c.id}`}>
+              <div key={c.id} className="rounded-md border border-card-border bg-muted/40 p-2.5" data-testid={`psionics-class-${c.id}`}>
                 <p className="font-display text-xs font-semibold uppercase tracking-wide">
                   {c.name} — Hit Die {c.hitDie}
                 </p>
@@ -318,26 +333,26 @@ export function StepPsionics({
                     type="button"
                     size="icon"
                     variant="outline"
-                    className="h-7 w-7"
+                    className="h-6 w-6"
                     disabled={!current || isDisabled}
                     onClick={() => onRemoveClass(c.id)}
                     data-testid={`psionics-class-remove-${c.id}`}
                     aria-label={`Remove a level of ${c.name}`}
                   >
-                    <Minus className="h-3.5 w-3.5" />
+                    <Minus className="h-3 w-3" />
                   </Button>
                   <span className="font-mono text-xs text-muted-foreground">Lv {current?.levels ?? 0}</span>
                   <Button
                     type="button"
                     size="icon"
                     variant="outline"
-                    className="h-7 w-7"
+                    className="h-6 w-6"
                     disabled={(current?.levels ?? 0) >= 10 || isDisabled}
                     onClick={() => onAddClass(c.id)}
                     data-testid={`psionics-class-add-${c.id}`}
                     aria-label={`Add a level of ${c.name}`}
                   >
-                    <Plus className="h-3.5 w-3.5" />
+                    <Plus className="h-3 w-3" />
                   </Button>
                 </div>
               </div>
@@ -352,7 +367,7 @@ export function StepPsionics({
             const blocked = !(gate?.selectable ?? true);
             const isDisabled = build.disabledClassIds.includes(c.id);
             return (
-              <div key={c.id} className="rounded-md border border-card-border bg-muted/40 p-3" data-testid={`psionics-prestige-${c.id}`}>
+              <div key={c.id} className="rounded-md border border-card-border bg-muted/40 p-2.5" data-testid={`psionics-prestige-${c.id}`}>
                 <p className="font-display text-xs font-semibold uppercase tracking-wide">
                   {c.name} — Hit Die {c.hitDie}
                 </p>
@@ -370,26 +385,26 @@ export function StepPsionics({
                       type="button"
                       size="icon"
                       variant="outline"
-                      className="h-7 w-7"
+                      className="h-6 w-6"
                       disabled={!current}
                       onClick={() => onRemovePrestige(c.id)}
                       data-testid={`psionics-prestige-remove-${c.id}`}
                       aria-label={`Remove a level of ${c.name}`}
                     >
-                      <Minus className="h-3.5 w-3.5" />
+                      <Minus className="h-3 w-3" />
                     </Button>
                     <span className="font-mono text-xs text-muted-foreground">Lv {current?.levels ?? 0}</span>
                     <Button
                       type="button"
                       size="icon"
                       variant="outline"
-                      className="h-7 w-7"
+                      className="h-6 w-6"
                       disabled={(current?.levels ?? 0) >= 10 || isDisabled || blocked}
                       onClick={() => onAddPrestige(c.id)}
                       data-testid={`psionics-prestige-add-${c.id}`}
                       aria-label={`Add a level of ${c.name}`}
                     >
-                      <Plus className="h-3.5 w-3.5" />
+                      <Plus className="h-3 w-3" />
                     </Button>
                   </div>
                 )}
@@ -403,7 +418,7 @@ export function StepPsionics({
             const selected = build.featIds.includes(f.id);
             const isDisabled = build.disabledFeatIds.includes(f.id);
             return (
-              <div key={f.id} className="rounded-md border border-card-border bg-muted/40 p-3" data-testid={`psionics-feat-${f.id}`}>
+              <div key={f.id} className="rounded-md border border-card-border bg-muted/40 p-2.5" data-testid={`psionics-feat-${f.id}`}>
                 <p className="font-display text-xs font-semibold uppercase tracking-wide">{f.name}</p>
                 <p className="mt-1.5 text-sm leading-snug text-muted-foreground">{f.benefitSummary}</p>
                 {!isDisabled && (
@@ -423,7 +438,7 @@ export function StepPsionics({
 
         <NestBlock id="psionics-races" label="Races">
           {races.map((race) => (
-            <div key={race.id} className="rounded-md border border-card-border bg-muted/40 p-3" data-testid={`psionics-race-${race.id}`}>
+            <div key={race.id} className="rounded-md border border-card-border bg-muted/40 p-2.5" data-testid={`psionics-race-${race.id}`}>
               <p className="font-display text-xs font-semibold uppercase tracking-wide">
                 {race.name} — {race.size} {race.type}
                 {race.levelAdjustment ? `, LA +${race.levelAdjustment}` : ""}
@@ -439,7 +454,7 @@ export function StepPsionics({
 
         <NestBlock id="psionics-items" label="Psionic Items">
           {items.map((item) => (
-            <div key={item.id} className="rounded-md border border-card-border bg-muted/40 p-3" data-testid={`psionics-item-${item.id}`}>
+            <div key={item.id} className="rounded-md border border-card-border bg-muted/40 p-2.5" data-testid={`psionics-item-${item.id}`}>
               <p className="font-display text-xs font-semibold uppercase tracking-wide">
                 {item.name} — {item.cost}
               </p>
@@ -448,7 +463,7 @@ export function StepPsionics({
                 type="button"
                 size="sm"
                 variant="outline"
-                className="mt-2 px-2"
+                className="mt-1.5 h-6 px-2 text-[11px]"
                 onClick={() => onAddInventory("magic-item", item.id)}
                 data-testid={`psionics-item-add-${item.id}`}
               >
@@ -460,7 +475,7 @@ export function StepPsionics({
 
         <NestBlock id="psionics-equipment" label="Equipment">
           {equipment.map((item) => (
-            <div key={item.id} className="rounded-md border border-card-border bg-muted/40 p-3" data-testid={`psionics-equipment-${item.id}`}>
+            <div key={item.id} className="rounded-md border border-card-border bg-muted/40 p-2.5" data-testid={`psionics-equipment-${item.id}`}>
               <p className="font-display text-xs font-semibold uppercase tracking-wide">
                 {item.name} — {item.cost}
               </p>
@@ -469,7 +484,7 @@ export function StepPsionics({
                 type="button"
                 size="sm"
                 variant="outline"
-                className="mt-2 px-2"
+                className="mt-1.5 h-6 px-2 text-[11px]"
                 onClick={() => onAddInventory("equipment", item.id)}
                 data-testid={`psionics-equipment-add-${item.id}`}
               >
