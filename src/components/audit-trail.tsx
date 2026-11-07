@@ -25,7 +25,7 @@ export function AuditTrail({ label, value, audit, className, ...rest }: AuditTra
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
-        className="flex w-full flex-col items-start gap-0.5 px-3 py-1.5 text-left hover-elevate rounded-md"
+        className="flex w-full flex-col items-start gap-0.5 px-3 py-1 text-left hover-elevate rounded-md"
         aria-expanded={open}
       >
         <span className="block w-full text-xs font-medium uppercase tracking-wide text-muted-foreground leading-tight">

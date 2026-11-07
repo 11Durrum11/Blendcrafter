@@ -786,7 +786,7 @@ export default function Builder() {
   return (
     <div className={`app-backdrop min-h-screen bg-background text-foreground${ambienceOn ? " bg-animated" : ""}`} data-scene={effectiveStep === "sheet" ? undefined : effectiveStep === "abilities" ? "race" : effectiveStep}>
       <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-2 px-4 py-2 sm:px-6">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-2 px-4 py-1.5 sm:px-6">
           <Link href="/" className="flex items-center gap-2">
             <Logo className="h-8 w-8 text-foreground" />
             <span className="font-display text-xl font-semibold">Blendcrafter</span>
@@ -847,9 +847,9 @@ export default function Builder() {
           order is that those pages ride up tight and fit one
           screen with no scrolling in their default state. Every
           other page keeps pb-[45vh]. */}
-      <main className={`mx-auto max-w-6xl px-4 pt-1 sm:px-6 ${effectiveStep === "reference" || effectiveStep === "item-creation" || effectiveStep === "spelljamming" || effectiveStep === "abilities" || effectiveStep === "equipment" || effectiveStep === "magic-items" || effectiveStep === "inventory" || effectiveStep === "psionics" || effectiveStep === "sheet" ? "pb-6" : "pb-[45vh]"}`}>
+      <main className={`mx-auto ${effectiveStep === "sheet" ? "max-w-[110rem]" : "max-w-6xl"} px-4 pt-1 sm:px-6 ${effectiveStep === "reference" || effectiveStep === "item-creation" || effectiveStep === "spelljamming" || effectiveStep === "abilities" || effectiveStep === "equipment" || effectiveStep === "magic-items" || effectiveStep === "inventory" || effectiveStep === "psionics" || effectiveStep === "sheet" ? "pb-6" : "pb-[45vh]"}`}>
         <Tabs value={effectiveStep} onValueChange={(v) => goTo(v as StepId)}>
-          <TabsList className="flex h-auto flex-wrap justify-start gap-1" data-testid="step-tabs">
+          <TabsList className="flex h-auto flex-wrap justify-start gap-0.5 [&>button]:py-0.5" data-testid="step-tabs">
             {/* The four sections on ONE LINE (Shaun,
                 2026-11-07: "Put the player reference first, the
                 magic item creation header next to it, the
@@ -949,7 +949,7 @@ export default function Builder() {
             </div>
             {creationOpen && (
               <div
-                className="flex basis-full flex-wrap items-center gap-1 rounded-md border border-border p-1.5"
+                className="flex basis-full flex-wrap items-center gap-0.5 rounded-md border border-border p-1"
                 data-testid="step-group-character-creation"
               >
                 {/* The summary line sits ABOVE the New Character
@@ -973,7 +973,7 @@ export default function Builder() {
                     header until this order moved it here. */}
                 <Button
                   variant="outline"
-                  className="h-14 px-6 text-base"
+                  className="h-12 px-6 text-base"
                   onClick={() => {
                     cb.reset();
                     setCharacterStarted(true);
@@ -997,7 +997,7 @@ export default function Builder() {
                     changed. It lived on top of the Abilities panel
                     from v20.41 until this move. */}
                 <div
-                  className="flex flex-wrap items-center gap-x-3 gap-y-1 rounded-md border border-input bg-background py-1.5 pl-3 pr-3"
+                  className="flex flex-wrap items-center gap-x-3 gap-y-1 rounded-md border border-input bg-background py-1 pl-3 pr-3"
                   data-testid="character-heading-box"
                 >
                   <Input
@@ -1185,7 +1185,7 @@ export default function Builder() {
         </div>
 
         <div className={`${effectiveStep === "reference" || effectiveStep === "item-creation" || effectiveStep === "spelljamming" || effectiveStep === "abilities" || effectiveStep === "equipment" || effectiveStep === "magic-items" || effectiveStep === "inventory" || effectiveStep === "psionics" || effectiveStep === "sheet" ? "mt-2" : "mt-8"} flex items-center justify-between`}>
-          <Button variant="outline" disabled={!prev} onClick={() => prev && goTo(prev.id)} data-testid="button-prev-step">
+          <Button variant="outline" size="sm" disabled={!prev} onClick={() => prev && goTo(prev.id)} data-testid="button-prev-step">
             <ChevronLeft className="mr-1 h-4 w-4" /> {prev ? prev.label : "Back"}
           </Button>
           <span className="text-xs text-muted-foreground">
@@ -1197,7 +1197,7 @@ export default function Builder() {
                   ? "Section 4 of 4 — Spelljamming"
                   : "Section 2 of 4 — Character Creation"}
           </span>
-          <Button disabled={!next} onClick={() => next && goTo(next.id)} data-testid="button-next-step">
+          <Button size="sm" disabled={!next} onClick={() => next && goTo(next.id)} data-testid="button-next-step">
             {next ? next.label : "Done"} <ChevronRight className="ml-1 h-4 w-4" />
           </Button>
         </div>
