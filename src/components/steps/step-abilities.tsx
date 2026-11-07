@@ -193,7 +193,7 @@ export function StepAbilities({
             </CardDescription>
           </div>
         </CardHeader>
-        <CardContent className="space-y-4">
+        <CardContent className="space-y-3">
           <div className="space-y-3">
               <p className="text-sm text-muted-foreground">
                 Roll 4d6 and drop the lowest, thirty-six times, into a 6×6 grid — then pick any row, any column, or
