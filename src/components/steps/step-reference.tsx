@@ -486,6 +486,25 @@ export function StepReference() {
   const shown = results.slice(0, RENDER_CAP);
   const browsing = query.trim() === "" && category !== "all";
 
+  /** Browse results split into parts (Shaun, 2026-11-07):
+   * browsing a category with no subcategory picked groups the
+   * shown rows under collapsed per-subcategory nests instead of
+   * one long list. A picked subcategory or a typed search keeps
+   * the flat list — it is already narrowed. */
+  const resultGroups = useMemo(() => {
+    if (!browsing || subcategory !== "all") return null;
+    const order = subcategories.map((s) => s.label);
+    const map = new Map<string, RefRow[]>();
+    for (const row of shown) {
+      const arr = map.get(row.subcategory) ?? [];
+      arr.push(row);
+      map.set(row.subcategory, arr);
+    }
+    return [...map.entries()]
+      .sort((a, b) => order.indexOf(a[0]) - order.indexOf(b[0]))
+      .map(([label, rows]) => ({ label, rows }));
+  }, [browsing, subcategory, shown, subcategories]);
+
   function pickCategory(key: string) {
     setCategory(key);
     setSubcategory("all");
@@ -510,7 +529,19 @@ export function StepReference() {
               data-testid="input-reference-search"
             />
           </div>
-          <div className="flex flex-wrap gap-1.5">
+          {/* Split into parts (Shaun, 2026-11-07: Player Reference
+              was "too long as one piece" on his phone): the
+              category and subcategory button walls live inside
+              this collapsed Categories nest, so the page opens as
+              the search box plus collapsed headers. The search box
+              itself stays outside, always visible. */}
+          <details className="sj-nest rounded-md border border-border" data-testid="reference-categories">
+            <summary className="flex cursor-pointer list-none items-center gap-2 px-3 py-2.5 font-display text-sm font-semibold [&::-webkit-details-marker]:hidden">
+              <ChevronRight className="sj-chevron h-4 w-4 shrink-0 transition-transform" />
+              Categories{category !== "all" && activeCategory ? ` — ${activeCategory.label}` : ""}
+            </summary>
+            <div className="space-y-3 p-3 pt-0">
+          <div className="grid grid-cols-2 gap-1.5">
             <Button size="sm" className="text-base" variant={category === "all" ? "default" : "outline"} onClick={() => pickCategory("all")}>
               All ({TOTAL_ROWS.toLocaleString()})
             </Button>
@@ -527,7 +558,7 @@ export function StepReference() {
             ))}
           </div>
           {activeCategory && subcategories.length > 1 && (
-            <div className="flex flex-wrap items-center gap-1.5 border-t border-border pt-3">
+            <div className="grid grid-cols-2 items-center gap-1.5 border-t border-border pt-3">
               <span className="text-base text-muted-foreground">{activeCategory.label}:</span>
               <Button
                 size="sm"
@@ -552,6 +583,8 @@ export function StepReference() {
               ))}
             </div>
           )}
+            </div>
+          </details>
         </CardContent>
       </Card>
 
@@ -572,6 +605,37 @@ export function StepReference() {
           <CardContent>
             {shown.length === 0 ? (
               <p className="text-lg text-muted-foreground">Nothing in the library matches that. Try a different spelling or a shorter search.</p>
+            ) : resultGroups ? (
+              <div className="space-y-3">
+                {resultGroups.map((g) => (
+                  <details key={g.label} className="sj-nest rounded-md border border-border" data-testid={`reference-results-group-${g.label.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}>
+                    <summary className="flex cursor-pointer list-none items-center gap-2 px-3 py-2.5 font-display text-sm font-semibold [&::-webkit-details-marker]:hidden">
+                      <ChevronRight className="sj-chevron h-4 w-4 shrink-0 transition-transform" />
+                      {g.label} ({g.rows.length})
+                    </summary>
+                    <ul className="grid grid-cols-1 gap-x-4 p-3 pt-0 sm:grid-cols-2 lg:grid-cols-4">
+                      {g.rows.map((row) => (
+                        <li key={row.key} className="border-b">
+                          <button
+                            type="button"
+                            className={
+                              row.disabled
+                                ? "flex w-full items-center justify-between gap-3 py-2 text-left text-muted-foreground line-through opacity-60 hover:bg-muted/50"
+                                : "flex w-full items-center justify-between gap-3 py-2 text-left hover:bg-muted/50"
+                            }
+                            onClick={() => setDetail(row.makeDetail())}
+                          >
+                            <span className="min-w-0">
+                              <span className="block text-lg font-medium">{row.name}</span>
+                              <span className="block truncate text-base text-muted-foreground">{row.source}</span>
+                            </span>
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  </details>
+                ))}
+              </div>
             ) : (
               <ul className="grid grid-cols-1 gap-x-4 sm:grid-cols-2 lg:grid-cols-4">
                 {shown.map((row) => (
@@ -588,13 +652,13 @@ export function StepReference() {
                       <span className="min-w-0">
                         {/* No category / subcategory / rule-set tags
                             on reference rows (Shaun, 2026-11-04): the
-                            tags ("Magic Item", "Wondrous Items —
-                            Other", …) ate the room and the item's
-                            name went missing off the front. The name
-                            gets the whole row and wraps instead of
-                            truncating; category/subcategory still
-                            live in the category picker above and in
-                            the detail dialog. */}
+                            tags ate the room and the item's name went
+                            missing off the front. The name gets the
+                            whole row and wraps instead of truncating;
+                            category/subcategory still live in the
+                            category picker above and in the detail
+                            dialog. (Both row lists — grouped nests
+                            and this flat list — use this same row.) */}
                         <span className="block text-lg font-medium">{row.name}</span>
                         <span className="block truncate text-base text-muted-foreground">{row.source}</span>
                       </span>
@@ -607,43 +671,10 @@ export function StepReference() {
         </Card>
       )}
 
-      {/* Ambience credits (2026-11-04): the scene sounds are
-          real field recordings under public-domain / CC-BY
-          licenses; the CC-BY ones require attribution, so the
-          credits live here in Player Reference where anyone
-          can find them. Full provenance rides in
-          src/data/ambience-audio.ts. Minimized into its
-          header (Shaun, 2026-11-05): the card sat open at the
-          foot of Player Reference; now it is a collapsed nest
-          like everything else — tap the header to open it. */}
-      <details className="sj-nest rounded-md border border-border" data-testid="reference-ambience-credits">
-        <summary className="flex cursor-pointer list-none items-center gap-2 px-3 py-2.5 font-display text-sm font-semibold [&::-webkit-details-marker]:hidden">
-          <ChevronRight className="sj-chevron h-4 w-4 shrink-0 transition-transform" />
-          Ambience Credits
-        </summary>
-        <div className="p-3 pt-0">
-          <p className="text-base text-muted-foreground">
-            The background sounds are real field recordings, one matched to each scene, used under public-domain or
-            Creative Commons licenses. The Training Yard has none yet — no lawful recording of wooden-weapon
-            training could be found, so that scene stays quiet rather than fake it.
-          </p>
-          <ul className="mt-2 grid grid-cols-1 gap-x-4 text-base text-muted-foreground sm:grid-cols-2">
-            <li className="border-b py-1.5">The Street — “Evening Ambiance: Sevilla Street at Night” by Tiago CarvE (radio aporee) · Public domain</li>
-            <li className="border-b py-1.5">Player Reference (the great library) — “TU Delft Library, quiet study room” by el_mar · CC BY 3.0</li>
-            <li className="border-b py-1.5">Abilities / Race (hall of the peoples) — “TU Delft Library, ground level” by el_mar · CC BY 3.0</li>
-            <li className="border-b py-1.5">Classes (lecture hall) — “Ambient classroom mono” by rcrossley · Public domain</li>
-            <li className="border-b py-1.5">Skills (guild workshop) — “Shoemaker hammering wooden nails” by Work With Sounds / Technical Museum of Slovenia · CC BY 4.0</li>
-            <li className="border-b py-1.5">Templates (transformation laboratory) — “Water boiling in pot” by davidw (OpenGameArt) · CC-BY 3.0</li>
-            <li className="border-b py-1.5">Spells (the spellbook) — “Old book” by cori · Public domain</li>
-            <li className="border-b py-1.5">Prestige Classes (the school) — “Plaza el Descanso, Valparaíso — school kids playing” by udo noll (radio aporee) · CC BY 3.0</li>
-            <li className="border-b py-1.5">Equipment (the market) — “In the Market” (Zhonghe, New Taipei City) by Wu, Tsan-Cheng (radio aporee) · CC BY 3.0</li>
-            <li className="border-b py-1.5">Magic Items (magical laboratory) — “Windchime” by stephan · Public domain</li>
-            <li className="border-b py-1.5">Inventory (the warehouse) — “Abandoned Building Ambience” by tcarisland (OpenGameArt) · CC-BY 3.0</li>
-            <li className="border-b py-1.5">Personality (the tavern) — “Restaurant ambience” by stephan · Public domain</li>
-            <li className="border-b py-1.5">Magic Item Creation (the forge) — “Blacksmith’s anvil” by Work With Sounds / La Fonderie · CC BY 4.0</li>
-          </ul>
-        </div>
-      </details>
+      {/* No Ambience Credits nest here (Shaun, 2026-11-07: the
+          ambience credits button is removed entirely). The
+          recordings' provenance and license credits ride in
+          src/data/ambience-audio.ts. */}
 
       <EntityDetailDialog detail={detail} onOpenChange={(open) => { if (!open) setDetail(null); }} />
     </div>
