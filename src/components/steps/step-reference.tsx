@@ -511,21 +511,21 @@ export function StepReference() {
   }
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-3">
       <Card>
         {/* No page heading (Shaun, 2026-11-07): the section button
             already names this page, so the large "Player Reference"
             title and its header block are gone entirely. With no
             CardHeader above it, CardContent's built-in pt-0 puts
             the search box directly under the card's top line. */}
-        <CardContent className="space-y-3">
+        <CardContent className="space-y-2 pb-4">
           <div className="relative">
             <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <Input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Look up anything — a feat, a spell, an item, a race…"
-              className="h-12 pl-9 text-lg"
+              className="h-10 pl-9 text-base"
               data-testid="input-reference-search"
             />
           </div>
@@ -541,8 +541,8 @@ export function StepReference() {
               same night tucked the walls inside a collapsed
               Categories nest; his spec replaced it — the buttons
               themselves, two across, are the split.) */}
-          <div className="grid grid-cols-2 gap-1.5">
-            <Button size="sm" className="text-base" variant={category === "all" ? "default" : "outline"} onClick={() => pickCategory("all")}>
+          <div className="grid grid-cols-2 gap-1">
+            <Button size="sm" className="h-8 text-sm" variant={category === "all" ? "default" : "outline"} onClick={() => pickCategory("all")}>
               All ({TOTAL_ROWS.toLocaleString()})
             </Button>
             {CATEGORIES.map((c) => (
@@ -550,7 +550,7 @@ export function StepReference() {
                 key={c.key}
                 size="sm"
                 variant={category === c.key ? "default" : "outline"}
-                className={c.disabled ? "text-base text-muted-foreground line-through opacity-60" : "text-base"}
+                className={c.disabled ? "h-8 text-sm text-muted-foreground line-through opacity-60" : "h-8 text-sm"}
                 onClick={() => pickCategory(c.key)}
               >
                 {c.label} ({c.rows.length.toLocaleString()})

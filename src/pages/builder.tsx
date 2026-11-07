@@ -786,7 +786,7 @@ export default function Builder() {
   return (
     <div className={`app-backdrop min-h-screen bg-background text-foreground${ambienceOn ? " bg-animated" : ""}`} data-scene={effectiveStep === "sheet" ? undefined : effectiveStep === "abilities" ? "race" : effectiveStep}>
       <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-2 px-4 py-3 sm:px-6">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-2 px-4 py-2 sm:px-6">
           <Link href="/" className="flex items-center gap-2">
             <Logo className="h-8 w-8 text-foreground" />
             <span className="font-display text-xl font-semibold">Blendcrafter</span>
@@ -847,7 +847,7 @@ export default function Builder() {
           order is that those pages ride up tight and fit one
           screen with no scrolling in their default state. Every
           other page keeps pb-[45vh]. */}
-      <main className={`mx-auto max-w-6xl px-4 pt-2 sm:px-6 ${effectiveStep === "reference" || effectiveStep === "item-creation" || effectiveStep === "spelljamming" || effectiveStep === "abilities" || effectiveStep === "equipment" || effectiveStep === "magic-items" || effectiveStep === "inventory" || effectiveStep === "psionics" || effectiveStep === "sheet" ? "pb-6" : "pb-[45vh]"}`}>
+      <main className={`mx-auto max-w-6xl px-4 pt-1 sm:px-6 ${effectiveStep === "reference" || effectiveStep === "item-creation" || effectiveStep === "spelljamming" || effectiveStep === "abilities" || effectiveStep === "equipment" || effectiveStep === "magic-items" || effectiveStep === "inventory" || effectiveStep === "psionics" || effectiveStep === "sheet" ? "pb-6" : "pb-[45vh]"}`}>
         <Tabs value={effectiveStep} onValueChange={(v) => goTo(v as StepId)}>
           <TabsList className="flex h-auto flex-wrap justify-start gap-1" data-testid="step-tabs">
             {/* The four sections on ONE LINE (Shaun,
@@ -870,7 +870,7 @@ export default function Builder() {
             {visibleSteps
               .filter((s) => s.id === "reference")
               .map((s) => (
-                <TabsTrigger key={s.id} value={s.id} data-testid={`tab-step-${s.id}`} className="h-full w-full py-2.5 font-semibold">
+                <TabsTrigger key={s.id} value={s.id} data-testid={`tab-step-${s.id}`} className="h-full w-full py-2 font-semibold">
                   <span className="whitespace-normal text-center leading-tight">{s.label}</span>
                 </TabsTrigger>
               ))}
@@ -885,7 +885,7 @@ export default function Builder() {
               onClick={toggleItemCreation}
               data-testid="step-group-item-creation-toggle"
               className={
-                "inline-flex h-full w-full items-center justify-center rounded-sm px-3 py-2.5 font-display leading-tight text-sm font-semibold font-semibold ring-offset-background transition-all " +
+                "inline-flex h-full w-full items-center justify-center rounded-sm px-3 py-2 font-display leading-tight text-sm font-semibold font-semibold ring-offset-background transition-all " +
                 (effectiveStep === "item-creation"
                   ? "bg-background text-foreground shadow-sm"
                   : "text-foreground/70 hover:text-foreground")
@@ -909,7 +909,7 @@ export default function Builder() {
               aria-expanded={creationOpen}
               data-testid="step-group-character-creation-toggle"
               className={
-                "inline-flex h-full w-full items-center justify-center rounded-sm px-3 py-2.5 font-display leading-tight text-sm font-semibold font-semibold ring-offset-background transition-all " +
+                "inline-flex h-full w-full items-center justify-center rounded-sm px-3 py-2 font-display leading-tight text-sm font-semibold font-semibold ring-offset-background transition-all " +
                 (inCreation
                   ? "bg-background text-foreground shadow-sm"
                   : "text-foreground/70 hover:text-foreground")
@@ -936,7 +936,7 @@ export default function Builder() {
               onClick={toggleSpelljamming}
               data-testid="step-group-spelljamming-toggle"
               className={
-                "inline-flex h-full w-full items-center justify-center rounded-sm px-3 py-2.5 font-display leading-tight text-sm font-semibold font-semibold ring-offset-background transition-all " +
+                "inline-flex h-full w-full items-center justify-center rounded-sm px-3 py-2 font-display leading-tight text-sm font-semibold font-semibold ring-offset-background transition-all " +
                 (effectiveStep === "spelljamming"
                   ? "bg-background text-foreground shadow-sm"
                   : "text-foreground/70 hover:text-foreground")
@@ -1039,7 +1039,7 @@ export default function Builder() {
             Reference ride up tight (Shaun, 2026-11-07: "push
             everything up" — no dead gap above them); other steps
             keep mt-6. */}
-        <div className={effectiveStep === "abilities" || effectiveStep === "spelljamming" || effectiveStep === "reference" || effectiveStep === "equipment" || effectiveStep === "magic-items" || effectiveStep === "inventory" || effectiveStep === "psionics" || effectiveStep === "sheet" ? "mt-2" : "mt-6"}>
+        <div className={effectiveStep === "abilities" || effectiveStep === "spelljamming" || effectiveStep === "reference" || effectiveStep === "equipment" || effectiveStep === "magic-items" || effectiveStep === "inventory" || effectiveStep === "psionics" || effectiveStep === "sheet" ? "mt-1" : "mt-6"}>
           {currentStep === "abilities" && (
             <div data-testid="step-panel-abilities">
               {/* Step 1 is Abilities. The name box that sat on
@@ -1184,7 +1184,7 @@ export default function Builder() {
           {currentStep === "spelljamming" && <StepSpelljamming />}
         </div>
 
-        <div className={`${effectiveStep === "reference" || effectiveStep === "item-creation" || effectiveStep === "spelljamming" || effectiveStep === "abilities" || effectiveStep === "equipment" || effectiveStep === "magic-items" || effectiveStep === "inventory" || effectiveStep === "psionics" || effectiveStep === "sheet" ? "mt-3" : "mt-8"} flex items-center justify-between`}>
+        <div className={`${effectiveStep === "reference" || effectiveStep === "item-creation" || effectiveStep === "spelljamming" || effectiveStep === "abilities" || effectiveStep === "equipment" || effectiveStep === "magic-items" || effectiveStep === "inventory" || effectiveStep === "psionics" || effectiveStep === "sheet" ? "mt-2" : "mt-8"} flex items-center justify-between`}>
           <Button variant="outline" disabled={!prev} onClick={() => prev && goTo(prev.id)} data-testid="button-prev-step">
             <ChevronLeft className="mr-1 h-4 w-4" /> {prev ? prev.label : "Back"}
           </Button>

@@ -187,7 +187,7 @@ export function StepAbilities({
             paragraph below removed, the header's bottom padding
             tightens too, so the content closes up into the freed
             space — no empty gap where the paragraph was. */}
-        <CardHeader className="pb-3">
+        <CardHeader className="pb-2">
           <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
             <CardTitle className="font-display text-xl">Ability Scores</CardTitle>
             {/* The "Base scores before racial adjustments…"
@@ -206,7 +206,7 @@ export function StepAbilities({
             </p>
           </div>
         </CardHeader>
-        <CardContent className="space-y-3">
+        <CardContent className="space-y-2">
           <div className="space-y-3">
               {!diceGrid ? (
                 <Button type="button" size="sm" onClick={handleRollGrid} data-testid="button-roll-my-way">
@@ -331,11 +331,11 @@ export function StepAbilities({
                 </>
               )}
           </div>
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
             {ABILITY_KEYS.map((key) => {
               const isDisabled = disabledAbilities.includes(key);
               return (
-                <div key={key} className={cn("space-y-1.5", isDisabled && "opacity-60")}>
+                <div key={key} className={cn("space-y-1", isDisabled && "opacity-60")}>
                   <Label htmlFor={`ability-${key}`} className="flex items-center gap-1">
                     {ABILITY_LABEL[key]}
                     <button
@@ -363,7 +363,7 @@ export function StepAbilities({
                     value={baseAbilityScores[key]}
                     disabled={isDisabled}
                     onChange={(e) => onAbilityChange(key, Number(e.target.value) || 0)}
-                    className="font-mono"
+                    className="h-9 font-mono"
                   />
                   {isDisabled && <p className="text-[11px] text-muted-foreground">Disabled — locked at 10 (+0).</p>}
                 </div>
