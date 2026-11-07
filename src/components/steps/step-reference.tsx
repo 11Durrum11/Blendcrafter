@@ -529,18 +529,18 @@ export function StepReference() {
               data-testid="input-reference-search"
             />
           </div>
-          {/* Split into parts (Shaun, 2026-11-07: Player Reference
-              was "too long as one piece" on his phone): the
-              category and subcategory button walls live inside
-              this collapsed Categories nest, so the page opens as
-              the search box plus collapsed headers. The search box
-              itself stays outside, always visible. */}
-          <details className="sj-nest rounded-md border border-border" data-testid="reference-categories">
-            <summary className="flex cursor-pointer list-none items-center gap-2 px-3 py-2.5 font-display text-sm font-semibold [&::-webkit-details-marker]:hidden">
-              <ChevronRight className="sj-chevron h-4 w-4 shrink-0 transition-transform" />
-              Categories{category !== "all" && activeCategory ? ` — ${activeCategory.label}` : ""}
-            </summary>
-            <div className="space-y-3 p-3 pt-0">
+          {/* Split into parts (Shaun, 2026-11-07, spec given
+              on the call: "Make it so all the buttons fit in
+              such a way there are two buttons all the way
+              down"): the category buttons are laid out as
+              buttons in TWO columns — two across, row after row
+              all the way down — sized so the whole set fits his
+              phone screen without scrolling. The subcategory
+              buttons below follow the same two-across layout
+              when a category is picked. (An earlier pass the
+              same night tucked the walls inside a collapsed
+              Categories nest; his spec replaced it — the buttons
+              themselves, two across, are the split.) */}
           <div className="grid grid-cols-2 gap-1.5">
             <Button size="sm" className="text-base" variant={category === "all" ? "default" : "outline"} onClick={() => pickCategory("all")}>
               All ({TOTAL_ROWS.toLocaleString()})
@@ -583,8 +583,6 @@ export function StepReference() {
               ))}
             </div>
           )}
-            </div>
-          </details>
         </CardContent>
       </Card>
 
