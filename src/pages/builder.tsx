@@ -980,6 +980,31 @@ export default function Builder() {
                   <UserPlus className="mr-2 h-7 w-7" />
                   <span>New Character</span>
                 </Button>
+                {/* The character-name field, moved up beside the
+                    New Character button (Shaun, 2026-11-07: "Put
+                    the unnamed character button next to the new
+                    character button — in between the new character
+                    button and the abilities"): one tight row —
+                    New Character · name field · Abilities onward.
+                    Same field, same wiring (viewBuild/viewCb, so
+                    the New-button gate applies exactly as it did
+                    inside the Abilities panel); only its position
+                    changed. It lived on top of the Abilities panel
+                    from v20.41 until this move. */}
+                <div
+                  className="flex flex-wrap items-center gap-x-3 gap-y-1 rounded-md border border-input bg-background py-1.5 pl-3 pr-3"
+                  data-testid="character-heading-box"
+                >
+                  <Input
+                    id="character-name"
+                    data-testid="input-character-name"
+                    aria-label="Character name"
+                    value={viewBuild.name}
+                    onChange={(e) => viewCb.setName(e.target.value)}
+                    className="h-9 w-44 border-0 bg-transparent px-0 font-display shadow-none focus-visible:ring-0 sm:w-56"
+                    placeholder="Unnamed Character"
+                  />
+                </div>
                 {visibleSteps
                   .filter((s) => s.id !== "reference" && s.id !== "item-creation" && s.id !== "spelljamming")
                   .map((s) => (
@@ -1008,38 +1033,20 @@ export default function Builder() {
         <div className="mt-6">
           {currentStep === "abilities" && (
             <div data-testid="step-panel-abilities">
-              {/* Step 1 is Abilities with the name box ON TOP
-                  (Shaun, 2026-11-05: "combine name and the
-                  abilities. Put the name on top in the abilities
-                  and call that one and then everything else
-                  after"). The name is typed right in this box —
-                  it reads "Unnamed Character" until a name is
-                  entered. There is no separate Name step and no
-                  name box anywhere else. While the New-button
-                  gate is closed the box shows the zeroed build. */}
-              <div
-                className="flex flex-wrap items-center gap-x-3 gap-y-1 rounded-md border border-input bg-background py-1.5 pl-3 pr-3"
-                data-testid="character-heading-box"
-              >
-                <Input
-                  id="character-name"
-                  data-testid="input-character-name"
-                  aria-label="Character name"
-                  value={viewBuild.name}
-                  onChange={(e) => viewCb.setName(e.target.value)}
-                  className="h-9 w-44 border-0 bg-transparent px-0 font-display shadow-none focus-visible:ring-0 sm:w-56"
-                  placeholder="Unnamed Character"
-                />
-              </div>
-              <div className="mt-6">
-                <StepAbilities
-                  baseAbilityScores={viewBuild.baseAbilityScores}
-                  disabledAbilities={viewBuild.disabledAbilities}
-                  onAbilityChange={viewCb.setAbility}
-                  onAllAbilitiesChange={viewCb.setAllAbilities}
-                  onToggleAbilityEnabled={viewCb.toggleAbilityEnabled}
-                />
-              </div>
+              {/* Step 1 is Abilities. The name box that sat on
+                  top of this panel (v20.41) moved up beside the
+                  New Character button on 2026-11-07 at Shaun's
+                  order — it lives in the Character Creation panel
+                  now, between New Character and the Abilities
+                  tab. There is still no separate Name step and no
+                  second name box anywhere. */}
+              <StepAbilities
+                baseAbilityScores={viewBuild.baseAbilityScores}
+                disabledAbilities={viewBuild.disabledAbilities}
+                onAbilityChange={viewCb.setAbility}
+                onAllAbilitiesChange={viewCb.setAllAbilities}
+                onToggleAbilityEnabled={viewCb.toggleAbilityEnabled}
+              />
             </div>
           )}
           {currentStep === "race" && (
