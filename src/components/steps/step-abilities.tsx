@@ -183,22 +183,31 @@ export function StepAbilities({
   return (
     <div className="space-y-6">
       <Card>
-        <CardHeader>
-          <div>
+        {/* pb-3 (Shaun, 2026-11-07): with the description
+            paragraph below removed, the header's bottom padding
+            tightens too, so the content closes up into the freed
+            space — no empty gap where the paragraph was. */}
+        <CardHeader className="pb-3">
+          <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
             <CardTitle className="font-display text-xl">Ability Scores</CardTitle>
             {/* The "Base scores before racial adjustments…"
                 description paragraph that sat under this title
                 was removed at Shaun's order, 2026-11-07 — the
                 title and the controls below it stay. */}
+            {/* The My Way verbiage sits NEXT TO the header
+                (Shaun, 2026-11-07): the "Roll 4d6…" paragraph
+                moved up here from the top of the card body,
+                wording unchanged; the body below closes up into
+                the space it left. */}
+            <p className="min-w-0 flex-1 basis-64 text-sm text-muted-foreground">
+              Roll 4d6 and drop the lowest, thirty-six times, into a 6×6 grid — then pick any row, any column, or
+              either diagonal, and place its six results on whichever abilities you choose. No result of 8 or
+              below ever stands — it rerolls on the spot until it beats 8.
+            </p>
           </div>
         </CardHeader>
         <CardContent className="space-y-3">
           <div className="space-y-3">
-              <p className="text-sm text-muted-foreground">
-                Roll 4d6 and drop the lowest, thirty-six times, into a 6×6 grid — then pick any row, any column, or
-                either diagonal, and place its six results on whichever abilities you choose. No result of 8 or
-                below ever stands — it rerolls on the spot until it beats 8.
-              </p>
               {!diceGrid ? (
                 <Button type="button" size="sm" onClick={handleRollGrid} data-testid="button-roll-my-way">
                   <Dices className="mr-1.5 h-3.5 w-3.5" /> Roll the grid
