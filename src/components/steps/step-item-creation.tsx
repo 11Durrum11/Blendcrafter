@@ -34,7 +34,7 @@ function NestBlock({ id, label, children }: { id: string; label: string; childre
         <ChevronRight className="sj-chevron h-4 w-4 shrink-0 transition-transform" />
         {label}
       </summary>
-      <div className="grid gap-3 p-3 pt-0 sm:grid-cols-2">{children}</div>
+      <div className="grid gap-3 p-3 pt-0">{children}</div>
     </details>
   );
 }
@@ -94,9 +94,17 @@ export function StepItemCreation() {
           the same treatment as Player Reference. With no
           CardHeader above it, CardContent's built-in pt-0 puts
           the nests directly under the card's top line. */}
-      <CardContent className="space-y-3">
+      {/* The four nests in ONE row (Shaun, 2026-11-07, exact
+          order confirmed): The General Method, then By Family,
+          then Alchemy — the Non-Magical Craft, then Item
+          Creation Feats — four across, each still collapsed,
+          expanding in place (items-start: an open nest never
+          stretches its row-mates). Narrower screens wrap to
+          two, then one column. Inside a quarter-width nest the
+          blocks stack in a single column (see NestBlock). */}
+      <CardContent className="grid grid-cols-1 items-start gap-3 sm:grid-cols-2 lg:grid-cols-4">
         <NestBlock id="creation-general" label="The General Method">
-          <div className="rounded-md border border-card-border bg-muted/40 p-3 sm:col-span-2" data-testid="creation-general-method">
+          <div className="rounded-md border border-card-border bg-muted/40 p-3" data-testid="creation-general-method">
             <p className="font-display text-xs font-semibold uppercase tracking-wide">{general.label}</p>
             <p className="mt-1.5 text-sm leading-snug text-muted-foreground">{general.text}</p>
           </div>
