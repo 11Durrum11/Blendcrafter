@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Dices, Info } from "lucide-react";
 import { ABILITY_KEYS, ABILITY_LABEL } from "@/engine/types";
 import type { AbilityKey } from "@/engine/types";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -183,14 +183,17 @@ export function StepAbilities({
   return (
     <div className="space-y-6">
       <Card>
-        <CardHeader>
+        {/* pb-3 (Shaun, 2026-11-07): with the description
+            paragraph below removed, the header's bottom padding
+            tightens too, so the content closes up into the freed
+            space — no empty gap where the paragraph was. */}
+        <CardHeader className="pb-3">
           <div>
             <CardTitle className="font-display text-xl">Ability Scores</CardTitle>
-            <CardDescription>
-              Base scores before racial adjustments — generated My Way (Shaun's method; the Standard Array and
-              Point Buy methods were removed at his direction, 2026-11-02). Scores can still be typed in directly
-              below.
-            </CardDescription>
+            {/* The "Base scores before racial adjustments…"
+                description paragraph that sat under this title
+                was removed at Shaun's order, 2026-11-07 — the
+                title and the controls below it stay. */}
           </div>
         </CardHeader>
         <CardContent className="space-y-3">

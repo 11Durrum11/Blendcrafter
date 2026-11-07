@@ -9,7 +9,6 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { RulesetToggle } from "@/components/ruleset-toggle";
 import { HouseRulesToggle } from "@/components/house-rules-toggle";
 import { CharacterRepository } from "@/components/character-repository";
-import { OglFooter } from "@/components/ogl-footer";
 import { StepRace } from "@/components/steps/step-race";
 import { StepAbilities } from "@/components/steps/step-abilities";
 import { StepClasses } from "@/components/steps/step-classes";
@@ -1197,8 +1196,11 @@ export default function Builder() {
           </Button>
         </div>
       </main>
-
-      <OglFooter />
+      {/* No bottom footer section (Shaun, 2026-11-07): the
+          "Blendcrafter open-source template / blending" footer
+          with its About / Attribution button is removed — the
+          page ends with the content above. The ogl-footer
+          component file remains in the tree, unreferenced. */}
     </div>
   );
 }
