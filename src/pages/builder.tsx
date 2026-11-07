@@ -841,7 +841,13 @@ export default function Builder() {
       {/* Bottom padding (Shaun, 2026-11-04): just enough clear space
           at the foot of every page that the area's background scene
           shows unimpeded when he scrolls to the end. */}
-      <main className="mx-auto max-w-6xl px-4 py-6 pb-[45vh] sm:px-6">
+      {/* Magic Item Creation exception (Shaun, 2026-11-07): on
+          that page only, the 45vh foot of clear backdrop is
+          dropped (pb-6) and the nav row below tightens — his
+          order is that the whole page, four-across nests plus
+          nav, fits one screen with no scrolling in its default
+          collapsed state. Every other page keeps pb-[45vh]. */}
+      <main className={`mx-auto max-w-6xl px-4 py-6 sm:px-6 ${effectiveStep === "item-creation" ? "pb-6" : "pb-[45vh]"}`}>
         <Tabs value={effectiveStep} onValueChange={(v) => goTo(v as StepId)}>
           <TabsList className="flex h-auto flex-wrap justify-start gap-1" data-testid="step-tabs">
             {/* The four sections in a two-by-two grid (Shaun,
@@ -1162,7 +1168,7 @@ export default function Builder() {
           {currentStep === "spelljamming" && <StepSpelljamming />}
         </div>
 
-        <div className="mt-8 flex items-center justify-between">
+        <div className={`${effectiveStep === "item-creation" ? "mt-3" : "mt-8"} flex items-center justify-between`}>
           <Button variant="outline" disabled={!prev} onClick={() => prev && goTo(prev.id)} data-testid="button-prev-step">
             <ChevronLeft className="mr-1 h-4 w-4" /> {prev ? prev.label : "Back"}
           </Button>
