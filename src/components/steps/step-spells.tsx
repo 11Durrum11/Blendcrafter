@@ -103,19 +103,55 @@ export function StepSpells({ build, resolved, onToggleSpell }: StepSpellsProps) 
   return (
     <div className="space-y-6">
       <Card>
-        <CardHeader>
-          <CardTitle className="font-display text-xl flex items-center gap-2">
-            <BookOpen className="h-5 w-5 text-primary" /> Spells
-          </CardTitle>
-          <CardDescription>
-            Pick spells per casting class. Lists, level access, and per-level limits come from each class's own
-            book table; selections above a limit are blocked here and flagged on the sheet if they ever slip
-            through. Wizard and wu jen selections are the spellbook (no known cap in the rules). Prestige-class
-            "+1 spellcasting" advancement is not modeled.
-          </CardDescription>
+        <CardHeader className="pb-3">
+          <div className="flex flex-wrap items-start gap-x-4 gap-y-1">
+            <CardTitle className="font-display text-xl flex items-center gap-2">
+              <BookOpen className="h-5 w-5 text-primary" /> Spells
+            </CardTitle>
+            {/* All the Spells verbiage sits NEXT TO the header
+                (Shaun, 2026-11-07, same pattern as Ability Scores
+                and Feats): the description beside the title,
+                wording unchanged — and the "None of this build's
+                classes…" sentence, which used to sit apart down
+                in the card body, brought up to sit with the rest
+                of the verbiage. The search bar moved down beside
+                the Spell Library heading; with both gone, this
+                card is header-only and everything below pulls
+                up into the freed space. */}
+            <CardDescription className="min-w-0 flex-1 basis-72">
+              Pick spells per casting class. Lists, level access, and per-level limits come from each class's own
+              book table; selections above a limit are blocked here and flagged on the sheet if they ever slip
+              through. Wizard and wu jen selections are the spellbook (no known cap in the rules). Prestige-class
+              "+1 spellcasting" advancement is not modeled.
+              {casterClasses.length === 0 && (
+                <span className="mt-2 block">
+                  None of this build's classes has a spellcasting progression. Add levels in a casting class (wizard,
+                  cleric, sorcerer, …) and its list will appear below the library for picking.
+                </span>
+              )}
+            </CardDescription>
+          </div>
         </CardHeader>
-        <CardContent>
-          <div className="flex flex-wrap items-center gap-3">
+      </Card>
+
+      {/* Spell library: every list segregated by casting type, then by level. */}
+      <Card>
+        <CardHeader className="pb-3">
+          <div className="flex flex-wrap items-start justify-between gap-3">
+            <div className="min-w-0">
+              <CardTitle className="font-display text-lg">Spell Library — by casting type and level</CardTitle>
+              <CardDescription className="mt-1.5">
+                Every spell list, segregated by casting type — cleric, wizard, druid, and so on — and inside each type
+                by spell level. This is the browsing library; you pick spells in your own classes' cards below.
+              </CardDescription>
+            </div>
+            {/* The search bar sits next to the Spell Library
+                heading (Shaun, 2026-11-07), aligned with the
+                casting type and level controls it narrows. No
+                "Selected only" toggle switch (Shaun, 2026-11-03:
+                "Take all the toggles off. All of them."). The
+                lists show every spell; the search box still
+                narrows them. */}
             <div className="relative w-full sm:w-64">
               <Search className="absolute left-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-muted-foreground" />
               <Input
@@ -126,28 +162,7 @@ export function StepSpells({ build, resolved, onToggleSpell }: StepSpellsProps) 
                 data-testid="input-spell-search"
               />
             </div>
-            {/* No "Selected only" toggle switch (Shaun, 2026-11-03:
-                "Take all the toggles off. All of them."). The lists
-                show every spell; the search box above still narrows
-                them. */}
           </div>
-          {casterClasses.length === 0 && (
-            <p className="mt-3 text-sm text-muted-foreground">
-              None of this build's classes has a spellcasting progression. Add levels in a casting class (wizard,
-              cleric, sorcerer, …) and its list will appear below the library for picking.
-            </p>
-          )}
-        </CardContent>
-      </Card>
-
-      {/* Spell library: every list segregated by casting type, then by level. */}
-      <Card>
-        <CardHeader>
-          <CardTitle className="font-display text-lg">Spell Library — by casting type and level</CardTitle>
-          <CardDescription>
-            Every spell list, segregated by casting type — cleric, wizard, druid, and so on — and inside each type
-            by spell level. This is the browsing library; you pick spells in your own classes' cards below.
-          </CardDescription>
         </CardHeader>
         <CardContent className="space-y-3">
           {casterClasses.length === 0 && (
