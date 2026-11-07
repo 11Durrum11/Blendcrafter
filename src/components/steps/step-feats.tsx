@@ -218,20 +218,27 @@ export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved,
   return (
     <div className="space-y-6">
       <Card>
-        <CardHeader>
-          <CardTitle className="font-display text-xl flex items-center gap-2">
-            <Zap className="h-5 w-5 text-primary" /> Feats
-          </CardTitle>
-          <CardDescription>
-            The list is names only: <span className="font-medium">hover a name</span> for the short crunch,{" "}
-            <span className="font-medium">click it</span> for the whole thing. Feats whose prerequisites don't
-            look met are <span className="font-medium">grayed out</span> — prerequisites are shown as free text and are{" "}
-            <span className="font-medium">not enforced</span>. Source:{" "}
-            <a href="https://www.d20srd.org/srd/feats.htm" target="_blank" rel="noreferrer" className="text-primary underline underline-offset-2">
-              d20 SRD Feats
-            </a>
-            .
-          </CardDescription>
+        <CardHeader className="pb-3">
+          <div className="flex flex-wrap items-start gap-x-4 gap-y-1">
+            <CardTitle className="font-display text-xl flex items-center gap-2">
+              <Zap className="h-5 w-5 text-primary" /> Feats
+            </CardTitle>
+            {/* The verbiage sits NEXT TO the header (Shaun,
+                2026-11-07, same pattern as Ability Scores): the
+                description moved up beside the title, wording
+                unchanged; everything below pulls up into the
+                space it left. */}
+            <CardDescription className="min-w-0 flex-1 basis-72">
+              The list is names only: <span className="font-medium">hover a name</span> for the short crunch,{" "}
+              <span className="font-medium">click it</span> for the whole thing. Feats whose prerequisites don't
+              look met are <span className="font-medium">grayed out</span> — prerequisites are shown as free text and are{" "}
+              <span className="font-medium">not enforced</span>. Source:{" "}
+              <a href="https://www.d20srd.org/srd/feats.htm" target="_blank" rel="noreferrer" className="text-primary underline underline-offset-2">
+                d20 SRD Feats
+              </a>
+              .
+            </CardDescription>
+          </div>
         </CardHeader>
         <CardContent>
           <div className="flex flex-wrap items-center justify-between gap-3 rounded-md border border-card-border bg-card p-3">
