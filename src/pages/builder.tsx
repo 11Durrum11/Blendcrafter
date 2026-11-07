@@ -847,7 +847,7 @@ export default function Builder() {
           order is that those pages ride up tight and fit one
           screen with no scrolling in their default state. Every
           other page keeps pb-[45vh]. */}
-      <main className={`mx-auto max-w-6xl px-4 pt-2 sm:px-6 ${effectiveStep === "reference" || effectiveStep === "item-creation" || effectiveStep === "spelljamming" || effectiveStep === "abilities" ? "pb-6" : "pb-[45vh]"}`}>
+      <main className={`mx-auto max-w-6xl px-4 pt-2 sm:px-6 ${effectiveStep === "reference" || effectiveStep === "item-creation" || effectiveStep === "spelljamming" || effectiveStep === "abilities" || effectiveStep === "equipment" || effectiveStep === "magic-items" || effectiveStep === "inventory" || effectiveStep === "psionics" || effectiveStep === "sheet" ? "pb-6" : "pb-[45vh]"}`}>
         <Tabs value={effectiveStep} onValueChange={(v) => goTo(v as StepId)}>
           <TabsList className="flex h-auto flex-wrap justify-start gap-1" data-testid="step-tabs">
             {/* The four sections on ONE LINE (Shaun,
@@ -1039,7 +1039,7 @@ export default function Builder() {
             Reference ride up tight (Shaun, 2026-11-07: "push
             everything up" — no dead gap above them); other steps
             keep mt-6. */}
-        <div className={effectiveStep === "abilities" || effectiveStep === "spelljamming" || effectiveStep === "reference" ? "mt-2" : "mt-6"}>
+        <div className={effectiveStep === "abilities" || effectiveStep === "spelljamming" || effectiveStep === "reference" || effectiveStep === "equipment" || effectiveStep === "magic-items" || effectiveStep === "inventory" || effectiveStep === "psionics" || effectiveStep === "sheet" ? "mt-2" : "mt-6"}>
           {currentStep === "abilities" && (
             <div data-testid="step-panel-abilities">
               {/* Step 1 is Abilities. The name box that sat on
@@ -1184,7 +1184,7 @@ export default function Builder() {
           {currentStep === "spelljamming" && <StepSpelljamming />}
         </div>
 
-        <div className={`${effectiveStep === "reference" || effectiveStep === "item-creation" || effectiveStep === "spelljamming" || effectiveStep === "abilities" ? "mt-3" : "mt-8"} flex items-center justify-between`}>
+        <div className={`${effectiveStep === "reference" || effectiveStep === "item-creation" || effectiveStep === "spelljamming" || effectiveStep === "abilities" || effectiveStep === "equipment" || effectiveStep === "magic-items" || effectiveStep === "inventory" || effectiveStep === "psionics" || effectiveStep === "sheet" ? "mt-3" : "mt-8"} flex items-center justify-between`}>
           <Button variant="outline" disabled={!prev} onClick={() => prev && goTo(prev.id)} data-testid="button-prev-step">
             <ChevronLeft className="mr-1 h-4 w-4" /> {prev ? prev.label : "Back"}
           </Button>

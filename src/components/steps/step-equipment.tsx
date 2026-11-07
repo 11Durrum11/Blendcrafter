@@ -334,11 +334,18 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
     .map(([lvl, gp]) => ({ level: Number(lvl), gp }))
     .sort((a, b) => a.level - b.level);
 
+  // The chart in two side-by-side columns (Shaun, 2026-11-07:
+  // "cut the wealth by level in half and squeeze it all
+  // together") — every level and every value stays; the two
+  // halves just stand next to each other at half the height.
+  const wblHalf = Math.ceil(wblEntries.length / 2);
+  const wblColumns = [wblEntries.slice(0, wblHalf), wblEntries.slice(wblHalf)];
+
   return (
-    <div className="space-y-6">
+    <div className={cn("space-y-6", part === "equipment" && "space-y-4")}>
       {part === "equipment" && (<>
       <Card>
-        <CardHeader>
+        <CardHeader className="pb-3">
           <div>
             <CardTitle className="font-display text-xl flex items-center gap-2">
               <Coins className="h-5 w-5 text-primary" /> Wealth
@@ -406,7 +413,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
               with the build's ECL highlighted, and the 70/30 rule
               calculated from it — at least 70% of the chart amount
               must be spent on gear, at most 30% may stay liquid. */}
-          <div className={cn("mt-3 rounded-md border border-card-border bg-card p-3", wblOpen && "ml-[calc(50%-50vw)] w-screen px-3")} data-testid="wealth-by-level-panel">
+          <div className={cn("mt-2 rounded-md border border-card-border bg-card p-2.5", wblOpen && "ml-[calc(50%-50vw)] w-screen px-3")} data-testid="wealth-by-level-panel">
             <button
               type="button"
               className="flex w-full flex-wrap items-baseline justify-between gap-2 text-left"
@@ -431,18 +438,20 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
               Click a level to set it as your total gp limit — the limit shows beside Magic items in the
               summary below.
             </p>
-            <div className="mt-2" data-testid="wealth-by-level-chart">
-              <table className="w-full text-xs">
-                <thead>
-                  <tr className="border-b border-card-border text-left text-muted-foreground">
-                    <th className="py-1 pr-2 font-medium">Level</th>
-                    <th className="py-1 pr-2 font-medium">Wealth (gp)</th>
-                    <th className="py-1 pr-2 font-medium">Spend 70%</th>
-                    <th className="py-1 font-medium">Liquid 30%</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {wblEntries.map(({ level, gp }) => (
+            <div className="mt-2 grid grid-cols-2 items-start gap-x-4" data-testid="wealth-by-level-chart">
+              {wblColumns.map((column, ci) => (
+                <table key={ci} className="w-full text-[11px] xl:text-xs">
+                  <thead>
+                    <tr className="border-b border-card-border text-left text-muted-foreground">
+                      <th className="py-1 pr-1.5 font-medium">Level</th>
+                      <th className="py-1 pr-1.5 font-medium">Wealth (gp)</th>
+                      <th className="py-1 pr-1.5 font-medium">Spend 70%</th>
+                      <th className="py-1 font-medium">Liquid 30%</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {column.map(({ level, gp }) => (
+
                     <tr
                       key={level}
                       data-testid={level === resolved.ecl.value ? "wealth-by-level-current" : undefined}
@@ -462,8 +471,9 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
                       <td className="py-0.5 font-mono">{formatGp(gp * 0.3)}</td>
                     </tr>
                   ))}
-                </tbody>
-              </table>
+                  </tbody>
+                </table>
+              ))}
             </div>
             {split !== null ? (
               <div className="mt-3 border-t border-card-border pt-2" data-testid="wealth-initial-split">
@@ -550,18 +560,24 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
       </Card>
 
       <Card>
-        <CardHeader>
-          <CardTitle className="font-display text-xl flex items-center gap-2">
-            <Shield className="h-5 w-5 text-primary" /> Equipment
-          </CardTitle>
-          <CardDescription>
-            Add gear to your inventory. Equipped armor and shields with an AC bonus feed directly into the Character
-            Sheet's Armor Class total. Source:{" "}
-            <a href="https://www.d20srd.org/srd/equipment/" target="_blank" rel="noreferrer" className="text-primary underline underline-offset-2">
-              d20 SRD Equipment
-            </a>
-            .
-          </CardDescription>
+        <CardHeader className="pb-3">
+          <div className="flex flex-wrap items-start gap-x-4 gap-y-1">
+            <CardTitle className="font-display text-xl flex items-center gap-2">
+              <Shield className="h-5 w-5 text-primary" /> Equipment
+            </CardTitle>
+            {/* The verbiage sits NEXT TO the header (Shaun,
+                2026-11-07, same pattern as Ability Scores /
+                Feats / Spells): the description moved up beside
+                the title, wording unchanged. */}
+            <CardDescription className="min-w-0 flex-1 basis-72">
+              Add gear to your inventory. Equipped armor and shields with an AC bonus feed directly into the Character
+              Sheet's Armor Class total. Source:{" "}
+              <a href="https://www.d20srd.org/srd/equipment/" target="_blank" rel="noreferrer" className="text-primary underline underline-offset-2">
+                d20 SRD Equipment
+              </a>
+              .
+            </CardDescription>
+          </div>
         </CardHeader>
         <CardContent>
           <div className="flex flex-wrap items-center gap-2">
@@ -572,7 +588,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
           </div>
 
 
-          <div className="mt-3 grid grid-cols-2 items-start gap-3 sm:grid-cols-4">
+          <div className="mt-2 grid grid-cols-2 items-start gap-2 sm:grid-cols-4">
             {visibleEquipment.length === 0 ? (
               <p className="col-span-full p-4 text-sm text-muted-foreground">No equipment matches your search or the enabled rule sets.</p>
             ) : (
@@ -583,7 +599,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
                   <button
                     type="button"
                     id={`equip-cat-${section.key}`}
-                    className="flex w-full items-center gap-1.5 border-b border-card-border bg-card px-3 py-2 text-left font-display text-sm font-semibold"
+                    className="flex w-full items-center gap-1.5 border-b border-card-border bg-card px-3 py-1.5 text-left font-display text-sm font-semibold"
                     onClick={() => toggleSet(setOpenEquipSections, section.key)}
                     aria-expanded={equipOpen}
                     data-testid={`heading-equip-cat-${section.key}`}
@@ -726,22 +742,27 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
       </>)}
       {part === "magic" && (
       <Card>
-        <CardHeader>
-          <div className="flex flex-wrap items-start justify-between gap-4">
-            <div>
-              <CardTitle className="font-display text-xl">Magic Items</CardTitle>
-              <CardDescription>
-                Source:{" "}
-                <a href="https://www.d20srd.org/srd/magicItems/" target="_blank" rel="noreferrer" className="text-primary underline underline-offset-2">
-                  d20 SRD Magic Items
-                </a>
-                .
-              </CardDescription>
-            </div>
-            {/* The potion-rules panel (Shaun, 2026-11-04): in the
-                spot the creation-mechanics panel used to occupy, to
-                the right of the Magic Items header. */}
-            <div className="max-w-xl rounded-md border border-card-border bg-muted/40 p-3" data-testid="panel-potion-rules">
+        <CardHeader className="pb-3">
+          <div>
+            <CardTitle className="font-display text-xl">Magic Items</CardTitle>
+            <CardDescription>
+              Source:{" "}
+              <a href="https://www.d20srd.org/srd/magicItems/" target="_blank" rel="noreferrer" className="text-primary underline underline-offset-2">
+                d20 SRD Magic Items
+              </a>
+              .
+            </CardDescription>
+          </div>
+          {/* The two mechanics panels side by side on one row
+              (Shaun, 2026-11-07): Creating Magic Items next to
+              Potions — Magical & Alchemical, each resized to
+              share the row. Before this, Potions sat right of
+              the title and Creating sat stacked underneath
+              (the 2026-11-04 arrangement). Panel contents and
+              wording unchanged; on a narrow phone the row
+              stacks back to one column. */}
+          <div className="mt-3 grid grid-cols-1 items-start gap-3 lg:grid-cols-2">
+            <div className="rounded-md border border-card-border bg-muted/40 p-3" data-testid="panel-potion-rules">
               <p className="font-display text-xs font-semibold uppercase tracking-wide">Potions — Magical &amp; Alchemical</p>
               <ul className="mt-1.5 space-y-1 text-xs leading-snug text-muted-foreground">
                 {POTION_RULE_LINES.map((line) => (
@@ -751,10 +772,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
                 ))}
               </ul>
             </div>
-          </div>
-          {/* The one creation-mechanics panel (Shaun, 2026-11-04):
-              directly under the Magic Items header. */}
-          <div className="mt-3 max-w-xl rounded-md border border-card-border bg-muted/40 p-3" data-testid="panel-magic-item-creation">
+            <div className="rounded-md border border-card-border bg-muted/40 p-3" data-testid="panel-magic-item-creation">
               <p className="font-display text-xs font-semibold uppercase tracking-wide">Creating Magic Items</p>
               <ul className="mt-1.5 space-y-1 text-xs leading-snug text-muted-foreground">
                 {MAGIC_ITEM_CREATION_LINES.map((line) => (
@@ -764,6 +782,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
                 ))}
               </ul>
             </div>
+          </div>
         </CardHeader>
         <CardContent>
           <div className="relative">
@@ -840,9 +859,17 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
       )}
       {part === "inventory" && (
       <Card>
-        <CardHeader>
-          <CardTitle className="font-display text-xl">Inventory</CardTitle>
-          <CardDescription>Toggle "Equipped" on armor or shields to apply their AC bonus.</CardDescription>
+        <CardHeader className="pb-3">
+          <div className="flex flex-wrap items-start gap-x-4 gap-y-1">
+            <CardTitle className="font-display text-xl">Inventory</CardTitle>
+            {/* The toggle verbiage sits NEXT TO the header
+                (Shaun, 2026-11-07): the sentence about the
+                Equipped toggle moved up beside the title,
+                wording unchanged. The toggles themselves stay
+                in the item rows where they work — the verbiage
+                and the toggle are not one unit here. */}
+            <CardDescription className="min-w-0 flex-1 basis-72">Toggle "Equipped" on armor or shields to apply their AC bonus.</CardDescription>
+          </div>
         </CardHeader>
         <CardContent>
           {resolved.inventory.length === 0 ? (
