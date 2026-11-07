@@ -138,7 +138,7 @@ export function StepSpells({ build, resolved, onToggleSpell }: StepSpellsProps) 
       <Card>
         <CardHeader className="pb-3">
           <div className="flex flex-wrap items-start justify-between gap-3">
-            <div className="min-w-0">
+            <div className="min-w-0 flex-1 basis-80">
               <CardTitle className="font-display text-lg">Spell Library — by casting type and level</CardTitle>
               <CardDescription className="mt-1.5">
                 Every spell list, segregated by casting type — cleric, wizard, druid, and so on — and inside each type
@@ -152,7 +152,7 @@ export function StepSpells({ build, resolved, onToggleSpell }: StepSpellsProps) 
                 "Take all the toggles off. All of them."). The
                 lists show every spell; the search box still
                 narrows them. */}
-            <div className="relative w-full sm:w-64">
+            <div className="relative w-full shrink-0 sm:w-64">
               <Search className="absolute left-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-muted-foreground" />
               <Input
                 value={query}
