@@ -317,9 +317,41 @@ export function StepSheet({ character }: StepSheetProps) {
         </CardContent>
       </Card>
 
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        <Card>
+      <div className="grid items-start gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {/* Stat bubbles (Shaun, 2026-11-07): Base Attack &
+            Hit Points on the LEFT spanning the band, Armor
+            Class to its RIGHT, Saving Throws BELOW Armor
+            Class, and the Challenge Rating / Level Adjustment
+            / Effective Character Level bubbles stacked in
+            the right-hand column beside the Saving Throws.
+            Armor Class and Saving Throws are both shrunk to
+            fit their contents. Contents, values, and
+            behaviour unchanged — positions only. */}
+        <Card className="lg:row-span-2">
           <CardHeader>
+            <CardTitle className="font-display text-lg">Base Attack &amp; Hit Points</CardTitle>
+            <CardDescription>
+              Base Attack Bonus is the backbone of every attack you make. Melee Attack adds your Strength to it,
+              Ranged Attack adds your Dexterity, and Grapple is your bonus for wrestling, holding, and escaping
+              holds. Initiative decides who acts first when a fight starts. Hit Points are how much damage you
+              can take before you fall. Tap any of them for the full breakdown.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-2">
+            <AuditTrail label="Base Attack Bonus" value={`+${bab.total}`} audit={bab.audit} />
+            <AuditTrail label="Melee Attack" value={fmtMod(attack.melee.total)} audit={attack.melee.audit} data-testid="attack-melee" />
+            <AuditTrail label="Ranged Attack" value={fmtMod(attack.ranged.total)} audit={attack.ranged.audit} data-testid="attack-ranged" />
+            <AuditTrail label="Grapple" value={fmtMod(attack.grapple.total)} audit={attack.grapple.audit} data-testid="attack-grapple" />
+            <AuditTrail label="Initiative" value={fmtMod(initiative.total)} audit={initiative.audit} data-testid="initiative" />
+            <AuditTrail label="Hit Points" value={hp.total} audit={hp.audit} />
+          </CardContent>
+        </Card>
+
+        {/* Armor Class fits its content too (Shaun,
+            2026-11-07: "So is the armor class") — h-fit plus
+            the tightened header, like Saving Throws. */}
+        <Card className="h-fit lg:col-start-2">
+          <CardHeader className="pb-3">
             <CardTitle className="font-display text-lg">Armor Class</CardTitle>
             <CardDescription>
               How hard you are to hit: an attacker&apos;s roll must meet or beat this number. Touch {ac.touch} is
@@ -341,28 +373,13 @@ export function StepSheet({ character }: StepSheetProps) {
           </CardContent>
         </Card>
 
-        <Card>
-          <CardHeader>
-            <CardTitle className="font-display text-lg">Base Attack &amp; Hit Points</CardTitle>
-            <CardDescription>
-              Base Attack Bonus is the backbone of every attack you make. Melee Attack adds your Strength to it,
-              Ranged Attack adds your Dexterity, and Grapple is your bonus for wrestling, holding, and escaping
-              holds. Initiative decides who acts first when a fight starts. Hit Points are how much damage you
-              can take before you fall. Tap any of them for the full breakdown.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-2">
-            <AuditTrail label="Base Attack Bonus" value={`+${bab.total}`} audit={bab.audit} />
-            <AuditTrail label="Melee Attack" value={fmtMod(attack.melee.total)} audit={attack.melee.audit} data-testid="attack-melee" />
-            <AuditTrail label="Ranged Attack" value={fmtMod(attack.ranged.total)} audit={attack.ranged.audit} data-testid="attack-ranged" />
-            <AuditTrail label="Grapple" value={fmtMod(attack.grapple.total)} audit={attack.grapple.audit} data-testid="attack-grapple" />
-            <AuditTrail label="Initiative" value={fmtMod(initiative.total)} audit={initiative.audit} data-testid="initiative" />
-            <AuditTrail label="Hit Points" value={hp.total} audit={hp.audit} />
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
+        {/* Saving Throws fits its content (Shaun,
+            2026-11-07: "that whole bottom half is blank") —
+            h-fit plus the tightened header; the band grid is
+            items-start so no bubble stretches into dead
+            space. */}
+        <Card className="h-fit lg:col-start-2 lg:row-start-2">
+          <CardHeader className="pb-3">
             <CardTitle className="font-display text-lg">Saving Throws</CardTitle>
             <CardDescription>
               The three rolls you make to resist harm. Fortitude withstands poison, disease, and anything that
@@ -376,6 +393,17 @@ export function StepSheet({ character }: StepSheetProps) {
             <AuditTrail label="Will" value={fmtMod(saves.will.total)} audit={saves.will.audit} />
           </CardContent>
         </Card>
+
+        {/* CR / LA / ECL stacked beside the Saving Throws
+            (Shaun, 2026-11-07) — moved up from the
+            three-across row that used to sit below the
+            explanatory paragraph; the paragraph itself stays
+            below the band as the sheet's legend. */}
+        <div className="flex flex-col justify-center gap-4 lg:col-start-3 lg:row-span-2">
+          <AuditTrail label="Challenge Rating" value={cr.value} audit={cr.audit} />
+          <AuditTrail label="Level Adjustment" value={levelAdjustment.current} audit={levelAdjustment.audit} />
+          <AuditTrail label="Effective Character Level" value={ecl.value} audit={ecl.audit} />
+        </div>
       </div>
 
       <p className="text-sm leading-6 text-muted-foreground">
@@ -386,14 +414,17 @@ export function StepSheet({ character }: StepSheetProps) {
         adjustment — is the level the game treats you as for experience, treasure, and what you can handle.
       </p>
 
-      <div className="grid gap-4 sm:grid-cols-3">
-        <AuditTrail label="Challenge Rating" value={cr.value} audit={cr.audit} />
-        <AuditTrail label="Level Adjustment" value={levelAdjustment.current} audit={levelAdjustment.audit} />
-        <AuditTrail label="Effective Character Level" value={ecl.value} audit={ecl.audit} />
-      </div>
-
+      {/* Five blocks halved and grouped (Shaun, 2026-11-07:
+          "Cut the speed bubble in half, the special attacks
+          bubble in half, and the skills in half and the feats
+          in half and the inventory in half. Stack them all up
+          next to each other."): Speed, Special Attacks,
+          Skills, Feats, and Inventory stand side by side at
+          half width in one group; every content and value
+          inside them is unchanged. */}
+      <div className="grid items-start gap-4 lg:grid-cols-2">
       <Card>
-        <CardHeader>
+        <CardHeader className="pb-3">
           <CardTitle className="font-display text-lg">Speed</CardTitle>
           <CardDescription>
             How far you can move with one move action, by movement type. Land is ordinary walking and running;
@@ -414,7 +445,7 @@ export function StepSheet({ character }: StepSheetProps) {
       </Card>
 
       <Card>
-        <CardHeader>
+        <CardHeader className="pb-3">
           <CardTitle className="font-display text-lg">Special Attacks, Qualities &amp; Traits</CardTitle>
           <CardDescription>
             Everything special about this character, merged from race, class, and every applied template.
@@ -455,7 +486,7 @@ export function StepSheet({ character }: StepSheetProps) {
       </Card>
 
       <Card>
-        <CardHeader>
+        <CardHeader className="pb-3">
           <CardTitle className="font-display text-lg">Skills</CardTitle>
           <CardDescription>
             <span className="block">
@@ -489,7 +520,7 @@ export function StepSheet({ character }: StepSheetProps) {
       </Card>
 
       <Card>
-        <CardHeader>
+        <CardHeader className="pb-3">
           <CardTitle className="font-display text-lg">Feats</CardTitle>
           <CardDescription>
             <span className="block">
@@ -522,7 +553,7 @@ export function StepSheet({ character }: StepSheetProps) {
       </Card>
 
       <Card>
-        <CardHeader>
+        <CardHeader className="pb-3">
           <CardTitle className="font-display text-lg">Inventory</CardTitle>
           <CardDescription>
             Everything this character owns and carries. Anything marked Equipped is already counted where it
@@ -551,6 +582,7 @@ export function StepSheet({ character }: StepSheetProps) {
           )}
         </CardContent>
       </Card>
+      </div>
     </div>
   );
 }
