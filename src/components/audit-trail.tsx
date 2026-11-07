@@ -25,14 +25,14 @@ export function AuditTrail({ label, value, audit, className, ...rest }: AuditTra
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
-        className="flex w-full flex-col items-start gap-1 px-3 py-2 text-left hover-elevate rounded-md"
+        className="flex w-full flex-col items-start gap-0.5 px-3 py-1.5 text-left hover-elevate rounded-md"
         aria-expanded={open}
       >
         <span className="block w-full text-xs font-medium uppercase tracking-wide text-muted-foreground leading-tight">
           {label}
         </span>
         <span className="flex w-full items-center justify-between gap-1.5">
-          <span className="font-display text-lg font-semibold text-foreground tabular-nums">{value}</span>
+          <span className="font-display text-base font-semibold text-foreground tabular-nums">{value}</span>
           <ChevronDown className={cn("h-4 w-4 text-muted-foreground transition-transform", open && "rotate-180")} />
         </span>
       </button>

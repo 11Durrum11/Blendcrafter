@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { ResolvedCharacter } from "@/engine/types";
 import { ABILITY_KEYS, ABILITY_LABEL } from "@/engine/types";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -63,22 +64,36 @@ export function StepSheet({ character }: StepSheetProps) {
   const [sheetUrl, setSheetUrl] = useState<string | null>(null);
   const [previewBusy, setPreviewBusy] = useState(false);
   const [previewError, setPreviewError] = useState<string | null>(null);
+  /* One sheet at a time (Shaun, 2026-11-07): the preview shows a
+     single page of the filled sheet, whole, with no scrolling;
+     the arrow buttons flanking it turn to the next / previous
+     sheet. The filled file's bytes are kept and each page is
+     cut out of them on its own as it is shown. The Open /
+     Download buttons still hand over the complete interactive
+     file, every page, fully editable. */
+  const [sheetBytes, setSheetBytes] = useState<Uint8Array | null>(null);
+  const [sheetPageCount, setSheetPageCount] = useState(0);
+  const [sheetPage, setSheetPage] = useState(1);
+  const pageUrlsRef = useRef<string[]>([]);
   useEffect(() => {
     if (sheetFormat !== "pdf") {
+      setSheetBytes(null);
+      setSheetPageCount(0);
       setSheetUrl(null);
       return;
     }
     let cancelled = false;
-    let url: string | null = null;
     setPreviewBusy(true);
     setPreviewError(null);
     fillInteractiveSheet(character)
-      .then((bytes) => {
+      .then(async (bytes) => {
         if (cancelled) return;
-        url = URL.createObjectURL(
-          new Blob([bytes as BlobPart], { type: "application/pdf" }),
-        );
-        setSheetUrl(url);
+        const { PDFDocument } = await import("pdf-lib");
+        const doc = await PDFDocument.load(bytes as Uint8Array);
+        if (cancelled) return;
+        setSheetBytes(bytes);
+        setSheetPageCount(doc.getPageCount());
+        setSheetPage(1);
       })
       .catch(() => {
         if (!cancelled) {
@@ -92,9 +107,41 @@ export function StepSheet({ character }: StepSheetProps) {
       });
     return () => {
       cancelled = true;
-      if (url) URL.revokeObjectURL(url);
     };
   }, [sheetFormat, character]);
+  useEffect(() => {
+    if (!sheetBytes || sheetPageCount === 0) return;
+    let cancelled = false;
+    (async () => {
+      const { PDFDocument } = await import("pdf-lib");
+      const doc = await PDFDocument.load(sheetBytes);
+      const one = await PDFDocument.create();
+      const [pg] = await one.copyPages(doc, [Math.min(sheetPage, sheetPageCount) - 1]);
+      one.addPage(pg);
+      const bytes = await one.save();
+      if (cancelled) return;
+      const url = URL.createObjectURL(
+        new Blob([bytes as BlobPart], { type: "application/pdf" }),
+      );
+      pageUrlsRef.current.push(url);
+      setSheetUrl(url);
+    })().catch(() => {
+      if (!cancelled) {
+        setPreviewError(
+          "That sheet page could not be shown just now. The Download button still has the whole sheet.",
+        );
+      }
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [sheetBytes, sheetPage, sheetPageCount]);
+  useEffect(() => {
+    const urls = pageUrlsRef.current;
+    return () => {
+      urls.forEach((u) => URL.revokeObjectURL(u));
+    };
+  }, []);
   const [openBusy, setOpenBusy] = useState(false);
   const [openError, setOpenError] = useState<string | null>(null);
   /* Open the sheet (Shaun, 2026-11-05: "The open button on the
@@ -128,47 +175,54 @@ export function StepSheet({ character }: StepSheetProps) {
       /* storage unavailable — the choice still applies for this visit */
     }
   };
+  /* The Sheet format toggle lives up beside the Character Sheet
+     heading (Shaun, 2026-11-07) — a compact inline control in the
+     sheet card's own header, not a card of its own above it; the
+     space its card used to take is closed up. */
   const sheetFormatToggle = (
-    <Card>
-      <CardContent className="flex flex-wrap items-center gap-3 pt-6">
-        <span className="text-sm font-medium text-foreground">Sheet format:</span>
-        <Button
-          type="button"
-          variant={sheetFormat === "builtin" ? "default" : "outline"}
-          onClick={() => chooseFormat("builtin")}
-          data-testid="button-sheet-format-builtin"
-        >
-          Built-in sheet
-        </Button>
-        <Button
-          type="button"
-          variant={sheetFormat === "pdf" ? "default" : "outline"}
-          onClick={() => chooseFormat("pdf")}
-          data-testid="button-sheet-format-pdf"
-        >
-          Interactive sheet (PDF)
-        </Button>
-      </CardContent>
-    </Card>
+    <div className="flex flex-wrap items-center gap-2">
+      <Button
+        type="button"
+        size="sm"
+        variant={sheetFormat === "builtin" ? "default" : "outline"}
+        onClick={() => chooseFormat("builtin")}
+        data-testid="button-sheet-format-builtin"
+      >
+        Built-in sheet
+      </Button>
+      <Button
+        type="button"
+        size="sm"
+        variant={sheetFormat === "pdf" ? "default" : "outline"}
+        onClick={() => chooseFormat("pdf")}
+        data-testid="button-sheet-format-pdf"
+      >
+        Interactive sheet (PDF)
+      </Button>
+    </div>
   );
 
   if (sheetFormat === "pdf") {
     return (
-      <div className="space-y-6" data-testid="character-sheet">
-        {sheetFormatToggle}
+      <div className="space-y-3" data-testid="character-sheet">
         <Card>
-          <CardHeader>
-            <CardTitle className="font-display text-2xl">
-              {character.build.name} — Interactive Sheet
-            </CardTitle>
-            <CardDescription>
-              The classic character sheet, filled in from this build — with extra pages at
-              the back for the personality and campaign details the classic sheet has no
-              room for.
-            </CardDescription>
+          <CardHeader className="pb-3">
+            <div className="flex flex-wrap items-start justify-between gap-3">
+              <div>
+                <CardTitle className="font-display text-2xl">
+                  {character.build.name} — Interactive Sheet
+                </CardTitle>
+                <CardDescription>
+                  The classic character sheet, filled in from this build — with extra pages at
+                  the back for the personality and campaign details the classic sheet has no
+                  room for.
+                </CardDescription>
+              </div>
+              {sheetFormatToggle}
+            </div>
           </CardHeader>
-          <CardContent className="space-y-4">
-            <p className="text-sm leading-6 text-muted-foreground">
+          <CardContent className="space-y-3">
+            <p className="text-[13px] leading-5 text-muted-foreground">
               Every number on it is this builder&apos;s number. The sheet&apos;s own built-in
               calculation scripts are removed from this copy, so nothing inside the
               file can recompute over your build — and every box stays editable by hand
@@ -230,12 +284,45 @@ export function StepSheet({ character }: StepSheetProps) {
               </p>
             ) : null}
             {sheetUrl ? (
-              <iframe
-                src={sheetUrl}
-                title="Interactive character sheet"
-                className="ml-[calc(50%-50vw)] h-[100dvh] w-screen rounded-md border border-card-border bg-white"
-                data-testid="interactive-sheet-viewer"
-              />
+              /* No sidebar, one sheet at a time (Shaun, 2026-11-07):
+                 the preview frame shows a single sheet page, whole
+                 (view=Fit — no scrolling inside the frame), with
+                 the viewer's navigation sidebar switched off
+                 (navpanes=0). The arrow buttons flanking the frame
+                 turn to the previous / next sheet. */
+              <div className="relative ml-[calc(50%-50vw)] w-screen">
+                <iframe
+                  src={`${sheetUrl}#navpanes=0&view=Fit`}
+                  title="Interactive character sheet"
+                  className="h-[100dvh] w-full rounded-md border border-card-border bg-white"
+                  data-testid="interactive-sheet-viewer"
+                />
+                <button
+                  type="button"
+                  onClick={() => setSheetPage((n) => Math.max(1, n - 1))}
+                  disabled={sheetPage <= 1}
+                  aria-label="Previous sheet"
+                  data-testid="button-sheet-prev"
+                  className="opaque-surface absolute left-2 top-1/2 -translate-y-1/2 rounded-full border border-card-border p-2 shadow-md transition-opacity disabled:opacity-40"
+                >
+                  <ChevronLeft className="h-6 w-6" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setSheetPage((n) => Math.min(sheetPageCount, n + 1))}
+                  disabled={sheetPage >= sheetPageCount}
+                  aria-label="Next sheet"
+                  data-testid="button-sheet-next"
+                  className="opaque-surface absolute right-2 top-1/2 -translate-y-1/2 rounded-full border border-card-border p-2 shadow-md transition-opacity disabled:opacity-40"
+                >
+                  <ChevronRight className="h-6 w-6" />
+                </button>
+              </div>
+            ) : null}
+            {sheetUrl && sheetPageCount > 0 ? (
+              <p className="text-center text-sm text-muted-foreground" data-testid="sheet-page-indicator">
+                Sheet {sheetPage} of {sheetPageCount} — the arrows beside the sheet turn its pages.
+              </p>
             ) : null}
           </CardContent>
         </Card>
@@ -244,10 +331,9 @@ export function StepSheet({ character }: StepSheetProps) {
   }
 
   return (
-    <div className="space-y-6" data-testid="character-sheet">
-      {sheetFormatToggle}
+    <div className="space-y-3" data-testid="character-sheet">
       <Card>
-        <CardHeader>
+        <CardHeader className="pb-3">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
               <CardTitle className="font-display text-2xl">{character.build.name}</CardTitle>
@@ -263,10 +349,11 @@ export function StepSheet({ character }: StepSheetProps) {
                 </Badge>
               ))}
             </div>
+            {sheetFormatToggle}
           </div>
         </CardHeader>
-        <CardContent className="pt-0">
-          <p className="text-sm leading-6 text-muted-foreground">
+        <CardContent className="pb-3 pt-0">
+          <p className="text-[13px] leading-5 text-muted-foreground">
             <span className="font-medium text-foreground">How to read this sheet.</span> This is your finished
             character, top to bottom — what you are, how hard you are to hit, how you attack, how you resist,
             how fast you move, what you can do, and what you&apos;re carrying. Every boxed number on this page
@@ -289,7 +376,7 @@ export function StepSheet({ character }: StepSheetProps) {
       </Card>
 
       <Card>
-        <CardHeader>
+        <CardHeader className="pb-3">
           <CardTitle className="font-display text-lg">Ability Scores</CardTitle>
           <CardDescription>
             Your six core abilities. The big number is the score; the number in parentheses is its modifier —
@@ -317,7 +404,7 @@ export function StepSheet({ character }: StepSheetProps) {
         </CardContent>
       </Card>
 
-      <div className="grid items-start gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid items-start gap-2 sm:grid-cols-2 lg:grid-cols-3">
         {/* Stat bubbles (Shaun, 2026-11-07): Base Attack &
             Hit Points on the LEFT spanning the band, Armor
             Class to its RIGHT, Saving Throws BELOW Armor
@@ -328,7 +415,7 @@ export function StepSheet({ character }: StepSheetProps) {
             fit their contents. Contents, values, and
             behaviour unchanged — positions only. */}
         <Card className="lg:row-span-2">
-          <CardHeader>
+          <CardHeader className="pb-3">
             <CardTitle className="font-display text-lg">Base Attack &amp; Hit Points</CardTitle>
             <CardDescription>
               Base Attack Bonus is the backbone of every attack you make. Melee Attack adds your Strength to it,
@@ -406,7 +493,7 @@ export function StepSheet({ character }: StepSheetProps) {
         </div>
       </div>
 
-      <p className="text-sm leading-6 text-muted-foreground">
+      <p className="text-[13px] leading-5 text-muted-foreground">
         <span className="font-medium text-foreground">Challenge Rating</span> is how dangerous this character is
         as an opponent. <span className="font-medium text-foreground">Level Adjustment</span> is the price of a
         powerful race or template, paid in levels instead of power.{" "}
@@ -422,7 +509,7 @@ export function StepSheet({ character }: StepSheetProps) {
           Skills, Feats, and Inventory stand side by side at
           half width in one group; every content and value
           inside them is unchanged. */}
-      <div className="grid items-start gap-4 lg:grid-cols-2">
+      <div className="grid items-start gap-2 lg:grid-cols-2">
       <Card>
         <CardHeader className="pb-3">
           <CardTitle className="font-display text-lg">Speed</CardTitle>
