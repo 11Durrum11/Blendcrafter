@@ -62,6 +62,54 @@
     --ring: 38 92% 50%;
   }
 
+  :root {
+    color-scheme: light;
+  }
+
+  .dark {
+    color-scheme: dark;
+  }
+
+  /* Dropdown popups stay readable (Shaun, 2026-11-07: "the drop
+     down windows are all white on white"). Two mechanisms: native
+     <select> popups follow color-scheme (set above), and their
+     options carry explicit opaque colors; Radix dropdown popups
+     (Select lists, the header Popovers) wear .dropdown-opaque,
+     an opaque surface in the theme's own popover hues. Both are
+     literal opaque colors, so the 100% field transparency of the
+     surface tokens can never wash a dropdown out. */
+  select option,
+  select optgroup {
+    background-color: hsl(44 52% 96%);
+    color: hsl(30 25% 14%);
+  }
+
+  .dark select option,
+  .dark select optgroup {
+    background-color: hsl(222 20% 13%);
+    color: hsl(42 38% 88%);
+  }
+
+  .dropdown-opaque,
+  .opaque-surface {
+    background-color: hsl(44 52% 96%);
+    color: hsl(30 25% 14%);
+  }
+
+  .dark .dropdown-opaque,
+  .dark .opaque-surface {
+    background-color: hsl(222 20% 13%);
+    color: hsl(42 38% 88%);
+  }
+
+  .dropdown-opaque [data-highlighted] {
+    background-color: hsl(38 55% 84%);
+  }
+
+  .dark .dropdown-opaque [data-highlighted] {
+    background-color: hsl(222 18% 22%);
+  }
+
   * {
     @apply border-border;
   }

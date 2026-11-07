@@ -37,7 +37,7 @@ export function AuditTrail({ label, value, audit, className, ...rest }: AuditTra
         </span>
       </button>
       {open && (
-        <div className="border-t border-card-border px-3 py-2.5">
+        <div className="opaque-surface border-t border-card-border px-3 py-2.5">
           {audit.length === 0 ? (
             <p className="text-sm text-muted-foreground italic">No modifiers applied — base value only.</p>
           ) : (
