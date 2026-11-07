@@ -842,12 +842,13 @@ export default function Builder() {
           at the foot of every page that the area's background scene
           shows unimpeded when he scrolls to the end. */}
       {/* Tight-page exception (Shaun, 2026-11-07): on the Magic
-          Item Creation page and on the Abilities step, the 45vh
-          foot of clear backdrop is dropped (pb-6) and the nav
-          row below tightens — his order is that those pages ride
-          up tight and fit one screen with no scrolling in their
-          default state. Every other page keeps pb-[45vh]. */}
-      <main className={`mx-auto max-w-6xl px-4 py-6 sm:px-6 ${effectiveStep === "item-creation" || effectiveStep === "abilities" ? "pb-6" : "pb-[45vh]"}`}>
+          Item Creation page, the Spelljamming page, and the
+          Abilities step, the 45vh foot of clear backdrop is
+          dropped (pb-6) and the nav row below tightens — his
+          order is that those pages ride up tight and fit one
+          screen with no scrolling in their default state. Every
+          other page keeps pb-[45vh]. */}
+      <main className={`mx-auto max-w-6xl px-4 py-6 sm:px-6 ${effectiveStep === "item-creation" || effectiveStep === "spelljamming" || effectiveStep === "abilities" ? "pb-6" : "pb-[45vh]"}`}>
         <Tabs value={effectiveStep} onValueChange={(v) => goTo(v as StepId)}>
           <TabsList className="flex h-auto flex-wrap justify-start gap-1" data-testid="step-tabs">
             {/* The four sections in a two-by-two grid (Shaun,
@@ -1030,11 +1031,10 @@ export default function Builder() {
           </TabsList>
         </Tabs>
 
-        {/* The Abilities step rides up tight under the Character
-            Creation panel (Shaun, 2026-11-07: "push everything
-            up" — no dead gap above the step); other steps keep
-            the standard mt-6. */}
-        <div className={effectiveStep === "abilities" ? "mt-2" : "mt-6"}>
+        {/* The Abilities step and the Spelljamming page ride up
+            tight (Shaun, 2026-11-07: "push everything up" — no
+            dead gap above them); other steps keep mt-6. */}
+        <div className={effectiveStep === "abilities" || effectiveStep === "spelljamming" ? "mt-2" : "mt-6"}>
           {currentStep === "abilities" && (
             <div data-testid="step-panel-abilities">
               {/* Step 1 is Abilities. The name box that sat on
@@ -1179,7 +1179,7 @@ export default function Builder() {
           {currentStep === "spelljamming" && <StepSpelljamming />}
         </div>
 
-        <div className={`${effectiveStep === "item-creation" || effectiveStep === "abilities" ? "mt-3" : "mt-8"} flex items-center justify-between`}>
+        <div className={`${effectiveStep === "item-creation" || effectiveStep === "spelljamming" || effectiveStep === "abilities" ? "mt-3" : "mt-8"} flex items-center justify-between`}>
           <Button variant="outline" disabled={!prev} onClick={() => prev && goTo(prev.id)} data-testid="button-prev-step">
             <ChevronLeft className="mr-1 h-4 w-4" /> {prev ? prev.label : "Back"}
           </Button>

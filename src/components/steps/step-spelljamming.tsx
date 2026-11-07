@@ -1,6 +1,6 @@
 import { useMemo, type ReactNode } from "react";
 import { ChevronRight } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { ALL_EQUIPMENT, ALL_MAGIC_ITEMS, ALL_RACES, ALL_SPELLS } from "@/data";
 import { ShipsNestContent } from "./step-ships";
 
@@ -147,7 +147,7 @@ function NestBlock({ id, label, children }: { id: string; label: string; childre
         <ChevronRight className="sj-chevron h-4 w-4 shrink-0 transition-transform" />
         {label}
       </summary>
-      <div className="grid gap-3 p-3 pt-0 sm:grid-cols-2">{children}</div>
+      <div className="grid gap-3 p-3 pt-0">{children}</div>
     </details>
   );
 }
@@ -192,10 +192,21 @@ export function StepSpelljamming() {
 
   return (
     <Card>
-      <CardHeader>
-        <CardTitle className="font-display text-xl">Spelljamming</CardTitle>
-      </CardHeader>
-      <CardContent className="space-y-3">
+      {/* No page heading (Shaun, 2026-11-07): the section button
+          already names this page, so the large "Spelljamming"
+          title and its header block are gone — the same
+          treatment as Player Reference and Magic Item Creation.
+          CardContent's built-in pt-0 puts the nests directly
+          under the card's top line. */}
+      {/* The six nests side by side (Shaun, 2026-11-07: "put all
+          those buttons now next to each other"), in his order —
+          How It Works, Ships, Helms, Peoples of Space, Spells,
+          Gear — three across at page width, wrapping to a
+          second row of three (six across cannot fit the page
+          width cleanly), each still collapsed, expanding in
+          place. Inside a third-width nest the blocks stack in a
+          single column (see NestBlock). */}
+      <CardContent className="grid grid-cols-1 items-start gap-3 sm:grid-cols-2 lg:grid-cols-3">
         <NestBlock id="spelljamming-how" label="How It Works">
           {SPELLJAMMING_RULE_LINES.map((line) => (
             <div key={line.label} className="rounded-md border border-card-border bg-muted/40 p-3" data-testid={`spelljamming-rule-${line.label}`}>
