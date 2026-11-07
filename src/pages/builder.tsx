@@ -847,29 +847,55 @@ export default function Builder() {
           order is that those pages ride up tight and fit one
           screen with no scrolling in their default state. Every
           other page keeps pb-[45vh]. */}
-      <main className={`mx-auto max-w-6xl px-4 py-6 sm:px-6 ${effectiveStep === "reference" || effectiveStep === "item-creation" || effectiveStep === "spelljamming" || effectiveStep === "abilities" ? "pb-6" : "pb-[45vh]"}`}>
+      <main className={`mx-auto max-w-6xl px-4 pt-2 sm:px-6 ${effectiveStep === "reference" || effectiveStep === "item-creation" || effectiveStep === "spelljamming" || effectiveStep === "abilities" ? "pb-6" : "pb-[45vh]"}`}>
         <Tabs value={effectiveStep} onValueChange={(v) => goTo(v as StepId)}>
           <TabsList className="flex h-auto flex-wrap justify-start gap-1" data-testid="step-tabs">
-            {/* The four sections in a two-by-two grid (Shaun,
-                2026-11-05: "Put the player reference one, then
-                character creation next to it, then magic item
-                creation under player reference. And spelljamming
-                next to magic item creation"). Top row: Player
-                Reference | Character Creation. Bottom row: Magic
-                Item Creation | Spelljamming. The Character
-                Creation panel opens full-width under the grid,
-                where it always opened. */}
-            <div className="grid basis-full auto-rows-fr grid-cols-2 gap-1" data-testid="section-grid">
+            {/* The four sections on ONE LINE (Shaun,
+                2026-11-07: "Put the player reference first, the
+                magic item creation header next to it, the
+                character creation header next to the magic item
+                creation, and the spelljamming all the way to the
+                right of character creation and make it all one
+                line. Then bring it all up."). Left to right:
+                Player Reference | Magic Item Creation |
+                Character Creation | Spelljamming. This
+                supersedes the 2026-11-05 two-by-two grid. The
+                Character Creation panel opens full-width under
+                the row, where it always opened. Labels may wrap
+                inside their quarter cell on a narrow phone
+                screen; the row itself never wraps. */}
+            <div className="grid basis-full auto-rows-fr grid-cols-4 gap-1" data-testid="section-grid">
             {/* Section 1 — Player Reference, standing alone
                 (Shaun, 2026-11-04). */}
             {visibleSteps
               .filter((s) => s.id === "reference")
               .map((s) => (
                 <TabsTrigger key={s.id} value={s.id} data-testid={`tab-step-${s.id}`} className="h-full w-full py-2.5 font-semibold">
-                  {s.label}
+                  <span className="whitespace-normal text-center leading-tight">{s.label}</span>
                 </TabsTrigger>
               ))}
-            {/* Section 2 — Character Creation, sitting right next
+            {/* Section 2 — Magic Item Creation, a top-level line
+                right next to Character Creation (Shaun, 2026-11-04),
+                carrying the whole creation mechanics on its page.
+                NO jump panel (standing pattern, Shaun 2026-11-05):
+                the button lands straight on the page, like
+                Spelljamming. */}
+            <button
+              type="button"
+              onClick={toggleItemCreation}
+              data-testid="step-group-item-creation-toggle"
+              className={
+                "inline-flex h-full w-full items-center justify-center rounded-sm px-3 py-2.5 font-display leading-tight text-sm font-semibold font-semibold ring-offset-background transition-all " +
+                (effectiveStep === "item-creation"
+                  ? "bg-background text-foreground shadow-sm"
+                  : "text-foreground/70 hover:text-foreground")
+              }
+            >
+              <span data-testid="step-group-item-creation-label">
+                                Magic Item Creation
+              </span>
+            </button>
+            {/* Section 3 — Character Creation, sitting right next
                 to Player Reference (Shaun, 2026-11-04). It is a
                 CLICKABLE folder: steps 1–13 stay minimized inside
                 it until its button is clicked open ("Minimize one
@@ -883,7 +909,7 @@ export default function Builder() {
               aria-expanded={creationOpen}
               data-testid="step-group-character-creation-toggle"
               className={
-                "inline-flex h-full w-full items-center justify-center whitespace-nowrap rounded-sm px-3 py-2.5 font-display text-sm font-semibold font-semibold ring-offset-background transition-all " +
+                "inline-flex h-full w-full items-center justify-center rounded-sm px-3 py-2.5 font-display leading-tight text-sm font-semibold font-semibold ring-offset-background transition-all " +
                 (inCreation
                   ? "bg-background text-foreground shadow-sm"
                   : "text-foreground/70 hover:text-foreground")
@@ -898,27 +924,6 @@ export default function Builder() {
                 <ChevronRight className="ml-1.5 h-4 w-4 shrink-0" />
               )}
             </button>
-            {/* Section 3 — Magic Item Creation, a top-level line
-                right next to Character Creation (Shaun, 2026-11-04),
-                carrying the whole creation mechanics on its page.
-                NO jump panel (standing pattern, Shaun 2026-11-05):
-                the button lands straight on the page, like
-                Spelljamming. */}
-            <button
-              type="button"
-              onClick={toggleItemCreation}
-              data-testid="step-group-item-creation-toggle"
-              className={
-                "inline-flex h-full w-full items-center justify-center whitespace-nowrap rounded-sm px-3 py-2.5 font-display text-sm font-semibold font-semibold ring-offset-background transition-all " +
-                (effectiveStep === "item-creation"
-                  ? "bg-background text-foreground shadow-sm"
-                  : "text-foreground/70 hover:text-foreground")
-              }
-            >
-              <span data-testid="step-group-item-creation-label">
-                                Magic Item Creation
-              </span>
-            </button>
             {/* Section 4 — Spelljamming, a top-level line right
                 next to Magic Item Creation (Shaun, 2026-11-04,
                 voice call: "Next to Magic Creation"). NO jump
@@ -931,7 +936,7 @@ export default function Builder() {
               onClick={toggleSpelljamming}
               data-testid="step-group-spelljamming-toggle"
               className={
-                "inline-flex h-full w-full items-center justify-center whitespace-nowrap rounded-sm px-3 py-2.5 font-display text-sm font-semibold font-semibold ring-offset-background transition-all " +
+                "inline-flex h-full w-full items-center justify-center rounded-sm px-3 py-2.5 font-display leading-tight text-sm font-semibold font-semibold ring-offset-background transition-all " +
                 (effectiveStep === "spelljamming"
                   ? "bg-background text-foreground shadow-sm"
                   : "text-foreground/70 hover:text-foreground")
