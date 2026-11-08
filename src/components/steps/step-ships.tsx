@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 import { ChevronRight, X } from "lucide-react";
+import { Piece, Zone } from "@/components/movable-pieces";
 import { ALL_EQUIPMENT, ALL_MAGIC_ITEMS } from "@/data";
 import type { DeckPlan } from "@/data/deck-plans";
 
@@ -85,15 +86,20 @@ import type { DeckPlan } from "@/data/deck-plans";
 /** A sub-nest inside a nest — the break-up of The Ships
  * (Shaun, 2026-11-04). Spans the parent's full grid width;
  * its own cards grid inside it. */
-function SubNest({ id, label, children }: { id: string; label: string; children: ReactNode }) {
+function SubNest({ id, label, children }: { id: string; pieceId?: string; label: string; children: ReactNode }) {
+  // Sub-nests are pieces too (platform rule, 2026-11-08: every
+  // button movable, inner buttons included). The span rides on
+  // the piece shell; the details keeps the rest.
   return (
-    <details id={id} className="sj-nest rounded-md border border-border sm:col-span-2" data-testid={`ships-block-${id}`}>
+    <Piece pieceId={id} layout="grid" className="sm:col-span-2">
+      <details id={id} className="sj-nest h-full rounded-md border border-border" data-testid={`ships-block-${id}`}>
       <summary className="flex cursor-pointer list-none items-center gap-2 px-2.5 py-2 font-display text-sm font-semibold [&::-webkit-details-marker]:hidden">
         <ChevronRight className="sj-chevron h-4 w-4 shrink-0 transition-transform" />
         {label}
       </summary>
       <div className="grid gap-3 p-3 pt-0 sm:grid-cols-2">{children}</div>
-    </details>
+      </details>
+    </Piece>
   );
 }
 
@@ -240,22 +246,22 @@ export function ShipsNestContent() {
   );
 
   return (
-    <>
-          <SubNest id="ships-hulls-spelljamming" label={`Spelljamming Ships — ${shipCounts.spelljamming}`}>
+    <Zone zoneId="spelljamming-ships-sub" className="contents">
+          <SubNest id="ships-hulls-spelljamming" pieceId="ships-hulls-spelljamming" label={`Spelljamming Ships — ${shipCounts.spelljamming}`}>
             {ships
               .filter((i) => i.category === "spelljamming ship")
               .map((item) => (
                 <ShipCard key={item.id} item={item} plans={deckPlans?.[item.id]} onZoom={setZoomPlan} />
               ))}
           </SubNest>
-          <SubNest id="ships-hulls-airships" label={`Airships — ${shipCounts.airship}`}>
+          <SubNest id="ships-hulls-airships" pieceId="ships-hulls-airships" label={`Airships — ${shipCounts.airship}`}>
             {ships
               .filter((i) => i.category === "airship")
               .map((item) => (
                 <ShipCard key={item.id} item={item} plans={deckPlans?.[item.id]} onZoom={setZoomPlan} />
               ))}
           </SubNest>
-          <SubNest id="ships-hulls-sea" label={`Sea Ships — ${shipCounts.sea}`}>
+          <SubNest id="ships-hulls-sea" pieceId="ships-hulls-sea" label={`Sea Ships — ${shipCounts.sea}`}>
             {ships
               .filter((i) => i.category === "ship")
               .map((item) => (
@@ -263,7 +269,7 @@ export function ShipsNestContent() {
               ))}
           </SubNest>
 
-        <SubNest id="ships-weapons" label="Ship Weapons & Combat">
+        <SubNest id="ships-weapons" pieceId="ships-weapons" label="Ship Weapons & Combat">
           {weapons.map((item) => (
             <div key={item.id} className="rounded-md border border-card-border bg-muted/40 p-3" data-testid={`ships-weapon-${item.id}`}>
               <p className="font-display text-xs font-semibold uppercase tracking-wide">
@@ -274,7 +280,7 @@ export function ShipsNestContent() {
           ))}
         </SubNest>
 
-        <SubNest id="ships-maps" label="Maps & Deck Plans">
+        <SubNest id="ships-maps" pieceId="ships-maps" label="Maps & Deck Plans">
           <div className="rounded-md border border-card-border bg-muted/40 p-3" data-testid="ships-maps-intro">
             <p className="font-display text-xs font-semibold uppercase tracking-wide">Where the plans live</p>
             <p className="mt-1.5 text-sm leading-snug text-muted-foreground">
@@ -378,6 +384,6 @@ export function ShipsNestContent() {
         </div>,
         document.body,
       )}
-    </>
+    </Zone>
   );
 }

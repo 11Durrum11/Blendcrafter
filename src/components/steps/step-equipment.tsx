@@ -12,7 +12,7 @@ import { Badge } from "@/components/ui/badge";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { EntityDetailDialog } from "@/components/entity-detail-dialog";
-import { withPieces } from "@/components/movable-pieces";
+import { withPieces, Piece, Zone } from "@/components/movable-pieces";
 import { describeEquipment, describeMagicItem, type EntityDetail } from "@/lib/entity-descriptions";
 
 interface StepEquipmentProps {
@@ -614,14 +614,19 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
           </div>
 
 
-          <div className="mt-2 grid grid-cols-2 items-start gap-2 sm:grid-cols-4">
+          <Zone zoneId="equipment-sections" className="mt-2 grid grid-cols-2 items-start gap-2 sm:grid-cols-4">
             {visibleEquipment.length === 0 ? (
               <p className="col-span-full p-4 text-sm text-muted-foreground">No equipment matches your search or the enabled rule sets.</p>
             ) : (
               equipmentSections.map((section) => {
                 const equipOpen = equipQuery.trim() !== "" || openEquipSections.has(section.key);
                 return (
-                <div key={section.key} className={cn("rounded-md border border-card-border bg-card", equipOpen && "col-span-full ml-[calc(50%-50vw)] min-h-[100dvh] w-screen")}>
+                // Category sections are pieces (platform rule,
+                // 2026-11-08: inner buttons movable too). The open
+                // breakout rides on the piece shell; the section
+                // card keeps its border and fills the shell.
+                <Piece key={section.key} pieceId={`equip-cat-${section.key}`} layout="grid" className={equipOpen ? "col-span-full ml-[calc(50%-50vw)] min-h-[100dvh] w-screen" : ""}>
+                <div className={cn("h-full rounded-md border border-card-border bg-card")}>
                   <button
                     type="button"
                     id={`equip-cat-${section.key}`}
@@ -758,10 +763,11 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
                   </div>
                   )}
                 </div>
+                </Piece>
                 );
               })
             )}
-          </div>
+          </Zone>
         </CardContent>
       </Card>
 
@@ -815,14 +821,18 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
             <Search className="absolute left-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-muted-foreground" />
             <Input value={itemQuery} onChange={(e) => setItemQuery(e.target.value)} placeholder="Search magic items…" className="h-8 pl-8" data-testid="input-magic-item-search" />
           </div>
-          <div className="mt-3 grid grid-cols-2 items-start gap-3 sm:grid-cols-4">
+          <Zone zoneId="magic-sections" className="mt-3 grid grid-cols-2 items-start gap-3 sm:grid-cols-4">
             {visibleMagicItems.length === 0 ? (
               <p className="col-span-full p-4 text-sm text-muted-foreground">No magic items match your search or the enabled rule sets.</p>
             ) : (
               magicSections.map((section) => {
                 const magicOpen = itemQuery.trim() !== "" || openMagicSections.has(section.key);
                 return (
-                <div key={section.key} className={cn("rounded-md border border-card-border bg-card", magicOpen && "col-span-full ml-[calc(50%-50vw)] min-h-[100dvh] w-screen")}>
+                // Category sections are pieces (platform rule,
+                // 2026-11-08: inner buttons movable too). The open
+                // breakout rides on the piece shell.
+                <Piece key={section.key} pieceId={`magic-cat-${section.key}`} layout="grid" className={magicOpen ? "col-span-full ml-[calc(50%-50vw)] min-h-[100dvh] w-screen" : ""}>
+                <div className={cn("h-full rounded-md border border-card-border bg-card")}>
                   <button
                     type="button"
                     id={`magic-cat-${section.key}`}
@@ -875,10 +885,11 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
                   </div>
                   )}
                 </div>
+                </Piece>
                 );
               })
             )}
-          </div>
+          </Zone>
         </CardContent>
       </Card>
 

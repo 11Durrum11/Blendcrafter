@@ -28,7 +28,7 @@ import { MAGIC_ITEM_CREATION_LINES, POTION_RULE_LINES } from "@/components/steps
  * 2026-11-07 — the section button names the page.)
  */
 
-function NestBlock({ id, label, children }: { id: string; pieceId?: string; label: string; children: ReactNode }) {
+function NestBlock({ id, label, children, subZoneId }: { id: string; pieceId?: string; label: string; children: ReactNode; subZoneId?: string }) {
   // Nests are pieces (Shaun, 2026-11-08 — every button movable):
   // drag a nest's grip to reorder the grid on this device. The
   // open-span moved onto the piece shell, which watches its
@@ -44,21 +44,30 @@ function NestBlock({ id, label, children }: { id: string; pieceId?: string; labe
         <ChevronRight className="sj-chevron h-4 w-4 shrink-0 transition-transform" />
         {label}
       </summary>
-      <div className="grid gap-2 p-2.5 pt-0">{children}</div>
+      {subZoneId ? (
+        <Zone zoneId={subZoneId} className="grid gap-2 p-2.5 pt-0">{children}</Zone>
+      ) : (
+        <div className="grid gap-2 p-2.5 pt-0">{children}</div>
+      )}
       </details>
     </Piece>
   );
 }
 
-function SubNest({ id, label, children }: { id: string; label: string; children: ReactNode }) {
+function SubNest({ id, label, children }: { id: string; pieceId?: string; label: string; children: ReactNode }) {
+  // Sub-nests are pieces too (platform rule, 2026-11-08: every
+  // button movable, inner buttons included). The full-width span
+  // rides on the piece shell; the details keeps the rest.
   return (
-    <details id={id} className="sj-nest col-span-full rounded-md border border-border/70 bg-muted/20" data-testid={`item-creation-subnest-${id}`}>
+    <Piece pieceId={id} layout="grid" className="col-span-full">
+      <details id={id} className="sj-nest h-full rounded-md border border-border/70 bg-muted/20" data-testid={`item-creation-subnest-${id}`}>
       <summary className="flex cursor-pointer list-none items-center gap-2 px-2 py-1.5 font-display text-xs font-semibold uppercase tracking-wide [&::-webkit-details-marker]:hidden">
         <ChevronRight className="sj-chevron h-3.5 w-3.5 shrink-0 transition-transform" />
         {label}
       </summary>
       <div className="p-2.5 pt-0">{children}</div>
-    </details>
+      </details>
+    </Piece>
   );
 }
 
@@ -122,32 +131,32 @@ export function StepItemCreation() {
           </div>
         </NestBlock>
 
-        <NestBlock id="creation-families" pieceId="creation-families" label="By Family">
+        <NestBlock id="creation-families" pieceId="creation-families" label="By Family" subZoneId="itemcreation-families-sub">
           {families.map((line) => (
-            <SubNest key={line.label} id={`creation-family-${line.label}`} label={line.label}>
+            <SubNest key={line.label} id={`creation-family-${line.label}`} pieceId={`creation-family-${line.label}`} label={line.label}>
               <p className="text-sm leading-snug text-muted-foreground">{line.text}</p>
             </SubNest>
           ))}
         </NestBlock>
 
-        <NestBlock id="creation-alchemy" pieceId="creation-alchemy" label="Alchemy — the Non-Magical Craft">
-          <SubNest id="creation-alchemy-not-magic" label="Not magic">
+        <NestBlock id="creation-alchemy" pieceId="creation-alchemy" label="Alchemy — the Non-Magical Craft" subZoneId="itemcreation-alchemy-sub">
+          <SubNest id="creation-alchemy-not-magic" pieceId="creation-alchemy-not-magic" label="Not magic">
             <p className="text-sm leading-snug text-muted-foreground">
               Alchemical items are brewed and built, not enchanted — no item-creation feat is needed. The Craft (alchemy) skill does the work, and the finished items sit in Equipment, under Alchemical Gear.
             </p>
           </SubNest>
-          <SubNest id="creation-alchemy-making" label="Making alchemical items">
+          <SubNest id="creation-alchemy-making" pieceId="creation-alchemy-making" label="Making alchemical items">
             <p className="text-sm leading-snug text-muted-foreground">
               Pay 1/3 of the item's price in raw materials, then make Craft (alchemy) checks against the item's Craft DC: a week's progress is the check result × the DC, measured against the price in silver pieces (a day's work counts a tenth of that). Fail by 5 or more and half the raw materials are ruined. An alchemist's lab gives a +2 circumstance bonus on the checks.
             </p>
           </SubNest>
           {alchemyDifference && (
-            <SubNest id="creation-alchemy-difference" label="Alchemical potions — the difference">
+            <SubNest id="creation-alchemy-difference" pieceId="creation-alchemy-difference" label="Alchemical potions — the difference">
               <p className="text-sm leading-snug text-muted-foreground">{alchemyDifference.text}</p>
             </SubNest>
           )}
           {alchemyCures && (
-            <SubNest id="creation-alchemy-cures" label={alchemyCures.label}>
+            <SubNest id="creation-alchemy-cures" pieceId="creation-alchemy-cures" label={alchemyCures.label}>
               <p className="text-sm leading-snug text-muted-foreground">{alchemyCures.text}</p>
             </SubNest>
           )}

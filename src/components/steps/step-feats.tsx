@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { CLASS_BONUS_FEAT_RULES } from "@/lib/class-bonus-feats";
 import { EntityDetailDialog } from "@/components/entity-detail-dialog";
-import { withPieces } from "@/components/movable-pieces";
+import { withPieces, Piece, Zone } from "@/components/movable-pieces";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { describeFeat, type EntityDetail } from "@/lib/entity-descriptions";
 
@@ -264,7 +264,7 @@ export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved,
           {visible.length === 0 ? (
             <p className="mt-4 text-sm text-muted-foreground">No feats match your search or the enabled rule sets.</p>
           ) : (
-            <div className="grid grid-cols-2 items-start gap-x-4 gap-y-5 sm:grid-cols-4">
+            <Zone zoneId="feat-sections" className="grid grid-cols-2 items-start gap-x-4 gap-y-5 sm:grid-cols-4">
             {featSections.map((section) => {
               const turnedOn = section.feats.filter((f) => !disabledFeatIds.includes(f.id));
               const turnedOff = section.feats.filter((f) => disabledFeatIds.includes(f.id));
@@ -285,9 +285,12 @@ export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved,
               // of view. Searching expands in place instead.
               const breakout = query === "" && expandedSections.has(section.id);
               return (
+                // Sections are pieces (platform rule, 2026-11-08:
+                // inner buttons movable too). The hand-opened
+                // breakout rides on the piece shell.
+                <Piece key={section.id} pieceId={`feat-section-${section.id}`} layout="grid" className={breakout ? "col-span-full ml-[calc(50%-50vw)] min-h-[100dvh] w-screen" : ""}>
                 <div
-                  key={section.id}
-                  className={cn("rounded-md", breakout && "col-span-full ml-[calc(50%-50vw)] min-h-[100dvh] w-screen")}
+                  className={cn("h-full rounded-md")}
                   data-testid={`feat-section-${section.id}`}
                 >
                   <button
@@ -326,9 +329,10 @@ export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved,
                     </>
                   )}
                 </div>
+                </Piece>
               );
             })}
-            </div>
+            </Zone>
           )}
         </CardContent>
       </Card>

@@ -13,7 +13,7 @@ import { ProductIdentityBadge } from "@/components/product-identity-badge";
 import { RULESET_LABELS } from "@/components/ruleset-toggle";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { EntityDetailDialog } from "@/components/entity-detail-dialog";
-import { withPieces } from "@/components/movable-pieces";
+import { withPieces, Piece, Zone } from "@/components/movable-pieces";
 import { describeSpell, type EntityDetail } from "@/lib/entity-descriptions";
 
 interface StepSpellsProps {
@@ -172,10 +172,15 @@ export function StepSpells({ build, resolved, onToggleSpell }: StepSpellsProps) 
               spellcasting class levels.
             </p>
           )}
-          <div className="grid grid-cols-2 items-start gap-3 sm:grid-cols-4">
+          <Zone zoneId="spell-library" className="grid grid-cols-2 items-start gap-3 sm:grid-cols-4">
           {library.map(({ profile, byLevel, levels, total }) => {
             const searching = query.trim().length > 0;
             const expanded = searching || expandedTypes.has(profile.listName);
+            // Full-screen breakout only for a HAND-opened list —
+            // while searching every matching list expands, and
+            // stacking them all full-screen buried the page (the
+            // same fix the Feats step got in the 2026-11-08 sweep).
+            const breakout = !searching && expandedTypes.has(profile.listName);
             const visibleLevels = levels
               .map((lvl) => ({
                 lvl,
@@ -186,7 +191,11 @@ export function StepSpells({ build, resolved, onToggleSpell }: StepSpellsProps) 
               .filter((g) => g.spells.length > 0);
             if (searching && visibleLevels.length === 0) return null;
             return (
-              <div key={profile.listName} className={expanded ? "col-span-full ml-[calc(50%-50vw)] min-h-[100dvh] w-screen rounded-md border border-card-border" : "rounded-md border border-card-border"} data-testid={`library-type-${profile.classId}`}>
+              // Library lists are pieces (platform rule, 2026-11-08:
+              // inner buttons movable too). The hand-opened
+              // breakout rides on the piece shell.
+              <Piece key={profile.listName} pieceId={`library-type-${profile.classId}`} layout="grid" className={breakout ? "col-span-full ml-[calc(50%-50vw)] min-h-[100dvh] w-screen" : ""}>
+              <div className="h-full rounded-md border border-card-border" data-testid={`library-type-${profile.classId}`}>
                 <button
                   type="button"
                   className="flex w-full items-center gap-2 px-2.5 py-1.5 text-left"
@@ -257,9 +266,10 @@ export function StepSpells({ build, resolved, onToggleSpell }: StepSpellsProps) 
                   </div>
                 )}
               </div>
+              </Piece>
             );
           })}
-          </div>
+          </Zone>
         </CardContent>
       </Card>
 

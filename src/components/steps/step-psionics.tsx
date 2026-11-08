@@ -122,7 +122,7 @@ function manifesterClassIdsFor(power: SpellDefinition, buildClassIds: string[]):
   return buildClassIds.filter((id) => matched.has(id));
 }
 
-function NestBlock({ id, label, children }: { id: string; pieceId?: string; label: string; children: ReactNode }) {
+function NestBlock({ id, label, children, subZoneId }: { id: string; pieceId?: string; label: string; children: ReactNode; subZoneId?: string }) {
   // Nests are pieces (Shaun, 2026-11-08 — every button movable):
   // drag a nest's grip to reorder the grid on this device. The
   // open-span moved onto the piece shell, which watches its
@@ -137,21 +137,31 @@ function NestBlock({ id, label, children }: { id: string; pieceId?: string; labe
         <ChevronRight className="sj-chevron h-4 w-4 shrink-0 transition-transform" />
         {label}
       </summary>
-      <div className="grid grid-cols-2 gap-2 p-2.5 pt-0 lg:grid-cols-4">{children}</div>
+      {subZoneId ? (
+        <Zone zoneId={subZoneId} className="grid grid-cols-2 gap-2 p-2.5 pt-0 lg:grid-cols-4">{children}</Zone>
+      ) : (
+        <div className="grid grid-cols-2 gap-2 p-2.5 pt-0 lg:grid-cols-4">{children}</div>
+      )}
       </details>
     </Piece>
   );
 }
 
-function SubNest({ id, label, children }: { id: string; label: string; children: ReactNode }) {
+function SubNest({ id, label, children }: { id: string; pieceId?: string; label: string; children: ReactNode }) {
+  // Sub-nests are pieces too (platform rule, 2026-11-08: every
+  // button movable, inner buttons included — a nest must not move
+  // while its sub-nests stay stuck). The full-width span rides on
+  // the piece shell; the details keeps the rest.
   return (
-    <details id={id} className="sj-nest col-span-full rounded-md border border-border/70 bg-muted/20" data-testid={`psionics-subnest-${id}`}>
+    <Piece pieceId={id} layout="grid" className="col-span-full">
+      <details id={id} className="sj-nest h-full rounded-md border border-border/70 bg-muted/20" data-testid={`psionics-subnest-${id}`}>
       <summary className="flex cursor-pointer list-none items-center gap-2 px-2 py-1 font-display text-xs font-semibold uppercase tracking-wide [&::-webkit-details-marker]:hidden">
         <ChevronRight className="sj-chevron h-3.5 w-3.5 shrink-0 transition-transform" />
         {label}
       </summary>
       <div className="grid grid-cols-2 gap-2 p-2 pt-0 lg:grid-cols-4">{children}</div>
-    </details>
+      </details>
+    </Piece>
   );
 }
 
@@ -315,11 +325,12 @@ export function StepPsionics({
           </div>
         </NestBlock>
 
-        <NestBlock id="psionics-powers" pieceId="psionics-powers" label="Powers">
+        <NestBlock id="psionics-powers" pieceId="psionics-powers" label="Powers" subZoneId="psionics-powers-sub">
           {powersByDiscipline.map(({ discipline, list }) => (
             <SubNest
               key={discipline}
               id={`psionics-powers-${discipline.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
+              pieceId={`psionics-powers-${discipline.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
               label={`${discipline} — ${list.length}`}
             >
               {list.map(renderPower)}
