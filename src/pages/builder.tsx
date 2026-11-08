@@ -6,7 +6,7 @@ import { Logo } from "@/components/logo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Piece, PieceFrame, PiecesProvider, ResetLayoutButton, Zone } from "@/components/movable-pieces";
+import { DmControls, Piece, PieceFrame, PiecesProvider, Zone, isDmArmed } from "@/components/movable-pieces";
 import { RulesetToggle } from "@/components/ruleset-toggle";
 import { HouseRulesToggle } from "@/components/house-rules-toggle";
 import { CharacterRepository } from "@/components/character-repository";
@@ -641,12 +641,19 @@ export default function Builder() {
   // ordinary taps and page scrolling are untouched. A real
   // drag swallows the click it ends with, so letting go over
   // the box's own button never fires it.
-  const [headerOrder, setHeaderOrder] = useState<string[]>(loadHeaderBoxOrder);
+  // DM / player split (Shaun, 2026-11-07): the movable treatment —
+  // header boxes included — is DM-only. A device armed as the DM's
+  // (opened once with ?dm=1) gets its own saved box order and the
+  // drag; every other device gets the shipped order and no drag.
+  const dmArmed = isDmArmed();
+  const [headerOrder, setHeaderOrder] = useState<string[]>(() =>
+    dmArmed ? loadHeaderBoxOrder() : [...HEADER_BOX_ORDER],
+  );
   const [draggingBoxId, setDraggingBoxId] = useState<string | null>(null);
   const dragRef = useRef<{ id: string; startX: number; startY: number; active: boolean; timer: number } | null>(null);
   const justDraggedRef = useRef(0);
   useEffect(() => {
-    saveHeaderBoxOrder(headerOrder);
+    if (dmArmed) saveHeaderBoxOrder(headerOrder);
   }, [headerOrder]);
 
   const onHeaderBoxPointerDown = (e: ReactPointerEvent, id: string) => {
@@ -774,11 +781,11 @@ export default function Builder() {
       key={id}
       data-header-box={id}
       data-testid={`header-box-${id}`}
-      className={`touch-none select-none${draggingBoxId === id ? " scale-105 opacity-60" : ""}`}
-      onPointerDown={(e) => onHeaderBoxPointerDown(e, id)}
-      onPointerMove={onHeaderBoxPointerMove}
-      onPointerUp={onHeaderBoxPointerEnd}
-      onPointerCancel={onHeaderBoxPointerEnd}
+      className={`${dmArmed ? "touch-none " : ""}select-none${draggingBoxId === id ? " scale-105 opacity-60" : ""}`}
+      onPointerDown={dmArmed ? (e) => onHeaderBoxPointerDown(e, id) : undefined}
+      onPointerMove={dmArmed ? onHeaderBoxPointerMove : undefined}
+      onPointerUp={dmArmed ? onHeaderBoxPointerEnd : undefined}
+      onPointerCancel={dmArmed ? onHeaderBoxPointerEnd : undefined}
     >
       {headerBoxNodes[id]}
     </div>
@@ -794,11 +801,13 @@ export default function Builder() {
             <span className="font-display text-xl font-semibold">Blendcrafter</span>
           </Link>
           <VersionBadge />
-          {/* Reset for the movable-pieces layout (Shaun,
-              2026-11-07): every piece back in its shipped place,
+          {/* The DM's controls (Shaun, 2026-11-07): the Edit Lock
+              toggle and Reset layout, side by side in the header.
+              Reset puts every piece back in its shipped place,
               sizes and locks cleared — and the header boxes' own
-              saved order resets with it. */}
-          <ResetLayoutButton
+              saved order resets with it. Both controls render ONLY
+              on DM-armed devices; players see neither. */}
+          <DmControls
             onResetExtra={() => {
               setHeaderOrder([...HEADER_BOX_ORDER]);
               toast({ title: "Layout reset", description: "Every piece is back in its shipped place." });
