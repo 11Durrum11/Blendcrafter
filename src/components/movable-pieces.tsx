@@ -99,6 +99,10 @@ export interface PieceState {
 export interface ZoneState {
   order?: string[];
   pieces?: Record<string, PieceState>;
+  /** Rule 5 (Shaun, 2026-11-08): drop a piece ONTO another piece
+   * and it nests inside it. parents[childId] = the piece it is
+   * nested under (same zone only); null/absent = top level. */
+  parents?: Record<string, string | null>;
 }
 
 export type LayoutState = Record<string, ZoneState>;
@@ -355,6 +359,11 @@ interface PiecesApi {
   setPiece: (zoneId: string, pieceId: string, patch: Partial<PieceState>) => void;
   orderFor: (zoneId: string, ids: string[]) => string[];
   swapPieces: (zoneId: string, a: string, b: string, allIds: string[]) => void;
+  /** Rule 5: the piece this one is nested under, if any. */
+  parentFor: (zoneId: string, pieceId: string) => string | null;
+  /** Rule 5: nest pieceId under parentId (same zone), or lift it
+   * back to the top level with null. Cycles are refused. */
+  setParent: (zoneId: string, pieceId: string, parentId: string | null) => void;
   resetAll: () => void;
   /** This device is armed as the DM's (see isDmArmed). */
   dm: boolean;
@@ -642,12 +651,50 @@ export function PiecesProvider({ children }: { children: ReactNode }) {
       setLayout((prev) => {
         const zone = prev[zoneId] ?? {};
         const stored = zone.order ?? [];
-        const order = [...stored.filter((id) => allIds.includes(id)), ...allIds.filter((id) => !stored.includes(id))];
+        // Operate on the FULL stored order when one exists: the
+        // caller's allIds only covers the pieces rendered right now
+        // (nested pieces and filtered-out pieces are absent), and
+        // rebuilding the order from it alone would drop their saved
+        // places. Any id not yet stored appends at the end.
+        const order = [...stored];
+        for (const id of allIds) if (!order.includes(id)) order.push(id);
         const ia = order.indexOf(a);
         const ib = order.indexOf(b);
         if (ia === -1 || ib === -1 || ia === ib) return prev;
         [order[ia], order[ib]] = [order[ib], order[ia]];
         return { ...prev, [zoneId]: { ...zone, order } };
+      });
+    },
+    [dm],
+  );
+
+  const parentFor = useCallback(
+    (zoneId: string, pieceId: string) => visibleLayout[zoneId]?.parents?.[pieceId] ?? null,
+    [visibleLayout],
+  );
+
+  const setParent = useCallback(
+    (zoneId: string, pieceId: string, parentId: string | null) => {
+      if (!dm) return;
+      setLayout((prev) => {
+        const zone = prev[zoneId] ?? {};
+        const parents = { ...(zone.parents ?? {}) };
+        if (parentId !== null) {
+          if (parentId === pieceId) return prev;
+          // Cycle guard: the target must not live inside the
+          // dragged piece (directly or through a chain).
+          let cursor: string | null = parentId;
+          const seen = new Set<string>();
+          while (cursor && !seen.has(cursor)) {
+            if (cursor === pieceId) return prev;
+            seen.add(cursor);
+            cursor = parents[cursor] ?? null;
+          }
+          parents[pieceId] = parentId;
+        } else {
+          parents[pieceId] = null;
+        }
+        return { ...prev, [zoneId]: { ...zone, parents } };
       });
     },
     [dm],
@@ -669,6 +716,8 @@ export function PiecesProvider({ children }: { children: ReactNode }) {
       setPiece,
       orderFor,
       swapPieces,
+      parentFor,
+      setParent,
       resetAll,
       dm,
       armDm,
@@ -678,7 +727,7 @@ export function PiecesProvider({ children }: { children: ReactNode }) {
       overrides,
       setTextOverride,
     }),
-    [visibleLayout, pieceState, setPiece, orderFor, swapPieces, resetAll, dm, armDm, disarmDm, editUnlocked, setEditUnlocked, overrides, setTextOverride],
+    [visibleLayout, pieceState, setPiece, orderFor, swapPieces, parentFor, setParent, resetAll, dm, armDm, disarmDm, editUnlocked, setEditUnlocked, overrides, setTextOverride],
   );
 
   return <PiecesContext.Provider value={api}>{children}</PiecesContext.Provider>;
@@ -823,6 +872,12 @@ export function DmControls({ onResetExtra }: { onResetExtra?: () => void }) {
 
 const ZoneIdContext = createContext<string | null>(null);
 
+/** Rule 5: a Zone hands each piece the elements nested under it
+ * (same zone) through this map, keyed by the parent's pieceId.
+ * The parent Piece renders them in its nest tray; a nested piece
+ * looks up its own children in the same map, so nesting recurses. */
+const NestedKidsContext = createContext<Map<string, ReactNode[]> | null>(null);
+
 interface PieceProps {
   pieceId: string;
   /** "full" starts the piece on its own row (the stacked pages);
@@ -845,7 +900,8 @@ interface PieceProps {
  */
 export function Piece({ pieceId, basis = "full", layout = "flex", frame = false, className, children }: PieceProps) {
   const zoneId = useContext(ZoneIdContext);
-  const { pieceState, setPiece, swapPieces, dm, editUnlocked } = usePieces();
+  const { pieceState, setPiece, swapPieces, parentFor, setParent, dm, editUnlocked } = usePieces();
+  const nestedKids = useContext(NestedKidsContext)?.get(pieceId);
   const shellRef = useRef<HTMLDivElement>(null);
   const [dragging, setDragging] = useState(false);
   const dragRef = useRef<{
@@ -854,6 +910,17 @@ export function Piece({ pieceId, basis = "full", layout = "flex", frame = false,
     startY: number;
     active: boolean;
     lastTarget: string | null;
+    /** Rule 5: the piece whose CENTER the pointer is over — a
+     * drop there nests instead of reordering. */
+    coreTarget: string | null;
+    coreEl: HTMLElement | null;
+    /** A reorder swap waiting one more move event: crossing a
+     * piece's edge ring only arms the swap, so a deliberate
+     * center-drop (rule 5) can cross the ring without the target
+     * jumping away first. */
+    pendingSwap: string | null;
+    lastX: number;
+    lastY: number;
   } | null>(null);
   const resizeRef = useRef<{
     pointerId: number;
@@ -867,6 +934,16 @@ export function Piece({ pieceId, basis = "full", layout = "flex", frame = false,
 
   if (!zoneId) throw new Error("Piece must be rendered inside a Zone");
   const ps = pieceState(zoneId, pieceId);
+  const myParent = parentFor(zoneId, pieceId);
+  // A nested piece renders inside its parent's tray, where the
+  // full-screen breakout classes would blow the parent open —
+  // strip them; a nested section opens in place instead.
+  const shellClassName = myParent
+    ? className
+        ?.split(/\s+/)
+        .filter((t) => t && !/col-span-full|w-screen|100dvh|ml-\[calc/.test(t))
+        .join(" ")
+    : className;
   const locked = !!ps.lock;
   const resized = ps.w != null || ps.h != null;
   const derivedOrient: "v" | "h" =
@@ -881,7 +958,7 @@ export function Piece({ pieceId, basis = "full", layout = "flex", frame = false,
   // at pointer-down, torn down at pointer-up), which survives any
   // re-render, and the last-swapped piece is forgotten once the
   // pointer leaves it, so one drag chains swap after swap.
-  const winDragRef = useRef<{ move: (e: PointerEvent) => void; end: () => void } | null>(null);
+  const winDragRef = useRef<{ move: (e: PointerEvent) => void; end: (e: PointerEvent) => void } | null>(null);
   const endWinDrag = () => {
     const w = winDragRef.current;
     if (!w) return;
@@ -892,10 +969,25 @@ export function Piece({ pieceId, basis = "full", layout = "flex", frame = false,
   };
   useEffect(() => endWinDrag, []);
 
+  const setCoreHighlight = (info: NonNullable<typeof dragRef.current>, el: HTMLElement | null, id: string | null) => {
+    if (info.coreEl && info.coreEl !== el) {
+      info.coreEl.style.outline = "";
+      info.coreEl.style.outlineOffset = "";
+    }
+    info.coreEl = el;
+    info.coreTarget = id;
+    if (el) {
+      el.style.outline = `2px solid ${TREATMENT_BLUE}`;
+      el.style.outlineOffset = "2px";
+    }
+  };
+
   const dragMove = (clientX: number, clientY: number) => {
     const info = dragRef.current;
     const shell = shellRef.current;
     if (!info || !shell) return;
+    info.lastX = clientX;
+    info.lastY = clientY;
     if (!info.active) {
       if (Math.hypot(clientX - info.startX, clientY - info.startY) < 6) return;
       info.active = true;
@@ -906,21 +998,57 @@ export function Piece({ pieceId, basis = "full", layout = "flex", frame = false,
     const siblings = Array.from(zoneEl.querySelectorAll<HTMLElement>(":scope > [data-piece]"));
     const ids = siblings.map((s) => s.dataset.piece).filter((x): x is string => !!x);
     let overLast = false;
+    let overAny = false;
     for (const sib of siblings) {
       const otherId = sib.dataset.piece;
       if (!otherId || otherId === pieceId) continue;
       const r = sib.getBoundingClientRect();
       const inside = clientX >= r.left - 4 && clientX <= r.right + 4 && clientY >= r.top - 4 && clientY <= r.bottom + 4;
+      if (!inside) continue;
+      overAny = true;
+      // Rule 5 geometry: the middle of a piece is its nest core;
+      // the ring around it is reorder territory.
+      const insetX = r.width * 0.25;
+      const insetY = r.height * 0.25;
+      const inCore =
+        r.width - insetX * 2 >= 12 &&
+        r.height - insetY * 2 >= 8 &&
+        clientX >= r.left + insetX &&
+        clientX <= r.right - insetX &&
+        clientY >= r.top + insetY &&
+        clientY <= r.bottom - insetY;
       if (otherId === info.lastTarget) {
-        overLast = inside;
+        overLast = true;
+        if (inCore) setCoreHighlight(info, sib, otherId);
+        else if (info.coreTarget === otherId) setCoreHighlight(info, null, null);
         continue;
       }
-      if (inside) {
+      if (inCore) {
+        // A center approach: never swap with this piece; a drop
+        // here nests. Any armed ring swap is off.
+        info.pendingSwap = null;
+        setCoreHighlight(info, sib, otherId);
+        return;
+      }
+      // Ring: arm the swap; it fires on the NEXT move event if the
+      // pointer is still reordering (or on drop, in finalizeDrag).
+      if (info.coreTarget === otherId) setCoreHighlight(info, null, null);
+      if (info.pendingSwap === otherId) {
+        info.pendingSwap = null;
         info.lastTarget = otherId;
         swapPieces(zoneId, pieceId, otherId, ids);
         return;
       }
+      info.pendingSwap = otherId;
     }
+    if (!overAny && info.pendingSwap) {
+      // Flicked past the armed piece entirely: complete its swap.
+      const target = info.pendingSwap;
+      info.pendingSwap = null;
+      info.lastTarget = target;
+      swapPieces(zoneId, pieceId, target, ids);
+    }
+    if (!overAny && info.coreTarget) setCoreHighlight(info, null, null);
     if (!overLast) info.lastTarget = null;
   };
   const onGripPointerDown = (e: ReactPointerEvent) => {
@@ -933,15 +1061,26 @@ export function Piece({ pieceId, basis = "full", layout = "flex", frame = false,
     } catch {
       // Capture is a nicety; the window listeners below carry the drag.
     }
-    dragRef.current = { pointerId: e.pointerId, startX: e.clientX, startY: e.clientY, active: false, lastTarget: null };
+    dragRef.current = {
+      pointerId: e.pointerId,
+      startX: e.clientX,
+      startY: e.clientY,
+      active: false,
+      lastTarget: null,
+      coreTarget: null,
+      coreEl: null,
+      pendingSwap: null,
+      lastX: e.clientX,
+      lastY: e.clientY,
+    };
     endWinDrag();
     const pointerId = e.pointerId;
     const move = (ev: PointerEvent) => {
       if (ev.pointerId === pointerId) dragMove(ev.clientX, ev.clientY);
     };
-    const end = () => {
+    const end = (ev: PointerEvent) => {
       endWinDrag();
-      onGripPointerEnd();
+      finalizeDrag(ev.clientX, ev.clientY);
     };
     winDragRef.current = { move, end };
     window.addEventListener("pointermove", move);
@@ -951,10 +1090,52 @@ export function Piece({ pieceId, basis = "full", layout = "flex", frame = false,
   const onGripPointerMove = (e: ReactPointerEvent) => {
     dragMove(e.clientX, e.clientY);
   };
-  const onGripPointerEnd = () => {
+  /** Drop resolution (rule 5): a drop on a piece's center nests
+   * this piece under it; a drop in a piece's ring completes the
+   * armed reorder; a nested piece dropped OUTSIDE its parent
+   * lifts back to the top level. */
+  const finalizeDrag = (clientX?: number, clientY?: number) => {
     endWinDrag();
-    if (dragRef.current?.active) setDragging(false);
+    const info = dragRef.current;
     dragRef.current = null;
+    if (!info) return;
+    if (info.coreEl) {
+      info.coreEl.style.outline = "";
+      info.coreEl.style.outlineOffset = "";
+    }
+    if (!info.active) return;
+    setDragging(false);
+    const shell = shellRef.current;
+    if (info.coreTarget && info.coreTarget !== pieceId) {
+      setParent(zoneId, pieceId, info.coreTarget);
+      return;
+    }
+    if (info.pendingSwap && shell) {
+      const zoneEl = shell.closest("[data-piece-zone]");
+      if (zoneEl) {
+        const ids = Array.from(zoneEl.querySelectorAll<HTMLElement>(":scope > [data-piece]"))
+          .map((s) => s.dataset.piece)
+          .filter((x): x is string => !!x);
+        swapPieces(zoneId, pieceId, info.pendingSwap, ids);
+      }
+      return;
+    }
+    if (myParent && shell && clientX != null && clientY != null) {
+      // The parent piece is an ancestor of this nested shell —
+      // walk up to it and test whether the drop landed outside it.
+      let parentShell: HTMLElement | null = shell.parentElement;
+      while (parentShell && parentShell.dataset.piece !== myParent) {
+        parentShell = parentShell.parentElement;
+      }
+      if (parentShell) {
+        const r = parentShell.getBoundingClientRect();
+        const outside = clientX < r.left - 4 || clientX > r.right + 4 || clientY < r.top - 4 || clientY > r.bottom + 4;
+        if (outside) setParent(zoneId, pieceId, null);
+      }
+    }
+  };
+  const onGripPointerEnd = (e?: ReactPointerEvent) => {
+    finalizeDrag(e?.clientX, e?.clientY);
   };
 
   // --- drag to resize (right edge / bottom-right corner) -------
@@ -1014,7 +1195,7 @@ export function Piece({ pieceId, basis = "full", layout = "flex", frame = false,
         layout === "grid" && "flex h-full flex-col",
         ps.h != null && "flex flex-col",
         dragging && "z-30 opacity-70",
-        className,
+        shellClassName,
       )}
       style={shellStyle}
     >
@@ -1086,6 +1267,21 @@ export function Piece({ pieceId, basis = "full", layout = "flex", frame = false,
       >
         {children}
       </div>
+
+      {/* Rule 5 nest tray: the pieces Shaun dropped onto this one,
+          rendered under it, indented behind a dark-blue rail. The
+          tray carries this zone's id so a nested piece's drag finds
+          its nest-mates as its siblings (closest zone wins), while
+          the outer Zone still owns ordering and the parent map. */}
+      {nestedKids && nestedKids.length > 0 && (
+        <div
+          data-piece-zone={zoneId}
+          data-nest-of={pieceId}
+          className="ml-2 mt-1 space-y-1 border-l-2 border-[#1e3a8a]/60 pl-2"
+        >
+          <ZoneIdContext.Provider value={zoneId}>{nestedKids}</ZoneIdContext.Provider>
+        </div>
+      )}
 
       {/* Resize handles: right edge (width) and bottom-right corner
           (width + height). Invisible until hovered, like the chrome.
@@ -1160,7 +1356,7 @@ export function Zone({
   children: ReactNode;
   testId?: string;
 }) {
-  const { orderFor } = usePieces();
+  const { orderFor, layout } = usePieces();
   const items = Children.toArray(children);
   const pieces: ReactElement[] = [];
   const passthrough: ReactNode[] = [];
@@ -1180,13 +1376,34 @@ export function Zone({
     }
   }
   const ids = pieces.map((p) => (p.props as PieceProps).pieceId);
-  const orderedIds = orderFor(zoneId, ids);
   const byId = new Map(pieces.map((p) => [(p.props as PieceProps).pieceId, p]));
+  // Rule 5 partition: a piece whose saved parent is ALSO rendered
+  // in this zone leaves the top-level flow and renders inside its
+  // parent's nest tray instead. A piece whose parent is not
+  // rendered right now (filtered out, another step) stays visible
+  // at the top level — nesting must never hide a piece.
+  const parents = layout[zoneId]?.parents ?? {};
+  const topIds = ids.filter((id) => {
+    const parent = parents[id];
+    return !parent || parent === id || !byId.has(parent);
+  });
+  const orderedIds = orderFor(zoneId, topIds);
+  const nestedMap = new Map<string, ReactNode[]>();
+  for (const id of orderFor(zoneId, ids)) {
+    if (topIds.includes(id)) continue;
+    const parent = parents[id];
+    if (!parent) continue;
+    const list = nestedMap.get(parent) ?? [];
+    list.push(byId.get(id));
+    nestedMap.set(parent, list);
+  }
   return (
     <div data-piece-zone={zoneId} className={className} data-testid={testId}>
       <ZoneIdContext.Provider value={zoneId}>
-        {orderedIds.map((id) => byId.get(id)).filter(Boolean)}
-        {passthrough}
+        <NestedKidsContext.Provider value={nestedMap}>
+          {orderedIds.map((id) => byId.get(id)).filter(Boolean)}
+          {passthrough}
+        </NestedKidsContext.Provider>
       </ZoneIdContext.Provider>
     </div>
   );
