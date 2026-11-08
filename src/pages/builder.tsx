@@ -1066,7 +1066,7 @@ export default function Builder() {
                     // device; the tab itself still just clicks,
                     // the same pattern the section buttons above
                     // already proved inside this TabsList.
-                    <Piece key={s.id} pieceId={`tab-${s.id}`} basis="auto">
+                    <Piece key={s.id} pieceId={`tab-${s.id}`} basis="auto" layout="grid">
                       <TabsTrigger
                         value={s.id}
                         data-testid={`tab-step-${s.id}`}
