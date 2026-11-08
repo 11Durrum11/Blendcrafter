@@ -102,7 +102,7 @@ export function StepClasses({
               type="button"
               size="icon"
               variant="outline"
-              className="h-7 w-7"
+              className="h-6 w-6"
               disabled={!current || isDisabled}
               onClick={() => onRemove(cls.id)}
               data-testid={`button-remove-level-${cls.id}`}
@@ -114,7 +114,7 @@ export function StepClasses({
               type="button"
               size="icon"
               variant="outline"
-              className="h-7 w-7"
+              className="h-6 w-6"
               disabled={(current?.levels ?? 0) >= 10 || isDisabled}
               onClick={() => onAdd(cls.id)}
               data-testid={`button-add-level-${cls.id}`}

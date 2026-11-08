@@ -1,6 +1,7 @@
 import { useMemo, type ReactNode } from "react";
 import { ChevronRight } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { Piece, Zone } from "@/components/movable-pieces";
 import { ALL_FEATS } from "@/data";
 import type { FeatDefinition } from "@/engine/types";
 import { describeFeat } from "@/lib/entity-descriptions";
@@ -28,21 +29,27 @@ import { MAGIC_ITEM_CREATION_LINES, POTION_RULE_LINES } from "@/components/steps
  */
 
 function NestBlock({ id, label, children }: { id: string; label: string; children: ReactNode }) {
+  // Nests are pieces (Shaun, 2026-11-08 — every button movable):
+  // drag a nest's grip to reorder the grid on this device. The
+  // open-span moved onto the piece shell, which watches its
+  // details; the nest itself still just opens and closes.
   return (
-    <details id={id} className="sj-nest rounded-md border border-border [&[open]]:col-span-2 lg:[&[open]]:col-span-1" data-testid={`item-creation-block-${id}`}>
-      <summary className="flex cursor-pointer list-none items-center gap-2 px-3 py-2.5 font-display text-sm font-semibold [&::-webkit-details-marker]:hidden">
+    <Piece pieceId={id} layout="grid" className="[&:has(details[open])]:col-span-2 lg:[&:has(details[open])]:col-span-1">
+      <details id={id} className="sj-nest h-full rounded-md border border-border" data-testid={`item-creation-block-${id}`}>
+      <summary className="flex cursor-pointer list-none items-center gap-2 px-2.5 py-2 font-display text-sm font-semibold [&::-webkit-details-marker]:hidden">
         <ChevronRight className="sj-chevron h-4 w-4 shrink-0 transition-transform" />
         {label}
       </summary>
-      <div className="grid gap-3 p-3 pt-0">{children}</div>
-    </details>
+      <div className="grid gap-2 p-2.5 pt-0">{children}</div>
+      </details>
+    </Piece>
   );
 }
 
 function SubNest({ id, label, children }: { id: string; label: string; children: ReactNode }) {
   return (
     <details id={id} className="sj-nest col-span-full rounded-md border border-border/70 bg-muted/20" data-testid={`item-creation-subnest-${id}`}>
-      <summary className="flex cursor-pointer list-none items-center gap-2 px-2.5 py-2 font-display text-xs font-semibold uppercase tracking-wide [&::-webkit-details-marker]:hidden">
+      <summary className="flex cursor-pointer list-none items-center gap-2 px-2 py-1.5 font-display text-xs font-semibold uppercase tracking-wide [&::-webkit-details-marker]:hidden">
         <ChevronRight className="sj-chevron h-3.5 w-3.5 shrink-0 transition-transform" />
         {label}
       </summary>
@@ -102,7 +109,8 @@ export function StepItemCreation() {
           stretches its row-mates). Narrower screens wrap to
           two, then one column. Inside a quarter-width nest the
           blocks stack in a single column (see NestBlock). */}
-      <CardContent className="grid grid-cols-2 items-start gap-3 lg:grid-cols-4">
+      <CardContent>
+        <Zone zoneId="itemcreation-nests" className="grid grid-cols-2 items-start gap-2 lg:grid-cols-4">
         <NestBlock id="creation-general" label="The General Method">
           <div className="rounded-md border border-card-border bg-muted/40 p-3" data-testid="creation-general-method">
             <p className="font-display text-xs font-semibold uppercase tracking-wide">{general.label}</p>
@@ -159,6 +167,7 @@ export function StepItemCreation() {
             );
           })}
         </NestBlock>
+        </Zone>
       </CardContent>
     </Card>
   );

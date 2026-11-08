@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { Search, ChevronRight } from "lucide-react";
+import { Piece, Zone } from "@/components/movable-pieces";
 import {
   ALL_BODY_MODIFICATIONS,
   ALL_CLASSES,
@@ -542,47 +543,59 @@ export function StepReference() {
               same night tucked the walls inside a collapsed
               Categories nest; his spec replaced it — the buttons
               themselves, two across, are the split.) */}
-          <div className="grid grid-cols-2 gap-1">
-            <Button size="sm" className="h-8 text-sm" variant={category === "all" ? "default" : "outline"} onClick={() => pickCategory("all")}>
-              All ({TOTAL_ROWS.toLocaleString()})
-            </Button>
+          {/* The category buttons are pieces (Shaun, 2026-11-08 —
+              every button movable, the Library named explicitly):
+              drag a button's grip to reorder the grid on this
+              device; the button itself still just clicks. */}
+          <Zone zoneId="reference-categories" className="grid grid-cols-2 gap-1">
+            <Piece pieceId="cat-all" layout="grid">
+              <Button size="sm" className="h-7 w-full text-sm" variant={category === "all" ? "default" : "outline"} onClick={() => pickCategory("all")}>
+                All ({TOTAL_ROWS.toLocaleString()})
+              </Button>
+            </Piece>
             {CATEGORIES.map((c) => (
-              <Button
-                key={c.key}
-                size="sm"
-                variant={category === c.key ? "default" : "outline"}
-                className={c.disabled ? "h-8 text-sm text-muted-foreground line-through opacity-60" : "h-8 text-sm"}
-                onClick={() => pickCategory(c.key)}
-              >
-                {c.label} ({c.rows.length.toLocaleString()})
-              </Button>
-            ))}
-          </div>
-          {activeCategory && subcategories.length > 1 && (
-            <div className="grid grid-cols-2 items-center gap-1.5 border-t border-border pt-3">
-              <span className="text-base text-muted-foreground">{activeCategory.label}:</span>
-              <Button
-                size="sm"
-                className="text-base"
-                variant={subcategory === "all" ? "default" : "outline"}
-                onClick={() => setSubcategory("all")}
-                data-testid="button-reference-subcategory-all"
-              >
-                All in {activeCategory.label} ({activeCategory.rows.length.toLocaleString()})
-              </Button>
-              {subcategories.map((s) => (
+              <Piece key={c.key} pieceId={`cat-${c.key}`} layout="grid">
                 <Button
-                  key={s.label}
                   size="sm"
-                  className={activeCategory.disabled ? "text-base text-muted-foreground line-through opacity-60" : "text-base"}
-                  variant={subcategory === s.label ? "default" : "outline"}
-                  onClick={() => setSubcategory(s.label)}
-                  data-testid={`button-reference-subcategory-${s.label.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
+                  variant={category === c.key ? "default" : "outline"}
+                  className={c.disabled ? "h-7 w-full text-sm text-muted-foreground line-through opacity-60" : "h-7 w-full text-sm"}
+                  onClick={() => pickCategory(c.key)}
                 >
-                  {s.label} ({s.count.toLocaleString()})
+                  {c.label} ({c.rows.length.toLocaleString()})
                 </Button>
+              </Piece>
+            ))}
+          </Zone>
+          {activeCategory && subcategories.length > 1 && (
+            <Zone zoneId="reference-subcategories" className="grid grid-cols-2 items-center gap-1 border-t border-border pt-3">
+              <Piece pieceId="sub-label" layout="grid">
+                <span className="text-base text-muted-foreground">{activeCategory.label}:</span>
+              </Piece>
+              <Piece pieceId="sub-all" layout="grid">
+                <Button
+                  size="sm"
+                  className="w-full text-sm"
+                  variant={subcategory === "all" ? "default" : "outline"}
+                  onClick={() => setSubcategory("all")}
+                  data-testid="button-reference-subcategory-all"
+                >
+                  All in {activeCategory.label} ({activeCategory.rows.length.toLocaleString()})
+                </Button>
+              </Piece>
+              {subcategories.map((s) => (
+                <Piece key={s.label} pieceId={`sub-${s.label.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`} layout="grid">
+                  <Button
+                    size="sm"
+                    className={activeCategory.disabled ? "w-full text-sm text-muted-foreground line-through opacity-60" : "w-full text-sm"}
+                    variant={subcategory === s.label ? "default" : "outline"}
+                    onClick={() => setSubcategory(s.label)}
+                    data-testid={`button-reference-subcategory-${s.label.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
+                  >
+                    {s.label} ({s.count.toLocaleString()})
+                  </Button>
+                </Piece>
               ))}
-            </div>
+            </Zone>
           )}
         </CardContent>
       </Card>
@@ -605,10 +618,11 @@ export function StepReference() {
             {shown.length === 0 ? (
               <p className="text-lg text-muted-foreground">Nothing in the library matches that. Try a different spelling or a shorter search.</p>
             ) : resultGroups ? (
-              <div className="grid grid-cols-2 items-start gap-3">
+              <Zone zoneId="reference-groups" className="grid grid-cols-2 items-start gap-2">
                 {resultGroups.map((g) => (
-                  <details key={g.label} className="sj-nest rounded-md border border-border [&[open]]:col-span-2" data-testid={`reference-results-group-${g.label.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}>
-                    <summary className="flex cursor-pointer list-none items-center gap-2 px-3 py-2.5 font-display text-sm font-semibold [&::-webkit-details-marker]:hidden">
+                  <Piece key={g.label} pieceId={`group-${g.label.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`} layout="grid" className="[&:has(details[open])]:col-span-2">
+                    <details className="sj-nest h-full rounded-md border border-border" data-testid={`reference-results-group-${g.label.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}>
+                    <summary className="flex cursor-pointer list-none items-center gap-2 px-2.5 py-2 font-display text-sm font-semibold [&::-webkit-details-marker]:hidden">
                       <ChevronRight className="sj-chevron h-4 w-4 shrink-0 transition-transform" />
                       {g.label} ({g.rows.length})
                     </summary>
@@ -619,8 +633,8 @@ export function StepReference() {
                             type="button"
                             className={
                               row.disabled
-                                ? "flex w-full items-center justify-between gap-3 py-2 text-left text-muted-foreground line-through opacity-60 hover:bg-muted/50"
-                                : "flex w-full items-center justify-between gap-3 py-2 text-left hover:bg-muted/50"
+                                ? "flex w-full items-center justify-between gap-3 py-1.5 text-left text-muted-foreground line-through opacity-60 hover:bg-muted/50"
+                                : "flex w-full items-center justify-between gap-3 py-1.5 text-left hover:bg-muted/50"
                             }
                             onClick={() => setDetail(row.makeDetail())}
                           >
@@ -632,9 +646,10 @@ export function StepReference() {
                         </li>
                       ))}
                     </ul>
-                  </details>
+                    </details>
+                  </Piece>
                 ))}
-              </div>
+              </Zone>
             ) : (
               <ul className="grid grid-cols-2 gap-x-4 lg:grid-cols-4">
                 {shown.map((row) => (
@@ -643,8 +658,8 @@ export function StepReference() {
                       type="button"
                       className={
                         row.disabled
-                          ? "flex w-full items-center justify-between gap-3 py-2 text-left text-muted-foreground line-through opacity-60 hover:bg-muted/50"
-                          : "flex w-full items-center justify-between gap-3 py-2 text-left hover:bg-muted/50"
+                          ? "flex w-full items-center justify-between gap-3 py-1.5 text-left text-muted-foreground line-through opacity-60 hover:bg-muted/50"
+                          : "flex w-full items-center justify-between gap-3 py-1.5 text-left hover:bg-muted/50"
                       }
                       onClick={() => setDetail(row.makeDetail())}
                     >

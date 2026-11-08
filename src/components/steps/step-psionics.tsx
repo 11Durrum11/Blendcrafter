@@ -1,6 +1,7 @@
 import { useMemo, type ReactNode } from "react";
 import { ChevronRight, Minus, Plus } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Piece, Zone } from "@/components/movable-pieces";
 import { Button } from "@/components/ui/button";
 import { ALL_CLASSES, ALL_EQUIPMENT, ALL_FEATS, ALL_MAGIC_ITEMS, ALL_PRESTIGE_CLASSES, ALL_RACES, ALL_SPELLS } from "@/data";
 import type { CharacterBuild, InventoryEntry, ResolvedCharacter, SpellDefinition } from "@/engine/types";
@@ -122,21 +123,27 @@ function manifesterClassIdsFor(power: SpellDefinition, buildClassIds: string[]):
 }
 
 function NestBlock({ id, label, children }: { id: string; label: string; children: ReactNode }) {
+  // Nests are pieces (Shaun, 2026-11-08 — every button movable):
+  // drag a nest's grip to reorder the grid on this device. The
+  // open-span moved onto the piece shell, which watches its
+  // details; the nest itself still just opens and closes.
   return (
-    <details id={id} className="sj-nest rounded-md border border-border [&[open]]:col-span-2 lg:[&[open]]:col-span-3" data-testid={`psionics-block-${id}`}>
-      <summary className="flex cursor-pointer list-none items-center gap-2 px-2.5 py-2 font-display text-[13px] font-semibold [&::-webkit-details-marker]:hidden">
+    <Piece pieceId={id} layout="grid" className="[&:has(details[open])]:col-span-2 lg:[&:has(details[open])]:col-span-3">
+      <details id={id} className="sj-nest h-full rounded-md border border-border" data-testid={`psionics-block-${id}`}>
+      <summary className="flex cursor-pointer list-none items-center gap-2 px-2 py-1.5 font-display text-[13px] font-semibold [&::-webkit-details-marker]:hidden">
         <ChevronRight className="sj-chevron h-4 w-4 shrink-0 transition-transform" />
         {label}
       </summary>
       <div className="grid grid-cols-2 gap-2 p-2.5 pt-0 lg:grid-cols-4">{children}</div>
-    </details>
+      </details>
+    </Piece>
   );
 }
 
 function SubNest({ id, label, children }: { id: string; label: string; children: ReactNode }) {
   return (
     <details id={id} className="sj-nest col-span-full rounded-md border border-border/70 bg-muted/20" data-testid={`psionics-subnest-${id}`}>
-      <summary className="flex cursor-pointer list-none items-center gap-2 px-2 py-1.5 font-display text-xs font-semibold uppercase tracking-wide [&::-webkit-details-marker]:hidden">
+      <summary className="flex cursor-pointer list-none items-center gap-2 px-2 py-1 font-display text-xs font-semibold uppercase tracking-wide [&::-webkit-details-marker]:hidden">
         <ChevronRight className="sj-chevron h-3.5 w-3.5 shrink-0 transition-transform" />
         {label}
       </summary>
@@ -292,7 +299,8 @@ export function StepPsionics({
           spans the whole row so its contents stay readable —
           the same expand-to-full pattern the Equipment
           category boxes use. */}
-      <CardContent className="grid grid-cols-2 items-start gap-3 lg:grid-cols-3">
+      <CardContent>
+        <Zone zoneId="psionics-nests" className="grid grid-cols-2 items-start gap-2 lg:grid-cols-3">
         <NestBlock id="psionics-rules" label="Psionics in APOC — the Rules">
           <div className="rounded-md border border-card-border bg-muted/40 p-2.5" data-testid="psionics-rules-card">
             <p className="text-sm leading-snug text-muted-foreground">
@@ -493,6 +501,7 @@ export function StepPsionics({
             </div>
           ))}
         </NestBlock>
+        </Zone>
       </CardContent>
     </Card>
   );

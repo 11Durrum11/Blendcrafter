@@ -903,7 +903,7 @@ export default function Builder() {
               .filter((s) => s.id === "reference")
               .map((s) => (
                 <Piece key={s.id} pieceId="reference" layout="grid">
-                  <TabsTrigger value={s.id} data-testid={`tab-step-${s.id}`} className="h-full w-full py-2 font-semibold">
+                  <TabsTrigger value={s.id} data-testid={`tab-step-${s.id}`} className="h-full w-full py-1.5 font-semibold">
                     <span className="whitespace-normal text-center leading-tight">{s.label}</span>
                   </TabsTrigger>
                 </Piece>
@@ -920,7 +920,7 @@ export default function Builder() {
               onClick={toggleItemCreation}
               data-testid="step-group-item-creation-toggle"
               className={
-                "inline-flex h-full w-full items-center justify-center rounded-sm px-3 py-2 font-display leading-tight text-sm font-semibold font-semibold ring-offset-background transition-all " +
+                "inline-flex h-full w-full items-center justify-center rounded-sm px-2.5 py-1.5 font-display leading-tight text-sm font-semibold font-semibold ring-offset-background transition-all " +
                 (effectiveStep === "item-creation"
                   ? "bg-background text-foreground shadow-sm"
                   : "text-foreground/70 hover:text-foreground")
@@ -946,7 +946,7 @@ export default function Builder() {
               aria-expanded={creationOpen}
               data-testid="step-group-character-creation-toggle"
               className={
-                "inline-flex h-full w-full items-center justify-center rounded-sm px-3 py-2 font-display leading-tight text-sm font-semibold font-semibold ring-offset-background transition-all " +
+                "inline-flex h-full w-full items-center justify-center rounded-sm px-2.5 py-1.5 font-display leading-tight text-sm font-semibold font-semibold ring-offset-background transition-all " +
                 (inCreation
                   ? "bg-background text-foreground shadow-sm"
                   : "text-foreground/70 hover:text-foreground")
@@ -975,7 +975,7 @@ export default function Builder() {
               onClick={toggleSpelljamming}
               data-testid="step-group-spelljamming-toggle"
               className={
-                "inline-flex h-full w-full items-center justify-center rounded-sm px-3 py-2 font-display leading-tight text-sm font-semibold font-semibold ring-offset-background transition-all " +
+                "inline-flex h-full w-full items-center justify-center rounded-sm px-2.5 py-1.5 font-display leading-tight text-sm font-semibold font-semibold ring-offset-background transition-all " +
                 (effectiveStep === "spelljamming"
                   ? "bg-background text-foreground shadow-sm"
                   : "text-foreground/70 hover:text-foreground")
@@ -1060,22 +1060,29 @@ export default function Builder() {
                 {visibleSteps
                   .filter((s) => s.id !== "reference" && s.id !== "item-creation" && s.id !== "spelljamming")
                   .map((s) => (
-                    <TabsTrigger
-                      key={s.id}
-                      value={s.id}
-                      data-testid={`tab-step-${s.id}`}
-                      // Psionics gray-out (Shaun, 2026-11-04): the
-                      // Psionics step's button renders grayed when
-                      // the build has no psionic class — the
-                      // APOC-style "not applicable" treatment. The
-                      // step still opens for reference; the gray
-                      // lifts when a psionic class is on the build.
-                      className={
-                        s.id === "psionics" && !buildHasPsionics(viewBuild) ? "text-muted-foreground/60 opacity-60" : undefined
-                      }
-                    >
-                      {s.label}
-                    </TabsTrigger>
+                    // The step tabs are pieces too (Shaun,
+                    // 2026-11-08 — every button movable): drag a
+                    // tab's grip to reorder the strip on this
+                    // device; the tab itself still just clicks,
+                    // the same pattern the section buttons above
+                    // already proved inside this TabsList.
+                    <Piece key={s.id} pieceId={`tab-${s.id}`} basis="auto">
+                      <TabsTrigger
+                        value={s.id}
+                        data-testid={`tab-step-${s.id}`}
+                        // Psionics gray-out (Shaun, 2026-11-04): the
+                        // Psionics step's button renders grayed when
+                        // the build has no psionic class — the
+                        // APOC-style "not applicable" treatment. The
+                        // step still opens for reference; the gray
+                        // lifts when a psionic class is on the build.
+                        className={
+                          s.id === "psionics" && !buildHasPsionics(viewBuild) ? "text-muted-foreground/60 opacity-60" : undefined
+                        }
+                      >
+                        {s.label}
+                      </TabsTrigger>
+                    </Piece>
                   ))}
               </Zone>
             )}

@@ -88,7 +88,7 @@ import type { DeckPlan } from "@/data/deck-plans";
 function SubNest({ id, label, children }: { id: string; label: string; children: ReactNode }) {
   return (
     <details id={id} className="sj-nest rounded-md border border-border sm:col-span-2" data-testid={`ships-block-${id}`}>
-      <summary className="flex cursor-pointer list-none items-center gap-2 px-3 py-2.5 font-display text-sm font-semibold [&::-webkit-details-marker]:hidden">
+      <summary className="flex cursor-pointer list-none items-center gap-2 px-2.5 py-2 font-display text-sm font-semibold [&::-webkit-details-marker]:hidden">
         <ChevronRight className="sj-chevron h-4 w-4 shrink-0 transition-transform" />
         {label}
       </summary>

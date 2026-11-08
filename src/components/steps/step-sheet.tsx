@@ -303,7 +303,7 @@ export function StepSheet({ character }: StepSheetProps) {
                   disabled={sheetPage <= 1}
                   aria-label="Previous sheet"
                   data-testid="button-sheet-prev"
-                  className="opaque-surface absolute left-2 top-1/2 -translate-y-1/2 rounded-full border border-card-border p-2 shadow-md transition-opacity disabled:opacity-40"
+                  className="opaque-surface absolute left-2 top-1/2 -translate-y-1/2 rounded-full border border-card-border p-1.5 shadow-md transition-opacity disabled:opacity-40"
                 >
                   <ChevronLeft className="h-6 w-6" />
                 </button>
@@ -313,7 +313,7 @@ export function StepSheet({ character }: StepSheetProps) {
                   disabled={sheetPage >= sheetPageCount}
                   aria-label="Next sheet"
                   data-testid="button-sheet-next"
-                  className="opaque-surface absolute right-2 top-1/2 -translate-y-1/2 rounded-full border border-card-border p-2 shadow-md transition-opacity disabled:opacity-40"
+                  className="opaque-surface absolute right-2 top-1/2 -translate-y-1/2 rounded-full border border-card-border p-1.5 shadow-md transition-opacity disabled:opacity-40"
                 >
                   <ChevronRight className="h-6 w-6" />
                 </button>

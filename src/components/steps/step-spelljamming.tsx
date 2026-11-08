@@ -1,6 +1,7 @@
 import { useMemo, type ReactNode } from "react";
 import { ChevronRight } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { Piece, Zone } from "@/components/movable-pieces";
 import { ALL_EQUIPMENT, ALL_MAGIC_ITEMS, ALL_RACES, ALL_SPELLS } from "@/data";
 import { ShipsNestContent } from "./step-ships";
 
@@ -141,14 +142,20 @@ const isSpelljammerSource = (source: string) =>
 const isHelmCompilationSource = (source: string) => source.startsWith("Helm Types and Function");
 
 function NestBlock({ id, label, children }: { id: string; label: string; children: ReactNode }) {
+  // Nests are pieces (Shaun, 2026-11-08 — every button movable):
+  // drag a nest's grip to reorder the grid on this device. The
+  // open-span moved onto the piece shell, which watches its
+  // details; the nest itself still just opens and closes.
   return (
-    <details id={id} className="sj-nest rounded-md border border-border [&[open]]:col-span-2 lg:[&[open]]:col-span-1" data-testid={`spelljamming-block-${id}`}>
-      <summary className="flex cursor-pointer list-none items-center gap-2 px-3 py-2.5 font-display text-sm font-semibold [&::-webkit-details-marker]:hidden">
+    <Piece pieceId={id} layout="grid" className="[&:has(details[open])]:col-span-2 lg:[&:has(details[open])]:col-span-1">
+      <details id={id} className="sj-nest h-full rounded-md border border-border" data-testid={`spelljamming-block-${id}`}>
+      <summary className="flex cursor-pointer list-none items-center gap-2 px-2.5 py-2 font-display text-sm font-semibold [&::-webkit-details-marker]:hidden">
         <ChevronRight className="sj-chevron h-4 w-4 shrink-0 transition-transform" />
         {label}
       </summary>
-      <div className="grid gap-3 p-3 pt-0">{children}</div>
-    </details>
+      <div className="grid gap-2 p-2.5 pt-0">{children}</div>
+      </details>
+    </Piece>
   );
 }
 
@@ -206,7 +213,8 @@ export function StepSpelljamming() {
           width cleanly), each still collapsed, expanding in
           place. Inside a third-width nest the blocks stack in a
           single column (see NestBlock). */}
-      <CardContent className="grid grid-cols-2 items-start gap-3 lg:grid-cols-3">
+      <CardContent>
+        <Zone zoneId="spelljamming-nests" className="grid grid-cols-2 items-start gap-2 lg:grid-cols-3">
         <NestBlock id="spelljamming-how" label="How It Works">
           {SPELLJAMMING_RULE_LINES.map((line) => (
             <div key={line.label} className="rounded-md border border-card-border bg-muted/40 p-3" data-testid={`spelljamming-rule-${line.label}`}>
@@ -268,6 +276,7 @@ export function StepSpelljamming() {
             </div>
           ))}
         </NestBlock>
+        </Zone>
       </CardContent>
     </Card>
   );

@@ -251,7 +251,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
   // info button. The lists themselves doubled from one column
   // to two (same order).
   const renderEquipmentRow = (item: EquipmentItem) => (
-    <div key={item.id} className="flex flex-wrap items-center justify-between gap-2 border-b border-card-border p-3" data-testid={`equipment-row-${item.id}`}>
+    <div key={item.id} className="flex flex-wrap items-center justify-between gap-2 border-b border-card-border p-2" data-testid={`equipment-row-${item.id}`}>
       <div className="min-w-0 flex-1">
         <div className="flex items-center gap-1.5 flex-wrap">
           <span className="font-medium">{item.name}</span>
@@ -600,7 +600,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
                   <button
                     type="button"
                     id={`equip-cat-${section.key}`}
-                    className="flex w-full items-center gap-1.5 border-b border-card-border bg-card px-3 py-1.5 text-left font-display text-sm font-semibold"
+                    className="flex w-full items-center gap-1.5 border-b border-card-border bg-card px-2.5 py-1.5 text-left font-display text-sm font-semibold"
                     onClick={() => toggleSet(setOpenEquipSections, section.key)}
                     aria-expanded={equipOpen}
                     data-testid={`heading-equip-cat-${section.key}`}
@@ -801,7 +801,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
                   <button
                     type="button"
                     id={`magic-cat-${section.key}`}
-                    className="flex w-full items-center gap-1.5 border-b border-card-border bg-card px-3 py-2 text-left font-display text-sm font-semibold"
+                    className="flex w-full items-center gap-1.5 border-b border-card-border bg-card px-2.5 py-1.5 text-left font-display text-sm font-semibold"
                     onClick={() => toggleSet(setOpenMagicSections, section.key)}
                     aria-expanded={magicOpen}
                     data-testid={`heading-magic-cat-${section.key}`}
@@ -821,7 +821,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
                       )}
                   <div className={group.level === null ? "grid grid-cols-2 lg:grid-cols-4" : "grid grid-cols-1 lg:grid-cols-2"}>
                     {group.items.map((item) => (
-                <div key={item.id} className="flex flex-wrap items-center justify-between gap-2 border-b border-card-border p-3" data-testid={`magic-item-row-${item.id}`}>
+                <div key={item.id} className="flex flex-wrap items-center justify-between gap-2 border-b border-card-border p-2" data-testid={`magic-item-row-${item.id}`}>
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center gap-1.5 flex-wrap">
                       <span className="font-medium">{item.name}</span>
@@ -878,7 +878,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
           ) : (
             <div className="grid grid-cols-2 rounded-md border border-card-border bg-card lg:grid-cols-4">
               {resolved.inventory.map((ri) => (
-                <div key={ri.entry.id} className="flex flex-wrap items-center justify-between gap-2 border-b border-card-border p-3" data-testid={`inventory-row-${ri.entry.id}`}>
+                <div key={ri.entry.id} className="flex flex-wrap items-center justify-between gap-2 border-b border-card-border p-2" data-testid={`inventory-row-${ri.entry.id}`}>
                   <div className="min-w-0">
                     <div className="flex items-center gap-1.5 flex-wrap">
                       <span className="font-medium">{ri.name}</span>
@@ -905,7 +905,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
                         Equipped
                       </label>
                     )}
-                    <Button type="button" size="icon" variant="outline" className="h-7 w-7" onClick={() => onRemove(ri.entry.id)} data-testid={`button-remove-inventory-${ri.entry.id}`} aria-label={`Remove ${ri.name}`}>
+                    <Button type="button" size="icon" variant="outline" className="h-6 w-6" onClick={() => onRemove(ri.entry.id)} data-testid={`button-remove-inventory-${ri.entry.id}`} aria-label={`Remove ${ri.name}`}>
                       <Trash2 className="h-3.5 w-3.5" />
                     </Button>
                   </div>

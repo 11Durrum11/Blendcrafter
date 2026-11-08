@@ -158,7 +158,7 @@ export function StepPrestige({
               type="button"
               size="icon"
               variant="outline"
-              className="h-7 w-7"
+              className="h-6 w-6"
               disabled={!current}
               onClick={() => onRemovePrestige(cls.id)}
               data-testid={`button-remove-prestige-level-${cls.id}`}
@@ -170,7 +170,7 @@ export function StepPrestige({
               type="button"
               size="icon"
               variant="outline"
-              className="h-7 w-7"
+              className="h-6 w-6"
               disabled={(current?.levels ?? 0) >= 10 || isDisabled || blocked}
               onClick={() => onAddPrestige(cls.id)}
               data-testid={`button-add-prestige-level-${cls.id}`}

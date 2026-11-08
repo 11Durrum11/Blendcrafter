@@ -151,7 +151,7 @@ export function StepSkills({ skillRanks, enabledRulesets, disabledSkillIds, reso
                         type="button"
                         size="icon"
                         variant="outline"
-                        className="h-7 w-7"
+                        className="h-6 w-6"
                         disabled={ranks <= 0 || isDisabled}
                         onClick={() => onSetRank(skill.id, ranks - 1)}
                         data-testid={`button-remove-rank-${skill.id}`}
@@ -164,7 +164,7 @@ export function StepSkills({ skillRanks, enabledRulesets, disabledSkillIds, reso
                         type="button"
                         size="icon"
                         variant="outline"
-                        className="h-7 w-7"
+                        className="h-6 w-6"
                         disabled={atCap || remaining < skill.rankCost || isDisabled}
                         onClick={() => onSetRank(skill.id, ranks + 1)}
                         data-testid={`button-add-rank-${skill.id}`}
