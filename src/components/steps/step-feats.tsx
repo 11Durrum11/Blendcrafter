@@ -277,10 +277,17 @@ export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved,
               const active = turnedOn.filter((f) => !isGrayed(f));
               const grayedOut = turnedOn.filter(isGrayed);
               const expanded = query !== "" || expandedSections.has(section.id);
+              // Bug sweep 2026-11-08: the full-screen breakout belongs
+              // to ONE section the user opened by hand. While a search
+              // is typed, every matching section auto-expands — giving
+              // each of them the breakout stacked them into a pile of
+              // full-screen panels and the step's own content fell out
+              // of view. Searching expands in place instead.
+              const breakout = query === "" && expandedSections.has(section.id);
               return (
                 <div
                   key={section.id}
-                  className={cn("rounded-md", expanded && "col-span-full ml-[calc(50%-50vw)] min-h-[100dvh] w-screen")}
+                  className={cn("rounded-md", breakout && "col-span-full ml-[calc(50%-50vw)] min-h-[100dvh] w-screen")}
                   data-testid={`feat-section-${section.id}`}
                 >
                   <button

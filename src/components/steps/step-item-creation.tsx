@@ -1,7 +1,7 @@
 import { useMemo, type ReactNode } from "react";
 import { ChevronRight } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Piece, Zone } from "@/components/movable-pieces";
+import { Piece, Zone, usePieces } from "@/components/movable-pieces";
 import { ALL_FEATS } from "@/data";
 import type { FeatDefinition } from "@/engine/types";
 import { describeFeat } from "@/lib/entity-descriptions";
@@ -33,10 +33,14 @@ function NestBlock({ id, label, children }: { id: string; pieceId?: string; labe
   // drag a nest's grip to reorder the grid on this device. The
   // open-span moved onto the piece shell, which watches its
   // details; the nest itself still just opens and closes.
+  // Bug sweep 2026-11-08: on DM devices the piece chrome floats
+  // over the summary's right end — "Alchemy — the Non-Magical
+  // Craft" ran straight under the lock icon. Pad titles clear.
+  const { dm } = usePieces();
   return (
     <Piece pieceId={id} layout="grid" className="[&:has(details[open])]:col-span-2 lg:[&:has(details[open])]:col-span-1">
       <details id={id} className="sj-nest h-full rounded-md border border-border" data-testid={`item-creation-block-${id}`}>
-      <summary className="flex cursor-pointer list-none items-center gap-2 px-2.5 py-2 font-display text-sm font-semibold [&::-webkit-details-marker]:hidden">
+      <summary className={"flex cursor-pointer list-none items-center gap-2 px-2.5 py-2 font-display text-sm font-semibold [&::-webkit-details-marker]:hidden" + (dm ? " pr-12" : "")}>
         <ChevronRight className="sj-chevron h-4 w-4 shrink-0 transition-transform" />
         {label}
       </summary>

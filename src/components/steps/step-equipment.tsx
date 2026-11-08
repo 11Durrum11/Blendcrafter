@@ -108,6 +108,22 @@ interface CategorySection<T> {
   items: T[];
 }
 
+// Bug sweep 2026-11-08: source packs spell category labels with
+// different casing and spacing ("Adventuring Gear" beside
+// "adventuring gear", "Armor special ability" beside "Armor
+// Special Abilities"), and each spelling grew its own section —
+// the same shelf split in two. Grouping keys are slugified (case,
+// spacing and punctuation folded, "abilities" folded to "ability")
+// so spelling variants land in one section; the ordered lists'
+// canonical labels win for anything they cover.
+function categoryKey(raw: string): string {
+  return raw
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .replace(/-abilities\b/g, "-ability");
+}
+
 function groupByCategory<T extends { category: string }>(
   items: T[],
   order: { key: string; label: string }[],
@@ -116,21 +132,25 @@ function groupByCategory<T extends { category: string }>(
 ): CategorySection<T>[] {
   const byKey = new Map<string, T[]>();
   for (const item of items) {
-    const key = keyOf ? keyOf(item) : normalize ? normalize(item.category) : item.category;
+    const key = categoryKey(keyOf ? keyOf(item) : normalize ? normalize(item.category) : item.category);
     const list = byKey.get(key) ?? [];
     list.push(item);
     byKey.set(key, list);
   }
   const sections: CategorySection<T>[] = [];
   for (const { key, label } of order) {
-    const list = byKey.get(key);
+    const list = byKey.get(categoryKey(key));
     if (list && list.length > 0) {
       sections.push({ key, label, items: list });
-      byKey.delete(key);
+      byKey.delete(categoryKey(key));
     }
   }
   for (const key of [...byKey.keys()].sort()) {
-    sections.push({ key, label: key[0].toUpperCase() + key.slice(1), items: byKey.get(key)! });
+    const label = key
+      .split("-")
+      .map((w) => (w ? w[0].toUpperCase() + w.slice(1) : w))
+      .join(" ");
+    sections.push({ key, label, items: byKey.get(key)! });
   }
   return sections;
 }

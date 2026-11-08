@@ -10,6 +10,7 @@ import {
   type RaceDefinition,
   type SkillDefinition,
   type SpellDefinition,
+  type TemplateDefinition,
 } from "@/engine/types";
 import { raceStartingEcl } from "@/lib/race-groups";
 import { ALL_SPELLS } from "@/data/index";
@@ -92,6 +93,56 @@ export function describeRace(race: RaceDefinition): EntityDetail {
     sections,
     source: race.source,
     sourceUrl: race.sourceUrl,
+  };
+}
+
+/**
+ * Template detail (bug sweep 2026-11-08): template cards showed
+ * their summary with no way to read the rest — no info view at
+ * all, unlike races/classes/feats. Built from the record's own
+ * fields only: adjustments, features, prerequisites, forms.
+ */
+export function describeTemplate(t: TemplateDefinition): EntityDetail {
+  const sections: EntityDetailSection[] = [];
+  if (t.abilityModifiers && Object.keys(t.abilityModifiers).length > 0) {
+    sections.push({
+      heading: "Ability Adjustments",
+      body: Object.entries(t.abilityModifiers)
+        .map(([k, v]) => (v === null || v === undefined ? `${k.toUpperCase()} — (score removed)` : `${k.toUpperCase()} ${signed(v as number)}`))
+        .join("\n"),
+    });
+  }
+  if (t.features && t.features.length > 0) {
+    sections.push({
+      heading: "Features",
+      body: t.features.map((f) => `${f.name}: ${f.description}`).join("\n"),
+    });
+  }
+  if (t.modifiers && t.modifiers.length > 0) {
+    sections.push({
+      heading: "Adjustments",
+      body: t.modifiers.map((m) => `${m.target}: ${signed(m.value)}`).join("\n"),
+    });
+  }
+  if (t.prerequisites && t.prerequisites.length > 0) {
+    sections.push({
+      heading: "Prerequisites",
+      body: t.prerequisites.map((p) => p.note).join("\n"),
+    });
+  }
+  if (t.forms && t.forms.length > 0) {
+    sections.push({
+      heading: "Forms",
+      body: t.forms.map((f) => (f.description ? `${f.name}: ${f.description}` : f.name)).join("\n"),
+    });
+  }
+  return {
+    title: t.name,
+    badges: ["Template", t.timing === "inherited" ? "Inherited" : "Acquired", `CR ${signed(t.crModifier)}`, `LA ${signed(t.levelAdjustment)}`],
+    summary: t.summary,
+    sections,
+    source: t.source,
+    sourceUrl: t.sourceUrl,
   };
 }
 

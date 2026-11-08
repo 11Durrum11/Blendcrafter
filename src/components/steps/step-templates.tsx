@@ -1,4 +1,8 @@
 import { withPieces } from "@/components/movable-pieces";
+import { useState } from "react";
+import { EntityDetailDialog } from "@/components/entity-detail-dialog";
+import { describeTemplate } from "@/lib/entity-descriptions";
+import type { EntityDetail } from "@/lib/entity-descriptions";
 import { AlertTriangle, ArrowDown, ArrowUp, Info, X } from "lucide-react";
 import { ALL_TEMPLATES } from "@/data";
 import type { AppliedTemplateChoice, CreatureType, Ruleset, ValidationIssue } from "@/engine/types";
@@ -66,6 +70,9 @@ export function StepTemplates({ templates, baseType, enabledRulesets, onAdd, onR
   });
 
   const orderingIssues = validation.filter((v) => v.message.includes("must be applied before"));
+  // Bug sweep 2026-11-08: template cards get the same ⓘ detail
+  // view every other catalog card already has.
+  const [detail, setDetail] = useState<EntityDetail | null>(null);
 
   return withPieces("step:templates", (
     <div className="space-y-6">
@@ -210,6 +217,19 @@ export function StepTemplates({ templates, baseType, enabledRulesets, onAdd, onR
                         <Badge variant="outline" className="text-[10px] capitalize">
                           {t.timing}
                         </Badge>
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            setDetail(describeTemplate(t));
+                          }}
+                          className="ml-auto shrink-0 rounded-full p-0.5 text-muted-foreground hover-elevate hover:text-foreground"
+                          aria-label={`View description of ${t.name}`}
+                          data-testid={`button-info-template-${t.id}`}
+                        >
+                          <Info className="h-3.5 w-3.5" />
+                        </button>
                       </div>
                       <p className="mt-1 text-xs text-muted-foreground">{t.summary}</p>
                     </div>
@@ -244,6 +264,7 @@ export function StepTemplates({ templates, baseType, enabledRulesets, onAdd, onR
           </div>
         </CardContent>
       </Card>
+      <EntityDetailDialog detail={detail} onOpenChange={(open) => !open && setDetail(null)} />
     </div>
-  ));
+  ), { skip: [EntityDetailDialog] });
 }

@@ -143,7 +143,7 @@ export function StepClasses({
             >
               <Info className="h-3.5 w-3.5" />
             </button>
-            <Badge variant="outline" className="shrink-0 font-mono">
+            <Badge variant="outline" className="shrink-0 whitespace-nowrap font-mono">
               Lv {current?.levels ?? 0}
             </Badge>
           </div>

@@ -129,8 +129,8 @@ export function StepSkills({ skillRanks, enabledRulesets, disabledSkillIds, reso
                             {skill.rankCost}× cost
                           </Badge>
                         )}
-                        {def.trainedOnly && <Badge variant="outline" className="text-[10px]">Trained only</Badge>}
-                        {def.armorCheckPenalty && <Badge variant="outline" className="text-[10px]">ACP</Badge>}
+                        {def.trainedOnly && <Badge variant="outline" className="whitespace-nowrap text-[10px]">Trained only</Badge>}
+                        {def.armorCheckPenalty && <Badge variant="outline" className="whitespace-nowrap text-[10px]">ACP</Badge>}
                         {def.ruleset !== "core" && <ProductIdentityBadge rulesetLabel={RULESET_LABELS[def.ruleset]} />}
                       </div>
                       <p className="text-xs text-muted-foreground">

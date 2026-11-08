@@ -277,7 +277,7 @@ export function StepAbilities({
                           );
                         })}
                       </div>
-                      <div className="grid max-w-md grid-cols-3 gap-1.5 sm:grid-cols-6">
+                      <div className="grid grid-cols-3 gap-1.5 sm:grid-cols-6">
                         {ABILITY_KEYS.map((key) => {
                           const idx = placements[key];
                           return (
@@ -293,7 +293,7 @@ export function StepAbilities({
                                   : "border-card-border bg-card hover-elevate"
                               )}
                             >
-                              <div className="text-[10px] uppercase tracking-wide text-muted-foreground">
+                              <div className="text-[10px] uppercase leading-tight tracking-wide text-muted-foreground [overflow-wrap:anywhere]">
                                 {ABILITY_LABEL[key]}
                               </div>
                               <div className="font-mono text-sm font-bold">{idx !== null ? pickedLine.values[idx] : "—"}</div>

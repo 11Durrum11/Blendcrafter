@@ -366,8 +366,8 @@ export function StepPrestige({
             against the finished build, and you must meet them <span className="font-medium">before</span> taking
             the class. Prerequisites are <span className="font-medium">enforced</span>: a prestige class stays grayed out and
             blocked until every prerequisite is met, and every class whose prerequisites are not met drops to the
-            bottom, under "Prerequisites not met", where they are listed by name only until their prerequisites
-            are met (tap a name for its full breakdown). Requirements the builder can check — base attack bonus, base
+            bottom, under "Prerequisites not met", where each one lists exactly what it still needs; meet the
+            requirements and its level stepper unlocks (tap the ⓘ on any class for its full breakdown). Requirements the builder can check — base attack bonus, base
             saves, skill ranks, feats, race, alignment — are verified automatically against your build. The rest
             are listed with a checkbox so you can confirm you meet them. If a build changes so a taken class's
             prerequisites are no longer met, its levels are kept but further levels are blocked. Toggle additional

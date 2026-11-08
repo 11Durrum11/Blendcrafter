@@ -671,7 +671,11 @@ export default function Builder() {
         // Pointer capture is a nicety; the drag still tracks
         // while the pointer stays over the header.
       }
-    }, 180);
+    // Bug sweep 2026-11-08: at 180 ms a slightly lingering tap on a
+    // header box armed the drag and swallowed the click it ended
+    // with — Import and Rule Sets read as dead buttons in an armed
+    // browser. 350 ms keeps the hold deliberate; ordinary taps land.
+    }, 350);
   };
   const onHeaderBoxPointerMove = (e: ReactPointerEvent) => {
     const info = dragRef.current;
@@ -721,7 +725,27 @@ export default function Builder() {
     rulesets: <RulesetToggle enabledRulesets={build.enabledRulesets} onToggle={cb.toggleRuleset} />,
     characters: <CharacterRepository build={build} onLoad={handleLoadBuild} part="characters" />,
     "house-rules": <HouseRulesToggle houseRules={build.houseRules} onToggle={cb.toggleHouseRule} />,
-    save: <CharacterRepository build={build} onLoad={handleLoadBuild} part="save" />,
+    save: (
+      <span
+        className="inline-flex"
+        onClickCapture={(e) => {
+          // Bug sweep 2026-11-08: before a character is started, Save
+          // happily stored (and group-published) the untouched default
+          // build as "Unnamed Character". Until New Character is
+          // pressed there is nothing to save — say so instead.
+          if (!characterStarted) {
+            e.preventDefault();
+            e.stopPropagation();
+            toast({
+              title: "No character started yet",
+              description: "Press New Character in the Character Creation panel first — then Save keeps it here and on the group shelf.",
+            });
+          }
+        }}
+      >
+        <CharacterRepository build={build} onLoad={handleLoadBuild} part="save" />
+      </span>
+    ),
     theme: (
       <Button variant="outline" size="sm" className="px-1.5 sm:px-3" onClick={toggleTheme} aria-label="Toggle dark/light theme" data-testid="button-theme-toggle">
         <Sun className="h-3.5 w-3.5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
@@ -749,7 +773,21 @@ export default function Builder() {
       </span>
     ),
     export: (
-      <Button variant="outline" size="sm" className="px-1.5 sm:px-3" onClick={() => exportCharacterJson(build)} data-testid="button-export-character">
+      <Button
+        variant="outline"
+        size="sm"
+        className="px-1.5 sm:px-3"
+        onClick={() => {
+          exportCharacterJson(build);
+          // Bug sweep 2026-11-08: the download is invisible in some
+          // browsers — confirm it out loud so Export never reads as dead.
+          toast({
+            title: "Character exported",
+            description: `${build.name || "character"}.blendcrafter.json was downloaded — Import brings it back.`,
+          });
+        }}
+        data-testid="button-export-character"
+      >
         <Download className="h-3.5 w-3.5 sm:mr-1.5" />
         <span className="hidden sm:inline">Export</span>
       </Button>
@@ -793,7 +831,7 @@ export default function Builder() {
 
   return (
     <PiecesProvider>
-    <div className={`app-backdrop min-h-screen bg-background text-foreground${ambienceOn ? " bg-animated" : ""}`} data-scene={effectiveStep === "sheet" ? undefined : effectiveStep === "abilities" ? "race" : effectiveStep}>
+    <div className={`app-backdrop min-h-screen overflow-x-clip bg-background text-foreground${ambienceOn ? " bg-animated" : ""}`} data-scene={effectiveStep === "sheet" ? undefined : effectiveStep === "abilities" ? "race" : effectiveStep}>
       <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-2 px-4 py-1.5 sm:px-6">
           <Link href="/" className="flex items-center gap-2">
@@ -903,7 +941,7 @@ export default function Builder() {
               .filter((s) => s.id === "reference")
               .map((s) => (
                 <Piece key={s.id} pieceId="reference" layout="grid">
-                  <TabsTrigger value={s.id} data-testid={`tab-step-${s.id}`} className="h-full w-full py-1.5 font-semibold">
+                  <TabsTrigger value={s.id} data-testid={`tab-step-${s.id}`} className={"h-full w-full py-1.5 font-semibold" + (dmArmed ? " pr-11" : "")}>
                     <span className="whitespace-normal text-center leading-tight">{s.label}</span>
                   </TabsTrigger>
                 </Piece>
@@ -923,7 +961,8 @@ export default function Builder() {
                 "inline-flex h-full w-full items-center justify-center rounded-sm px-2.5 py-1.5 font-display leading-tight text-sm font-semibold font-semibold ring-offset-background transition-all " +
                 (effectiveStep === "item-creation"
                   ? "bg-background text-foreground shadow-sm"
-                  : "text-foreground/70 hover:text-foreground")
+                  : "text-foreground/70 hover:text-foreground") +
+                (dmArmed ? " pr-11" : "")
               }
             >
               <span data-testid="step-group-item-creation-label">
@@ -949,7 +988,8 @@ export default function Builder() {
                 "inline-flex h-full w-full items-center justify-center rounded-sm px-2.5 py-1.5 font-display leading-tight text-sm font-semibold font-semibold ring-offset-background transition-all " +
                 (inCreation
                   ? "bg-background text-foreground shadow-sm"
-                  : "text-foreground/70 hover:text-foreground")
+                  : "text-foreground/70 hover:text-foreground") +
+                (dmArmed ? " pr-11" : "")
               }
             >
               <span data-testid="step-group-character-creation-label">
@@ -978,7 +1018,8 @@ export default function Builder() {
                 "inline-flex h-full w-full items-center justify-center rounded-sm px-2.5 py-1.5 font-display leading-tight text-sm font-semibold font-semibold ring-offset-background transition-all " +
                 (effectiveStep === "spelljamming"
                   ? "bg-background text-foreground shadow-sm"
-                  : "text-foreground/70 hover:text-foreground")
+                  : "text-foreground/70 hover:text-foreground") +
+                (dmArmed ? " pr-11" : "")
               }
             >
               <span data-testid="step-group-spelljamming-label">
@@ -1077,7 +1118,12 @@ export default function Builder() {
                         // step still opens for reference; the gray
                         // lifts when a psionic class is on the build.
                         className={
-                          s.id === "psionics" && !buildHasPsionics(viewBuild) ? "text-muted-foreground/60 opacity-60" : undefined
+                          (s.id === "psionics" && !buildHasPsionics(viewBuild) ? "text-muted-foreground/60 opacity-60" : "") +
+                          // Bug sweep 2026-11-08: on DM devices the
+                          // piece chrome (grip + lock) floats over the
+                          // tab's right end — pad the label clear of it
+                          // so tabs read whole and stay clickable.
+                          (dmArmed ? " pr-11" : "")
                         }
                       >
                         {s.label}
@@ -1269,10 +1315,10 @@ export default function Builder() {
             {effectiveStep === "reference"
               ? "Section 1 of 4 — Player Reference"
               : effectiveStep === "item-creation"
-                ? "Section 3 of 4 — Magic Item Creation"
+                ? "Section 2 of 4 — Magic Item Creation"
                 : effectiveStep === "spelljamming"
                   ? "Section 4 of 4 — Spelljamming"
-                  : "Section 2 of 4 — Character Creation"}
+                  : "Section 3 of 4 — Character Creation"}
           </span>
           <Button size="sm" disabled={!next} onClick={() => next && goTo(next.id)} data-testid="button-next-step">
             {next ? next.label : "Done"} <ChevronRight className="ml-1 h-4 w-4" />

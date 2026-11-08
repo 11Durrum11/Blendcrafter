@@ -576,7 +576,13 @@ export function PiecesProvider({ children }: { children: ReactNode }) {
       const target = e.target as HTMLElement | null;
       const el = target?.closest?.("[data-bc-editable]") as HTMLElement | null;
       if (!el || el.isContentEditable) return;
-      if (el.closest("button, a, [role='button'], [role='tab'], [role='menuitem'], summary")) {
+      // Bug sweep 2026-11-08: tabs must keep navigating while editing
+      // is unlocked — holding their clicks back stranded the user on
+      // the current section (the click only selected the tab's text).
+      // Renaming a tab still works: double-click selects its text and
+      // opens the editor on the now-active tab.
+      if (el.closest("[role='tab']")) return;
+      if (el.closest("button, a, [role='button'], [role='menuitem'], summary")) {
         e.preventDefault();
         e.stopPropagation();
       }
@@ -859,6 +865,55 @@ export function Piece({ pieceId, basis = "full", layout = "flex", frame = false,
   const orient = ps.orient ?? (resized ? derivedOrient : undefined);
 
   // --- drag to move (grip) -------------------------------------
+  // Bug sweep 2026-11-08: a single continuous drag used to stop
+  // after ONE swap — the swap re-renders the zone, the grip's
+  // pointer capture dies with the re-render, and no further move
+  // events arrive. The drag now also listens on the window (set up
+  // at pointer-down, torn down at pointer-up), which survives any
+  // re-render, and the last-swapped piece is forgotten once the
+  // pointer leaves it, so one drag chains swap after swap.
+  const winDragRef = useRef<{ move: (e: PointerEvent) => void; end: () => void } | null>(null);
+  const endWinDrag = () => {
+    const w = winDragRef.current;
+    if (!w) return;
+    window.removeEventListener("pointermove", w.move);
+    window.removeEventListener("pointerup", w.end);
+    window.removeEventListener("pointercancel", w.end);
+    winDragRef.current = null;
+  };
+  useEffect(() => endWinDrag, []);
+
+  const dragMove = (clientX: number, clientY: number) => {
+    const info = dragRef.current;
+    const shell = shellRef.current;
+    if (!info || !shell) return;
+    if (!info.active) {
+      if (Math.hypot(clientX - info.startX, clientY - info.startY) < 6) return;
+      info.active = true;
+      setDragging(true);
+    }
+    const zoneEl = shell.closest("[data-piece-zone]");
+    if (!zoneEl) return;
+    const siblings = Array.from(zoneEl.querySelectorAll<HTMLElement>(":scope > [data-piece]"));
+    const ids = siblings.map((s) => s.dataset.piece).filter((x): x is string => !!x);
+    let overLast = false;
+    for (const sib of siblings) {
+      const otherId = sib.dataset.piece;
+      if (!otherId || otherId === pieceId) continue;
+      const r = sib.getBoundingClientRect();
+      const inside = clientX >= r.left - 4 && clientX <= r.right + 4 && clientY >= r.top - 4 && clientY <= r.bottom + 4;
+      if (otherId === info.lastTarget) {
+        overLast = inside;
+        continue;
+      }
+      if (inside) {
+        info.lastTarget = otherId;
+        swapPieces(zoneId, pieceId, otherId, ids);
+        return;
+      }
+    }
+    if (!overLast) info.lastTarget = null;
+  };
   const onGripPointerDown = (e: ReactPointerEvent) => {
     if (locked || frame) return;
     if (e.pointerType === "mouse" && e.button !== 0) return;
@@ -867,35 +922,28 @@ export function Piece({ pieceId, basis = "full", layout = "flex", frame = false,
     try {
       grip.setPointerCapture(e.pointerId);
     } catch {
-      // Capture is a nicety; the drag still tracks over the zone.
+      // Capture is a nicety; the window listeners below carry the drag.
     }
     dragRef.current = { pointerId: e.pointerId, startX: e.clientX, startY: e.clientY, active: false, lastTarget: null };
+    endWinDrag();
+    const pointerId = e.pointerId;
+    const move = (ev: PointerEvent) => {
+      if (ev.pointerId === pointerId) dragMove(ev.clientX, ev.clientY);
+    };
+    const end = () => {
+      endWinDrag();
+      onGripPointerEnd();
+    };
+    winDragRef.current = { move, end };
+    window.addEventListener("pointermove", move);
+    window.addEventListener("pointerup", end);
+    window.addEventListener("pointercancel", end);
   };
   const onGripPointerMove = (e: ReactPointerEvent) => {
-    const info = dragRef.current;
-    const shell = shellRef.current;
-    if (!info || !shell) return;
-    if (!info.active) {
-      if (Math.hypot(e.clientX - info.startX, e.clientY - info.startY) < 6) return;
-      info.active = true;
-      setDragging(true);
-    }
-    const zoneEl = shell.closest("[data-piece-zone]");
-    if (!zoneEl) return;
-    const siblings = Array.from(zoneEl.querySelectorAll<HTMLElement>(":scope > [data-piece]"));
-    const ids = siblings.map((s) => s.dataset.piece).filter((x): x is string => !!x);
-    for (const sib of siblings) {
-      const otherId = sib.dataset.piece;
-      if (!otherId || otherId === pieceId || otherId === info.lastTarget) continue;
-      const r = sib.getBoundingClientRect();
-      if (e.clientX >= r.left - 4 && e.clientX <= r.right + 4 && e.clientY >= r.top - 4 && e.clientY <= r.bottom + 4) {
-        info.lastTarget = otherId;
-        swapPieces(zoneId, pieceId, otherId, ids);
-        break;
-      }
-    }
+    dragMove(e.clientX, e.clientY);
   };
   const onGripPointerEnd = () => {
+    endWinDrag();
     if (dragRef.current?.active) setDragging(false);
     dragRef.current = null;
   };

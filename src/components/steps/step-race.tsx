@@ -72,7 +72,10 @@ export function StepRace({
       className={cn(
         "rounded-md border p-3 text-left transition-colors",
         isDisabled
-          ? "cursor-not-allowed opacity-50 border-card-border bg-card"
+          ? // Bug sweep 2026-11-08: opacity alone barely read as
+            // "off" over the transparent card tokens — grayscale
+            // makes an unpickable race unmistakable.
+            "cursor-not-allowed opacity-50 grayscale border-card-border bg-card"
           : cn(
               "cursor-pointer hover-elevate",
               raceId === race.id ? "border-primary ring-1 ring-primary bg-accent/40" : "border-card-border bg-card"

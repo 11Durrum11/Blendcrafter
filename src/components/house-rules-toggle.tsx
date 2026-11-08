@@ -54,7 +54,7 @@ export function HouseRulesToggle({ houseRules, onToggle }: HouseRulesToggleProps
                     <span className="font-medium">
                       {rule.label}
                       {rule.lockedOff && (
-                        <span className="ml-2 rounded-full bg-destructive px-1.5 py-0.5 text-[10px] font-semibold uppercase text-destructive-foreground">
+                        <span className="ml-2 whitespace-nowrap rounded-full bg-destructive px-1.5 py-0.5 text-[10px] font-semibold uppercase text-destructive-foreground">
                           Locked off
                         </span>
                       )}

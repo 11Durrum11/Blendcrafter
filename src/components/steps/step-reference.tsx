@@ -377,8 +377,13 @@ const CATEGORIES: RefCategory[] = [
   },
   {
     key: "summoning", label: "Summoning & Travel Spells (APOC)", disabled: true,
-    rows: ALL_SUMMONING_SPELL_LIST.map((s) => ({
-      key: `summoning:${s.id}`, category: "Summoning / Travel", subcategory: s.allowed ? (s.badJuJu ? "Allowed but Bad Ju-Ju" : "Allowed in APOC") : "Does not work in APOC", name: s.name, source: s.source, ruleset: s.ruleset, disabled: true,
+    // Bug sweep 2026-11-08: the rework table lists a spell once per
+    // book it appears in; identical name+source rows read as plain
+    // duplicates in the reference, so they collapse to one row.
+    rows: ALL_SUMMONING_SPELL_LIST.filter(
+      (s, i, arr) => arr.findIndex((x) => x.name === s.name && x.source === s.source) === i,
+    ).map((s) => ({
+      key: `summoning:${s.id}`, category: "Summoning / Travel", subcategory: s.allowed ? (s.badJuJu ? "Allowed but Bad Ju-Ju" : "Allowed in APOC") : "Does not work in APOC", name: s.name, source: s.source, ruleset: s.ruleset, disabled: !s.allowed,
       makeDetail: (): EntityDetail => ({
         title: s.name,
         badges: rsBadge(s.ruleset, [s.allowed ? "Allowed in APOC" : "Does not work in APOC", ...(s.badJuJu ? ["Bad Ju-Ju"] : [])]),
@@ -481,6 +486,20 @@ export function StepReference() {
         ? rows.filter((r) => r.name.toLowerCase().includes(q) || r.source.toLowerCase().includes(q))
         : [...rows].sort((a, b) => a.name.localeCompare(b.name));
       out.push(...rows);
+    }
+    // Bug sweep 2026-11-08: a search pools every category, so one
+    // record surfaces once per category that carries it (Fireball
+    // under Spells and again under Summoning & Travel). Identical
+    // name+source rows collapse to the first while searching;
+    // browsing keeps each category's own listing untouched.
+    if (q) {
+      const seen = new Set<string>();
+      return out.filter((r) => {
+        const k = `${r.name.toLowerCase()}|${r.source.toLowerCase()}`;
+        if (seen.has(k)) return false;
+        seen.add(k);
+        return true;
+      });
     }
     return out;
   }, [query, category, subcategory]);
@@ -616,7 +635,12 @@ export function StepReference() {
           </CardHeader>
           <CardContent>
             {shown.length === 0 ? (
-              <p className="text-lg text-muted-foreground">Nothing in the library matches that. Try a different spelling or a shorter search.</p>
+              <p className="text-lg text-muted-foreground">
+                Nothing in the library matches that. Try a different spelling or a shorter search.
+                {query.trim() !== "" && category !== "all" && activeCategory
+                  ? ` This search only looked inside ${activeCategory.label} — pick "All" above the categories to search the whole library.`
+                  : ""}
+              </p>
             ) : resultGroups ? (
               <Zone zoneId="reference-groups" className="grid grid-cols-2 items-start gap-2">
                 {resultGroups.map((g) => (

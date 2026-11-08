@@ -117,10 +117,10 @@ function ShipCard({
           type="button"
           onClick={() => setOpen((o) => !o)}
           aria-expanded={open}
-          className="flex w-full items-center gap-1.5 text-left font-display text-xs font-semibold uppercase tracking-wide"
+          className="flex w-full flex-wrap items-center gap-1.5 text-left font-display text-xs font-semibold uppercase tracking-wide"
         >
           <ChevronRight className={`h-3.5 w-3.5 shrink-0 transition-transform ${open ? "rotate-90" : ""}`} />
-          <span>
+          <span className="min-w-0 [overflow-wrap:anywhere]">
             {item.name} — {item.cost}
           </span>
           <span className="ml-auto shrink-0 font-normal normal-case text-muted-foreground">
@@ -363,7 +363,12 @@ export function ShipsNestContent() {
                 setFullSize((z) => !z);
               }}
               className={
-                fullSize ? "mx-auto w-auto max-w-none cursor-zoom-out" : "mx-auto h-auto w-full cursor-zoom-in"
+                // Bug sweep 2026-11-08: "fit" used to be w-full
+                // alone, so a tall plan overflowed the screen and
+                // opened clipped with scrollbars. Fit now contains
+                // the whole plan inside the overlay (object-contain);
+                // full size keeps the natural pixels + scrolling.
+                fullSize ? "mx-auto w-auto max-w-none cursor-zoom-out" : "mx-auto block h-full w-full cursor-zoom-in object-contain"
               }
             />
           </div>
