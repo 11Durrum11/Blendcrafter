@@ -141,7 +141,7 @@ const isSpelljammerSource = (source: string) =>
 // Helms here, not under Ships.
 const isHelmCompilationSource = (source: string) => source.startsWith("Helm Types and Function");
 
-function NestBlock({ id, label, children }: { id: string; label: string; children: ReactNode }) {
+function NestBlock({ id, label, children }: { id: string; pieceId?: string; label: string; children: ReactNode }) {
   // Nests are pieces (Shaun, 2026-11-08 — every button movable):
   // drag a nest's grip to reorder the grid on this device. The
   // open-span moved onto the piece shell, which watches its
@@ -215,7 +215,7 @@ export function StepSpelljamming() {
           single column (see NestBlock). */}
       <CardContent>
         <Zone zoneId="spelljamming-nests" className="grid grid-cols-2 items-start gap-2 lg:grid-cols-3">
-        <NestBlock id="spelljamming-how" label="How It Works">
+        <NestBlock id="spelljamming-how" pieceId="spelljamming-how" label="How It Works">
           {SPELLJAMMING_RULE_LINES.map((line) => (
             <div key={line.label} className="rounded-md border border-card-border bg-muted/40 p-3" data-testid={`spelljamming-rule-${line.label}`}>
               <p className="font-display text-xs font-semibold uppercase tracking-wide">{line.label}</p>
@@ -224,11 +224,11 @@ export function StepSpelljamming() {
           ))}
         </NestBlock>
 
-        <NestBlock id="spelljamming-ships" label="Ships">
+        <NestBlock id="spelljamming-ships" pieceId="spelljamming-ships" label="Ships">
           <ShipsNestContent />
         </NestBlock>
 
-        <NestBlock id="spelljamming-helms" label="Helms">
+        <NestBlock id="spelljamming-helms" pieceId="spelljamming-helms" label="Helms">
           {helms.map((item) => (
             <div key={item.id} className="rounded-md border border-card-border bg-muted/40 p-3" data-testid={`spelljamming-helm-${item.id}`}>
               <p className="font-display text-xs font-semibold uppercase tracking-wide">
@@ -239,7 +239,7 @@ export function StepSpelljamming() {
           ))}
         </NestBlock>
 
-        <NestBlock id="spelljamming-races" label="Peoples of Space">
+        <NestBlock id="spelljamming-races" pieceId="spelljamming-races" label="Peoples of Space">
           {races.map((race) => (
             <div key={race.id} className="rounded-md border border-card-border bg-muted/40 p-3" data-testid={`spelljamming-race-${race.id}`}>
               <p className="font-display text-xs font-semibold uppercase tracking-wide">
@@ -254,7 +254,7 @@ export function StepSpelljamming() {
           ))}
         </NestBlock>
 
-        <NestBlock id="spelljamming-spells" label="Spells">
+        <NestBlock id="spelljamming-spells" pieceId="spelljamming-spells" label="Spells">
           {spells.map((spell) => (
             <div key={spell.id} className="rounded-md border border-card-border bg-muted/40 p-3" data-testid={`spelljamming-spell-${spell.id}`}>
               <p className="font-display text-xs font-semibold uppercase tracking-wide">
@@ -266,7 +266,7 @@ export function StepSpelljamming() {
           ))}
         </NestBlock>
 
-        <NestBlock id="spelljamming-gear" label="Gear">
+        <NestBlock id="spelljamming-gear" pieceId="spelljamming-gear" label="Gear">
           {gear.map((item) => (
             <div key={item.id} className="rounded-md border border-card-border bg-muted/40 p-3" data-testid={`spelljamming-gear-${item.id}`}>
               <p className="font-display text-xs font-semibold uppercase tracking-wide">

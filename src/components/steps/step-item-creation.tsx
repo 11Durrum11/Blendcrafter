@@ -28,7 +28,7 @@ import { MAGIC_ITEM_CREATION_LINES, POTION_RULE_LINES } from "@/components/steps
  * 2026-11-07 — the section button names the page.)
  */
 
-function NestBlock({ id, label, children }: { id: string; label: string; children: ReactNode }) {
+function NestBlock({ id, label, children }: { id: string; pieceId?: string; label: string; children: ReactNode }) {
   // Nests are pieces (Shaun, 2026-11-08 — every button movable):
   // drag a nest's grip to reorder the grid on this device. The
   // open-span moved onto the piece shell, which watches its
@@ -111,14 +111,14 @@ export function StepItemCreation() {
           blocks stack in a single column (see NestBlock). */}
       <CardContent>
         <Zone zoneId="itemcreation-nests" className="grid grid-cols-2 items-start gap-2 lg:grid-cols-4">
-        <NestBlock id="creation-general" label="The General Method">
+        <NestBlock id="creation-general" pieceId="creation-general" label="The General Method">
           <div className="rounded-md border border-card-border bg-muted/40 p-3" data-testid="creation-general-method">
             <p className="font-display text-xs font-semibold uppercase tracking-wide">{general.label}</p>
             <p className="mt-1.5 text-sm leading-snug text-muted-foreground">{general.text}</p>
           </div>
         </NestBlock>
 
-        <NestBlock id="creation-families" label="By Family">
+        <NestBlock id="creation-families" pieceId="creation-families" label="By Family">
           {families.map((line) => (
             <SubNest key={line.label} id={`creation-family-${line.label}`} label={line.label}>
               <p className="text-sm leading-snug text-muted-foreground">{line.text}</p>
@@ -126,7 +126,7 @@ export function StepItemCreation() {
           ))}
         </NestBlock>
 
-        <NestBlock id="creation-alchemy" label="Alchemy — the Non-Magical Craft">
+        <NestBlock id="creation-alchemy" pieceId="creation-alchemy" label="Alchemy — the Non-Magical Craft">
           <SubNest id="creation-alchemy-not-magic" label="Not magic">
             <p className="text-sm leading-snug text-muted-foreground">
               Alchemical items are brewed and built, not enchanted — no item-creation feat is needed. The Craft (alchemy) skill does the work, and the finished items sit in Equipment, under Alchemical Gear.
@@ -149,7 +149,7 @@ export function StepItemCreation() {
           )}
         </NestBlock>
 
-        <NestBlock id="creation-feats" label={`Item Creation Feats — ${feats.length}`}>
+        <NestBlock id="creation-feats" pieceId="creation-feats" label={`Item Creation Feats — ${feats.length}`}>
           {feats.map((feat) => {
             const detail = describeFeat(feat);
             return (

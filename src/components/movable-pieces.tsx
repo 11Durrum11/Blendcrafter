@@ -1108,8 +1108,19 @@ export function Zone({
   const pieces: ReactElement[] = [];
   const passthrough: ReactNode[] = [];
   for (const item of items) {
-    if (isValidElement(item) && item.type === Piece) pieces.push(item as ReactElement);
-    else passthrough.push(item);
+    // A child counts as a piece when it IS a Piece — or when it
+    // carries a pieceId prop because it is a wrapper whose root
+    // renders one (the nest blocks: their grips and drag state
+    // worked, but as passthrough their stored order was never
+    // applied — caught live 2026-11-08, v20.80).
+    if (
+      isValidElement(item) &&
+      (item.type === Piece || typeof (item.props as { pieceId?: unknown }).pieceId === "string")
+    ) {
+      pieces.push(item as ReactElement);
+    } else {
+      passthrough.push(item);
+    }
   }
   const ids = pieces.map((p) => (p.props as PieceProps).pieceId);
   const orderedIds = orderFor(zoneId, ids);

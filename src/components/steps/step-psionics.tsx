@@ -122,7 +122,7 @@ function manifesterClassIdsFor(power: SpellDefinition, buildClassIds: string[]):
   return buildClassIds.filter((id) => matched.has(id));
 }
 
-function NestBlock({ id, label, children }: { id: string; label: string; children: ReactNode }) {
+function NestBlock({ id, label, children }: { id: string; pieceId?: string; label: string; children: ReactNode }) {
   // Nests are pieces (Shaun, 2026-11-08 — every button movable):
   // drag a nest's grip to reorder the grid on this device. The
   // open-span moved onto the piece shell, which watches its
@@ -301,7 +301,7 @@ export function StepPsionics({
           category boxes use. */}
       <CardContent>
         <Zone zoneId="psionics-nests" className="grid grid-cols-2 items-start gap-2 lg:grid-cols-3">
-        <NestBlock id="psionics-rules" label="Psionics in APOC — the Rules">
+        <NestBlock id="psionics-rules" pieceId="psionics-rules" label="Psionics in APOC — the Rules">
           <div className="rounded-md border border-card-border bg-muted/40 p-2.5" data-testid="psionics-rules-card">
             <p className="text-sm leading-snug text-muted-foreground">
               Everything psionic in one step — the powers, the manifesting classes and prestige classes, the feats, the
@@ -312,7 +312,7 @@ export function StepPsionics({
           </div>
         </NestBlock>
 
-        <NestBlock id="psionics-powers" label="Powers">
+        <NestBlock id="psionics-powers" pieceId="psionics-powers" label="Powers">
           {powersByDiscipline.map(({ discipline, list }) => (
             <SubNest
               key={discipline}
@@ -324,7 +324,7 @@ export function StepPsionics({
           ))}
         </NestBlock>
 
-        <NestBlock id="psionics-classes" label="Classes">
+        <NestBlock id="psionics-classes" pieceId="psionics-classes" label="Classes">
           {classes.map((c) => {
             const current = build.classLevels.find((x) => x.classId === c.id);
             const isDisabled = build.disabledClassIds.includes(c.id);
@@ -368,7 +368,7 @@ export function StepPsionics({
           })}
         </NestBlock>
 
-        <NestBlock id="psionics-prestige" label="Prestige Classes">
+        <NestBlock id="psionics-prestige" pieceId="psionics-prestige" label="Prestige Classes">
           {prestige.map((c) => {
             const current = build.prestigeClassLevels.find((x) => x.classId === c.id);
             const gate = prestigeGates.get(c.id);
@@ -421,7 +421,7 @@ export function StepPsionics({
           })}
         </NestBlock>
 
-        <NestBlock id="psionics-feats" label="Feats">
+        <NestBlock id="psionics-feats" pieceId="psionics-feats" label="Feats">
           {feats.map((f) => {
             const selected = build.featIds.includes(f.id);
             const isDisabled = build.disabledFeatIds.includes(f.id);
@@ -444,7 +444,7 @@ export function StepPsionics({
           })}
         </NestBlock>
 
-        <NestBlock id="psionics-races" label="Races">
+        <NestBlock id="psionics-races" pieceId="psionics-races" label="Races">
           {races.map((race) => (
             <div key={race.id} className="rounded-md border border-card-border bg-muted/40 p-2.5" data-testid={`psionics-race-${race.id}`}>
               <p className="font-display text-xs font-semibold uppercase tracking-wide">
@@ -460,7 +460,7 @@ export function StepPsionics({
           ))}
         </NestBlock>
 
-        <NestBlock id="psionics-items" label="Psionic Items">
+        <NestBlock id="psionics-items" pieceId="psionics-items" label="Psionic Items">
           {items.map((item) => (
             <div key={item.id} className="rounded-md border border-card-border bg-muted/40 p-2.5" data-testid={`psionics-item-${item.id}`}>
               <p className="font-display text-xs font-semibold uppercase tracking-wide">
@@ -481,7 +481,7 @@ export function StepPsionics({
           ))}
         </NestBlock>
 
-        <NestBlock id="psionics-equipment" label="Equipment">
+        <NestBlock id="psionics-equipment" pieceId="psionics-equipment" label="Equipment">
           {equipment.map((item) => (
             <div key={item.id} className="rounded-md border border-card-border bg-muted/40 p-2.5" data-testid={`psionics-equipment-${item.id}`}>
               <p className="font-display text-xs font-semibold uppercase tracking-wide">
