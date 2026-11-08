@@ -130,9 +130,14 @@ function groupByCategory<T extends { category: string }>(
   normalize?: (category: string) => string,
   keyOf?: (item: T) => string
 ): CategorySection<T>[] {
+  // One pack filed its goods under the section's display LABEL
+  // ("Adventuring gear") instead of its category key ("gear") —
+  // a label spelled as a category folds into that section too.
+  const labelToKey = new Map(order.map((o) => [categoryKey(o.label), categoryKey(o.key)]));
   const byKey = new Map<string, T[]>();
   for (const item of items) {
-    const key = categoryKey(keyOf ? keyOf(item) : normalize ? normalize(item.category) : item.category);
+    const slugged = categoryKey(keyOf ? keyOf(item) : normalize ? normalize(item.category) : item.category);
+    const key = labelToKey.get(slugged) ?? slugged;
     const list = byKey.get(key) ?? [];
     list.push(item);
     byKey.set(key, list);

@@ -150,7 +150,7 @@ function NestBlock({ id, label, children }: { id: string; pieceId?: string; labe
   // over the summary's right end — pad long titles clear of it.
   const { dm } = usePieces();
   return (
-    <Piece pieceId={id} layout="grid" className="[&:has(details[open])]:col-span-2 lg:[&:has(details[open])]:col-span-1">
+    <Piece pieceId={id} layout="grid" className="[&:has(details[open])]:col-span-2 lg:[&:has(details[open])]:col-span-3">
       <details id={id} className="sj-nest h-full rounded-md border border-border" data-testid={`spelljamming-block-${id}`}>
       <summary className={"flex cursor-pointer list-none items-center gap-2 px-2.5 py-2 font-display text-sm font-semibold [&::-webkit-details-marker]:hidden" + (dm ? " pr-12" : "")}>
         <ChevronRight className="sj-chevron h-4 w-4 shrink-0 transition-transform" />

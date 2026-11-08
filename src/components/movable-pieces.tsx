@@ -576,12 +576,21 @@ export function PiecesProvider({ children }: { children: ReactNode }) {
       const target = e.target as HTMLElement | null;
       const el = target?.closest?.("[data-bc-editable]") as HTMLElement | null;
       if (!el || el.isContentEditable) return;
-      // Bug sweep 2026-11-08: tabs must keep navigating while editing
-      // is unlocked — holding their clicks back stranded the user on
-      // the current section (the click only selected the tab's text).
-      // Renaming a tab still works: double-click selects its text and
-      // opens the editor on the now-active tab.
-      if (el.closest("[role='tab']")) return;
+      // Bug sweep 2026-11-08: navigation must keep working while
+      // editing is unlocked — holding these clicks back stranded
+      // the user on the current section (the click only selected
+      // the control's text). Tabs and the section/step navigation
+      // controls are exempt; renaming one still works by
+      // double-clicking its text once it is the active control.
+      // (The section toggles are plain buttons, not tabs — the
+      // first fix only exempted [role='tab'] and they stayed held.)
+      if (
+        el.closest(
+          "[role='tab'], [data-testid^='tab-step-'], [data-testid^='step-group-'], [data-testid='button-prev-step'], [data-testid='button-next-step']",
+        )
+      ) {
+        return;
+      }
       if (el.closest("button, a, [role='button'], [role='menuitem'], summary")) {
         e.preventDefault();
         e.stopPropagation();
