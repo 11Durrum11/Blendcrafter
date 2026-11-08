@@ -652,7 +652,7 @@ export function DmControls({ onResetExtra }: { onResetExtra?: () => void }) {
         data-testid="button-edit-lock"
       >
         {editUnlocked ? (
-          <LockOpen className="h-3.5 w-3.5 text-primary sm:mr-1.5" />
+          <LockOpen className="h-3.5 w-3.5 text-[#1e3a8a] sm:mr-1.5" />
         ) : (
           <Lock className="h-3.5 w-3.5 text-muted-foreground sm:mr-1.5" />
         )}
@@ -860,7 +860,7 @@ export function Piece({ pieceId, basis = "full", layout = "flex", frame = false,
             aria-label={locked ? "Unlock this piece" : "Lock this piece in place"}
             title={locked ? "Unlock" : "Lock in place"}
             aria-pressed={locked}
-            className={cn("rounded p-0.5", locked ? "text-primary" : "text-muted-foreground hover:text-foreground")}
+            className={cn("rounded p-0.5", locked ? "text-[#1e3a8a]" : "text-muted-foreground hover:text-foreground")}
             onClick={() => setPiece(zoneId, pieceId, { lock: !locked })}
           >
             {locked ? <Lock className="h-3.5 w-3.5" /> : <LockOpen className="h-3.5 w-3.5" />}
@@ -868,7 +868,7 @@ export function Piece({ pieceId, basis = "full", layout = "flex", frame = false,
           {editUnlocked && (
             <span
               title="Editing is unlocked — double-click any text in this piece to change the words"
-              className="px-0.5 text-primary"
+              className="px-0.5 text-[#1e3a8a]"
             >
               <Pencil className="h-3.5 w-3.5" />
             </span>

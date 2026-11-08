@@ -1077,6 +1077,15 @@ export default function Builder() {
           </TabsList>
         </Tabs>
 
+        {/* Collapsed means header only (Shaun, 2026-11-07 ~18:01):
+            while the Character Creation folder is closed, NONE of
+            its steps' content renders — the Ability Scores card
+            included. The scores appear only when the folder is
+            clicked open. The standalone sections are unaffected:
+            their content shows only while they are the open page,
+            which was already the rule there. The step footer
+            below is gated by the same condition. */}
+        {(!inCreation || creationOpen) && (<>
         {/* The Abilities step, the Spelljamming page, and Player
             Reference ride up tight (Shaun, 2026-11-07: "push
             everything up" — no dead gap above them); other steps
@@ -1257,6 +1266,7 @@ export default function Builder() {
             {next ? next.label : "Done"} <ChevronRight className="ml-1 h-4 w-4" />
           </Button>
         </div>
+        </>)}
       </main>
       {/* No bottom footer section (Shaun, 2026-11-07): the
           "Blendcrafter open-source template / blending" footer
