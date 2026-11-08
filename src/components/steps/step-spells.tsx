@@ -205,19 +205,22 @@ export function StepSpells({ build, resolved, onToggleSpell }: StepSpellsProps) 
                   <span className="text-xs text-muted-foreground">{total} spells</span>
                 </button>
                 {expanded && (
-                  <div className="space-y-5 border-t border-card-border px-3 py-3">
+                  <div className="grid grid-cols-2 items-start gap-x-4 gap-y-5 border-t border-card-border px-3 py-3">
                     {visibleLevels.map(({ lvl, spells }) => (
-                      <div key={lvl}>
+                      <div key={lvl} className={lvl === 0 ? "col-span-2" : undefined}>
                         <h4 className="font-display text-lg font-semibold">
                           {LEVEL_LABELS[lvl]}{" "}
                           <span className="text-sm font-normal text-muted-foreground">({spells.length})</span>
                         </h4>
-                        {/* Spell names in four columns within
-                            each level group (Shaun, 2026-11-04 —
-                            same treatment as the feat categories);
-                            narrower screens step down to two,
-                            then one. */}
-                        <div className="mt-1 grid grid-cols-1 gap-x-4 gap-y-0 sm:grid-cols-2 lg:grid-cols-4">
+                        {/* Level groups pair up in reading order
+                            (Shaun, 2026-11-07): 1st beside 2nd,
+                            3rd beside 4th, on through 7th/8th,
+                            9th last; the 0-level group spans the
+                            top on its own. Names run one across
+                            inside a paired group (two on wide
+                            screens), two/four across in the
+                            full-width 0-level group. */}
+                        <div className={lvl === 0 ? "mt-1 grid grid-cols-2 gap-x-4 gap-y-0 lg:grid-cols-4" : "mt-1 grid grid-cols-1 gap-x-4 gap-y-0 lg:grid-cols-2"}>
                           {spells.map((s) => (
                             <Tooltip key={s.id}>
                               <TooltipTrigger asChild>
@@ -292,7 +295,7 @@ export function StepSpells({ build, resolved, onToggleSpell }: StepSpellsProps) 
                 {selected.length} selected. Source: {profile.source}.
               </CardDescription>
             </CardHeader>
-            <CardContent className="space-y-6">
+            <CardContent className="grid grid-cols-2 items-start gap-x-4 gap-y-6">
               {levels.map((lvl) => {
                 const cap = selectionCap(profile, choice.levels, lvl, abilityScore);
                 const inLevel = byLevel.get(lvl) ?? [];
@@ -303,7 +306,7 @@ export function StepSpells({ build, resolved, onToggleSpell }: StepSpellsProps) 
                 );
                 if (query && visible.length === 0) return null;
                 return (
-                  <div key={lvl}>
+                  <div key={lvl} className={lvl === 0 ? "col-span-2" : undefined}>
                     <div className="mb-2 flex items-baseline gap-2">
                       <h3 className="font-display text-xl font-semibold">{LEVEL_LABELS[lvl]}</h3>
                       <span className="text-xs text-muted-foreground" data-testid={`spell-count-${choice.classId}-${lvl}`}>
@@ -312,7 +315,7 @@ export function StepSpells({ build, resolved, onToggleSpell }: StepSpellsProps) 
                       </span>
                       {atCap && <Badge variant="secondary" className="text-[10px]">Limit reached</Badge>}
                     </div>
-                    <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                    <div className={lvl === 0 ? "grid grid-cols-2 gap-3 lg:grid-cols-4" : "grid grid-cols-1 gap-3 lg:grid-cols-2"}>
                       {visible.map((spell) => {
                         const isSelected = selected.includes(spell.id);
                         const blocked = !isSelected && atCap;

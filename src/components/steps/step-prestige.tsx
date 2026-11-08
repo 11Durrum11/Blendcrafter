@@ -124,13 +124,13 @@ export function StepPrestige({
         )}
         data-testid={`prestige-card-${cls.id}`}
       >
-        <div className="flex items-center justify-between gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           <Tooltip>
             <TooltipTrigger asChild>
               <button
                 type="button"
                 onClick={() => setDetailClass(cls)}
-                className="text-left font-display text-base font-semibold leading-tight underline-offset-2 hover:underline"
+                className="min-w-0 text-left font-display text-base font-semibold leading-tight underline-offset-2 hover:underline"
                 aria-label={`View description of ${cls.name}`}
                 data-testid={`button-info-prestige-${cls.id}`}
               >
@@ -149,7 +149,37 @@ export function StepPrestige({
               )}
             </TooltipContent>
           </Tooltip>
-          <div className="flex shrink-0 items-center gap-1.5">
+          {/* The little level picker sits right next to the class
+              title (Shaun, 2026-11-07) — same move as the Classes
+              step: the − / + steppers left their own row at the
+              bottom of the card and sit beside the name button. */}
+          <div className="flex shrink-0 items-center gap-1">
+            <Button
+              type="button"
+              size="icon"
+              variant="outline"
+              className="h-7 w-7"
+              disabled={!current}
+              onClick={() => onRemovePrestige(cls.id)}
+              data-testid={`button-remove-prestige-level-${cls.id}`}
+              aria-label={`Remove a level of ${cls.name}`}
+            >
+              <Minus className="h-3.5 w-3.5" />
+            </Button>
+            <Button
+              type="button"
+              size="icon"
+              variant="outline"
+              className="h-7 w-7"
+              disabled={(current?.levels ?? 0) >= 10 || isDisabled || blocked}
+              onClick={() => onAddPrestige(cls.id)}
+              data-testid={`button-add-prestige-level-${cls.id}`}
+              aria-label={`Add a level of ${cls.name}`}
+            >
+              <Plus className="h-3.5 w-3.5" />
+            </Button>
+          </div>
+          <div className="ml-auto flex shrink-0 items-center gap-1.5">
             {/* The breakdown button, same as the Classes step
                 (Shaun, 2026-11-03) — the round info button opening
                 the full prestige-class breakdown dialog:
@@ -233,39 +263,13 @@ export function StepPrestige({
           </div>
         )}
         {row && (
-          <div className="mt-2 flex gap-3 text-xs text-muted-foreground font-mono">
+          <div className="mt-2 flex flex-wrap gap-x-3 gap-y-0.5 text-xs text-muted-foreground font-mono">
             <span>BAB +{row.bab}</span>
             <span>Fort +{row.fort}</span>
             <span>Ref +{row.ref}</span>
             <span>Will +{row.will}</span>
           </div>
         )}
-        <div className="mt-3 flex items-center gap-2">
-          <Button
-            type="button"
-            size="icon"
-            variant="outline"
-            className="h-7 w-7"
-            disabled={!current}
-            onClick={() => onRemovePrestige(cls.id)}
-            data-testid={`button-remove-prestige-level-${cls.id}`}
-            aria-label={`Remove a level of ${cls.name}`}
-          >
-            <Minus className="h-3.5 w-3.5" />
-          </Button>
-          <Button
-            type="button"
-            size="icon"
-            variant="outline"
-            className="h-7 w-7"
-            disabled={(current?.levels ?? 0) >= 10 || isDisabled || blocked}
-            onClick={() => onAddPrestige(cls.id)}
-            data-testid={`button-add-prestige-level-${cls.id}`}
-            aria-label={`Add a level of ${cls.name}`}
-          >
-            <Plus className="h-3.5 w-3.5" />
-          </Button>
-        </div>
       </div>
     );
   };
@@ -376,16 +380,16 @@ export function StepPrestige({
           ) : (
             <>
               {prestigeMet.length > 0 && (
-                <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">{prestigeMet.map(renderPrestigeCard)}</div>
+                <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">{prestigeMet.map(renderPrestigeCard)}</div>
               )}
               {prestigeNonMet.length > 0 && (
                 <>
                   <h4 className="mt-5 font-display text-sm font-semibold text-muted-foreground">Prerequisites not met</h4>
                   {nonMetFull.length > 0 && (
-                    <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">{nonMetFull.map(renderPrestigeCard)}</div>
+                    <div className="mt-3 grid grid-cols-2 gap-3 lg:grid-cols-4">{nonMetFull.map(renderPrestigeCard)}</div>
                   )}
                   {nonMetNames.length > 0 && (
-                    <div className="mt-3 grid gap-1 sm:grid-cols-2 lg:grid-cols-4">{nonMetNames.map(renderPrestigeNameRow)}</div>
+                    <div className="mt-3 grid grid-cols-2 gap-1 lg:grid-cols-4">{nonMetNames.map(renderPrestigeNameRow)}</div>
                   )}
                 </>
               )}
@@ -393,10 +397,10 @@ export function StepPrestige({
                 <>
                   <h4 className="mt-5 font-display text-sm font-semibold text-muted-foreground">Turned off</h4>
                   {offFull.length > 0 && (
-                    <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">{offFull.map(renderPrestigeCard)}</div>
+                    <div className="mt-3 grid grid-cols-2 gap-3 lg:grid-cols-4">{offFull.map(renderPrestigeCard)}</div>
                   )}
                   {offNames.length > 0 && (
-                    <div className="mt-3 grid gap-1 sm:grid-cols-2 lg:grid-cols-4">{offNames.map(renderPrestigeNameRow)}</div>
+                    <div className="mt-3 grid grid-cols-2 gap-1 lg:grid-cols-4">{offNames.map(renderPrestigeNameRow)}</div>
                   )}
                 </>
               )}

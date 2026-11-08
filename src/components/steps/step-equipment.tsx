@@ -650,7 +650,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
                                   Firearms are simple weapons. The skill comes in reloading them, tinkering with them, and trick shots.
                                 </p>
                               )}
-                              <div className="grid sm:grid-cols-2 lg:grid-cols-4">
+                              <div className="grid grid-cols-2 lg:grid-cols-4">
                                 {subItems.map(renderEquipmentRow)}
                               </div>
                             </div>
@@ -718,7 +718,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
                           return (
                             <div key={facet.key} data-testid={`ammo-facet-list-${facet.key}`}>
                               <p className="border-t border-card-border bg-muted/40 px-3 py-1.5 font-display text-xs font-semibold uppercase tracking-wide text-muted-foreground">{facet.label}</p>
-                              <div className="grid sm:grid-cols-2 lg:grid-cols-4">
+                              <div className="grid grid-cols-2 lg:grid-cols-4">
                                 {facetItems.map(renderEquipmentRow)}
                               </div>
                             </div>
@@ -728,7 +728,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
                     );
                   })()}
                   {equipOpen && section.key !== "weapon" && section.key !== "ammunition" && (
-                  <div className="grid sm:grid-cols-2 lg:grid-cols-4">
+                  <div className="grid grid-cols-2 lg:grid-cols-4">
                     {sortedByName(section.items).map(renderEquipmentRow)}
                   </div>
                   )}
@@ -811,15 +811,15 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
                     <span className="text-xs font-normal text-muted-foreground">({section.items.length})</span>
                   </button>
                   {magicOpen && (
-                  <div>
+                  <div className="grid grid-cols-2 items-start gap-x-4">
                     {groupMagicItems(section.items).map((group) => (
-                    <div key={group.level === null ? "unleveled" : group.level}>
+                    <div key={group.level === null ? "unleveled" : group.level} className={group.level === null ? "col-span-2" : undefined}>
                       {group.level !== null && (
                       <p className="border-t border-card-border bg-muted/40 px-3 py-1.5 font-display text-xs font-semibold uppercase tracking-wide text-muted-foreground" data-testid={`magic-level-${section.key}-${group.level}`}>
                         Level {group.level} <span className="font-normal normal-case tracking-normal">({group.items.length})</span>
                       </p>
                       )}
-                  <div className="grid sm:grid-cols-2 lg:grid-cols-4">
+                  <div className={group.level === null ? "grid grid-cols-2 lg:grid-cols-4" : "grid grid-cols-1 lg:grid-cols-2"}>
                     {group.items.map((item) => (
                 <div key={item.id} className="flex flex-wrap items-center justify-between gap-2 border-b border-card-border p-3" data-testid={`magic-item-row-${item.id}`}>
                   <div className="min-w-0 flex-1">
@@ -876,7 +876,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
           {resolved.inventory.length === 0 ? (
             <p className="text-sm text-muted-foreground">Nothing in inventory yet — add items above.</p>
           ) : (
-            <div className="grid grid-cols-1 rounded-md border border-card-border bg-card sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid grid-cols-2 rounded-md border border-card-border bg-card lg:grid-cols-4">
               {resolved.inventory.map((ri) => (
                 <div key={ri.entry.id} className="flex flex-wrap items-center justify-between gap-2 border-b border-card-border p-3" data-testid={`inventory-row-${ri.entry.id}`}>
                   <div className="min-w-0">

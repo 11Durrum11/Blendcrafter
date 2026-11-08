@@ -196,7 +196,7 @@ export function StepTemplates({ templates, baseType, enabledRulesets, onAdd, onR
           <CardDescription>Prerequisites are validated live against the original base creature's type, per SRD template wording (e.g. vampire requires a "humanoid or monstrous humanoid base creature").</CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
             {orderedAvailableTemplates.map((t) => {
               const issues = checkPrerequisites(t, { baseType, type: simulatedType, subtypes: [], appliedTemplateIds: appliedIdsSoFar });
               const blocked = issues.some((i) => i.severity === "error");

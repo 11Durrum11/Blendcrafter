@@ -66,13 +66,13 @@ export function StepClasses({
         className={cn("rounded-md border border-card-border bg-card p-3", isDisabled && "opacity-50")}
         data-testid={`class-card-${cls.id}`}
       >
-        <div className="flex items-center justify-between gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           <Tooltip>
             <TooltipTrigger asChild>
               <button
                 type="button"
                 onClick={() => setDetailClass(cls)}
-                className="text-left font-display text-base font-semibold leading-tight underline-offset-2 hover:underline"
+                className="min-w-0 text-left font-display text-base font-semibold leading-tight underline-offset-2 hover:underline"
                 aria-label={`View description of ${cls.name}`}
                 data-testid={`button-info-class-${cls.id}`}
               >
@@ -91,7 +91,39 @@ export function StepClasses({
               )}
             </TooltipContent>
           </Tooltip>
-          <div className="flex shrink-0 items-center gap-1.5">
+          {/* The little level picker sits right next to the class
+              title (Shaun, 2026-11-07): the − / + steppers moved up
+              from their own row at the bottom of the card into the
+              title row, immediately beside the name button. The
+              Prestige Classes step's full cards carry the same
+              arrangement. */}
+          <div className="flex shrink-0 items-center gap-1">
+            <Button
+              type="button"
+              size="icon"
+              variant="outline"
+              className="h-7 w-7"
+              disabled={!current || isDisabled}
+              onClick={() => onRemove(cls.id)}
+              data-testid={`button-remove-level-${cls.id}`}
+              aria-label={`Remove a level of ${cls.name}`}
+            >
+              <Minus className="h-3.5 w-3.5" />
+            </Button>
+            <Button
+              type="button"
+              size="icon"
+              variant="outline"
+              className="h-7 w-7"
+              disabled={(current?.levels ?? 0) >= 10 || isDisabled}
+              onClick={() => onAdd(cls.id)}
+              data-testid={`button-add-level-${cls.id}`}
+              aria-label={`Add a level of ${cls.name}`}
+            >
+              <Plus className="h-3.5 w-3.5" />
+            </Button>
+          </div>
+          <div className="ml-auto flex shrink-0 items-center gap-1.5">
             {/* The breakdown button (Shaun, 2026-11-03: "give an
                 exclamation point that breaks down the entire class
                 fully") — the same round info button the race tiles
@@ -117,39 +149,13 @@ export function StepClasses({
           </div>
         </div>
         {row && (
-          <div className="mt-1.5 flex gap-3 text-xs text-muted-foreground font-mono">
+          <div className="mt-1.5 flex flex-wrap gap-x-3 gap-y-0.5 text-xs text-muted-foreground font-mono">
             <span>BAB +{row.bab}</span>
             <span>Fort +{row.fort}</span>
             <span>Ref +{row.ref}</span>
             <span>Will +{row.will}</span>
           </div>
         )}
-        <div className="mt-2 flex items-center gap-2">
-          <Button
-            type="button"
-            size="icon"
-            variant="outline"
-            className="h-7 w-7"
-            disabled={!current || isDisabled}
-            onClick={() => onRemove(cls.id)}
-            data-testid={`button-remove-level-${cls.id}`}
-            aria-label={`Remove a level of ${cls.name}`}
-          >
-            <Minus className="h-3.5 w-3.5" />
-          </Button>
-          <Button
-            type="button"
-            size="icon"
-            variant="outline"
-            className="h-7 w-7"
-            disabled={(current?.levels ?? 0) >= 10 || isDisabled}
-            onClick={() => onAdd(cls.id)}
-            data-testid={`button-add-level-${cls.id}`}
-            aria-label={`Add a level of ${cls.name}`}
-          >
-            <Plus className="h-3.5 w-3.5" />
-          </Button>
-        </div>
       </div>
     );
   };
@@ -172,11 +178,14 @@ export function StepClasses({
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">{classesOn.map(renderClassCard)}</div>
+          {/* Doubled columns on the phone only (Shaun, 2026-11-07):
+              two across on a phone, four across on a laptop as
+              before. The Prestige Classes grids match. */}
+          <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">{classesOn.map(renderClassCard)}</div>
           {classesOff.length > 0 && (
             <>
               <h4 className="mt-5 font-display text-sm font-semibold text-muted-foreground">Turned off</h4>
-              <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">{classesOff.map(renderClassCard)}</div>
+              <div className="mt-3 grid grid-cols-2 gap-3 lg:grid-cols-4">{classesOff.map(renderClassCard)}</div>
             </>
           )}
           <p className="mt-4 text-sm text-muted-foreground">

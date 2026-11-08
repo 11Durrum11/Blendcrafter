@@ -123,12 +123,12 @@ function manifesterClassIdsFor(power: SpellDefinition, buildClassIds: string[]):
 
 function NestBlock({ id, label, children }: { id: string; label: string; children: ReactNode }) {
   return (
-    <details id={id} className="sj-nest rounded-md border border-border sm:[&[open]]:col-span-2 lg:[&[open]]:col-span-3" data-testid={`psionics-block-${id}`}>
+    <details id={id} className="sj-nest rounded-md border border-border [&[open]]:col-span-2 lg:[&[open]]:col-span-3" data-testid={`psionics-block-${id}`}>
       <summary className="flex cursor-pointer list-none items-center gap-2 px-2.5 py-2 font-display text-[13px] font-semibold [&::-webkit-details-marker]:hidden">
         <ChevronRight className="sj-chevron h-4 w-4 shrink-0 transition-transform" />
         {label}
       </summary>
-      <div className="grid gap-2 p-2.5 pt-0 sm:grid-cols-2 lg:grid-cols-4">{children}</div>
+      <div className="grid grid-cols-2 gap-2 p-2.5 pt-0 lg:grid-cols-4">{children}</div>
     </details>
   );
 }
@@ -140,7 +140,7 @@ function SubNest({ id, label, children }: { id: string; label: string; children:
         <ChevronRight className="sj-chevron h-3.5 w-3.5 shrink-0 transition-transform" />
         {label}
       </summary>
-      <div className="grid gap-2 p-2 pt-0 sm:grid-cols-2 lg:grid-cols-4">{children}</div>
+      <div className="grid grid-cols-2 gap-2 p-2 pt-0 lg:grid-cols-4">{children}</div>
     </details>
   );
 }
@@ -292,7 +292,7 @@ export function StepPsionics({
           spans the whole row so its contents stay readable —
           the same expand-to-full pattern the Equipment
           category boxes use. */}
-      <CardContent className="grid grid-cols-1 items-start gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      <CardContent className="grid grid-cols-2 items-start gap-3 lg:grid-cols-3">
         <NestBlock id="psionics-rules" label="Psionics in APOC — the Rules">
           <div className="rounded-md border border-card-border bg-muted/40 p-2.5" data-testid="psionics-rules-card">
             <p className="text-sm leading-snug text-muted-foreground">

@@ -605,14 +605,14 @@ export function StepReference() {
             {shown.length === 0 ? (
               <p className="text-lg text-muted-foreground">Nothing in the library matches that. Try a different spelling or a shorter search.</p>
             ) : resultGroups ? (
-              <div className="space-y-3">
+              <div className="grid grid-cols-2 items-start gap-3">
                 {resultGroups.map((g) => (
-                  <details key={g.label} className="sj-nest rounded-md border border-border" data-testid={`reference-results-group-${g.label.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}>
+                  <details key={g.label} className="sj-nest rounded-md border border-border [&[open]]:col-span-2" data-testid={`reference-results-group-${g.label.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}>
                     <summary className="flex cursor-pointer list-none items-center gap-2 px-3 py-2.5 font-display text-sm font-semibold [&::-webkit-details-marker]:hidden">
                       <ChevronRight className="sj-chevron h-4 w-4 shrink-0 transition-transform" />
                       {g.label} ({g.rows.length})
                     </summary>
-                    <ul className="grid grid-cols-1 gap-x-4 p-3 pt-0 sm:grid-cols-2 lg:grid-cols-4">
+                    <ul className="grid grid-cols-2 gap-x-4 p-3 pt-0 lg:grid-cols-4">
                       {g.rows.map((row) => (
                         <li key={row.key} className="border-b">
                           <button
@@ -636,7 +636,7 @@ export function StepReference() {
                 ))}
               </div>
             ) : (
-              <ul className="grid grid-cols-1 gap-x-4 sm:grid-cols-2 lg:grid-cols-4">
+              <ul className="grid grid-cols-2 gap-x-4 lg:grid-cols-4">
                 {shown.map((row) => (
                   <li key={row.key} className="border-b">
                     <button

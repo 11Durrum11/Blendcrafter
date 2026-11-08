@@ -142,7 +142,7 @@ const isHelmCompilationSource = (source: string) => source.startsWith("Helm Type
 
 function NestBlock({ id, label, children }: { id: string; label: string; children: ReactNode }) {
   return (
-    <details id={id} className="sj-nest rounded-md border border-border" data-testid={`spelljamming-block-${id}`}>
+    <details id={id} className="sj-nest rounded-md border border-border [&[open]]:col-span-2 lg:[&[open]]:col-span-1" data-testid={`spelljamming-block-${id}`}>
       <summary className="flex cursor-pointer list-none items-center gap-2 px-3 py-2.5 font-display text-sm font-semibold [&::-webkit-details-marker]:hidden">
         <ChevronRight className="sj-chevron h-4 w-4 shrink-0 transition-transform" />
         {label}
@@ -206,7 +206,7 @@ export function StepSpelljamming() {
           width cleanly), each still collapsed, expanding in
           place. Inside a third-width nest the blocks stack in a
           single column (see NestBlock). */}
-      <CardContent className="grid grid-cols-1 items-start gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      <CardContent className="grid grid-cols-2 items-start gap-3 lg:grid-cols-3">
         <NestBlock id="spelljamming-how" label="How It Works">
           {SPELLJAMMING_RULE_LINES.map((line) => (
             <div key={line.label} className="rounded-md border border-card-border bg-muted/40 p-3" data-testid={`spelljamming-rule-${line.label}`}>

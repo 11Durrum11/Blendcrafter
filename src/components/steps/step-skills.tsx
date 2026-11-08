@@ -95,9 +95,9 @@ export function StepSkills({ skillRanks, enabledRulesets, disabledSkillIds, reso
               across on sm+ screens, one column on phones. The
               hairline dividers come from gap-px over the border
               color with each row on bg-card. */}
-          <div className="mt-4 grid grid-cols-1 gap-px overflow-hidden rounded-md border border-card-border bg-card-border sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-4 grid grid-cols-2 gap-px overflow-hidden rounded-md border border-card-border bg-card-border lg:grid-cols-4">
             {visibleResolved.length === 0 ? (
-              <p className="bg-card p-4 text-sm text-muted-foreground sm:col-span-2 lg:col-span-4">No skills match your search or the enabled rule sets.</p>
+              <p className="bg-card p-4 text-sm text-muted-foreground col-span-2 lg:col-span-4">No skills match your search or the enabled rule sets.</p>
             ) : (
               visibleResolved.map((skill) => {
                 const def = skillsById.get(skill.id)!;
