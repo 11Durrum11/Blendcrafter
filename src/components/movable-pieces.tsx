@@ -17,6 +17,7 @@ import {
   type ReactNode,
 } from "react";
 import { ArrowLeftRight, ArrowUpDown, GripVertical, Lock, LockOpen, Pencil, RotateCcw } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -125,37 +126,79 @@ const DM_STORAGE_KEY = "blendcrafter:dm-mode-v1";
 const EDIT_UNLOCKED_STORAGE_KEY = "blendcrafter:edit-unlocked-v1";
 const TEXT_OVERRIDES_STORAGE_KEY = "blendcrafter:text-overrides-v1";
 
-/**
- * Is this device armed as the DM's? Arming happens once, by opening
- * the site with ?dm=1 in the link (before the # of the hash route is
- * fine too); the device remembers it from then on. ?dm=0 disarms.
- * This is the strongest gate that fits a site with no accounts and
- * no GM mode of its own — the same pattern the Weather Engine's DM
- * workspace uses. Players who never open the DM link never see a
- * single treatment control, and there is no on-page unlock for them
- * to find: the toggle below renders only on armed devices.
- */
-export function isDmArmed(): boolean {
+const DM_SESSION_KEY = "blendcrafter:dm-mode-session";
+const JUST_ARMED_KEY = "blendcrafter:just-armed-v1";
+
+/** Read the dm value out of the current URL, wherever it rode in:
+ * the query string, the hash route's own query, or — belt and
+ * braces, for webviews that mangle either — anywhere in the href. */
+function dmParamFromUrl(): string | null {
   try {
-    let dm: string | null = null;
-    const search = globalThis.location?.search ?? "";
-    if (search) dm = new URLSearchParams(search).get("dm");
-    if (!dm && globalThis.location?.hash) {
-      const q = globalThis.location.hash.split("?")[1];
-      if (q) dm = new URLSearchParams(q).get("dm");
+    const loc = globalThis.location;
+    if (!loc) return null;
+    if (loc.search) {
+      const v = new URLSearchParams(loc.search).get("dm");
+      if (v) return v;
     }
-    if (dm === "1" || dm === "on" || dm === "true") {
-      globalThis.localStorage?.setItem(DM_STORAGE_KEY, "1");
-      return true;
+    if (loc.hash && loc.hash.includes("?")) {
+      const v = new URLSearchParams(loc.hash.split("?")[1]).get("dm");
+      if (v) return v;
     }
-    if (dm === "0" || dm === "off" || dm === "false") {
-      globalThis.localStorage?.removeItem(DM_STORAGE_KEY);
-      return false;
-    }
-    return globalThis.localStorage?.getItem(DM_STORAGE_KEY) === "1";
+    const m = /[?&#]dm=([^&#]*)/.exec(loc.href ?? "");
+    if (m) return decodeURIComponent(m[1]);
+    return null;
+  } catch {
+    return null;
+  }
+}
+
+/** Storage writes/removals that can never throw: a blocked or full
+ * store must not take the arming decision itself down with it. */
+function dmStoreWrite() {
+  try { globalThis.localStorage?.setItem(DM_STORAGE_KEY, "1"); } catch { /* session-only arming */ }
+  try { globalThis.sessionStorage?.setItem(DM_SESSION_KEY, "1"); } catch { /* ignore */ }
+}
+function dmStoreClear() {
+  try { globalThis.localStorage?.removeItem(DM_STORAGE_KEY); } catch { /* ignore */ }
+  try { globalThis.sessionStorage?.removeItem(DM_SESSION_KEY); } catch { /* ignore */ }
+}
+function dmStoreRead(): boolean {
+  try {
+    if (globalThis.localStorage?.getItem(DM_STORAGE_KEY) === "1") return true;
+  } catch { /* fall through to the session store */ }
+  try {
+    return globalThis.sessionStorage?.getItem(DM_SESSION_KEY) === "1";
   } catch {
     return false;
   }
+}
+
+/**
+ * Is this device armed as the DM's? Two arming paths (Shaun,
+ * 2026-11-08 — the link alone proved fragile on his phone: it can
+ * land in a different browser than the one he plays in, and the
+ * old build let a storage error silently swallow the arm):
+ *  1. The link: open the site once with ?dm=1 (?dm=0 disarms);
+ *     the device remembers it from then on. An explicit ?dm in
+ *     the URL now decides the session EVEN IF persisting it
+ *     fails — the write can no longer veto the arm.
+ *  2. The header's DM button: press-and-hold arms the device
+ *     from inside whichever browser is showing the page, so the
+ *     right browser is always the one that gets armed.
+ * Player devices that never arm show no treatment controls; the
+ * one hint that arming exists is that small DM button.
+ */
+export function isDmArmed(): boolean {
+  const dm = dmParamFromUrl();
+  if (dm === "1" || dm === "on" || dm === "true") {
+    dmStoreWrite();
+    return true;
+  }
+  if (dm === "0" || dm === "off" || dm === "false") {
+    dmStoreClear();
+    return false;
+  }
+  return dmStoreRead();
 }
 
 export interface TextOverride {
@@ -315,6 +358,10 @@ interface PiecesApi {
   resetAll: () => void;
   /** This device is armed as the DM's (see isDmArmed). */
   dm: boolean;
+  /** Arm this device as the DM's (persists; see ArmDmButton). */
+  armDm: () => void;
+  /** Disarm this device (Exit DM in the header controls). */
+  disarmDm: () => void;
   /** The Edit Lock: true = editing unlocked (DM devices only). */
   editUnlocked: boolean;
   setEditUnlocked: (v: boolean) => void;
@@ -325,7 +372,33 @@ interface PiecesApi {
 const PiecesContext = createContext<PiecesApi | null>(null);
 
 export function PiecesProvider({ children }: { children: ReactNode }) {
-  const [dm] = useState<boolean>(() => isDmArmed());
+  const [dm, setDm] = useState<boolean>(() => isDmArmed());
+  const { toast } = useToast();
+  const armDm = useCallback(() => {
+    dmStoreWrite();
+    setDm(true);
+  }, []);
+  const disarmDm = useCallback(() => {
+    dmStoreClear();
+    setDm(false);
+  }, []);
+  // Confirmation after a hold-to-arm reload: the arm itself is
+  // silent by design everywhere else, and a silent arm is how
+  // this fault hid — say it once, plainly.
+  useEffect(() => {
+    try {
+      if (globalThis.sessionStorage?.getItem(JUST_ARMED_KEY) === "1") {
+        globalThis.sessionStorage?.removeItem(JUST_ARMED_KEY);
+        toast({
+          title: "DM mode is on for this device",
+          description: "Pieces can be moved now. Text editing stays behind the Edit Lock in the header.",
+        });
+      }
+    } catch {
+      // No session store, no toast — the chrome appearing is the signal.
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const [layout, setLayout] = useState<LayoutState>(loadLayout);
   const [editUnlocked, setEditUnlockedState] = useState<boolean>(() => {
     try {
@@ -583,12 +656,14 @@ export function PiecesProvider({ children }: { children: ReactNode }) {
       swapPieces,
       resetAll,
       dm,
+      armDm,
+      disarmDm,
       editUnlocked,
       setEditUnlocked,
       overrides,
       setTextOverride,
     }),
-    [visibleLayout, pieceState, setPiece, orderFor, swapPieces, resetAll, dm, editUnlocked, setEditUnlocked, overrides, setTextOverride],
+    [visibleLayout, pieceState, setPiece, orderFor, swapPieces, resetAll, dm, armDm, disarmDm, editUnlocked, setEditUnlocked, overrides, setTextOverride],
   );
 
   return <PiecesContext.Provider value={api}>{children}</PiecesContext.Provider>;
@@ -633,8 +708,62 @@ export function ResetLayoutButton({ onResetExtra }: { onResetExtra?: () => void 
  * per device; flipping it on is what makes double-click text
  * editing live.
  */
+/** The header's arm switch, shown only on devices that are NOT
+ * armed (Shaun, 2026-11-08): press-and-hold for a moment arms
+ * THIS device from inside whichever browser is showing the page
+ * — the fix for the ?dm=1 link landing in a different browser
+ * than the one he plays in. A plain tap does nothing, so it
+ * can't be armed by accident; holding fills the button dark
+ * blue and the label says what's happening. Arming persists,
+ * then the page reloads so every gate (piece chrome, header-box
+ * dragging, the DM controls) wakes up together, and the
+ * provider's just-armed toast confirms it out loud. */
+export function ArmDmButton() {
+  const { dm, armDm } = usePieces();
+  const [holding, setHolding] = useState(false);
+  const timer = useRef<number | null>(null);
+  if (dm) return null;
+  const cancel = () => {
+    if (timer.current !== null) {
+      window.clearTimeout(timer.current);
+      timer.current = null;
+    }
+    setHolding(false);
+  };
+  const start = () => {
+    if (timer.current !== null) return;
+    setHolding(true);
+    timer.current = window.setTimeout(() => {
+      timer.current = null;
+      armDm();
+      try { globalThis.sessionStorage?.setItem(JUST_ARMED_KEY, "1"); } catch { /* toast is a bonus */ }
+      try { globalThis.location?.reload(); } catch { /* state already armed */ }
+    }, 1200);
+  };
+  return (
+    <Button
+      variant="ghost"
+      size="sm"
+      className="touch-none select-none px-1.5 [-webkit-touch-callout:none] sm:px-2"
+      onPointerDown={start}
+      onPointerUp={cancel}
+      onPointerLeave={cancel}
+      onPointerCancel={cancel}
+      onContextMenu={(e) => e.preventDefault()}
+      onKeyDown={(e) => { if ((e.key === " " || e.key === "Enter") && !e.repeat) start(); }}
+      onKeyUp={(e) => { if (e.key === " " || e.key === "Enter") cancel(); }}
+      onClick={(e) => e.preventDefault()}
+      title="Press and hold to turn on DM mode on this device — movable pieces and text editing. A plain tap does nothing."
+      data-testid="button-arm-dm"
+    >
+      <Lock className={holding ? "h-3.5 w-3.5 text-[#1e3a8a] sm:mr-1.5" : "h-3.5 w-3.5 text-muted-foreground sm:mr-1.5"} />
+      <span className="hidden sm:inline">{holding ? "Hold…" : "DM"}</span>
+    </Button>
+  );
+}
+
 export function DmControls({ onResetExtra }: { onResetExtra?: () => void }) {
-  const { dm, editUnlocked, setEditUnlocked } = usePieces();
+  const { dm, editUnlocked, setEditUnlocked, disarmDm } = usePieces();
   if (!dm) return null;
   return (
     <>
@@ -659,6 +788,20 @@ export function DmControls({ onResetExtra }: { onResetExtra?: () => void }) {
         <span className="hidden sm:inline">{editUnlocked ? "Editing on" : "Edit locked"}</span>
       </Button>
       <ResetLayoutButton onResetExtra={onResetExtra} />
+      <Button
+        variant="ghost"
+        size="sm"
+        className="px-1.5 sm:px-2"
+        onClick={() => {
+          disarmDm();
+          try { globalThis.location?.reload(); } catch { /* state already disarmed */ }
+        }}
+        title="Turn DM mode off on this device: the movable pieces and editing controls go away until it's armed again."
+        data-testid="button-exit-dm"
+      >
+        <LockOpen className="h-3.5 w-3.5 text-muted-foreground sm:mr-1.5" />
+        <span className="hidden sm:inline">Exit DM</span>
+      </Button>
     </>
   );
 }

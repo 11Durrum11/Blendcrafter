@@ -6,7 +6,7 @@ import { Logo } from "@/components/logo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { DmControls, Piece, PieceFrame, PiecesProvider, Zone, isDmArmed } from "@/components/movable-pieces";
+import { ArmDmButton, DmControls, Piece, PieceFrame, PiecesProvider, Zone, isDmArmed } from "@/components/movable-pieces";
 import { RulesetToggle } from "@/components/ruleset-toggle";
 import { HouseRulesToggle } from "@/components/house-rules-toggle";
 import { CharacterRepository } from "@/components/character-repository";
@@ -806,7 +806,12 @@ export default function Builder() {
               Reset puts every piece back in its shipped place,
               sizes and locks cleared — and the header boxes' own
               saved order resets with it. Both controls render ONLY
-              on DM-armed devices; players see neither. */}
+              on DM-armed devices; players see neither. On devices
+              that are NOT armed, the small DM button beside them
+              is the arm switch (Shaun, 2026-11-08): press-and-hold
+              arms this device from inside this browser, because
+              the ?dm=1 link kept landing in the wrong one. */}
+          <ArmDmButton />
           <DmControls
             onResetExtra={() => {
               setHeaderOrder([...HEADER_BOX_ORDER]);
