@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import { EntityDetailDialog } from "@/components/entity-detail-dialog";
+import { withPieces } from "@/components/movable-pieces";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { describeClass, type EntityDetail } from "@/lib/entity-descriptions";
 
@@ -153,7 +154,7 @@ export function StepClasses({
     );
   };
 
-  return (
+  return withPieces("step:classes", (
     <div className="space-y-6">
       <Card>
         <CardHeader>
@@ -194,5 +195,5 @@ export function StepClasses({
         onOpenChange={(open) => !open && setDetailClass(null)}
       />
     </div>
-  );
+  ), { skip: [EntityDetailDialog] });
 }

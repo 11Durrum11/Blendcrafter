@@ -6508,3 +6508,356 @@ Addenda to the purity sweep (same call, 2026-11-04):
   Plus icon removed, label is just "Add", tighter horizontal
   padding — the buttons are visibly shorter. Nothing else
   about the rows changed.
+
+## 2026-11-04 — Magic Items header swap (Shaun, voice call via main chat)
+- The "Creating Magic Items" panel moved from beside the Magic Items
+  header to directly under it (commit dc93a741, stamp 20261104133413).
+- A new "Potions — Magical & Alchemical" panel (testid
+  panel-potion-rules) took the creation panel's old spot, to the right
+  of the Magic Items header: crunch only, from Shaun's pills/potions
+  document — the magical vs alchemical difference, the cure line at
+  1d8+1 per round, Potion Miscibility on mixing, and the throwing
+  rules.
+- Follow-up (commit 2ace64a6, stamp 20261104133527): the potions panel
+  now leads with the difference as its own notation, in the document's
+  words — magical potion effects happen instantaneously, whereas
+  alchemical ones happen over the course of time (rounds), spread
+  evenly over rounds equal to the spell's level.
+- Verified live by content: live version.json = 20261104133527; live
+  bundle carries panel-potion-rules, panel-magic-item-creation, and
+  the "Magical vs alchemical" line.
+
+## 2026-11-04 — Section 3: Magic Item Creation (Shaun, voice call via main chat)
+- Commit f286a98c (stamp 20261104134232): a third top-level
+  section, "3 Magic Item Creation", in the step row next to
+  Character Creation — first shipped as a plain tab to a page
+  carrying the creation-mechanics lines by family. Footers became
+  "Section N of 3".
+- Commit 3011ac59 (stamp 20261104134515): the line is now
+  CLICKABLE like Character Creation — a toggle that opens a
+  panel with jump links (The General Method / By Family /
+  Alchemy / Item Creation Feats) and enters the section from
+  anywhere else. The page now carries the WHOLE creation
+  mechanics: the general method block, the six family cost
+  blocks, a new "Alchemy — the Non-Magical Craft" section (no
+  feat needed; Craft (alchemy) creation math; the alchemical
+  potion difference and cure line, pulled from POTION_RULE_LINES),
+  and ALL 39 item-creation feats in full via describeFeat (SRD
+  eight + house brewing chain + Brew Injection featured first,
+  the rest alphabetical).
+- Note: two parallel edits briefly produced "export export" on
+  POTION_RULE_LINES in step-equipment.tsx; tsc caught it and the
+  duplicate was removed before this push. Both line arrays are
+  exported from step-equipment.tsx for reuse.
+
+## Pre-boot splash kills the white screen (2026-11-04, commit ec087d6e)
+- Shaun's recurring "white screen" was the empty index.html showing
+  default white while the ~13 MB bundle downloaded — worse on every
+  fresh versioned link, which forces a cold download. index.html now
+  paints a dark slate (#14171f) from the first frame and carries an
+  inline boot splash inside #root (amber spinner, "Blendcrafter",
+  "Loading the library — 23,000+ entries take a moment…") that React
+  replaces automatically on mount. Boot-verified live: the app renders
+  fully and no splash sticks.
+
+## Splash backdrop: the Bastion fog street (2026-11-04, commit cab321c0)
+- Shaun asked for "a really awesome steampunk my world background"
+  on it. Generated a steampunk Bastion street in the Fog of Life
+  (grey sky, no sun/stars, amber lamplight the only warmth — canon
+  checked by eye before shipping), downscaled to 1280px / 99 KB and
+  embedded as a data URI in a style block placed AFTER the splash
+  markup, so the dark splash still paints instantly and the picture
+  fades in over it under a slate gradient that keeps the title
+  readable. Source kept in boot-bg-src/.
+
+## Whole-site backdrop (2026-11-04, commit 25dcb4c7)
+- Shaun: "Put it on the whole site. On the phone too." The Bastion
+  fog street now backs the ENTIRE app: a fixed ::before layer on the
+  page root (.app-backdrop in src/index.css + class on the builder
+  root div), dark theme only, under a slate scrim (78% top → 90%
+  bottom) so cards and text stay readable while the art reads in the
+  margins and gaps. Same embedded 99 KB image as the splash — no
+  extra download; fixed positioning so phone browsers honor it.
+  (This push's exec was killed by a runtime restart mid-flight; HEAD
+  check confirmed the commit landed before any re-push.)
+
+## Whole-site backdrop (2026-11-04, commit 25dcb4c7)
+- Shaun: "put it on the whole site, on the phone too." The splash's
+  Bastion fog street became the app-wide backdrop: a fixed ::before
+  layer on the builder root (data-less default), slate scrim over it,
+  dark theme only. Live-verified by version flip.
+
+## Per-area scenes, animation, ambient sound (2026-11-04, commit 74bddbd2)
+- Shaun: "a different type of scene on every clickable instance…
+  make that picture according to the area", then "make those scenes
+  animated and give me an option as to animate them or not", "with
+  the appropriate ambient sounds." Built during his voice call; the
+  header order fix (New second, Export next to Import, Moon last) was
+  applied on top before this push.
+- 13 generated scenes embedded as data URIs in src/index.css keyed by
+  data-scene=<step id> on the builder root: library (reference), hall
+  of the peoples (race), lecture hall (classes), guild workshop
+  (skills), transformation lab (templates), training yard (feats),
+  the spellbook (spells), the school (prestige), the market
+  (equipment), magical laboratory (magic-items), the warehouse
+  (inventory), tavern (personality), the forge (item-creation). His
+  final assignments, after he restarted the list mid-call — market
+  and laboratory were corrected by him personally. The Character
+  Sheet is left alone (data-scene unset) and keeps the street.
+- All 13 surveyed by eye against Fog of Life canon before shipping
+  (contact sheets): grey fog, no sun/stars, amber lamplight only;
+  Templates vats empty, Feats figures are practice dummies, Race
+  figures are statues. PASS.
+- Animation: .bg-animated on the root = 70s backdrop drift + a
+  sliding fog ::after layer; prefers-reduced-motion stops it.
+- Sound: src/lib/ambience.ts — Web Audio-synthesized per-scene
+  recipes (no audio files), gesture-armed, header Ambience toggle
+  (speaker button) persisted in localStorage blendcrafter:ambience.
+
+## Group shelf — shared characters (2026-11-04, commit 22639258)
+- Shaun (via the hub chat's work order, then confirmed here):
+  "Same thing with Blendcrafter" — everything shared for everyone;
+  publish mode chosen by Shaun: "Publish automatically whenever I
+  save."
+- New src/lib/shared-characters.ts talks to the group's Supabase
+  project (apoc-survival-tracker, the Live Tracker's backend) over
+  REST with its publishable key: table public.shared_characters
+  (id, name, build jsonb, timestamps), open-board RLS like the
+  tracker's entries. A browser-local map (localStorage
+  blendcrafter:shared-map) links local records to shelf rows so
+  re-saves update in place; opening someone else's build and saving
+  it creates a fresh row, never overwrites theirs.
+- Character Repository dialog gained a "Group shelf" section (list,
+  Load, Remove) and "On group shelf" badges; Save/Update publish
+  automatically; local Delete also unshares. Settings/toggles are
+  NEVER shared — builds only. Frozen files untouched
+  (character-repository.ts data layer, use-character-build.ts,
+  toggle-prefs, campaign-defaults); all wiring lives in the dialog
+  component + the new module.
+- The table needs a one-time SQL run by Shaun (shared-characters.sql
+  in this folder). Until then the shelf section shows a plain
+  "isn't set up yet" notice and saves stay local, exactly as before
+  — verified by REST probe (404) at push time.
+
+## Group shelf REVERTED at Shaun's order (2026-11-04, commit f3edd7e2)
+- Shaun, minutes after the shelf shipped: "I don't want none of the
+  back end shit." The Supabase backend route for Blendcrafter is
+  closed at his word.
+- src/components/character-repository.tsx restored BYTE-EXACT to the
+  pre-shelf version from commit 74bddbd2 (8,347 bytes, zero "shared"
+  references). src/lib/shared-characters.ts removed from src/
+  (kept on disk as shared-characters.ts.reverted, unreferenced; the
+  copy in the remote repo is an inert orphan — push-files cannot
+  delete remote files).
+- The shared_characters table was never created, so no build data
+  ever left any browser. Local saving was and is unaffected.
+- Verified: tsc clean, local build clean, built bundle contains no
+  "Group shelf" and no "shared_characters" strings.
+- Stamp 20261104162729.
+
+## Group shelf REINSTATED and ACTIVATED (2026-11-04, commit d8bfc4d9)
+- Shaun reversed the revert the same evening, repeatedly and finally:
+  "Fix it so everybody shares the goddamn Blendcrafter" / "I want you
+  to make sure Blendcrafter and the campaign tracker are shareable by
+  everybody." Standing condition from the same call: he does NONE of
+  the backend work himself ("I don't want none of the back end shit"
+  = none of it in his hands).
+- Durrum ran the SQL himself in the Supabase dashboard (browser task,
+  2026-11-04 16:36-16:38 MST): public.shared_characters created on
+  apoc-survival-tracker, "Success. No rows returned", table verified
+  in the Table Editor with its 4 RLS policies.
+- Backend proven end-to-end with the app's own public key before the
+  push: REST probe 404 -> 200; insert test row (201), read back
+  intact, delete (204), shelf empty again.
+- Wiring restored byte-exact from commit 22639258 (dialog 15,667
+  bytes + src/lib/shared-characters.ts). tsc clean, build clean,
+  live bundle verified to contain the shelf code. The module uses
+  plain REST only, so no realtime publication is needed.
+- Stamp 20261104163932.
+
+## Fields at 50% transparency (2026-11-04, commit f08cbc26)
+- Shaun: "Make all fields partially transparent so the background
+  can kind of come through, without getting too blurry for the
+  words" — then specified "50% transparency."
+- Dark-theme surface tokens in src/index.css (--background, --card,
+  --popover, --secondary, --muted, --accent) now carry a 0.5 alpha,
+  so every panel, card, dialog and form field lets the per-area
+  scene show through at half strength. Text, border, primary and
+  ring tokens stay opaque; a .dark body rule keeps the page base
+  opaque so only the fields go translucent.
+- The scene scrim was eased in all 14 backdrop rules
+  (rgba .78/.90 -> .68/.84) so the scene genuinely reads through
+  the half-clear fields.
+- Same treatment applied to the campaign tracker the same day
+  (APOC-Campaign-Tracker commit f7e2a663).
+- Verified: local build clean; built and LIVE CSS carry
+  --card: 222 20% 14% / .5 and the eased scrim (#14171fad x14).
+  Stamp 20261104172701.
+
+## Fields raised to 75% transparent (2026-11-04, commit 033b1354)
+- Shaun, after seeing the 50% build live: "75% transparent."
+- The six dark surface tokens now carry a 0.25 alpha (was 0.5).
+  Text, borders, primary and the opaque page base unchanged.
+- Tracker got the same raise (APOC-Campaign-Tracker commit
+  dffced4b): surface tokens + .panel/.sky-panel now hsla .25.
+- Verified live on both: BC stamp 20261104173040 (live CSS carries
+  --card: 222 20% 14% / .25); tracker stamp 2026-11-04-1730
+  (--card:hsla(222,20%,14%,.25) served x3). The earlier 50% build
+  also passed a full browser load test (renders, translucent,
+  readable, nothing broken).
+
+## Fields raised to 90% transparent (2026-11-04, commit b1cc0468)
+- Shaun (via the hub chat): "90%." The six dark surface tokens now
+  carry a 0.1 alpha (50% -> 75% -> 90% across the evening).
+  Text, borders, primary and the opaque page base unchanged.
+- Tracker got 90% from the hub chat the same hour
+  (APOC-Campaign-Tracker commit ea2747c, stamp 2026-11-04-1803).
+- Verified live: stamp 20261104180445; live CSS carries
+  --card: 222 20% 14% / .1.
+
+## Fields at 100% transparent (2026-11-04, commit 25a4a39e)
+- Shaun (via the hub chat): "100% transparent." The six dark
+  surface tokens now carry a 0 alpha — field fills are gone
+  entirely; text, borders and primary float over the scene on the
+  backdrop scrim alone. Page base stays opaque.
+- Tracker at alpha 0 from the hub chat (commit b4df0ec, stamp
+  2026-11-04-1805).
+- Verified live: stamp 20261104180753; live CSS carries
+  --card: 222 20% 14% / 0.
+
+## 2026-11-04 (evening) — Spelljamming Section 4 + Spelljammer conversion + Five Fingers (commit aa0d99ac, stamp 20261104190517)
+- Shaun's orders (voice call): Spelljamming is top-level Section 4 NEXT TO Magic Item Creation, minimized/clickable, holding everything Spelljammer; the boxed set advanced to 3.5 with everything filed where it belongs; Five Fingers likewise under Iron Kingdoms.
+- Section scaffold built during the call (builder.tsx STEPS entry num "4", toggle logic mirroring item-creation, six jump links, footer "Section 4 of 4", street scene/ambience); rules lines REPLACED post-build with the book-accurate digest read from the Concordance (SR: major helm 1 per 2 CL, minor 1 per 3; spelljamming speed ~100M miles/day — the scaffold's "4 million miles a day" was wrong and is gone).
+- Spelljammer pack (src/data/spelljammer/), read page-by-page from Shaun's image-only scan: RACES 2 (Dracon LA+2/6 RHD, Giff LA+1/4 RHD — the MC appendix in his copy holds only these two playable entries; Grommam/Hadozee/Hurwaet/Rastipede/Scro/Xixchil sheets are MISSING from his copy, not invented; Lizard Man prose only; Arcane NPC-only). SPELLS 11 (the Concordance's complete list; Create Minor Helm one record at Wiz 6 + Clr 5). MAGIC ITEMS 1 (Series Helm; generic helms already in catalog from the fan set). EQUIPMENT 27 (20 Lorebook ships with full stat blocks and prices verified against Concordance ch. 8, 6 priced groundling hulls, Dracon large dart). Category "spelljamming ship" groups the 26 ships.
+- Five Fingers pack (src/data/five-fingers/), ruleset iron_kingdoms: FEATS 18 (appendix pp. 187-190; [Society]/[Faith] -> setting-specific) and PRESTIGE 3 (The Agent, Enforcer, Malefactor of Thamar — full 10-level tables transcribed; Enforcer Leadership printing quirk and Malefactor Table A-5 quirk recorded as printed). Survey: the book prints NO new races/base classes/spells or priced equipment/magic items — feats + prestige are its whole builder crunch.
+- Counts: races 115->117, spells 2,497->2,508, equipment 7,941->7,968, magic items 9,171->9,172, feats 1,721->1,739, prestige 361->364; grand total 23,043 -> 23,105. tsc clean, vite build green, live bundle marker-verified.
+
+## 2026-11-04 ~19:16 — Version indicator at the top of the site (Shaun)
+
+Shaun: "put a little indicator at the top of the website of the version we're on so I know when I go to it I can see what version we're on" / "Break it down more simply — twenty point two version". A small badge now sits beside the Blendcrafter title in the header (VersionBadge in builder.tsx, testid site-version-badge): it fetches version.json fresh (no-store) on every load and shows the simple human version from the new "display" field — currently v20.2. version.json now carries {"version": <stamp>, "display": "20.2"}; future pushes keep the display until Shaun names a new simple version, while the stamp keeps bumping for cache-busting. Same treatment on the campaign tracker (badge under the APOC Survival title; its bump_version.py now writes display automatically as e.g. "Nov 4 · 7:15 PM"). Push: commit 73a3d03e, stamp 20261104191549, live-verified (version.json + badge marker in the live bundle).
+
+## 2026-11-04 evening — Simple version indicator + increment rule (Shaun)
+- VersionBadge beside the Blendcrafter title (builder.tsx) reads public/version.json "display" fresh on every load; the tracker got the same badge under its title (hub chat build, this chat aligned the format).
+- Simple versions replace raw stamps for display: both sites launched the badge at v20.2, then v20.3 when the increment rule itself published. STANDING RULE: every publish raises that site's display version by one point — Blendcrafter: `node bump-version.mjs`; tracker: `python3 bump_version.py`; both bump display + stamp together in version.json and run inside every push.
+
+## 2026-11-04 — v20.4 / v20.5 (Shaun)
+- v20.4 (a66d59f1): Ambience header button moved second to last — HEADER_BOX_ORDER now rulesets, new, import, export, characters, house-rules, save, ambience, theme.
+- v20.5: Ambience volume control — slider beside the Ambience button while ambience is on; engine gained setVolume (0..1 fraction of the 0.6 full-scale gain), persisted in localStorage blendcrafter:ambience-volume. Plus clear space at the foot of every page: main content carries pb-[45vh] so the per-area background scene shows unimpeded at the bottom.
+
+## 2026-11-04 — v20.6: the seven laptop-only books (Shaun's order)
+434 net new records, catalog total 23,539. Heroes of Horror 61 (2 base classes, 6 prestige, 29 feats, 20 spells, 1 item, 3 templates — after dropping 12 records that duplicate existing catalog entries: Summon Undead I–V, Imprison Soul, Bestow Wound, Dream Sight, Plague of Undead, Vile Death, Haunting Melody; and Willing Deformity, whose HoH text (+3 Intimidate, "updates and supersedes") was applied to the existing BoVD record in place). Magic of Incarnum 194 (4 races, 3 classes, 10 prestige, 45 feats, 126 spells/soulmelds, 6 items — after dropping 7 items Magic Item Compendium already reprinted into the catalog; the Heart of Fire soulmeld is heart-of-fire-soulmeld because Complete Mage's spell owns heart-of-fire). Explorer's Handbook 22, Five Nations 8, Player's Guide to Eberron 68, Sharn 38, Forge of War 43. Extraction drafts: ~/workspace/library-staging/*-draft.md. Known gap found by the PGtE pass: ECS feats Gatekeeper Initiate, Repel Aberration, Bind Elemental are missing from the catalog entirely (prestige gates fall to player certification until filled).
+
+## 2026-11-04 — v20.7: ambience rebuilt per-scene (Shaun's correction)
+Shaun: "All of them are just fronting the same sound." He was right — every recipe sat on the same brown-noise bed through a 200–420 Hz lowpass at similar gains, so the bed was all that registered. Engine gained murmur/drone/drip/tick/steps/hiss/whoosh/sparkle/clack/scratch primitives; all 14 recipes rewritten identity-first with beds pushed down and signature events up (see the snapshot log for the per-scene list). Also fixed swapRecipe hard-coding fadeTo(0.6), which silently discarded the volume-slider setting on every scene change. Canon note from the same evening, applied at the upcoming integration: NO TIEFLINGS in APOC (Shaun, standing canon) — the fiend-blooded planetouched were all backdoored into being demons; the Races of Destiny tiefling race record gets the APOC gray-out treatment (races need a gray-out hook of their own — the spell hook doesn't cover them) and the Aasimar & Tiefling guidebook's tiefling half is held out of the playable catalog.
+
+## 2026-11-04 — v20.8: ambience, third design (event-based)
+Shaun on v20.7: "it all just sounds like rushing waves" — continuous filtered noise reads as surf however it is tuned, especially on a phone speaker. v20.8 removes every continuous noise bed: scenes are discrete tonal/percussive events over quiet, crowds became short murmurSwell events, and only three scenes keep a faint tonal drone (street machinery hum, the two laboratories). New primitives: murmurSwell, sawStroke. Verdict outstanding.
+
+## v20.9 — Spelljamming nested headers (2026-11-04, commit fe586d4d)
+Shaun (voice call): "In the spelljamming section under the headers of how it works, the ships, helms, put their information inside them — nested in. And the people of space, spells and gear." All six blocks in step-spelljamming.tsx are now collapsible <details> nests (NestBlock component, ids unchanged: spelljamming-how/-ships/-helms/-races/-spells/-gear), closed by default; builder.tsx jumpToCreationBlock opens a DETAILS target before scrolling; chevron rotation in index.css (.sj-nest[open] > summary .sj-chevron). Also ordered the same call: research the wider Spelljammer line from the web (missing MC races Grommam/Hadozee/Hurwaet/Rastipede/Scro/Xixchil, War Captain's Companion/Lost Ships hulls & helms, extra spells/rules) and integrate under the same headers, converted to 3.5 — three research agents dispatched, packs staging at ~/workspace/library-staging/packs/spelljammer-web/.
+
+## 2026-11-04 — v20.10: the big integration (commit 30de5a09)
+All 13 third-party packs, both psionic powers packs (412 powers after CPsi-supersedes adjudication), Spelljammer web packs, and ships-local wired into src/data and the ALL_* arrays. Psionics step at 10 (builder renumbered: Inventory 11, Personality 12, Sheet 13), grayed without a psionic class; Ships is top-level Section 5 with Ships / Ship Weapons & Combat / Maps & Deck Plans nests; ships nest removed from Spelljamming. APOC gray-outs centralized in src/lib/apoc-disabled.ts: 28 boundary-breaching powers + the tiefling race (guidebook tiefling content never wired). Catalog total 24,825 records. Process note: two status messages earlier in the evening claimed the push was sent/resent before it had actually run — Shaun caught it by asking; the push only truly went out at 21:54 as this commit. Verify pushes against HEAD before reporting them, always.
+
+## 2026-11-04 — v20.11: Astral Construct ruled out (commit 9e01d9fe)
+Shaun's by-name ruling on the integration's named borderline case: "Leave out the construct." astral-construct added to APOC_DISABLED_POWER_IDS in src/lib/apoc-disabled.ts (29 powers grayed); header comments in apoc-disabled.ts and step-psionics.tsx updated to record the ruling. Live-verified (version.json 20.11 / 20261104222908).
+
+## 2026-11-04 — v20.12: The Ships nest broken up (commit 13898b3e)
+Shaun's voice-call order: same nesting as Spelljamming inside Ships, minimized when not used. step-ships.tsx: new SubNest component (details, full-width inside the parent grid); The Ships nest now holds the count card plus three sub-nests — Spelljamming Ships 113, Airships 7, Sea Ships 36 — all closed by default. Live-verified (version.json 20.12 / 20261104223448).
+
+## 2026-11-04 — v20.13: Deck plans on the ship titles (commit 156e8ede)
+Shaun's order: "Make all the deck plans connect to the ship titles. Make the ship titles clickable so you can see the deck plans." All 44 plan sheets from library-staging/ship-maps/ (filenames were already keyed by ship record id per SOURCES.md; the Collector sheet hand-mapped to spelljammer-neogi-mindspider, the Arrow sheet folded into the Goblin Blade, the Zanderin PNG re-encoded to WebP and mapped to airship-sprint-freighter) now live in src/data/deck-plans.ts — 40 ships carry plans. The module is dynamically imported by step-ships.tsx so it ships as its own chunk; ShipCard renders a clickable title with a "Deck plan(s) (n)" tag when plans exist, opening them inline. Maps nest cards now point at the titles. Live-verified.
+
+## 2026-11-04 — v20.14: Deck plans fully expandable (commit 4050b581)
+Shaun's follow-up order: "Make the ship deck plan maps themselves fully expandable upon clicking." A plan tapped on a ship's card now opens in a full-screen overlay (createPortal to document.body, so no animated ancestor can trap it); tapping the plan toggles fit-to-screen / full natural size with pan-by-scroll; Close, tap-outside, and Escape exit. Live-verified.
+
+## 2026-11-04 — v20.15: Real ambience recordings replace the synth (commits b0938e4b + de3e7ac4)
+Shaun's order: "You gotta do a better job with the audio. Find some audio files that match." A license-clean hunt (PD/CC0/CC-BY only, direct downloads, ffprobe-verified; staging ~/workspace/ambience-files/ with SOURCES.md) filled 13 of 14 scenes with real field recordings. The feats/training-yard scene has NO lawful match anywhere in reach (only a CC BY-NC-SA sparring recording) — it stays silent, no substitute faked. Files re-encoded to ~48s mono MP3 loop excerpts (soft fades at the join, 2.9 MB total) in src/data/ambience-audio.ts with full credits in the header; src/lib/ambience.ts was rewritten around them (the ~800 lines of synthesized recipes are deleted): same public API, lazy module load, decode-and-loop with 1.2s scene crossfades. Ambience Credits card added to Player Reference (CC-BY attribution). Caveats carried honestly: magic-items is wind chimes only (sparkle, no bubbling/hum — no lawful recording combined them); skills is one craftsman's bench, not a whole workshop. Live-verified (first check caught the part-1 deploy mid-flight; second check confirmed 20.15 + chunk + credits).
+
+- **2026-11-04 23:32 — v20.16 (commit a63f5ace): Ships nested back inside Spelljamming** (Shaun's text reversal of the Section 5 order earlier that night). StepShips -> ShipsNestContent (fragment: intro card, count card, hull SubNests, weapons/maps as SubNests, overlay portal); Spelljamming gains a Ships nest after How It Works (id spelljamming-ships) + a Ships jump link; builder Section 5 removed wholesale; footer 'Section N of 4'. Live-verified (stamp 20261104233202).
+
+- **2026-11-04 23:36 — v20.17 (commit b2708462): front Ships area collapsed, just nested** (Shaun's screenshot ruling: nothing open inside Spelljamming; everything inside a nest, minimized until tapped). Removed the Ships nest's open intro card ('Every ship in one place') and count card — the nest opens straight onto its sub-nests — and removed the flat per-ship card list trailing Maps & Deck Plans (unnested duplication of the hull nests); Maps intro now points at ship titles. Live-verified (stamp 20261104233618).
+
+- **2026-11-04 23:54 — v20.18 (commit 114af730): Spelljamming description paragraph removed.** The last open block on the section — its CardDescription prose — is gone; the section is its title plus the six collapsed nests. Completes Shaun's corrected order ('nested in the header, and collapsed'): v20.16 nested Ships, v20.17 collapsed the front Ships area, v20.18 removed the section description. Live-verified (stamp 20261104235409).
+
+- **2026-11-05 00:38 — v20.19 (commits 0c9ed6d8 + 304d75e8, identical content): Spelljamming jump buttons removed** (Shaun, voice call: 'Get rid of those little buttons'). The section button's pop-out panel (How It Works / Ships / Helms / Peoples of Space / Spells / Gear) duplicated the page's nests — gone; the button lands straight on the page. The call's delegate edited and pushed 0c9ed6d8 mid-call; the main session verified and re-pushed as 304d75e8 (same files, same version). Live-verified (stamp 20261104235834).
+
+- **2026-11-05 00:43 — v20.20 (commit 3def4c01): Ambience Credits minimized into its header** (Shaun's order). The open credits card at the foot of Player Reference became a collapsed sj-nest: summary header 'Ambience Credits', description + 13 credit rows inside verbatim. Live-verified (stamp 20261105004305).
+
+- **2026-11-05 01:27 — v20.21 (commit e6ee3f2a): Psionics duplicate top buttons removed** (Shaun's order — the jump row duplicated the nest headers). Row, JUMP_BLOCKS, and jumpTo removed from step-psionics.tsx; the nest headers are the list you click. Live-verified (stamp 20261105012709).
+
+- **2026-11-05 01:34 — v20.22 (commit f5eaa5e3): Psionics Powers subcategorized by type** (Shaun's order — split by type, minimized, clickable). The Powers nest's open discipline groups became collapsed SubNests, one per discipline with its count on the header. Live-verified (stamp 20261105013435).
+
+- **2026-11-05 01:38 — v20.23 (commit 5f1ee8e7): sweep — Magic Item Creation jump panel removed unasked.** Applying Shaun's standing rule ('land it like this the first time... I shouldn't have to hover'), the last duplicate-button panel (MIC's jump links duplicating its page headers) was found and removed proactively: panel, itemCreationOpen state, and jumpToCreationBlock gone; the MIC button lands straight on its page. Live-verified (stamp 20261105013828).
+
+- **2026-11-05 01:48 — v20.24 (commit 6e4de0a7): Magic Item Creation gets the treatment.** step-item-creation.tsx rewritten: four collapsed NestBlocks (General Method / By Family / Alchemy / Item Creation Feats — 39); the six family blocks and Alchemy's four blocks are clickable SubNests; open description removed — title plus headers, nothing open. All content verbatim. Live-verified (stamp 20261105014811).
+
+- **2026-11-05 01:53 — v20.25 (commit fadf2f34): the treatment across the board.** Whole-app audit; two remaining offenders fixed — Player Reference lost its open description + empty-state hint prose; Psionics' open canon paragraph nested into a new 'Psionics in APOC — the Rules' nest (verbatim), only the conditional grayed-step note stays out. Build steps' working pickers left as tools, not information blocks. Live-verified (stamp 20261105015300).
+
+- **2026-11-05 02:13 — v20.26 (commit f9820e5e): Abilities and Race separated.** Step 1 Abilities (new step-abilities.tsx, dice machinery + scores card verbatim), Step 2 Race (picker unchanged); everything renumbered (Psionics 11, Inventory 12, Personality 13, Sheet 14; 14 steps). Entry points and defaults land on Abilities; Abilities borrows the hall scene/ambience. Live-verified (stamp 20261105021321).
+- **2026-11-05 02:17 — v20.27 (commit dabf45cd): dead step-name sweep.** Three player-visible 'Abilities & Race' strings fixed (Spelljamming + Psionics race cards → 'the Race step'; Ambience Credits → 'Abilities / Race'). Live-verified (stamp 20261105021753).
+
+- **2026-11-05 02:26 — v20.28 (commit 6c9674bb): Character Sheet Open button fixed for phones.** The blob-URL target=_blank link (dead on mobile) replaced by a real Open button that fills fresh at tap time and hands the PDF over via the anchor-download path; buttons moved above the preview. Live-verified (stamp 20261105022653).
+
+- **2026-11-05 03:19 — v20.29 (commit 4f012d05): buttons across the Psionics step.** Items/Equipment Add (inventory), Feats Add/Remove toggle, Classes level steppers, Prestige steppers behind the same gate evaluator (locked stays locked, note points to the Prestige step). Powers already had theirs; APOC-grayed powers still buttonless; Races stay reference-only. Live-verified (stamp 20261105031911).
+
+- **2026-11-05 03:28 — v20.30 (commit b2811f70): the New-button gate.** Character Creation renders a zeroed build + zeroed resolution (createZeroBuild / zeroResolvedCharacter; race stub 'None', every total 0) with inert step callbacks until a character is started — by the New button (now first in the header, 2x2, 'New Character'), a Characters load, an import, or a build link. Settings/library header controls keep the real build. Live-verified (stamp 20261105032840).
+
+- **2026-11-05 04:13 — v20.31 (commit 812a8ff5): header boxes movable.** Press-and-hold drag shells on all nine header boxes; live swap on hover; tap/scroll unaffected; drag-end click swallowed. Order persists per device (localStorage blendcrafter:header-box-order, validated); HEADER_BOX_ORDER is the default. Live-verified (stamp 20261105041348).
+
+- **2026-11-05 04:25 — v20.32 (commit 52590049): New Character nested first inside Character Creation.** The button leaves the header; it is the first item in the Creation panel, ahead of Abilities, still 2x2, still the gate. Header order drops 'new' (stored orders shed it on load). Live-verified (stamp 20261105042511).
+
+- **2026-11-05 05:29 — v20.33 (297e0d87): name box + Unnamed Character summary merged into ONE header box.** Superseded within the hour by v20.34/v20.35.
+- **2026-11-05 05:31 — v20.34 (c4815c11): merged box becomes Step 1 'Name'; steps renumbered to 15 (Abilities 2 ... Sheet 15); builder opens on Name; top header boxes merged into ONE row.**
+- **2026-11-05 05:33 — v20.35 (e75ba77d): summary line moved out of the name box to above the New Character button inside Character Creation.** Live-verified (stamp 20261105053351).
+
+- **2026-11-05 05:40 — v20.36 (commit 29066e20): sections in a 2x2 grid (PR|CC / MIC|SJ); header box row set to flex-nowrap so all eight boxes fit on one line.** Live-verified (stamp 20261105054044).
+
+- **2026-11-05 05:45 — v20.37 (commit 88d9aa52): section numbers removed from the four section boxes; grid rows equalized (auto-rows-fr, boxes fill their cells) so all four boxes are the same size.** Live-verified (stamp 20261105054527).
+
+- **2026-11-05 12:20 — v20.38 (commit 189ef1b8): the four main section headers enlarged to match the Spelljamming nest headers (py-2.5, semibold).** Live-verified (stamp 20261105122035).
+
+- **2026-11-05 12:27 — v20.39 (commit f7d8b102): Gatekeeper Initiate, Repel Aberration, Bind Elemental built into the Eberron feats pack — the Nov 4 ECS gap is closed.** Live-verified (stamp 20261105122745).
+
+- **2026-11-05 12:41 — v20.40 (commit 780d8200): Planar Handbook integrated and APOC-screened; the book build-out is complete.** 225 extracted, 149 net-new, grand total 24,563. Live-verified (stamp 20261105124140).
+
+- **2026-11-05 12:50 — v20.41 (commit 728119dc): Name and Abilities combined into one Step 1 — name box on top inside Abilities, 14 steps total, everything renumbered.** Live-verified (stamp 20261105125015).
+
+- **2026-11-05 13:34 — v20.42 (commit 72d77937, voice-call pass; logged by this chat): step numbers removed from the Character Creation step tabs; footer no longer shows 'Step N'.** Live-verified (stamp 20261105133442).
+
+- **STAGED, NOT PUBLISHED (2026-11-05 ~15:24): v20.43 combined (Heroes of High Favor: Elves 48 + Half-Orcs 32, disk version.json display 20.43 stamp 20261105145359) is fully built, typechecked, barrel-audited (feats 2,204, prestige 489, equipment 8,508, skills 79; eight-array grand total 24,632) and sitting ON DISK ONLY.** Three push attempts (2x Elves solo, 1x combined) each died on an EXPIRED approval card — Shaun never tapped. HEAD is still v20.42 (72d77937). CAUTION for the next push from any chat: disk is ahead of HEAD; if another change publishes first (e.g. the Rule Sets badge fix), reconcile version.json (bump from the NEW head's display) and re-check index.ts before pushing this set. The combined push message drafted earlier says grand total 24,644 — WRONG, correct is 24,632; fix the message when re-sending.
+
+- **2026-11-05 16:08 — v20.43 (commit 7894a4c0) PUBLISHED: the staged set above is live, plus the boot-splash count fix (23,000+ → 25,000+ entries; true total 25,774). Live-verified (stamp 20261105160826).**
+
+- **BUILD-OUT CLOSED (Shaun, 2026-11-05 16:11): "Just drop them all. We're good enough. 25,000 entries is far enough good enough."** The remaining judgment calls are DROPPED, not pending: Dohwar, Insectare, the Scro variant question, Planar Handbook substitution levels and monster classes. Do not re-pitch them. The catalog stands at 25,774 entries (ALL_* total) / 24,632 in the eight main collections, v20.43.
+
+- **v20.44 (commit fa54359f, stamp 20261105170127, live-verified 2026-11-05 17:11):** Rules Compendium topics in Player Reference. Shaun uploaded a partial copy of the book (pp. 5–49 of 160) and ordered its rules topics built in. New `src/data/rules-compendium/topics.ts` (RULES_COMPENDIUM_TOPICS, 34 entries: Introduction rules basics + Ability Score Loss through Energy Drain and Level Loss), barrel `ALL_RULES_COMPENDIUM_TOPICS`, new Player Reference category "Rules Compendium" filed by letter. Own-words condensations; Conditions carried in full; interludes/essays skipped. Caveats in the pack MANIFEST (~/workspace/library-staging/packs/rules-compendium/): Actions in Combat distilled (table interleaved); Appraise exotic/unique DCs illegible; one Disable Device DC reconstructed from sequence — spot-check vs print someday. Energy Drain included (only its trailing sidebar is cut off). Escape Artist (p. 50) onward not in the copy. Library total now 25,808 entries.
+
+- **v20.45 STAGED, push interrupted once (2026-11-05 17:25):** the Rule Sets / House Rules count-badge removal. HEAD's published toggle files carried badge lines the disk copies never had (ruleset-toggle.tsx: `extraCount` pill = the orange "5"; house-rules-toggle.tsx: `offCount` pill) — the disk files are exactly HEAD minus those four lines, verified by diff. version.json on disk is bumped to stamp 20261105172509 / display 20.45 and NOT yet pushed; HEAD is still fa54359f (v20.44). Next push from this disk takes version.json as-is — do NOT bump again for this fix. Live bundle at v20.44 carries the pill class twice; post-push check = 0.
+
+- **v20.45 LIVE-VERIFIED (commit e4aac2ee, stamp 20261105172509):** version.json serves 20.45; the new live bundle's badge pill class (`rounded-full bg-primary px-1.5`) count is 0 (was 2 on v20.44). The Rule Sets "5" and the House Rules count no longer render. The staged-state warning above is resolved — disk and HEAD agree again.
+
+- **v20.46 LIVE-VERIFIED (commit 41604c17, stamp 20261105173739):** Dungeonscape integrated — classes 71, prestige 491, feats 2,211, equipment 8,544, magic items 9,633 (54 net-new; 8 reprint shadowings adjudicated, existing records stand — listed in the commit message). Live bundle carries factotum/beast-heart-adept markers. Library totals: eight main collections 24,686; all collections 25,862.
+- **STANDING RULE (Shaun, 2026-11-05 17:38): every book/everything he adds always gets the treatment — no per-item asking.** Cityscape (v20.47) and Dungeon Survival Guide (v20.48) extractions are running under it.
+
+- **v20.47 LIVE-VERIFIED (commit d59d0c84, stamp 20261105174252):** Cityscape integrated — prestige 494, feats 2,222, spells 3,484, equipment 8,548, magic items 9,638 (31 net-new; 5 foreign reprint shadowings). Seam verdict: the two uploaded files join cleanly at printed pp. 93/94 — Shaun's copy covers the whole book. Library totals: eight main collections 24,717; all collections 25,893.
+
+- **v20.48 LIVE-VERIFIED (commit 1daeb275, stamp 20261105174651):** Dungeon Survival Guide integrated — magic items 9,639 (+1 net-new: Book of Exalted Deeds artifact; the other 7 Treasures of Legend artifacts keep their fuller DMG/SRD records by deliberate id-matching). Everything else in the book is digest prose, written up in the pack's reference.md. Library totals: eight main collections 24,718; all collections 25,894. This closes the 2026-11-05 upload run: v20.44 Rules Compendium topics, v20.45 badge removal, v20.46 Dungeonscape, v20.47 Cityscape, v20.48 DSG.
+- **v20.49 LIVE-VERIFIED (commit e29b5305, stamp 20261105181016):** APOC gray-out for the drow. Shaun's canon (2026-11-05, AI DM chat, "Yes" to the same treatment as tieflings): the drow welcomed the demons and were all absorbed — drow do not exist in APOC. `APOC_DISABLED_RACE_IDS` now {tiefling, drow}; notes generalized to a per-race map with `apocRaceNote()` (APOC_DROW_NOTE: "In APOC: the drow welcomed the demons and were absorbed — drow do not exist."); step-race.tsx and step-reference.tsx now render the per-race note. Only one drow race record exists (`drow`, Races of Eberron); no half-drow race record exists. Live bundle index-BNo1gEOi.js carries the note (1 occurrence); version.json serves 20.49.
+- **v20.50 LIVE-VERIFIED (commit 3a0881db, stamp 20261105182631):** Rules Compendium completed to p. 159. Shaun's second upload (PDF labeled pp. 50–160) actually runs to the foot of printed p. 159; 52 topics (Escape Artist and Use Rope → Weather) drafted in the pack (topics-part2.ts, MANIFEST PART 2 section with per-topic verdicts + QA corrections) and appended: ALL_RULES_COMPENDIUM_TOPICS = 86, all ids unique (barrel audit). The book's final topic, Writings, Magical (p. 160), is NOT in the copy — "Writings" occurs 0 times in the extraction; it is the one page still owed if a scan ever arrives. Live bundle index-LwsF7lFC.js carries the part-2 marker.
+- **v20.51 LIVE-VERIFIED (commit d68c5dc9, stamp 20261105183331):** Drow of the Underdark given the treatment (Shaun's copy uploaded 2026-11-05; the copy's own TOC runs to ~p. 222 — it covers the whole book; PDF pp. 223–226 blank, no index in the copy). Pack: 142 records; integration 140 net-new — Darkvision Powder and Daylight Pellet shadowed out (existing A&EG/MIC records stand); Verminfriend (BoVD feat of the same name is a DIFFERENT feat) and Potion Bladder (RoF same-name item is different) both live as distinct `-dotu` records. Barrel: races 198, prestige 501, feats 2,279, spells 3,498, equipment 8,572, magic items 9,676. APOC: `drow-dotu` added to APOC_DISABLED_RACE_IDS with the drow note; 17 drow-locked records (6 prestige, 6 feats, 4 spells, Rod of the Matriarch) classified bucket B in the pack SCREENING; the Szarkai have no separate record (book: identical stats to ordinary drow). Canon-scope ruling applied throughout (mechanics in, lore out; the living-drow-society conflict flagged in SCREENING, not imported). Live bundle index-O2k9LBlk.js carries the DotU marker.
+- **v20.52 LIVE-VERIFIED (commit a86596ce, stamp 20261105185048):** The Ruins of Undermountain (TSR 1060, 1991 AD&D 2e boxed set; Shaun uploaded it in the AI DM chat, routed here per the separation rule) given the treatment. Coverage: the scan is the COMPLETE box — both booklets, all 16 Monstrous Compendium pages, all 8 cardstock sheets as text; the 34 poster-map pages are image-only (render-verified as maps). Yield: 35 net-new 3.5 conversions, ruleset "faerun" — all 27 Magic Items chapter items at their printed GP Values (no aura/CL lines invented; 2e prints none), 8 of the 10 Spells chapter spells. Two spells held out for their SpC 3.5 descendants: khelbens-suspended-silence (dropped at integration; SpC suspended-silence stands) and symbol-of-spell-loss (same-id shadow — the barrel audit caught it; SpC p. 218 stands; the 2e record remains in the pack file). Whirling Blade ships as whirling-blade-rum (different spell from SpC's). Barrel: spells 3,506, magic items 9,703. Screening: Undermountain runs on portals — systemically flagged against the scarred crystal sphere; barrier spells expressly allowing bags of holding flagged against dead extra-dimensional magic; pre-fall drow throughout flagged against the absorption ruling; framed as pre-fall FR per the timeline ruling (FR canon runs up to the APOC; 2701 DR is a thousand years later). NOT the missing book: Expedition to Undermountain (3.5) remains missing — annotated in the missing-books doc. Live bundle index-Cu28FGw5.js carries Halaster's Grappling Hand.
+- **Faerûn Atlas for Blendcrafter — BUILT LOCALLY, NEVER PUSHED, REVERTED (2026-11-05 ~19:10):** an order relayed from the AI DM chat had the canon maps hosted in Player Reference (hosted 3E/2E images as a lazy data-URI chunk, zoomable overlay, AideDD embed). Before the push, Shaun's later decision on the same call landed in MEMORY.md: the interactive map goes on the CAMPAIGN TRACKER, and he explicitly declined a static Blendcrafter copy ("I don't need that static copy") — Blendcrafter maps task CLOSED. The local build (src/data/faerun-maps.ts, src/components/faerun-atlas.tsx, step-reference wiring, version bump to 20.53) was fully reverted the same hour; version.json restored to 20.52/20261105185048; HEAD never moved (a86596ce). Do not rebuild a static atlas into Blendcrafter.
+- **v20.53 (cc51453b, stamp 20261105215510) — Saint James's magical revolver (Shaun's ruling, 2026-11-05 ~21:52 via AI DM):** "It's just like any magical creation rules set — give it a plus three to hit and he uses magical ammunition." Two records appended to SORCERY_STEAM_FIREARM_MAGIC_ITEMS: revolver-plus-3-ss "Revolver +3" (weapon, 18,800 gp = 500 base + 300 MW + 18,000) and bullets-plus-1-ss "Bullets +1 (50)" (ammunition, 2,350 gp = 50 + 300 + 2,000; +1 grade assumed and flagged — Shaun named no grade). Saint James's shelf build (row 8688df31-808f-401c-91b6-f6909e3be41f) PATCHed to carry them in place of the mundane revolver + bullet lots: 77 → 75 entries, gear total 55,009.6 → 75,656.6 gp; verified by shelf read-back. SAINT-JAMES-BUILD.md updated (FLAGS #3 resolved, FLAGS #10 = the ammo-grade assumption). Live-verified: version.json 20.53 serving; live bundle contains "Revolver +3".
+- **v20.54 (221d6ea0, stamp 20261105235334) — boot splash count made TRUE and SELF-UPDATING (Shaun via AI DM, 2026-11-05 ~23:52):** the splash said "25,000+"; the barrel audit counts **26,123 entries** (ALL_* sum; magic items 9,705 incl. the v20.53 pair, spells 3,506, equipment 8,572, feats 2,279...). index.html: boot-sub now carries `<span id="boot-count">26,123</span>` + an inline no-store fetch of library-count.json that swaps the live number in during load. bump-version.mjs now RECOUNTS at every bump (esbuild-bundles library-count-entry.ts, sums ALL_* arrays) and rewrites public/library-count.json + the index.html fallback — the figure can never go stale again as long as pushes run the bump (they all do). Byproduct: .library-count.bundle.mjs appears in the project root during a bump; it is scratch, never push it. Live-verified all three surfaces (version.json, library-count.json, live index.html).
+- **v20.55–v20.59 LIVE-VERIFIED (2026-11-07 ~00:26–00:30 MST) — the page-tightening pass (Shaun, voice call via the VTT chat; all orders routed here per the topic rule):** v20.55 (790123a1; an earlier superseded headings-only push also landed as 7b5af598 under the same version) — Player Reference and Magic Item Creation lose their large page headings (CardHeader/CardTitle deleted; the section buttons name the pages; CardContent is p-6 pt-0, so content starts AT the card's top line); Magic Item Creation's four nests in ONE row, four across, Shaun's exact order (The General Method, By Family, Alchemy — the Non-Magical Craft, Item Creation Feats), collapsed, expanding in place, blocks single-column inside a quarter-width nest. v20.56 (7014b5d0) — MIC page: no 45vh foot (pb-6), nav row mt-3. v20.57 (fed0c6ff) — the character-name field moved from the Abilities panel into the Character Creation panel beside the New Character button (New Character · name field · Abilities onward; same viewBuild/viewCb wiring, gate unchanged; exactly one name field). v20.58 (08f147e7) — Abilities step pushed up: wrapper mt-2, nav mt-3, no 45vh foot, abilities CardContent space-y-3. v20.59 (65597614) — Spelljamming: heading removed; six nests side by side in order, three across wrapping to a second row of three (six across cannot fit the 1152px page width cleanly); page tight (wrapper mt-2, nav mt-3, pb-6). Tight-page set: item-creation, spelljamming, abilities — all other pages keep pb-[45vh]/mt-8. Live verification (browser, 1919×998 frame, pixel-measured): headings gone on all three pages; PR search sits at the card's top line (0–1px — the pt-0 is the design; an early ~24px expectation in the verify brief was wrong, not the build); MIC four titles share one row y≈253–263 in order, card-bottom→nav gap 13px, no scrollbar; SJ rows y≈238–247 / 292–301 in order, no scrollbar; Creation row order New (x≈419–612) · name (x≈616–865) · Abilities (x≈880+), centers aligned (the New button is taller by design — it is the 2×2 button), panel→Abilities card gap 13px edge-to-edge. DOM scrollHeight was not readable in that browser; fit judged by visible content + no scrollbar. Library count unchanged 26,123 throughout.
+- **v20.60–v20.62 LIVE-VERIFIED (2026-11-07 ~01:29–01:30 MST) — second no-scroll round (Shaun, voice call in the main chat):** v20.60 (83774c87; fc83209d also landed under this version — a superseded push that executed on tap, paragraph only) removed the Abilities "Base scores before racial adjustments…" description paragraph (header tightened pb-3 so the content closed up) and removed the OglFooter bottom block (open-source template text + About/Attribution) — a single global footer, gone from every page at once (usage + import deleted from builder.tsx; ogl-footer.tsx remains unreferenced). v20.61 (c917a038): Player Reference split — category/subcategory walls as two-across button grids (first inside a collapsed Categories nest), browse results grouped into collapsed per-subcategory nests (flat list kept for a picked subcategory or a typed search), Ambience Credits nest removed from Player Reference entirely, PR added to the tight-page set, New Character button a little smaller (h-14). v20.62 (a99fb309): Shaun's spec replaced the nest form — "two buttons all the way down": category buttons in a plain two-column grid (18 buttons, 9 rows, verified live), subcategories two-across too. Per-section live verification: footer/About/Attribution absent on PR, Abilities, MIC, and Spelljamming (each page ends at its nav row); "Base scores" text absent; New + name field side by side. KEPT, deliberately: the "Roll 4d6 and drop the lowest, thirty-six times…" method paragraph under the Ability Scores controls — Shaun's order named the Base scores paragraph only; flagged in the report for his call. Library count unchanged 26,123.
+- **v20.63 (b310eedb, 2026-11-07) — Abilities verbiage beside the header:** the "Roll 4d6…" paragraph moved from the card body into the CardHeader, in a flex row beside the "Ability Scores" title (min-w-0 flex-1 basis-64, wraps under on narrow screens), wording byte-identical; the dice controls now start the body. First of ten passes ordered on the 2026-11-07 VTT voice call (verbiage-to-header pattern + squeeze + bring-up, applied section by section: headers one line, tightening, Feats, Spells, Equipment, Magic Items, Psionics 3-across, Inventory, Character Sheet bubbles + halved blocks).
+- **v20.64 (87ccd637, 2026-11-07) LIVE-VERIFIED — section headers on one line:** grid-cols-4, order Player Reference | Magic Item Creation | Character Creation | Spelljamming; main pt-2. Combined verification also confirmed v20.63's verbiage beside the Ability Scores header and measured the default landing view: content ends ~y492 of a 998px viewport, no scrollbar, 0px overflow — the main/collapsed view fits one screen, so the separate "tightening" pass ordered on the call needed no build of its own (opened/oversized states may still scroll, per Shaun's clarification; Races and Classes untouched).
+- **v20.65 (1c40fa29, 2026-11-07) LIVE-VERIFIED — Feats verbiage beside the header:** same flex-header treatment as Abilities; browser check confirmed the paragraph beside the title, groups immediately below, no dead space.
+- **v20.66 (e593a42c) / v20.67 (c23a008e) / v20.68 (31a03f40) / v20.69 (e24e4246), 2026-11-07, ALL LIVE-VERIFIED in one combined browser pass (~12:15–12:17):** Spells verbiage + cannot-cast sentence in the header; Equipment verbiage + WBL two half-tables (2–11 | 12–20 — the DMG chart starts at level 2; nothing was missing) + Magic Items panels side by side + Inventory verbiage with measured no-scroll (998 = 998, no scrollbar); Psionics 3+3+2 grid with full-row open span; Sheet stat band (BA&HP left tall, AC shrunk right, Saves below AC, CR/LA/ECL stack right) + five blocks halved side by side. ONE defect found: the Spell Library search wrapped below the heading (title block had no flex share) — fixed in v20.70 (title block flex-1 basis-80, search shrink-0 w-64).
+- The ten-pass 2026-11-07 voice-call queue is COMPLETE at v20.69 + the v20.70 search fix: Abilities (20.63), headers one line (20.64), no-scroll measured-good on the default view (no build needed), Feats (20.65), Spells (20.66+20.70), Equipment (20.67), Magic Items (20.67), Psionics (20.68), Inventory (20.67), Character Sheet (20.69). Races and Classes untouched per Shaun's clarification.
+- **v20.70 (a4e31214, 2026-11-07) LIVE-VERIFIED — Spell Library search placement fix:** search now sits beside the library heading on the title's line (full-page + enlarged crop confirmed). The ten-pass queue from the 2026-11-07 voice call is fully closed, every pass live-verified.
+- **v20.71 (four commits: 1bb40ba9, 747255c2, 6ee1859a, df2e13aa; stamp 20261107122818) LIVE-VERIFIED — the 2026-11-07 ~12:21–12:44 voice-call batch.** (1) "Everything up a tad": header py-2, main pt-1, section buttons + PR tab py-2, tight wrapper mt-1, tight nav mt-2. (2) Player Reference phone tightening: root space-y-3, search card space-y-2 pb-4, input h-10 text-base, category buttons h-8 text-sm, grid gap-1. (3) Abilities tightening: header pb-2, content space-y-2, inputs grid gap-3, blocks space-y-1, score inputs h-9. (4) Dropdown white-on-white fix, app-wide: `:root`/`.dark` color-scheme declared, native select options given opaque theme colors, `.dropdown-opaque` on the Radix Select list and header Popovers, `.opaque-surface` on the Character Sheet's AuditTrail expansion panels — all immune to the 100% field transparency. (5) Interactive sheet: viewer's sidebar off (navpanes=0); preview rebuilt as ONE sheet page at a time — pages cut from the filled file's bytes with pdf-lib, shown whole (view=Fit), arrow buttons flanking the frame (button-sheet-prev/next) with a "Sheet N of M" indicator; Open/Download still deliver the complete interactive file. (6) Sheet-format buttons moved beside the Character Sheet heading in both views, NO "Sheet format:" label, their old card deleted, everything pulled up. (7) Sheet vertical tightening + Personality mechanics E2E (7/7 pass, separate pass, no fix needed; the ZZ test row was deleted from the group shelf after). Live browser verification (~12:58–13:02): badge v20.71; PR + Abilities no-scroll at desktop (phone size not testable in that browser); Alignment select readable (dark list, pale-blue highlight); Rule Sets + House Rules popovers opaque; Templates Lycanthrope form-picker readable; Sheet toggle beside the heading with no label text anywhere; AC audit expansion opaque and readable; PDF preview "Sheet 1 of 4" → arrow → "Sheet 2 of 4", page changed, no thumbnail sidebar. NOTE: two pushes stopped mid-flight landed later under this version when their Allow cards were tapped (1bb40ba9, 747255c2) — the later commits supersede them file-by-file; final state = df2e13aa.
+- **v20.72 (96c898a5, 2026-11-07) LIVE-VERIFIED — phone fit finished + built-in sheet compression.** New measurement rig: local headless Chrome (chrome-headless-shell + puppeteer-core in ~/workspace/.scratch) against the built dist served on 127.0.0.1:8899 — exact scrollHeight numbers at any viewport. Phone 393×873: **Player Reference collapsed 873/873, Abilities landing 873/873 — both fit with zero scrolling** (Abilities was 992 before this pass). Built-in Character Sheet at 1919×998: **2,070 → 1,274 px** (sheet-step page widened to max-w-[110rem]; legend folded into the main header; Ability description beside its title; BA&HP bubbles two-across; AC total beside its component chips; Saves three-across; five blocks three-across; Speed badges beside the Land bubble; AuditTrail py-1). All wording and the v20.69 positions unchanged. The built-in sheet still scrolls (276 px over at 998) — it carries every number and description on one continuous dashboard; the one-screen, no-scroll sheet is the interactive page-at-a-time view. Live flip verified by stamp + bundle markers.
+- **v20.73 (2026-11-07) — the movable-pieces treatment (Shaun, voice call ~17:30: the VTT's movable/resizable/lockable treatment goes on "pretty much everything", Blendcrafter named).** One reusable system, `src/components/movable-pieces.tsx`: every piece gets a floating chrome (six-dot grip, orientation flip, per-piece lock) that takes no layout space. MOVE = drag the grip, the piece swaps with the one it is dragged onto inside its zone; RESIZE = drag the right edge (width, % of zone) or bottom-right corner (width + height, internal scroll past the set height); REFLOW = a resized/flipped piece's card-list grids follow its shape (vertical: single column; horizontal: spread) via the `[data-orient]` rules in index.css — instrument grids with fixed track counts (the 6x6 dice grid) are deliberately not matched; LOCK = per piece, controls inside keep working. State persists per device in localStorage (`blendcrafter:piece-layout-v1`) only — never the shared shelf. A **Reset layout** button in the header (beside the version badge) restores the shipped arrangement and also resets the header boxes' older saved order. Treated: the four section cells (move + lock; they stay equal quarters of the one-line grid — a lone navigation button has no content to resize or reflow), the Character Creation panel's summary line / New Character button / name box (move + lock), and every top-level card/section on Abilities, Race, Classes, Skills, Templates, Feats, Spells, Prestige Classes, Equipment, Magic Items, Inventory, Personality and Player Reference (full treatment via `withPieces` on each page's stacked root; dialogs pass through unwrapped). The Character Sheet, Psionics, Magic Item Creation and Spelljamming pages carry the treatment at page level (a PieceFrame: resize / flip / lock) — their insides are one fitted document (the sheet, measured to the pixel in v20.71–20.72) or grid nests with span-on-open mechanics, so their internal blocks are not separate pieces. Named exceptions: the header boxes keep their 2026-11-05 press-hold-slide swap (now also cleared by Reset layout) but get no lock/resize/flip — they are compact icon buttons in a one-row header fitted exactly in v20.64–20.72; the numbered step tabs stay in step order (they are the 1–14 build sequence); the prev/next nav row and all dialogs/popovers are chrome, not pieces. Shipped defaults, Homebrew labeling and every toggle state are unchanged; pieces start in the normal flow on phones and drag only from their grip, so the v20.72 phone fit is the starting layout on every device.

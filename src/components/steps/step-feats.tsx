@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { CLASS_BONUS_FEAT_RULES } from "@/lib/class-bonus-feats";
 import { EntityDetailDialog } from "@/components/entity-detail-dialog";
+import { withPieces } from "@/components/movable-pieces";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { describeFeat, type EntityDetail } from "@/lib/entity-descriptions";
 
@@ -215,7 +216,7 @@ export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved,
     );
   };
 
-  return (
+  return withPieces("step:feats", (
     <div className="space-y-6">
       <Card>
         <CardHeader className="pb-3">
@@ -334,5 +335,5 @@ export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved,
         onOpenChange={(open) => !open && setDetailFeat(null)}
       />
     </div>
-  );
+  ), { skip: [EntityDetailDialog] });
 }

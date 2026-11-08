@@ -6,6 +6,7 @@ import { Logo } from "@/components/logo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Piece, PieceFrame, PiecesProvider, ResetLayoutButton, Zone } from "@/components/movable-pieces";
 import { RulesetToggle } from "@/components/ruleset-toggle";
 import { HouseRulesToggle } from "@/components/house-rules-toggle";
 import { CharacterRepository } from "@/components/character-repository";
@@ -784,6 +785,7 @@ export default function Builder() {
   );
 
   return (
+    <PiecesProvider>
     <div className={`app-backdrop min-h-screen bg-background text-foreground${ambienceOn ? " bg-animated" : ""}`} data-scene={effectiveStep === "sheet" ? undefined : effectiveStep === "abilities" ? "race" : effectiveStep}>
       <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-2 px-4 py-1.5 sm:px-6">
@@ -792,6 +794,16 @@ export default function Builder() {
             <span className="font-display text-xl font-semibold">Blendcrafter</span>
           </Link>
           <VersionBadge />
+          {/* Reset for the movable-pieces layout (Shaun,
+              2026-11-07): every piece back in its shipped place,
+              sizes and locks cleared — and the header boxes' own
+              saved order resets with it. */}
+          <ResetLayoutButton
+            onResetExtra={() => {
+              setHeaderOrder([...HEADER_BOX_ORDER]);
+              toast({ title: "Layout reset", description: "Every piece is back in its shipped place." });
+            }}
+          />
           {/* The "d20 SRD 3.5 template-blending character builder"
               tagline that used to sit beside the title was removed
               2026-11-04 at Shaun's order. */}
@@ -864,15 +876,23 @@ export default function Builder() {
                 the row, where it always opened. Labels may wrap
                 inside their quarter cell on a narrow phone
                 screen; the row itself never wraps. */}
-            <div className="grid basis-full auto-rows-fr grid-cols-4 gap-1" data-testid="section-grid">
+            {/* The four section cells are movable pieces now
+                (Shaun, 2026-11-07): drag a cell's grip to reorder
+                the line, lock a cell to pin it. The cells stay
+                equal quarters of the one-line grid — resizing a
+                single navigation button has no content to reflow,
+                so move + lock is their treatment. */}
+            <Zone zoneId="sections" testId="section-grid" className="grid basis-full auto-rows-fr grid-cols-4 gap-1">
             {/* Section 1 — Player Reference, standing alone
                 (Shaun, 2026-11-04). */}
             {visibleSteps
               .filter((s) => s.id === "reference")
               .map((s) => (
-                <TabsTrigger key={s.id} value={s.id} data-testid={`tab-step-${s.id}`} className="h-full w-full py-2 font-semibold">
-                  <span className="whitespace-normal text-center leading-tight">{s.label}</span>
-                </TabsTrigger>
+                <Piece key={s.id} pieceId="reference" layout="grid">
+                  <TabsTrigger value={s.id} data-testid={`tab-step-${s.id}`} className="h-full w-full py-2 font-semibold">
+                    <span className="whitespace-normal text-center leading-tight">{s.label}</span>
+                  </TabsTrigger>
+                </Piece>
               ))}
             {/* Section 2 — Magic Item Creation, a top-level line
                 right next to Character Creation (Shaun, 2026-11-04),
@@ -880,6 +900,7 @@ export default function Builder() {
                 NO jump panel (standing pattern, Shaun 2026-11-05):
                 the button lands straight on the page, like
                 Spelljamming. */}
+            <Piece pieceId="item-creation" layout="grid">
             <button
               type="button"
               onClick={toggleItemCreation}
@@ -895,6 +916,7 @@ export default function Builder() {
                                 Magic Item Creation
               </span>
             </button>
+            </Piece>
             {/* Section 3 — Character Creation, sitting right next
                 to Player Reference (Shaun, 2026-11-04). It is a
                 CLICKABLE folder: steps 1–13 stay minimized inside
@@ -903,6 +925,7 @@ export default function Builder() {
                 character creation clickable" / "With one through
                 12 inside character creation"). Clicking it from
                 Player Reference enters it at its first step. */}
+            <Piece pieceId="creation" layout="grid">
             <button
               type="button"
               onClick={toggleCreation}
@@ -924,6 +947,7 @@ export default function Builder() {
                 <ChevronRight className="ml-1.5 h-4 w-4 shrink-0" />
               )}
             </button>
+            </Piece>
             {/* Section 4 — Spelljamming, a top-level line right
                 next to Magic Item Creation (Shaun, 2026-11-04,
                 voice call: "Next to Magic Creation"). NO jump
@@ -931,6 +955,7 @@ export default function Builder() {
                 Works / Ships / Helms / Peoples of Space / Spells
                 / Gear) removed — the nests on the page are the
                 navigation. The button lands straight on the page. */}
+            <Piece pieceId="spelljamming" layout="grid">
             <button
               type="button"
               onClick={toggleSpelljamming}
@@ -946,11 +971,13 @@ export default function Builder() {
                                 Spelljamming
               </span>
             </button>
-            </div>
+            </Piece>
+            </Zone>
             {creationOpen && (
-              <div
+              <Zone
+                zoneId="creation"
+                testId="step-group-character-creation"
                 className="flex basis-full flex-wrap items-center gap-0.5 rounded-md border border-border p-1"
-                data-testid="step-group-character-creation"
               >
                 {/* The summary line sits ABOVE the New Character
                     button (Shaun, 2026-11-05: "Put the None / ECL
@@ -959,9 +986,11 @@ export default function Builder() {
                     content is unchanged: the build's race · ECL ·
                     CR · HP · AC, zeroed until a character is
                     started. */}
-                <div className="basis-full text-sm text-muted-foreground" data-testid="character-summary-line">
-                  {viewResolved.race.name} · ECL {viewResolved.ecl.value} · CR {viewResolved.cr.value} · HP {viewResolved.hp.total} · AC {viewResolved.ac.total}
-                </div>
+                <Piece pieceId="summary">
+                  <div className="text-sm text-muted-foreground" data-testid="character-summary-line">
+                    {viewResolved.race.name} · ECL {viewResolved.ecl.value} · CR {viewResolved.cr.value} · HP {viewResolved.hp.total} · AC {viewResolved.ac.total}
+                  </div>
+                </Piece>
                 {/* The New Character button, nested FIRST inside
                     Character Creation (Shaun, 2026-11-05: "Put the
                     new character button first nested in character
@@ -971,20 +1000,22 @@ export default function Builder() {
                     until then Character Creation sits zeroed out
                     (see the gate note in Builder). It lived in the
                     header until this order moved it here. */}
-                <Button
-                  variant="outline"
-                  className="h-12 px-6 text-base"
-                  onClick={() => {
-                    cb.reset();
-                    setCharacterStarted(true);
-                    goTo("abilities");
-                    toast({ title: "New character", description: "Started a fresh build." });
-                  }}
-                  data-testid="button-new-character"
-                >
-                  <UserPlus className="mr-2 h-6 w-6" />
-                  <span>New Character</span>
-                </Button>
+                <Piece pieceId="new-character" basis="auto">
+                  <Button
+                    variant="outline"
+                    className="h-12 px-6 text-base"
+                    onClick={() => {
+                      cb.reset();
+                      setCharacterStarted(true);
+                      goTo("abilities");
+                      toast({ title: "New character", description: "Started a fresh build." });
+                    }}
+                    data-testid="button-new-character"
+                  >
+                    <UserPlus className="mr-2 h-6 w-6" />
+                    <span>New Character</span>
+                  </Button>
+                </Piece>
                 {/* The character-name field, moved up beside the
                     New Character button (Shaun, 2026-11-07: "Put
                     the unnamed character button next to the new
@@ -996,20 +1027,22 @@ export default function Builder() {
                     inside the Abilities panel); only its position
                     changed. It lived on top of the Abilities panel
                     from v20.41 until this move. */}
-                <div
-                  className="flex flex-wrap items-center gap-x-3 gap-y-1 rounded-md border border-input bg-background py-1 pl-3 pr-3"
-                  data-testid="character-heading-box"
-                >
-                  <Input
-                    id="character-name"
-                    data-testid="input-character-name"
-                    aria-label="Character name"
-                    value={viewBuild.name}
-                    onChange={(e) => viewCb.setName(e.target.value)}
-                    className="h-9 w-44 border-0 bg-transparent px-0 font-display shadow-none focus-visible:ring-0 sm:w-56"
-                    placeholder="Unnamed Character"
-                  />
-                </div>
+                <Piece pieceId="name-box" basis="auto">
+                  <div
+                    className="flex flex-wrap items-center gap-x-3 gap-y-1 rounded-md border border-input bg-background py-1 pl-3 pr-3"
+                    data-testid="character-heading-box"
+                  >
+                    <Input
+                      id="character-name"
+                      data-testid="input-character-name"
+                      aria-label="Character name"
+                      value={viewBuild.name}
+                      onChange={(e) => viewCb.setName(e.target.value)}
+                      className="h-9 w-44 border-0 bg-transparent px-0 font-display shadow-none focus-visible:ring-0 sm:w-56"
+                      placeholder="Unnamed Character"
+                    />
+                  </div>
+                </Piece>
                 {visibleSteps
                   .filter((s) => s.id !== "reference" && s.id !== "item-creation" && s.id !== "spelljamming")
                   .map((s) => (
@@ -1030,7 +1063,7 @@ export default function Builder() {
                       {s.label}
                     </TabsTrigger>
                   ))}
-              </div>
+              </Zone>
             )}
           </TabsList>
         </Tabs>
@@ -1151,17 +1184,19 @@ export default function Builder() {
             />
           )}
           {currentStep === "psionics" && (
-            <StepPsionics
-              build={viewBuild}
-              resolved={viewResolved}
-              onToggleSpell={viewCb.toggleSpell}
-              onToggleFeat={viewCb.toggleFeat}
-              onAddClass={viewCb.addClassLevel}
-              onRemoveClass={viewCb.removeClassLevel}
-              onAddPrestige={viewCb.addPrestigeLevel}
-              onRemovePrestige={viewCb.removePrestigeLevel}
-              onAddInventory={viewCb.addInventory}
-            />
+            <PieceFrame zoneId="page:psionics">
+              <StepPsionics
+                build={viewBuild}
+                resolved={viewResolved}
+                onToggleSpell={viewCb.toggleSpell}
+                onToggleFeat={viewCb.toggleFeat}
+                onAddClass={viewCb.addClassLevel}
+                onRemoveClass={viewCb.removeClassLevel}
+                onAddPrestige={viewCb.addPrestigeLevel}
+                onRemovePrestige={viewCb.removePrestigeLevel}
+                onAddInventory={viewCb.addInventory}
+              />
+            </PieceFrame>
           )}
           {currentStep === "inventory" && (
             <StepInventory
@@ -1178,10 +1213,22 @@ export default function Builder() {
           {currentStep === "personality" && (
             <StepPersonality build={viewBuild} resolved={viewResolved} onChange={viewCb.updatePersonality} />
           )}
-          {currentStep === "sheet" && <StepSheet character={viewResolved} />}
+          {currentStep === "sheet" && (
+            <PieceFrame zoneId="page:sheet">
+              <StepSheet character={viewResolved} />
+            </PieceFrame>
+          )}
           {currentStep === "reference" && <StepReference />}
-          {currentStep === "item-creation" && <StepItemCreation />}
-          {currentStep === "spelljamming" && <StepSpelljamming />}
+          {currentStep === "item-creation" && (
+            <PieceFrame zoneId="page:item-creation">
+              <StepItemCreation />
+            </PieceFrame>
+          )}
+          {currentStep === "spelljamming" && (
+            <PieceFrame zoneId="page:spelljamming">
+              <StepSpelljamming />
+            </PieceFrame>
+          )}
         </div>
 
         <div className={`${effectiveStep === "reference" || effectiveStep === "item-creation" || effectiveStep === "spelljamming" || effectiveStep === "abilities" || effectiveStep === "equipment" || effectiveStep === "magic-items" || effectiveStep === "inventory" || effectiveStep === "psionics" || effectiveStep === "sheet" ? "mt-2" : "mt-8"} flex items-center justify-between`}>
@@ -1208,5 +1255,6 @@ export default function Builder() {
           page ends with the content above. The ogl-footer
           component file remains in the tree, unreferenced. */}
     </div>
+    </PiecesProvider>
   );
 }

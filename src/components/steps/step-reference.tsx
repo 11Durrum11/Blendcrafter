@@ -35,6 +35,7 @@ import {
 import { weaponSubcategory, WEAPON_SUBCATEGORIES } from "@/lib/weapon-subcategories";
 import { isApocDisabledPower, isApocDisabledRace, apocRaceNote } from "@/lib/apoc-disabled";
 import { EntityDetailDialog } from "@/components/entity-detail-dialog";
+import { withPieces } from "@/components/movable-pieces";
 import { RULESET_LABELS } from "@/components/ruleset-toggle";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -510,7 +511,7 @@ export function StepReference() {
     setSubcategory("all");
   }
 
-  return (
+  return withPieces("step:reference", (
     <div className="space-y-3">
       <Card>
         {/* No page heading (Shaun, 2026-11-07): the section button
@@ -676,5 +677,5 @@ export function StepReference() {
 
       <EntityDetailDialog detail={detail} onOpenChange={(open) => { if (!open) setDetail(null); }} />
     </div>
-  );
+  ), { skip: [EntityDetailDialog] });
 }

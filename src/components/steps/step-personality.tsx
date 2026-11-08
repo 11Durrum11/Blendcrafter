@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState, type ReactNode } from "react";
+import { withPieces } from "@/components/movable-pieces";
 import { Brain, ChevronDown, ChevronRight, Dices, Sparkles } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -73,7 +74,7 @@ export function StepPersonality({ build, resolved, onChange }: Props) {
     ["Mind & Mechanics", ["abilities","feats","specialAbilities"]],
     ["History & Relationships", ["enemies","allies","trauma","goals","secrets","circumstances"]],
   ];
-  return <div className="space-y-6">
+  return withPieces("step:personality", <div className="space-y-6">
     <Card>
       <CardHeader><CardTitle className="font-display flex items-center gap-2"><Brain className="h-5 w-5 text-primary"/> Personality & Life History</CardTitle></CardHeader>
       <CardContent className="space-y-5">
@@ -158,7 +159,7 @@ export function StepPersonality({ build, resolved, onChange }: Props) {
       <Section title="Temperament">{shown.temperament}</Section><Section title="Core Personality">{shown.corePersonality}</Section><Section title="Life History">{shown.lifeHistory}</Section><Section title="Values">{shown.values}</Section><Section title="Motivations"><List items={shown.motivations}/></Section><Section title="Fears"><List items={shown.fears}/></Section><Section title="Moral Outlook">{shown.moralOutlook}</Section><Section title="Social Behavior">{shown.socialBehavior}</Section><Section title="Reputation">{shown.reputationInterpretation}</Section><Section title="Relationships">{shown.relationships}</Section><Section title="Current Pressure">{shown.currentPressure}</Section><Section title="Mannerisms"><List items={shown.mannerisms}/></Section><Section title="Voice">{shown.voice}</Section><Section title="Combat Psychology">{shown.combatPsychology}</Section><Section title="Contradictions"><List items={shown.contradictions}/></Section><Section title="Adventure Hooks"><List items={shown.adventureHooks}/></Section>
     </div></CardContent></Card>
     <EntityDetailDialog detail={detail} onOpenChange={(open) => !open && setDetail(null)} />
-  </div>;
+  </div>);
 }
 /**
  * The picked box (Shaun, 2026-11-02): whatever flaw or trait the

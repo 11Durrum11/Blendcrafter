@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 import { EntityDetailDialog } from "@/components/entity-detail-dialog";
+import { withPieces } from "@/components/movable-pieces";
 import { describeAbility, type EntityDetail } from "@/lib/entity-descriptions";
 
 /**
@@ -180,7 +181,7 @@ export function StepAbilities({
     onAllAbilitiesChange(placementsToScores(placements, pickedLine.values));
   }
 
-  return (
+  return withPieces("step:abilities", (
     <div className="space-y-6">
       <Card>
         {/* pb-3 (Shaun, 2026-11-07): with the description
@@ -375,5 +376,5 @@ export function StepAbilities({
 
       <EntityDetailDialog detail={detail} onOpenChange={(open) => !open && setDetail(null)} />
     </div>
-  );
+  ), { skip: [EntityDetailDialog] });
 }

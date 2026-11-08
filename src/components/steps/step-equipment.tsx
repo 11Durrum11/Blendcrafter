@@ -12,6 +12,7 @@ import { Badge } from "@/components/ui/badge";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { EntityDetailDialog } from "@/components/entity-detail-dialog";
+import { withPieces } from "@/components/movable-pieces";
 import { describeEquipment, describeMagicItem, type EntityDetail } from "@/lib/entity-descriptions";
 
 interface StepEquipmentProps {
@@ -341,7 +342,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
   const wblHalf = Math.ceil(wblEntries.length / 2);
   const wblColumns = [wblEntries.slice(0, wblHalf), wblEntries.slice(wblHalf)];
 
-  return (
+  return withPieces(`step:${part}`, (
     <div className={cn("space-y-6", part === "equipment" && "space-y-4")}>
       {part === "equipment" && (<>
       <Card>
@@ -917,7 +918,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
       )}
       <EntityDetailDialog detail={detail} onOpenChange={(open) => !open && setDetail(null)} />
     </div>
-  );
+  ), { skip: [EntityDetailDialog] });
 }
 
 // The three step windows (Shaun, 2026-11-04): step 8 Equipment

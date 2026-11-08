@@ -11,6 +11,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 import { EntityDetailDialog } from "@/components/entity-detail-dialog";
+import { withPieces } from "@/components/movable-pieces";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { describePrestigeClass } from "@/lib/entity-descriptions";
 
@@ -351,7 +352,7 @@ export function StepPrestige({
   const offFull = prestigeOff.filter((cls) => isTaken(cls) || prestigeGates.get(cls.id)?.selectable);
   const offNames = prestigeOff.filter((cls) => !isTaken(cls) && !prestigeGates.get(cls.id)?.selectable);
 
-  return (
+  return withPieces("step:prestige", (
     <div className="space-y-6">
       <Card>
         <CardHeader>
@@ -418,5 +419,5 @@ export function StepPrestige({
         onOpenChange={(open) => !open && setDetailClass(null)}
       />
     </div>
-  );
+  ), { skip: [EntityDetailDialog] });
 }

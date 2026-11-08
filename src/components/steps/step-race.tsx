@@ -11,6 +11,7 @@ import { RULESET_LABELS } from "@/components/ruleset-toggle";
 import { isMonsterRace, raceStartingEcl } from "@/lib/race-groups";
 import { isApocDisabledRace, apocRaceNote } from "@/lib/apoc-disabled";
 import { EntityDetailDialog } from "@/components/entity-detail-dialog";
+import { withPieces } from "@/components/movable-pieces";
 import { describeRace, type EntityDetail } from "@/lib/entity-descriptions";
 
 /**
@@ -163,7 +164,7 @@ export function StepRace({
     );
   };
 
-  return (
+  return withPieces("step:race", (
     <div className="space-y-6">
       <Card>
         <CardHeader>
@@ -192,5 +193,5 @@ export function StepRace({
 
       <EntityDetailDialog detail={detail} onOpenChange={(open) => !open && setDetail(null)} />
     </div>
-  );
+  ), { skip: [EntityDetailDialog] });
 }

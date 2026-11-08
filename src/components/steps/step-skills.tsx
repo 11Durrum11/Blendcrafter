@@ -11,6 +11,7 @@ import { cn } from "@/lib/utils";
 import { ProductIdentityBadge } from "@/components/product-identity-badge";
 import { RULESET_LABELS } from "@/components/ruleset-toggle";
 import { EntityDetailDialog } from "@/components/entity-detail-dialog";
+import { withPieces } from "@/components/movable-pieces";
 import { describeSkill, type EntityDetail } from "@/lib/entity-descriptions";
 
 interface StepSkillsProps {
@@ -34,7 +35,7 @@ export function StepSkills({ skillRanks, enabledRulesets, disabledSkillIds, reso
   const total = resolved.skillPoints.total;
   const remaining = total - spent;
 
-  return (
+  return withPieces("step:skills", (
     <div className="space-y-6">
       <Card data-testid="card-skilled-vs-unskilled">
         <CardHeader>
@@ -199,5 +200,5 @@ export function StepSkills({ skillRanks, enabledRulesets, disabledSkillIds, reso
       </Card>
       <EntityDetailDialog detail={detail} onOpenChange={(open) => !open && setDetail(null)} />
     </div>
-  );
+  ), { skip: [EntityDetailDialog] });
 }

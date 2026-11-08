@@ -280,3 +280,18 @@
 
 /* Nested section headers (Spelljamming nests): chevron turns when open */
 .sj-nest[open] > summary .sj-chevron { transform: rotate(90deg); }
+
+/* Movable pieces (Shaun, 2026-11-07): a piece Shaun has resized
+   or flipped carries data-orient on its body, and its contents
+   follow the shape — vertical flow collapses the card-list grids
+   (2–4 across) to a single column; horizontal flow spreads a
+   two-across list into as many columns as fit. Instrument grids
+   with their own fixed track counts (the 6x6 dice grid and the
+   like) are deliberately not matched and keep their shape. The
+   shipped layout carries no data-orient and is untouched. */
+.piece-body[data-orient="v"] :where(.grid[class*="grid-cols-2"], .grid[class*="grid-cols-3"], .grid[class*="grid-cols-4"]) {
+  grid-template-columns: minmax(0, 1fr) !important;
+}
+.piece-body[data-orient="h"] :where(.grid[class*="grid-cols-2"]) {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+}

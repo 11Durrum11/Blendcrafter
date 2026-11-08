@@ -13,6 +13,7 @@ import { ProductIdentityBadge } from "@/components/product-identity-badge";
 import { RULESET_LABELS } from "@/components/ruleset-toggle";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { EntityDetailDialog } from "@/components/entity-detail-dialog";
+import { withPieces } from "@/components/movable-pieces";
 import { describeSpell, type EntityDetail } from "@/lib/entity-descriptions";
 
 interface StepSpellsProps {
@@ -100,7 +101,7 @@ export function StepSpells({ build, resolved, onToggleSpell }: StepSpellsProps) 
       .filter((g) => g.total > 0);
   }, [build.enabledRulesets]);
 
-  return (
+  return withPieces("step:spells", (
     <div className="space-y-6">
       <Card>
         <CardHeader className="pb-3">
@@ -396,5 +397,5 @@ export function StepSpells({ build, resolved, onToggleSpell }: StepSpellsProps) 
       })}
       <EntityDetailDialog detail={detail} onOpenChange={(open) => !open && setDetail(null)} />
     </div>
-  );
+  ), { skip: [EntityDetailDialog] });
 }

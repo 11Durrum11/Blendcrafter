@@ -1,3 +1,4 @@
+import { withPieces } from "@/components/movable-pieces";
 import { AlertTriangle, ArrowDown, ArrowUp, Info, X } from "lucide-react";
 import { ALL_TEMPLATES } from "@/data";
 import type { AppliedTemplateChoice, CreatureType, Ruleset, ValidationIssue } from "@/engine/types";
@@ -66,7 +67,7 @@ export function StepTemplates({ templates, baseType, enabledRulesets, onAdd, onR
 
   const orderingIssues = validation.filter((v) => v.message.includes("must be applied before"));
 
-  return (
+  return withPieces("step:templates", (
     <div className="space-y-6">
       <div
         className="flex items-start gap-2 rounded-md border border-amber-500/40 bg-amber-500/10 p-3 text-sm"
@@ -244,5 +245,5 @@ export function StepTemplates({ templates, baseType, enabledRulesets, onAdd, onR
         </CardContent>
       </Card>
     </div>
-  );
+  ));
 }
