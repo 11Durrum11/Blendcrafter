@@ -13,7 +13,7 @@ import {
   type TemplateDefinition,
 } from "@/engine/types";
 import { raceStartingEcl } from "@/lib/race-groups";
-import { ALL_SPELLS } from "@/data/index";
+import { ALL_SPELLS, CASTING_PROFILES_BY_ID } from "@/data/index";
 
 const SPELL_BY_ID = new Map(ALL_SPELLS.map((sp) => [sp.id, sp]));
 
@@ -66,12 +66,55 @@ export function describeAbility(key: AbilityKey): EntityDetail {
   };
 }
 
+/**
+ * A brief understanding of a race (Shaun, 2026-11-09: "a brief
+ * understanding in each class — and the races"): two plain-language
+ * sentences built from the race's own record — what it is, where its
+ * ability scores lean, what it costs to start as one, and the traits
+ * it is known for. Nothing is invented: every phrase traces to a
+ * field or a trait name on the record.
+ */
+function raceBrief(race: RaceDefinition): string {
+  const ups: string[] = [];
+  const downs: string[] = [];
+  for (const [k, v] of Object.entries(race.abilityModifiers)) {
+    if (!v) continue;
+    const label = ABILITY_LABEL[k as AbilityKey];
+    if ((v as number) > 0) ups.push(`${label} ${signed(v as number)}`);
+    else downs.push(`${label} ${signed(v as number)}`);
+  }
+  const abilityPhrase =
+    ups.length && downs.length
+      ? `Its abilities favor ${ups.join(", ")}, at the cost of ${downs.join(", ")}.`
+      : ups.length
+        ? `Its abilities favor ${ups.join(", ")} — nothing is given up for them.`
+        : downs.length
+          ? `Its abilities are held back by ${downs.join(", ")} — nothing is granted in return.`
+          : "Its ability scores are unadjusted — no built-in strengths or weaknesses.";
+  const cost =
+    raceStartingEcl(race) > 1
+      ? ` It costs more to start as one: ECL ${raceStartingEcl(race)} before class levels${(race.racialHitDice ?? 0) > 0 ? ` (${race.racialHitDice} racial Hit Dice${race.levelAdjustment ? ` and level adjustment ${signed(race.levelAdjustment)}` : ""})` : race.levelAdjustment ? ` (level adjustment ${signed(race.levelAdjustment)})` : ""}.`
+      : "";
+  const extras: string[] = [];
+  if (race.bonusFeatSlots) extras.push("an extra feat at 1st level");
+  if (race.bonusSkillPointsPerLevel || race.bonusSkillPointsAtFirstLevel) extras.push("extra skill points as it levels");
+  if (race.naturalArmor) extras.push(`natural armor ${signed(race.naturalArmor)}`);
+  const traitNames = race.traits.slice(0, 3).map((t) => t.name);
+  const knownFor =
+    traitNames.length > 0
+      ? ` Known for: ${traitNames.join(", ")}${race.traits.length > 3 ? `, and ${race.traits.length - 3} more trait${race.traits.length - 3 === 1 ? "" : "s"}` : ""}.`
+      : "";
+  return (
+    `${race.name} — a ${race.size} ${race.type}${race.subtypes.length ? ` (${race.subtypes.join(", ")})` : ""}, moving ${race.baseSpeed} ft a round. ` +
+    abilityPhrase +
+    (extras.length ? ` It brings ${extras.join(" and ")}.` : "") +
+    cost +
+    (race.favoredClass ? ` Favored class: ${race.favoredClass}.` : "") +
+    knownFor
+  );
+}
+
 export function describeRace(race: RaceDefinition): EntityDetail {
-  const adjustments = Object.entries(race.abilityModifiers)
-    .filter(([, v]) => v)
-    .map(([k, v]) => `${k.toUpperCase()} ${signed(v as number)}`)
-    .join(", ");
-  const startingEcl = raceStartingEcl(race);
   const sections: EntityDetailSection[] = [
     {
       heading: "Racial Traits",
@@ -88,8 +131,8 @@ export function describeRace(race: RaceDefinition): EntityDetail {
   }
   return {
     title: race.name,
-    badges: ["Race", `ECL ${startingEcl}`, race.size, `${race.baseSpeed} ft`, ...(race.favoredClass ? [`Favored class: ${race.favoredClass}`] : [])],
-    summary: `${race.size} ${race.type}${race.subtypes.length ? ` (${race.subtypes.join(", ")})` : ""}, base speed ${race.baseSpeed} ft.${adjustments ? ` Ability adjustments: ${adjustments}.` : " No ability adjustments."} Starting ECL ${startingEcl} before class levels${(race.racialHitDice ?? 0) > 0 ? ` (${race.racialHitDice} racial Hit Dice${race.levelAdjustment ? ` + level adjustment ${signed(race.levelAdjustment)}` : ""})` : race.levelAdjustment ? ` (level adjustment ${signed(race.levelAdjustment)})` : ""}.`,
+    badges: ["Race", `ECL ${raceStartingEcl(race)}`, race.size, `${race.baseSpeed} ft`, ...(race.favoredClass ? [`Favored class: ${race.favoredClass}`] : [])],
+    summary: raceBrief(race),
     sections,
     source: race.source,
     sourceUrl: race.sourceUrl,
@@ -155,6 +198,71 @@ export function describeTemplate(t: TemplateDefinition): EntityDetail {
  * feature with its full text (level-gated features marked with the
  * level they arrive at), and the class skill list.
  */
+const SAVE_LABEL: Record<string, string> = { fort: "Fortitude", ref: "Reflex", will: "Will" };
+const ORDINALS = ["0-level", "1st-level", "2nd-level", "3rd-level", "4th-level", "5th-level", "6th-level", "7th-level", "8th-level", "9th-level"];
+
+/**
+ * A brief understanding of a class (Shaun, 2026-11-09: "give a brief
+ * understanding in each class"): two or three plain-language
+ * sentences built from the class's own record — its role (from base
+ * attack, hit die, and its casting profile where it has one), its
+ * strong saves, its skill breadth, and the features it is known
+ * for. Nothing is invented: every phrase traces to a field on the
+ * record or its casting profile.
+ */
+function classBrief(cls: ClassDefinition): string {
+  const profile = CASTING_PROFILES_BY_ID[cls.id];
+  const hdWord =
+    cls.hitDie === "d12" || cls.hitDie === "d10" ? "tough" : cls.hitDie === "d8" ? "sturdy" : cls.hitDie === "d6" ? "lightly built" : "fragile";
+  const babWord = cls.babProgression === "full" ? "full" : cls.babProgression === "three-quarter" ? "three-quarter" : "half";
+  let role: string;
+  let power = "";
+  if (profile) {
+    const kindWord =
+      profile.kind === "prepared-arcane"
+        ? "prepared arcane spellcaster"
+        : profile.kind === "prepared-divine"
+          ? "prepared divine spellcaster"
+          : "spontaneous spellcaster";
+    let maxSpell = 0;
+    for (const row of profile.spellsPerDay) {
+      row.forEach((cell, i) => {
+        if (cell !== null && i > maxSpell) maxSpell = i;
+      });
+    }
+    role = `a ${kindWord}`;
+    power = ` Its casting is keyed to ${ABILITY_LABEL[profile.keyAbility]} and reaches up to ${ORDINALS[maxSpell]} spells.`;
+  } else if (cls.source.startsWith("Expanded Psionics Handbook") || cls.source.startsWith("Complete Psionic")) {
+    role = cls.id === "soulknife" ? "a psionic warrior" : "a psionic manifester";
+    power =
+      cls.id === "soulknife"
+        ? " It manifests no powers — its psionics take shape as a blade of pure mental energy."
+        : " Its powers are psionic, drawn from the mind rather than from spellcasting.";
+  } else if (cls.babProgression === "full") {
+    role = "a front-line martial class";
+  } else if (cls.babProgression === "three-quarter") {
+    role = "a skilled combatant";
+  } else {
+    role = "a specialist class";
+  }
+  const saves = cls.goodSaves.map((s) => SAVE_LABEL[s] ?? s);
+  const breadth = cls.skillPointsPerLevel >= 6 ? "a broad skill set" : cls.skillPointsPerLevel >= 4 ? "a moderate skill set" : "a narrow skill set";
+  const features = [...(cls.features ?? [])]
+    .sort((a, b) => ((a as { levelsNeeded?: number }).levelsNeeded ?? 0) - ((b as { levelsNeeded?: number }).levelsNeeded ?? 0))
+    .filter((f) => !/proficien/i.test(f.name));
+  const knownFor =
+    features.length > 0
+      ? ` Known for: ${features.slice(0, 3).map((f) => f.name).join(", ")}${features.length > 3 ? `, and ${features.length - 3} more feature${features.length - 3 === 1 ? "" : "s"}` : ""}.`
+      : "";
+  return (
+    `${cls.name} is ${role} — ${cls.hitDie} Hit Die (${hdWord}), ${babWord} base attack progression, ` +
+    `${saves.length ? `strong ${saves.join(" and ")}` : "no strong save"}.` +
+    power +
+    ` It earns ${cls.skillPointsPerLevel} + Int skill points per level across ${cls.classSkills.length} class skills — ${breadth}.` +
+    knownFor
+  );
+}
+
 function classSections(cls: ClassDefinition): EntityDetailSection[] {
   const sections: EntityDetailSection[] = [
     {
@@ -201,7 +309,7 @@ export function describeClass(cls: ClassDefinition): EntityDetail {
   return {
     title: cls.name,
     badges: ["Class", `Hit Die ${cls.hitDie}`],
-    summary: `${cls.name} — ${cls.babProgression} base attack progression, ${cls.skillPointsPerLevel} skill points per level. Full breakdown below: the progression table for every level and every class feature.`,
+    summary: classBrief(cls),
     sections: classSections(cls),
     source: cls.source,
     sourceUrl: cls.sourceUrl,
@@ -216,7 +324,7 @@ export function describePrestigeClass(cls: PrestigeClassDefinition): EntityDetai
   return {
     title: cls.name,
     badges: ["Prestige Class", `Hit Die ${cls.hitDie}`],
-    summary: `${cls.name} (prestige) — prerequisites are enforced by the builder: the class stays unavailable until every prerequisite the builder can check is met, and each remaining prerequisite has been confirmed on the Prestige Classes step. Full breakdown below: the progression table for every level and every class feature.`,
+    summary: `${classBrief(cls)} Its prerequisites are enforced by the builder — it unlocks when the build meets them.`,
     sections,
     source: cls.source,
     sourceUrl: cls.sourceUrl,
