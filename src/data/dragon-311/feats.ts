@@ -1,0 +1,331 @@
+import type { FeatDefinition } from "@/engine/types";
+
+// Dragon Magazine #311 (WotC/Paizo, D&D 3.5) feats — twenty-five in
+// all: the eighteen bloodline feats from the Sorcerers article
+// "Bloodlines" (pp. 32–40) and the seven ceremonial feats from the
+// Wizards article "Templates for Spells" (pp. 41–45). Transcribed
+// from the magazine text on archive.org. Prerequisites arrays carry
+// only the printed Prerequisites lines. Benefit summaries are short
+// mechanical paraphrases in our own words; no magazine prose is
+// reproduced.
+//
+// Category note: the catalog's FeatCategory union has no "bloodline"
+// or "ceremonial" value, so all twenty-five records use category
+// "general" with the printed feat type carried at the head of the
+// benefit summary (the issue-310 convention for bracketed types).
+//
+// The seven spell templates the ceremonial feats unlock have no
+// catalog mechanism (they modify other spells at casting time for a
+// component cost); they are written up IN FULL in reference.md in
+// this staging folder, together with the articles' framing rules:
+// a character may know only one base bloodline feat, and acquiring a
+// ceremonial feat requires a free feat slot and a daylong ritual
+// (one week to prepare, 100 gp of supplies and ingredients, waived
+// if the feat is taken at 1st level).
+
+const DM311 = "Dragon Magazine #311";
+const DM311_PATH = "https://archive.org/download/DragonMagazine260_201801/DragonMagazine311_djvu.txt";
+
+const BLOODLINE_BASE_PREREQS = ["Ability to cast arcane spells without preparation", "Ability to summon a familiar"];
+const BLOODLINE_SPECIAL = "If you take this feat after 1st level and have already learned any of the listed spells in the class that granted you access to this feat, you gain no additional spell known at those spell levels; this does not apply to spells learned as a member of another spellcasting class. A character can have only one base bloodline feat.";
+const CEREMONIAL_SPECIAL = "Ceremonial feat: acquiring it requires a free feat slot and a daylong ritual (one week to prepare; supplies and ingredients cost 100 gp, waived if the feat is taken at 1st level).";
+
+export const DRAGON_311_FEATS: FeatDefinition[] = [
+  // ---- Base bloodline feats (Sorcerers article) ----
+  {
+    id: "air-bloodline",
+    name: "Air Bloodline",
+    category: "general",
+    prerequisites: BLOODLINE_BASE_PREREQS,
+    benefitSummary: "[Bloodline feat.] Your ancestry gives you a bonus spell known at each spell level, added to the class spell list of one spontaneous arcane spellcasting class (chosen when you take the feat): 1st — obscuring mist; 2nd — gust of wind; 3rd — wind wall; 4th — shout; 5th — telekinesis; 6th — control winds; 7th — ethereal jaunt; 8th — summon monster VIII (elementals and outsiders with the air subtype only); 9th — freedom. You cannot learn or cast spells with the earth descriptor, and all such spells are removed from the spell lists of all your spellcasting classes.",
+    modifiers: [],
+    source: DM311,
+    sourceUrl: DM311_PATH,
+    ruleset: "core",
+    special: BLOODLINE_SPECIAL,
+  },
+  {
+    id: "celestial-bloodline-311",
+    name: "Celestial Bloodline",
+    category: "general",
+    prerequisites: BLOODLINE_BASE_PREREQS,
+    benefitSummary: "[Bloodline feat.] Your ancestry gives you a bonus spell known at each spell level, added to the class spell list of one spontaneous arcane spellcasting class (chosen when you take the feat): 1st — protection from evil; 2nd — daylight; 3rd — magic circle against evil; 4th — rainbow pattern; 5th — dismissal; 6th — guards and wards; 7th — sequester; 8th — sunburst; 9th — summon monster IX (good outsiders only). You cannot learn or cast spells with the evil descriptor, and all such spells are removed from the spell lists of all your spellcasting classes.",
+    modifiers: [],
+    source: DM311,
+    sourceUrl: DM311_PATH,
+    ruleset: "core",
+    special: BLOODLINE_SPECIAL,
+  },
+  {
+    id: "draconic-bloodline",
+    name: "Draconic Bloodline",
+    category: "general",
+    prerequisites: BLOODLINE_BASE_PREREQS,
+    benefitSummary: "[Bloodline feat.] Your ancestry gives you a bonus spell known at each spell level, added to the class spell list of one spontaneous arcane spellcasting class (chosen when you take the feat): 1st — comprehend languages; 2nd — darkvision; 3rd — protection from elements (as printed; the 3.5 spell is protection from energy); 4th — fear; 5th — mind fog; 6th — true seeing; 7th — vision; 8th — mind blank; 9th — dominate monster. You must choose a category of spells (often a descriptor tied to your dragon ancestor, decided with the DM) that you cannot learn or cast; such spells do not appear on your spell list for any class.",
+    modifiers: [],
+    source: DM311,
+    sourceUrl: DM311_PATH,
+    ruleset: "core",
+    special: BLOODLINE_SPECIAL,
+  },
+  {
+    id: "earth-bloodline",
+    name: "Earth Bloodline",
+    category: "general",
+    prerequisites: BLOODLINE_BASE_PREREQS,
+    benefitSummary: "[Bloodline feat.] Your ancestry gives you a bonus spell known at each spell level, added to the class spell list of one spontaneous arcane spellcasting class (chosen when you take the feat): 1st — enlarge person; 2nd — shatter; 3rd — keen edge; 4th — stone shape; 5th — transmute mud to rock; 6th — move earth; 7th — statue; 8th — iron body; 9th — summon monster IX (elementals and outsiders with the earth subtype only). You cannot learn or cast spells with the air descriptor, and all such spells are removed from the spell lists of all your spellcasting classes.",
+    modifiers: [],
+    source: DM311,
+    sourceUrl: DM311_PATH,
+    ruleset: "core",
+    special: BLOODLINE_SPECIAL,
+  },
+  {
+    id: "fey-bloodline",
+    name: "Fey Bloodline",
+    category: "general",
+    prerequisites: BLOODLINE_BASE_PREREQS,
+    benefitSummary: "[Bloodline feat.] Your ancestry gives you a bonus spell known at each spell level, added to the class spell list of one spontaneous arcane spellcasting class (chosen when you take the feat): 1st — detect secret doors; 2nd — glitterdust; 3rd — tongues; 4th — hallucinatory terrain; 5th — seeming; 6th — mislead; 7th — sequester; 8th — Otto's irresistible dance; 9th — wail of the banshee. You cannot learn or cast spells that create or control undead, and all such spells are removed from the spell lists of all your spellcasting classes.",
+    modifiers: [],
+    source: DM311,
+    sourceUrl: DM311_PATH,
+    ruleset: "core",
+    special: BLOODLINE_SPECIAL,
+  },
+  {
+    id: "fiendish-bloodline-311",
+    name: "Fiendish Bloodline",
+    category: "general",
+    prerequisites: BLOODLINE_BASE_PREREQS,
+    benefitSummary: "[Bloodline feat.] Your ancestry gives you a bonus spell known at each spell level, added to the class spell list of one spontaneous arcane spellcasting class (chosen when you take the feat): 1st — protection from good; 2nd — darkness; 3rd — sepia snake sigil; 4th — bestow curse; 5th — nightmare; 6th — mislead; 7th — insanity; 8th — maze; 9th — imprisonment. You cannot learn or cast spells with the good descriptor, and all such spells are removed from the spell lists of all your spellcasting classes.",
+    modifiers: [],
+    source: DM311,
+    sourceUrl: DM311_PATH,
+    ruleset: "core",
+    special: BLOODLINE_SPECIAL,
+  },
+  {
+    id: "fire-bloodline",
+    name: "Fire Bloodline",
+    category: "general",
+    prerequisites: BLOODLINE_BASE_PREREQS,
+    benefitSummary: "[Bloodline feat.] Your ancestry gives you a bonus spell known at each spell level, added to the class spell list of one spontaneous arcane spellcasting class (chosen when you take the feat): 1st — hypnotism; 2nd — pyrotechnics; 3rd — tongues (the subject's tongue resembles a tongue of flame); 4th — fire shield; 5th — cloudkill (the fog has a smoky smell and quality); 6th — summon monster VI (elementals and outsiders with the fire subtype only); 7th — delayed blast fireball; 8th — sunburst; 9th — meteor swarm. You cannot learn or cast spells with the water descriptor, and all such spells are removed from the spell lists of all your spellcasting classes.",
+    modifiers: [],
+    source: DM311,
+    sourceUrl: DM311_PATH,
+    ruleset: "core",
+    special: BLOODLINE_SPECIAL,
+  },
+  {
+    id: "water-bloodline",
+    name: "Water Bloodline",
+    category: "general",
+    prerequisites: BLOODLINE_BASE_PREREQS,
+    benefitSummary: "[Bloodline feat.] Your ancestry gives you a bonus spell known at each spell level, added to the class spell list of one spontaneous arcane spellcasting class (chosen when you take the feat): 1st — expeditious retreat; 2nd — fog cloud; 3rd — water breathing; 4th — quench; 5th — transmute rock to mud; 6th — Otiluke's freezing sphere; 7th — control weather; 8th — summon monster VIII (elementals and outsiders with the water subtype only); 9th — elemental swarm (water elementals only). You cannot learn or cast spells with the fire descriptor, and all such spells are removed from the spell lists of all your spellcasting classes.",
+    modifiers: [],
+    source: DM311,
+    sourceUrl: DM311_PATH,
+    ruleset: "core",
+    special: BLOODLINE_SPECIAL,
+  },
+  // ---- Follow-up bloodline feats (Sorcerers article) ----
+  {
+    id: "arcane-kinship",
+    name: "Arcane Kinship",
+    category: "general",
+    prerequisites: ["Any bloodline feat", "Ability to cast 3rd-level arcane spells"],
+    benefitSummary: "[Bloodline feat.] You gain a +4 racial bonus on Diplomacy and Gather Information checks with intelligent creatures that share your heritage (for example, a character with Air Bloodline gains the benefit with creatures of the air subtype, and may also gain it with flying creatures).",
+    modifiers: [],
+    source: DM311,
+    sourceUrl: DM311_PATH,
+    ruleset: "core",
+  },
+  {
+    id: "celestial-light",
+    name: "Celestial Light",
+    category: "general",
+    prerequisites: ["Celestial Bloodline", "Ability to cast 2nd-level arcane spells"],
+    benefitSummary: "[Bloodline feat.] You can cast light five times per day as a spell-like ability, with a caster level equal to your level in the arcane spellcasting class that granted you access to this feat. This ability does not affect your number of spells known or spells per day.",
+    modifiers: [],
+    source: DM311,
+    sourceUrl: DM311_PATH,
+    ruleset: "core",
+  },
+  {
+    id: "dragon-sight",
+    name: "Dragon Sight",
+    category: "general",
+    prerequisites: ["Draconic Bloodline", "Ability to cast 2nd-level arcane spells"],
+    benefitSummary: "[Bloodline feat.] You can use detect magic three times per day as a spell-like ability, with a caster level equal to your level in the arcane spellcasting class that granted you access to this feat. When you use this ability, your eyes glow with inner light.",
+    modifiers: [],
+    source: DM311,
+    sourceUrl: DM311_PATH,
+    ruleset: "core",
+  },
+  {
+    id: "feys-fate",
+    name: "Fey's Fate",
+    category: "general",
+    prerequisites: ["Fey Bloodline", "Ability to cast 2nd-level arcane spells"],
+    benefitSummary: "[Bloodline feat.] You gain a +1 bonus on all saving throws.",
+    modifiers: [],
+    source: DM311,
+    sourceUrl: DM311_PATH,
+    ruleset: "core",
+  },
+  {
+    id: "fire-feet",
+    name: "Fire Feet",
+    category: "general",
+    prerequisites: ["Fire Bloodline", "Ability to cast 2nd-level arcane spells"],
+    benefitSummary: "[Bloodline feat.] Your base speed increases by 10 feet.",
+    modifiers: [],
+    source: DM311,
+    sourceUrl: DM311_PATH,
+    ruleset: "core",
+  },
+  {
+    id: "friend-of-the-earth",
+    name: "Friend of the Earth",
+    category: "general",
+    prerequisites: ["Earth Bloodline", "Ability to cast 2nd-level arcane spells"],
+    benefitSummary: "[Bloodline feat.] You gain a +3 circumstance bonus on Climb and Tumble checks when you are in contact with stone or earthen surfaces.",
+    modifiers: [],
+    source: DM311,
+    sourceUrl: DM311_PATH,
+    ruleset: "core",
+  },
+  {
+    id: "kin-mastery",
+    name: "Kin Mastery",
+    category: "general",
+    prerequisites: ["Any bloodline feat", "Ability to cast 3rd-level arcane spells"],
+    benefitSummary: "[Bloodline feat.] Once per day, you can turn or rebuke creatures of your ancestor's kind (as named by your bloodline feat) as a cleric of half your arcane spellcasting class level. Whether you turn or rebuke is chosen when you select this feat and does not change.",
+    modifiers: [],
+    source: DM311,
+    sourceUrl: DM311_PATH,
+    ruleset: "core",
+    special: "You can take this feat multiple times; each additional time you take it adds one use per day.",
+  },
+  {
+    id: "power-in-the-blood",
+    name: "Power in the Blood",
+    category: "general",
+    prerequisites: ["Any bloodline feat", "Ability to cast 3rd-level arcane spells"],
+    benefitSummary: "[Bloodline feat.] You gain one additional spell per day, which must be used to cast a spell granted by your base bloodline feat.",
+    modifiers: [],
+    source: DM311,
+    sourceUrl: DM311_PATH,
+    ruleset: "core",
+  },
+  {
+    id: "voice-of-winds",
+    name: "Voice of Winds",
+    category: "general",
+    prerequisites: ["Air Bloodline", "Ability to cast 2nd-level arcane spells"],
+    benefitSummary: "[Bloodline feat.] You gain a +2 bonus on Diplomacy and Intimidate checks when speaking, even if your listeners do not understand your language.",
+    modifiers: [],
+    source: DM311,
+    sourceUrl: DM311_PATH,
+    ruleset: "core",
+  },
+  {
+    id: "waterborn",
+    name: "Waterborn",
+    category: "general",
+    prerequisites: ["Water Bloodline", "Ability to cast 2nd-level arcane spells"],
+    benefitSummary: "[Bloodline feat.] You gain a +4 bonus on Swim checks.",
+    modifiers: [],
+    source: DM311,
+    sourceUrl: DM311_PATH,
+    ruleset: "core",
+  },
+  // ---- Ceremonial feats (Wizards article; each unlocks one spell
+  // template, written up in full in reference.md). The article prints
+  // no Prerequisites lines for these feats beyond the shared
+  // ceremonial-feat ritual rule carried in each record's special. ----
+  {
+    id: "bloodthirsty",
+    name: "Bloodthirsty",
+    category: "general",
+    prerequisites: [],
+    benefitSummary: "[Ceremonial feat.] You can apply the bloodleech spell template to your spells (see reference.md). If you have cast a bloodleech spell within the past 24 hours, your natural healing is doubled: you recover 2 hit points per character level for each night of rest, and 3 hit points per character level for each full day and night of rest.",
+    modifiers: [],
+    source: DM311,
+    sourceUrl: DM311_PATH,
+    ruleset: "core",
+    special: CEREMONIAL_SPECIAL + " The bloodthirsty ritual is performed with at least six other participants, one of whom must be a necromancer.",
+  },
+  {
+    id: "elemalefic-spellcaster",
+    name: "Elemalefic Spellcaster",
+    category: "general",
+    prerequisites: [],
+    benefitSummary: "[Ceremonial feat.] You can apply the elemalefic spell template to your spells (see reference.md). You also gain a +2 bonus on Survival checks on any of the four elemental planes.",
+    modifiers: [],
+    source: DM311,
+    sourceUrl: DM311_PATH,
+    ruleset: "core",
+    special: CEREMONIAL_SPECIAL + " The elemalefic ritual is an invocation to angry elemental spirits.",
+  },
+  {
+    id: "ethereal-tendril",
+    name: "Ethereal Tendril",
+    category: "general",
+    prerequisites: [],
+    benefitSummary: "[Ceremonial feat.] You can apply the ghost touch spell template to your spells (see reference.md). You also move at your normal speed instead of half speed while on the Ethereal Plane.",
+    modifiers: [],
+    source: DM311,
+    sourceUrl: DM311_PATH,
+    ruleset: "core",
+    special: CEREMONIAL_SPECIAL + " The ethereal tendril ceremony requires the participant to sacrifice and devour an ether scarab (Monster Manual II).",
+  },
+  {
+    id: "invigorating-spellcaster",
+    name: "Invigorating Spellcaster",
+    category: "general",
+    prerequisites: [],
+    benefitSummary: "[Ceremonial feat.] You can apply the invigorating spell template to your spells (see reference.md). You also gain a +2 bonus on all Heal checks.",
+    modifiers: [],
+    source: DM311,
+    sourceUrl: DM311_PATH,
+    ruleset: "core",
+    special: CEREMONIAL_SPECIAL + " The invigorating ritual is performed with six clerics.",
+  },
+  {
+    id: "spellbinder",
+    name: "Spellbinder",
+    category: "general",
+    prerequisites: [],
+    benefitSummary: "[Ceremonial feat.] You can apply the shackled spell template to your spells (see reference.md). You also gain a +2 bonus on Use Rope checks made to bind a creature.",
+    modifiers: [],
+    source: DM311,
+    sourceUrl: DM311_PATH,
+    ruleset: "core",
+    special: CEREMONIAL_SPECIAL + " In the spellbinder ceremony, the participant is shackled at the ankles together with six other participants.",
+  },
+  {
+    id: "spellstrike",
+    name: "Spellstrike",
+    category: "general",
+    prerequisites: [],
+    benefitSummary: "[Ceremonial feat.] You can apply the concussive spell template to your spells (see reference.md). You also gain a +2 bonus on Concentration checks made to ignore vigorous, violent, or extraordinarily violent motion while casting a spell.",
+    modifiers: [],
+    source: DM311,
+    sourceUrl: DM311_PATH,
+    ruleset: "core",
+    special: CEREMONIAL_SPECIAL + " The spellstrike ceremony is performed with at least six monks.",
+  },
+  {
+    id: "superior-summons",
+    name: "Superior Summons",
+    category: "general",
+    prerequisites: [],
+    benefitSummary: "[Ceremonial feat.] You can apply the champion spell template to your spells (see reference.md). In addition, your conjuration (summoning) spells are cast at +1 caster level.",
+    modifiers: [],
+    source: DM311,
+    sourceUrl: DM311_PATH,
+    ruleset: "core",
+    special: CEREMONIAL_SPECIAL + " The superior summons ritual is performed with six other participants, at least one of whom must be a conjurer.",
+  },
+];
