@@ -342,6 +342,7 @@ import { PLANAR_HANDBOOK_SPELLS } from "./planar-handbook/spells";
 import { PLANAR_HANDBOOK_EQUIPMENT } from "./planar-handbook/equipment";
 import { PLANAR_HANDBOOK_MAGIC_ITEMS } from "./planar-handbook/magic-items";
 import { DUNGEONSCAPE_CLASSES } from "./dungeonscape/classes";
+import { DRAGON_PALADINS_CLASSES } from "./dragon-paladins/classes";
 import { DUNGEONSCAPE_PRESTIGE_CLASSES } from "./dungeonscape/prestige-classes";
 import { DUNGEONSCAPE_FEATS } from "./dungeonscape/feats";
 import { DUNGEONSCAPE_EQUIPMENT } from "./dungeonscape/equipment";
@@ -825,6 +826,7 @@ export const ALL_CLASSES: ClassDefinition[] = dedupeById([
   ...CHAOS_MAGIC_CLASSES,
   ...WAY_OF_THE_ROGUE_CLASSES,
   ...DUNGEONSCAPE_CLASSES,
+  ...DRAGON_PALADINS_CLASSES,
 ]);
 
 export const ALL_PRESTIGE_CLASSES: PrestigeClassDefinition[] = dedupeById([
