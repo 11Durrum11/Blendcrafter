@@ -623,7 +623,7 @@ export function StepReference() {
         <Card>
           <CardHeader className="pb-2">
             <CardTitle className="text-xl">
-              {results.length.toLocaleString()} {results.length === 1 ? "match" : "matches"}
+              {`${results.length.toLocaleString()} ${results.length === 1 ? "match" : "matches"}`}
               {browsing ? ` in ${activeCategory?.label}` : ""}
               {subcategory !== "all" && activeCategory ? ` — ${subcategory}` : ""}
             </CardTitle>

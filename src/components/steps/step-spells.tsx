@@ -194,7 +194,7 @@ export function StepSpells({ build, resolved, onToggleSpell }: StepSpellsProps) 
               // Library lists are pieces (platform rule, 2026-11-08:
               // inner buttons movable too). The hand-opened
               // breakout rides on the piece shell.
-              <Piece key={profile.listName} pieceId={`library-type-${profile.classId}`} layout="grid" className={breakout ? "col-span-full ml-[calc(50%-50vw)] min-h-[100dvh] w-screen" : ""}>
+              <Piece key={profile.listName} pieceId={`library-type-${profile.classId}`} layout="grid" className={breakout ? "col-span-full ml-[calc(50%-50vw+1rem)] sm:ml-[calc(50%-50vw+1.5rem)] min-h-[100dvh] w-screen" : ""}>
               <div className="h-full rounded-md border border-card-border" data-testid={`library-type-${profile.classId}`}>
                 <button
                   type="button"

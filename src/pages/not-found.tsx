@@ -5,7 +5,7 @@ import { Logo } from "@/components/logo";
 
 export default function NotFound() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4 text-foreground">
+    <div className="flex min-h-dvh items-center justify-center bg-background px-4 text-foreground">
       <Card className="w-full max-w-md text-center">
         <CardHeader>
           <div className="mx-auto mb-2">

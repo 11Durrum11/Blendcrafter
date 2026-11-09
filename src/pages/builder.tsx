@@ -784,7 +784,7 @@ export default function Builder() {
             max={100}
             value={Math.round(ambienceVolume * 100)}
             onChange={(e) => setAmbienceVolume(Number(e.target.value) / 100)}
-            className="w-14 accent-amber-500 sm:w-20"
+            className="w-10 accent-amber-500 sm:w-20"
             aria-label="Ambience volume"
             data-testid="ambience-volume-slider"
           />
@@ -861,7 +861,7 @@ export default function Builder() {
 
   return (
     <PiecesProvider>
-    <div className={`app-backdrop min-h-screen overflow-x-clip bg-background text-foreground${ambienceOn ? " bg-animated" : ""}`} data-scene={effectiveStep === "sheet" ? undefined : effectiveStep === "abilities" ? "race" : effectiveStep}>
+    <div className={`app-backdrop min-h-dvh overflow-x-clip bg-background text-foreground${ambienceOn ? " bg-animated" : ""}`} data-scene={effectiveStep === "sheet" ? undefined : effectiveStep === "abilities" ? "race" : effectiveStep}>
       <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-2 px-4 py-1.5 sm:px-6">
           <Link href="/" className="flex items-center gap-2">
@@ -904,11 +904,13 @@ export default function Builder() {
           {/* All the top boxes on ONE row (Shaun, 2026-11-05:
               "Put all the boxes on top on one row" — "so it can
               all fit on one row") — the two stacked groups are
-              gone, and the row does NOT wrap: the boxes are
-              icon-compact on phone widths, so all eight fit
-              across a single line in their set order, and they
-              stay movable. */}
-          <div className="ml-auto flex flex-nowrap items-center gap-1 sm:gap-2" onClickCapture={swallowDraggedClick}>
+              gone. The row wraps ONLY when it physically cannot
+              fit (phone audit 2026-11-09: at landscape widths the
+              labelled boxes totalled ~909px on an 844px screen and
+              the last boxes were clipped off-screen, unreachable);
+              on any width where they fit they stay on one line in
+              their set order, and they stay movable. */}
+          <div className="ml-auto flex flex-wrap items-center justify-end gap-1 sm:gap-2" onClickCapture={swallowDraggedClick}>
             {headerOrder.map(renderHeaderBox)}
             <input
               ref={importRef}
@@ -941,7 +943,7 @@ export default function Builder() {
           order is that those pages ride up tight and fit one
           screen with no scrolling in their default state. Every
           other page keeps pb-[45vh]. */}
-      <main className={`mx-auto ${effectiveStep === "sheet" ? "max-w-[110rem]" : "max-w-6xl"} px-4 pt-1 sm:px-6 ${effectiveStep === "reference" || effectiveStep === "item-creation" || effectiveStep === "spelljamming" || effectiveStep === "abilities" || effectiveStep === "equipment" || effectiveStep === "magic-items" || effectiveStep === "inventory" || effectiveStep === "psionics" || effectiveStep === "sheet" ? "pb-6" : "pb-[45vh]"}`}>
+      <main className={`mx-auto ${effectiveStep === "sheet" ? "max-w-[110rem]" : "max-w-6xl"} px-4 pt-1 sm:px-6 ${effectiveStep === "reference" || effectiveStep === "item-creation" || effectiveStep === "spelljamming" || effectiveStep === "abilities" || effectiveStep === "equipment" || effectiveStep === "magic-items" || effectiveStep === "inventory" || effectiveStep === "psionics" || effectiveStep === "sheet" ? "pb-6" : "pb-[45dvh]"}`}>
         <Tabs value={effectiveStep} onValueChange={(v) => goTo(v as StepId)}>
           <TabsList className="flex h-auto flex-wrap justify-start gap-0.5 [&>button]:py-0.5" data-testid="step-tabs">
             {/* The four sections on ONE LINE (Shaun,

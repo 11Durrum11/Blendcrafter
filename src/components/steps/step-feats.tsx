@@ -288,7 +288,7 @@ export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved,
                 // Sections are pieces (platform rule, 2026-11-08:
                 // inner buttons movable too). The hand-opened
                 // breakout rides on the piece shell.
-                <Piece key={section.id} pieceId={`feat-section-${section.id}`} layout="grid" className={breakout ? "col-span-full ml-[calc(50%-50vw)] min-h-[100dvh] w-screen" : ""}>
+                <Piece key={section.id} pieceId={`feat-section-${section.id}`} layout="grid" className={breakout ? "col-span-full ml-[calc(50%-50vw+1rem)] sm:ml-[calc(50%-50vw+1.5rem)] min-h-[100dvh] w-screen" : ""}>
                 <div
                   className={cn("h-full rounded-md")}
                   data-testid={`feat-section-${section.id}`}

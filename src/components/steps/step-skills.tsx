@@ -90,11 +90,12 @@ export function StepSkills({ skillRanks, enabledRulesets, disabledSkillIds, reso
             </div>
           </div>
 
-          {/* Skills in two columns (Shaun, 2026-11-04): the list
-              was one long single-column stack; it now runs two
-              across on sm+ screens, one column on phones. The
-              hairline dividers come from gap-px over the border
-              color with each row on bg-card. */}
+          {/* Skills in columns (Shaun, 2026-11-04, doubled for
+              phones 2026-11-05): the list was one long
+              single-column stack; it now runs two across on
+              phones, four across on large screens. The hairline
+              dividers come from gap-px over the border color
+              with each row on bg-card. */}
           <div className="mt-4 grid grid-cols-2 gap-px overflow-hidden rounded-md border border-card-border bg-card-border lg:grid-cols-4">
             {visibleResolved.length === 0 ? (
               <p className="bg-card p-4 text-sm text-muted-foreground col-span-2 lg:col-span-4">No skills match your search or the enabled rule sets.</p>

@@ -116,7 +116,19 @@ function loadLayout(): LayoutState {
     if (!raw) return {};
     const parsed: unknown = JSON.parse(raw);
     if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) return {};
-    return parsed as LayoutState;
+    const layout = parsed as LayoutState;
+    // Phone audit 2026-11-09: a layout saved on a wide screen used to
+    // apply its pixel sizes blind on a narrow one. Clamp every stored
+    // piece size into the same bounds the resize handler enforces.
+    for (const zone of Object.values(layout)) {
+      if (!zone || typeof zone !== "object" || !zone.pieces) continue;
+      for (const piece of Object.values(zone.pieces)) {
+        if (!piece || typeof piece !== "object") continue;
+        if (typeof piece.w === "number") piece.w = Math.min(100, Math.max(22, piece.w));
+        if (typeof piece.h === "number") piece.h = Math.min(2400, Math.max(90, piece.h));
+      }
+    }
+    return layout;
   } catch {
     return {};
   }

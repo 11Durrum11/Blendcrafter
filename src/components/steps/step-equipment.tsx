@@ -439,7 +439,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
               with the build's ECL highlighted, and the 70/30 rule
               calculated from it — at least 70% of the chart amount
               must be spent on gear, at most 30% may stay liquid. */}
-          <div className={cn("mt-2 rounded-md border border-card-border bg-card p-2.5", wblOpen && "ml-[calc(50%-50vw)] w-screen px-3")} data-testid="wealth-by-level-panel">
+          <div className={cn("mt-2 rounded-md border border-card-border bg-card p-2.5", wblOpen && "ml-[calc(50%-50vw+1rem)] sm:ml-[calc(50%-50vw+1.5rem)] w-screen px-3")} data-testid="wealth-by-level-panel">
             <button
               type="button"
               className="flex w-full flex-wrap items-baseline justify-between gap-2 text-left"
@@ -464,7 +464,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
               Click a level to set it as your total gp limit — the limit shows beside Magic items in the
               summary below.
             </p>
-            <div className="mt-2 grid grid-cols-2 items-start gap-x-4" data-testid="wealth-by-level-chart">
+            <div className="mt-2 grid grid-cols-1 items-start gap-x-4 sm:grid-cols-2" data-testid="wealth-by-level-chart">
               {wblColumns.map((column, ci) => (
                 <table key={ci} className="w-full text-[11px] xl:text-xs">
                   <thead>
@@ -625,7 +625,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
                 // 2026-11-08: inner buttons movable too). The open
                 // breakout rides on the piece shell; the section
                 // card keeps its border and fills the shell.
-                <Piece key={section.key} pieceId={`equip-cat-${section.key}`} layout="grid" className={equipOpen ? "col-span-full ml-[calc(50%-50vw)] min-h-[100dvh] w-screen" : ""}>
+                <Piece key={section.key} pieceId={`equip-cat-${section.key}`} layout="grid" className={equipOpen ? "col-span-full ml-[calc(50%-50vw+1rem)] sm:ml-[calc(50%-50vw+1.5rem)] min-h-[100dvh] w-screen" : ""}>
                 <div className={cn("h-full rounded-md border border-card-border bg-card")}>
                   <button
                     type="button"
@@ -831,7 +831,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
                 // Category sections are pieces (platform rule,
                 // 2026-11-08: inner buttons movable too). The open
                 // breakout rides on the piece shell.
-                <Piece key={section.key} pieceId={`magic-cat-${section.key}`} layout="grid" className={magicOpen ? "col-span-full ml-[calc(50%-50vw)] min-h-[100dvh] w-screen" : ""}>
+                <Piece key={section.key} pieceId={`magic-cat-${section.key}`} layout="grid" className={magicOpen ? "col-span-full ml-[calc(50%-50vw+1rem)] sm:ml-[calc(50%-50vw+1.5rem)] min-h-[100dvh] w-screen" : ""}>
                 <div className={cn("h-full rounded-md border border-card-border bg-card")}>
                   <button
                     type="button"
