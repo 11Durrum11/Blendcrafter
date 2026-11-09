@@ -339,36 +339,55 @@ export default function Builder() {
     cb.setBuild(next);
     setCharacterStarted(true);
   };
-  const noop = () => {};
+  // Fix 2026-11-08 (Shaun: "fix everything properly"): the gate's
+  // callbacks used to be silent no-ops, so controls that LOOK live —
+  // above all Abilities' "Apply these scores", which lights up once
+  // all six results are placed — clicked and did nothing with no
+  // explanation, reading as a broken button (it worked for anyone
+  // who had pressed New Character first, and not for anyone who
+  // hadn't). The gate itself stays exactly as ordered; what changes
+  // is that a gated attempt now SAYS why, once every few seconds so
+  // typing or rapid taps don't spam the toast.
+  const gateToastAtRef = useRef(0);
+  const gated = () => {
+    const now = Date.now();
+    if (now - gateToastAtRef.current < 3000) return;
+    gateToastAtRef.current = now;
+    toast({
+      title: "No character started yet",
+      description:
+        "Press New Character in the Character Creation panel first — nothing on the steps can change until a character is started.",
+    });
+  };
   const idleCb: typeof cb = {
     ...cb,
-    updateBuild: noop,
-    setName: noop,
-    setRace: noop,
-    setAbility: noop,
-    setAllAbilities: noop,
-    addClassLevel: noop,
-    removeClassLevel: noop,
-    addPrestigeLevel: noop,
-    removePrestigeLevel: noop,
-    togglePrestigeCertification: noop,
-    addTemplate: noop,
-    removeTemplate: noop,
-    reorderTemplate: noop,
-    setTemplateForm: noop,
-    setSkillRank: noop,
-    toggleFeat: noop,
-    toggleSpell: noop,
-    addInventory: noop,
-    removeInventory: noop,
-    toggleEquipped: noop,
-    toggleRaceEnabled: noop,
-    toggleClassEnabled: noop,
-    toggleSkillEnabled: noop,
-    toggleFeatEnabled: noop,
-    toggleAbilityEnabled: noop,
-    updatePersonality: noop,
-    setWealthLimitLevel: noop,
+    updateBuild: gated,
+    setName: gated,
+    setRace: gated,
+    setAbility: gated,
+    setAllAbilities: gated,
+    addClassLevel: gated,
+    removeClassLevel: gated,
+    addPrestigeLevel: gated,
+    removePrestigeLevel: gated,
+    togglePrestigeCertification: gated,
+    addTemplate: gated,
+    removeTemplate: gated,
+    reorderTemplate: gated,
+    setTemplateForm: gated,
+    setSkillRank: gated,
+    toggleFeat: gated,
+    toggleSpell: gated,
+    addInventory: gated,
+    removeInventory: gated,
+    toggleEquipped: gated,
+    toggleRaceEnabled: gated,
+    toggleClassEnabled: gated,
+    toggleSkillEnabled: gated,
+    toggleFeatEnabled: gated,
+    toggleAbilityEnabled: gated,
+    updatePersonality: gated,
+    setWealthLimitLevel: gated,
   };
   const viewCb = characterStarted ? cb : idleCb;
 
@@ -778,6 +797,17 @@ export default function Builder() {
         size="sm"
         className="px-1.5 sm:px-3"
         onClick={() => {
+          // Fix 2026-11-08: same trap as Save had — before a character
+          // is started, Export silently downloaded the unseen default
+          // build, which does not match the zeroed slate on screen.
+          // There is no character to export yet; say so, like Save.
+          if (!characterStarted) {
+            toast({
+              title: "No character started yet",
+              description: "Press New Character in the Character Creation panel first — then Export downloads the character you see.",
+            });
+            return;
+          }
           exportCharacterJson(build);
           // Bug sweep 2026-11-08: the download is invisible in some
           // browsers — confirm it out loud so Export never reads as dead.
