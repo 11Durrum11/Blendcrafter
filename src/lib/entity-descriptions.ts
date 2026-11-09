@@ -67,51 +67,106 @@ export function describeAbility(key: AbilityKey): EntityDetail {
 }
 
 /**
- * A brief understanding of a race (Shaun, 2026-11-09: "a brief
- * understanding in each class — and the races"): two plain-language
- * sentences built from the race's own record — what it is, where its
- * ability scores lean, what it costs to start as one, and the traits
- * it is known for. Nothing is invented: every phrase traces to a
- * field or a trait name on the record.
+ * A flourish for a race (Shaun, 2026-11-09, correcting the first
+ * pass at his "brief understanding" order: "I meant a flourishment
+ * not crunch"): NOT stats — no sizes in feet, no modifiers, no
+ * costs. One or two flavor sentences that say what the people ARE:
+ * their feel, their gifts told as story, the path many of them
+ * walk. Built from the record's own signals (type, size, trait
+ * names, favored class) with a hand-written line for the
+ * best-known peoples. The numbers live in the badges and sections.
  */
+const RACE_FLOURISH_BY_ID: Record<string, string> = {
+  human: "The everywhere people. Humans burn shorter and brighter than the elder folk — adaptable, ambitious, and impossible to keep out of any corner of the world.",
+  elf: "Grace that outlives empires. Elves move through the centuries like a song that refuses to end — keen-eyed, patient, and bound to the wild green places.",
+  dwarf: "Carved from the same patience as the mountains. Dwarves endure — in war, in craft, in grudges — and what they build tends to outlast the kingdoms around it.",
+  halfling: "Small folk, enormous nerve. Halflings slip through the world's dangers on quick feet and quicker luck, and somehow always land near a warm meal.",
+  gnome: "Curiosity with a workshop attached. Gnomes tinker, prank, and wonder their way through long lives, forever one experiment away from either brilliance or smoke.",
+  "half-elf": "Between two worlds and welcome in both. Half-elves carry elven grace on a human timetable, and learn early how to belong anywhere.",
+  "half-orc": "Strength that has to prove itself daily. Half-orcs live between the world's scorn and their own hearts, and most choose to answer with deeds.",
+  drow: "Beauty sharpened into a weapon. The drow built a civilization in the lightless deep where cruelty is currency and only the ruthless rise.",
+  "drow-dotu": "Beauty sharpened into a weapon. The drow built a civilization in the lightless deep where cruelty is currency and only the ruthless rise.",
+  aasimar: "A touch of the heavens, worn quietly. Aasimar carry a thread of celestial light in the blood — most spend their lives trying to be worthy of it.",
+  tiefling: "Marked by an old bargain. Tieflings walk the world under horns and suspicion, whatever their own hearts actually hold.",
+  warforged: "Built for a war that ended. The warforged are living constructs — soldiers who woke to find the fighting over and a whole life still to figure out.",
+  giff: "Hippopotamus folk with a soldier's bearing and a gunner's heart. The giff love discipline, loud explosions, and doing things properly.",
+  kobold: "Small, quick, and certain the world underestimates them. Kobolds survive by traps, tunnels, and numbers — and dream in dragons.",
+  goblin: "Chaos in a small green package. Goblins live fast, break things faster, and treat every bad idea as an invitation.",
+  orc: "The storm made flesh. Orcs honor strength above every other virtue, and their war-bands have ended more dynasties than any plague.",
+  lizardfolk: "Older than the kingdoms that border their swamps, and in no hurry. Lizardfolk measure worth in survival, and the marsh provides.",
+  centaur: "Hooves on the open grass, hearts split between the herd and the horizon. Centaurs are the plains' own nobility, and they know it.",
+  minotaur: "A labyrinth walks out of legend. Minotaurs carry a bull's fury and a navigator's gift — they are never, ever lost.",
+};
+
+const RACE_SIZE_PHRASE: Record<string, string> = {
+  Fine: "small enough to overlook — a mistake, usually",
+  Diminutive: "barely a handful, and twice as hard to catch",
+  Tiny: "barely knee-high to most folk",
+  Small: "small of frame and quick",
+  Medium: "standing eye to eye with humankind",
+  Large: "towering over most folk",
+  Huge: "vast beyond any ordinary doorway",
+  Gargantuan: "a living landmark",
+  Colossal: "beyond measuring by mortal architecture",
+};
+
+const RACE_TYPE_PHRASE: Record<string, string> = {
+  Humanoid: "a humanoid people",
+  "Monstrous Humanoid": "kin to the wild and monstrous peoples",
+  Construct: "living constructs, built rather than born",
+  Undead: "the dead, walking",
+  Fey: "fey folk, strange and bright",
+  Outsider: "touched by the planes beyond",
+  Dragon: "draconic in blood and bearing",
+  Elemental: "element given will and shape",
+  Giant: "of the giant kindred",
+  "Magical Beast": "beasts with minds very much their own",
+  Aberration: "strangers to nature's usual rules",
+  Plant: "the green world, walking",
+  Ooze: "formless, and patient about it",
+  Vermin: "of the crawling kindred",
+  Animal: "beasts of the natural order",
+  Shapechanger: "never quite one shape for long",
+};
+
+const RACE_TRAIT_THEMES: [RegExp, string][] = [
+  [/darkvision/i, "eyes made for the dark"],
+  [/scent/i, "a hunter's nose"],
+  [/fly|flight|wings/i, "the sky within reach"],
+  [/swim|aquatic|water breathing/i, "deep water as a second home"],
+  [/natural armor/i, "a hide that turns blades"],
+  [/spell resistance/i, "a skin that shrugs off spells"],
+  [/burrow|dig/i, "the earth opening for them"],
+  [/climb/i, "walls treated as slow floors"],
+  [/breath weapon/i, "a dragon's breath in a mortal throat"],
+  [/regeneration|fast healing/i, "wounds that refuse to stay"],
+  [/telepath/i, "speech without sound"],
+  [/change shape|alternate form/i, "more than one shape to wear"],
+  [/low-light vision/i, "eyes that drink in starlight"],
+  [/stonecunning/i, "stone that speaks to them"],
+  [/poison/i, "venom in the blood"],
+  [/trance|sleepless|does not sleep/i, "no need of sleep's small death"],
+  [/keen senses|listen|spot/i, "senses sharp enough to catch a lie's footsteps"],
+];
+
 function raceBrief(race: RaceDefinition): string {
-  const ups: string[] = [];
-  const downs: string[] = [];
-  for (const [k, v] of Object.entries(race.abilityModifiers)) {
-    if (!v) continue;
-    const label = ABILITY_LABEL[k as AbilityKey];
-    if ((v as number) > 0) ups.push(`${label} ${signed(v as number)}`);
-    else downs.push(`${label} ${signed(v as number)}`);
+  const curated = RACE_FLOURISH_BY_ID[race.id];
+  if (curated) return curated;
+  const sizePhrase = RACE_SIZE_PHRASE[race.size] ?? "of a stature with humankind";
+  const typePhrase = RACE_TYPE_PHRASE[race.type] ?? `a ${race.type.toLowerCase()} people`;
+  let out = `${race.name} — ${sizePhrase}, ${typePhrase}.`;
+  const gifts: string[] = [];
+  for (const trait of race.traits) {
+    const theme = RACE_TRAIT_THEMES.find(([re]) => re.test(trait.name));
+    if (theme && !gifts.includes(theme[1])) gifts.push(theme[1]);
+    if (gifts.length >= 2) break;
   }
-  const abilityPhrase =
-    ups.length && downs.length
-      ? `Its abilities favor ${ups.join(", ")}, at the cost of ${downs.join(", ")}.`
-      : ups.length
-        ? `Its abilities favor ${ups.join(", ")} — nothing is given up for them.`
-        : downs.length
-          ? `Its abilities are held back by ${downs.join(", ")} — nothing is granted in return.`
-          : "Its ability scores are unadjusted — no built-in strengths or weaknesses.";
-  const cost =
-    raceStartingEcl(race) > 1
-      ? ` It costs more to start as one: ECL ${raceStartingEcl(race)} before class levels${(race.racialHitDice ?? 0) > 0 ? ` (${race.racialHitDice} racial Hit Dice${race.levelAdjustment ? ` and level adjustment ${signed(race.levelAdjustment)}` : ""})` : race.levelAdjustment ? ` (level adjustment ${signed(race.levelAdjustment)})` : ""}.`
-      : "";
-  const extras: string[] = [];
-  if (race.bonusFeatSlots) extras.push("an extra feat at 1st level");
-  if (race.bonusSkillPointsPerLevel || race.bonusSkillPointsAtFirstLevel) extras.push("extra skill points as it levels");
-  if (race.naturalArmor) extras.push(`natural armor ${signed(race.naturalArmor)}`);
-  const traitNames = race.traits.slice(0, 3).map((t) => t.name);
-  const knownFor =
-    traitNames.length > 0
-      ? ` Known for: ${traitNames.join(", ")}${race.traits.length > 3 ? `, and ${race.traits.length - 3} more trait${race.traits.length - 3 === 1 ? "" : "s"}` : ""}.`
-      : "";
-  return (
-    `${race.name} — a ${race.size} ${race.type}${race.subtypes.length ? ` (${race.subtypes.join(", ")})` : ""}, moving ${race.baseSpeed} ft a round. ` +
-    abilityPhrase +
-    (extras.length ? ` It brings ${extras.join(" and ")}.` : "") +
-    cost +
-    (race.favoredClass ? ` Favored class: ${race.favoredClass}.` : "") +
-    knownFor
-  );
+  if (gifts.length) out += ` Known for ${gifts.join(" and ")}.`;
+  if (race.favoredClass && race.favoredClass.toLowerCase() !== "any") {
+    const fc = race.favoredClass.charAt(0).toUpperCase() + race.favoredClass.slice(1);
+    out += ` Many find their calling on the ${fc} path.`;
+  }
+  return out;
 }
 
 export function describeRace(race: RaceDefinition): EntityDetail {
@@ -198,69 +253,133 @@ export function describeTemplate(t: TemplateDefinition): EntityDetail {
  * feature with its full text (level-gated features marked with the
  * level they arrive at), and the class skill list.
  */
-const SAVE_LABEL: Record<string, string> = { fort: "Fortitude", ref: "Reflex", will: "Will" };
-const ORDINALS = ["0-level", "1st-level", "2nd-level", "3rd-level", "4th-level", "5th-level", "6th-level", "7th-level", "8th-level", "9th-level"];
 
 /**
- * A brief understanding of a class (Shaun, 2026-11-09: "give a brief
- * understanding in each class"): two or three plain-language
- * sentences built from the class's own record — its role (from base
- * attack, hit die, and its casting profile where it has one), its
- * strong saves, its skill breadth, and the features it is known
- * for. Nothing is invented: every phrase traces to a field on the
- * record or its casting profile.
+ * A flourish for a class (Shaun, 2026-11-09, correcting the first
+ * pass at his "brief understanding" order: "I meant a flourishment
+ * not crunch"): NOT stats — no hit dice, no progressions, no
+ * numbers. One or two flavor sentences that say what the class IS:
+ * its fantasy, its medium, its theme. Built from the record's own
+ * signals (casting profile, source, name, features, class skills)
+ * with a hand-written line for the best-known classes. The
+ * mechanics live in the sections below the summary.
  */
+const CLASS_FLOURISH_BY_ID: Record<string, string> = {
+  barbarian: "Fury given legs. The barbarian fights the way storms break — all at once and without apology — trusting rage, instinct, and a hide that has never yet failed him.",
+  bard: "A song on the road and a story for every fire. The bard's magic rides on music and memory, turning old tales into courage for the people standing beside him.",
+  cleric: "A mortal voice for a god's will. The cleric carries faith into the dark places — healing the fallen, turning back the dead, and calling down judgment where prayer alone won't reach.",
+  druid: "The wild speaking through a person. The druid guards grove and beast alike, wears the shapes of animals, and calls on weather, root, and claw as other folk call on steel.",
+  fighter: "Master of the straightforward answer. Where others study spells or songs, the fighter studies war itself — every weapon, every stance, every way a battle can be won.",
+  monk: "The body made into a weapon, the mind made still enough to aim it. A monk's discipline turns bare hands and quiet patience into something armor cannot stop.",
+  paladin: "A sworn sword. The paladin binds his life to a code — protect the innocent, face the darkness, never bend — and the light answers that oath with power.",
+  ranger: "At home where the roads end. The ranger reads the land like a letter, hunts chosen enemies across any ground, and is equally at ease with bow or twin blades.",
+  rogue: "Never where you expected, never fighting fair. The rogue lives by quick hands and quicker judgment — locks, traps, and guards are all just puzzles with consequences.",
+  sorcerer: "Magic in the blood, answered by instinct. The sorcerer never studied a spell in a book; the power was simply always there, waiting for a reason to wake.",
+  wizard: "Power earned one page at a time. The wizard bends the world by study — every effect catalogued, every answer somewhere in a spellbook carried like a second heart.",
+  psion: "The mind opened like a hand. The psion shapes reality by thought alone — no words, no gestures, only will focused until the world gives way.",
+  "psychic-warrior": "Half soldier, half seer. The psychic warrior turns inward discipline outward, meeting steel with a mind already braced for the blow.",
+  soulknife: "His weapon is the proof of his mind. The soulknife shapes raw psychic energy into a blade that is never drawn, never dropped, and never quite out of reach.",
+  wilder: "Feeling everything at full volume. The wilder's power rides emotion itself — joy, fury, grief — surging brighter and wilder than any trained mind would dare.",
+  warlock: "Power with a price already paid. The warlock bargained — with something — and now hurls the eldritch might that answered, as often and as hard as he pleases.",
+  warmage: "Battle-magic and nothing else. The warmage skips the subtle arts entirely; when he speaks, things burn, freeze, shatter, and fall.",
+  beguiler: "Why fight an enemy who can be fooled instead? The beguiler weaves illusion and charm until the battlefield believes whatever he needs it to.",
+  factotum: "A little of everything, exactly when it matters. The factotum borrows the tricks of every trade — a spell here, a lock there, a sword stroke stolen from watching fighters.",
+  artificer: "Magic treated as a craft, not a gift. The artificer builds wonders in a workshop — infusing gear, charging wands, and sending constructs to do the dangerous work.",
+  "favored-soul": "Chosen, not trained. The favored soul carries a god's spark the way sorcerers carry blood-magic — and in time, the wings to match.",
+  "spirit-shaman": "One foot in the world of spirits. The spirit shaman bargains, soothes, and battles the unseen folk who crowd just past the edge of sight.",
+  crusader: "Faith with a sword arm. The crusader's devotion lands like a hammer — every blow given meaning, every wound an argument for the cause.",
+  swordsage: "A scholar of the fight itself. The swordsage studies maneuvers the way wizards study spells, until blade-work becomes a language only masters speak.",
+  warblade: "War as high art. The warblade fights for the joy and glory of it, turning maneuvers into flourishes and battle into reputation.",
+  "dread-necromancer": "He walks with the dead, and they walk with him. The dread necromancer's power grows colder and more certain the longer he practices it.",
+  hexblade: "A curse in the shape of a swordsman. The hexblade's ill luck is contagious — enemies falter simply for standing against him.",
+  scout: "First to see, first to move. The scout lives ahead of the party, where the map is still blank, and hits hardest while already in motion.",
+  healer: "Hands that close wounds instead of opening them. The healer walks battlefields as a mercy — proof that not all power has to hurt.",
+  marshal: "A voice that turns a rabble into a regiment. The marshal's presence alone makes the line hold a heartbeat longer — and battles turn on heartbeats.",
+  "dragon-shaman": "A dragon's shadow worn as a mantle. The dragon shaman breathes a hint of the wyrm's power and lends its vigor to everyone standing near.",
+  ninja: "A shadow with a contract. The ninja is gone before the body falls — unseen, unheard, and already paid.",
+  samurai: "Honor worn like armor, a blade worn like a signature. The samurai's life is a single long argument that discipline outranks fear.",
+  "spellthief": "Why learn magic when you can steal it mid-cast? The spellthief picks the pockets of spells themselves and spends what he takes.",
+  "tome-of-battle-crusader": "Faith with a sword arm. The crusader's devotion lands like a hammer — every blow given meaning, every wound an argument for the cause.",
+};
+
+const FLOURISH_THEMES: [RegExp, string][] = [
+  [/dragon/, "The path runs close to dragons — their majesty borrowed, their menace earned."],
+  [/\bnecro|undead|\bdeath\b|tomb|grave/, "Death is not an ending here; it is a resource, a companion, a craft."],
+  [/assassin|murder/, "Every contract ends the same way, and it is never an accident."],
+  [/shadow|\bnight\b/, "The work gets done in shadow, where power prefers not to be watched."],
+  [/archer|\bbow\b|arrow|sniper/, "The argument is settled at a hundred paces — feathered, and final."],
+  [/\bfire\b|flame|pyro/, "Fire answers when called. Eagerly."],
+  [/storm|thunder|lightning|tempest/, "The temper of the sky, carried in a mortal frame."],
+  [/frost|winter|\bice\b/, "Winter keeps a representative on the road."],
+  [/\bsea\b|sail|pirate|\bwave\b|ocean|mariner/, "Salt water, open horizon, and no king's road anywhere in sight."],
+  [/knight|\boath\b|crusad|cavalier/, "Bound by an oath — and the oath binds back."],
+  [/alchem|herbal/, "Salvation measured in vials: mixed, stoppered, and thrown at exactly the right moment."],
+  [/song|music|\bperform|chant|bardic/, "A voice that can steady a line of spears or empty a room of its sorrow."],
+  [/beast|\bwild\b|nature|animal/, "More at home under open sky than under any roof."],
+  [/psion|psychic|\bmind\b/, "Thought itself, weaponized."],
+  [/rune/, "Power written down, waiting for the world to read it aloud."],
+  [/blood/, "The price is blood. Whose, is a tactical question."],
+  [/smite|turn undead|holy|sacred/, "Darkness is not argued with. It is answered."],
+  [/thief|sneak|disable device|\block\b/, "The unwatched door, the unguarded moment — that is where the work happens."],
+  [/\bgun\b|firearm|powder/, "Powder and thunder, carried at the hip."],
+  [/poison|venom/, "The smallest dose writes the longest ending."],
+  [/illusion|\btrick|deceiv/, "Nothing here is quite what it seems, least of all the danger."],
+  [/sword|blade|duel/, "The blade is not a tool. It is the argument."],
+  [/mage|magus|\bspell/, "The craft deepens here — power pursued past the point where most students stop."],
+  [/battle|\bwar\b/, "War is not the backdrop. It is the medium."],
+];
+
+function flourishPick(id: string, options: string[]): string {
+  let h = 0;
+  for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) | 0;
+  return options[Math.abs(h) % options.length];
+}
+
 function classBrief(cls: ClassDefinition): string {
+  const curated = CLASS_FLOURISH_BY_ID[cls.id];
+  if (curated) return curated;
   const profile = CASTING_PROFILES_BY_ID[cls.id];
-  const hdWord =
-    cls.hitDie === "d12" || cls.hitDie === "d10" ? "tough" : cls.hitDie === "d8" ? "sturdy" : cls.hitDie === "d6" ? "lightly built" : "fragile";
-  const babWord = cls.babProgression === "full" ? "full" : cls.babProgression === "three-quarter" ? "three-quarter" : "half";
-  let role: string;
-  let power = "";
+  const hay = `${cls.name} ${(cls.features ?? []).map((f) => f.name).join(" ")}`.toLowerCase();
+  const theme = FLOURISH_THEMES.find(([re]) => re.test(hay));
+  let opener: string;
   if (profile) {
-    const kindWord =
+    opener =
       profile.kind === "prepared-arcane"
-        ? "prepared arcane spellcaster"
+        ? "A student of the written spell, who trusts study over luck."
         : profile.kind === "prepared-divine"
-          ? "prepared divine spellcaster"
-          : "spontaneous spellcaster";
-    let maxSpell = 0;
-    for (const row of profile.spellsPerDay) {
-      row.forEach((cell, i) => {
-        if (cell !== null && i > maxSpell) maxSpell = i;
-      });
-    }
-    role = `a ${kindWord}`;
-    power = ` Its casting is keyed to ${ABILITY_LABEL[profile.keyAbility]} and reaches up to ${ORDINALS[maxSpell]} spells.`;
+          ? "A servant of the divine, carrying faith into places steel cannot reach."
+          : "Gifted rather than taught — power answers this one by instinct, not by study.";
   } else if (cls.source.startsWith("Expanded Psionics Handbook") || cls.source.startsWith("Complete Psionic")) {
-    role = cls.id === "soulknife" ? "a psionic warrior" : "a psionic manifester";
-    power =
-      cls.id === "soulknife"
-        ? " It manifests no powers — its psionics take shape as a blade of pure mental energy."
-        : " Its powers are psionic, drawn from the mind rather than from spellcasting.";
+    opener = "Awake in the mind's deep places, where a thought can land like a blow.";
+  } else if (Array.isArray((cls as { prerequisites?: unknown }).prerequisites) && !theme) {
+    // Prestige classes without a theme of their own get a line that
+    // names them — every prestige path is a narrow road by design.
+    opener = flourishPick(cls.id, [
+      `The ${cls.name} is a narrow road, walked by few — specialization carried past the point of return.`,
+      `Few take up the ${cls.name}'s path. It asks too much of most, and gives back exactly what it promised.`,
+      `The ${cls.name} trades breadth for mastery, and considers it a bargain struck well.`,
+      `To become a ${cls.name} is to close a hundred doors and walk through the one that remains.`,
+    ]);
+    return opener;
   } else if (cls.babProgression === "full") {
-    role = "a front-line martial class";
+    opener = flourishPick(cls.id, [
+      "A warrior first — the front line is home ground.",
+      "Steel, nerve, and a talent for standing exactly where the fighting is worst.",
+      "When the line breaks, this is who is still standing in the gap.",
+    ]);
   } else if (cls.babProgression === "three-quarter") {
-    role = "a skilled combatant";
+    opener = flourishPick(cls.id, [
+      "Equal parts fighter and specialist — at home in a scrap, and just as dangerous out of one.",
+      "Not the loudest blade in the room, and rarely the one you should have watched less carefully.",
+      "A professional: part warrior, part expert, wholly employed when things go wrong.",
+    ]);
   } else {
-    role = "a specialist class";
+    opener = flourishPick(cls.id, [
+      "A specialist, whose talents run deeper than they first appear — the kind of expert a party seeks out by name.",
+      "Not every hero carries the biggest blade. Some carry exactly the right tool, and know the moment to use it.",
+    ]);
   }
-  const saves = cls.goodSaves.map((s) => SAVE_LABEL[s] ?? s);
-  const breadth = cls.skillPointsPerLevel >= 6 ? "a broad skill set" : cls.skillPointsPerLevel >= 4 ? "a moderate skill set" : "a narrow skill set";
-  const features = [...(cls.features ?? [])]
-    .sort((a, b) => ((a as { levelsNeeded?: number }).levelsNeeded ?? 0) - ((b as { levelsNeeded?: number }).levelsNeeded ?? 0))
-    .filter((f) => !/proficien/i.test(f.name));
-  const knownFor =
-    features.length > 0
-      ? ` Known for: ${features.slice(0, 3).map((f) => f.name).join(", ")}${features.length > 3 ? `, and ${features.length - 3} more feature${features.length - 3 === 1 ? "" : "s"}` : ""}.`
-      : "";
-  return (
-    `${cls.name} is ${role} — ${cls.hitDie} Hit Die (${hdWord}), ${babWord} base attack progression, ` +
-    `${saves.length ? `strong ${saves.join(" and ")}` : "no strong save"}.` +
-    power +
-    ` It earns ${cls.skillPointsPerLevel} + Int skill points per level across ${cls.classSkills.length} class skills — ${breadth}.` +
-    knownFor
-  );
+  return theme ? `${opener} ${theme[1]}` : opener;
 }
 
 function classSections(cls: ClassDefinition): EntityDetailSection[] {
@@ -324,7 +443,7 @@ export function describePrestigeClass(cls: PrestigeClassDefinition): EntityDetai
   return {
     title: cls.name,
     badges: ["Prestige Class", `Hit Die ${cls.hitDie}`],
-    summary: `${classBrief(cls)} Its prerequisites are enforced by the builder — it unlocks when the build meets them.`,
+    summary: classBrief(cls),
     sections,
     source: cls.source,
     sourceUrl: cls.sourceUrl,
