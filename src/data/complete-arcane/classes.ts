@@ -26,28 +26,4 @@ const CA_PATH = "/A POC PC related/5.Splat/Complete sereies/D&D 3.5 - Complete A
 const CH1 = `${CA} — Chapter 1: Classes`;
 
 export const COMPLETE_ARCANE_CLASSES: ClassDefinition[] = [
-  {
-    id: "wu-jen",
-    name: "Wu Jen",
-    ruleset: "core",
-    source: `${CH1} — Wu Jen (pp. 14–16)`,
-    sourceUrl: CA_PATH,
-    hitDie: "d4",
-    skillPointsPerLevel: 2,
-    babProgression: "half",
-    goodSaves: ["will"],
-    progression: rows(HALF, P, P, G),
-    classSkills: ["Concentration", "Craft", "Knowledge (all)", "Profession", "Spellcraft"],
-    features: [
-      {
-        key: "wu-jen-features",
-        name: "Wu Jen Features",
-        description:
-          "Arcane spellcaster who prepares spells from a spellbook (Intelligence-based), drawing on the wu jen spell list of elemental magic (earth, fire, metal, water, wood). Alignment: any nonlawful. 1st: watchful spirit (reroll an initiative roll 1/day, take the better result) and a bonus metamagic feat. 3rd and every three levels thereafter: spell secret — one known spell becomes permanently modified as if by Enlarge, Extend, Still, or Silent Spell with no level change. 6th: elemental mastery in place of a spell secret (+2 effective caster level with the chosen element's spells and +2 on saves against that element). Must observe taboos (one at 1st level, one more per spell secret); violating a taboo ends her spellcasting for the day. Proficient with all simple weapons; no armor or shield proficiency. Bonus languages can include Draconic or Giant. The class-skill list's Knowledge entry is the book's 'all skills, taken individually.'",
-        category: "trait",
-        source: `${CH1} — Wu Jen (pp. 15–16)`,
-        sourceUrl: CA_PATH,
-      },
-    ],
-  },
 ];

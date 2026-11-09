@@ -244,16 +244,6 @@ export const DRAGON_MAGIC_MAGIC_ITEMS: MagicItemDefinition[] = [
     "ruleset": "core"
   },
   {
-    "id": "fiery-kabuto-of-the-celestial-dragon",
-    "name": "Fiery Kabuto of the Celestial Dragon",
-    "category": "wondrous-head",
-    "cost": "9,000 gp",
-    "summary": "An extremely ornate helm (3 lb.) featuring a large t'ien lung dragon scale; wearing a kabuto is normally a right reserved for samurai. Once per day (a standard action to activate or turn off), it creates a sheath of fire around the wearer for 10 rounds: the wearer gains immunity to cold and fire, and creatures striking him with natural weapons or nonreach melee weapons take 1d6 points of fire damage. As a full-round action he can attempt a DC 15 Concentration check to expand the flames to a 20-foot-radius sphere dealing 2d6 fire damage per round to creatures inside (which then take no damage from striking him). Caster level 13th.",
-    "source": "Dragon Magic, p. 101",
-    "sourceUrl": "/a poc dm related/desktop/Sourcebooks/Dragon Magic (oef, act, bm, hq) (WTC953837200).pdf",
-    "ruleset": "core"
-  },
-  {
     "id": "golden-visor",
     "name": "Golden Visor",
     "category": "wondrous-face",

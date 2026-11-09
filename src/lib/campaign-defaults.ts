@@ -64,7 +64,7 @@ export const CAMPAIGN_DEFAULT_PREFS: TogglePrefs = {
   ],
   disabledClassIds: [
     "druid", "adept", "aristocrat", "commoner", "warrior", "expert",
-    "dragon-shaman", "wu-jen", "shugenja", "healer", "ardent",
+    "dragon-shaman", "healer", "ardent",
   ],
   disabledSkillIds: [],
   disabledFeatIds: ["mobility", "spring-attack"],

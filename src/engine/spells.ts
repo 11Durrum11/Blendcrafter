@@ -33,7 +33,7 @@ const CLASS_NAME_BY_ID = new Map(ALL_CLASSES.map((c) => [c.id, c.name]));
 
 /** Spontaneous classes whose casting is divine (all other spontaneous
  *  profiled classes are arcane). From each class's own book. */
-const DIVINE_SPONTANEOUS = new Set(["favored-soul", "spirit-shaman", "shugenja", "healer"]);
+const DIVINE_SPONTANEOUS = new Set(["favored-soul", "spirit-shaman", "healer"]);
 
 export type CastingType = "arcane" | "divine";
 

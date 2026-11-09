@@ -60,36 +60,6 @@ export const MINIATURES_HANDBOOK_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
     ],
   },
   {
-    id: "dragon-samurai",
-    name: "Dragon Samurai",
-    ruleset: "core",
-    source: `${CH1} — Dragon Samurai (p. 19)`,
-    sourceUrl: MH_PATH,
-    hitDie: "d10",
-    skillPointsPerLevel: 2,
-    babProgression: "three-quarter",
-    goodSaves: ["fort", "will"],
-    progression: rows(TQ, G, P, G),
-    classSkills: ["Climb", "Concentration", "Craft", "Diplomacy", "Intimidate", "Jump", "Profession", "Ride", "Sense Motive", "Swim"],
-    prerequisites: [
-      "Alignment: Depends on the color of the dragon samurai's clan (see the class entry)",
-      "Base Attack Bonus: +5",
-      "Skills: Knowledge (arcana) 2 ranks",
-      "Special: Must have no experience as a dragon samurai of a different clan",
-    ],
-    features: [
-      {
-        key: "dragon-samurai-features",
-        name: "Dragon Samurai Features",
-        category: "trait",
-        description:
-          "A warrior sworn to a dragon clan, gaining a breath weapon of the clan's energy type once per day (1d8 damage per class level, Reflex save DC 10 + class level + Con modifier) and resistance to that energy 5 (1st; 10 at 5th, 15 at 7th, 20 at 10th). Dragon friend (2nd: +4 on Charisma-based checks with dragons of his clan's color), immunity to dragon fear (3rd), elemental weapon +1d6 (4th; +2d6 at 9th), dragon ride (6th: +4 on Ride checks while riding a dragon), and Blind-Fight as a bonus feat (8th). This class does not advance spellcasting.",
-        source: `${CH1} — Dragon Samurai (pp. 19–20)`,
-        sourceUrl: MH_PATH,
-      },
-    ],
-  },
-  {
     id: "havoc-mage",
     name: "Havoc Mage",
     ruleset: "core",

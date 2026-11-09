@@ -321,46 +321,6 @@ const RAW: RawClass[] = [
     ]
   },
   {
-    "id": "kensai-310",
-    "name": "Kensai",
-    "ruleset": "core",
-    "source": "Dragon Magazine #310",
-    "sourceUrl": "https://srd.dndtools.org/srd/classes/baseCore/fighter.html",
-    "hitDie": "d10",
-    "skillPointsPerLevel": 2,
-    "babProgression": "full",
-    "goodSaves": [
-      "fort"
-    ],
-    "progression": [
-      { "level": 1, "bab": 1, "fort": 2, "ref": 0, "will": 0 },
-      { "level": 2, "bab": 2, "fort": 3, "ref": 0, "will": 0 },
-      { "level": 3, "bab": 3, "fort": 3, "ref": 1, "will": 1 },
-      { "level": 4, "bab": 4, "fort": 4, "ref": 1, "will": 1 },
-      { "level": 5, "bab": 5, "fort": 4, "ref": 1, "will": 1 },
-      { "level": 6, "bab": 6, "fort": 5, "ref": 2, "will": 2 },
-      { "level": 7, "bab": 7, "fort": 5, "ref": 2, "will": 2 },
-      { "level": 8, "bab": 8, "fort": 6, "ref": 2, "will": 2 },
-      { "level": 9, "bab": 9, "fort": 6, "ref": 3, "will": 3 },
-      { "level": 10, "bab": 10, "fort": 7, "ref": 3, "will": 3 }
-    ],
-    "classSkills": [
-      "Balance",
-      "Concentration",
-      "Craft",
-      "Jump",
-      "Swim",
-      "Tumble"
-    ],
-    "features": [
-      { "name": "Kensai Basics", "description": "Alignment: any. A specialist fighter variant (Dragon Magazine #310) — this is the single-weapon fighter variant, not the Complete Warrior prestige class of the same name. Levels in this class count as fighter levels for qualifying for feats such as Weapon Specialization and other game elements, and a character who takes this class cannot also take levels in the fighter class or in a different specialist fighter class. Key abilities: Strength or Dexterity, and Constitution. Weapon and armor proficiencies: all simple weapons, light armor, and a single martial or exotic melee weapon that is the kensai's chosen weapon." },
-      { "name": "Chosen Weapon", "description": "The kensai does not gain a bonus feat at 1st level as the normal fighter class does. Instead, she gains a +1 bonus to all attack and damage rolls with her chosen weapon. This bonus increases by +1 at 5th level and by +1 again every five levels thereafter.", "level": 1 },
-      { "name": "Bonus Feats", "description": "From 2nd level on, the kensai gains bonus feats as the normal fighter class does (at 2nd level and every two levels thereafter), but she must select bonus feats from the following list, and any bonus feat that applies to a specific kind of weapon must be applied to the kensai's chosen weapon: Cleave, Combat Expertise, Combat Reflexes, Dodge, Great Cleave, Greater Two-Weapon Fighting, Greater Weapon Focus, Greater Weapon Specialization, Improved Critical, Improved Initiative, Improved Sunder, Improved Two-Weapon Fighting, Lightning Reflexes, Mobility, Power Attack, Quick Draw, Spring Attack, Two-Weapon Defense, Two-Weapon Fighting, Weapon Finesse, Weapon Focus, Weapon Specialization, Whirlwind Attack. She must still meet all prerequisites for a bonus feat. At any bonus-feat level she may instead choose one of this class's special abilities (Rain of Blows, Storm of Blows).", "level": 2 },
-      { "name": "Rain of Blows", "description": "Special ability, chosen in place of a bonus feat; applies only to the kensai's chosen weapon. When taking the full attack action with her chosen weapon, the kensai can choose to suffer a -3 penalty to all attack rolls in the round and make an additional melee attack with her chosen weapon at her highest attack bonus.", "level": 2 },
-      { "name": "Storm of Blows", "description": "Special ability, chosen in place of a bonus feat; applies only to the kensai's chosen weapon, and the kensai must have the Rain of Blows special ability to take it. When taking the full attack action with her chosen weapon, the kensai can suffer a -6 penalty to all attack rolls in the round and make two additional melee attacks with her chosen weapon at her highest attack bonus.", "level": 2 }
-    ]
-  },
-  {
     "id": "knight-310",
     "name": "Knight",
     "ruleset": "core",
