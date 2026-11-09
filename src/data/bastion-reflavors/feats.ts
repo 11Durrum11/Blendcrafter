@@ -294,3 +294,47 @@ export const BASTION_FEATS: FeatDefinition[] = [
     sourceUrl: DM315_PATH,
   },
 ];
+
+// ---- Southie street-style feats (Dragon Magazine #319) ----
+// The three sidebar feats of "Animal Fist: The Shen" (p. 71),
+// reframed at Shaun's order (2026-11-09) as the street styles'
+// own techniques — the quarter's schools teach a quick hand, a
+// schooled mind, and the station-bell punch. Mechanics unchanged
+// in substance; each record keeps its original publication
+// citation and carries the APOC house reflavor line.
+
+const DM319 = "Dragon Magazine #319 — Animal Fist: The Shen";
+const DM319_PATH = "https://archive.org/download/DragonMagazine260_201801/DragonMagazine319_djvu.txt";
+
+export const BASTION_SHEN_FEATS: FeatDefinition[] = [
+  {
+    id: "deft-fist",
+    name: "Deft Fist",
+    category: "general",
+    ruleset: "core",
+    prerequisites: ["Dex 13", "Wis 13", "Improved Unarmed Strike", "Weapon Finesse", "Weapon Focus (unarmed strike)"],
+    benefitSummary: "When making an unarmed melee attack against a foe with cover (except total cover), your target does not gain the normal cover bonus to Armor Class. APOC house reflavor — renamed and reframed for the Bastion.",
+    source: DM319,
+    sourceUrl: DM319_PATH,
+  },
+  {
+    id: "schooled-mind",
+    name: "Schooled Mind",
+    category: "general",
+    ruleset: "core",
+    prerequisites: ["Int 13", "Must be gained at or before the first level of the monk class is taken"],
+    benefitSummary: "You use your Intelligence modifier rather than Wisdom for all monk special abilities that normally rely on Wisdom. APOC house reflavor — renamed and reframed for the Bastion.",
+    source: DM319,
+    sourceUrl: DM319_PATH,
+  },
+  {
+    id: "ring-the-station-bell",
+    name: "Ring the Station Bell",
+    category: "general",
+    ruleset: "core",
+    prerequisites: ["Wis 13", "Improved Unarmed Strike", "Stunning Fist", "Weapon Focus (unarmed strike)", "Base attack bonus +5"],
+    benefitSummary: "A number of times per day equal to 1 plus your Wisdom bonus, you may inflict unarmed strike damage with a successful ranged attack. This attack has a range increment equal to 5 feet plus 5 feet per point of Wisdom bonus. Normal cover modifiers apply. This attack can deliver any effect your unarmed strike can normally deliver, such as a stunning attack due to the Stunning Fist feat. APOC house reflavor — renamed and reframed for the Bastion.",
+    source: DM319,
+    sourceUrl: DM319_PATH,
+  },
+];

@@ -895,3 +895,48 @@ export const BASTION_EQUIPMENT: EquipmentItem[] = [
     "ruleset": "core"
   },
 ];
+
+// ---- Street-style weapons of the Southie (Dragon Magazine #319) ----
+// The three sidebar weapons of "Animal Fist: The Shen"
+// (pp. 73–74), reframed at Shaun's order (2026-11-09) as the
+// dockline weapons the Ropewalks and Dock Ward crews made their
+// own. Mechanics (cost, weight, statistics) are unchanged in
+// substance; only names, framing, and flavor text have changed.
+// Each record keeps its original publication citation and carries
+// the APOC house reflavor line.
+
+export const BASTION_SHEN_EQUIPMENT: EquipmentItem[] = [
+  {
+    "id": "dockline-dart",
+    "name": "Dockline Dart",
+    "category": "weapon",
+    "cost": "3 gp",
+    "weight": "4 lb.",
+    "notes": "Exotic weapon; two-handed melee. Damage 1d3 (Small), 1d4 (Medium); critical ×2. Piercing. A 4-inch-long conical weighted dart on the end of a 20-foot dockline, swung in circles of increasing speed and released for one or more quick striking attacks at targets close or far away. Has reach 15 ft. and can be used against adjacent foes (unlike most reach weapons). Can be used for trip attacks (drop it to avoid being tripped in return) and gives +2 on opposed attack rolls to disarm (including rolls to avoid being disarmed). The Weapon Finesse feat applies even though the dockline dart is not a light weapon. A monk who takes Exotic Weapon Proficiency (dockline dart) can use it with his flurry of blows ability; monks are not automatically proficient. APOC house reflavor — renamed and reframed for the Bastion.",
+    "source": "Dragon Magazine #319 — Animal Fist: The Shen",
+    "sourceUrl": "https://archive.org/download/DragonMagazine260_201801/DragonMagazine319_djvu.txt",
+    "ruleset": "core"
+  },
+  {
+    "id": "ballast-hammer",
+    "name": "Ballast Hammer",
+    "category": "weapon",
+    "cost": "3 gp",
+    "weight": "4 lb.",
+    "notes": "Exotic weapon; two-handed melee. Damage 1d3 (Small), 1d4 (Medium); critical ×2. Bludgeoning. A dockline dart variant: a solid iron ballast weight replaces the dart, often with a blunted spike fitted in the ball's top. It deals bludgeoning damage instead of piercing damage and is otherwise identical to the dockline dart (reach 15 ft., usable against adjacent foes, trip and disarm properties, Weapon Finesse applies, monks with Exotic Weapon Proficiency can flurry with it); proficiency with the dockline dart covers the ballast hammer. APOC house reflavor — renamed and reframed for the Bastion.",
+    "source": "Dragon Magazine #319 — Animal Fist: The Shen",
+    "sourceUrl": "https://archive.org/download/DragonMagazine260_201801/DragonMagazine319_djvu.txt",
+    "ruleset": "core"
+  },
+  {
+    "id": "stevedores-hook",
+    "name": "Stevedore's Hook",
+    "category": "weapon",
+    "cost": "35 gp",
+    "weight": "6 lb.",
+    "notes": "Exotic weapon; one-handed melee. Damage 1d6 (Small), 1d8 (Medium); critical ×2. Slashing. A stevedore's hooked blade, kin to the cargo hooks of the Dock Ward and often used in pairs, the crescent blade and hook set between the blade and the grip. Gives +2 on opposed attack rolls to disarm (including rolls to avoid being disarmed). Can be used for trip attacks with a +2 bonus on the trip attempt (the wielder can drop it to avoid being tripped in return). A monk who takes Exotic Weapon Proficiency (stevedore's hook) can use it with his flurry of blows ability; monks are not automatically proficient. APOC house reflavor — renamed and reframed for the Bastion.",
+    "source": "Dragon Magazine #319 — Animal Fist: The Shen",
+    "sourceUrl": "https://archive.org/download/DragonMagazine260_201801/DragonMagazine319_djvu.txt",
+    "ruleset": "core"
+  },
+];
