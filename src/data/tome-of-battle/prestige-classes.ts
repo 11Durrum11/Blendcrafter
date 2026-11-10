@@ -240,35 +240,4 @@ export const TOME_OF_BATTLE_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
       },
     ],
   },
-  {
-    id: "shadow-sun-ninja",
-    name: "Shadow Sun Ninja",
-    ruleset: "core",
-    source: `${CH5} — Shadow Sun Ninja (pp. 126–130)`,
-    sourceUrl: TOB_PATH,
-    hitDie: "d8",
-    skillPointsPerLevel: 4,
-    babProgression: "three-quarter",
-    goodSaves: ["fort", "ref", "will"],
-    progression: rows(TQ, G, G, G),
-    classSkills: ["Balance", "Climb", "Concentration", "Craft", "Diplomacy", "Escape Artist", "Hide", "Jump", "Knowledge (arcana)", "Knowledge (the planes)", "Knowledge (religion)", "Listen", "Martial Lore", "Move Silently", "Perform", "Profession", "Sense Motive", "Spot", "Swim", "Tumble"],
-    prerequisites: [
-      "Alignment: Any good",
-      "Base Attack Bonus: +3",
-      "Skills: Hide 8 ranks",
-      "Feats: Improved Unarmed Strike",
-      "Martial Maneuvers: Must know one 2nd-level Setting Sun or Shadow Hand maneuver, one Setting Sun maneuver of any level, and one Shadow Hand maneuver of any level",
-    ],
-    features: [
-      {
-        key: "shadow-sun-ninja-features",
-        name: "Shadow Sun Ninja Features",
-        category: "trait",
-        description:
-          "A monk-like adept of the Setting Sun and Shadow Hand disciplines who walks the balance between darkness and light. Maneuvers known +1 at 1st, 3rd, 6th, and 9th level; maneuvers readied +1 at 5th and 10th; one additional stance known at 5th (maneuvers are not modeled here). Monk abilities: your levels stack with monk levels for AC bonus, unarmed damage, and speed. 1st: touch of the Shadow Sun (channel negative energy into a foe, then positive energy into an ally, alternating). 2nd: flame of the Shadow Sun (cold resistance that converts into a fire bolt). 4th: light within darkness (burst of blinding light after attacking from hiding). 5th: darkness within light. 7th: void of the Shadow Sun (halo of light that becomes a pulse of cold). 8th: child of shadow and light. 10th: balance of light and dark.",
-        source: `${CH5} — Shadow Sun Ninja (pp. 126–130; Table 5–8)`,
-        sourceUrl: TOB_PATH,
-      },
-    ],
-  },
 ];
