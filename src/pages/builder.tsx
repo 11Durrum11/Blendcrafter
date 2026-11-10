@@ -1150,12 +1150,13 @@ export default function Builder() {
                 {visibleSteps
                   .filter((s) => s.id !== "reference" && s.id !== "item-creation" && s.id !== "spelljamming")
                   .map((s) => (
-                    // The step tabs are pieces too (Shaun,
-                    // 2026-11-08 — every button movable): drag a
-                    // tab's grip to reorder the strip on this
-                    // device; the tab itself still just clicks,
-                    // the same pattern the section buttons above
-                    // already proved inside this TabsList.
+                    // The step tabs sit in the "creation" zone,
+                    // which is STATIC (Shaun, 2026-11-09: lock and
+                    // movability off the character creator's
+                    // buttons) — the Piece wrapper renders plain,
+                    // so the tabs are ordinary buttons in authored
+                    // order, with no grip/lock chrome to pad clear
+                    // of (the 2026-11-08 pr-11 pad is gone with it).
                     <Piece key={s.id} pieceId={`tab-${s.id}`} basis="auto" layout="grid">
                       <TabsTrigger
                         value={s.id}
@@ -1167,12 +1168,7 @@ export default function Builder() {
                         // step still opens for reference; the gray
                         // lifts when a psionic class is on the build.
                         className={
-                          (s.id === "psionics" && !buildHasPsionics(viewBuild) ? "text-muted-foreground/60 opacity-60" : "") +
-                          // Bug sweep 2026-11-08: on DM devices the
-                          // piece chrome (grip + lock) floats over the
-                          // tab's right end — pad the label clear of it
-                          // so tabs read whole and stay clickable.
-                          (dmArmed ? " pr-11" : "")
+                          s.id === "psionics" && !buildHasPsionics(viewBuild) ? "text-muted-foreground/60 opacity-60" : ""
                         }
                       >
                         {s.label}

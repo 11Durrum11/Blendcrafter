@@ -107,6 +107,39 @@ export interface ZoneState {
 
 export type LayoutState = Record<string, ZoneState>;
 
+/**
+ * Character Creation is STATIC (Shaun, 2026-11-09: "Take the lock
+ * slash movability off the buttons in the character creator"):
+ * pieces in the creator's zones render as plain content — no
+ * grip, no lock, no flip, no resize handles, and no saved order,
+ * size or lock is applied — while every other surface (Player
+ * Reference, Magic Item Creation, Spelljamming, the header, the
+ * section line) keeps the full treatment. The creator's zones:
+ * the "creation" strip in the builder (summary, New Character,
+ * name box, step tabs), every creation step page ("step:*" —
+ * except Player Reference's "step:reference"), the category
+ * grids inside the Equipment / Feats / Spells steps, the
+ * Psionics nests, and the Psionics / Character Sheet page frames.
+ */
+const STATIC_ZONES = new Set([
+  "creation",
+  "equipment-sections",
+  "magic-sections",
+  "feat-sections",
+  "spell-library",
+  "psionics-nests",
+  "page:psionics",
+  "page:sheet",
+]);
+
+export function isStaticZone(zoneId: string | null | undefined): boolean {
+  if (!zoneId) return false;
+  if (STATIC_ZONES.has(zoneId)) return true;
+  if (zoneId.startsWith("step:") && zoneId !== "step:reference") return true;
+  if (zoneId.startsWith("psionics-")) return true;
+  return false;
+}
+
 const LAYOUT_STORAGE_KEY = "blendcrafter:piece-layout-v1";
 const EMPTY_LAYOUT: LayoutState = {};
 
@@ -1190,6 +1223,29 @@ export function Piece({ pieceId, basis = "full", layout = "flex", frame = false,
     resizeRef.current = null;
   };
 
+  // Character Creation zones are static (Shaun, 2026-11-09 — see
+  // isStaticZone): the piece is just its content in a plain shell
+  // with the same footprint rules — no chrome, no drag, no lock,
+  // no resize, no saved size. Every hook above has already run.
+  if (isStaticZone(zoneId)) {
+    return (
+      <div
+        className={cn("min-w-0", layout === "grid" && "flex h-full flex-col", className)}
+        style={
+          layout === "flex"
+            ? { flexBasis: basis === "full" ? "100%" : "auto", maxWidth: "100%" }
+            : undefined
+        }
+      >
+        {layout === "grid" ? (
+          <div className="piece-body min-h-0 min-w-0 flex-1">{children}</div>
+        ) : (
+          children
+        )}
+      </div>
+    );
+  }
+
   const shellStyle: CSSProperties = {};
   if (layout === "flex") {
     shellStyle.flexBasis = ps.w != null ? `${ps.w}%` : basis === "full" ? "100%" : "auto";
@@ -1369,6 +1425,16 @@ export function Zone({
   testId?: string;
 }) {
   const { orderFor, layout } = usePieces();
+  // Static zones (Character Creation — Shaun, 2026-11-09): children
+  // render in their authored order, full stop — no saved order, no
+  // nesting partition. The pieces inside render plain (see Piece).
+  if (isStaticZone(zoneId)) {
+    return (
+      <div data-piece-zone={zoneId} className={className} data-testid={testId}>
+        <ZoneIdContext.Provider value={zoneId}>{children}</ZoneIdContext.Provider>
+      </div>
+    );
+  }
   const items = Children.toArray(children);
   const pieces: ReactElement[] = [];
   const passthrough: ReactNode[] = [];
@@ -1447,6 +1513,9 @@ function ZoneRoot({
   skip?: ComponentType<never>[];
 }) {
   const { orderFor } = usePieces();
+  // Static zones (Character Creation — Shaun, 2026-11-09): the page
+  // renders exactly as authored — no piece wrapping at all.
+  if (isStaticZone(zoneId)) return root;
   const rootProps = root.props as { className?: string; children?: ReactNode };
   const flat: ReactElement[] = [];
   const passthrough: ReactElement[] = [];
