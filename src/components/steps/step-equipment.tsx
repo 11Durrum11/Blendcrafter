@@ -636,8 +636,8 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
                     data-testid={`heading-equip-cat-${section.key}`}
                   >
                     {equipOpen ? <ChevronDown className="h-4 w-4 shrink-0" /> : <ChevronRight className="h-4 w-4 shrink-0" />}
-                    {section.label}{" "}
-                    <span className="text-xs font-normal text-muted-foreground">({section.items.length})</span>
+                    <span className="min-w-0 whitespace-normal leading-tight">{section.label}</span>{" "}
+                    <span className="shrink-0 text-xs font-normal text-muted-foreground">({section.items.length})</span>
                   </button>
                   {equipOpen && section.key === "weapon" && (() => {
                     // Weapons open onto subcategory buttons (Shaun,
@@ -842,8 +842,8 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
                     data-testid={`heading-magic-cat-${section.key}`}
                   >
                     {magicOpen ? <ChevronDown className="h-4 w-4 shrink-0" /> : <ChevronRight className="h-4 w-4 shrink-0" />}
-                    {section.label}{" "}
-                    <span className="text-xs font-normal text-muted-foreground">({section.items.length})</span>
+                    <span className="min-w-0 whitespace-normal leading-tight">{section.label}</span>{" "}
+                    <span className="shrink-0 text-xs font-normal text-muted-foreground">({section.items.length})</span>
                   </button>
                   {magicOpen && (
                   <div className="grid grid-cols-2 items-start gap-x-4">

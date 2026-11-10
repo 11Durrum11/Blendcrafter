@@ -568,13 +568,13 @@ export function StepReference() {
               device; the button itself still just clicks. */}
           {/* Half footprint (Shaun, voice call 2026-11-09 ~19:36):
               each category button shrunk to half its footprint —
-              h-6, text-xs, tight padding — still two columns, and
+              min-h-6, text-xs, tight padding — still two columns, and
               the whole block pulled up tight so it fits. Only the
               buttons shrink: the subcategory dropdowns and the
               results below still open at full size. */}
           <Zone zoneId="reference-categories" className="grid grid-cols-2 gap-0.5">
             <Piece pieceId="cat-all" layout="grid">
-              <Button size="sm" className="h-6 min-h-6 w-full whitespace-normal px-1.5 py-0 text-xs leading-tight" variant={category === "all" ? "default" : "outline"} onClick={() => pickCategory("all")}>
+              <Button size="sm" className="min-h-6 w-full whitespace-normal px-1.5 py-0.5 text-xs leading-tight" variant={category === "all" ? "default" : "outline"} onClick={() => pickCategory("all")}>
                 All ({TOTAL_ROWS.toLocaleString()})
               </Button>
             </Piece>
@@ -583,7 +583,7 @@ export function StepReference() {
                 <Button
                   size="sm"
                   variant={category === c.key ? "default" : "outline"}
-                  className={c.disabled ? "h-6 min-h-6 w-full whitespace-normal px-1.5 py-0 text-xs leading-tight text-muted-foreground line-through opacity-60" : "h-6 min-h-6 w-full whitespace-normal px-1.5 py-0 text-xs leading-tight"}
+                  className={c.disabled ? "min-h-6 w-full whitespace-normal px-1.5 py-0.5 text-xs leading-tight text-muted-foreground line-through opacity-60" : "min-h-6 w-full whitespace-normal px-1.5 py-0.5 text-xs leading-tight"}
                   onClick={() => pickCategory(c.key)}
                 >
                   {c.label} ({c.rows.length.toLocaleString()})

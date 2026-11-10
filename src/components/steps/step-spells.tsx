@@ -198,7 +198,7 @@ export function StepSpells({ build, resolved, onToggleSpell }: StepSpellsProps) 
               <div className="h-full rounded-md border border-card-border" data-testid={`library-type-${profile.classId}`}>
                 <button
                   type="button"
-                  className="flex w-full items-center gap-2 px-2.5 py-1.5 text-left"
+                  className="flex w-full flex-wrap items-center gap-2 px-2.5 py-1.5 text-left"
                   onClick={() =>
                     setExpandedTypes((prev) => {
                       const next = new Set(prev);
@@ -210,8 +210,8 @@ export function StepSpells({ build, resolved, onToggleSpell }: StepSpellsProps) 
                   data-testid={`button-library-type-${profile.classId}`}
                 >
                   {expanded ? <ChevronDown className="h-4 w-4 shrink-0" /> : <ChevronRight className="h-4 w-4 shrink-0" />}
-                  <span className="font-display text-base font-semibold">{profile.listName}</span>
-                  <span className="text-xs text-muted-foreground">{total} spells</span>
+                  <span className="min-w-0 whitespace-normal font-display text-base font-semibold leading-tight">{profile.listName}</span>
+                  <span className="shrink-0 text-xs text-muted-foreground">{total} spells</span>
                 </button>
                 {expanded && (
                   <div className="grid grid-cols-2 items-start gap-x-4 gap-y-5 border-t border-card-border px-3 py-3">

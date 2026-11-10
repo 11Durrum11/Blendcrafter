@@ -301,8 +301,8 @@ export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved,
                     data-testid={`feat-section-toggle-${section.id}`}
                   >
                     {expanded ? <ChevronDown className="h-4 w-4 shrink-0" /> : <ChevronRight className="h-4 w-4 shrink-0" />}
-                    <span className="font-display text-base font-semibold">{section.label}</span>
-                    <span className="text-xs font-normal text-muted-foreground">({section.feats.length})</span>
+                    <span className="min-w-0 whitespace-normal font-display text-base font-semibold leading-tight">{section.label}</span>
+                    <span className="shrink-0 text-xs font-normal text-muted-foreground">({section.feats.length})</span>
                   </button>
                   {expanded && (
                     <>

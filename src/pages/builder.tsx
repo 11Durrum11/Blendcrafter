@@ -990,7 +990,7 @@ export default function Builder() {
               .filter((s) => s.id === "reference")
               .map((s) => (
                 <Piece key={s.id} pieceId="reference" layout="grid">
-                  <TabsTrigger value={s.id} data-testid={`tab-step-${s.id}`} className={"h-full w-full py-1.5 font-semibold" + (dmArmed ? " pr-11" : "")}>
+                  <TabsTrigger value={s.id} data-testid={`tab-step-${s.id}`} className={"h-full w-full py-1.5 text-xs font-semibold sm:text-sm" + (dmArmed ? " pr-11" : "")}>
                     <span className="whitespace-normal text-center leading-tight">{s.label}</span>
                   </TabsTrigger>
                 </Piece>
@@ -1007,7 +1007,7 @@ export default function Builder() {
               onClick={toggleItemCreation}
               data-testid="step-group-item-creation-toggle"
               className={
-                "inline-flex h-full w-full items-center justify-center rounded-sm px-2.5 py-1.5 font-display leading-tight text-sm font-semibold font-semibold ring-offset-background transition-all " +
+                "inline-flex h-full w-full items-center justify-center rounded-sm px-2.5 py-1.5 font-display text-xs font-semibold leading-tight ring-offset-background transition-all sm:text-sm " +
                 (effectiveStep === "item-creation"
                   ? "bg-background text-foreground shadow-sm"
                   : "text-foreground/70 hover:text-foreground") +
@@ -1034,7 +1034,7 @@ export default function Builder() {
               aria-expanded={creationOpen}
               data-testid="step-group-character-creation-toggle"
               className={
-                "inline-flex h-full w-full items-center justify-center rounded-sm px-2.5 py-1.5 font-display leading-tight text-sm font-semibold font-semibold ring-offset-background transition-all " +
+                "inline-flex h-full w-full items-center justify-center rounded-sm px-2.5 py-1.5 font-display text-xs font-semibold leading-tight ring-offset-background transition-all sm:text-sm " +
                 (inCreation
                   ? "bg-background text-foreground shadow-sm"
                   : "text-foreground/70 hover:text-foreground") +
@@ -1064,7 +1064,7 @@ export default function Builder() {
               onClick={toggleSpelljamming}
               data-testid="step-group-spelljamming-toggle"
               className={
-                "inline-flex h-full w-full items-center justify-center rounded-sm px-2.5 py-1.5 font-display leading-tight text-sm font-semibold font-semibold ring-offset-background transition-all " +
+                "inline-flex h-full w-full items-center justify-center rounded-sm px-2.5 py-1.5 font-display text-xs font-semibold leading-tight ring-offset-background transition-all sm:text-sm " +
                 (effectiveStep === "spelljamming"
                   ? "bg-background text-foreground shadow-sm"
                   : "text-foreground/70 hover:text-foreground") +
