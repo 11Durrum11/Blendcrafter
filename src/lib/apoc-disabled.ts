@@ -40,6 +40,14 @@
  *    into the demons wholesale. Same handling as the
  *    tieflings: the race record is kept, grayed, unpickable,
  *    with its own canon note.
+ *
+ * 4. No diaboli (Shaun, 2026-11-09, on Dragon #327's Diabolus):
+ *    "Gray out the Diabolus, like the tieflings" — the diaboli
+ *    are fiend-blooded planetouched of the Demiplane of
+ *    Nightmares, and planar travel is severed besides. Same
+ *    handling: the record (Dragon Magazine #327, Winning
+ *    Races) is kept, grayed, unpickable, with the tiefling
+ *    bloodline note.
  */
 
 export const APOC_DISABLED_POWER_IDS = new Set([
@@ -81,10 +89,12 @@ export function isApocDisabledPower(s: { id: string }): boolean {
   return APOC_DISABLED_POWER_IDS.has(s.id);
 }
 
-export const APOC_DISABLED_RACE_IDS = new Set(["tiefling", "drow", "drow-dotu"]);
+export const APOC_DISABLED_RACE_IDS = new Set(["tiefling", "drow", "drow-dotu", "diabolus"]);
 // "drow" is the Races of Eberron record; "drow-dotu" is the Drow
 // of the Underdark record — the same race from its own book, and
-// the same ruling covers both (Shaun, 2026-11-05).
+// the same ruling covers both (Shaun, 2026-11-05). "diabolus" is
+// the Dragon Magazine #327 record, grayed under the tiefling
+// bloodline ruling (Shaun, 2026-11-09).
 
 export const APOC_TIEFLING_NOTE =
   "In APOC: the fiend-blooded were backdoored into being demons — tieflings do not exist.";
@@ -92,10 +102,14 @@ export const APOC_TIEFLING_NOTE =
 export const APOC_DROW_NOTE =
   "In APOC: the drow welcomed the demons and were absorbed — drow do not exist.";
 
+export const APOC_DIABOLUS_NOTE =
+  "In APOC: the fiend-blooded were backdoored into being demons — the diaboli do not exist.";
+
 const APOC_RACE_NOTES: Record<string, string> = {
   tiefling: APOC_TIEFLING_NOTE,
   drow: APOC_DROW_NOTE,
   "drow-dotu": APOC_DROW_NOTE,
+  diabolus: APOC_DIABOLUS_NOTE,
 };
 
 export function apocRaceNote(r: { id: string }): string {
