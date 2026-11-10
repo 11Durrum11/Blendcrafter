@@ -249,7 +249,24 @@ export default function Builder() {
   // to player reference"). The 1-12 step tabs stay minimized
   // inside it until its button — which sits right beside the
   // Player Reference tab — is clicked open.
-  const [creationOpen, setCreationOpen] = useState(false);
+  const [creationOpen, setCreationOpen] = useState<boolean>(() => {
+    // Phone audit 2026-11-09: landing directly on a creation step's
+    // URL (a shared build link, a bookmark, the browser's back
+    // button) with the folder closed rendered a blank page — the
+    // step was the current page but its content stays gated behind
+    // the open folder (Shaun, 2026-11-07: collapsed means header
+    // only). When the URL itself names a creation step, the folder
+    // starts open, as if it had been clicked. In-session toggling
+    // is untouched: the folder can still be collapsed by hand.
+    const named = params?.step as StepId | undefined;
+    return (
+      !!named &&
+      STEPS.some((s) => s.id === named) &&
+      named !== "reference" &&
+      named !== "item-creation" &&
+      named !== "spelljamming"
+    );
+  });
   // Magic Item Creation is clickable the same way (Shaun,
   // 2026-11-04, later): its line opens a panel with jump links
   // into its page.

@@ -532,14 +532,14 @@ export function StepReference() {
   }
 
   return withPieces("step:reference", (
-    <div className="space-y-3">
+    <div className="space-y-2">
       <Card>
         {/* No page heading (Shaun, 2026-11-07): the section button
             already names this page, so the large "Player Reference"
             title and its header block are gone entirely. With no
             CardHeader above it, CardContent's built-in pt-0 puts
             the search box directly under the card's top line. */}
-        <CardContent className="space-y-2 pb-4">
+        <CardContent className="space-y-1.5 pb-2">
           <div className="relative">
             <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <Input
@@ -566,9 +566,15 @@ export function StepReference() {
               every button movable, the Library named explicitly):
               drag a button's grip to reorder the grid on this
               device; the button itself still just clicks. */}
-          <Zone zoneId="reference-categories" className="grid grid-cols-2 gap-1">
+          {/* Half footprint (Shaun, voice call 2026-11-09 ~19:36):
+              each category button shrunk to half its footprint —
+              h-6, text-xs, tight padding — still two columns, and
+              the whole block pulled up tight so it fits. Only the
+              buttons shrink: the subcategory dropdowns and the
+              results below still open at full size. */}
+          <Zone zoneId="reference-categories" className="grid grid-cols-2 gap-0.5">
             <Piece pieceId="cat-all" layout="grid">
-              <Button size="sm" className="h-7 w-full text-sm" variant={category === "all" ? "default" : "outline"} onClick={() => pickCategory("all")}>
+              <Button size="sm" className="h-6 min-h-6 w-full whitespace-normal px-1.5 py-0 text-xs leading-tight" variant={category === "all" ? "default" : "outline"} onClick={() => pickCategory("all")}>
                 All ({TOTAL_ROWS.toLocaleString()})
               </Button>
             </Piece>
@@ -577,7 +583,7 @@ export function StepReference() {
                 <Button
                   size="sm"
                   variant={category === c.key ? "default" : "outline"}
-                  className={c.disabled ? "h-7 w-full text-sm text-muted-foreground line-through opacity-60" : "h-7 w-full text-sm"}
+                  className={c.disabled ? "h-6 min-h-6 w-full whitespace-normal px-1.5 py-0 text-xs leading-tight text-muted-foreground line-through opacity-60" : "h-6 min-h-6 w-full whitespace-normal px-1.5 py-0 text-xs leading-tight"}
                   onClick={() => pickCategory(c.key)}
                 >
                   {c.label} ({c.rows.length.toLocaleString()})
