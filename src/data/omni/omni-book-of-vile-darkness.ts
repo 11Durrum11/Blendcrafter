@@ -351,7 +351,7 @@ export const BOVD_MAGIC_ITEMS_OMNI: MagicItemDefinition[] = [
     "name": "Cauldron of Zombie Spewing",
     "category": "artifact",
     "cost": "—",
-    "summary": "A diabolic engine built around a gigantic black cauldron 13 feet in diameter. When fifty Medium-size corpses are thrown in with strange chemicals and a single dose of liquid pain, the contents stew for 24 hours and then spew forth 4d12 Medium-size zombies, which obey the commands of any devil present within the first 3 rounds of their creation. The cauldron has hardness 10, 250 hp, and a break DC of 35 (the glass portions and tubing are hardness 1, 20 hp, break DC 12).",
+    "summary": "A diabolic engine built around a gigantic black cauldron 13 feet in diameter. When fifty Medium corpses are thrown in with strange chemicals and a single dose of liquid pain, the contents stew for 24 hours and then spew forth 4d12 Medium zombies, which obey the commands of any devil present within the first 3 rounds of their creation. The cauldron has hardness 10, 250 hp, and a break DC of 35 (the glass portions and tubing are hardness 1, 20 hp, break DC 12).",
     "source": "Book of Vile Darkness — Chapter 6: Evil Magic Items (Diabolic Engines), pp. 118–119",
     "sourceUrl": "",
     "ruleset": "core"
@@ -371,7 +371,7 @@ export const BOVD_MAGIC_ITEMS_OMNI: MagicItemDefinition[] = [
     "name": "Pain Pit",
     "category": "artifact",
     "cost": "—",
-    "summary": "A yugoloth device: a metal cauldron 10 feet across and 20 feet deep containing several giant leeches, holding up to five Medium-size or smaller creatures. Foot-long leeches attach to the victims and extract one dose of liquid pain per victim over the course of a day into a storage vat (capacity one hundred doses), after which the leeches consume the victim. The cylinder has hardness 10, 300 hp, and a break DC of 35.",
+    "summary": "A yugoloth device: a metal cauldron 10 feet across and 20 feet deep containing several giant leeches, holding up to five Medium or smaller creatures. Foot-long leeches attach to the victims and extract one dose of liquid pain per victim over the course of a day into a storage vat (capacity one hundred doses), after which the leeches consume the victim. The cylinder has hardness 10, 300 hp, and a break DC of 35.",
     "source": "Book of Vile Darkness — Chapter 6: Evil Magic Items (Diabolic Engines), p. 120",
     "sourceUrl": "",
     "ruleset": "core"

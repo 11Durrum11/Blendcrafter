@@ -78,18 +78,18 @@ export const QUINTESSENTIAL_DWARF_PRESTIGE_CLASSES: PrestigeClassDefinition[] = 
     babProgression: "three-quarter",
     goodSaves: ["will"],
     progression: rows(TQ5, POOR5, POOR5, GOOD5),
-    classSkills: ["Alchemy", "Climb", "Craft", "Intimidate", "Jump", "Profession", "Spot"],
+    classSkills: ["Craft (alchemy)", "Climb", "Craft", "Intimidate", "Jump", "Profession", "Spot"],
     prerequisites: [
       "Feats: Exotic Weapon Proficiency (runecannon), Point Blank Shot, Precise Shot, Quick Draw, Rapid Shot",
       "Skills: Craft (runecannon) 10 ranks",
       "Skills: Craft (runecannon ammunition) 10 ranks",
     ],
     features: [
-      fcn("Cannoneer Proficiencies", "Expert in the care and use of runecannons — trained to wield the weapons but also to build and repair them. Proficient in all simple weapons, runecannon and all types of armour. Armour check penalties for armour heavier than leather apply to the skills Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Pick Pocket, and Tumble.", undefined),
+      fcn("Cannoneer Proficiencies", "Expert in the care and use of runecannons — trained to wield the weapons but also to build and repair them. Proficient in all simple weapons, runecannon and all types of armour. Armour check penalties for armour heavier than leather apply to the skills Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Sleight of Hand, and Tumble.", undefined),
       fcn("Snapshot (Ex)", "The first trick taught to the cannoneer: once this ability is gained, the cannoneer can fire a runecannon as a standard attack action rather than the full-attack action normally required. (The class table spells this \"Snap Shot\".)", 1),
       fcn("Stock Smash (Ex)", "When the cannoneer runs out of ammunition or is at such close quarters it is impossible to use his weapon effectively, he may strike opponents with the stock of his weapon, causing 1d6 hit points of bludgeoning damage on a successful hit. The Weapon Focus bonus for the runecannon does apply to this attack.", 2),
-      fcn("Swiftload (Ex)", "The cannoneer reloads his weapon much faster than normal: if reloading the runecannon normally requires a standard action, he may reload as a move-equivalent action; if it normally requires a full-round action, he may reload as a standard action; runecannons that normally require more than one full-round action to reload require only a single full-round action. This ability does not reduce the time it requires to reload the offhand runecannon. (The class table spells this \"Swift Load\".)", 3),
-      fcn("Overload (Ex)", "As a move-equivalent action, the cannoneer loads a second round into the barrel of his runecannon. The next attack made with the runecannon causes double normal damage but suffers a -4 circumstance penalty on the attack roll. There is also a 10% chance that the overload will damage the barrel of the weapon, rendering it useless until it is repaired. This ability may not be used with defender or stationary runecannons. (The class table spells this \"Over Load\".)", 4),
+      fcn("Swiftload (Ex)", "The cannoneer reloads his weapon much faster than normal: if reloading the runecannon normally requires a standard action, he may reload as a move action; if it normally requires a full-round action, he may reload as a standard action; runecannons that normally require more than one full-round action to reload require only a single full-round action. This ability does not reduce the time it requires to reload the offhand runecannon. (The class table spells this \"Swift Load\".)", 3),
+      fcn("Overload (Ex)", "As a move action, the cannoneer loads a second round into the barrel of his runecannon. The next attack made with the runecannon causes double normal damage but suffers a -4 circumstance penalty on the attack roll. There is also a 10% chance that the overload will damage the barrel of the weapon, rendering it useless until it is repaired. This ability may not be used with defender or stationary runecannons. (The class table spells this \"Over Load\".)", 4),
       fcn("Scattershot (Ex)", "At the highest level of expertise, the cannoneer is able to hit more than one target with a single attack action: he rolls to hit every creature within a 15-foot-long cone in front of him. Each attack after the first suffers a -2 circumstance penalty in addition to any other penalties for multiple attacks in a single round.", 5),
     ].map((x) => x as FeatureDefinition),
   },
@@ -106,7 +106,7 @@ export const QUINTESSENTIAL_DWARF_PRESTIGE_CLASSES: PrestigeClassDefinition[] = 
     progression: rows(TQ5, POOR5, POOR5, GOOD5),
     classSkills: [
       "Concentration", "Decipher Script", "Diplomacy", "Gather Information", "Knowledge",
-      "Perform", "Scry", "Speak Language", "Spellcraft",
+      "Perform",  "Speak Language", "Spellcraft",
     ],
     prerequisites: [
       "Skills: Decipher Script 8 ranks",
@@ -116,7 +116,7 @@ export const QUINTESSENTIAL_DWARF_PRESTIGE_CLASSES: PrestigeClassDefinition[] = 
       "Spells: Must be able to cast speak with dead",
     ],
     features: [
-      fcw("Clan Wisdom Proficiencies", "A dwarf who, in addition to his duties as a priest, is also an expert on dwarven culture and history, gaining his knowledge from intensive training and direct communion with ancient dwarven spirits. Proficient in all simple weapons and all types of armour. Armour check penalties for armour heavier than leather apply to the skills Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Pick Pocket, and Tumble. The class skill list includes Knowledge (all skills, taken individually) and Perform (chant); Decipher Script and Scry are exclusive skills.", undefined),
+      fcw("Clan Wisdom Proficiencies", "A dwarf who, in addition to his duties as a priest, is also an expert on dwarven culture and history, gaining his knowledge from intensive training and direct communion with ancient dwarven spirits. Proficient in all simple weapons and all types of armour. Armour check penalties for armour heavier than leather apply to the skills Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Sleight of Hand, and Tumble. The class skill list includes Knowledge (all skills, taken individually) and Perform (chant); Decipher Script and Scry are exclusive skills.", undefined),
       fcw("Spells per Day", "For each clan wisdom level gained, the character gains new spells per day as if he had also gained a level in a spellcasting class he belonged to before becoming a clan wisdom (the class table grants +1 spellcasting level at every level). He does not, however, gain any other benefits of his former spellcasting class, such as metamagic feats or an improved chance of turning or rebuking undead. Characters with more than one spellcasting class must decide which class to assign each level of clan wisdom to for purposes of determining spells per day. A clan wisdom's spells all require a somatic component, even if this component is not listed in the spell's description, and may not benefit from the use of the Still Spell metamagic feat.", 1),
       fcw("Dwarven Lore (Ex)", "This ability augments the clan wisdom's existing bardic knowledge ability whenever it is used to attempt to gain information about an item, person, or place related to the dwarven people: the clan wisdom may apply his ranks of Knowledge (dwarf culture) as a bonus to any Bardic Knowledge checks regarding information related to dwarves.", 1),
       fcw("Sonorous Guidance (Ex)", "The clan wisdom can use a rhythmic chant to coordinate the efforts of two or more individuals for a skill check or attack action: when this ability is used, each helper who succeeds at a skill check to assist a leader (for a skill check) or an attack check to aid another (for an attack action) provides a +3 circumstance bonus to the leader or attacker he is assisting, rather than +2.", 2),
@@ -137,20 +137,20 @@ export const QUINTESSENTIAL_DWARF_PRESTIGE_CLASSES: PrestigeClassDefinition[] = 
     goodSaves: ["fort", "will"],
     progression: rows(TQ5, [2, 3, 3, 4, 4], POOR5, [2, 3, 3, 4, 4]),
     classSkills: [
-      "Animal Empathy", "Concentration", "Handle Animal", "Heal", "Intuit Direction",
-      "Knowledge (arcane)", "Knowledge (nature)", "Scry", "Spellcraft", "Swim", "Wilderness Lore",
+       "Concentration", "Handle Animal", "Heal", "Survival",
+      "Knowledge (arcana)", "Knowledge (nature)",  "Spellcraft", "Swim", 
     ],
     prerequisites: [
-      "Skills: Animal Empathy 7 ranks",
+      "Skills: Handle Animal 7 ranks",
       "Skills: Knowledge (nature) 7 ranks",
       "Skills: Spellcraft 7 ranks",
-      "Skills: Wilderness Lore 7 ranks",
+      "Skills: Survival 7 ranks",
       "Special: A familiar, an animal companion",
     ],
     features: [
-      fdd("Deeping Druid Proficiencies", "A dwarven druid of the dark wilderness of the underlands who combines the practice of arcane magic with druidic powers to bind himself to the underlands. The deeping druid prestige class offers no additional weapon or armour proficiencies. Animal Empathy and Scry are exclusive skills.", undefined),
+      fdd("Deeping Druid Proficiencies", "A dwarven druid of the dark wilderness of the underlands who combines the practice of arcane magic with druidic powers to bind himself to the underlands. The deeping druid prestige class offers no additional weapon or armour proficiencies. Handle Animal and Scry are exclusive skills.", undefined),
       fdd("Stone Walk (Sp)", "The deeping druid may move along stone (or earthen) surfaces, either natural or worked, as if under the effect of the spider climb spell. This ability may be used at will.", 1),
-      fdd("Companion Fusion", "A portion of the deeping druid's spirit is combined with the essences of his familiar and animal companion; the three souls combine to create a deeping companion. A telepathic bond is formed between the deeping companion and its master, allowing the two to communicate telepathically as long as they remain within 500 feet of one another; as a full-round action, the deeping druid can see and hear through the senses of his companion as long as they are within range of normal telepathic contact. Regardless of the original forms of the animal companion and familiar, the fused companion has these statistics: Medium-size (elemental); Hit Dice 2d8; Initiative -1 (Dex); Speed 30 ft.; AC 15 (+5 natural); Attacks: Slam +5 melee; Damage: Slam 1d6+4; Face/Reach 5 ft. by 5 ft./5 ft.; Special Qualities: Earth Walk (as deeping druid), Elemental; Saves: Fort +4, Ref -1, Will +1; Abilities: Str 16, Dex 8, Con 13, Int 4, Wis 12, Cha 11; Skills: Listen +6, Spot +6; Feats: Power Attack; Challenge Rating: As master; Alignment: As master. Whenever the master gains a level of the deeping druid prestige class, the deeping companion gains a level of the warrior NPC class; for every two levels of any other class the master gains, the deeping companion gains one level of the warrior NPC class. The deeping companion may never wear armour but may wield any simple weapons provided to it by its master. As long as the deeping companion is alive, its master may not summon another familiar or animal companion; if the deeping companion dies, the master immediately loses 150 experience points for each of the companion's hit dice or levels of the warrior NPC class. The deeping companion may be raised from the dead just as any other character but does not suffer the loss of a level or Constitution point when this occurs, and the master can create another deeping companion at any time as long as he has both an animal companion and a familiar.", 2),
+      fdd("Companion Fusion", "A portion of the deeping druid's spirit is combined with the essences of his familiar and animal companion; the three souls combine to create a deeping companion. A telepathic bond is formed between the deeping companion and its master, allowing the two to communicate telepathically as long as they remain within 500 feet of one another; as a full-round action, the deeping druid can see and hear through the senses of his companion as long as they are within range of normal telepathic contact. Regardless of the original forms of the animal companion and familiar, the fused companion has these statistics: Medium (elemental); Hit Dice 2d8; Initiative -1 (Dex); Speed 30 ft.; AC 15 (+5 natural); Attacks: Slam +5 melee; Damage: Slam 1d6+4; Space/Reach 5 ft. by 5 ft./5 ft.; Special Qualities: Earth Walk (as deeping druid), Elemental; Saves: Fort +4, Ref -1, Will +1; Abilities: Str 16, Dex 8, Con 13, Int 4, Wis 12, Cha 11; Skills: Listen +6, Spot +6; Feats: Power Attack; Challenge Rating: As master; Alignment: As master. Whenever the master gains a level of the deeping druid prestige class, the deeping companion gains a level of the warrior NPC class; for every two levels of any other class the master gains, the deeping companion gains one level of the warrior NPC class. The deeping companion may never wear armour but may wield any simple weapons provided to it by its master. As long as the deeping companion is alive, its master may not summon another familiar or animal companion; if the deeping companion dies, the master immediately loses 150 experience points for each of the companion's hit dice or levels of the warrior NPC class. The deeping companion may be raised from the dead just as any other character but does not suffer the loss of a level or Constitution point when this occurs, and the master can create another deeping companion at any time as long as he has both an animal companion and a familiar.", 2),
       fdd("Assault of Earth (Su)", "The deeping druid's connection to the stone which surrounds him becomes so strong he can will it to attack his enemies: these ranged attacks cause 1d4 hit points of damage + 1 hit point per level of the deeping druid prestige class. The deeping druid may use this ability as a full-round action and may use it up to three times a day.", 3),
       fdd("Underlands Defence (Su)", "Deeping druids with this ability have strengthened their bond with the earth to such a degree that their flesh becomes stronger and more durable, providing a +3 natural armour bonus.", 4),
       fdd("Magmic Embrace (Su)", "At 5th level the deeping druid can summon forth a small pool of magma, which fills a 10 foot cube (extending downwards from the nearest horizontal stone surface at least 10 feet square). This requires 1d4 full rounds, during which the deeping druid can do nothing but focus on calling forth the magma. Any creature, other than the deeping druid and his companion, who is immersed in the pool suffers 1d6 hit points of damage per level of the deeping druid for each round, or part of a round, it remains within the pool; the deeping druid and his companion may freely enter the pool and survive while submerged within it, and for every full hour spent submerged in the pool, the deeping druid and his companion regain 1d6 hit points. The deeping druid may dismiss the magma pool at any time, after which the pool will disappear in 1d4 rounds (the druid is harmlessly ejected from the pool if he is in it when it dissipates). The deeping druid may dismiss the pool while his companion is submerged within it; in this case, the companion is effectively removed from existence until the deeping druid uses the magmic embrace ability again, and on the next use of this ability the deeping companion emerges from the pool as soon as the magma materializes.", 5),
@@ -168,8 +168,8 @@ export const QUINTESSENTIAL_DWARF_PRESTIGE_CLASSES: PrestigeClassDefinition[] = 
     goodSaves: ["fort", "ref"],
     progression: rows([1, 2, 3, 4, 5], [2, 3, 3, 4, 4], [2, 3, 3, 4, 4], POOR5),
     classSkills: [
-      "Balance", "Climb", "Escape Artist", "Hide", "Intimidate", "Intuit Direction", "Jump",
-      "Listen", "Move Silently", "Search", "Spot", "Swim", "Tumble", "Wilderness Lore",
+      "Balance", "Climb", "Escape Artist", "Hide", "Intimidate", "Survival", "Jump",
+      "Listen", "Move Silently", "Search", "Spot", "Swim", "Tumble", 
     ],
     prerequisites: [
       "Base attack bonus +10",
@@ -198,7 +198,7 @@ export const QUINTESSENTIAL_DWARF_PRESTIGE_CLASSES: PrestigeClassDefinition[] = 
     classSkills: [
       "Balance", "Climb", "Concentration", "Craft", "Escape Artist", "Hide", "Jump",
       "Knowledge (arcana)", "Listen", "Move Silently", "Profession", "Search", "Spot",
-      "Swim", "Tumble", "Wilderness Lore",
+      "Swim", "Tumble", "Survival",
     ],
     prerequisites: [
       "Base attack bonus +10",
@@ -225,7 +225,7 @@ export const QUINTESSENTIAL_DWARF_PRESTIGE_CLASSES: PrestigeClassDefinition[] = 
     babProgression: "three-quarter",
     goodSaves: ["will"],
     progression: rows(TQ5, POOR5, POOR5, GOOD5),
-    classSkills: ["Concentration", "Craft", "Knowledge", "Profession", "Scry", "Spellcraft"],
+    classSkills: ["Concentration", "Craft", "Knowledge", "Profession",  "Spellcraft"],
     prerequisites: [
       "Feats: Craft Magic Arms and Armour, Weapon Specialisation",
       "Skills: Alchemy 10 ranks",
@@ -233,7 +233,7 @@ export const QUINTESSENTIAL_DWARF_PRESTIGE_CLASSES: PrestigeClassDefinition[] = 
       "Skills: Craft (weaponsmithing) 11 ranks",
     ],
     features: [
-      ffm("Forge Mage Proficiencies", "Combines an innate magical ability with skill at crafting arms and armour to create fantastic, durable items for the members of his clan. Proficient in all simple weapons and all types of armour. Armour check penalties for armour heavier than leather apply to the skills Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Pick Pocket, and Tumble. The class skill list includes Knowledge (all skills, taken individually); Scry is an exclusive skill.", undefined),
+      ffm("Forge Mage Proficiencies", "Combines an innate magical ability with skill at crafting arms and armour to create fantastic, durable items for the members of his clan. Proficient in all simple weapons and all types of armour. Armour check penalties for armour heavier than leather apply to the skills Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Sleight of Hand, and Tumble. The class skill list includes Knowledge (all skills, taken individually).", undefined),
       ffm("+1 Level Crafting", "When the forge mage gains a new level, he may add this level to the existing levels of a previous arcane spellcasting class for the purpose of meeting the crafting requirements for weapons and armour only. (The class table grants this at every level.)", 1),
       ffm("Metallurgical Expertise (Ex)", "The forge mage is adept at preparing the metal used in creating weapons or armour: a successful Alchemy check (DC 15) allows the forge mage to prepare enough materials to create one suit of metal armour or one weapon. This check requires 1d3 days and, if successful, provides a +5 bonus to the Craft check to actually make the armour or weapon.", 1),
       ffm("Exquisite Articulation (Ex)", "At this level of skill the forge mage is able to create metal armour so easy to wear it is treated as if it were one category lighter than normal for purposes of movement and other limitations. Making articulated armour takes one week longer than normal and increases the DC of the Craft check by 5. Only medium and heavy armours may be articulated.", 2),
@@ -254,16 +254,16 @@ export const QUINTESSENTIAL_DWARF_PRESTIGE_CLASSES: PrestigeClassDefinition[] = 
     goodSaves: ["fort", "ref"],
     progression: rows([1, 2, 3, 4, 5], [2, 3, 3, 4, 4], [2, 3, 3, 4, 4], POOR5),
     classSkills: [
-      "Balance", "Climb", "Craft", "Escape Artist", "Jump", "Profession", "Scry",
+      "Balance", "Climb", "Craft", "Escape Artist", "Jump", "Profession", 
       "Spellcraft", "Tumble",
     ],
     prerequisites: [
       "Base attack bonus +9",
-      "Feats: Ambidexterity, Two-Weapon Fighting, Weapon Finesse (spiked chain)",
+      "Feats: Two-Weapon Fighting, Weapon Finesse (spiked chain)",
       "Skills: Balance 5 ranks",
     ],
     features: [
-      fst("Shock Trooper Proficiencies", "Trained in close-quarters fighting, a master of battle where space is limited and enemies are plentiful, skilled in the use of weaponry built into his armour. Proficient in all simple and martial weapons and all types of armour. Armour check penalties for armour heavier than leather apply to the skills Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Pick Pocket, and Tumble. Scry is an exclusive skill in the class skill list.", undefined),
+      fst("Shock Trooper Proficiencies", "Trained in close-quarters fighting, a master of battle where space is limited and enemies are plentiful, skilled in the use of weaponry built into his armour. Proficient in all simple and martial weapons and all types of armour. Armour check penalties for armour heavier than leather apply to the skills Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Sleight of Hand, and Tumble.", undefined),
       fst("Armoured Adroitness (Ex)", "Any armour worn by the shock trooper is considered one category lighter for purposes of movement, skill penalties, or other abilities dependent on the type of armour worn. This ability may not reduce the armour's category below light.", 1),
       fst("Knees and Elbows (Ex)", "When grappling, the shock trooper may make a single attack with an armour blade against the foe he is grappling without suffering the normal -4 penalty to his grappling check.", 2),
       fst("Wyrm Grip (Ex)", "When this ability is gained the shock trooper is considered one size category larger than normal when grappling while armed with a spiked chain and may use his Dexterity modifier instead of his Strength modifier for all grapple checks.", 3),
@@ -292,7 +292,7 @@ export const QUINTESSENTIAL_DWARF_PRESTIGE_CLASSES: PrestigeClassDefinition[] = 
       "Skills: Ride 18 ranks",
     ],
     features: [
-      ftr("Tunnel Rider Proficiencies", "An expert at riding through the narrow, winding tunnels that crisscross the underlands, most often found as a member of a military vanguard or serving as a border patrol in particularly dangerous territory. Proficient in all simple weapons and all types of armour. Armour check penalties for armour heavier than leather apply to the skills Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Pick Pocket, and Tumble.", undefined),
+      ftr("Tunnel Rider Proficiencies", "An expert at riding through the narrow, winding tunnels that crisscross the underlands, most often found as a member of a military vanguard or serving as a border patrol in particularly dangerous territory. Proficient in all simple weapons and all types of armour. Armour check penalties for armour heavier than leather apply to the skills Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Sleight of Hand, and Tumble.", undefined),
       ftr("Assisting Mount (Ex)", "The tunnel rider may direct his mount's attacks to assist his own: each round he may choose to have the mount take the aid another action rather than make its normal attack.", 1),
       ftr("Riding Assault (Ex)", "Tunnel riders are adept at attacking while their mount moves, allowing them to take a full-round attack action in the same round in which their mount makes a standard movement action. In order to use this ability, the tunnel rider's mount must begin and end its movement adjacent to an enemy.", 2),
       ftr("Stone Saddle (Ex)", "Extensive training and experience give the tunnel rider the ability to remain in his saddle even when mortally wounded: when this ability is gained the tunnel rider never needs to make a Ride check in order to remain mounted and may not be removed from his saddle by any means short of a wish spell. Both mount and rider may continue fighting and moving until one or both are reduced to -10 hit points, at which point both fall lifeless to the ground.", 3),

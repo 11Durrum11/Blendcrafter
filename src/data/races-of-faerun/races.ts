@@ -295,7 +295,7 @@ export const RACES_OF_FAERUN_RACES: RaceDefinition[] = [
         key: "feyri-demonic-abilities",
         name: "Demonic Abilities",
         description:
-          "Every fey'ri has four special abilities drawn from the following list: charm person (Sp) 1/day, clairaudience/clairvoyance (Sp) 1/day, damage reduction 10/+1, darkness (Sp) 1/day, detect thoughts (Sp) 1/day, dimension door (Sp) 1/day, enervation (Sp) 1/day, fire resistance 10, suggestion (Sp) 1/day, +2 racial bonus on saves against electricity, or +2 racial bonus on saves against poison. Spell-like abilities use the fey'ri's character level and Charisma-based DCs. A fey'ri can have only one of the three asterisked abilities in the book (damage reduction, dimension door, enervation), and a fey'ri with one of them has a level adjustment of +3 instead of +2.",
+          "Every fey'ri has four special abilities drawn from the following list: charm person (Sp) 1/day, clairaudience/clairvoyance (Sp) 1/day, damage reduction 10/magic, darkness (Sp) 1/day, detect thoughts (Sp) 1/day, dimension door (Sp) 1/day, enervation (Sp) 1/day, fire resistance 10, suggestion (Sp) 1/day, +2 racial bonus on saves against electricity, or +2 racial bonus on saves against poison. Spell-like abilities use the fey'ri's character level and Charisma-based DCs. A fey'ri can have only one of the three asterisked abilities in the book (damage reduction, dimension door, enervation), and a fey'ri with one of them has a level adjustment of +3 instead of +2.",
         category: "special-quality",
         source: `${ROF} — Fey'ri racial traits (pp. 119–120)`,
         sourceUrl: ROF_PATH,
@@ -753,7 +753,7 @@ export const RACES_OF_FAERUN_RACES: RaceDefinition[] = [
         key: "wemic-size",
         name: "Large Size",
         description:
-          "As Large creatures, wemics suffer a –1 size penalty on attack rolls and AC and a –4 size penalty on Hide checks, but can use larger weapons and have lifting and carrying limits twice those of Medium-size characters. A wemic's facing is 10 feet and its reach is 5 feet (a Large long creature).",
+          "As Large creatures, wemics suffer a –1 size penalty on attack rolls and AC and a –4 size penalty on Hide checks, but can use larger weapons and have lifting and carrying limits twice those of Medium characters. A wemic's facing is 10 feet and its reach is 5 feet (a Large long creature).",
         category: "trait",
         source: `${ROF} — Wemic racial traits (pp. 149–150)`,
         sourceUrl: ROF_PATH,

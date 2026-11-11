@@ -207,7 +207,7 @@ export const BOOK_OF_VILE_DARKNESS_EQUIPMENT: EquipmentItem[] = [
     "category": "gear",
     "cost": "200 gp",
     "weight": "—",
-    "notes": "Drug (ingested, Fort DC 18; extreme addiction): distilled essence of pain. Initial: stunned 1d4+1 rounds, then partial actions only for 1d6 minutes. Secondary: +1d4+1 enhancement bonus to Charisma for 1d10+50 minutes. Overdose (2 doses in 24 hours): unconscious 1d4 hours (Fort DC 18 negates).",
+    "notes": "Drug (ingested, Fort DC 18; extreme addiction): distilled essence of pain. Initial: stunned 1d4+1 rounds, then can take only a single move action or standard action in each round for 1d6 minutes. Secondary: +1d4+1 enhancement bonus to Charisma for 1d10+50 minutes. Overdose (2 doses in 24 hours): unconscious 1d4 hours (Fort DC 18 negates).",
     "source": "Book of Vile Darkness, Chapter 3: Evil Equipment, p. 43",
     "sourceUrl": "/A POC PC related/BoVD - Book of Vile Darkness.pdf",
     "ruleset": "core"
@@ -273,7 +273,7 @@ export const BOOK_OF_VILE_DARKNESS_EQUIPMENT: EquipmentItem[] = [
     "category": "gear",
     "cost": "300 gp",
     "weight": "—",
-    "notes": "Drug (ingested, Fort DC 10; low addiction): crushed bog-flower leaves improving hand-eye coordination. Secondary: for 10 minutes, as a move-equivalent action the user can focus on a creature and gain +4 competence on the next attack roll against it. Overdose: nauseated 1d4 x 10 minutes.",
+    "notes": "Drug (ingested, Fort DC 10; low addiction): crushed bog-flower leaves improving hand-eye coordination. Secondary: for 10 minutes, as a move action the user can focus on a creature and gain +4 competence on the next attack roll against it. Overdose: nauseated 1d4 x 10 minutes.",
     "source": "Book of Vile Darkness, Chapter 3: Evil Equipment, p. 43",
     "sourceUrl": "/A POC PC related/BoVD - Book of Vile Darkness.pdf",
     "ruleset": "core"
@@ -284,7 +284,7 @@ export const BOOK_OF_VILE_DARKNESS_EQUIPMENT: EquipmentItem[] = [
     "category": "gear",
     "cost": "15 gp",
     "weight": "—",
-    "notes": "Drug (ingested, Fort DC 9; medium addiction): bluish liquid distilled from wolves' milk and a desert plant; stains addicts' lips blue. Initial: 1 point of Wisdom damage. Secondary: numbed to pain for 1d4 hours. Side effect: euphoria, -2 on initiative. Overdose: numbing stupor 2d4 hours (partial actions only).",
+    "notes": "Drug (ingested, Fort DC 9; medium addiction): bluish liquid distilled from wolves' milk and a desert plant; stains addicts' lips blue. Initial: 1 point of Wisdom damage. Secondary: numbed to pain for 1d4 hours. Side effect: euphoria, -2 on initiative. Overdose: numbing stupor 2d4 hours (can take only a single move action or standard action in each round).",
     "source": "Book of Vile Darkness, Chapter 3: Evil Equipment, p. 43",
     "sourceUrl": "/A POC PC related/BoVD - Book of Vile Darkness.pdf",
     "ruleset": "core"

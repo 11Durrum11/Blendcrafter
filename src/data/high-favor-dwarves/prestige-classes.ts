@@ -115,7 +115,7 @@ export const HOFD_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
     progression: rows(FULL10, POOR10, GOOD10, GOOD10),
     classSkills: [
       "Appraise", "Bluff", "Climb", "Concentration", "Craft", "Decipher Script",
-      "Diplomacy", "Gather Information", "Hide", "Intimidate", "Intuit Direction",
+      "Diplomacy", "Gather Information", "Hide", "Intimidate", "Survival",
       "Jump", "Knowledge", "Listen", "Move Silently", "Profession", "Sense Motive",
       "Speak Language", "Spellcraft", "Swim", "Use Magic Device",
     ],
@@ -147,7 +147,7 @@ export const HOFD_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
     progression: rows(FULL10, GOOD10, POOR10, GOOD10),
     classSkills: [
       "Climb", "Concentration", "Craft", "Decipher Script", "Diplomacy", "Heal",
-      "Jump", "Knowledge (arcana)", "Knowledge (religion)", "Scry", "Spellcraft",
+      "Jump", "Knowledge (arcana)", "Knowledge (religion)",  "Spellcraft",
     ],
     prerequisites: [
       "Base attack bonus +4",
@@ -177,16 +177,16 @@ export const HOFD_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
     goodSaves: ["fort", "will"],
     progression: rows(TQ10, GOOD10, POOR10, GOOD10),
     classSkills: [
-      "Animal Empathy", "Climb", "Concentration", "Craft", "Handle Animal", "Heal",
-      "Intuit Direction", "Knowledge (nature)", "Scry", "Spellcraft", "Swim",
-      "Wilderness Lore",
+       "Climb", "Concentration", "Craft", "Handle Animal", "Heal",
+      "Survival", "Knowledge (nature)",  "Spellcraft", "Swim",
+      
     ],
     prerequisites: [
       "Base Fortitude save +6",
-      "Skills: Animal Empathy 8 ranks",
+      "Skills: Handle Animal 8 ranks",
       "Skills: Scry 8 ranks",
       "Skills: Speak Language (Terran)",
-      "Skills: Wilderness Lore 8 ranks",
+      "Skills: Survival 8 ranks",
       "Feats: Blind-Fight",
       "Special: ability to cast 2nd level divine spells",
     ],
@@ -213,7 +213,7 @@ export const HOFD_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
     goodSaves: ["fort", "ref", "will"],
     progression: rows(TQ10, GOOD10, GOOD10, GOOD10),
     classSkills: [
-      "Concentration", "Craft", "Diplomacy", "Heal", "Hide", "Intuit Direction",
+      "Concentration", "Craft", "Diplomacy", "Heal", "Hide", "Survival",
       "Knowledge (arcana)", "Knowledge (religion)", "Listen", "Move Silently",
       "Sense Motive", "Spot",
     ],
@@ -282,15 +282,15 @@ export const HOFD_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
     goodSaves: ["fort"],
     progression: rows(FULL10, GOOD10, POOR10, POOR10),
     classSkills: [
-      "Climb", "Concentration", "Craft", "Heal", "Hide", "Intuit Direction", "Jump",
+      "Climb", "Concentration", "Craft", "Heal", "Hide", "Survival", "Jump",
       "Listen", "Move Silently", "Search", "Spot", "Swim", "Tumble", "Use Rope",
-      "Wilderness Lore",
+      
     ],
     prerequisites: [
       "Base attack bonus +5",
       "Skills: Knowledge (Dwarves) 8 ranks",
       "Skills: Spot 8 ranks",
-      "Skills: Wilderness Lore 8 ranks",
+      "Skills: Survival 8 ranks",
       "Feats: Track, Weapon Focus (any), Weapon Specialization (any)",
       "Special: must have at least one favored enemy",
     ],
@@ -314,15 +314,15 @@ export const HOFD_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
     progression: rows(TQ10, TF_FORT, GOOD10, POOR10),
     classSkills: [
       "Balance", "Bluff", "Climb", "Craft", "Disable Device", "Disguise",
-      "Escape Artist", "Hide", "Innuendo", "Intimidate", "Intuit Direction", "Jump",
-      "Listen", "Move Silently", "Open Lock", "Profession", "Read Lips", "Search",
+      "Escape Artist", "Hide",  "Intimidate", "Survival", "Jump",
+      "Listen", "Move Silently", "Open Lock", "Profession",  "Search",
       "Sense Motive", "Spot", "Swim", "Tumble", "Use Rope",
     ],
     prerequisites: [
       "Base attack bonus +5",
       "Skills: Craft (Trapmaking) 6 ranks",
       "Skills: Hide 6 ranks",
-      "Skills: Intuit Direction 6 ranks",
+      "Skills: Survival 6 ranks",
       "Skills: Move Silently 6 ranks",
       "Skills: Spot 6 ranks",
       "Skills: Tumble 6 ranks",
@@ -350,8 +350,8 @@ export const HOFD_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
     goodSaves: ["fort", "will"],
     progression: rows(TQ10, GOOD10, POOR10, GOOD10),
     classSkills: [
-      "Alchemy", "Concentration", "Craft", "Intimidate", "Knowledge (arcana)",
-      "Scry", "Spellcraft",
+      "Craft (alchemy)", "Concentration", "Craft", "Intimidate", "Knowledge (arcana)",
+       "Spellcraft",
     ],
     prerequisites: [
       "Base Fortitude save +4",
@@ -379,8 +379,8 @@ export const HOFD_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
     goodSaves: ["will"],
     progression: rows(TQ10, POOR10, POOR10, GOOD10),
     classSkills: [
-      "Alchemy", "Concentration", "Craft", "Knowledge (arcana)", "Profession",
-      "Scry", "Spellcraft", "Use Magic Device",
+      "Craft (alchemy)", "Concentration", "Craft", "Knowledge (arcana)", "Profession",
+       "Spellcraft", "Use Magic Device",
     ],
     prerequisites: [
       "Skills: Alchemy 9 ranks",

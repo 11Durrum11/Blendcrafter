@@ -87,7 +87,7 @@ export const BASTARDS_TEMPLATES: TemplateDefinition[] = [
         key: "half-beholder-bite",
         name: "Bite Attack",
         description:
-          "Gains a bite attack (use the greater of this damage or the base creature's bite): Fine 1, Diminutive 1d3, Tiny 1d4, Small 1d6, Medium-size 2d3, Large 2d4, Huge 2d6, Gargantuan 2d8, Colossal 4d6.",
+          "Gains a bite attack (use the greater of this damage or the base creature's bite): Fine 1, Diminutive 1d3, Tiny 1d4, Small 1d6, Medium 2d3, Large 2d4, Huge 2d6, Gargantuan 2d8, Colossal 4d6.",
         category: "special-attack",
         source: "Bastards and Bloodlines, p. 66",
         sourceUrl: BB_PATH,
@@ -165,7 +165,7 @@ export const BASTARDS_TEMPLATES: TemplateDefinition[] = [
         key: "half-creature-biped-construction",
         name: "Half-Creature (Biped) Construction",
         description:
-          "Size: choose the base creature's size, the donor's size, or a size between the two, with the normal size benefits/penalties and the reach of a tall creature of the new size (a Medium-size or smaller result loses any reach). Hit Dice change to d8; use the greater of the base or donor total Hit Dice and add 1 HD; class levels give hit points normally. Speed: use the better of the base or donor base speed, and retain any other movement mode either creature has. AC: use the greater natural armor bonus of base or donor. Attacks: retain all base attacks and gain all donor attacks; base attack bonus is that of a monstrous humanoid of its nonclass Hit Dice; where both have the same attack form, use the higher base damage (unless the attacks come from different features, e.g. gore from horns and gore from tusks, in which case both are kept). Attack damage scales up or down by size per the monster advancement rules if the result is larger or smaller than the creature the attack came from.",
+          "Size: choose the base creature's size, the donor's size, or a size between the two, with the normal size benefits/penalties and the reach of a tall creature of the new size (a Medium or smaller result loses any reach). Hit Dice change to d8; use the greater of the base or donor total Hit Dice and add 1 HD; class levels give hit points normally. Speed: use the better of the base or donor base speed, and retain any other movement mode either creature has. AC: use the greater natural armor bonus of base or donor. Attacks: retain all base attacks and gain all donor attacks; base attack bonus is that of a monstrous humanoid of its nonclass Hit Dice; where both have the same attack form, use the higher base damage (unless the attacks come from different features, e.g. gore from horns and gore from tusks, in which case both are kept). Attack damage scales up or down by size per the monster advancement rules if the result is larger or smaller than the creature the attack came from.",
         category: "trait",
         source: "Bastards and Bloodlines, p. 67",
         sourceUrl: BB_PATH,
@@ -271,7 +271,7 @@ export const BASTARDS_TEMPLATES: TemplateDefinition[] = [
         key: "half-doppelganger-slam",
         name: "Slam Attacks",
         description:
-          "Retains the base creature's natural attacks and gains two slam attacks (use the greater of this damage or the base creature's slam): Fine — (none), Diminutive 1, Tiny 1d3, Small 1d4, Medium-size 1d6, Large 1d8, Huge 1d10, Gargantuan 1d12, Colossal 2d8. Natural armor is +2 or the base creature's natural armor, whichever is greater.",
+          "Retains the base creature's natural attacks and gains two slam attacks (use the greater of this damage or the base creature's slam): Fine — (none), Diminutive 1, Tiny 1d3, Small 1d4, Medium 1d6, Large 1d8, Huge 1d10, Gargantuan 1d12, Colossal 2d8. Natural armor is +2 or the base creature's natural armor, whichever is greater.",
         category: "special-attack",
         source: "Bastards and Bloodlines, p. 71",
         sourceUrl: BB_PATH,
@@ -405,7 +405,7 @@ export const BASTARDS_TEMPLATES: TemplateDefinition[] = [
         key: "half-rakshasa-bite-claw",
         name: "Bite and Claw Attacks",
         description:
-          "Retains the base creature's natural attacks and gains bite and claw attacks (use the greater of these values or the base creature's damage). Bite / claw by size — Fine 1 / —, Diminutive 1d2 / 1, Tiny 1d3 / 1d2, Small 1d4 / 1d3, Medium-size 1d6 / 1d4, Large 1d8 / 1d6, Huge 2d6 / 1d8, Gargantuan 2d8 / 2d6, Colossal 4d6 / 2d8.",
+          "Retains the base creature's natural attacks and gains bite and claw attacks (use the greater of these values or the base creature's damage). Bite / claw by size — Fine 1 / —, Diminutive 1d2 / 1, Tiny 1d3 / 1d2, Small 1d4 / 1d3, Medium 1d6 / 1d4, Large 1d8 / 1d6, Huge 2d6 / 1d8, Gargantuan 2d8 / 2d6, Colossal 4d6 / 2d8.",
         category: "special-attack",
         source: "Bastards and Bloodlines, p. 73",
         sourceUrl: BB_PATH,
@@ -498,7 +498,7 @@ export const BASTARDS_TEMPLATES: TemplateDefinition[] = [
         key: "half-titan-dr-sr",
         name: "Damage Reduction and Spell Resistance",
         description:
-          "Gains damage reduction and spell resistance by Hit Dice (use the base creature's DR or SR instead if better): 1–5 HD DR 5/silver, SR 12; 6–10 HD DR 5/+1, SR 17; 11–15 HD DR 10/+1, SR 21; 16+ HD DR 15/+1, SR 25. DR notation is as printed (3.0 style).",
+          "Gains damage reduction and spell resistance by Hit Dice (use the base creature's DR or SR instead if better): 1–5 HD DR 5/silver, SR 12; 6–10 HD DR 5/magic, SR 17; 11–15 HD DR 10/magic, SR 21; 16+ HD DR 15/magic, SR 25.",
         category: "special-quality",
         source: "Bastards and Bloodlines, p. 75",
         sourceUrl: BB_PATH,
@@ -511,7 +511,7 @@ export const BASTARDS_TEMPLATES: TemplateDefinition[] = [
     ruleset: "core",
     timing: "inherited",
     summary:
-      "A living creature tainted by vampirism — not undead, and its type does not change: Hit Dice step up one die size, natural armor improves by +3, gains slam and bite attacks, charm person gaze, damage reduction 10/+1 (3.0 notation as printed), fast healing 1, and one fixed weakness chosen at creation. CR is +3 if the base creature's CR is 3 or less, +2 if it is 4 or more; the record carries +3.",
+      "A living creature tainted by vampirism — not undead, and its type does not change: Hit Dice step up one die size, natural armor improves by +3, gains slam and bite attacks, charm person gaze, damage reduction 10/magic (converted from the printed 3.0 notation, 10/+1), fast healing 1, and one fixed weakness chosen at creation. CR is +3 if the base creature's CR is 3 or less, +2 if it is 4 or more; the record carries +3.",
     source: "Bastards and Bloodlines, p. 76",
     sourceUrl: BB_PATH,
     crModifier: 3,
@@ -560,7 +560,7 @@ export const BASTARDS_TEMPLATES: TemplateDefinition[] = [
         key: "half-vampire-slam-bite",
         name: "Slam and Bite Attacks",
         description:
-          "Retains the base creature's natural attacks and gains a slam and a bite attack (use the greater of these values or the base creature's damage). Slam / bite by size — Fine — / 1d2, Diminutive 1 / 1d3, Tiny 1d2 / 1d4, Small 1d3 / 1d6, Medium-size 1d4 / 1d8, Large 1d6 / 1d10, Huge 1d8 / 2d6, Gargantuan 2d6 / 2d8, Colossal 2d8 / 4d6.",
+          "Retains the base creature's natural attacks and gains a slam and a bite attack (use the greater of these values or the base creature's damage). Slam / bite by size — Fine — / 1d2, Diminutive 1 / 1d3, Tiny 1d2 / 1d4, Small 1d3 / 1d6, Medium 1d4 / 1d8, Large 1d6 / 1d10, Huge 1d8 / 2d6, Gargantuan 2d6 / 2d8, Colossal 2d8 / 4d6.",
         category: "special-attack",
         source: "Bastards and Bloodlines, p. 76",
         sourceUrl: BB_PATH,
@@ -579,7 +579,7 @@ export const BASTARDS_TEMPLATES: TemplateDefinition[] = [
         key: "half-vampire-defenses",
         name: "Vampiric Defenses (Su)",
         description:
-          "Darkvision 60 feet (Ex). Damage reduction 10/+1 (Su; 3.0 notation as printed). Fast healing (Su) 1 hit point per round as long as it has at least 1 hit point; at 0 hit points or lower it cannot heal and takes the normal penalties, with a chance of bleeding to death. Cold and electricity resistance 10 (Su). Continuous spider climb (Su). Gains a +4 racial bonus on saves against ability damage, energy drain, and death effects. Gains Combat Reflexes, Dodge, and Improved Initiative as bonus feats.",
+          "Darkvision 60 feet (Ex). Damage reduction 10/magic (Su). Fast healing (Su) 1 hit point per round as long as it has at least 1 hit point; at 0 hit points or lower it cannot heal and takes the normal penalties, with a chance of bleeding to death. Cold and electricity resistance 10 (Su). Continuous spider climb (Su). Gains a +4 racial bonus on saves against ability damage, energy drain, and death effects. Gains Combat Reflexes, Dodge, and Improved Initiative as bonus feats.",
         category: "special-quality",
         source: "Bastards and Bloodlines, p. 77",
         sourceUrl: BB_PATH,
@@ -588,7 +588,7 @@ export const BASTARDS_TEMPLATES: TemplateDefinition[] = [
         key: "half-vampire-immunities",
         name: "Immunities (Su)",
         description:
-          "Although not truly undead, a half-vampire is immune to poison, sleep, paralysis, stunning, disease, subdual damage, and death from massive damage, and has a 25% chance of negating a critical hit. It cannot be turned, and is immune to spells and magic effects that only affect the undead.",
+          "Although not truly undead, a half-vampire is immune to poison, sleep, paralysis, stunning, disease, nonlethal damage, and death from massive damage, and has a 25% chance of negating a critical hit. It cannot be turned, and is immune to spells and magic effects that only affect the undead.",
         category: "special-quality",
         source: "Bastards and Bloodlines, p. 77",
         sourceUrl: BB_PATH,

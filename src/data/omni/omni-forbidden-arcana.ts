@@ -175,7 +175,7 @@ export const FARC_MAGIC_ITEMS_OMNI: MagicItemDefinition[] = [
     "name": "Flavor-All",
     "category": "wondrous-slotless",
     "cost": "25 gp",
-    "summary": "A small pouch of multi-colored granules sprinkled on food to change its taste to one pleasant to the creature eating it, regardless of the food's actual type; a creature that wishes to can make a Will saving throw (DC 11) to taste the food's true flavor. One pouch can alter the taste of ten meals for a Medium-sized creature.",
+    "summary": "A small pouch of multi-colored granules sprinkled on food to change its taste to one pleasant to the creature eating it, regardless of the food's actual type; a creature that wishes to can make a Will saving throw (DC 11) to taste the food's true flavor. One pouch can alter the taste of ten meals for a Medium creature.",
     "source": "Forbidden Arcana — Magical Foods: Magic Items, p. 73",
     "sourceUrl": "",
     "ruleset": "core"
@@ -195,7 +195,7 @@ export const FARC_MAGIC_ITEMS_OMNI: MagicItemDefinition[] = [
     "name": "Self-Heating Oven",
     "category": "wondrous-slotless",
     "cost": "1,800 gp",
-    "summary": "A cast-iron Dutch oven whose interior heats on command to the desired temperature within 1 round — typically 220 degrees (\"boil\") or 400 degrees (\"bake\") — with a third command shutting it off. It can prepare a meal for up to 10 Medium-sized creatures; its surfaces become as hot as its contents, dealing 1d4 points of fire damage on significant contact, and it must cool before transport.",
+    "summary": "A cast-iron Dutch oven whose interior heats on command to the desired temperature within 1 round — typically 220 degrees (\"boil\") or 400 degrees (\"bake\") — with a third command shutting it off. It can prepare a meal for up to 10 Medium creatures; its surfaces become as hot as its contents, dealing 1d4 points of fire damage on significant contact, and it must cool before transport.",
     "source": "Forbidden Arcana — Magical Foods: Magic Items, p. 73",
     "sourceUrl": "",
     "ruleset": "core"
@@ -205,7 +205,7 @@ export const FARC_MAGIC_ITEMS_OMNI: MagicItemDefinition[] = [
     "name": "Stew Cooker",
     "category": "wondrous-slotless",
     "cost": "1,200 gp",
-    "summary": "A cast-iron pot whose interior self-heats on command to a maximum of 220 degrees within 1 round, enough to boil water and cook stews or soup for a meal for 10 Medium-sized creatures; a second command shuts it off. Its surfaces become as hot as its contents, dealing 1d2 points of fire damage on significant contact, and it must cool before transport.",
+    "summary": "A cast-iron pot whose interior self-heats on command to a maximum of 220 degrees within 1 round, enough to boil water and cook stews or soup for a meal for 10 Medium creatures; a second command shuts it off. Its surfaces become as hot as its contents, dealing 1d2 points of fire damage on significant contact, and it must cool before transport.",
     "source": "Forbidden Arcana — Magical Foods: Magic Items, p. 73",
     "sourceUrl": "",
     "ruleset": "core"

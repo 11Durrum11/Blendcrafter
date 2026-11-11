@@ -79,8 +79,8 @@ export const ELH_MAGIC_ITEMS_OMNI: MagicItemDefinition[] = [
     "id": "great-invulnerability-epic",
     "name": "Great Invulnerability (epic armor/shield ability)",
     "category": "armor-special-ability",
-    "cost": "+4 bonus (10/+2); +5 bonus (15/+3); +6 bonus (20/+4); +7 bonus (25/+5)",
-    "summary": "Epic armor or shield special ability: grants the wearer damage reduction of 10/+2, 15/+3, 20/+4, or 25/+5, depending on the version of the ability placed on the armor.",
+    "cost": "+4 bonus (10/epic); +5 bonus (15/epic); +6 bonus (20/epic); +7 bonus (25/epic)",
+    "summary": "Epic armor or shield special ability: grants the wearer damage reduction of 10/epic, 15/epic, 20/epic, or 25/epic, depending on the version of the ability placed on the armor.",
     "source": "Epic Level Handbook — Chapter 4: Epic Magic Items, pp. 126–127",
     "sourceUrl": "",
     "ruleset": "core"
@@ -310,7 +310,7 @@ export const ELH_MAGIC_ITEMS_OMNI: MagicItemDefinition[] = [
     "name": "Everdancing (epic weapon ability)",
     "category": "weapon-special-ability",
     "cost": "+8 bonus",
-    "summary": "Epic weapon special ability: like a dancing weapon, but it can be loosed as a free action and fights on indefinitely up to 60 feet from its owner, who can redirect it to a new target as a move-equivalent action or grasp it again as a free action. If the owner is rendered unable to direct it, it keeps fighting the same opponent while that foe is conscious and in range.",
+    "summary": "Epic weapon special ability: like a dancing weapon, but it can be loosed as a free action and fights on indefinitely up to 60 feet from its owner, who can redirect it to a new target as a move action or grasp it again as a free action. If the owner is rendered unable to direct it, it keeps fighting the same opponent while that foe is conscious and in range.",
     "source": "Epic Level Handbook — Chapter 4: Epic Magic Items, p. 131",
     "sourceUrl": "",
     "ruleset": "core"
@@ -560,7 +560,7 @@ export const ELH_MAGIC_ITEMS_OMNI: MagicItemDefinition[] = [
     "name": "Ironskin",
     "category": "ring",
     "cost": "400,000 gp",
-    "summary": "A plain band of black iron that grants its wearer damage reduction 10/+5.",
+    "summary": "A plain band of black iron that grants its wearer damage reduction 10/epic.",
     "source": "Epic Level Handbook — Chapter 4: Epic Magic Items, p. 136",
     "sourceUrl": "",
     "ruleset": "core"
@@ -570,7 +570,7 @@ export const ELH_MAGIC_ITEMS_OMNI: MagicItemDefinition[] = [
     "name": "Weaponbreaking",
     "category": "ring",
     "cost": "600,000 gp",
-    "summary": "Identical to a ring of ironskin (damage reduction 10/+5), with one additional power: any weapon that successfully strikes the wearer must make a DC 20 Fortitude saving throw or be shattered into pieces.",
+    "summary": "Identical to a ring of ironskin (damage reduction 10/epic), with one additional power: any weapon that successfully strikes the wearer must make a DC 20 Fortitude saving throw or be shattered into pieces.",
     "source": "Epic Level Handbook — Chapter 4: Epic Magic Items, p. 137",
     "sourceUrl": "",
     "ruleset": "core"
@@ -770,7 +770,7 @@ export const ELH_MAGIC_ITEMS_OMNI: MagicItemDefinition[] = [
     "name": "The Path",
     "category": "rod",
     "cost": "306,870 gp",
-    "summary": "A darkened oak shillelagh that aids trailblazing and travel: a +30 enhancement bonus on Wilderness Lore checks for tracking and on Intuit Direction checks, and a hollow telescoping handle that triples the range of vision (and shows things as if by true seeing). Three times per day it can unroll a map of the surrounding area (50-foot to 24-mile radius, revealing structures even if hidden) or let the wielder and up to five others move unhindered through plant growth or water; once per day it can create a stone causeway 5 feet wide and 40 feet long for 1 hour, or grant pass without trace to the wielder and twenty others for 21 minutes.",
+    "summary": "A darkened oak shillelagh that aids trailblazing and travel: a +30 enhancement bonus on Survival checks for tracking and on Survival checks, and a hollow telescoping handle that triples the range of vision (and shows things as if by true seeing). Three times per day it can unroll a map of the surrounding area (50-foot to 24-mile radius, revealing structures even if hidden) or let the wielder and up to five others move unhindered through plant growth or water; once per day it can create a stone causeway 5 feet wide and 40 feet long for 1 hour, or grant pass without trace to the wielder and twenty others for 21 minutes.",
     "source": "Epic Level Handbook — Chapter 4: Epic Magic Items, pp. 139–140",
     "sourceUrl": "",
     "ruleset": "core"
@@ -830,7 +830,7 @@ export const ELH_MAGIC_ITEMS_OMNI: MagicItemDefinition[] = [
     "name": "Invulnerability",
     "category": "rod",
     "cost": "600,000 gp",
-    "summary": "When held, this stout adamantine rod grants its wielder a +5 natural armor bonus, a +5 resistance bonus on saving throws, damage reduction 50/+3, immunity to critical hits, and spell resistance 32.",
+    "summary": "When held, this stout adamantine rod grants its wielder a +5 natural armor bonus, a +5 resistance bonus on saving throws, damage reduction 50/epic, immunity to critical hits, and spell resistance 32.",
     "source": "Epic Level Handbook — Chapter 4: Epic Magic Items, p. 139",
     "sourceUrl": "",
     "ruleset": "core"

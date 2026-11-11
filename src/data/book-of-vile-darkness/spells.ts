@@ -1265,7 +1265,7 @@ export const BOOK_OF_VILE_DARKNESS_SPELLS: SpellDefinition[] = [
   "duration": "10 minutes/level or until discharged",
   "savingThrow": "Not printed in source",
   "spellResistance": "Not printed in source",
-  "summary": "Wearing the flayed skin of a creature of his size, the caster gains damage reduction 10/+1 until the spell has absorbed 5 points of damage per caster level (maximum 50).",
+  "summary": "Wearing the flayed skin of a creature of his size, the caster gains damage reduction 10/magic until the spell has absorbed 5 points of damage per caster level (maximum 50).",
   "source": "Book of Vile Darkness, p. 96",
   "sourceUrl": "/A POC PC related/5.Splat/D&D 3.5 - Book of Vile Darkness.pdf"
 },

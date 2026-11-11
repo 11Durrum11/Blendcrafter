@@ -461,7 +461,7 @@ export const COMPLETE_WARRIOR_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
     goodSaves: ["ref"],
     progression: rows(FULL5, P5, G5, P5),
     classSkills: [
-      "Balance", "Bluff", "Climb", "Craft", "Escape Artist", "Hide", "Innuendo",
+      "Balance", "Bluff", "Climb", "Craft", "Escape Artist", "Hide", 
       "Jump", "Listen", "Move Silently", "Perform", "Profession", "Sense Motive",
       "Spot", "Tumble",
     ],
@@ -469,7 +469,7 @@ export const COMPLETE_WARRIOR_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
       "Skills: Bluff 8 ranks, Sense Motive 6 ranks",
       "Feats: Far Shot, Point Blank Shot, Weapon Focus (dagger, kukri, or punching dagger)",
       "Special: Must pass the class's rite-of-passage combat (see the book). As printed, the class has no base attack bonus requirement",
-      "Note: The printed class skill list includes Innuendo, a 3.0-era skill folded into Bluff in 3.5; it is listed as printed",
+      
     ],
     features: [
       {

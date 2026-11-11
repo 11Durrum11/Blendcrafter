@@ -271,7 +271,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "9 gp",
     "weight": "7 lbs.",
-    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, subdual damage reduction 3, damage type S/P.",
+    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, nonlethal damage reduction 3, damage type S/P.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:2 d20 Head Coverings & Helmets, p. 17",
     "sourceUrl": "",
     "ruleset": "core"
@@ -282,7 +282,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "12 gp",
     "weight": "8 lbs.",
-    "notes": "Helmet: armor bonus +7 to the head's armor class only, 10% arcane spell failure, subdual damage reduction 3, damage type S/P.",
+    "notes": "Helmet: armor bonus +7 to the head's armor class only, 10% arcane spell failure, nonlethal damage reduction 3, damage type S/P.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:2 d20 Head Coverings & Helmets, p. 17",
     "sourceUrl": "",
     "ruleset": "core"
@@ -293,7 +293,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "15 gp",
     "weight": "8 lbs.",
-    "notes": "Helmet: armor bonus +7 to the head's armor class only, 10% arcane spell failure, subdual damage reduction 3, damage type S/P.",
+    "notes": "Helmet: armor bonus +7 to the head's armor class only, 10% arcane spell failure, nonlethal damage reduction 3, damage type S/P.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:2 d20 Head Coverings & Helmets, p. 17",
     "sourceUrl": "",
     "ruleset": "core"
@@ -304,7 +304,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "8 gp",
     "weight": "5 lbs.",
-    "notes": "Helmet: armor bonus +4 to the head's armor class only, 5% arcane spell failure, subdual damage reduction 2, damage type S/P.",
+    "notes": "Helmet: armor bonus +4 to the head's armor class only, 5% arcane spell failure, nonlethal damage reduction 2, damage type S/P.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:2 d20 Head Coverings & Helmets, p. 17",
     "sourceUrl": "",
     "ruleset": "core"
@@ -315,7 +315,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "10 gp",
     "weight": "8 lbs.",
-    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, subdual damage reduction 3, damage type B/S/P.",
+    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, nonlethal damage reduction 3, damage type B/S/P.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:2 d20 Head Coverings & Helmets, p. 17",
     "sourceUrl": "",
     "ruleset": "core"
@@ -326,7 +326,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "10 gp",
     "weight": "8 lbs.",
-    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, subdual damage reduction 3, damage type B/S/P.",
+    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, nonlethal damage reduction 3, damage type B/S/P.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:2 d20 Head Coverings & Helmets, p. 17",
     "sourceUrl": "",
     "ruleset": "core"
@@ -337,7 +337,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "9 gp",
     "weight": "8 lbs.",
-    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, subdual damage reduction 3, damage type S/P.",
+    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, nonlethal damage reduction 3, damage type S/P.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:2 d20 Head Coverings & Helmets, p. 17",
     "sourceUrl": "",
     "ruleset": "core"
@@ -348,7 +348,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "20 gp",
     "weight": "5 lbs.",
-    "notes": "Helmet: armor bonus +4 to the head's armor class only, 5% arcane spell failure, subdual damage reduction 2, damage type S/P.",
+    "notes": "Helmet: armor bonus +4 to the head's armor class only, 5% arcane spell failure, nonlethal damage reduction 2, damage type S/P.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:2 d20 Head Coverings & Helmets, p. 17",
     "sourceUrl": "",
     "ruleset": "core"
@@ -359,7 +359,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "4 gp",
     "weight": "2 lbs.",
-    "notes": "Helmet: armor bonus +2 to the head's armor class only, 5% arcane spell failure, subdual damage reduction 1, damage type S/P.",
+    "notes": "Helmet: armor bonus +2 to the head's armor class only, 5% arcane spell failure, nonlethal damage reduction 1, damage type S/P.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:2 d20 Head Coverings & Helmets, p. 17",
     "sourceUrl": "",
     "ruleset": "core"
@@ -370,7 +370,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "9 gp",
     "weight": "7 lbs.",
-    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, subdual damage reduction 3, damage type S/P.",
+    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, nonlethal damage reduction 3, damage type S/P.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:2 d20 Head Coverings & Helmets, p. 17",
     "sourceUrl": "",
     "ruleset": "core"
@@ -381,7 +381,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "8 gp",
     "weight": "7 lbs.",
-    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, subdual damage reduction 3, damage type S/P.",
+    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, nonlethal damage reduction 3, damage type S/P.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:2 d20 Head Coverings & Helmets, p. 17",
     "sourceUrl": "",
     "ruleset": "core"
@@ -392,7 +392,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "9 gp",
     "weight": "8 lbs.",
-    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, subdual damage reduction 3, damage type S/P.",
+    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, nonlethal damage reduction 3, damage type S/P.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:2 d20 Head Coverings & Helmets, p. 17",
     "sourceUrl": "",
     "ruleset": "core"
@@ -403,7 +403,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "20 gp",
     "weight": "10 lbs.",
-    "notes": "Helmet: armor bonus +8 to the head's armor class only, 15% arcane spell failure, subdual damage reduction 5, damage type B/S/P.",
+    "notes": "Helmet: armor bonus +8 to the head's armor class only, 15% arcane spell failure, nonlethal damage reduction 5, damage type B/S/P.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:2 d20 Head Coverings & Helmets, p. 17",
     "sourceUrl": "",
     "ruleset": "core"
@@ -414,7 +414,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "10 gp",
     "weight": "8 lbs.",
-    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, subdual damage reduction 3, damage type B/S/P.",
+    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, nonlethal damage reduction 3, damage type B/S/P.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:2 d20 Head Coverings & Helmets, p. 17",
     "sourceUrl": "",
     "ruleset": "core"
@@ -425,7 +425,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "12 gp",
     "weight": "9 lbs.",
-    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, subdual damage reduction 3, damage type B/S/P.",
+    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, nonlethal damage reduction 3, damage type B/S/P.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:2 d20 Head Coverings & Helmets, p. 17",
     "sourceUrl": "",
     "ruleset": "core"
@@ -436,7 +436,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "8 gp",
     "weight": "7 lbs.",
-    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, subdual damage reduction 3, damage type S/P.",
+    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, nonlethal damage reduction 3, damage type S/P.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:2 d20 Head Coverings & Helmets, p. 17",
     "sourceUrl": "",
     "ruleset": "core"
@@ -447,7 +447,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "9 gp",
     "weight": "8 lbs.",
-    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, subdual damage reduction 3, damage type S/P.",
+    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, nonlethal damage reduction 3, damage type S/P.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:2 d20 Head Coverings & Helmets, p. 17",
     "sourceUrl": "",
     "ruleset": "core"
@@ -458,7 +458,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "12 gp",
     "weight": "8 lbs.",
-    "notes": "Helmet: armor bonus +7 to the head's armor class only, 10% arcane spell failure, subdual damage reduction 3, damage type S/P.",
+    "notes": "Helmet: armor bonus +7 to the head's armor class only, 10% arcane spell failure, nonlethal damage reduction 3, damage type S/P.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:2 d20 Head Coverings & Helmets, p. 17",
     "sourceUrl": "",
     "ruleset": "core"
@@ -469,7 +469,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "15 gp",
     "weight": "8 lbs.",
-    "notes": "Helmet: armor bonus +7 to the head's armor class only, 10% arcane spell failure, subdual damage reduction 3, damage type S/P.",
+    "notes": "Helmet: armor bonus +7 to the head's armor class only, 10% arcane spell failure, nonlethal damage reduction 3, damage type S/P.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:2 d20 Head Coverings & Helmets, p. 17",
     "sourceUrl": "",
     "ruleset": "core"
@@ -480,7 +480,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "8 gp",
     "weight": "7 lbs.",
-    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, subdual damage reduction 3, damage type S/P.",
+    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, nonlethal damage reduction 3, damage type S/P.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:2 d20 Head Coverings & Helmets, p. 17",
     "sourceUrl": "",
     "ruleset": "core"
@@ -491,7 +491,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "15 gp",
     "weight": "8 lbs.",
-    "notes": "Helmet: armor bonus +7 to the head's armor class only, 10% arcane spell failure, subdual damage reduction 3, damage type S/P.",
+    "notes": "Helmet: armor bonus +7 to the head's armor class only, 10% arcane spell failure, nonlethal damage reduction 3, damage type S/P.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:2 d20 Head Coverings & Helmets, p. 17",
     "sourceUrl": "",
     "ruleset": "core"
@@ -502,7 +502,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "9 gp",
     "weight": "8 lbs.",
-    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, subdual damage reduction 3, damage type S/P.",
+    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, nonlethal damage reduction 3, damage type S/P.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:2 d20 Head Coverings & Helmets, p. 17",
     "sourceUrl": "",
     "ruleset": "core"
@@ -717,7 +717,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "10 gp",
     "weight": "4 lbs.",
-    "notes": "Simple melee (Medium-size) weapon. Damage 1d8, critical 19-20/×2, type slashing.",
+    "notes": "Simple melee (Medium) weapon. Damage 1d8, critical 19-20/×2, type slashing.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:4 d20 New Weapons, pp. 34–37",
     "sourceUrl": "",
     "ruleset": "core"
@@ -728,7 +728,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "5 gp",
     "weight": "8 lbs.",
-    "notes": "Simple melee (Medium-size) weapon. Damage 1d8, critical ×2, type bludgeoning and slashing.",
+    "notes": "Simple melee (Medium) weapon. Damage 1d8, critical ×2, type bludgeoning and slashing.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:4 d20 New Weapons, pp. 34–37",
     "sourceUrl": "",
     "ruleset": "core"
@@ -816,7 +816,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "6 gp",
     "weight": "5 lbs.",
-    "notes": "Martial melee (Medium-size) weapon. Damage 1d6, critical ×3, type slashing.",
+    "notes": "Martial melee (Medium) weapon. Damage 1d6, critical ×3, type slashing.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:4 d20 New Weapons, pp. 34–37",
     "sourceUrl": "",
     "ruleset": "core"
@@ -827,7 +827,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "40 gp",
     "weight": "5 lbs.",
-    "notes": "Martial melee (Medium-size) weapon. Damage 2d6, critical ×3, type slashing.",
+    "notes": "Martial melee (Medium) weapon. Damage 2d6, critical ×3, type slashing.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:4 d20 New Weapons, pp. 34–37",
     "sourceUrl": "",
     "ruleset": "core"
@@ -838,7 +838,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "15 gp",
     "weight": "7 lbs.",
-    "notes": "Martial melee (Medium-size) weapon. Damage 1d8+1, critical ×3, type slashing and piercing.",
+    "notes": "Martial melee (Medium) weapon. Damage 1d8+1, critical ×3, type slashing and piercing.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:4 d20 New Weapons, pp. 34–37",
     "sourceUrl": "",
     "ruleset": "core"
@@ -849,7 +849,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "20 gp",
     "weight": "8 lbs.",
-    "notes": "Martial melee (Medium-size) weapon. Damage 1d8, critical 19-20/×2, type slashing.",
+    "notes": "Martial melee (Medium) weapon. Damage 1d8, critical 19-20/×2, type slashing.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:4 d20 New Weapons, pp. 34–37",
     "sourceUrl": "",
     "ruleset": "core"
@@ -860,7 +860,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "15 gp",
     "weight": "5 lbs.",
-    "notes": "Martial melee (Medium-size) weapon. Damage 1d8, critical 19-20/×2, type slashing and piercing.",
+    "notes": "Martial melee (Medium) weapon. Damage 1d8, critical 19-20/×2, type slashing and piercing.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:4 d20 New Weapons, pp. 34–37",
     "sourceUrl": "",
     "ruleset": "core"
@@ -871,7 +871,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "10 gp",
     "weight": "7 lbs.",
-    "notes": "Martial melee (Medium-size) weapon. Damage 1d8, critical 19-20/×2, type slashing.",
+    "notes": "Martial melee (Medium) weapon. Damage 1d8, critical 19-20/×2, type slashing.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:4 d20 New Weapons, pp. 34–37",
     "sourceUrl": "",
     "ruleset": "core"
@@ -882,7 +882,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "15 gp",
     "weight": "4 lbs.",
-    "notes": "Martial melee (Medium-size) weapon. Damage 1d6, critical 18-20/×2, type slashing.",
+    "notes": "Martial melee (Medium) weapon. Damage 1d6, critical 18-20/×2, type slashing.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:4 d20 New Weapons, pp. 34–37",
     "sourceUrl": "",
     "ruleset": "core"
@@ -893,7 +893,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "100 gp",
     "weight": "6 lbs.",
-    "notes": "Martial melee (Medium-size) weapon. Damage 3d4, critical 19-20/×2, type slashing.",
+    "notes": "Martial melee (Medium) weapon. Damage 3d4, critical 19-20/×2, type slashing.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:4 d20 New Weapons, pp. 34–37",
     "sourceUrl": "",
     "ruleset": "core"
@@ -904,7 +904,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "10 gp",
     "weight": "6 lbs.",
-    "notes": "Martial melee (Medium-size) weapon. Damage 1d6, critical ×4, type piercing.",
+    "notes": "Martial melee (Medium) weapon. Damage 1d6, critical ×4, type piercing.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:4 d20 New Weapons, pp. 34–37",
     "sourceUrl": "",
     "ruleset": "core"
@@ -915,7 +915,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "6 gp",
     "weight": "5 lbs.",
-    "notes": "Martial melee (Medium-size) weapon. Damage 1d6, critical ×3, type slashing.",
+    "notes": "Martial melee (Medium) weapon. Damage 1d6, critical ×3, type slashing.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:4 d20 New Weapons, pp. 34–37",
     "sourceUrl": "",
     "ruleset": "core"
@@ -926,7 +926,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "30 gp",
     "weight": "5 lbs.",
-    "notes": "Martial melee (Medium-size) weapon. Damage 1d10, critical 19-20/×2, type piercing.",
+    "notes": "Martial melee (Medium) weapon. Damage 1d10, critical 19-20/×2, type piercing.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:4 d20 New Weapons, pp. 34–37",
     "sourceUrl": "",
     "ruleset": "core"
@@ -937,7 +937,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "18 gp",
     "weight": "5 lbs.",
-    "notes": "Martial melee (Medium-size) weapon. Damage 1d8, critical 19-20/×2, type slashing.",
+    "notes": "Martial melee (Medium) weapon. Damage 1d8, critical 19-20/×2, type slashing.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:4 d20 New Weapons, pp. 34–37",
     "sourceUrl": "",
     "ruleset": "core"
@@ -948,7 +948,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "18 gp",
     "weight": "5 lbs.",
-    "notes": "Martial melee (Medium-size) weapon. Damage 1d6, critical 18-20/×2, type slashing. +3 bonus to parry and disarm opponents.",
+    "notes": "Martial melee (Medium) weapon. Damage 1d6, critical 18-20/×2, type slashing. +3 bonus to parry and disarm opponents.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:4 d20 New Weapons, pp. 34–37",
     "sourceUrl": "",
     "ruleset": "core"
@@ -959,7 +959,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "20 gp",
     "weight": "8 lbs.",
-    "notes": "Martial melee (Medium-size) weapon. Damage 1d8, critical 19-20/×2, type slashing.",
+    "notes": "Martial melee (Medium) weapon. Damage 1d8, critical 19-20/×2, type slashing.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:4 d20 New Weapons, pp. 34–37",
     "sourceUrl": "",
     "ruleset": "core"
@@ -970,7 +970,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "5 gp",
     "weight": "2 lbs.",
-    "notes": "Martial melee (Medium-size) weapon. Damage 1d8, critical ×2, range increment 40 ft., type bludgeoning.",
+    "notes": "Martial melee (Medium) weapon. Damage 1d8, critical ×2, range increment 40 ft., type bludgeoning.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:4 d20 New Weapons, pp. 34–37",
     "sourceUrl": "",
     "ruleset": "core"
@@ -1410,7 +1410,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "2 gp",
     "weight": "7 lbs.",
-    "notes": "Exotic melee (Medium-size) weapon. Damage 1d6, critical ×2, range increment 30 ft., type piercing.",
+    "notes": "Exotic melee (Medium) weapon. Damage 1d6, critical ×2, range increment 30 ft., type piercing.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:4 d20 New Weapons, pp. 34–37",
     "sourceUrl": "",
     "ruleset": "core"
@@ -1421,7 +1421,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "2 gp",
     "weight": "3 lbs.",
-    "notes": "Exotic melee (Medium-size) weapon. Damage 1d6, critical 19-20/×2, type bludgeoning.",
+    "notes": "Exotic melee (Medium) weapon. Damage 1d6, critical 19-20/×2, type bludgeoning.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:4 d20 New Weapons, pp. 34–37",
     "sourceUrl": "",
     "ruleset": "core"
@@ -1432,7 +1432,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "3 gp",
     "weight": "3 lbs.",
-    "notes": "Exotic melee (Medium-size) weapon. Damage 1d6, critical ×2, type bludgeoning.",
+    "notes": "Exotic melee (Medium) weapon. Damage 1d6, critical ×2, type bludgeoning.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:4 d20 New Weapons, pp. 34–37",
     "sourceUrl": "",
     "ruleset": "core"
@@ -1443,7 +1443,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "25 gp",
     "weight": "5 lbs.",
-    "notes": "Exotic melee (Medium-size) weapon. Damage 1d8, critical 19-20/×2, type slashing.",
+    "notes": "Exotic melee (Medium) weapon. Damage 1d8, critical 19-20/×2, type slashing.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:4 d20 New Weapons, pp. 34–37",
     "sourceUrl": "",
     "ruleset": "core"
@@ -1454,7 +1454,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "15 gp",
     "weight": "7 lbs.",
-    "notes": "Exotic melee (Medium-size) weapon. Damage 1d4/1d6, critical ×3, type slashing. Double weapon; may also be considered a monk weapon.",
+    "notes": "Exotic melee (Medium) weapon. Damage 1d4/1d6, critical ×3, type slashing. Double weapon; may also be considered a monk weapon.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:4 d20 New Weapons, pp. 34–37",
     "sourceUrl": "",
     "ruleset": "core"
@@ -1465,7 +1465,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "50 gp",
     "weight": "3 lbs.",
-    "notes": "Exotic melee (Medium-size) weapon. Damage 1d10, critical 19-20/×2, type slashing and piercing.",
+    "notes": "Exotic melee (Medium) weapon. Damage 1d10, critical 19-20/×2, type slashing and piercing.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:4 d20 New Weapons, pp. 34–37",
     "sourceUrl": "",
     "ruleset": "core"
@@ -1476,7 +1476,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "15 gp",
     "weight": "5 lbs.",
-    "notes": "Exotic melee (Medium-size) weapon. Damage 1d8, critical ×2, range increment 10 ft., type piercing. Can be set against a charge to deal double damage on a hit.",
+    "notes": "Exotic melee (Medium) weapon. Damage 1d8, critical ×2, range increment 10 ft., type piercing. Can be set against a charge to deal double damage on a hit.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:4 d20 New Weapons, pp. 34–37",
     "sourceUrl": "",
     "ruleset": "core"
@@ -1487,7 +1487,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "12 gp",
     "weight": "3 lbs.",
-    "notes": "Exotic melee (Medium-size) weapon. Damage 1d6, critical ×2, type slashing.",
+    "notes": "Exotic melee (Medium) weapon. Damage 1d6, critical ×2, type slashing.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:4 d20 New Weapons, pp. 34–37",
     "sourceUrl": "",
     "ruleset": "core"
@@ -1498,7 +1498,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "20 gp",
     "weight": "5 lbs.",
-    "notes": "Exotic melee (Medium-size) weapon. Damage 1d8, critical ×2, range increment 10 ft., type piercing. Can be set against a charge to deal double damage on a hit.",
+    "notes": "Exotic melee (Medium) weapon. Damage 1d8, critical ×2, range increment 10 ft., type piercing. Can be set against a charge to deal double damage on a hit.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:4 d20 New Weapons, pp. 34–37",
     "sourceUrl": "",
     "ruleset": "core"
@@ -1619,7 +1619,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "300 gp",
     "weight": "12 lbs.",
-    "notes": "Exotic ranged, early firearm (Medium-size) weapon. Damage 1d10, critical ×3, range increment 100 ft., type piercing. On a roll of 1 this weapon may backfire, doing damage to the wielder.",
+    "notes": "Exotic ranged, early firearm (Medium) weapon. Damage 1d10, critical ×3, range increment 100 ft., type piercing. On a roll of 1 this weapon may backfire, doing damage to the wielder.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:4 d20 New Weapons, pp. 34–37",
     "sourceUrl": "",
     "ruleset": "core"
@@ -1630,7 +1630,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "400 gp",
     "weight": "10 lbs.",
-    "notes": "Exotic ranged, early firearm (Medium-size) weapon. Damage 1d12, critical ×3, range increment 150 ft., type piercing. On a roll of 1 this weapon may backfire, doing damage to the wielder.",
+    "notes": "Exotic ranged, early firearm (Medium) weapon. Damage 1d12, critical ×3, range increment 150 ft., type piercing. On a roll of 1 this weapon may backfire, doing damage to the wielder.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:4 d20 New Weapons, pp. 34–37",
     "sourceUrl": "",
     "ruleset": "core"
@@ -1641,7 +1641,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "450 gp",
     "weight": "10 lbs.",
-    "notes": "Exotic ranged, early firearm (Medium-size) weapon. Damage 1d12, critical ×3, range increment 150 ft., type piercing.",
+    "notes": "Exotic ranged, early firearm (Medium) weapon. Damage 1d12, critical ×3, range increment 150 ft., type piercing.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:4 d20 New Weapons, pp. 34–37",
     "sourceUrl": "",
     "ruleset": "core"
@@ -1652,7 +1652,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "500 gp",
     "weight": "10 lbs.",
-    "notes": "Exotic ranged, early firearm (Medium-size) weapon. Damage 1d12, critical ×3, range increment 150 ft., type piercing.",
+    "notes": "Exotic ranged, early firearm (Medium) weapon. Damage 1d12, critical ×3, range increment 150 ft., type piercing.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:4 d20 New Weapons, pp. 34–37",
     "sourceUrl": "",
     "ruleset": "core"

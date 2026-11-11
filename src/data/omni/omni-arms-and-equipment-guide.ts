@@ -811,7 +811,7 @@ export const AEG_MAGIC_ITEMS_OMNI: MagicItemDefinition[] = [
     "name": "Merciful Weapon Special Ability",
     "category": "weapon-special-ability",
     "cost": "+1 bonus",
-    "summary": "Deals +1d6 damage, but all damage the weapon deals is subdual; the ability can be suppressed on command. Bows, crossbows, and slings bestow the effect on their ammunition",
+    "summary": "Deals +1d6 damage, but all damage the weapon deals is nonlethal; the ability can be suppressed on command. Bows, crossbows, and slings bestow the effect on their ammunition",
     "source": "Arms and Equipment Guide \u2014 Chapter 5: Magic Items, Magic Weapon Special Abilities, pp. 95\u201398",
     "sourceUrl": "",
     "ruleset": "core"
@@ -1721,7 +1721,7 @@ export const AEG_MAGIC_ITEMS_OMNI: MagicItemDefinition[] = [
     "name": "Ioun Blade",
     "category": "weapon",
     "cost": "6,302 gp",
-    "summary": "This +1 dagger can hold any one ioun stone in a socket in its pommel; while held, the stone affects the wielder as if it were orbiting her head. Placing or removing a stone is a move-equivalent action that provokes attacks of opportunity",
+    "summary": "This +1 dagger can hold any one ioun stone in a socket in its pommel; while held, the stone affects the wielder as if it were orbiting her head. Placing or removing a stone is a move action that provokes attacks of opportunity",
     "source": "Arms and Equipment Guide \u2014 Chapter 5: Magic Items, Specific Weapons, pp. 98\u2013122",
     "sourceUrl": "",
     "ruleset": "core"
@@ -4416,7 +4416,7 @@ export const AEG_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "200 gp",
     "weight": "3 lb.",
-    "notes": "1d2 slashing (subdual), crit \u00d72, 15 ft. reach; adds up to +1 of the wielder's Strength bonus to damage",
+    "notes": "1d2 slashing (nonlethal), crit \u00d72, 15 ft. reach; adds up to +1 of the wielder's Strength bonus to damage",
     "source": "Arms and Equipment Guide \u2014 Chapter 1: Weapons and Armor, Table 1\u20135, p. 10",
     "sourceUrl": "",
     "ruleset": "core"
@@ -4427,7 +4427,7 @@ export const AEG_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "300 gp",
     "weight": "4 lb.",
-    "notes": "1d2 slashing (subdual), crit \u00d72, 15 ft. reach; adds up to +2 of the wielder's Strength bonus to damage",
+    "notes": "1d2 slashing (nonlethal), crit \u00d72, 15 ft. reach; adds up to +2 of the wielder's Strength bonus to damage",
     "source": "Arms and Equipment Guide \u2014 Chapter 1: Weapons and Armor, Table 1\u20135, p. 10",
     "sourceUrl": "",
     "ruleset": "core"
@@ -4438,7 +4438,7 @@ export const AEG_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "400 gp",
     "weight": "5 lb.",
-    "notes": "1d2 slashing (subdual), crit \u00d72, 15 ft. reach; adds up to +3 of the wielder's Strength bonus to damage",
+    "notes": "1d2 slashing (nonlethal), crit \u00d72, 15 ft. reach; adds up to +3 of the wielder's Strength bonus to damage",
     "source": "Arms and Equipment Guide \u2014 Chapter 1: Weapons and Armor, Table 1\u20135, p. 10",
     "sourceUrl": "",
     "ruleset": "core"
@@ -4449,7 +4449,7 @@ export const AEG_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "500 gp",
     "weight": "6 lb.",
-    "notes": "1d2 slashing (subdual), crit \u00d72, 15 ft. reach; adds up to +4 of the wielder's Strength bonus to damage",
+    "notes": "1d2 slashing (nonlethal), crit \u00d72, 15 ft. reach; adds up to +4 of the wielder's Strength bonus to damage",
     "source": "Arms and Equipment Guide \u2014 Chapter 1: Weapons and Armor, Table 1\u20135, p. 10",
     "sourceUrl": "",
     "ruleset": "core"
@@ -4515,7 +4515,7 @@ export const AEG_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "ammunition",
     "cost": "5 sp",
     "weight": "1/5 lb.",
-    "notes": "1d6/1d8 bludgeoning, crit \u00d72; deals subdual damage",
+    "notes": "1d6/1d8 bludgeoning, crit \u00d72; deals nonlethal damage",
     "source": "Arms and Equipment Guide \u2014 Chapter 1: Weapons and Armor, Table 1\u20134, p. 7",
     "sourceUrl": "",
     "ruleset": "core"
@@ -7000,7 +7000,7 @@ export const AEG_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "gear",
     "cost": "20 gp",
     "weight": "\u2014",
-    "notes": "Holds one Tiny weapon or wand; drawing or replacing it is a move-equivalent action",
+    "notes": "Holds one Tiny weapon or wand; drawing or replacing it is a move action",
     "source": "Arms and Equipment Guide \u2014 Chapter 2: Adventuring Gear, Table 2\u20136, p. 35",
     "sourceUrl": "",
     "ruleset": "core"

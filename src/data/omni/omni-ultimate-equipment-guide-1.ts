@@ -232,7 +232,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "10 gp",
     "weight": "2 lb.",
-    "notes": "Medium-size simple melee weapon: a net mounted on a handle, used to entangle at close quarters rather than thrown.",
+    "notes": "Medium simple melee weapon: a net mounted on a handle, used to entangle at close quarters rather than thrown.",
     "source": "Ultimate Equipment Guide Volume 1 — Arcane Sorcery, p. 21; Rules Summary p. 210",
     "sourceUrl": "",
     "ruleset": "core"
@@ -3096,7 +3096,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "80 gp",
     "weight": "8 lb.",
-    "notes": "Medium-size exotic ranged weapon: range increment 10 ft.; entangles like a net and can also deal 1d4 slashing damage, critical x2, with its weighted, bladed edge.",
+    "notes": "Medium exotic ranged weapon: range increment 10 ft.; entangles like a net and can also deal 1d4 slashing damage, critical x2, with its weighted, bladed edge.",
     "source": "Ultimate Equipment Guide Volume 1 — Bards and Theatres, p. 34; Rules Summary p. 214",
     "sourceUrl": "",
     "ruleset": "core"
@@ -3107,7 +3107,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "x5",
     "weight": "—",
-    "notes": "Weapon extra: the blade is hollowed to hold a liquid such as poison or acid; a hollow-bladed weapon deals subdual rather than normal damage. Multiplies the weapon's cost by five.",
+    "notes": "Weapon extra: the blade is hollowed to hold a liquid such as poison or acid; a hollow-bladed weapon deals nonlethal rather than normal damage. Multiplies the weapon's cost by five.",
     "source": "Ultimate Equipment Guide Volume 1 — Bards and Theatres, p. 34; Rules Summary p. 214",
     "sourceUrl": "",
     "ruleset": "core"
@@ -3736,7 +3736,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "150 gp",
     "weight": "5 lb.",
-    "notes": "Medium-size simple melee weapon: 1d6 bludgeoning, critical x2, range increment 10 ft. A ceremonial ritual sceptre used with bells to focus a congregation's energy.",
+    "notes": "Medium simple melee weapon: 1d6 bludgeoning, critical x2, range increment 10 ft. A ceremonial ritual sceptre used with bells to focus a congregation's energy.",
     "source": "Ultimate Equipment Guide Volume 1 — Clerics and Temples, p. 50; Rules Summary p. 216",
     "sourceUrl": "",
     "ruleset": "core"
@@ -3747,7 +3747,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "12 gp",
     "weight": "5 lb.",
-    "notes": "Medium-size martial melee weapon: 1d8 bludgeoning, critical x2. The hollow head holds holy water for six attacks, successful or not; the water deals 1d4 extra damage to undead and evil outsiders.",
+    "notes": "Medium martial melee weapon: 1d8 bludgeoning, critical x2. The hollow head holds holy water for six attacks, successful or not; the water deals 1d4 extra damage to undead and evil outsiders.",
     "source": "Ultimate Equipment Guide Volume 1 — Clerics and Temples, p. 44; Rules Summary p. 216",
     "sourceUrl": "",
     "ruleset": "core"
@@ -3967,7 +3967,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "tool",
     "cost": "55 gp",
     "weight": "1 lb.",
-    "notes": "A minimal kit with supplies for five applications: it grants a +1 circumstance bonus on Heal checks, and using it in combat is a move-equivalent action instead of a standard action.",
+    "notes": "A minimal kit with supplies for five applications: it grants a +1 circumstance bonus on Heal checks, and using it in combat is a move action instead of a standard action.",
     "source": "Ultimate Equipment Guide Volume 1 — Clerics and Temples, p. 43; Rules Summary p. 217",
     "sourceUrl": "",
     "ruleset": "core"
@@ -4128,7 +4128,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
   },
   {
     "id": "icon-medium-size",
-    "name": "Icon, Medium-size",
+    "name": "Icon, Medium",
     "category": "gear",
     "cost": "400 gp",
     "weight": "10 lb.",
@@ -4209,7 +4209,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "gear",
     "cost": "300 gp per 10 sq. ft.",
     "weight": "—",
-    "notes": "A cell or sweat lodge built to create privation in willing subjects, freeing the mind for communion with the divine; typically inflicts 1d4 subdual damage per hour of use, with further effects set by the Games Master.",
+    "notes": "A cell or sweat lodge built to create privation in willing subjects, freeing the mind for communion with the divine; typically inflicts 1d4 nonlethal damage per hour of use, with further effects set by the Games Master.",
     "source": "Ultimate Equipment Guide Volume 1 — Clerics and Temples, pp. 45–46; Rules Summary p. 217",
     "sourceUrl": "",
     "ruleset": "core"
@@ -5093,7 +5093,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "alchemical gear",
     "cost": "1 cp",
     "weight": "—",
-    "notes": "A bitter bean that erases one point of subdual damage, up to five points per day. Habit-forming: regular users take a -1 circumstance penalty on all skill checks until they have had a brewed cup or three beans that day.",
+    "notes": "A bitter bean that erases one point of nonlethal damage, up to five points per day. Habit-forming: regular users take a -1 circumstance penalty on all skill checks until they have had a brewed cup or three beans that day.",
     "source": "Ultimate Equipment Guide Volume 1 — Food, Drink, Drugs and Herbs, p. 58; Rules Summary p. 220",
     "sourceUrl": "",
     "ruleset": "core"
@@ -5280,7 +5280,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "alchemical gear",
     "cost": "10 gp",
     "weight": "1 lb.",
-    "notes": "A topical ointment of toxic herbs and strong alcohol rubbed into bruises and sore muscles: the user heals one additional hit point after a full day of rest, or one additional point of subdual damage each hour.",
+    "notes": "A topical ointment of toxic herbs and strong alcohol rubbed into bruises and sore muscles: the user heals one additional hit point after a full day of rest, or one additional point of nonlethal damage each hour.",
     "source": "Ultimate Equipment Guide Volume 1 — Food, Drink, Drugs and Herbs, p. 60; Rules Summary p. 219",
     "sourceUrl": "",
     "ruleset": "core"
@@ -5291,7 +5291,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "alchemical gear",
     "cost": "70 gp",
     "weight": "1 lb.",
-    "notes": "An analgesic; a flask holds ten applications, enough to cover one Medium-size humanoid. If a creature bites the wearer within an hour of application, it takes a -4 circumstance penalty on bite attacks and damage for 30 minutes, with a Fortitude save (DC 18) on each bite to avoid the effect.",
+    "notes": "An analgesic; a flask holds ten applications, enough to cover one Medium humanoid. If a creature bites the wearer within an hour of application, it takes a -4 circumstance penalty on bite attacks and damage for 30 minutes, with a Fortitude save (DC 18) on each bite to avoid the effect.",
     "source": "Ultimate Equipment Guide Volume 1 — Food, Drink, Drugs and Herbs, pp. 60–61; Rules Summary p. 219",
     "sourceUrl": "",
     "ruleset": "core"
@@ -5368,7 +5368,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "alchemical gear",
     "cost": "4 gp",
     "weight": "—",
-    "notes": "A common balm for bruises and scrapes: a character using it recovers subdual damage at double the normal rate.",
+    "notes": "A common balm for bruises and scrapes: a character using it recovers nonlethal damage at double the normal rate.",
     "source": "Ultimate Equipment Guide Volume 1 — Food, Drink, Drugs and Herbs, p. 61; Rules Summary p. 219",
     "sourceUrl": "",
     "ruleset": "core"
@@ -5467,7 +5467,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "alchemical gear",
     "cost": "80 gp",
     "weight": "—",
-    "notes": "A shard of dried root sold as unicorn's horn: chewed for a full minute and swallowed, it cures one point of temporary Constitution damage and restores four points of subdual damage. Ten pieces steeped as a tea restore 1d4+1 points of temporary Constitution damage and 20 points of subdual damage.",
+    "notes": "A shard of dried root sold as unicorn's horn: chewed for a full minute and swallowed, it cures one point of temporary Constitution damage and restores four points of nonlethal damage. Ten pieces steeped as a tea restore 1d4+1 points of temporary Constitution damage and 20 points of nonlethal damage.",
     "source": "Ultimate Equipment Guide Volume 1 — Food, Drink, Drugs and Herbs, p. 62; Rules Summary p. 220",
     "sourceUrl": "",
     "ruleset": "core"
@@ -5533,7 +5533,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "alchemical gear",
     "cost": "100 gp",
     "weight": "1 lb.",
-    "notes": "A pouch of ten uses of a leaf-root-berry chew: after five minutes held in the cheek it dissolves, and swallowing it heals one point of subdual damage; no more than 20 points can be healed this way in 24 hours.",
+    "notes": "A pouch of ten uses of a leaf-root-berry chew: after five minutes held in the cheek it dissolves, and swallowing it heals one point of nonlethal damage; no more than 20 points can be healed this way in 24 hours.",
     "source": "Ultimate Equipment Guide Volume 1 — Food, Drink, Drugs and Herbs, p. 63; Rules Summary p. 220",
     "sourceUrl": "",
     "ruleset": "core"
@@ -5612,7 +5612,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "alchemical gear",
     "cost": "40 gp",
     "weight": "—",
-    "notes": "A dose of asafoetida (devil's dung): prepared properly it cures Mindfire (DC 26) or confers a +1 bonus to Intelligence checks for two hours (DC 28). The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Wilderness Lore or Knowledge (nature) check.",
+    "notes": "A dose of asafoetida (devil's dung): prepared properly it cures Mindfire (DC 26) or confers a +1 bonus to Intelligence checks for two hours (DC 28). The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Survival or Knowledge (nature) check.",
     "source": "Ultimate Equipment Guide Volume 1 — Food, Drink, Drugs and Herbs, pp. 66–73; Rules Summary pp. 219–220",
     "sourceUrl": "",
     "ruleset": "core"
@@ -5623,7 +5623,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "alchemical gear",
     "cost": "20 gp",
     "weight": "—",
-    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Wilderness Lore or Knowledge (nature) check.",
+    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Survival or Knowledge (nature) check.",
     "source": "Ultimate Equipment Guide Volume 1 — Food, Drink, Drugs and Herbs, pp. 66–73; Rules Summary pp. 219–220",
     "sourceUrl": "",
     "ruleset": "core"
@@ -5645,7 +5645,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "alchemical gear",
     "cost": "30 gp",
     "weight": "—",
-    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Wilderness Lore or Knowledge (nature) check.",
+    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Survival or Knowledge (nature) check.",
     "source": "Ultimate Equipment Guide Volume 1 — Food, Drink, Drugs and Herbs, pp. 66–73; Rules Summary pp. 219–220",
     "sourceUrl": "",
     "ruleset": "core"
@@ -5656,7 +5656,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "alchemical gear",
     "cost": "50 gp",
     "weight": "—",
-    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Wilderness Lore or Knowledge (nature) check.",
+    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Survival or Knowledge (nature) check.",
     "source": "Ultimate Equipment Guide Volume 1 — Food, Drink, Drugs and Herbs, pp. 66–73; Rules Summary pp. 219–220",
     "sourceUrl": "",
     "ruleset": "core"
@@ -5667,7 +5667,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "alchemical gear",
     "cost": "60 gp",
     "weight": "—",
-    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Wilderness Lore or Knowledge (nature) check.",
+    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Survival or Knowledge (nature) check.",
     "source": "Ultimate Equipment Guide Volume 1 — Food, Drink, Drugs and Herbs, pp. 66–73; Rules Summary pp. 219–220",
     "sourceUrl": "",
     "ruleset": "core"
@@ -5678,7 +5678,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "alchemical gear",
     "cost": "10 gp",
     "weight": "—",
-    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Wilderness Lore or Knowledge (nature) check.",
+    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Survival or Knowledge (nature) check.",
     "source": "Ultimate Equipment Guide Volume 1 — Food, Drink, Drugs and Herbs, pp. 66–73; Rules Summary pp. 219–220",
     "sourceUrl": "",
     "ruleset": "core"
@@ -5689,7 +5689,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "alchemical gear",
     "cost": "10 gp",
     "weight": "—",
-    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Wilderness Lore or Knowledge (nature) check.",
+    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Survival or Knowledge (nature) check.",
     "source": "Ultimate Equipment Guide Volume 1 — Food, Drink, Drugs and Herbs, pp. 66–73; Rules Summary pp. 219–220",
     "sourceUrl": "",
     "ruleset": "core"
@@ -5700,7 +5700,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "alchemical gear",
     "cost": "25 gp",
     "weight": "—",
-    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Wilderness Lore or Knowledge (nature) check.",
+    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Survival or Knowledge (nature) check.",
     "source": "Ultimate Equipment Guide Volume 1 — Food, Drink, Drugs and Herbs, pp. 66–73; Rules Summary pp. 219–220",
     "sourceUrl": "",
     "ruleset": "core"
@@ -5711,7 +5711,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "alchemical gear",
     "cost": "50 gp",
     "weight": "—",
-    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Wilderness Lore or Knowledge (nature) check.",
+    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Survival or Knowledge (nature) check.",
     "source": "Ultimate Equipment Guide Volume 1 — Food, Drink, Drugs and Herbs, pp. 66–73; Rules Summary pp. 219–220",
     "sourceUrl": "",
     "ruleset": "core"
@@ -5722,7 +5722,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "alchemical gear",
     "cost": "80 gp",
     "weight": "—",
-    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Wilderness Lore or Knowledge (nature) check.",
+    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Survival or Knowledge (nature) check.",
     "source": "Ultimate Equipment Guide Volume 1 — Food, Drink, Drugs and Herbs, pp. 66–73; Rules Summary pp. 219–220",
     "sourceUrl": "",
     "ruleset": "core"
@@ -5733,7 +5733,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "alchemical gear",
     "cost": "40 gp",
     "weight": "—",
-    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Wilderness Lore or Knowledge (nature) check.",
+    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Survival or Knowledge (nature) check.",
     "source": "Ultimate Equipment Guide Volume 1 — Food, Drink, Drugs and Herbs, pp. 66–73; Rules Summary pp. 219–220",
     "sourceUrl": "",
     "ruleset": "core"
@@ -5744,7 +5744,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "alchemical gear",
     "cost": "150 gp",
     "weight": "—",
-    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Wilderness Lore or Knowledge (nature) check.",
+    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Survival or Knowledge (nature) check.",
     "source": "Ultimate Equipment Guide Volume 1 — Food, Drink, Drugs and Herbs, pp. 66–73; Rules Summary pp. 219–220",
     "sourceUrl": "",
     "ruleset": "core"
@@ -5755,7 +5755,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "alchemical gear",
     "cost": "50 gp",
     "weight": "—",
-    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Wilderness Lore or Knowledge (nature) check.",
+    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Survival or Knowledge (nature) check.",
     "source": "Ultimate Equipment Guide Volume 1 — Food, Drink, Drugs and Herbs, pp. 66–73; Rules Summary pp. 219–220",
     "sourceUrl": "",
     "ruleset": "core"
@@ -5766,7 +5766,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "alchemical gear",
     "cost": "40 gp",
     "weight": "—",
-    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Wilderness Lore or Knowledge (nature) check.",
+    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Survival or Knowledge (nature) check.",
     "source": "Ultimate Equipment Guide Volume 1 — Food, Drink, Drugs and Herbs, pp. 66–73; Rules Summary pp. 219–220",
     "sourceUrl": "",
     "ruleset": "core"
@@ -5777,7 +5777,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "alchemical gear",
     "cost": "50 gp",
     "weight": "—",
-    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Wilderness Lore or Knowledge (nature) check.",
+    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Survival or Knowledge (nature) check.",
     "source": "Ultimate Equipment Guide Volume 1 — Food, Drink, Drugs and Herbs, pp. 66–73; Rules Summary pp. 219–220",
     "sourceUrl": "",
     "ruleset": "core"
@@ -5788,7 +5788,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "alchemical gear",
     "cost": "100 gp",
     "weight": "—",
-    "notes": "A dose of hemlock, a deadly poison herb. The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Wilderness Lore or Knowledge (nature) check.",
+    "notes": "A dose of hemlock, a deadly poison herb. The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Survival or Knowledge (nature) check.",
     "source": "Ultimate Equipment Guide Volume 1 — Food, Drink, Drugs and Herbs, pp. 66–73; Rules Summary pp. 219–220",
     "sourceUrl": "",
     "ruleset": "core"
@@ -5799,7 +5799,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "alchemical gear",
     "cost": "75 gp",
     "weight": "—",
-    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Wilderness Lore or Knowledge (nature) check.",
+    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Survival or Knowledge (nature) check.",
     "source": "Ultimate Equipment Guide Volume 1 — Food, Drink, Drugs and Herbs, pp. 66–73; Rules Summary pp. 219–220",
     "sourceUrl": "",
     "ruleset": "core"
@@ -5810,7 +5810,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "alchemical gear",
     "cost": "20 gp",
     "weight": "—",
-    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Wilderness Lore or Knowledge (nature) check.",
+    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Survival or Knowledge (nature) check.",
     "source": "Ultimate Equipment Guide Volume 1 — Food, Drink, Drugs and Herbs, pp. 66–73; Rules Summary pp. 219–220",
     "sourceUrl": "",
     "ruleset": "core"
@@ -5821,7 +5821,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "alchemical gear",
     "cost": "15 gp",
     "weight": "—",
-    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Wilderness Lore or Knowledge (nature) check.",
+    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Survival or Knowledge (nature) check.",
     "source": "Ultimate Equipment Guide Volume 1 — Food, Drink, Drugs and Herbs, pp. 66–73; Rules Summary pp. 219–220",
     "sourceUrl": "",
     "ruleset": "core"
@@ -5832,7 +5832,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "alchemical gear",
     "cost": "10 gp",
     "weight": "—",
-    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Wilderness Lore or Knowledge (nature) check.",
+    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Survival or Knowledge (nature) check.",
     "source": "Ultimate Equipment Guide Volume 1 — Food, Drink, Drugs and Herbs, pp. 66–73; Rules Summary pp. 219–220",
     "sourceUrl": "",
     "ruleset": "core"
@@ -5843,7 +5843,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "alchemical gear",
     "cost": "400 gp",
     "weight": "—",
-    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Wilderness Lore or Knowledge (nature) check.",
+    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Survival or Knowledge (nature) check.",
     "source": "Ultimate Equipment Guide Volume 1 — Food, Drink, Drugs and Herbs, pp. 66–73; Rules Summary pp. 219–220",
     "sourceUrl": "",
     "ruleset": "core"
@@ -5854,7 +5854,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "alchemical gear",
     "cost": "90 gp",
     "weight": "—",
-    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Wilderness Lore or Knowledge (nature) check.",
+    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Survival or Knowledge (nature) check.",
     "source": "Ultimate Equipment Guide Volume 1 — Food, Drink, Drugs and Herbs, pp. 66–73; Rules Summary pp. 219–220",
     "sourceUrl": "",
     "ruleset": "core"
@@ -5865,7 +5865,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "alchemical gear",
     "cost": "150 gp",
     "weight": "—",
-    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Wilderness Lore or Knowledge (nature) check.",
+    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Survival or Knowledge (nature) check.",
     "source": "Ultimate Equipment Guide Volume 1 — Food, Drink, Drugs and Herbs, pp. 66–73; Rules Summary pp. 219–220",
     "sourceUrl": "",
     "ruleset": "core"
@@ -5876,7 +5876,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "alchemical gear",
     "cost": "50 gp",
     "weight": "—",
-    "notes": "A dose of monkshood, a poisonous herb also known as aconite. The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Wilderness Lore or Knowledge (nature) check.",
+    "notes": "A dose of monkshood, a poisonous herb also known as aconite. The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Survival or Knowledge (nature) check.",
     "source": "Ultimate Equipment Guide Volume 1 — Food, Drink, Drugs and Herbs, pp. 66–73; Rules Summary pp. 219–220",
     "sourceUrl": "",
     "ruleset": "core"
@@ -5887,7 +5887,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "alchemical gear",
     "cost": "200 gp",
     "weight": "—",
-    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Wilderness Lore or Knowledge (nature) check.",
+    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Survival or Knowledge (nature) check.",
     "source": "Ultimate Equipment Guide Volume 1 — Food, Drink, Drugs and Herbs, pp. 66–73; Rules Summary pp. 219–220",
     "sourceUrl": "",
     "ruleset": "core"
@@ -5898,7 +5898,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "alchemical gear",
     "cost": "20 gp",
     "weight": "—",
-    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Wilderness Lore or Knowledge (nature) check.",
+    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Survival or Knowledge (nature) check.",
     "source": "Ultimate Equipment Guide Volume 1 — Food, Drink, Drugs and Herbs, pp. 66–73; Rules Summary pp. 219–220",
     "sourceUrl": "",
     "ruleset": "core"
@@ -5909,7 +5909,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "alchemical gear",
     "cost": "20 gp",
     "weight": "—",
-    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Wilderness Lore or Knowledge (nature) check.",
+    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Survival or Knowledge (nature) check.",
     "source": "Ultimate Equipment Guide Volume 1 — Food, Drink, Drugs and Herbs, pp. 66–73; Rules Summary pp. 219–220",
     "sourceUrl": "",
     "ruleset": "core"
@@ -5920,7 +5920,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "alchemical gear",
     "cost": "5 gp",
     "weight": "—",
-    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Wilderness Lore or Knowledge (nature) check.",
+    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Survival or Knowledge (nature) check.",
     "source": "Ultimate Equipment Guide Volume 1 — Food, Drink, Drugs and Herbs, pp. 66–73; Rules Summary pp. 219–220",
     "sourceUrl": "",
     "ruleset": "core"
@@ -5931,7 +5931,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "alchemical gear",
     "cost": "75 gp",
     "weight": "—",
-    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Wilderness Lore or Knowledge (nature) check.",
+    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Survival or Knowledge (nature) check.",
     "source": "Ultimate Equipment Guide Volume 1 — Food, Drink, Drugs and Herbs, pp. 66–73; Rules Summary pp. 219–220",
     "sourceUrl": "",
     "ruleset": "core"
@@ -5942,7 +5942,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "alchemical gear",
     "cost": "10 gp",
     "weight": "—",
-    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Wilderness Lore or Knowledge (nature) check.",
+    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Survival or Knowledge (nature) check.",
     "source": "Ultimate Equipment Guide Volume 1 — Food, Drink, Drugs and Herbs, pp. 66–73; Rules Summary pp. 219–220",
     "sourceUrl": "",
     "ruleset": "core"
@@ -5953,7 +5953,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "alchemical gear",
     "cost": "15 gp",
     "weight": "—",
-    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Wilderness Lore or Knowledge (nature) check.",
+    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Survival or Knowledge (nature) check.",
     "source": "Ultimate Equipment Guide Volume 1 — Food, Drink, Drugs and Herbs, pp. 66–73; Rules Summary pp. 219–220",
     "sourceUrl": "",
     "ruleset": "core"
@@ -5964,7 +5964,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "alchemical gear",
     "cost": "25 gp",
     "weight": "—",
-    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Wilderness Lore or Knowledge (nature) check.",
+    "notes": "The price buys one dose in its 'locked' state; a herbalist unlocks the herb's special feature with a Profession (herbalist) check (DC and feature given in the chapter, taking 10 minutes, usable up to a week in advance). Herbs can also be gathered wild with an hour's searching and a Survival or Knowledge (nature) check.",
     "source": "Ultimate Equipment Guide Volume 1 — Food, Drink, Drugs and Herbs, pp. 66–73; Rules Summary pp. 219–220",
     "sourceUrl": "",
     "ruleset": "core"
@@ -7092,7 +7092,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "8 gp",
     "weight": "5 lb.",
-    "notes": "Medium-size simple melee weapon: 1d6 slashing, critical x2. A heavy brush-cutting blade that doubles as a weapon.",
+    "notes": "Medium simple melee weapon: 1d6 slashing, critical x2. A heavy brush-cutting blade that doubles as a weapon.",
     "source": "Ultimate Equipment Guide Volume 1 — In the Wild, p. 97; Rules Summary p. 223",
     "sourceUrl": "",
     "ruleset": "core"
@@ -7198,11 +7198,11 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
   },
   {
     "id": "blanket-and-hood-horse-medium-size",
-    "name": "Blanket And Hood, Horse, Medium-size",
+    "name": "Blanket And Hood, Horse, Medium",
     "category": "gear",
     "cost": "4 gp",
     "weight": "2 lb.",
-    "notes": "A warm blanket and hood set sized for a Medium-size horse or pony.",
+    "notes": "A warm blanket and hood set sized for a Medium horse or pony.",
     "source": "Ultimate Equipment Guide Volume 1 — In the Wild, p. 89; Rules Summary p. 223",
     "sourceUrl": "",
     "ruleset": "core"
@@ -7400,7 +7400,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "tool",
     "cost": "200 gp",
     "weight": "1 lb.",
-    "notes": "A magnetic compass that reliably shows north, aiding navigation and Wilderness Lore checks to avoid becoming lost.",
+    "notes": "A magnetic compass that reliably shows north, aiding navigation and Survival checks to avoid becoming lost.",
     "source": "Ultimate Equipment Guide Volume 1 — In the Wild, p. 91; Rules Summary p. 223",
     "sourceUrl": "",
     "ruleset": "core"
@@ -7522,7 +7522,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "tool",
     "cost": "10 gp",
     "weight": "5 lb.",
-    "notes": "Hooks, line, floats and lures for catching fish, used with Wilderness Lore or Profession (fisherman).",
+    "notes": "Hooks, line, floats and lures for catching fish, used with Survival or Profession (fisherman).",
     "source": "Ultimate Equipment Guide Volume 1 — In the Wild, p. 93; Rules Summary p. 224",
     "sourceUrl": "",
     "ruleset": "core"
@@ -7793,11 +7793,11 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
   },
   {
     "id": "leash-medium-size",
-    "name": "Leash, Medium-size",
+    "name": "Leash, Medium",
     "category": "gear",
     "cost": "1 gp",
     "weight": "1/2 lb.",
-    "notes": "A leash and collar for a Medium-size animal such as a dog.",
+    "notes": "A leash and collar for a Medium animal such as a dog.",
     "source": "Ultimate Equipment Guide Volume 1 — In the Wild, p. 97; Rules Summary p. 224",
     "sourceUrl": "",
     "ruleset": "core"
@@ -8305,7 +8305,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "gear",
     "cost": "75 gp",
     "weight": "3 lb.",
-    "notes": "Boots with coiled springs and a ratchet between insole and outer sole: six seconds after the wearer jumps to prime them, the coils release and propel him 15 feet (direction controllable with a Jump check DC 10 or any Jump ranks, otherwise random). Using them is a move-equivalent action, and the wearer must spend the round after landing relocking them or they fire again.",
+    "notes": "Boots with coiled springs and a ratchet between insole and outer sole: six seconds after the wearer jumps to prime them, the coils release and propel him 15 feet (direction controllable with a Jump check DC 10 or any Jump ranks, otherwise random). Using them is a move action, and the wearer must spend the round after landing relocking them or they fire again.",
     "source": "Ultimate Equipment Guide Volume 1 — Knick-Knacks of the Little Folk, p. 103; Rules Summary p. 226",
     "sourceUrl": "",
     "ruleset": "core"
@@ -8356,11 +8356,11 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
   },
   {
     "id": "hearthdown-bedroll-medium-size",
-    "name": "Hearthdown Bedroll, Medium-size",
+    "name": "Hearthdown Bedroll, Medium",
     "category": "gear",
     "cost": "20 gp",
     "weight": "3 lb.",
-    "notes": "A Medium-size bedroll stuffed with warm hearthdown feathers.",
+    "notes": "A Medium bedroll stuffed with warm hearthdown feathers.",
     "source": "Ultimate Equipment Guide Volume 1 — Knick-Knacks of the Little Folk, p. 108; Rules Summary p. 226",
     "sourceUrl": "",
     "ruleset": "core"
@@ -8470,7 +8470,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "tool",
     "cost": "280 gp",
     "weight": "3 lb.",
-    "notes": "A bracer-mounted snatching device: its wrist charm snags a target object on hidden hooks and a crank reels in up to 20 pounds over a cable extending up to thirty feet, in one round. Used by a thief with at least 4 ranks of Pick Pocket, it grants a +2 equipment bonus on Pick Pocket checks.",
+    "notes": "A bracer-mounted snatching device: its wrist charm snags a target object on hidden hooks and a crank reels in up to 20 pounds over a cable extending up to thirty feet, in one round. Used by a thief with at least 4 ranks of Sleight of Hand, it grants a +2 equipment bonus on Sleight of Hand checks.",
     "source": "Ultimate Equipment Guide Volume 1 — Knick-Knacks of the Little Folk, p. 105; Rules Summary p. 226",
     "sourceUrl": "",
     "ruleset": "core"
@@ -8514,7 +8514,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "tool",
     "cost": "100 gp",
     "weight": "—",
-    "notes": "A glass sphere with a magnetised needle on a floating cork: it lets anyone determine north without an Intuit Direction check, and a user with four or more ranks of Intuit Direction gains a +2 equipment bonus from its surety. Magnetic ore and other planes can disrupt it.",
+    "notes": "A glass sphere with a magnetised needle on a floating cork: it lets anyone determine north without an Survival check, and a user with four or more ranks of Survival gains a +2 equipment bonus from its surety. Magnetic ore and other planes can disrupt it.",
     "source": "Ultimate Equipment Guide Volume 1 — Knick-Knacks of the Little Folk, p. 106; Rules Summary p. 227",
     "sourceUrl": "",
     "ruleset": "core"
@@ -8525,7 +8525,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "gear",
     "cost": "200 gp",
     "weight": "4 lb.",
-    "notes": "Wheeled boots that add +20 feet to land movement over smooth terrain, at a -6 penalty to Tumble checks. A wearer without the Exotic Device (swift feet) feat must make a Reflex save (DC 16) each round of use or fall and take a point of subdual damage (1d6 real bludgeoning damage on a natural 1). Priced per pair.",
+    "notes": "Wheeled boots that add +20 feet to land movement over smooth terrain, at a -6 penalty to Tumble checks. A wearer without the Exotic Device (swift feet) feat must make a Reflex save (DC 16) each round of use or fall and take a point of nonlethal damage (1d6 real bludgeoning damage on a natural 1). Priced per pair.",
     "source": "Ultimate Equipment Guide Volume 1 — Knick-Knacks of the Little Folk, p. 106; Rules Summary p. 227",
     "sourceUrl": "",
     "ruleset": "core"
@@ -9906,7 +9906,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "1 gp",
     "weight": "4 lb.",
-    "notes": "Medium-size simple melee weapon: 1d6 bludgeoning (subdual damage), critical x2. A padded practice club.",
+    "notes": "Medium simple melee weapon: 1d6 bludgeoning (nonlethal damage), critical x2. A padded practice club.",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -9917,7 +9917,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "1 gp",
     "weight": "3 lb.",
-    "notes": "Medium-size simple melee weapon: 1d6 piercing, critical x3, range increment 20 ft. A short half-length spear.",
+    "notes": "Medium simple melee weapon: 1d6 piercing, critical x3, range increment 20 ft. A short half-length spear.",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -9928,7 +9928,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "75 gp",
     "weight": "12 lb.",
-    "notes": "Medium-size simple melee weapon: 1d8 bludgeoning, critical x2. A mace head attached to the haft by a length of chain. See The Armoury chapter for its special rules.",
+    "notes": "Medium simple melee weapon: 1d8 bludgeoning, critical x2. A mace head attached to the haft by a length of chain. See The Armoury chapter for its special rules.",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -9939,7 +9939,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "12 gp",
     "weight": "12 lb.",
-    "notes": "Medium-size simple melee weapon: 1d8 bludgeoning, critical x2. A heavy mace with a flanged steel head.",
+    "notes": "Medium simple melee weapon: 1d8 bludgeoning, critical x2. A heavy mace with a flanged steel head.",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -9950,7 +9950,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "10 gp",
     "weight": "4 lb.",
-    "notes": "Medium-size simple melee weapon: 1d8 slashing, critical x3. A blade with a serrated, saw-toothed edge.",
+    "notes": "Medium simple melee weapon: 1d8 slashing, critical x3. A blade with a serrated, saw-toothed edge.",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10016,7 +10016,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "1 gp",
     "weight": "3 lb.",
-    "notes": "Small martial melee weapon: 1d4/1d6, critical x2, piercing or bludgeoning. The blade deals piercing damage while its weighted sap pommel deals subdual bludgeoning damage. (The Rules Summary misprints the type as slashing/bludgeoning; the chapter reads piercing or bludgeoning.) See The Armoury chapter for its special rules.",
+    "notes": "Small martial melee weapon: 1d4/1d6, critical x2, piercing or bludgeoning. The blade deals piercing damage while its weighted sap pommel deals nonlethal bludgeoning damage. (The Rules Summary misprints the type as slashing/bludgeoning; the chapter reads piercing or bludgeoning.) See The Armoury chapter for its special rules.",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10115,7 +10115,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "1 gp",
     "weight": "3 lb.",
-    "notes": "Medium-size martial melee weapon: 1d6 bludgeoning, critical x2, range increment 10 ft. A weighted throwing club on a thong. See The Armoury chapter for its special rules.",
+    "notes": "Medium martial melee weapon: 1d6 bludgeoning, critical x2, range increment 10 ft. A weighted throwing club on a thong. See The Armoury chapter for its special rules.",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10126,7 +10126,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "8 gp",
     "weight": "5 lb.",
-    "notes": "Medium-size martial melee weapon: 1d8 bludgeoning, critical x2. A spiked ball on a chain, usable for trip and disarm attempts with a bonus.",
+    "notes": "Medium martial melee weapon: 1d8 bludgeoning, critical x2. A spiked ball on a chain, usable for trip and disarm attempts with a bonus.",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10137,7 +10137,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "5 gp",
     "weight": "4 lb.",
-    "notes": "Medium-size martial melee weapon: 1d6 slashing, critical x3. A curved tribal war knife.",
+    "notes": "Medium martial melee weapon: 1d6 slashing, critical x3. A curved tribal war knife.",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10148,7 +10148,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "10 gp",
     "weight": "10 lb.",
-    "notes": "Medium-size martial melee weapon: 1d8 piercing, critical x3. A heavy lance dealing double damage in a mounted charge, with reach.",
+    "notes": "Medium martial melee weapon: 1d8 piercing, critical x3. A heavy lance dealing double damage in a mounted charge, with reach.",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10159,7 +10159,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "45 gp",
     "weight": "3 lb.",
-    "notes": "Medium-size martial melee weapon: 1d8 slashing, critical 19-20/x2. A longsword with a crystal blade. See The Armoury chapter for its special rules.",
+    "notes": "Medium martial melee weapon: 1d8 slashing, critical 19-20/x2. A longsword with a crystal blade. See The Armoury chapter for its special rules.",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10170,7 +10170,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "8 gp",
     "weight": "9 lb.",
-    "notes": "Medium-size martial melee weapon: 1d6 piercing, critical x4. A heavy military pick. The chapter weight of 9 lb. is used; the Rules Summary prints 6 lb.",
+    "notes": "Medium martial melee weapon: 1d6 piercing, critical x4. A heavy military pick. The chapter weight of 9 lb. is used; the Rules Summary prints 6 lb.",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10181,7 +10181,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "100 gp",
     "weight": "7 lb.",
-    "notes": "Medium-size martial melee weapon: 2d6 piercing, critical x4, range increment 20 ft. as listed in the Rules Summary. A spear with a spring-driven extending point. (The chapter lists no range increment.) See The Armoury chapter for its special rules.",
+    "notes": "Medium martial melee weapon: 2d6 piercing, critical x4, range increment 20 ft. as listed in the Rules Summary. A spear with a spring-driven extending point. (The chapter lists no range increment.) See The Armoury chapter for its special rules.",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10192,7 +10192,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "35 gp",
     "weight": "5 lb.",
-    "notes": "Medium-size martial melee weapon: 2d4 slashing, critical 19-20/x2. A wide-bladed chopping sword. See The Armoury chapter for its special rules.",
+    "notes": "Medium martial melee weapon: 2d4 slashing, critical 19-20/x2. A wide-bladed chopping sword. See The Armoury chapter for its special rules.",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10203,7 +10203,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "20 gp",
     "weight": "4 lb.",
-    "notes": "Medium-size martial melee weapon: 1d8 slashing, critical 19-20/x2. A blade that hums and sings as it is swung. See The Armoury chapter for its special rules.",
+    "notes": "Medium martial melee weapon: 1d8 slashing, critical 19-20/x2. A blade that hums and sings as it is swung. See The Armoury chapter for its special rules.",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10214,7 +10214,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "35 gp",
     "weight": "3 lb.",
-    "notes": "Medium-size martial melee weapon: 1d6 piercing, critical 18-20/x2. A slender blade concealed inside a walking cane. See The Armoury chapter for its special rules.",
+    "notes": "Medium martial melee weapon: 1d6 piercing, critical 18-20/x2. A slender blade concealed inside a walking cane. See The Armoury chapter for its special rules.",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10225,7 +10225,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "45 gp",
     "weight": "6 lb.",
-    "notes": "Medium-size martial melee weapon: 1d8 slashing, critical 18-20/x2. A gauntlet with a sword blade fixed along the forearm. See The Armoury chapter for its special rules.",
+    "notes": "Medium martial melee weapon: 1d8 slashing, critical 18-20/x2. A gauntlet with a sword blade fixed along the forearm. See The Armoury chapter for its special rules.",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10236,7 +10236,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "22 gp",
     "weight": "4 lb.",
-    "notes": "Medium-size martial melee weapon: 1d6 slashing, critical 19-20/x2. A curved oriental cavalry sabre.",
+    "notes": "Medium martial melee weapon: 1d6 slashing, critical 19-20/x2. A curved oriental cavalry sabre.",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10447,7 +10447,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "50 gp",
     "weight": "9 lb.",
-    "notes": "Medium-size simple ranged weapon: 1d10 piercing, critical 19-20/x2, range increment 120 ft. A heavy crossbow needing a full-round action to reload.",
+    "notes": "Medium simple ranged weapon: 1d10 piercing, critical 19-20/x2, range increment 120 ft. A heavy crossbow needing a full-round action to reload.",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10458,7 +10458,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "10 gp",
     "weight": "8 lb.",
-    "notes": "Medium-size simple ranged weapon: 1d8 piercing, critical x2, range increment 30 ft. A barbed harpoon, usually trailed by a rope. See The Armoury chapter for its special rules.",
+    "notes": "Medium simple ranged weapon: 1d8 piercing, critical x2, range increment 30 ft. A barbed harpoon, usually trailed by a rope. See The Armoury chapter for its special rules.",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10491,7 +10491,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "100 gp",
     "weight": "10 lb.",
-    "notes": "Medium-size martial ranged weapon: 2d10 piercing, critical x3, range increment 10 ft. A heavy mechanical bolt projector for close range.",
+    "notes": "Medium martial ranged weapon: 2d10 piercing, critical x3, range increment 10 ft. A heavy mechanical bolt projector for close range.",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10502,7 +10502,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "75 gp",
     "weight": "2 lb.",
-    "notes": "Medium-size martial ranged weapon: 1d6 piercing, critical x3, range increment 70 ft. A composite shortbow of horn, wood and sinew.",
+    "notes": "Medium martial ranged weapon: 1d6 piercing, critical x3, range increment 70 ft. A composite shortbow of horn, wood and sinew.",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10733,7 +10733,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "25 gp",
     "weight": "5 lb.",
-    "notes": "Medium-size exotic melee weapon (double weapon): 1d6/1d6, critical x3/x2, piercing. A heart-shaped leather shield-sword of Moorish style. See The Armoury chapter for its special rules.",
+    "notes": "Medium exotic melee weapon (double weapon): 1d6/1d6, critical x3/x2, piercing. A heart-shaped leather shield-sword of Moorish style. See The Armoury chapter for its special rules.",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10744,7 +10744,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "10 gp",
     "weight": "2 lb.",
-    "notes": "Medium-size exotic melee weapon: 1d8 bludgeoning, critical x2. A string of heavy beads used as a flail or garrotte. See The Armoury chapter for its special rules.",
+    "notes": "Medium exotic melee weapon: 1d8 bludgeoning, critical x2. A string of heavy beads used as a flail or garrotte. See The Armoury chapter for its special rules.",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10755,7 +10755,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "10 gp",
     "weight": "3 lb.",
-    "notes": "Medium-size exotic melee weapon (double weapon): 1d4/1d4, critical x2, bludgeoning or piercing. A stick carved with a dragon's head at one end. See The Armoury chapter for its special rules.",
+    "notes": "Medium exotic melee weapon (double weapon): 1d4/1d4, critical x2, bludgeoning or piercing. A stick carved with a dragon's head at one end. See The Armoury chapter for its special rules.",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10766,7 +10766,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "12 gp",
     "weight": "1 lb.",
-    "notes": "Medium-size exotic melee weapon: 1d6 bludgeoning, critical x2. A weighted ball on a cord, spun and struck like a meteor hammer. See The Armoury chapter for its special rules.",
+    "notes": "Medium exotic melee weapon: 1d6 bludgeoning, critical x2. A weighted ball on a cord, spun and struck like a meteor hammer. See The Armoury chapter for its special rules.",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10777,7 +10777,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "35 gp",
     "weight": "10 lb.",
-    "notes": "Medium-size exotic melee weapon: 1d10 slashing, critical 19-20/x2. A hand-and-a-half sword usable in one or two hands with the right proficiency.",
+    "notes": "Medium exotic melee weapon: 1d10 slashing, critical 19-20/x2. A hand-and-a-half sword usable in one or two hands with the right proficiency.",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10788,7 +10788,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "30 gp",
     "weight": "4 lb.",
-    "notes": "Medium-size exotic melee weapon: 1d6 slashing, critical x2. A crescent-bladed oriental sword. See The Armoury chapter for its special rules.",
+    "notes": "Medium exotic melee weapon: 1d6 slashing, critical x2. A crescent-bladed oriental sword. See The Armoury chapter for its special rules.",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10799,7 +10799,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "25 gp",
     "weight": "5 lb.",
-    "notes": "Medium-size exotic melee weapon (double-ended): 1d6/1d4, critical 19-20/x2, slashing or piercing. A light duelling blade for skirmishers. See The Armoury chapter for its special rules.",
+    "notes": "Medium exotic melee weapon (double-ended): 1d6/1d4, critical 19-20/x2, slashing or piercing. A light duelling blade for skirmishers. See The Armoury chapter for its special rules.",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10810,7 +10810,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "20 gp",
     "weight": "5 lb.",
-    "notes": "Medium-size exotic melee weapon: 1d8 slashing, critical x3. A hooked oriental sword, often used in pairs. See The Armoury chapter for its special rules.",
+    "notes": "Medium exotic melee weapon: 1d8 slashing, critical x3. A hooked oriental sword, often used in pairs. See The Armoury chapter for its special rules.",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10821,7 +10821,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "30 gp",
     "weight": "15 lb.",
-    "notes": "Medium-size exotic melee weapon: 1d10 slashing, critical x3. The heavy one-handed waraxe of the dwarves.",
+    "notes": "Medium exotic melee weapon: 1d10 slashing, critical x3. The heavy one-handed waraxe of the dwarves.",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -11030,7 +11030,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "4 gp",
     "weight": "4 lb.",
-    "notes": "Medium-size exotic ranged weapon: 1d6 piercing, critical x3, range increment 10 ft. A thrown multi-bladed wheel. See The Armoury chapter for its special rules.",
+    "notes": "Medium exotic ranged weapon: 1d6 piercing, critical x3, range increment 10 ft. A thrown multi-bladed wheel. See The Armoury chapter for its special rules.",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -11041,7 +11041,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "10 gp",
     "weight": "2 lb.",
-    "notes": "Medium-size exotic ranged weapon: 1 point of piercing damage, critical x2, range increment 10 ft. A hollow tube firing needles, usually envenomed. See The Armoury chapter for its special rules.",
+    "notes": "Medium exotic ranged weapon: 1 point of piercing damage, critical x2, range increment 10 ft. A hollow tube firing needles, usually envenomed. See The Armoury chapter for its special rules.",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -11052,7 +11052,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "15 gp",
     "weight": "4 lb.",
-    "notes": "Medium-size exotic ranged weapon: 1d6 bludgeoning, critical x2, range increment 10 ft. Three weighted balls on cords that entangle and trip.",
+    "notes": "Medium exotic ranged weapon: 1d6 bludgeoning, critical x2, range increment 10 ft. Three weighted balls on cords that entangle and trip.",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -11063,7 +11063,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "395 gp",
     "weight": "18 lb.",
-    "notes": "Medium-size exotic ranged weapon: 1d10 piercing, critical 19-20/x2, range increment 120 ft. A crossbow with four prods firing multiple bolts. See The Armoury chapter for its special rules.",
+    "notes": "Medium exotic ranged weapon: 1d10 piercing, critical 19-20/x2, range increment 120 ft. A crossbow with four prods firing multiple bolts. See The Armoury chapter for its special rules.",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -11074,7 +11074,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "250 gp",
     "weight": "16 lb.",
-    "notes": "Medium-size exotic ranged weapon: 1d8 piercing, critical 19-20/x2, range increment 80 ft. A crossbow with a lever action and a five-bolt clip.",
+    "notes": "Medium exotic ranged weapon: 1d8 piercing, critical 19-20/x2, range increment 80 ft. A crossbow with a lever action and a five-bolt clip.",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -11085,7 +11085,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "300 gp",
     "weight": "15 lb.",
-    "notes": "Medium-size exotic ranged weapon: 1d12 piercing, critical 19-20/x2, range increment 150 ft. A crossbow with a rifled barrel for spinning, accurate bolts. See The Armoury chapter for its special rules.",
+    "notes": "Medium exotic ranged weapon: 1d12 piercing, critical 19-20/x2, range increment 150 ft. A crossbow with a rifled barrel for spinning, accurate bolts. See The Armoury chapter for its special rules.",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -11096,7 +11096,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "350 gp",
     "weight": "7 lb.",
-    "notes": "Medium-size exotic ranged weapon: 1d8 piercing, critical 19-20/x2, range increment 80 ft. A light, accurate crossbow built for sniping. See The Armoury chapter for its special rules.",
+    "notes": "Medium exotic ranged weapon: 1d8 piercing, critical 19-20/x2, range increment 80 ft. A light, accurate crossbow built for sniping. See The Armoury chapter for its special rules.",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -11107,7 +11107,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "65 gp",
     "weight": "6 lb.",
-    "notes": "Medium-size exotic ranged weapon: 1d10 bludgeoning, critical x2, range increment 75 ft. A heavy sling-like projector hurling iron bullets.",
+    "notes": "Medium exotic ranged weapon: 1d10 bludgeoning, critical x2, range increment 75 ft. A heavy sling-like projector hurling iron bullets.",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -11118,7 +11118,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "1 gp",
     "weight": "8 lb.",
-    "notes": "Medium-size exotic ranged weapon: a lasso with a maximum range of 10 ft., used to entangle at a distance. See The Armoury chapter for its special rules.",
+    "notes": "Medium exotic ranged weapon: a lasso with a maximum range of 10 ft., used to entangle at a distance. See The Armoury chapter for its special rules.",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -11129,7 +11129,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "1 gp",
     "weight": "2 lb.",
-    "notes": "Medium-size exotic ranged weapon: 1d10 slashing, critical 19-20/x2, range increment 30 ft. A sling-like launcher that hurls spinning razor disks. See The Armoury chapter for its special rules.",
+    "notes": "Medium exotic ranged weapon: 1d10 slashing, critical 19-20/x2, range increment 30 ft. A sling-like launcher that hurls spinning razor disks. See The Armoury chapter for its special rules.",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -11562,7 +11562,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "90 gp",
     "weight": "15 lb.",
-    "notes": "Medium-size martial melee weapon: 1d8 slashing, critical x3. A heavy axe made for cutting stone, equally serviceable as a weapon. See the chapter for its special rules.",
+    "notes": "Medium martial melee weapon: 1d8 slashing, critical x3. A heavy axe made for cutting stone, equally serviceable as a weapon. See the chapter for its special rules.",
     "source": "Ultimate Equipment Guide Volume 1 — The Dwarven Forge; Rules Summary pp. 236–237",
     "sourceUrl": "",
     "ruleset": "core"
@@ -12666,7 +12666,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "gear",
     "cost": "*",
     "weight": "—",
-    "notes": "A practice-weapon construction: the summary table gives no price, marking the cost with its 'see description' star; the weapon deals -2 damage and deals subdual damage rather than normal damage. See The Fighter's Trade chapter for its special rules.",
+    "notes": "A practice-weapon construction: the summary table gives no price, marking the cost with its 'see description' star; the weapon deals -2 damage and deals nonlethal damage rather than normal damage. See The Fighter's Trade chapter for its special rules.",
     "source": "Ultimate Equipment Guide Volume 1 — The Fighter's Trade; Rules Summary pp. 238–240",
     "sourceUrl": "",
     "ruleset": "core"
@@ -12677,7 +12677,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "gear",
     "cost": "1/2",
     "weight": "—",
-    "notes": "A practice-weapon construction: a metal-cored practice weapon costs half the normal price and deals subdual damage rather than normal damage. See The Fighter's Trade chapter for its special rules.",
+    "notes": "A practice-weapon construction: a metal-cored practice weapon costs half the normal price and deals nonlethal damage rather than normal damage. See The Fighter's Trade chapter for its special rules.",
     "source": "Ultimate Equipment Guide Volume 1 — The Fighter's Trade; Rules Summary pp. 238–240",
     "sourceUrl": "",
     "ruleset": "core"
@@ -12688,7 +12688,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "gear",
     "cost": "1/4",
     "weight": "—",
-    "notes": "A practice-weapon construction: a wooden practice weapon costs a quarter of the normal price, weighs 50% of normal, and deals subdual damage rather than normal damage. See The Fighter's Trade chapter for its special rules.",
+    "notes": "A practice-weapon construction: a wooden practice weapon costs a quarter of the normal price, weighs 50% of normal, and deals nonlethal damage rather than normal damage. See The Fighter's Trade chapter for its special rules.",
     "source": "Ultimate Equipment Guide Volume 1 — The Fighter's Trade; Rules Summary pp. 238–240",
     "sourceUrl": "",
     "ruleset": "core"
@@ -13139,7 +13139,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "gear",
     "cost": "2 cp",
     "weight": "1/2 lb.",
-    "notes": "A pack of scatter sticks for the ancient game of sticks, won by an opposed Pick Pocket check.",
+    "notes": "A pack of scatter sticks for the ancient game of sticks, won by an opposed Sleight of Hand check.",
     "source": "Ultimate Equipment Guide Volume 1 — The Fighter's Trade; Rules Summary pp. 238–240",
     "sourceUrl": "",
     "ruleset": "core"
@@ -13293,7 +13293,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "gear",
     "cost": "5 gp",
     "weight": "5 lb.",
-    "notes": "A lightweight harness with sheaths for two swords on the back, hooks for two Medium-size weapons at the waist, a belt sheath and six dagger sheaths along the front straps.",
+    "notes": "A lightweight harness with sheaths for two swords on the back, hooks for two Medium weapons at the waist, a belt sheath and six dagger sheaths along the front straps.",
     "source": "Ultimate Equipment Guide Volume 1 — The Fighter's Trade; Rules Summary pp. 238–240",
     "sourceUrl": "",
     "ruleset": "core"
@@ -13514,7 +13514,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "1 gp",
     "weight": "5 lb.",
-    "notes": "Medium-size simple melee weapon: 1d6 piercing, critical x2, range increment 5 ft. A farm pitchfork used as an improvised spear.",
+    "notes": "Medium simple melee weapon: 1d6 piercing, critical x2, range increment 5 ft. A farm pitchfork used as an improvised spear.",
     "source": "Ultimate Equipment Guide Volume 1 — Tools, Trades and Crafts; Rules Summary pp. 243–245",
     "sourceUrl": "",
     "ruleset": "core"
@@ -13536,7 +13536,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "20 gp",
     "weight": "20 lb.",
-    "notes": "Light barding: armour bonus +1, max Dex bonus +8, armour check penalty 0; it does not reduce the mount's speed. Costs and weights are for a Large mount such as a horse; barding for a Medium-size mount costs and weighs half as much.",
+    "notes": "Light barding: armour bonus +1, max Dex bonus +8, armour check penalty 0; it does not reduce the mount's speed. Costs and weights are for a Large mount such as a horse; barding for a Medium mount costs and weighs half as much.",
     "source": "Ultimate Equipment Guide Volume 1 — Tools, Trades and Crafts; Rules Summary pp. 243–245",
     "sourceUrl": "",
     "ruleset": "core"
@@ -13547,7 +13547,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "40 gp",
     "weight": "30 lb.",
-    "notes": "Light barding: armour bonus +2, max Dex bonus +6, armour check penalty 0; it does not reduce the mount's speed. Costs and weights are for a Large mount such as a horse; barding for a Medium-size mount costs and weighs half as much.",
+    "notes": "Light barding: armour bonus +2, max Dex bonus +6, armour check penalty 0; it does not reduce the mount's speed. Costs and weights are for a Large mount such as a horse; barding for a Medium mount costs and weighs half as much.",
     "source": "Ultimate Equipment Guide Volume 1 — Tools, Trades and Crafts; Rules Summary pp. 243–245",
     "sourceUrl": "",
     "ruleset": "core"
@@ -13558,7 +13558,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "100 gp",
     "weight": "40 lb.",
-    "notes": "Light barding: armour bonus +3, max Dex bonus +5, armour check penalty -1; it does not reduce the mount's speed. Costs and weights are for a Large mount such as a horse; barding for a Medium-size mount costs and weighs half as much.",
+    "notes": "Light barding: armour bonus +3, max Dex bonus +5, armour check penalty -1; it does not reduce the mount's speed. Costs and weights are for a Large mount such as a horse; barding for a Medium mount costs and weighs half as much.",
     "source": "Ultimate Equipment Guide Volume 1 — Tools, Trades and Crafts; Rules Summary pp. 243–245",
     "sourceUrl": "",
     "ruleset": "core"
@@ -13569,7 +13569,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "400 gp",
     "weight": "50 lb.",
-    "notes": "Light barding: armour bonus +4, max Dex bonus +4, armour check penalty -2; it does not reduce the mount's speed. Costs and weights are for a Large mount such as a horse; barding for a Medium-size mount costs and weighs half as much.",
+    "notes": "Light barding: armour bonus +4, max Dex bonus +4, armour check penalty -2; it does not reduce the mount's speed. Costs and weights are for a Large mount such as a horse; barding for a Medium mount costs and weighs half as much.",
     "source": "Ultimate Equipment Guide Volume 1 — Tools, Trades and Crafts; Rules Summary pp. 243–245",
     "sourceUrl": "",
     "ruleset": "core"
@@ -13580,7 +13580,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "60 gp",
     "weight": "50 lb.",
-    "notes": "Medium barding: armour bonus +3, max Dex bonus +4, armour check penalty -3; it reduces the mount's speed (a 50 ft. base becomes 35 ft.). Flying mounts cannot fly in medium barding. Costs and weights are for a Large mount such as a horse; barding for a Medium-size mount costs and weighs half as much.",
+    "notes": "Medium barding: armour bonus +3, max Dex bonus +4, armour check penalty -3; it reduces the mount's speed (a 50 ft. base becomes 35 ft.). Flying mounts cannot fly in medium barding. Costs and weights are for a Large mount such as a horse; barding for a Medium mount costs and weighs half as much.",
     "source": "Ultimate Equipment Guide Volume 1 — Tools, Trades and Crafts; Rules Summary pp. 243–245",
     "sourceUrl": "",
     "ruleset": "core"
@@ -13591,7 +13591,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "200 gp",
     "weight": "60 lb.",
-    "notes": "Medium barding: armour bonus +4, max Dex bonus +3, armour check penalty -4; it reduces the mount's speed (a 50 ft. base becomes 35 ft.). Flying mounts cannot fly in medium barding. Costs and weights are for a Large mount such as a horse; barding for a Medium-size mount costs and weighs half as much.",
+    "notes": "Medium barding: armour bonus +4, max Dex bonus +3, armour check penalty -4; it reduces the mount's speed (a 50 ft. base becomes 35 ft.). Flying mounts cannot fly in medium barding. Costs and weights are for a Large mount such as a horse; barding for a Medium mount costs and weighs half as much.",
     "source": "Ultimate Equipment Guide Volume 1 — Tools, Trades and Crafts; Rules Summary pp. 243–245",
     "sourceUrl": "",
     "ruleset": "core"
@@ -13602,7 +13602,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "600 gp",
     "weight": "80 lb.",
-    "notes": "Medium barding: armour bonus +5, max Dex bonus +2, armour check penalty -5; it reduces the mount's speed (a 50 ft. base becomes 35 ft.). Flying mounts cannot fly in medium barding. Costs and weights are for a Large mount such as a horse; barding for a Medium-size mount costs and weighs half as much.",
+    "notes": "Medium barding: armour bonus +5, max Dex bonus +2, armour check penalty -5; it reduces the mount's speed (a 50 ft. base becomes 35 ft.). Flying mounts cannot fly in medium barding. Costs and weights are for a Large mount such as a horse; barding for a Medium mount costs and weighs half as much.",
     "source": "Ultimate Equipment Guide Volume 1 — Tools, Trades and Crafts; Rules Summary pp. 243–245",
     "sourceUrl": "",
     "ruleset": "core"
@@ -13613,7 +13613,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "800 gp",
     "weight": "90 lb.",
-    "notes": "Heavy barding: armour bonus +6, max Dex bonus +0, armour check penalty -7; it reduces the mount's speed, and the mount runs at only three times its walk speed rather than four. Flying mounts cannot fly in heavy barding. Costs and weights are for a Large mount such as a horse; barding for a Medium-size mount costs and weighs half as much.",
+    "notes": "Heavy barding: armour bonus +6, max Dex bonus +0, armour check penalty -7; it reduces the mount's speed, and the mount runs at only three times its walk speed rather than four. Flying mounts cannot fly in heavy barding. Costs and weights are for a Large mount such as a horse; barding for a Medium mount costs and weighs half as much.",
     "source": "Ultimate Equipment Guide Volume 1 — Tools, Trades and Crafts; Rules Summary pp. 243–245",
     "sourceUrl": "",
     "ruleset": "core"
@@ -13624,7 +13624,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "1,000 gp",
     "weight": "70 lb.",
-    "notes": "Heavy barding: armour bonus +6, max Dex bonus +1, armour check penalty -6; it reduces the mount's speed, and the mount runs at only three times its walk speed rather than four. Flying mounts cannot fly in heavy barding. Costs and weights are for a Large mount such as a horse; barding for a Medium-size mount costs and weighs half as much.",
+    "notes": "Heavy barding: armour bonus +6, max Dex bonus +1, armour check penalty -6; it reduces the mount's speed, and the mount runs at only three times its walk speed rather than four. Flying mounts cannot fly in heavy barding. Costs and weights are for a Large mount such as a horse; barding for a Medium mount costs and weighs half as much.",
     "source": "Ultimate Equipment Guide Volume 1 — Tools, Trades and Crafts; Rules Summary pp. 243–245",
     "sourceUrl": "",
     "ruleset": "core"
@@ -13635,7 +13635,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "2,400 gp",
     "weight": "100 lb.",
-    "notes": "Heavy barding: armour bonus +7, max Dex bonus +0, armour check penalty -6; it reduces the mount's speed, and the mount runs at only three times its walk speed rather than four. Flying mounts cannot fly in heavy barding. Costs and weights are for a Large mount such as a horse; barding for a Medium-size mount costs and weighs half as much.",
+    "notes": "Heavy barding: armour bonus +7, max Dex bonus +0, armour check penalty -6; it reduces the mount's speed, and the mount runs at only three times its walk speed rather than four. Flying mounts cannot fly in heavy barding. Costs and weights are for a Large mount such as a horse; barding for a Medium mount costs and weighs half as much.",
     "source": "Ultimate Equipment Guide Volume 1 — Tools, Trades and Crafts; Rules Summary pp. 243–245",
     "sourceUrl": "",
     "ruleset": "core"

@@ -1,8 +1,9 @@
 /**
  * Bastards and Bloodlines: A Guidebook to Half-Breeds (Green Ronin Publishing, ©2003).
  * Races of Renown series, d20 System — a 3.0-era book (pre-3.5). Mechanics are
- * transcribed as printed, including 3.0-isms (e.g. Animal Empathy, Innuendo,
- * Wilderness Lore, "Medium-size"), rather than modernized.
+ * converted to 3.5 standard in the 2026-11-10 conversion pass under Shaun's
+ * standing order (e.g. Animal Empathy → Handle Animal, Innuendo → Bluff,
+ * Wilderness Lore → Survival, "Medium-size" → Medium).
  *
  * Chapter Two races, second half (printed pp. 33–64): Houri through Wyrd,
  * with the Jovian entry split into its three printed stat blocks (Hill,
@@ -70,7 +71,7 @@ export const BASTARDS_RACES_B: RaceDefinition[] = [
       {
         key: "houri-class-skills",
         name: "Always Class Skills",
-        description: "Animal Empathy, Diplomacy, Handle Animal, Innuendo, Knowledge (nature), Perform, and Wilderness Lore are always class skills for a houri, regardless of her class. (Animal Empathy, Innuendo, and Wilderness Lore are 3.0 skills, folded into other skills in 3.5.)",
+        description: "Bluff, Diplomacy, Handle Animal, Knowledge (nature), Perform, and Survival are always class skills for a houri, regardless of her class.",
         category: "trait",
         source: "Bastards and Bloodlines, p. 35",
         sourceUrl: BB_PATH,
@@ -578,7 +579,7 @@ export const BASTARDS_RACES_B: RaceDefinition[] = [
       {
         key: "mind-ripper-bloodline",
         name: "Bloodline",
-        description: "Counts as having the mind flayer and her humanoid mother's bloodlines for Chapter Four bloodline feats and effects. Mind rippers are the offspring of a mind flayer and any humanoid species (most often drow, also frequently dwarves, gnomes, humans, and orcs); the product of a union between a mind flayer and a mind ripper is always a mind ripper. All mind rippers are Medium-size regardless of the mother's size.",
+        description: "Counts as having the mind flayer and her humanoid mother's bloodlines for Chapter Four bloodline feats and effects. Mind rippers are the offspring of a mind flayer and any humanoid species (most often drow, also frequently dwarves, gnomes, humans, and orcs); the product of a union between a mind flayer and a mind ripper is always a mind ripper. All mind rippers are Medium regardless of the mother's size.",
         category: "trait",
         source: "Bastards and Bloodlines, p. 44",
         sourceUrl: BB_PATH,
@@ -700,7 +701,7 @@ export const BASTARDS_RACES_B: RaceDefinition[] = [
       {
         key: "piper-class-skills",
         name: "Always Class Skills and Perform Ranks",
-        description: "Animal Empathy, Bluff, Gather Information, Innuendo, and Perform are always class skills for a piper, regardless of her class. In addition, pipers are treated as having an additional 3 ranks of Perform (even if this is above their normal maximum), usable only when dancing or playing some sort of woodwind instrument; normally this simply grants a +3 bonus on skill checks, but piper bards can access bardic music abilities more quickly with these virtual ranks. (Animal Empathy and Innuendo are 3.0-only skills.)",
+        description: "Bluff, Gather Information, Handle Animal, and Perform are always class skills for a piper, regardless of her class. In addition, pipers are treated as having an additional 3 ranks of Perform (even if this is above their normal maximum), usable only when dancing or playing some sort of woodwind instrument; normally this simply grants a +3 bonus on skill checks, but piper bards can access bardic music abilities more quickly with these virtual ranks. (Animal Empathy and Innuendo are 3.0-only skills.)",
         category: "trait",
         source: "Bastards and Bloodlines, p. 49",
         sourceUrl: BB_PATH,
@@ -830,7 +831,7 @@ export const BASTARDS_RACES_B: RaceDefinition[] = [
       {
         key: "sthein-alternate-form",
         name: "Alternate Form (Su)",
-        description: "As a full-round action, a sthein may switch between her serpent form and a fully humanoid form. In humanoid form she keeps the same facial features and coloration but has two normal legs in place of her long tail; a humanoid sthein is Medium-size with a base speed of 30 feet, retains all her normal abilities in this form, but cannot make bite attacks.",
+        description: "As a full-round action, a sthein may switch between her serpent form and a fully humanoid form. In humanoid form she keeps the same facial features and coloration but has two normal legs in place of her long tail; a humanoid sthein is Medium with a base speed of 30 feet, retains all her normal abilities in this form, but cannot make bite attacks.",
         category: "trait",
         source: "Bastards and Bloodlines, p. 52",
         sourceUrl: BB_PATH,
@@ -1022,7 +1023,7 @@ export const BASTARDS_RACES_B: RaceDefinition[] = [
       },
       {
         key: "wendigo-wilderness-lore",
-        name: "Wilderness Lore Bonus",
+        name: "Survival Bonus",
         description: "+2 racial bonus on Wilderness Lore checks, with an additional +2 bonus on checks made to survive in the wild. (Wilderness Lore is a 3.0-only skill, folded into Survival in 3.5, so this bonus is not in skillBonuses.)",
         category: "trait",
         source: "Bastards and Bloodlines, p. 58",

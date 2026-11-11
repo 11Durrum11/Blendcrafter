@@ -312,7 +312,7 @@ export const COMPLETE_DIVINE_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
     babProgression: "three-quarter",
     goodSaves: ["fort", "will"],
     progression: rows(TQ, G, P, G),
-    classSkills: ["Climb", "Concentration", "Craft", "Diplomacy", "Handle Animal", "Heal", "Knowledge (arcana)", "Knowledge (geography)", "Knowledge (nature)", "Scry", "Spellcraft", "Survival", "Swim"],
+    classSkills: ["Climb", "Concentration", "Craft", "Diplomacy", "Handle Animal", "Heal", "Knowledge (arcana)", "Knowledge (geography)", "Knowledge (nature)",  "Spellcraft", "Survival", "Swim"],
     prerequisites: [
       "Skills: Knowledge (arcana) 6 ranks, Knowledge (nature) 6 ranks",
       "Spells: Able to cast 2nd-level arcane spells and 2nd-level divine spells",
