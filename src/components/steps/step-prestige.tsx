@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { AlertTriangle, Check, HelpCircle, Info, Lock, Minus, Plus, X } from "lucide-react";
+import { AlertTriangle, Check, ChevronDown, HelpCircle, Info, Lock, Minus, Plus, X } from "lucide-react";
 import { ALL_PRESTIGE_CLASSES } from "@/data";
 import type { ClassLevelChoice, PrestigeClassDefinition, ResolvedCharacter, Ruleset } from "@/engine/types";
 import { buildPrereqContext, evaluatePrestigeClass, type PrestigeGateResult } from "@/engine/prestige-prerequisites";
@@ -40,6 +40,12 @@ import { describePrestigeClass } from "@/lib/entity-descriptions";
  * become met. A class the build has already TAKEN also keeps its
  * full card even if its prerequisites later break — its levels
  * have to stay manageable (remove button, warning).
+ *
+ * Superseded in part (Shaun, 2026-11-11): ALL prestige classes —
+ * full cards and name rows alike — now render as headers only
+ * until clicked; every body element named above (prerequisites,
+ * unmet lists, certify checkboxes, warnings, stat lines) opens
+ * on click. The tiering, graying and gating are unchanged.
  */
 export function sortPrestigeByPrereqMet<T extends { id: string }>(
   list: T[],
@@ -76,6 +82,20 @@ export function StepPrestige({
   onTogglePrestigeCertification,
 }: StepPrestigeProps) {
   const [detailClass, setDetailClass] = useState<PrestigeClassDefinition | null>(null);
+  // Shaun, 2026-11-11: ALL prestige classes are reduced to their
+  // headers until clicked — full cards show only the header row
+  // (name, level steppers, breakdown button, level badge) and the
+  // minimized name rows show only the name; prerequisites, unmet
+  // lists, certify checkboxes, warnings and stat lines open on
+  // click. Same treatment as the Templates step (v20.128).
+  const [expandedIds, setExpandedIds] = useState<Set<string>>(new Set());
+  const toggleExpanded = (id: string) =>
+    setExpandedIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
   const totalPrestigeLevels = prestigeClassLevels.reduce((s, c) => s + c.levels, 0);
   const visiblePrestige = ALL_PRESTIGE_CLASSES.filter((cls) => enabledRulesets.includes(cls.ruleset));
 
@@ -111,6 +131,7 @@ export function StepPrestige({
     const takenUnmet = taken && (gate?.entries.some((e) => e.status === "unmet") ?? false);
     const blocked = !(gate?.selectable ?? true);
     const isDisabled = disabledClassIds.includes(cls.id);
+    const expanded = expandedIds.has(cls.id);
     return (
       <div
         key={cls.id}
@@ -202,9 +223,19 @@ export function StepPrestige({
             <Badge variant="outline" className="shrink-0 font-mono">
               Lv {current?.levels ?? 0}
             </Badge>
+            <button
+              type="button"
+              onClick={() => toggleExpanded(cls.id)}
+              className="shrink-0 rounded-full p-0.5 text-muted-foreground hover-elevate hover:text-foreground"
+              aria-label={expanded ? `Collapse ${cls.name}` : `Expand ${cls.name}`}
+              aria-expanded={expanded}
+              data-testid={`button-expand-prestige-${cls.id}`}
+            >
+              <ChevronDown className={cn("h-4 w-4 transition-transform", expanded && "rotate-180")} />
+            </button>
           </div>
         </div>
-        {gate && gate.entries.length > 0 && (
+        {expanded && gate && gate.entries.length > 0 && (
           <div className="mt-2 space-y-1.5" data-testid={`prereq-list-${cls.id}`}>
             <div className="text-xs font-medium text-foreground">Prerequisites:</div>
             {gate.entries.map((entry, i) => {
@@ -250,19 +281,19 @@ export function StepPrestige({
             })}
           </div>
         )}
-        {takenUnmet && (
+        {expanded && takenUnmet && (
           <div className="mt-2 flex items-center gap-1.5 text-xs text-destructive" data-testid={`warning-prereq-${cls.id}`}>
             <AlertTriangle className="h-3.5 w-3.5 shrink-0" /> Prerequisites no longer met — existing
             levels are kept, but further levels are blocked.
           </div>
         )}
-        {blocked && !taken && (
+        {expanded && blocked && !taken && (
           <div className="mt-2 flex items-center gap-1.5 text-xs text-muted-foreground" data-testid={`gate-locked-${cls.id}`}>
             <Lock className="h-3.5 w-3.5 shrink-0" /> Locked — meet the prerequisites above to take
             this class.
           </div>
         )}
-        {row && (
+        {expanded && row && (
           <div className="mt-2 flex flex-wrap gap-x-3 gap-y-0.5 text-xs text-muted-foreground font-mono">
             <span>BAB +{row.bab}</span>
             <span>Fort +{row.fort}</span>
@@ -292,18 +323,31 @@ export function StepPrestige({
       .map((entry, i) => ({ entry, i }))
       .filter(({ entry }) => entry.status === "special");
     const unmet = (gate?.entries ?? []).filter((entry) => entry.status === "unmet");
+    const expanded = expandedIds.has(cls.id);
     return (
       <div key={cls.id} className="rounded-md px-1.5 py-1 opacity-50" data-testid={`prestige-card-${cls.id}`}>
-        <button
-          type="button"
-          onClick={() => setDetailClass(cls)}
-          className="text-left text-sm font-medium leading-tight text-muted-foreground underline-offset-2 hover:underline"
-          aria-label={`View description of ${cls.name}`}
-          data-testid={`button-info-prestige-${cls.id}`}
-        >
-          {cls.name}
-        </button>
-        {unmet.length > 0 && (
+        <div className="flex items-center gap-1">
+          <button
+            type="button"
+            onClick={() => setDetailClass(cls)}
+            className="text-left text-sm font-medium leading-tight text-muted-foreground underline-offset-2 hover:underline"
+            aria-label={`View description of ${cls.name}`}
+            data-testid={`button-info-prestige-${cls.id}`}
+          >
+            {cls.name}
+          </button>
+          <button
+            type="button"
+            onClick={() => toggleExpanded(cls.id)}
+            className="shrink-0 rounded-full p-0.5 text-muted-foreground hover-elevate hover:text-foreground"
+            aria-label={expanded ? `Collapse ${cls.name}` : `Expand ${cls.name}`}
+            aria-expanded={expanded}
+            data-testid={`button-expand-prestige-${cls.id}`}
+          >
+            <ChevronDown className={cn("h-3.5 w-3.5 transition-transform", expanded && "rotate-180")} />
+          </button>
+        </div>
+        {expanded && unmet.length > 0 && (
           <div className="mt-1 space-y-1" data-testid={`unmet-list-${cls.id}`}>
             {unmet.map((entry, i) => {
               const reasons = entry.fragments
@@ -318,7 +362,7 @@ export function StepPrestige({
             })}
           </div>
         )}
-        {specials.length > 0 && (
+        {expanded && specials.length > 0 && (
           <div className="mt-1 space-y-1.5">
             {specials.map(({ entry, i }) => (
               <div key={i} className="text-xs">

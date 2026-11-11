@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
 import type { ResolvedCharacter } from "@/engine/types";
 import { ABILITY_KEYS, ABILITY_LABEL } from "@/engine/types";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { AuditTrail } from "@/components/audit-trail";
+import { cn } from "@/lib/utils";
 import { downloadInteractiveSheet, fillInteractiveSheet } from "@/lib/interactive-sheet";
 
 interface StepSheetProps {
@@ -74,6 +75,31 @@ export function StepSheet({ character }: StepSheetProps) {
   const [sheetBytes, setSheetBytes] = useState<Uint8Array | null>(null);
   const [sheetPageCount, setSheetPageCount] = useState(0);
   const [sheetPage, setSheetPage] = useState(1);
+  /* Shaun, 2026-11-11: the character sheet is reduced to its
+     section headers until clicked — every section card shows
+     its title only; its description and contents open on
+     click. The validation-errors block stays visible: it is a
+     warning, not verbiage. */
+  const [openSections, setOpenSections] = useState<Set<string>>(new Set());
+  const toggleSection = (id: string) =>
+    setOpenSections((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  const sectionToggle = (id: string, label: string) => (
+    <button
+      type="button"
+      onClick={() => toggleSection(id)}
+      className="shrink-0 rounded-full p-0.5 text-muted-foreground hover-elevate hover:text-foreground"
+      aria-label={openSections.has(id) ? `Collapse ${label}` : `Expand ${label}`}
+      aria-expanded={openSections.has(id)}
+      data-testid={`button-expand-sheet-${id}`}
+    >
+      <ChevronDown className={cn("h-4 w-4 transition-transform", openSections.has(id) && "rotate-180")} />
+    </button>
+  );
   const pageUrlsRef = useRef<string[]>([]);
   useEffect(() => {
     if (sheetFormat !== "pdf") {
@@ -351,6 +377,9 @@ export function StepSheet({ character }: StepSheetProps) {
             </div>
             {sheetFormatToggle}
           </div>
+          {sectionToggle("overview", "How to read this sheet")}
+          {openSections.has("overview") && (
+            <>
           <p className="text-[13px] leading-5 text-muted-foreground">
             <span className="font-medium text-foreground">How to read this sheet.</span> This is your finished
             character, top to bottom — what you are, how hard you are to hit, how you attack, how you resist,
@@ -365,6 +394,8 @@ export function StepSheet({ character }: StepSheetProps) {
             <span className="font-medium text-foreground">Effective Character Level</span> — class levels plus level
             adjustment — is the level the game treats you as for experience, treasure, and what you can handle.
           </p>
+            </>
+          )}
         </CardHeader>
         {errors.length > 0 && (
           <CardContent>
@@ -384,6 +415,8 @@ export function StepSheet({ character }: StepSheetProps) {
         <CardHeader className="pb-2 pt-4">
           <div className="flex flex-wrap items-start gap-x-4 gap-y-1">
             <CardTitle className="shrink-0 font-display text-lg">Ability Scores</CardTitle>
+            {sectionToggle("abilities", "Ability Scores")}
+            {openSections.has("abilities") && (
             <CardDescription className="min-w-0 flex-1">
             Your six core abilities. The big number is the score; the number in parentheses is its modifier —
             the part you actually add to rolls, checks, and everything the score feeds. Strength is muscle and
@@ -391,8 +424,10 @@ export function StepSheet({ character }: StepSheetProps) {
             and reasoning, Wisdom is awareness and willpower, Charisma is presence and influence. Tap any score
             to see what raised or lowered it.
             </CardDescription>
+            )}
           </div>
         </CardHeader>
+{openSections.has("abilities") && (
         <CardContent className="pb-3">
           <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6">
             {ABILITY_KEYS.map((key) => {
@@ -409,6 +444,7 @@ export function StepSheet({ character }: StepSheetProps) {
             })}
           </div>
         </CardContent>
+        )}
       </Card>
 
       <div className="grid items-start gap-2 sm:grid-cols-2 lg:grid-cols-3">
@@ -424,13 +460,17 @@ export function StepSheet({ character }: StepSheetProps) {
         <Card className="lg:row-span-2">
           <CardHeader className="pb-2 pt-4">
             <CardTitle className="font-display text-lg">Base Attack &amp; Hit Points</CardTitle>
+            {sectionToggle("babhp", "Base Attack and Hit Points")}
+            {openSections.has("babhp") && (
             <CardDescription className="text-xs leading-[15px]">
               Base Attack Bonus is the backbone of every attack you make. Melee Attack adds your Strength to it,
               Ranged Attack adds your Dexterity, and Grapple is your bonus for wrestling, holding, and escaping
               holds. Initiative decides who acts first when a fight starts. Hit Points are how much damage you
               can take before you fall. Tap any of them for the full breakdown.
             </CardDescription>
+            )}
           </CardHeader>
+{openSections.has("babhp") && (
           <CardContent className="grid grid-cols-2 gap-2 pb-3">
             <AuditTrail label="Base Attack Bonus" value={`+${bab.total}`} audit={bab.audit} />
             <AuditTrail label="Melee Attack" value={fmtMod(attack.melee.total)} audit={attack.melee.audit} data-testid="attack-melee" />
@@ -439,6 +479,7 @@ export function StepSheet({ character }: StepSheetProps) {
             <AuditTrail label="Initiative" value={fmtMod(initiative.total)} audit={initiative.audit} data-testid="initiative" />
             <AuditTrail label="Hit Points" value={hp.total} audit={hp.audit} />
           </CardContent>
+        )}
         </Card>
 
         {/* Armor Class fits its content too (Shaun,
@@ -447,13 +488,17 @@ export function StepSheet({ character }: StepSheetProps) {
         <Card className="h-fit lg:col-start-2">
           <CardHeader className="pb-2 pt-4">
             <CardTitle className="font-display text-lg">Armor Class</CardTitle>
+            {sectionToggle("ac", "Armor Class")}
+            {openSections.has("ac") && (
             <CardDescription className="text-xs leading-[15px]">
               How hard you are to hit: an attacker&apos;s roll must meet or beat this number. Touch {ac.touch} is
               your AC against attacks that only need to touch you, ignoring armor. Flat-footed {ac.flatFooted}{" "}
               is your AC when you&apos;re caught unprepared and can&apos;t dodge yet. The boxes below are every
               piece that builds the total.
             </CardDescription>
+            )}
           </CardHeader>
+{openSections.has("ac") && (
           <CardContent className="flex items-start gap-2 pb-3">
             <AuditTrail label="Total AC" className="w-36 shrink-0" value={ac.total} audit={ac.audit} />
             <div className="grid flex-1 grid-cols-3 gap-2">
@@ -465,6 +510,7 @@ export function StepSheet({ character }: StepSheetProps) {
               ))}
             </div>
           </CardContent>
+        )}
         </Card>
 
         {/* Saving Throws fits its content (Shaun,
@@ -475,17 +521,22 @@ export function StepSheet({ character }: StepSheetProps) {
         <Card className="h-fit lg:col-start-2 lg:row-start-2">
           <CardHeader className="pb-2 pt-4">
             <CardTitle className="font-display text-lg">Saving Throws</CardTitle>
+            {sectionToggle("saves", "Saving Throws")}
+            {openSections.has("saves") && (
             <CardDescription className="text-xs leading-[15px]">
               The three rolls you make to resist harm. Fortitude withstands poison, disease, and anything that
               attacks the body; Reflex dodges explosions, pits, and traps; Will resists charms, fear, and mind
               control. Higher is better — tap one to see what it&apos;s made of.
             </CardDescription>
+            )}
           </CardHeader>
+{openSections.has("saves") && (
           <CardContent className="grid grid-cols-3 gap-2 pb-3">
             <AuditTrail label="Fortitude" value={fmtMod(saves.fort.total)} audit={saves.fort.audit} />
             <AuditTrail label="Reflex" value={fmtMod(saves.ref.total)} audit={saves.ref.audit} />
             <AuditTrail label="Will" value={fmtMod(saves.will.total)} audit={saves.will.audit} />
           </CardContent>
+        )}
         </Card>
 
         {/* CR / LA / ECL stacked beside the Saving Throws
@@ -512,12 +563,16 @@ export function StepSheet({ character }: StepSheetProps) {
       <Card>
         <CardHeader className="pb-2 pt-4">
           <CardTitle className="font-display text-lg">Speed</CardTitle>
+          {sectionToggle("speed", "Speed")}
+          {openSections.has("speed") && (
           <CardDescription className="text-xs leading-[15px]">
             How far you can move with one move action, by movement type. Land is ordinary walking and running;
             other badges appear only when you have that kind of movement — fly, swim, burrow, climb. Heavy
             armor and heavy loads can cut the land number down.
           </CardDescription>
+          )}
         </CardHeader>
+{openSections.has("speed") && (
         <CardContent className="pb-3">
           <div className="flex flex-wrap items-start gap-2">
           <AuditTrail label="Land Speed" value={`${speed.base} ft.`} audit={character.speedAudit} className="w-44 shrink-0" data-testid="speed-land" />
@@ -530,18 +585,23 @@ export function StepSheet({ character }: StepSheetProps) {
           </div>
           </div>
         </CardContent>
+        )}
       </Card>
 
       <Card>
         <CardHeader className="pb-2 pt-4">
           <CardTitle className="font-display text-lg">Special Attacks, Qualities &amp; Traits</CardTitle>
+          {sectionToggle("special", "Special Attacks, Qualities and Traits")}
+          {openSections.has("special") && (
           <CardDescription className="text-xs leading-[15px]">
             Everything special about this character, merged from race, class, and every applied template.
             Special attacks are things you actively do to enemies; special qualities are passive properties of
             your body and mind that are simply always true; feats and traits listed here were granted to you
             rather than chosen. Each entry names the book it came from.
           </CardDescription>
+          )}
         </CardHeader>
+{openSections.has("special") && (
         <CardContent className="pb-3">
           <div className="space-y-3">
             {(["special-attack", "special-quality", "feat", "trait"] as const).map((cat) => {
@@ -571,11 +631,14 @@ export function StepSheet({ character }: StepSheetProps) {
             })}
           </div>
         </CardContent>
+        )}
       </Card>
 
       <Card>
         <CardHeader className="pb-2 pt-4">
           <CardTitle className="font-display text-lg">Skills</CardTitle>
+          {sectionToggle("skills", "Skills")}
+          {openSections.has("skills") && (
           <CardDescription className="text-xs leading-[15px]">
             <span className="block">
               Every skill you&apos;ve put ranks in, showing the total you&apos;d add to a d20 roll for it. (class)
@@ -585,7 +648,9 @@ export function StepSheet({ character }: StepSheetProps) {
             </span>
             <AuditTrail label="Skill Points" value={`${skillPoints.spent} / ${skillPoints.total} spent`} audit={skillPoints.audit} className="mt-2" />
           </CardDescription>
+          )}
         </CardHeader>
+{openSections.has("skills") && (
         <CardContent className="pb-3">
           {skills.filter((s) => s.ranks > 0).length === 0 ? (
             <p className="text-sm text-muted-foreground">No skill ranks allocated yet.</p>
@@ -605,11 +670,14 @@ export function StepSheet({ character }: StepSheetProps) {
             </div>
           )}
         </CardContent>
+        )}
       </Card>
 
       <Card>
         <CardHeader className="pb-2 pt-4">
           <CardTitle className="font-display text-lg">Feats</CardTitle>
+          {sectionToggle("feats", "Feats")}
+          {openSections.has("feats") && (
           <CardDescription className="text-xs leading-[15px]">
             <span className="block">
               The permanent special abilities this character has learned or been granted — each one lists what
@@ -618,7 +686,9 @@ export function StepSheet({ character }: StepSheetProps) {
             </span>
             <AuditTrail label="Feat Slots" value={`${featSlots.used} / ${featSlots.total} used`} audit={featSlots.audit} className="mt-2" />
           </CardDescription>
+          )}
         </CardHeader>
+{openSections.has("feats") && (
         <CardContent className="pb-3">
           {selectedFeats.length === 0 ? (
             <p className="text-sm text-muted-foreground">No feats selected yet.</p>
@@ -638,16 +708,21 @@ export function StepSheet({ character }: StepSheetProps) {
             </ul>
           )}
         </CardContent>
+        )}
       </Card>
 
       <Card>
         <CardHeader className="pb-2 pt-4">
           <CardTitle className="font-display text-lg">Inventory</CardTitle>
+          {sectionToggle("inventory", "Inventory")}
+          {openSections.has("inventory") && (
           <CardDescription className="text-xs leading-[15px]">
             Everything this character owns and carries. Anything marked Equipped is already counted where it
             belongs — equipped armor and shields are inside your Armor Class at the top of this sheet.
           </CardDescription>
+          )}
         </CardHeader>
+{openSections.has("inventory") && (
         <CardContent className="pb-3">
           {inventory.length === 0 ? (
             <p className="text-sm text-muted-foreground">Inventory is empty.</p>
@@ -669,6 +744,7 @@ export function StepSheet({ character }: StepSheetProps) {
             </ul>
           )}
         </CardContent>
+        )}
       </Card>
       </div>
     </div>
