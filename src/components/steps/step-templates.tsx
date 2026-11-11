@@ -3,7 +3,7 @@ import { useState } from "react";
 import { EntityDetailDialog } from "@/components/entity-detail-dialog";
 import { describeTemplate } from "@/lib/entity-descriptions";
 import type { EntityDetail } from "@/lib/entity-descriptions";
-import { AlertTriangle, ArrowDown, ArrowUp, Info, X } from "lucide-react";
+import { AlertTriangle, ArrowDown, ArrowUp, ChevronDown, Info, X } from "lucide-react";
 import { ALL_TEMPLATES } from "@/data";
 import type { AppliedTemplateChoice, CreatureType, Ruleset, ValidationIssue } from "@/engine/types";
 import { checkPrerequisites } from "@/engine/prerequisites";
@@ -73,6 +73,18 @@ export function StepTemplates({ templates, baseType, enabledRulesets, onAdd, onR
   // Bug sweep 2026-11-08: template cards get the same ⓘ detail
   // view every other catalog card already has.
   const [detail, setDetail] = useState<EntityDetail | null>(null);
+  // Shaun, 2026-11-11: in the Templates section, every template
+  // card is reduced to its header only — the summary verbiage,
+  // CR/LA line, Add button, and prerequisite notes stay hidden
+  // until the card's header is clicked open.
+  const [expandedIds, setExpandedIds] = useState<Set<string>>(new Set());
+  const toggleExpanded = (id: string) =>
+    setExpandedIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
 
   return withPieces("step:templates", (
     <div className="space-y-6">
@@ -207,9 +219,16 @@ export function StepTemplates({ templates, baseType, enabledRulesets, onAdd, onR
             {orderedAvailableTemplates.map((t) => {
               const issues = checkPrerequisites(t, { baseType, type: simulatedType, subtypes: [], appliedTemplateIds: appliedIdsSoFar });
               const blocked = issues.some((i) => i.severity === "error");
+              const expanded = expandedIds.has(t.id);
               return (
                 <div key={t.id} className="rounded-md border border-card-border bg-card p-3" data-testid={`template-option-${t.id}`}>
-                  <div className="flex items-start justify-between gap-2">
+                  <div
+                    className="flex cursor-pointer items-start justify-between gap-2"
+                    onClick={() => toggleExpanded(t.id)}
+                    role="button"
+                    aria-expanded={expanded}
+                    data-testid={`button-expand-template-${t.id}`}
+                  >
                     <div>
                       <div className="font-display text-base font-semibold flex items-center gap-1.5">
                         {t.name}
@@ -230,30 +249,35 @@ export function StepTemplates({ templates, baseType, enabledRulesets, onAdd, onR
                         >
                           <Info className="h-3.5 w-3.5" />
                         </button>
+                        <ChevronDown className={cn("h-4 w-4 shrink-0 text-muted-foreground transition-transform", expanded && "rotate-180")} />
                       </div>
+                    </div>
+                  </div>
+                  {expanded && (
+                    <>
                       <p className="mt-1 text-xs text-muted-foreground">{t.summary}</p>
-                    </div>
-                  </div>
-                  <div className="mt-2 flex items-center justify-between gap-2">
-                    <div className="flex gap-2 text-xs font-mono text-muted-foreground">
-                      <span>CR +{t.crModifier}</span>
-                      <span>LA +{t.levelAdjustment}</span>
-                    </div>
-                    <Button type="button" size="sm" onClick={() => onAdd(t.id)} data-testid={`button-add-template-${t.id}`}>
-                      Add
-                    </Button>
-                  </div>
-                  {blocked && (
-                    <p className="mt-2 flex items-start gap-1.5 text-xs text-destructive">
-                      <AlertTriangle className="mt-0.5 h-3 w-3 shrink-0" />
-                      {issues.find((i) => i.severity === "error")?.message}
-                    </p>
-                  )}
-                  {!blocked && issues.some((i) => i.severity === "warning") && (
-                    <p className="mt-2 flex items-start gap-1.5 text-xs text-muted-foreground">
-                      <Info className="mt-0.5 h-3 w-3 shrink-0" />
-                      {issues.find((i) => i.severity === "warning")?.message}
-                    </p>
+                      <div className="mt-2 flex items-center justify-between gap-2">
+                        <div className="flex gap-2 text-xs font-mono text-muted-foreground">
+                          <span>CR +{t.crModifier}</span>
+                          <span>LA +{t.levelAdjustment}</span>
+                        </div>
+                        <Button type="button" size="sm" onClick={() => onAdd(t.id)} data-testid={`button-add-template-${t.id}`}>
+                          Add
+                        </Button>
+                      </div>
+                      {blocked && (
+                        <p className="mt-2 flex items-start gap-1.5 text-xs text-destructive">
+                          <AlertTriangle className="mt-0.5 h-3 w-3 shrink-0" />
+                          {issues.find((i) => i.severity === "error")?.message}
+                        </p>
+                      )}
+                      {!blocked && issues.some((i) => i.severity === "warning") && (
+                        <p className="mt-2 flex items-start gap-1.5 text-xs text-muted-foreground">
+                          <Info className="mt-0.5 h-3 w-3 shrink-0" />
+                          {issues.find((i) => i.severity === "warning")?.message}
+                        </p>
+                      )}
+                    </>
                   )}
                 </div>
               );
