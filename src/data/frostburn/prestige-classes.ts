@@ -235,7 +235,7 @@ export const FROSTBURN_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
         name: "Primeval Features",
         category: "trait",
         description:
-          "A warrior who reverts to a prehistoric beast form. Primeval form 1/day (1st; an additional daily use at 4th, 7th, and 10th), animal empathy (1st), regression 1 (2nd; regression 2 at 5th and regression 3 at 8th — ability scores shift toward the beast with each step), low-light vision (2nd), feral power (3rd, doubling at 6th and tripling at 9th), scent (5th), and fast movement (8th).",
+          "A warrior who reverts to a prehistoric beast form. Primeval form 1/day (1st; an additional daily use at 4th, 7th, and 10th), wild empathy (1st; the book prints the feature as 'animal empathy' — 3.5 conversion per Shaun's standing order), regression 1 (2nd; regression 2 at 5th and regression 3 at 8th — ability scores shift toward the beast with each step), low-light vision (2nd), feral power (3rd, doubling at 6th and tripling at 9th), scent (5th), and fast movement (8th).",
         source: `${CH3} — Primeval (pp. 65–66)`,
         sourceUrl: FB_PATH,
       },

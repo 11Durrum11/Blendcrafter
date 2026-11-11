@@ -1924,7 +1924,7 @@ export const ALCHEMY_HERBALISTS_EQUIPMENT: EquipmentItem[] = [
     category: "alchemical gear",
     cost: "125 gp per oz.",
     weight: "—",
-    notes: "Catalog entry [Unguent: Special]. Caster Level 6; creation DC 21; Cost to Create 4,100 gp per quart. An herbal/pheromonic perfume that duplicates animal friendship for 2d4 hours (or until washed or worn off), and grants +2 circumstance bonuses to any Will saves against fear or other effects (calming context).",
+    notes: "Catalog entry [Unguent: Special]. Caster Level 6; creation DC 21; Cost to Create 4,100 gp per quart. An herbal/pheromonic perfume that duplicates charm animal (printed as animal friendship) for 2d4 hours (or until washed or worn off), and grants +2 circumstance bonuses to any Will saves against fear or other effects (calming context).",
     source: `${AH}, p. 86`,
     sourceUrl: "",
     ruleset: "core",

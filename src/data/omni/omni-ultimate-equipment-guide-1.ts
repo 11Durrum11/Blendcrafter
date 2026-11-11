@@ -210,7 +210,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "10 gp",
     "weight": "1 lb.",
-    "notes": "Tiny simple melee weapon: 1d3 piercing, critical 18-20/x2.",
+    "notes": "Tiny simple melee weapon: Damage 1d4 (Small) / 1d6 (Medium) piercing, critical 18-20/x2. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — Arcane Sorcery, p. 20; Rules Summary p. 210",
     "sourceUrl": "",
     "ruleset": "core"
@@ -221,7 +221,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "55 gp",
     "weight": "1 lb.",
-    "notes": "Small simple melee weapon: 1d4 piercing, critical x2. A dagger made for ritual spellcasting use.",
+    "notes": "Small simple melee weapon: Damage 1d4 (Small) / 1d6 (Medium) piercing, critical x2. A dagger made for ritual spellcasting use. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — Arcane Sorcery, p. 26; Rules Summary p. 210",
     "sourceUrl": "",
     "ruleset": "core"
@@ -3096,7 +3096,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "80 gp",
     "weight": "8 lb.",
-    "notes": "Medium exotic ranged weapon: range increment 10 ft.; entangles like a net and can also deal 1d4 slashing damage, critical x2, with its weighted, bladed edge.",
+    "notes": "Medium exotic ranged weapon: range increment 10 ft.; entangles like a net and can also deal Damage 1d3 (Small) / 1d4 (Medium) slashing damage, critical x2, with its weighted, bladed edge. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — Bards and Theatres, p. 34; Rules Summary p. 214",
     "sourceUrl": "",
     "ruleset": "core"
@@ -3714,7 +3714,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "2 gp",
     "weight": "3 lb.",
-    "notes": "Tiny simple melee weapon: 1d3 piercing, critical x2, range increment 5 ft. A small ceremonial flaying knife.",
+    "notes": "Tiny simple melee weapon: Damage 1d4 (Small) / 1d6 (Medium) piercing, critical x2, range increment 5 ft. A small ceremonial flaying knife. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — Clerics and Temples, p. 51; Rules Summary p. 216",
     "sourceUrl": "",
     "ruleset": "core"
@@ -3725,7 +3725,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "20 gp",
     "weight": "1 lb.",
-    "notes": "Small simple melee weapon: 1d3 piercing, critical x2, range increment 5 ft. A ceremonial double-edged blade, deliberately dull and mirror-polished, used to direct ritual energy and never to cut.",
+    "notes": "Small simple melee weapon: Damage 1d3 (Small) / 1d4 (Medium) piercing, critical x2, range increment 5 ft. A ceremonial double-edged blade, deliberately dull and mirror-polished, used to direct ritual energy and never to cut. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — Clerics and Temples, p. 49; Rules Summary p. 216",
     "sourceUrl": "",
     "ruleset": "core"
@@ -3736,7 +3736,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "150 gp",
     "weight": "5 lb.",
-    "notes": "Medium simple melee weapon: 1d6 bludgeoning, critical x2, range increment 10 ft. A ceremonial ritual sceptre used with bells to focus a congregation's energy.",
+    "notes": "Medium simple melee weapon: Damage 1d4 (Small) / 1d6 (Medium) bludgeoning, critical x2, range increment 10 ft. A ceremonial ritual sceptre used with bells to focus a congregation's energy. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — Clerics and Temples, p. 50; Rules Summary p. 216",
     "sourceUrl": "",
     "ruleset": "core"
@@ -3747,7 +3747,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "12 gp",
     "weight": "5 lb.",
-    "notes": "Medium martial melee weapon: 1d8 bludgeoning, critical x2. The hollow head holds holy water for six attacks, successful or not; the water deals 1d4 extra damage to undead and evil outsiders.",
+    "notes": "Medium martial melee weapon: Damage 1d6 (Small) / 1d8 (Medium) bludgeoning, critical x2. The hollow head holds holy water for six attacks, successful or not; the water deals 1d4 extra damage to undead and evil outsiders. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — Clerics and Temples, p. 44; Rules Summary p. 216",
     "sourceUrl": "",
     "ruleset": "core"
@@ -6188,7 +6188,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "8 gp",
     "weight": "3 lb.",
-    "notes": "Tiny exotic melee weapon: 1d4 piercing, critical x3. Gauntlets fitted with claws, also useful for climbing.",
+    "notes": "Tiny exotic melee weapon: Damage 1d6 (Small) / 1d8 (Medium) piercing, critical x3. Gauntlets fitted with claws, also useful for climbing. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — Honour Amongst Rogues, p. 78; Rules Summary p. 221",
     "sourceUrl": "",
     "ruleset": "core"
@@ -6199,7 +6199,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "60 gp",
     "weight": "1 lb.",
-    "notes": "Tiny exotic melee weapon: 1d2 piercing, critical x3. Small assassin's picks, easily concealed about the body.",
+    "notes": "Tiny exotic melee weapon: Damage 1d3 (Small) / 1d4 (Medium) piercing, critical x3. Small assassin's picks, easily concealed about the body. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — Honour Amongst Rogues, p. 80; Rules Summary p. 221",
     "sourceUrl": "",
     "ruleset": "core"
@@ -6210,7 +6210,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "500 gp",
     "weight": "10 lb.",
-    "notes": "Large exotic melee weapon: 1d8 slashing, critical x2. A shovel edged with xorn claws that can dig through earth and stone, and serves as a heavy weapon.",
+    "notes": "Large exotic melee weapon: Damage 1d4 (Small) / 1d6 (Medium) slashing, critical x2. A shovel edged with xorn claws that can dig through earth and stone, and serves as a heavy weapon. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — Honour Amongst Rogues, p. 86; Rules Summary p. 221",
     "sourceUrl": "",
     "ruleset": "core"
@@ -7081,7 +7081,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "12 gp",
     "weight": "3 lb.",
-    "notes": "Tiny simple melee weapon: 1d2 piercing, critical x2, range increment 5 ft. A set of small knives for skinning and butchering game.",
+    "notes": "Tiny simple melee weapon: Damage 1d3 (Small) / 1d4 (Medium) piercing, critical x2, range increment 5 ft. A set of small knives for skinning and butchering game. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — In the Wild, p. 95; Rules Summary p. 223",
     "sourceUrl": "",
     "ruleset": "core"
@@ -7092,7 +7092,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "8 gp",
     "weight": "5 lb.",
-    "notes": "Medium simple melee weapon: 1d6 slashing, critical x2. A heavy brush-cutting blade that doubles as a weapon.",
+    "notes": "Medium simple melee weapon: Damage 1d4 (Small) / 1d6 (Medium) slashing, critical x2. A heavy brush-cutting blade that doubles as a weapon. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — In the Wild, p. 97; Rules Summary p. 223",
     "sourceUrl": "",
     "ruleset": "core"
@@ -8261,7 +8261,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "20 gp",
     "weight": "2 lb.",
-    "notes": "Tiny simple melee weapon (priced each): 1d4 piercing, critical x2. A spiked clamp hand that cannot hold items like a locked gauntlet but deals 1d4 piercing damage automatically each round the wearer succeeds on a grapple check, alongside the +2 grapple bonus.",
+    "notes": "Tiny simple melee weapon (priced each): Damage 1d6 (Small) / 1d8 (Medium) piercing, critical x2. A spiked clamp hand that cannot hold items like a locked gauntlet but deals that piercing damage automatically each round the wearer succeeds on a grapple check, alongside the +2 grapple bonus. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — Knick-Knacks of the Little Folk, p. 103; Rules Summary p. 226",
     "sourceUrl": "",
     "ruleset": "core"
@@ -8272,7 +8272,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "850 gp",
     "weight": "6 lb.",
-    "notes": "Small exotic melee weapon: 1d6 piercing, critical x2, with a maximum range of 10 ft. A gnomish pressure-powered sword whose mechanism drives the blade. (The book's index lists these as 'Pressured Powered'.)",
+    "notes": "Small exotic melee weapon: Damage 1d6 (Small) / 1d8 (Medium) piercing, critical x2, with a maximum range of 10 ft. A gnomish pressure-powered sword whose mechanism drives the blade. (The book's index lists these as 'Pressured Powered'.) (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — Knick-Knacks of the Little Folk, p. 107; Rules Summary p. 226",
     "sourceUrl": "",
     "ruleset": "core"
@@ -8283,7 +8283,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "1,950 gp",
     "weight": "30 lb.",
-    "notes": "Large exotic melee weapon: 2d6 piercing or slashing, critical x2, with a maximum range of 10 ft. A huge gnomish pressure-powered blade. (The book's index lists these as 'Pressured Powered'.)",
+    "notes": "Large exotic melee weapon: Damage 1d8 (Small) / 1d10 (Medium) piercing or slashing, critical x2, with a maximum range of 10 ft. A huge gnomish pressure-powered blade. (The book's index lists these as 'Pressured Powered'.) (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — Knick-Knacks of the Little Folk, p. 107; Rules Summary p. 226",
     "sourceUrl": "",
     "ruleset": "core"
@@ -9741,7 +9741,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "4 gp",
     "weight": "1 lb.",
-    "notes": "Tiny simple melee weapon: 1d3 piercing, critical x4. A slender assassin's blade built for striking vital points.",
+    "notes": "Tiny simple melee weapon: Damage 1d4 (Small) / 1d6 (Medium) piercing, critical x4. A slender assassin's blade built for striking vital points. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -9752,7 +9752,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "20 gp",
     "weight": "1 lb.",
-    "notes": "Tiny simple melee weapon: 1d4 piercing, critical 19-20/x2. Its hollow pommel conceals a tiny compartment. See The Armoury chapter for its special rules.",
+    "notes": "Tiny simple melee weapon: Damage 1d6 (Small) / 1d8 (Medium) piercing, critical 19-20/x2. Its hollow pommel conceals a tiny compartment. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -9763,7 +9763,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "10 gp",
     "weight": "1 lb.",
-    "notes": "Tiny simple melee weapon: 1d4 piercing, critical 19-20/x2. A vacuum-tube dagger that draws blood from a wound; replacement tubes are sold separately. See The Armoury chapter for its special rules.",
+    "notes": "Tiny simple melee weapon: Damage 1d6 (Small) / 1d8 (Medium) piercing, critical 19-20/x2. A vacuum-tube dagger that draws blood from a wound; replacement tubes are sold separately. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -9774,7 +9774,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "2 gp",
     "weight": "2 lb.",
-    "notes": "Tiny simple melee weapon: 1d4 piercing, critical x3. A blade jutting from a fist grip, used with punching attacks.",
+    "notes": "Tiny simple melee weapon: Damage 1d6 (Small) / 1d8 (Medium) piercing, critical x3. A blade jutting from a fist grip, used with punching attacks. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -9796,7 +9796,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "8 gp",
     "weight": "5 lb.",
-    "notes": "Tiny simple melee weapon: 1d4 slashing, critical 19-20/x2. A gauntlet with a bladed edge along the hand.",
+    "notes": "Tiny simple melee weapon: Damage 1d6 (Small) / 1d8 (Medium) slashing, critical 19-20/x2. A gauntlet with a bladed edge along the hand. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -9807,7 +9807,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "20 gp",
     "weight": "6 lb.",
-    "notes": "Tiny simple melee weapon: 1d4 bludgeoning, critical x2. A heavy protective gauntlet built to catch and turn blades. See The Armoury chapter for its special rules.",
+    "notes": "Tiny simple melee weapon: Damage 1d6 (Small) / 1d8 (Medium) bludgeoning, critical x2. A heavy protective gauntlet built to catch and turn blades. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -9818,7 +9818,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "5 gp",
     "weight": "2 lb.",
-    "notes": "Tiny simple melee weapon: 1d4 piercing, critical x2. A gauntlet studded with spikes.",
+    "notes": "Tiny simple melee weapon: Damage 1d6 (Small) / 1d8 (Medium) piercing, critical x2. A gauntlet studded with spikes. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -9829,7 +9829,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "6 gp",
     "weight": "4 lb.",
-    "notes": "Tiny simple melee weapon: 1d4 piercing, critical 19-20/x2. A gauntlet hiding a spring-loaded blade. See The Armoury chapter for its special rules.",
+    "notes": "Tiny simple melee weapon: Damage 1d6 (Small) / 1d8 (Medium) piercing, critical 19-20/x2. A gauntlet hiding a spring-loaded blade. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -9840,7 +9840,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "5 gp",
     "weight": "3 lb.",
-    "notes": "Tiny simple melee weapon: 1d4 bludgeoning, critical x2. A gauntlet reinforced with metal studs.",
+    "notes": "Tiny simple melee weapon: Damage 1d6 (Small) / 1d8 (Medium) bludgeoning, critical x2. A gauntlet reinforced with metal studs. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -9851,7 +9851,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "10 gp",
     "weight": "4 lb.",
-    "notes": "Tiny simple melee weapon: 1d4 bludgeoning or piercing, critical x2. A gauntlet rimmed with metal teeth. See The Armoury chapter for its special rules.",
+    "notes": "Tiny simple melee weapon: Damage 1d6 (Small) / 1d8 (Medium) bludgeoning or piercing, critical x2. A gauntlet rimmed with metal teeth. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -9862,7 +9862,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "5 sp",
     "weight": "1/2 lb.",
-    "notes": "Tiny simple melee weapon: 1d2 piercing, critical x2, range increment 5 ft. A simple utility knife.",
+    "notes": "Tiny simple melee weapon: Damage 1d3 (Small) / 1d4 (Medium) piercing, critical x2, range increment 5 ft. A simple utility knife. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -9873,7 +9873,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "5 sp",
     "weight": "1 lb.",
-    "notes": "Tiny simple melee weapon: 1d3 piercing, critical x2. A spiked knuckle guard for brawling.",
+    "notes": "Tiny simple melee weapon: Damage 1d4 (Small) / 1d6 (Medium) piercing, critical x2. A spiked knuckle guard for brawling. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -9884,7 +9884,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "20 gp",
     "weight": "4 lb.",
-    "notes": "Small simple melee weapon: 1d4/1d6, critical 19-20/x2/x2, piercing or bludgeoning. A matched pair of fighting daggers. See The Armoury chapter for its special rules.",
+    "notes": "Small simple melee weapon (double weapon): Damage 1d4/1d6 (Small) / 1d6/1d8 (Medium), critical 19-20/x2/x2, piercing or bludgeoning. A matched pair of fighting daggers. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -9895,7 +9895,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "5 gp",
     "weight": "6 lb.",
-    "notes": "Small simple melee weapon: 1d6 bludgeoning, critical x2. A light mace with a metal head.",
+    "notes": "Small simple melee weapon: Damage 1d6 (Small) / 1d8 (Medium) bludgeoning, critical x2. A light mace with a metal head. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -9906,7 +9906,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "1 gp",
     "weight": "4 lb.",
-    "notes": "Medium simple melee weapon: 1d6 bludgeoning (nonlethal damage), critical x2. A padded practice club.",
+    "notes": "Medium simple melee weapon: Damage 1d4 (Small) / 1d6 (Medium) bludgeoning (nonlethal damage), critical x2. A padded practice club. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -9917,7 +9917,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "1 gp",
     "weight": "3 lb.",
-    "notes": "Medium simple melee weapon: 1d6 piercing, critical x3, range increment 20 ft. A short half-length spear.",
+    "notes": "Medium simple melee weapon: Damage 1d4 (Small) / 1d6 (Medium) piercing, critical x3, range increment 20 ft. A short half-length spear. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -9928,7 +9928,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "75 gp",
     "weight": "12 lb.",
-    "notes": "Medium simple melee weapon: 1d8 bludgeoning, critical x2. A mace head attached to the haft by a length of chain. See The Armoury chapter for its special rules.",
+    "notes": "Medium simple melee weapon: Damage 1d6 (Small) / 1d8 (Medium) bludgeoning, critical x2. A mace head attached to the haft by a length of chain. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -9939,7 +9939,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "12 gp",
     "weight": "12 lb.",
-    "notes": "Medium simple melee weapon: 1d8 bludgeoning, critical x2. A heavy mace with a flanged steel head.",
+    "notes": "Medium simple melee weapon: Damage 1d6 (Small) / 1d8 (Medium) bludgeoning, critical x2. A heavy mace with a flanged steel head. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -9950,7 +9950,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "10 gp",
     "weight": "4 lb.",
-    "notes": "Medium simple melee weapon: 1d8 slashing, critical x3. A blade with a serrated, saw-toothed edge.",
+    "notes": "Medium simple melee weapon: Damage 1d6 (Small) / 1d8 (Medium) slashing, critical x3. A blade with a serrated, saw-toothed edge. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -9961,7 +9961,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "10 gp",
     "weight": "5 lb.",
-    "notes": "Large simple melee weapon (double weapon): 1d6/1d6 piercing, critical x3, range increment 20 ft. A spear with a head at each end. See The Armoury chapter for its special rules.",
+    "notes": "Large simple melee weapon (double weapon): Damage 1d3/1d3 (Small) / 1d4/1d4 (Medium) piercing, critical x3, range increment 20 ft. A spear with a head at each end. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -9972,7 +9972,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "25 gp",
     "weight": "9 lb.",
-    "notes": "Large simple melee weapon (double weapon): 1d6/1d6 bludgeoning, critical x3. A quarterstaff shod and cored with iron. See The Armoury chapter for its special rules.",
+    "notes": "Large simple melee weapon (double weapon): Damage 1d3/1d3 (Small) / 1d4/1d4 (Medium) bludgeoning, critical x3. A quarterstaff shod and cored with iron. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -9983,7 +9983,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "30 gp",
     "weight": "2 lb.",
-    "notes": "Tiny martial melee weapon: 1d4 piercing, critical 19-20/x2, range increment 10 ft. A dagger whose blade is shot or snapped out by a spring mechanism. See The Armoury chapter for its special rules.",
+    "notes": "Tiny martial melee weapon: Damage 1d6 (Small) / 1d8 (Medium) piercing, critical 19-20/x2, range increment 10 ft. A dagger whose blade is shot or snapped out by a spring mechanism. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -9994,7 +9994,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "10 gp",
     "weight": "3 lb.",
-    "notes": "Small martial melee weapon: 1d4 piercing, critical 18-20/x2, range increment 10 ft. A knife with an angled blade for hooking cuts.",
+    "notes": "Small martial melee weapon: Damage 1d4 (Small) / 1d6 (Medium) piercing, critical 18-20/x2, range increment 10 ft. A knife with an angled blade for hooking cuts. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10005,7 +10005,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "100 gp",
     "weight": "10 lb.",
-    "notes": "Small martial melee weapon: 1d6 slashing, critical x3. Blades fitted to a suit of armour, striking as the wearer moves. See The Armoury chapter for its special rules.",
+    "notes": "Small martial melee weapon: Damage 1d6 (Small) / 1d8 (Medium) slashing, critical x3. Blades fitted to a suit of armour, striking as the wearer moves. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10016,7 +10016,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "1 gp",
     "weight": "3 lb.",
-    "notes": "Small martial melee weapon: 1d4/1d6, critical x2, piercing or bludgeoning. The blade deals piercing damage while its weighted sap pommel deals nonlethal bludgeoning damage. (The Rules Summary misprints the type as slashing/bludgeoning; the chapter reads piercing or bludgeoning.) See The Armoury chapter for its special rules.",
+    "notes": "Small martial melee weapon: Damage 1d4/1d6 (Small) / 1d6/1d8 (Medium), critical x2, piercing or bludgeoning. The blade deals piercing damage while its weighted sap pommel deals nonlethal bludgeoning damage. (The Rules Summary misprints the type as slashing/bludgeoning; the chapter reads piercing or bludgeoning.) See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10027,7 +10027,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "450 gp",
     "weight": "3 lb.",
-    "notes": "Small martial melee weapon: 1d6 piercing, critical 18-20/x2. A finely made short thrusting sword in the ancient style. See The Armoury chapter for its special rules.",
+    "notes": "Small martial melee weapon: Damage 1d6 (Small) / 1d8 (Medium) piercing, critical 18-20/x2. A finely made short thrusting sword in the ancient style. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10038,7 +10038,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "1 gp",
     "weight": "2 lb.",
-    "notes": "Small martial melee weapon: 1d4 bludgeoning, critical x2, range increment 20 ft. A light war hammer that can be thrown.",
+    "notes": "Small martial melee weapon: Damage 1d4 (Small) / 1d6 (Medium) bludgeoning, critical x2, range increment 20 ft. A light war hammer that can be thrown. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10049,7 +10049,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "10 gp",
     "weight": "2 lb.",
-    "notes": "Small martial melee weapon: 1d6 piercing or slashing, critical 19-20/x2, range increment 10 ft. Paired pronged knives shaped like deer horns. See The Armoury chapter for its special rules.",
+    "notes": "Small martial melee weapon: Damage 1d6 (Small) / 1d8 (Medium) piercing or slashing, critical 19-20/x2, range increment 10 ft. Paired pronged knives shaped like deer horns. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10060,7 +10060,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "6 gp",
     "weight": "5 lb.",
-    "notes": "Small martial melee weapon: 1d6 piercing, critical x3. A light lance dealing double damage in a mounted charge.",
+    "notes": "Small martial melee weapon: Damage 1d6 (Small) / 1d8 (Medium) piercing, critical x3. A light lance dealing double damage in a mounted charge. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10071,7 +10071,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "4 gp",
     "weight": "4 lb.",
-    "notes": "Small martial melee weapon: 1d4 piercing, critical x4. A light military pick for punching through armour.",
+    "notes": "Small martial melee weapon: Damage 1d4 (Small) / 1d6 (Medium) piercing, critical x4. A light military pick for punching through armour. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10082,7 +10082,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "10 gp",
     "weight": "2 lb.",
-    "notes": "Small martial melee weapon: 1d6 piercing, critical 19-20/x2. A short thrusting sword. The chapter weight of 2 lb. is used; the Rules Summary prints 3 lb.",
+    "notes": "Small martial melee weapon: Damage 1d6 (Small) / 1d8 (Medium) piercing, critical 19-20/x2. A short thrusting sword. The chapter weight of 2 lb. is used; the Rules Summary prints 3 lb. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10093,7 +10093,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "30 gp",
     "weight": "2 lb.",
-    "notes": "Small martial melee weapon: 1d6 piercing, critical 19-20/x2. A short sword with a crystal blade. See The Armoury chapter for its special rules.",
+    "notes": "Small martial melee weapon: Damage 1d6 (Small) / 1d8 (Medium) piercing, critical 19-20/x2. A short sword with a crystal blade. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10104,7 +10104,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "65 gp",
     "weight": "5 lb.",
-    "notes": "Small martial melee weapon: 1d4 slashing, critical 18-20/x2. A razor blade mounted on the wrist, easily hidden under a sleeve. See The Armoury chapter for its special rules.",
+    "notes": "Small martial melee weapon: Damage 1d4 (Small) / 1d6 (Medium) slashing, critical 18-20/x2. A razor blade mounted on the wrist, easily hidden under a sleeve. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10115,7 +10115,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "1 gp",
     "weight": "3 lb.",
-    "notes": "Medium martial melee weapon: 1d6 bludgeoning, critical x2, range increment 10 ft. A weighted throwing club on a thong. See The Armoury chapter for its special rules.",
+    "notes": "Medium martial melee weapon: Damage 1d4 (Small) / 1d6 (Medium) bludgeoning, critical x2, range increment 10 ft. A weighted throwing club on a thong. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10126,7 +10126,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "8 gp",
     "weight": "5 lb.",
-    "notes": "Medium martial melee weapon: 1d8 bludgeoning, critical x2. A spiked ball on a chain, usable for trip and disarm attempts with a bonus.",
+    "notes": "Medium martial melee weapon: Damage 1d6 (Small) / 1d8 (Medium) bludgeoning, critical x2. A spiked ball on a chain, usable for trip and disarm attempts with a bonus. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10137,7 +10137,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "5 gp",
     "weight": "4 lb.",
-    "notes": "Medium martial melee weapon: 1d6 slashing, critical x3. A curved tribal war knife.",
+    "notes": "Medium martial melee weapon: Damage 1d4 (Small) / 1d6 (Medium) slashing, critical x3. A curved tribal war knife. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10148,7 +10148,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "10 gp",
     "weight": "10 lb.",
-    "notes": "Medium martial melee weapon: 1d8 piercing, critical x3. A heavy lance dealing double damage in a mounted charge, with reach.",
+    "notes": "Medium martial melee weapon: Damage 1d6 (Small) / 1d8 (Medium) piercing, critical x3. A heavy lance dealing double damage in a mounted charge, with reach. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10159,7 +10159,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "45 gp",
     "weight": "3 lb.",
-    "notes": "Medium martial melee weapon: 1d8 slashing, critical 19-20/x2. A longsword with a crystal blade. See The Armoury chapter for its special rules.",
+    "notes": "Medium martial melee weapon: Damage 1d6 (Small) / 1d8 (Medium) slashing, critical 19-20/x2. A longsword with a crystal blade. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10170,7 +10170,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "8 gp",
     "weight": "9 lb.",
-    "notes": "Medium martial melee weapon: 1d6 piercing, critical x4. A heavy military pick. The chapter weight of 9 lb. is used; the Rules Summary prints 6 lb.",
+    "notes": "Medium martial melee weapon: Damage 1d4 (Small) / 1d6 (Medium) piercing, critical x4. A heavy military pick. The chapter weight of 9 lb. is used; the Rules Summary prints 6 lb. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10181,7 +10181,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "100 gp",
     "weight": "7 lb.",
-    "notes": "Medium martial melee weapon: 2d6 piercing, critical x4, range increment 20 ft. as listed in the Rules Summary. A spear with a spring-driven extending point. (The chapter lists no range increment.) See The Armoury chapter for its special rules.",
+    "notes": "Medium martial melee weapon: Damage 1d10 (Small) / 2d6 (Medium) piercing, critical x4, range increment 20 ft. as listed in the Rules Summary. A spear with a spring-driven extending point. (The chapter lists no range increment.) See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10192,7 +10192,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "35 gp",
     "weight": "5 lb.",
-    "notes": "Medium martial melee weapon: 2d4 slashing, critical 19-20/x2. A wide-bladed chopping sword. See The Armoury chapter for its special rules.",
+    "notes": "Medium martial melee weapon: Damage 1d6 (Small) / 2d4 (Medium) slashing, critical 19-20/x2. A wide-bladed chopping sword. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10203,7 +10203,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "20 gp",
     "weight": "4 lb.",
-    "notes": "Medium martial melee weapon: 1d8 slashing, critical 19-20/x2. A blade that hums and sings as it is swung. See The Armoury chapter for its special rules.",
+    "notes": "Medium martial melee weapon: Damage 1d6 (Small) / 1d8 (Medium) slashing, critical 19-20/x2. A blade that hums and sings as it is swung. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10214,7 +10214,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "35 gp",
     "weight": "3 lb.",
-    "notes": "Medium martial melee weapon: 1d6 piercing, critical 18-20/x2. A slender blade concealed inside a walking cane. See The Armoury chapter for its special rules.",
+    "notes": "Medium martial melee weapon: Damage 1d4 (Small) / 1d6 (Medium) piercing, critical 18-20/x2. A slender blade concealed inside a walking cane. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10225,7 +10225,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "45 gp",
     "weight": "6 lb.",
-    "notes": "Medium martial melee weapon: 1d8 slashing, critical 18-20/x2. A gauntlet with a sword blade fixed along the forearm. See The Armoury chapter for its special rules.",
+    "notes": "Medium martial melee weapon: Damage 1d6 (Small) / 1d8 (Medium) slashing, critical 18-20/x2. A gauntlet with a sword blade fixed along the forearm. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10236,7 +10236,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "22 gp",
     "weight": "4 lb.",
-    "notes": "Medium martial melee weapon: 1d6 slashing, critical 19-20/x2. A curved oriental cavalry sabre.",
+    "notes": "Medium martial melee weapon: Damage 1d4 (Small) / 1d6 (Medium) slashing, critical 19-20/x2. A curved oriental cavalry sabre. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10247,7 +10247,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "30 gp",
     "weight": "30 lb.",
-    "notes": "Large martial melee weapon: 2d4 piercing or bludgeoning, critical x4, with reach. A polearm with a hammer head and a curved beak. The chapter weight of 30 lb. is used; the Rules Summary prints 3 lb.",
+    "notes": "Large martial melee weapon: Damage 1d4 (Small) / 1d6 (Medium) piercing or bludgeoning, critical x4, with reach. A polearm with a hammer head and a curved beak. The chapter weight of 30 lb. is used; the Rules Summary prints 3 lb. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10258,7 +10258,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "75 gp",
     "weight": "18 lb.",
-    "notes": "Large martial melee weapon: 1d12 slashing, critical x4. A huge, blunt-tipped beheading sword. See The Armoury chapter for its special rules.",
+    "notes": "Large martial melee weapon: Damage 1d8 (Small) / 1d10 (Medium) slashing, critical x4. A huge, blunt-tipped beheading sword. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10269,7 +10269,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "15 gp",
     "weight": "20 lb.",
-    "notes": "Large martial melee weapon: 1d10 bludgeoning, critical 19-20/x2. A two-handed flail usable for trip and disarm attempts with a bonus.",
+    "notes": "Large martial melee weapon: Damage 1d6 (Small) / 1d8 (Medium) bludgeoning, critical 19-20/x2. A two-handed flail usable for trip and disarm attempts with a bonus. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10280,7 +10280,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "25 gp",
     "weight": "10 lb.",
-    "notes": "Large martial melee weapon: 2d4 slashing, critical 19-20/x2. A forward-curved two-handed war scythe.",
+    "notes": "Large martial melee weapon: Damage 1d4 (Small) / 1d6 (Medium) slashing, critical 19-20/x2. A forward-curved two-handed war scythe. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10291,7 +10291,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "35 gp",
     "weight": "10 lb.",
-    "notes": "Large martial melee weapon: 1d10 bludgeoning, critical x3. A spade-like weapon edged with gold coins. See The Armoury chapter for its special rules.",
+    "notes": "Large martial melee weapon: Damage 1d6 (Small) / 1d8 (Medium) bludgeoning, critical x3. A spade-like weapon edged with gold coins. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10302,7 +10302,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "150 gp",
     "weight": "12 lb.",
-    "notes": "Large martial melee weapon: 2d6 slashing, critical 19-20/x2. A greatsword with a crystal blade. See The Armoury chapter for its special rules.",
+    "notes": "Large martial melee weapon: Damage 1d8 (Small) / 1d10 (Medium) slashing, critical 19-20/x2. A greatsword with a crystal blade. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10313,7 +10313,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "10 gp",
     "weight": "15 lb.",
-    "notes": "Large martial melee weapon: 2d4 slashing, critical 19-20/x2, with reach. A longspear with a crescent blade below the point. See The Armoury chapter for its special rules.",
+    "notes": "Large martial melee weapon: Damage 1d4 (Small) / 1d6 (Medium) slashing, critical 19-20/x2, with reach. A longspear with a crescent blade below the point. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10324,7 +10324,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "80 gp",
     "weight": "18 lb.",
-    "notes": "Large martial melee weapon: 2d6 piercing or bludgeoning, critical x3. An enormous two-handed maul.",
+    "notes": "Large martial melee weapon: Damage 1d8 (Small) / 1d10 (Medium) piercing or bludgeoning, critical x3. An enormous two-handed maul. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10335,7 +10335,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "25 gp",
     "weight": "20 lb.",
-    "notes": "Large martial melee weapon: 1d10 slashing, critical 19-20/x2, with reach. An oriental polearm with a broad curved blade. See The Armoury chapter for its special rules.",
+    "notes": "Large martial melee weapon: Damage 1d6 (Small) / 1d8 (Medium) slashing, critical 19-20/x2, with reach. An oriental polearm with a broad curved blade. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10346,7 +10346,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "10 gp",
     "weight": "17 lb.",
-    "notes": "Large martial melee weapon: 1d10 piercing, critical x3, with extended reach. A very long infantry spear for formations. See The Armoury chapter for its special rules.",
+    "notes": "Large martial melee weapon: Damage 1d6 (Small) / 1d8 (Medium) piercing, critical x3, with extended reach. A very long infantry spear for formations. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10357,7 +10357,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "25 gp",
     "weight": "8 lb.",
-    "notes": "Large martial melee weapon: 1d2 piercing, critical x2. A hooked polearm used to catch and pull away shields. See The Armoury chapter for its special rules.",
+    "notes": "Large martial melee weapon: Damage 1 (Small) / 1 (Medium) piercing, critical x2. A hooked polearm used to catch and pull away shields. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10368,7 +10368,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "36 gp",
     "weight": "18 lb.",
-    "notes": "Large martial melee weapon: 1d10 slashing or piercing, critical 19-20/x2, with reach. A sword blade extended on a long haft.",
+    "notes": "Large martial melee weapon: Damage 1d6 (Small) / 1d8 (Medium) slashing or piercing, critical 19-20/x2, with reach. A sword blade extended on a long haft. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10379,7 +10379,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "45 gp",
     "weight": "15 lb.",
-    "notes": "Large martial melee weapon: 1d12 piercing or slashing, critical 19-20/x2, with reach. A heavy two-pronged military fork.",
+    "notes": "Large martial melee weapon: Damage 1d8 (Small) / 1d10 (Medium) piercing or slashing, critical 19-20/x2, with reach. A heavy two-pronged military fork. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10390,7 +10390,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "5 gp",
     "weight": "12 lb.",
-    "notes": "Large martial melee weapon: 1d8 piercing, critical x3, with reach. A rake-like polearm of hooked tines. See The Armoury chapter for its special rules.",
+    "notes": "Large martial melee weapon: Damage 1d4 (Small) / 1d6 (Medium) piercing, critical x3, with reach. A rake-like polearm of hooked tines. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10401,7 +10401,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "35 gp",
     "weight": "25 lb.",
-    "notes": "Large martial melee weapon: 1d12/1d8 slashing or piercing, critical 19-20/x2. A brutal two-ended polearm. See The Armoury chapter for its special rules.",
+    "notes": "Large martial melee weapon (double weapon): Damage 1d8/1d4 (Small) / 1d10/1d6 (Medium) slashing or piercing, critical 19-20/x2. A brutal two-ended polearm. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–235",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10414,7 +10414,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "1 gp",
     "weight": "1 lb.",
-    "notes": "Tiny simple ranged weapon: 1d3 piercing, critical 19-20/x2, range increment 20 ft. A balanced dagger made for throwing. See The Armoury chapter for its special rules.",
+    "notes": "Tiny simple ranged weapon: Damage 1d4 (Small) / 1d6 (Medium) piercing, critical 19-20/x2, range increment 20 ft. A balanced dagger made for throwing. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10425,7 +10425,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "5 sp",
     "weight": "1 lb.",
-    "notes": "Tiny simple ranged weapon: 1d4 bludgeoning, critical x2, range increment 40 ft. A forked hand catapult firing sling bullets.",
+    "notes": "Tiny simple ranged weapon: Damage 1d6 (Small) / 1d8 (Medium) bludgeoning, critical x2, range increment 40 ft. A forked hand catapult firing sling bullets. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10436,7 +10436,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "35 gp",
     "weight": "6 lb.",
-    "notes": "Small simple ranged weapon: 1d8 piercing, critical 19-20/x2, range increment 80 ft. A light crossbow, reloaded with a lever or crank.",
+    "notes": "Small simple ranged weapon: Damage 1d8 (Small) / 2d6 (Medium) piercing, critical 19-20/x2, range increment 80 ft. A light crossbow, reloaded with a lever or crank. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10447,7 +10447,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "50 gp",
     "weight": "9 lb.",
-    "notes": "Medium simple ranged weapon: 1d10 piercing, critical 19-20/x2, range increment 120 ft. A heavy crossbow needing a full-round action to reload.",
+    "notes": "Medium simple ranged weapon: Damage 1d8 (Small) / 1d10 (Medium) piercing, critical 19-20/x2, range increment 120 ft. A heavy crossbow needing a full-round action to reload. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10458,7 +10458,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "10 gp",
     "weight": "8 lb.",
-    "notes": "Medium simple ranged weapon: 1d8 piercing, critical x2, range increment 30 ft. A barbed harpoon, usually trailed by a rope. See The Armoury chapter for its special rules.",
+    "notes": "Medium simple ranged weapon: Damage 1d6 (Small) / 1d8 (Medium) piercing, critical x2, range increment 30 ft. A barbed harpoon, usually trailed by a rope. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10469,7 +10469,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "10 gp",
     "weight": "2 lb.",
-    "notes": "Tiny martial ranged weapon: 1d4 piercing, critical 19-20/x3, range increment 20 ft. A multi-pointed throwing knife.",
+    "notes": "Tiny martial ranged weapon: Damage 1d6 (Small) / 1d8 (Medium) piercing, critical 19-20/x3, range increment 20 ft. A multi-pointed throwing knife. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10480,7 +10480,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "8 gp",
     "weight": "4 lb.",
-    "notes": "Small martial ranged weapon: 1d6 slashing, critical x2, range increment 10 ft. A balanced axe made for throwing.",
+    "notes": "Small martial ranged weapon: Damage 1d6 (Small) / 1d8 (Medium) slashing, critical x2, range increment 10 ft. A balanced axe made for throwing. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10491,7 +10491,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "100 gp",
     "weight": "10 lb.",
-    "notes": "Medium martial ranged weapon: 2d10 piercing, critical x3, range increment 10 ft. A heavy mechanical bolt projector for close range.",
+    "notes": "Medium martial ranged weapon: Damage 2d8 (Small) / 2d10 (Medium) piercing, critical x3, range increment 10 ft. A heavy mechanical bolt projector for close range. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10502,7 +10502,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "75 gp",
     "weight": "2 lb.",
-    "notes": "Medium martial ranged weapon: 1d6 piercing, critical x3, range increment 70 ft. A composite shortbow of horn, wood and sinew.",
+    "notes": "Medium martial ranged weapon: Damage 1d4 (Small) / 1d6 (Medium) piercing, critical x3, range increment 70 ft. A composite shortbow of horn, wood and sinew. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10513,7 +10513,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "150 gp",
     "weight": "2 lb.",
-    "notes": "A composite shortbow built for a wielder with a +1 Strength bonus: 1d6 piercing, critical x3, range increment 70 ft. The listed price is the bow's total cost.",
+    "notes": "A composite shortbow built for a wielder with a +1 Strength bonus: Damage 1d4 (Small) / 1d6 (Medium) piercing, critical x3, range increment 70 ft. The listed price is the bow's total cost. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10524,7 +10524,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "225 gp",
     "weight": "2 lb.",
-    "notes": "A composite shortbow built for a wielder with a +2 Strength bonus: 1d6 piercing, critical x3, range increment 70 ft. The listed price is the bow's total cost.",
+    "notes": "A composite shortbow built for a wielder with a +2 Strength bonus: Damage 1d4 (Small) / 1d6 (Medium) piercing, critical x3, range increment 70 ft. The listed price is the bow's total cost. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10535,7 +10535,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "95 gp",
     "weight": "4 lb.",
-    "notes": "Large martial ranged weapon: 1d6 piercing (shot), critical x3, range increment 60 ft.; its bladed limbs can also be used in melee for 1d4 slashing, critical x2. See The Armoury chapter for its special rules.",
+    "notes": "Large martial ranged weapon: Damage 1d3 (Small) / 1d4 (Medium) piercing (shot), critical x3, range increment 60 ft.; its bladed limbs can also be used in melee for Damage 1d2 (Small) / 1d3 (Medium) slashing, critical x2. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10546,7 +10546,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "100 gp",
     "weight": "3 lb.",
-    "notes": "Large martial ranged weapon: 1d8 piercing, critical x3, range increment 110 ft. A composite longbow usable from horseback.",
+    "notes": "Large martial ranged weapon: Damage 1d4 (Small) / 1d6 (Medium) piercing, critical x3, range increment 110 ft. A composite longbow usable from horseback. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10557,7 +10557,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "200 gp",
     "weight": "3 lb.",
-    "notes": "A composite longbow built for a +1 Strength bonus: 1d8 piercing, critical x3, range increment 110 ft. The listed price is the bow's total cost.",
+    "notes": "A composite longbow built for a +1 Strength bonus: Damage 1d6 (Small) / 1d8 (Medium) piercing, critical x3, range increment 110 ft. The listed price is the bow's total cost. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10568,7 +10568,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "300 gp",
     "weight": "3 lb.",
-    "notes": "A composite longbow built for a +2 Strength bonus: 1d8 piercing, critical x3, range increment 110 ft. The listed price is the bow's total cost.",
+    "notes": "A composite longbow built for a +2 Strength bonus: Damage 1d6 (Small) / 1d8 (Medium) piercing, critical x3, range increment 110 ft. The listed price is the bow's total cost. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10579,7 +10579,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "400 gp",
     "weight": "3 lb.",
-    "notes": "A composite longbow built for a +3 Strength bonus: 1d8 piercing, critical x3, range increment 110 ft. The listed price is the bow's total cost.",
+    "notes": "A composite longbow built for a +3 Strength bonus: Damage 1d6 (Small) / 1d8 (Medium) piercing, critical x3, range increment 110 ft. The listed price is the bow's total cost. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10590,7 +10590,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "500 gp",
     "weight": "3 lb.",
-    "notes": "A composite longbow built for a +4 Strength bonus: 1d8 piercing, critical x3, range increment 110 ft. The listed price is the bow's total cost.",
+    "notes": "A composite longbow built for a +4 Strength bonus: Damage 1d6 (Small) / 1d8 (Medium) piercing, critical x3, range increment 110 ft. The listed price is the bow's total cost. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10601,7 +10601,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "3 gp",
     "weight": "5 lb.",
-    "notes": "Large martial ranged weapon: 1d6 bludgeoning, critical x2, range increment 80 ft. A sling mounted on a staff for greater leverage.",
+    "notes": "Large martial ranged weapon: Damage 1d3 (Small) / 1d4 (Medium) bludgeoning, critical x2, range increment 80 ft. A sling mounted on a staff for greater leverage. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10612,7 +10612,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "8 gp",
     "weight": "2 lb.",
-    "notes": "Tiny exotic melee weapon (double weapon): 1d4/1d4 piercing, critical 19-20/x2. A hilt with a blade at each end.",
+    "notes": "Tiny exotic melee weapon (double weapon): Damage 1d6/1d6 (Small) / 1d8/1d8 (Medium) piercing, critical 19-20/x2. A hilt with a blade at each end. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10623,7 +10623,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "2 gp",
     "weight": "1/2 lb.",
-    "notes": "Tiny exotic melee weapon: 1d4 piercing, critical x4. Paired finger-mounted piercing rods from the orient. See The Armoury chapter for its special rules.",
+    "notes": "Tiny exotic melee weapon: Damage 1d6 (Small) / 1d8 (Medium) piercing, critical x4. Paired finger-mounted piercing rods from the orient. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10634,7 +10634,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "40 gp",
     "weight": "2 lb.",
-    "notes": "Tiny exotic melee weapon: 1d4 piercing, critical 18-20/x2. A wavy-bladed dagger in the flametongue style (a mundane blade form, not the magic sword).",
+    "notes": "Tiny exotic melee weapon: Damage 1d6 (Small) / 1d8 (Medium) piercing, critical 18-20/x2. A wavy-bladed dagger in the flametongue style (a mundane blade form, not the magic sword). (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10645,7 +10645,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "2 gp",
     "weight": "1 lb.",
-    "notes": "Tiny exotic melee weapon: 1d4 slashing, critical x2. A halfling-sized kama, usable for trip attempts.",
+    "notes": "Tiny exotic melee weapon: Damage 1d6 (Small) / 1d8 (Medium) slashing, critical x2. A halfling-sized kama, usable for trip attempts. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10656,7 +10656,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "2 gp",
     "weight": "1 lb.",
-    "notes": "Tiny exotic melee weapon: 1d4 bludgeoning, critical x2. A halfling-sized nunchaku, usable for disarm attempts with a bonus.",
+    "notes": "Tiny exotic melee weapon: Damage 1d6 (Small) / 1d8 (Medium) bludgeoning, critical x2. A halfling-sized nunchaku, usable for disarm attempts with a bonus. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10667,7 +10667,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "1 gp",
     "weight": "1/5 lb.",
-    "notes": "Tiny exotic melee weapon: 1d3 piercing, critical x2, range increment 20 ft. Light daggers trailing ribbons, thrown or whirled. See The Armoury chapter for its special rules.",
+    "notes": "Tiny exotic melee weapon: Damage 1d4 (Small) / 1d6 (Medium) piercing, critical x2, range increment 20 ft. Light daggers trailing ribbons, thrown or whirled. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10678,7 +10678,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "2 gp",
     "weight": "1 lb.",
-    "notes": "Tiny exotic melee weapon: 1d4 piercing, critical x2. A halfling-sized siangham spike.",
+    "notes": "Tiny exotic melee weapon: Damage 1d6 (Small) / 1d8 (Medium) piercing, critical x2. A halfling-sized siangham spike. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10689,7 +10689,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "9 gp",
     "weight": "1 lb.",
-    "notes": "Tiny exotic melee weapon: 1d3 piercing, critical 19-20/x2. A pronged dagger made to catch and trap blades. See The Armoury chapter for its special rules.",
+    "notes": "Tiny exotic melee weapon: Damage 1d4 (Small) / 1d6 (Medium) piercing, critical 19-20/x2. A pronged dagger made to catch and trap blades. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10700,7 +10700,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "25 gp",
     "weight": "1 lb.",
-    "notes": "Small exotic melee weapon: 1d6 bludgeoning, critical x3, range increment 10 ft. A folding fan of iron ribs, innocent-looking until used. See The Armoury chapter for its special rules.",
+    "notes": "Small exotic melee weapon: Damage 1d6 (Small) / 1d8 (Medium) bludgeoning, critical x3, range increment 10 ft. A folding fan of iron ribs, innocent-looking until used. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10711,7 +10711,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "16 gp",
     "weight": "2 lb.",
-    "notes": "Small exotic melee weapon: 1d6 piercing, critical x3. A spur-like blade named for its shape.",
+    "notes": "Small exotic melee weapon: Damage 1d6 (Small) / 1d8 (Medium) piercing, critical x3. A spur-like blade named for its shape. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10722,7 +10722,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "16 gp",
     "weight": "3 lb.",
-    "notes": "Small exotic melee weapon: 1d4 slashing, critical 19-20/x2. A heavy notched dagger made to catch and snap blades. See The Armoury chapter for its special rules.",
+    "notes": "Small exotic melee weapon: Damage 1d4 (Small) / 1d6 (Medium) slashing, critical 19-20/x2. A heavy notched dagger made to catch and snap blades. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10733,7 +10733,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "25 gp",
     "weight": "5 lb.",
-    "notes": "Medium exotic melee weapon (double weapon): 1d6/1d6, critical x3/x2, piercing. A heart-shaped leather shield-sword of Moorish style. See The Armoury chapter for its special rules.",
+    "notes": "Medium exotic melee weapon (double weapon): Damage 1d4/1d4 (Small) / 1d6/1d6 (Medium), critical x3/x2, piercing. A heart-shaped leather shield-sword of Moorish style. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10744,7 +10744,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "10 gp",
     "weight": "2 lb.",
-    "notes": "Medium exotic melee weapon: 1d8 bludgeoning, critical x2. A string of heavy beads used as a flail or garrotte. See The Armoury chapter for its special rules.",
+    "notes": "Medium exotic melee weapon: Damage 1d6 (Small) / 1d8 (Medium) bludgeoning, critical x2. A string of heavy beads used as a flail or garrotte. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10755,7 +10755,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "10 gp",
     "weight": "3 lb.",
-    "notes": "Medium exotic melee weapon (double weapon): 1d4/1d4, critical x2, bludgeoning or piercing. A stick carved with a dragon's head at one end. See The Armoury chapter for its special rules.",
+    "notes": "Medium exotic melee weapon (double weapon): Damage 1d3/1d3 (Small) / 1d4/1d4 (Medium), critical x2, bludgeoning or piercing. A stick carved with a dragon's head at one end. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10766,7 +10766,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "12 gp",
     "weight": "1 lb.",
-    "notes": "Medium exotic melee weapon: 1d6 bludgeoning, critical x2. A weighted ball on a cord, spun and struck like a meteor hammer. See The Armoury chapter for its special rules.",
+    "notes": "Medium exotic melee weapon: Damage 1d4 (Small) / 1d6 (Medium) bludgeoning, critical x2. A weighted ball on a cord, spun and struck like a meteor hammer. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10777,7 +10777,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "35 gp",
     "weight": "10 lb.",
-    "notes": "Medium exotic melee weapon: 1d10 slashing, critical 19-20/x2. A hand-and-a-half sword usable in one or two hands with the right proficiency.",
+    "notes": "Medium exotic melee weapon: Damage 1d8 (Small) / 1d10 (Medium) slashing, critical 19-20/x2. A hand-and-a-half sword usable in one or two hands with the right proficiency. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10788,7 +10788,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "30 gp",
     "weight": "4 lb.",
-    "notes": "Medium exotic melee weapon: 1d6 slashing, critical x2. A crescent-bladed oriental sword. See The Armoury chapter for its special rules.",
+    "notes": "Medium exotic melee weapon: Damage 1d4 (Small) / 1d6 (Medium) slashing, critical x2. A crescent-bladed oriental sword. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10799,7 +10799,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "25 gp",
     "weight": "5 lb.",
-    "notes": "Medium exotic melee weapon (double-ended): 1d6/1d4, critical 19-20/x2, slashing or piercing. A light duelling blade for skirmishers. See The Armoury chapter for its special rules.",
+    "notes": "Medium exotic melee weapon (double-ended): Damage 1d4/1d3 (Small) / 1d6/1d4 (Medium), critical 19-20/x2, slashing or piercing. A light duelling blade for skirmishers. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10810,7 +10810,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "20 gp",
     "weight": "5 lb.",
-    "notes": "Medium exotic melee weapon: 1d8 slashing, critical x3. A hooked oriental sword, often used in pairs. See The Armoury chapter for its special rules.",
+    "notes": "Medium exotic melee weapon: Damage 1d6 (Small) / 1d8 (Medium) slashing, critical x3. A hooked oriental sword, often used in pairs. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10821,7 +10821,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "30 gp",
     "weight": "15 lb.",
-    "notes": "Medium exotic melee weapon: 1d10 slashing, critical x3. The heavy one-handed waraxe of the dwarves.",
+    "notes": "Medium exotic melee weapon: Damage 1d8 (Small) / 1d10 (Medium) slashing, critical x3. The heavy one-handed waraxe of the dwarves. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10832,7 +10832,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "60 gp",
     "weight": "25 lb.",
-    "notes": "Large exotic melee weapon (double weapon): 1d8/1d8 slashing, critical x3. An axe head at each end of a long haft.",
+    "notes": "Large exotic melee weapon (double weapon): Damage 1d4/1d4 (Small) / 1d6/1d6 (Medium) slashing, critical x3. An axe head at each end of a long haft. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10843,7 +10843,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "50 gp",
     "weight": "8 lb.",
-    "notes": "Large exotic melee weapon: 1d8 slashing, critical 19-20/x2. A broad oriental sabre used with the bagua fighting style. See The Armoury chapter for its special rules.",
+    "notes": "Large exotic melee weapon: Damage 1d4 (Small) / 1d6 (Medium) slashing, critical 19-20/x2. A broad oriental sabre used with the bagua fighting style. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10854,7 +10854,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "40 gp",
     "weight": "8 lb.",
-    "notes": "Large exotic melee weapon: 1d6 slashing, critical 19-20/x2. A cloak weighted and edged with blades, whirled in combat. See The Armoury chapter for its special rules.",
+    "notes": "Large exotic melee weapon: Damage 1d3 (Small) / 1d4 (Medium) slashing, critical 19-20/x2. A cloak weighted and edged with blades, whirled in combat. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10865,7 +10865,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "25 gp",
     "weight": "15 lb.",
-    "notes": "Large exotic melee weapon: 2d4 piercing, critical x2, with reach. A spiked chain usable for trip and disarm attempts with a bonus, and with Weapon Finesse.",
+    "notes": "Large exotic melee weapon: Damage 1d4 (Small) / 1d6 (Medium) piercing, critical x2, with reach. A spiked chain usable for trip and disarm attempts with a bonus, and with Weapon Finesse. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10876,7 +10876,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "120 gp",
     "weight": "10 lb.",
-    "notes": "Large exotic melee weapon (double weapon): 1d6/1d6 slashing, critical 19-20/x2. A light, paired-blade oriental sword. See The Armoury chapter for its special rules.",
+    "notes": "Large exotic melee weapon (double weapon): Damage 1d3/1d3 (Small) / 1d4/1d4 (Medium) slashing, critical 19-20/x2. A light, paired-blade oriental sword. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10887,7 +10887,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "35 gp",
     "weight": "20 lb.",
-    "notes": "Large exotic melee weapon: 1d10 bludgeoning, critical x4. A huge club studded with teeth-like spikes. See The Armoury chapter for its special rules.",
+    "notes": "Large exotic melee weapon: Damage 1d6 (Small) / 1d8 (Medium) bludgeoning, critical x4. A huge club studded with teeth-like spikes. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10898,7 +10898,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "90 gp",
     "weight": "20 lb.",
-    "notes": "Large exotic melee weapon (double weapon): 1d8/1d8 bludgeoning, critical x2. A two-headed dire flail usable for trip attempts with a bonus.",
+    "notes": "Large exotic melee weapon (double weapon): Damage 1d4/1d4 (Small) / 1d6/1d6 (Medium) bludgeoning, critical x2. A two-headed dire flail usable for trip attempts with a bonus. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10909,7 +10909,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "150 gp",
     "weight": "16 lb.",
-    "notes": "Large exotic melee weapon: 2d6 slashing, critical 18-20/x2. A greatsword with a wavy, flame-shaped blade.",
+    "notes": "Large exotic melee weapon: Damage 1d8 (Small) / 1d10 (Medium) slashing, critical 18-20/x2. A greatsword with a wavy, flame-shaped blade. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10920,7 +10920,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "50 gp",
     "weight": "40 lb.",
-    "notes": "Large exotic melee weapon: 3d4 bludgeoning, critical x2. An immense hammer for smashing stone and armour. See The Armoury chapter for its special rules.",
+    "notes": "Large exotic melee weapon: Damage 1d10 (Small) / 2d6 (Medium) bludgeoning, critical x2. An immense hammer for smashing stone and armour. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10931,7 +10931,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "20 gp",
     "weight": "5 lb.",
-    "notes": "Large exotic melee weapon: 1d8 piercing, critical 19-20/x2, with reach. A spear with a wavy, snake-like blade.",
+    "notes": "Large exotic melee weapon: Damage 1d4 (Small) / 1d6 (Medium) piercing, critical 19-20/x2, with reach. A spear with a wavy, snake-like blade. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10942,7 +10942,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "10 gp",
     "weight": "6 lb.",
-    "notes": "Large exotic melee weapon (double weapon): 1d6/1d8, critical x2, bludgeoning or piercing. A staff with a spearhead at one end. See The Armoury chapter for its special rules.",
+    "notes": "Large exotic melee weapon (double weapon): Damage 1d3/1d4 (Small) / 1d4/1d6 (Medium), critical x2, bludgeoning or piercing. A staff with a spearhead at one end. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10953,7 +10953,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "100 gp",
     "weight": "30 lb.",
-    "notes": "Large exotic melee weapon (double weapon): 1d8/1d8 slashing, critical 19-20/x2. A sword with a blade at each end of the grip.",
+    "notes": "Large exotic melee weapon (double weapon): Damage 1d4/1d4 (Small) / 1d6/1d6 (Medium) slashing, critical 19-20/x2. A sword with a blade at each end of the grip. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10964,7 +10964,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "85 gp",
     "weight": "2 lb.",
-    "notes": "Tiny exotic ranged weapon: 1d4 piercing, critical 19-20/x2, range increment 30 ft. A miniature crossbow strapped to the forearm. See The Armoury chapter for its special rules.",
+    "notes": "Tiny exotic ranged weapon: Damage 1d6 (Small) / 1d8 (Medium) piercing, critical 19-20/x2, range increment 30 ft. A miniature crossbow strapped to the forearm. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10975,7 +10975,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "100 gp",
     "weight": "3 lb.",
-    "notes": "Tiny exotic ranged weapon: 1d4 piercing, critical 19-20/x2, range increment 30 ft. A pistol-sized crossbow, favoured by drow and assassins.",
+    "notes": "Tiny exotic ranged weapon: Damage 1d6 (Small) / 1d8 (Medium) piercing, critical 19-20/x2, range increment 30 ft. A pistol-sized crossbow, favoured by drow and assassins. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -10997,7 +10997,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "35 gp",
     "weight": "3 lb.",
-    "notes": "Small exotic ranged weapon: 1d8 slashing, critical x3, range increment 10 ft. A sharpened metal throwing ring. See The Armoury chapter for its special rules.",
+    "notes": "Small exotic ranged weapon: Damage 1d8 (Small) / 2d6 (Medium) slashing, critical x3, range increment 10 ft. A sharpened metal throwing ring. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -11008,7 +11008,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "175 gp",
     "weight": "5 lb.",
-    "notes": "Small exotic ranged weapon: 1d8 piercing, critical 19-20/x2, range increment 30 ft. A crossbow built to be fired underwater, using aquatic bolts. See The Armoury chapter for its special rules.",
+    "notes": "Small exotic ranged weapon: Damage 1d8 (Small) / 2d6 (Medium) piercing, critical 19-20/x2, range increment 30 ft. A crossbow built to be fired underwater, using aquatic bolts. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -11030,7 +11030,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "4 gp",
     "weight": "4 lb.",
-    "notes": "Medium exotic ranged weapon: 1d6 piercing, critical x3, range increment 10 ft. A thrown multi-bladed wheel. See The Armoury chapter for its special rules.",
+    "notes": "Medium exotic ranged weapon: Damage 1d4 (Small) / 1d6 (Medium) piercing, critical x3, range increment 10 ft. A thrown multi-bladed wheel. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -11052,7 +11052,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "15 gp",
     "weight": "4 lb.",
-    "notes": "Medium exotic ranged weapon: 1d6 bludgeoning, critical x2, range increment 10 ft. Three weighted balls on cords that entangle and trip.",
+    "notes": "Medium exotic ranged weapon: Damage 1d4 (Small) / 1d6 (Medium) bludgeoning, critical x2, range increment 10 ft. Three weighted balls on cords that entangle and trip. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -11063,7 +11063,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "395 gp",
     "weight": "18 lb.",
-    "notes": "Medium exotic ranged weapon: 1d10 piercing, critical 19-20/x2, range increment 120 ft. A crossbow with four prods firing multiple bolts. See The Armoury chapter for its special rules.",
+    "notes": "Medium exotic ranged weapon: Damage 1d8 (Small) / 1d10 (Medium) piercing, critical 19-20/x2, range increment 120 ft. A crossbow with four prods firing multiple bolts. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -11074,7 +11074,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "250 gp",
     "weight": "16 lb.",
-    "notes": "Medium exotic ranged weapon: 1d8 piercing, critical 19-20/x2, range increment 80 ft. A crossbow with a lever action and a five-bolt clip.",
+    "notes": "Medium exotic ranged weapon: Damage 1d6 (Small) / 1d8 (Medium) piercing, critical 19-20/x2, range increment 80 ft. A crossbow with a lever action and a five-bolt clip. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -11085,7 +11085,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "300 gp",
     "weight": "15 lb.",
-    "notes": "Medium exotic ranged weapon: 1d12 piercing, critical 19-20/x2, range increment 150 ft. A crossbow with a rifled barrel for spinning, accurate bolts. See The Armoury chapter for its special rules.",
+    "notes": "Medium exotic ranged weapon: Damage 1d10 (Small) / 1d12 (Medium) piercing, critical 19-20/x2, range increment 150 ft. A crossbow with a rifled barrel for spinning, accurate bolts. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -11096,7 +11096,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "350 gp",
     "weight": "7 lb.",
-    "notes": "Medium exotic ranged weapon: 1d8 piercing, critical 19-20/x2, range increment 80 ft. A light, accurate crossbow built for sniping. See The Armoury chapter for its special rules.",
+    "notes": "Medium exotic ranged weapon: Damage 1d6 (Small) / 1d8 (Medium) piercing, critical 19-20/x2, range increment 80 ft. A light, accurate crossbow built for sniping. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -11107,7 +11107,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "65 gp",
     "weight": "6 lb.",
-    "notes": "Medium exotic ranged weapon: 1d10 bludgeoning, critical x2, range increment 75 ft. A heavy sling-like projector hurling iron bullets.",
+    "notes": "Medium exotic ranged weapon: Damage 1d8 (Small) / 1d10 (Medium) bludgeoning, critical x2, range increment 75 ft. A heavy sling-like projector hurling iron bullets. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -11129,7 +11129,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "1 gp",
     "weight": "2 lb.",
-    "notes": "Medium exotic ranged weapon: 1d10 slashing, critical 19-20/x2, range increment 30 ft. A sling-like launcher that hurls spinning razor disks. See The Armoury chapter for its special rules.",
+    "notes": "Medium exotic ranged weapon: Damage 1d8 (Small) / 1d10 (Medium) slashing, critical 19-20/x2, range increment 30 ft. A sling-like launcher that hurls spinning razor disks. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -11140,7 +11140,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "250 gp",
     "weight": "24 lb.",
-    "notes": "Large exotic ranged weapon: 2d6 piercing, critical 19-20/x2, range increment 150 ft. A huge crossbow verging on a small ballista. See The Armoury chapter for its special rules.",
+    "notes": "Large exotic ranged weapon: Damage 1d8 (Small) / 1d10 (Medium) piercing, critical 19-20/x2, range increment 150 ft. A huge crossbow verging on a small ballista. See The Armoury chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Armoury; Rules Summary pp. 231–236",
     "sourceUrl": "",
     "ruleset": "core"
@@ -11562,7 +11562,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "90 gp",
     "weight": "15 lb.",
-    "notes": "Medium martial melee weapon: 1d8 slashing, critical x3. A heavy axe made for cutting stone, equally serviceable as a weapon. See the chapter for its special rules.",
+    "notes": "Medium martial melee weapon: Damage 1d6 (Small) / 1d8 (Medium) slashing, critical x3. A heavy axe made for cutting stone, equally serviceable as a weapon. See the chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Dwarven Forge; Rules Summary pp. 236–237",
     "sourceUrl": "",
     "ruleset": "core"
@@ -11573,7 +11573,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "400 gp",
     "weight": "15 lb.",
-    "notes": "Large exotic melee weapon: 1d12 bludgeoning or piercing, critical x3. A huge maul with a jawed, gripping head. See the chapter for its special rules.",
+    "notes": "Large exotic melee weapon: Damage 1d8 (Small) / 1d10 (Medium) bludgeoning or piercing, critical x3. A huge maul with a jawed, gripping head. See the chapter for its special rules. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Dwarven Forge; Rules Summary pp. 236–237",
     "sourceUrl": "",
     "ruleset": "core"
@@ -12732,7 +12732,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "12 gp",
     "weight": "5 lb.",
-    "notes": "Large martial melee weapon: 1d8 piercing, critical x3, with reach. A light lance with a barbed head; like all lances it deals double damage when used from a charging mount.",
+    "notes": "Large martial melee weapon: Damage 1d4 (Small) / 1d6 (Medium) piercing, critical x3, with reach. A light lance with a barbed head; like all lances it deals double damage when used from a charging mount. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Fighter's Trade; Rules Summary pp. 238–240",
     "sourceUrl": "",
     "ruleset": "core"
@@ -12743,7 +12743,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "6 gp",
     "weight": "5 lb.",
-    "notes": "Large martial melee weapon: 1d6 piercing, with reach. A light tourney lance with a blunted head; deals double damage when used from a charging mount.",
+    "notes": "Large martial melee weapon: Damage 1d3 (Small) / 1d4 (Medium) piercing, with reach. A light tourney lance with a blunted head; deals double damage when used from a charging mount. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Fighter's Trade; Rules Summary pp. 238–240",
     "sourceUrl": "",
     "ruleset": "core"
@@ -12754,7 +12754,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "20 gp",
     "weight": "15 lb.",
-    "notes": "Large martial melee weapon: 1d10 piercing, critical x3, with reach. A heavy war lance with a barbed head; deals double damage when used from a charging mount.",
+    "notes": "Large martial melee weapon: Damage 1d6 (Small) / 1d8 (Medium) piercing, critical x3, with reach. A heavy war lance with a barbed head; deals double damage when used from a charging mount. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Fighter's Trade; Rules Summary pp. 238–240",
     "sourceUrl": "",
     "ruleset": "core"
@@ -12765,7 +12765,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "10 gp",
     "weight": "15 lb.",
-    "notes": "Large martial melee weapon: 1d8 piercing, with reach. A heavy tourney lance with a blunted head; deals double damage when used from a charging mount.",
+    "notes": "Large martial melee weapon: Damage 1d4 (Small) / 1d6 (Medium) piercing, with reach. A heavy tourney lance with a blunted head; deals double damage when used from a charging mount. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Fighter's Trade; Rules Summary pp. 238–240",
     "sourceUrl": "",
     "ruleset": "core"
@@ -12776,7 +12776,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "20 gp",
     "weight": "10 lb.",
-    "notes": "Large martial melee weapon: 2d4 piercing, with reach. An oversized light lance; deals double damage when used from a charging mount.",
+    "notes": "Large martial melee weapon: Damage 1d4 (Small) / 1d6 (Medium) piercing, with reach. An oversized light lance; deals double damage when used from a charging mount. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Fighter's Trade; Rules Summary pp. 238–240",
     "sourceUrl": "",
     "ruleset": "core"
@@ -12787,7 +12787,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "30 gp",
     "weight": "20 lb.",
-    "notes": "Large martial melee weapon: 2d6 piercing, with reach. An oversized heavy lance; deals double damage when used from a charging mount.",
+    "notes": "Large martial melee weapon: Damage 1d8 (Small) / 1d10 (Medium) piercing, with reach. An oversized heavy lance; deals double damage when used from a charging mount. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — The Fighter's Trade; Rules Summary pp. 238–240",
     "sourceUrl": "",
     "ruleset": "core"
@@ -13492,7 +13492,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "—",
     "weight": "2 lb.",
-    "notes": "Tiny simple melee weapon: 1d3 bludgeoning, critical x2. A ship's belaying pin used as an improvised club; the book lists no cost for it.",
+    "notes": "Tiny simple melee weapon: Damage 1d4 (Small) / 1d6 (Medium) bludgeoning, critical x2. A ship's belaying pin used as an improvised club; the book lists no cost for it. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — Tools, Trades and Crafts; Rules Summary pp. 243–245",
     "sourceUrl": "",
     "ruleset": "core"
@@ -13503,7 +13503,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "1 gp",
     "weight": "2 lb.",
-    "notes": "Small simple melee weapon: 1d4 slashing, critical x3. A carpenter's hand axe, usable as a tool or weapon.",
+    "notes": "Small simple melee weapon: Damage 1d4 (Small) / 1d6 (Medium) slashing, critical x3. A carpenter's hand axe, usable as a tool or weapon. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — Tools, Trades and Crafts; Rules Summary pp. 243–245",
     "sourceUrl": "",
     "ruleset": "core"
@@ -13514,7 +13514,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "1 gp",
     "weight": "5 lb.",
-    "notes": "Medium simple melee weapon: 1d6 piercing, critical x2, range increment 5 ft. A farm pitchfork used as an improvised spear.",
+    "notes": "Medium simple melee weapon: Damage 1d4 (Small) / 1d6 (Medium) piercing, critical x2, range increment 5 ft. A farm pitchfork used as an improvised spear. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — Tools, Trades and Crafts; Rules Summary pp. 243–245",
     "sourceUrl": "",
     "ruleset": "core"
@@ -13525,7 +13525,7 @@ export const UEG1_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "4 gp",
     "weight": "5 lb.",
-    "notes": "Small martial melee weapon: 1d6 slashing, critical x2. A woodsman's felling axe.",
+    "notes": "Small martial melee weapon: Damage 1d6 (Small) / 1d8 (Medium) slashing, critical x2. A woodsman's felling axe. (Converted to 3.5 Small/Medium damage under the standing 3.5 order; the book prints a single damage value for the weapon as sized.)",
     "source": "Ultimate Equipment Guide Volume 1 — Tools, Trades and Crafts; Rules Summary pp. 243–245",
     "sourceUrl": "",
     "ruleset": "core"

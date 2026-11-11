@@ -401,7 +401,7 @@ export const BOVD_MAGIC_ITEMS_OMNI: MagicItemDefinition[] = [
     "name": "Despoiler of Flesh",
     "category": "artifact",
     "cost": "—",
-    "summary": "A short staff made of human tongues sewn together end to end, slightly animated so it occasionally bends and curls on its own. It allows the wielder to reshape the flesh of any creature as with a polymorph other spell, except that any shape the wielder can imagine can be bestowed; a form that is unwieldy or untenable collapses. Victims may resist each change with a Fortitude save (DC 25), and the wielder can make one change per round.",
+    "summary": "A short staff made of human tongues sewn together end to end, slightly animated so it occasionally bends and curls on its own. It allows the wielder to reshape the flesh of any creature as with a polymorph any object spell (printed as polymorph other, the 3.0 spell split in 3.5), except that any shape the wielder can imagine can be bestowed; a form that is unwieldy or untenable collapses. Victims may resist each change with a Fortitude save (DC 25), and the wielder can make one change per round.",
     "source": "Book of Vile Darkness — Chapter 6: Evil Magic Items (Major Artifacts), pp. 120–121",
     "sourceUrl": "",
     "ruleset": "core"

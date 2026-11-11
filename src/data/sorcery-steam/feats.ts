@@ -373,7 +373,7 @@ export const SORCERY_STEAM_FEATS: FeatDefinition[] = [
     source: `${CH3} — Feats: Two Guns Blazing (p. 106)`,
     sourceUrl: SS_PATH,
     ruleset: "sorcery_steam",
-    special: "The Ambidexterity feat reduces the attack penalty for the second weapon by 4.",
+    special: "3.5 conversion: as printed, the Ambidexterity feat reduces the attack penalty for the second weapon by 4 — Ambidexterity does not exist in 3.5; that reduction is folded into the Two-Weapon Fighting feat, which carries it in 3.5 play.",
   },
   {
     id: "warrior-mechanist",

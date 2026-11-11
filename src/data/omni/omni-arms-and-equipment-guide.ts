@@ -4383,7 +4383,7 @@ export const AEG_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "100 gp",
     "weight": "15 lb.",
-    "notes": "1d12 piercing, crit 19\u201320/\u00d72, range increment 150 ft.; loading is a full-round action",
+    "notes": "Damage 1d10 (Small) / 1d12 (Medium) piercing, crit 19\u201320/\u00d72, range increment 150 ft.; loading is a full-round action. (3.5 conversion: printed in the 3.0 Arms and Equipment Guide, Table 1\u20134, as a single unsized damage value, 1d12; converted to the 3.5 sized pair with the printed value as the Medium figure.)",
     "source": "Arms and Equipment Guide \u2014 Chapter 1: Weapons and Armor, Table 1\u20134, pp. 6\u20137",
     "sourceUrl": "",
     "ruleset": "core"

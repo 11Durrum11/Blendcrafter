@@ -1127,11 +1127,11 @@ export const GLF_EQUIPMENT_OMNI: EquipmentItem[] = [
   },
   {
     "id": "spellcasting-teleport-without-error",
-    "name": "Spellcasting: Teleport without Error",
+    "name": "Spellcasting: Greater Teleport",
     "category": "service",
     "cost": "980 gp (sorcerer), 910 gp (wizard)",
     "weight": "—",
-    "notes": "Fee for one casting of teleport without error as a hired magical transportation service; the printed fees are minimums and do not account for caster level, components, or location. Available in towns and cities (availability 5,6: 1 hamlet, 2 thorpe, 3 village, 4 manorial village, 5 town, 6 city).",
+    "notes": "Fee for one casting of greater teleport (printed as teleport without error) as a hired magical transportation service; the printed fees are minimums and do not account for caster level, components, or location. Available in towns and cities (availability 5,6: 1 hamlet, 2 thorpe, 3 village, 4 manorial village, 5 town, 6 city).",
     "source": "Gary Gygax's Living Fantasy — Book Two, Table 2:39 Magic in Government and Civilian Enterprise (Transportation), pp. 132–134; also Book One, Tables 1:4–1:5, pp. 28–29",
     "sourceUrl": "",
     "ruleset": "core"

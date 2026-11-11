@@ -2971,4 +2971,29 @@ export const BOOK_OF_VILE_DARKNESS_SPELLS: SpellDefinition[] = [
   "source": "Book of Vile Darkness, p. 110",
   "sourceUrl": "/A POC PC related/5.Splat/D&D 3.5 - Book of Vile Darkness.pdf"
 },
+{
+  "id": "corrupt-weapon",
+  "name": "Corrupt Weapon",
+  "ruleset": "core",
+  "school": "Transmutation",
+  "descriptors": [
+    "Evil"
+  ],
+  "levels": {
+    "Bard": 1,
+    "Paladin of Tyranny": 1,
+    "Paladin of Slaughter": 1
+  },
+  "components": "V, S",
+  "castingTime": "1 standard action",
+  "range": "Touch",
+  "targetOrArea": "Weapon touched",
+  "duration": "1 minute/level",
+  "savingThrow": "None",
+  "spellResistance": "No",
+  "summary": "Touched weapon becomes evil-aligned for overcoming damage reduction and confirms crits against good foes automatically (the evil counterpart of bless weapon).",
+  "source": "Book of Vile Darkness, p. 79",
+  "sourceUrl": "/A POC PC related/5.Splat/D&D 3.5 - Book of Vile Darkness.pdf",
+  "note": "The Book of Vile Darkness prints this spell only in its spell lists (bard list summary: 'Weapon confirms critical hits against good foes') with no full description; the record follows the bless weapon counterpart tradition as stated in the Unearthed Arcana paladin-variant lists, where it appears at 1st level for the Paladin of Tyranny and the Paladin of Slaughter."
+},
 ];

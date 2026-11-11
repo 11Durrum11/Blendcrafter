@@ -140,7 +140,7 @@ export const ELH_MAGIC_ITEMS_OMNI: MagicItemDefinition[] = [
     "name": "Shapeshifter's Armor",
     "category": "armor",
     "cost": "400,165 gp",
-    "summary": "A suit of +6 hide armor that grants its full Armor Class bonus regardless of any form the wearer takes, whether by polymorph self, shapechange, wild shape, or similar abilities.",
+    "summary": "A suit of +6 hide armor that grants its full Armor Class bonus regardless of any form the wearer takes, whether by polymorph, shapechange, wild shape, or similar abilities.",
     "source": "Epic Level Handbook — Chapter 4: Epic Magic Items, p. 129",
     "sourceUrl": "",
     "ruleset": "core"

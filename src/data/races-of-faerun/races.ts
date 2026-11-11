@@ -851,7 +851,7 @@ export const RACES_OF_FAERUN_RACES: RaceDefinition[] = [
         key: "yuan-ti-pureblood-hit-dice",
         name: "Monstrous Humanoid Hit Dice",
         description:
-          "A pureblood's 6d8 monstrous humanoid Hit Dice provide base attack bonus +6 and base saves of Fort +2, Ref +5, and Will +5, skill points equal to (2 + Int modifier) × 9 with class skills Concentration, Craft, Knowledge, Disguise, Hide, Listen, and Spot, and 3 feats (a typical pureblood chooses Dodge, Expertise, and Improved Initiative). Yuan-ti gain Alertness and Blind-Fight as bonus feats. Purebloods are proficient with all simple weapons, the scimitar, and the longbow, and with light armor and shields.",
+          "A pureblood's 6d8 monstrous humanoid Hit Dice provide base attack bonus +6 and base saves of Fort +2, Ref +5, and Will +5, skill points equal to (2 + Int modifier) × 9 with class skills Concentration, Craft, Knowledge, Disguise, Hide, Listen, and Spot, and 3 feats (a typical pureblood chooses Dodge, Combat Expertise, and Improved Initiative). Yuan-ti gain Alertness and Blind-Fight as bonus feats. Purebloods are proficient with all simple weapons, the scimitar, and the longbow, and with light armor and shields.",
         category: "trait",
         source: `${ROF} — Yuan-ti Pureblood racial traits (pp. 152–153)`,
         sourceUrl: ROF_PATH,

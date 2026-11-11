@@ -103,7 +103,7 @@ export const RACES_OF_FAERUN_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
       "Race: Elf or half-elf",
       "Base Attack Bonus: +5",
       "Skills: Concentration 4 ranks, Perform 3 ranks (dance, sing, any other), Tumble 3 ranks",
-      "Feats: Combat Casting, Dodge, Expertise, Still Spell, Weapon Focus (longsword) or Weapon Focus (rapier)",
+      "Feats: Combat Casting, Dodge, Combat Expertise, Still Spell, Weapon Focus (longsword) or Weapon Focus (rapier)",
       "Spellcasting: Ability to cast 1st-level arcane spells",
     ],
     features: [
@@ -160,7 +160,7 @@ export const RACES_OF_FAERUN_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
         key: "breachgnome-uncanny-dodge",
         name: "Uncanny Dodge (Ex) and Bonus Feats",
         description:
-          "2nd: uncanny dodge (retain Dexterity bonus to AC when flat-footed or struck by an invisible attacker). 5th: improved uncanny dodge (cannot be flanked except by a rogue at least four levels higher; stacks with uncanny dodge from other classes). Bonus feats at 2nd and 4th level from: Ambidexterity, Blind-Fight, Expertise, Improved Critical*, Improved Disarm, Improved Trip, Improved Two-Weapon Fighting, Two-Weapon Fighting, Weapon Finesse*, Weapon Focus*, Whirlwind Attack (*may be taken more than once, for a different weapon each time).",
+          "2nd: uncanny dodge (retain Dexterity bonus to AC when flat-footed or struck by an invisible attacker). 5th: improved uncanny dodge (cannot be flanked except by a rogue at least four levels higher; stacks with uncanny dodge from other classes). Bonus feats at 2nd and 4th level from: Blind-Fight, Combat Expertise, Improved Critical*, Improved Disarm, Improved Trip, Improved Two-Weapon Fighting, Two-Weapon Fighting, Weapon Finesse*, Weapon Focus*, Whirlwind Attack (*may be taken more than once, for a different weapon each time). (The printed list also names Ambidexterity and Expertise: Ambidexterity does not exist in 3.5 — its effect is part of Two-Weapon Fighting, also on this list — and Expertise is Combat Expertise under its 3.0 name.)",
         category: "trait",
         source: `${APX} — Breachgnome (p. 182)`,
         sourceUrl: ROF_PATH,

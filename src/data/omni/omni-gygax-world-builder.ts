@@ -18,7 +18,11 @@
  * glossary entry. The armor table's plain "Middle Eastern" suit and
  * the helmet of the same name are distinguished as
  * "Middle Eastern (helmet)". Prices are the printed prices; notes
- * are the printed statistics in our own words.
+ * are the printed statistics in our own words. 3.5 conversion
+ * (2026-11-11, class-C resolution under Shaun's standing order):
+ * the book's per-location armor subsystem is kept as printed except
+ * its "subdual damage reduction," which is stated in 3.5 form as
+ * damage reduction N/— against nonlethal damage.
  */
 import type { EquipmentItem, MagicItemDefinition } from "@/engine/types";
 
@@ -271,7 +275,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "9 gp",
     "weight": "7 lbs.",
-    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, nonlethal damage reduction 3, damage type S/P.",
+    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, damage reduction 3/— against nonlethal damage, damage type S/P.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:2 d20 Head Coverings & Helmets, p. 17",
     "sourceUrl": "",
     "ruleset": "core"
@@ -282,7 +286,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "12 gp",
     "weight": "8 lbs.",
-    "notes": "Helmet: armor bonus +7 to the head's armor class only, 10% arcane spell failure, nonlethal damage reduction 3, damage type S/P.",
+    "notes": "Helmet: armor bonus +7 to the head's armor class only, 10% arcane spell failure, damage reduction 3/— against nonlethal damage, damage type S/P.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:2 d20 Head Coverings & Helmets, p. 17",
     "sourceUrl": "",
     "ruleset": "core"
@@ -293,7 +297,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "15 gp",
     "weight": "8 lbs.",
-    "notes": "Helmet: armor bonus +7 to the head's armor class only, 10% arcane spell failure, nonlethal damage reduction 3, damage type S/P.",
+    "notes": "Helmet: armor bonus +7 to the head's armor class only, 10% arcane spell failure, damage reduction 3/— against nonlethal damage, damage type S/P.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:2 d20 Head Coverings & Helmets, p. 17",
     "sourceUrl": "",
     "ruleset": "core"
@@ -304,7 +308,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "8 gp",
     "weight": "5 lbs.",
-    "notes": "Helmet: armor bonus +4 to the head's armor class only, 5% arcane spell failure, nonlethal damage reduction 2, damage type S/P.",
+    "notes": "Helmet: armor bonus +4 to the head's armor class only, 5% arcane spell failure, damage reduction 2/— against nonlethal damage, damage type S/P.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:2 d20 Head Coverings & Helmets, p. 17",
     "sourceUrl": "",
     "ruleset": "core"
@@ -315,7 +319,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "10 gp",
     "weight": "8 lbs.",
-    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, nonlethal damage reduction 3, damage type B/S/P.",
+    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, damage reduction 3/— against nonlethal damage, damage type B/S/P.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:2 d20 Head Coverings & Helmets, p. 17",
     "sourceUrl": "",
     "ruleset": "core"
@@ -326,7 +330,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "10 gp",
     "weight": "8 lbs.",
-    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, nonlethal damage reduction 3, damage type B/S/P.",
+    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, damage reduction 3/— against nonlethal damage, damage type B/S/P.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:2 d20 Head Coverings & Helmets, p. 17",
     "sourceUrl": "",
     "ruleset": "core"
@@ -337,7 +341,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "9 gp",
     "weight": "8 lbs.",
-    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, nonlethal damage reduction 3, damage type S/P.",
+    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, damage reduction 3/— against nonlethal damage, damage type S/P.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:2 d20 Head Coverings & Helmets, p. 17",
     "sourceUrl": "",
     "ruleset": "core"
@@ -348,7 +352,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "20 gp",
     "weight": "5 lbs.",
-    "notes": "Helmet: armor bonus +4 to the head's armor class only, 5% arcane spell failure, nonlethal damage reduction 2, damage type S/P.",
+    "notes": "Helmet: armor bonus +4 to the head's armor class only, 5% arcane spell failure, damage reduction 2/— against nonlethal damage, damage type S/P.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:2 d20 Head Coverings & Helmets, p. 17",
     "sourceUrl": "",
     "ruleset": "core"
@@ -359,7 +363,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "4 gp",
     "weight": "2 lbs.",
-    "notes": "Helmet: armor bonus +2 to the head's armor class only, 5% arcane spell failure, nonlethal damage reduction 1, damage type S/P.",
+    "notes": "Helmet: armor bonus +2 to the head's armor class only, 5% arcane spell failure, damage reduction 1/— against nonlethal damage, damage type S/P.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:2 d20 Head Coverings & Helmets, p. 17",
     "sourceUrl": "",
     "ruleset": "core"
@@ -370,7 +374,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "9 gp",
     "weight": "7 lbs.",
-    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, nonlethal damage reduction 3, damage type S/P.",
+    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, damage reduction 3/— against nonlethal damage, damage type S/P.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:2 d20 Head Coverings & Helmets, p. 17",
     "sourceUrl": "",
     "ruleset": "core"
@@ -381,7 +385,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "8 gp",
     "weight": "7 lbs.",
-    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, nonlethal damage reduction 3, damage type S/P.",
+    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, damage reduction 3/— against nonlethal damage, damage type S/P.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:2 d20 Head Coverings & Helmets, p. 17",
     "sourceUrl": "",
     "ruleset": "core"
@@ -392,7 +396,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "9 gp",
     "weight": "8 lbs.",
-    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, nonlethal damage reduction 3, damage type S/P.",
+    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, damage reduction 3/— against nonlethal damage, damage type S/P.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:2 d20 Head Coverings & Helmets, p. 17",
     "sourceUrl": "",
     "ruleset": "core"
@@ -403,7 +407,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "20 gp",
     "weight": "10 lbs.",
-    "notes": "Helmet: armor bonus +8 to the head's armor class only, 15% arcane spell failure, nonlethal damage reduction 5, damage type B/S/P.",
+    "notes": "Helmet: armor bonus +8 to the head's armor class only, 15% arcane spell failure, damage reduction 5/— against nonlethal damage, damage type B/S/P.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:2 d20 Head Coverings & Helmets, p. 17",
     "sourceUrl": "",
     "ruleset": "core"
@@ -414,7 +418,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "10 gp",
     "weight": "8 lbs.",
-    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, nonlethal damage reduction 3, damage type B/S/P.",
+    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, damage reduction 3/— against nonlethal damage, damage type B/S/P.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:2 d20 Head Coverings & Helmets, p. 17",
     "sourceUrl": "",
     "ruleset": "core"
@@ -425,7 +429,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "12 gp",
     "weight": "9 lbs.",
-    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, nonlethal damage reduction 3, damage type B/S/P.",
+    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, damage reduction 3/— against nonlethal damage, damage type B/S/P.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:2 d20 Head Coverings & Helmets, p. 17",
     "sourceUrl": "",
     "ruleset": "core"
@@ -436,7 +440,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "8 gp",
     "weight": "7 lbs.",
-    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, nonlethal damage reduction 3, damage type S/P.",
+    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, damage reduction 3/— against nonlethal damage, damage type S/P.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:2 d20 Head Coverings & Helmets, p. 17",
     "sourceUrl": "",
     "ruleset": "core"
@@ -447,7 +451,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "9 gp",
     "weight": "8 lbs.",
-    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, nonlethal damage reduction 3, damage type S/P.",
+    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, damage reduction 3/— against nonlethal damage, damage type S/P.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:2 d20 Head Coverings & Helmets, p. 17",
     "sourceUrl": "",
     "ruleset": "core"
@@ -458,7 +462,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "12 gp",
     "weight": "8 lbs.",
-    "notes": "Helmet: armor bonus +7 to the head's armor class only, 10% arcane spell failure, nonlethal damage reduction 3, damage type S/P.",
+    "notes": "Helmet: armor bonus +7 to the head's armor class only, 10% arcane spell failure, damage reduction 3/— against nonlethal damage, damage type S/P.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:2 d20 Head Coverings & Helmets, p. 17",
     "sourceUrl": "",
     "ruleset": "core"
@@ -469,7 +473,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "15 gp",
     "weight": "8 lbs.",
-    "notes": "Helmet: armor bonus +7 to the head's armor class only, 10% arcane spell failure, nonlethal damage reduction 3, damage type S/P.",
+    "notes": "Helmet: armor bonus +7 to the head's armor class only, 10% arcane spell failure, damage reduction 3/— against nonlethal damage, damage type S/P.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:2 d20 Head Coverings & Helmets, p. 17",
     "sourceUrl": "",
     "ruleset": "core"
@@ -480,7 +484,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "8 gp",
     "weight": "7 lbs.",
-    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, nonlethal damage reduction 3, damage type S/P.",
+    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, damage reduction 3/— against nonlethal damage, damage type S/P.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:2 d20 Head Coverings & Helmets, p. 17",
     "sourceUrl": "",
     "ruleset": "core"
@@ -491,7 +495,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "15 gp",
     "weight": "8 lbs.",
-    "notes": "Helmet: armor bonus +7 to the head's armor class only, 10% arcane spell failure, nonlethal damage reduction 3, damage type S/P.",
+    "notes": "Helmet: armor bonus +7 to the head's armor class only, 10% arcane spell failure, damage reduction 3/— against nonlethal damage, damage type S/P.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:2 d20 Head Coverings & Helmets, p. 17",
     "sourceUrl": "",
     "ruleset": "core"
@@ -502,7 +506,7 @@ export const GWB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "armor",
     "cost": "9 gp",
     "weight": "8 lbs.",
-    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, nonlethal damage reduction 3, damage type S/P.",
+    "notes": "Helmet: armor bonus +7 to the head's armor class only, 5% arcane spell failure, damage reduction 3/— against nonlethal damage, damage type S/P.",
     "source": "Gary Gygax's World Builder — Book One: Stock-in-Trade, Table 1:2 d20 Head Coverings & Helmets, p. 17",
     "sourceUrl": "",
     "ruleset": "core"
