@@ -352,7 +352,7 @@ export const HEROES_OF_HORROR_SPELLS: SpellDefinition[] = [
     ruleset: "core",
     school: "Abjuration",
     descriptors: [],
-    levels: { Cleric: 3, Druid: 3, Paladin: 3, Ranger: 3, "Sorcerer/Wizard": 3 },
+    levels: { Cleric: 3, Druid: 3, Paladin: 3, Ranger: 3, "Sorcerer/Wizard": 3 , "Paladin of Freedom": 3},
     components: "V, S, DF",
     castingTime: "1 standard action",
     range: "Touch",

@@ -126,8 +126,8 @@ export const HEROES_OF_BATTLE_SPELLS: SpellDefinition[] = [
   "levels": {
     "Cleric": 4,
     "Druid": 4,
-    "Paladin": 4
-  },
+    "Paladin": 4,
+  "Paladin of Freedom": 4},
   "components": "V, S",
   "castingTime": "1 round",
   "range": "Long (400 ft. + 40 ft./level)",
@@ -170,8 +170,8 @@ export const HEROES_OF_BATTLE_SPELLS: SpellDefinition[] = [
   ],
   "levels": {
     "Druid": 2,
-    "Paladin": 1
-  },
+    "Paladin": 1,
+  "Paladin of Freedom": 1},
   "components": "V, S",
   "castingTime": "1 standard action",
   "range": "60 ft.",

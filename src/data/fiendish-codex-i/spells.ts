@@ -153,8 +153,8 @@ export const FIENDISH_CODEX_I_SPELLS: SpellDefinition[] = [
   "descriptors": [],
   "levels": {
     "Cleric": 1,
-    "Paladin": 1
-  },
+    "Paladin": 1,
+  "Paladin of Freedom": 1},
   "components": "V, S, M, DF",
   "castingTime": "1 swift action",
   "range": "Personal",

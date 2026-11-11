@@ -248,7 +248,7 @@ export const IRON_KINGDOMS_SPELLS: SpellDefinition[] = [
     ruleset: "iron_kingdoms",
     school: "Divination",
     descriptors: [],
-    levels: { "Arcane Mechanik": 3, "Sorcerer/Wizard": 3, "Cleric": 2, "Paladin": 3 },
+    levels: { "Arcane Mechanik": 3, "Sorcerer/Wizard": 3, "Cleric": 2, "Paladin": 3 , "Paladin of Freedom": 3},
     components: "V, S, DF/M",
     castingTime: "1 standard action",
     range: "60 ft.",

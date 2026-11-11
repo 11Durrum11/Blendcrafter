@@ -88,8 +88,8 @@ export const FROSTBURN_SPELLS: SpellDefinition[] = [
     "Cleric": 3,
     "Druid": 3,
     "Paladin": 4,
-    "Ranger": 4
-  },
+    "Ranger": 4,
+  "Paladin of Freedom": 4},
   "components": "V, S, DF",
   "castingTime": "1 standard action",
   "range": "5 ft.",
@@ -113,8 +113,8 @@ export const FROSTBURN_SPELLS: SpellDefinition[] = [
     "Cleric": 3,
     "Druid": 3,
     "Paladin": 3,
-    "Ranger": 3
-  },
+    "Ranger": 3,
+  "Paladin of Freedom": 3},
   "components": "V, S, DF, Frostfell",
   "castingTime": "1 standard action",
   "range": "Medium (100 ft. + 10 ft./level)",

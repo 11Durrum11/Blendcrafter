@@ -76,7 +76,7 @@ export const DRAGON_354_SPELLS: SpellDefinition[] = [
     name: "Shield of Heironeous",
     school: "Abjuration",
     descriptors: ["Force"],
-    levels: { Cleric: 2, Paladin: 2 },
+    levels: { Cleric: 2, Paladin: 2 , "Paladin of Freedom": 2},
     range: "Personal",
     targetOrArea: "You",
     duration: "1 min./level (D)",

@@ -679,8 +679,8 @@ export const DRAGON_MAGIC_SPELLS: SpellDefinition[] = [
   ],
   "levels": {
     "Cleric": 3,
-    "Paladin": 2
-  },
+    "Paladin": 2,
+  "Paladin of Freedom": 2},
   "components": "V, S",
   "castingTime": "1 standard action",
   "range": "Personal",
@@ -702,8 +702,8 @@ export const DRAGON_MAGIC_SPELLS: SpellDefinition[] = [
   ],
   "levels": {
     "Paladin": 1,
-    "Sorcerer/Wizard": 2
-  },
+    "Sorcerer/Wizard": 2,
+  "Paladin of Freedom": 1},
   "components": "V, S",
   "castingTime": "1 standard action",
   "range": "Personal",

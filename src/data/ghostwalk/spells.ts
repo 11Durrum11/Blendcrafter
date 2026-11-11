@@ -478,8 +478,8 @@ export const GHOSTWALK_SPELLS: SpellDefinition[] = [
     "Druid": 2,
     "Paladin": 2,
     "Ranger": 2,
-    "Sorcerer/Wizard": 3
-  },
+    "Sorcerer/Wizard": 3,
+  "Paladin of Freedom": 2},
   "components": "V, S",
   "castingTime": "1 action",
   "range": "Touch",
@@ -680,8 +680,8 @@ export const GHOSTWALK_SPELLS: SpellDefinition[] = [
   "school": "Evocation",
   "descriptors": [],
   "levels": {
-    "Paladin": 4
-  },
+    "Paladin": 4,
+  "Paladin of Freedom": 4},
   "components": "V, S",
   "castingTime": "1 action",
   "range": "Personal",
@@ -838,8 +838,8 @@ export const GHOSTWALK_SPELLS: SpellDefinition[] = [
     "Cleric": 1,
     "Ghost": 1,
     "Paladin": 1,
-    "Sorcerer/Wizard": 1
-  },
+    "Sorcerer/Wizard": 1,
+  "Paladin of Freedom": 1},
   "components": "V, S, M/DF",
   "castingTime": "1 action",
   "range": "Touch",
@@ -988,8 +988,8 @@ export const GHOSTWALK_SPELLS: SpellDefinition[] = [
   "school": "Evocation",
   "descriptors": [],
   "levels": {
-    "Paladin": 4
-  },
+    "Paladin": 4,
+  "Paladin of Freedom": 4},
   "components": "V, S",
   "castingTime": "1 action",
   "range": "Personal",

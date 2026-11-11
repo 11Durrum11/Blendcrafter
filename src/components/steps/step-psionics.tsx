@@ -76,7 +76,7 @@ import { isApocDisabledPower } from "@/lib/apoc-disabled";
  * build.
  */
 
-export const PSIONIC_BASE_CLASS_IDS = ["psion", "psychic-warrior", "soulknife", "wilder", "ardent", "divine-mind", "lurk"];
+export const PSIONIC_BASE_CLASS_IDS = ["psion", "psychic-warrior", "soulknife", "wilder", "ardent", "divine-mind", "lurk", "erudite"];
 
 const PSIONIC_SOURCE_PREFIXES = ["Expanded Psionics Handbook", "Complete Psionic"];
 const isPsionicSource = (source: string) => PSIONIC_SOURCE_PREFIXES.some((p) => source.startsWith(p));
@@ -97,25 +97,27 @@ const DISCIPLINE_LIST_KEYS = ["Seer", "Shaper", "Telepath", "Nomad", "Egoist", "
 
 /**
  * Which of the build's classes could manifest this power, by
- * its printed list keys: "Psion/Wilder" → psion or wilder;
- * a discipline name → psion; "Psychic Warrior" and "Lurk" →
- * those classes; anything else is a mantle key → ardent or
- * divine mind. Soulknife manifests no powers and never
- * matches. Picks file under the matched class, exactly like
- * spell picks file under their casting class.
+ * its printed list keys: "Psion/Wilder" → psion, wilder, or
+ * erudite (the erudite is a psion variant and manifests from
+ * the psion/wilder list, discipline powers included);
+ * a discipline name → psion or erudite; "Psychic Warrior" and
+ * "Lurk" → those classes; anything else is a mantle key →
+ * ardent or divine mind. Soulknife manifests no powers and
+ * never matches. Picks file under the matched class, exactly
+ * like spell picks file under their casting class.
  */
 function manifesterClassIdsFor(power: SpellDefinition, buildClassIds: string[]): string[] {
   const matched = new Set<string>();
   for (const key of Object.keys(power.levels)) {
     const candidates =
       key === "Psion/Wilder"
-        ? ["psion", "wilder"]
+        ? ["psion", "wilder", "erudite"]
         : key === "Psychic Warrior"
           ? ["psychic-warrior"]
           : key === "Lurk"
             ? ["lurk"]
             : DISCIPLINE_LIST_KEYS.includes(key)
-              ? ["psion"]
+              ? ["psion", "erudite"]
               : ["ardent", "divine-mind"];
     for (const c of candidates) if (buildClassIds.includes(c)) matched.add(c);
   }

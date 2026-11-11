@@ -145,7 +145,7 @@ export const DRAGON_333_SPELLS: SpellDefinition[] = [
     name: "Hand of Torm",
     school: "Abjuration",
     descriptors: ["Good", "Lawful"],
-    levels: { Cleric: 4, Paladin: 4 },
+    levels: { Cleric: 4, Paladin: 4 , "Paladin of Freedom": 4},
     components: "V, S, DF",
     castingTime: "1 minute",
     range: "10 ft.",

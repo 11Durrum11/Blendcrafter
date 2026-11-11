@@ -15,8 +15,8 @@ export const COMPLETE_CHAMPION_SPELLS: SpellDefinition[] = [
   "levels": {
     "Blackguard": 4,
     "Cleric": 4,
-    "Paladin": 4
-  },
+    "Paladin": 4,
+  "Paladin of Freedom": 4},
   "components": "V, S, DF",
   "castingTime": "1 standard action",
   "range": "20 ft. or 60 ft.",
@@ -36,8 +36,8 @@ export const COMPLETE_CHAMPION_SPELLS: SpellDefinition[] = [
   "descriptors": [],
   "levels": {
     "Cleric": 2,
-    "Paladin": 2
-  },
+    "Paladin": 2,
+  "Paladin of Freedom": 2},
   "components": "V, S, DF",
   "castingTime": "1 full round",
   "range": "Touch",
@@ -150,8 +150,8 @@ export const COMPLETE_CHAMPION_SPELLS: SpellDefinition[] = [
   "descriptors": [],
   "levels": {
     "Cleric": 3,
-    "Paladin": 4
-  },
+    "Paladin": 4,
+  "Paladin of Freedom": 4},
   "components": "V, S",
   "castingTime": "1 standard action",
   "range": "Touch",
@@ -171,8 +171,8 @@ export const COMPLETE_CHAMPION_SPELLS: SpellDefinition[] = [
   "descriptors": [],
   "levels": {
     "Cleric": 2,
-    "Paladin": 2
-  },
+    "Paladin": 2,
+  "Paladin of Freedom": 2},
   "components": "V, S",
   "castingTime": "1 standard action",
   "range": "Personal",
@@ -258,8 +258,8 @@ export const COMPLETE_CHAMPION_SPELLS: SpellDefinition[] = [
   "levels": {
     "Blackguard": 3,
     "Cleric": 3,
-    "Paladin": 3
-  },
+    "Paladin": 3,
+  "Paladin of Freedom": 3},
   "components": "V, S, DF",
   "castingTime": "1 standard action",
   "range": "Touch",
@@ -281,8 +281,8 @@ export const COMPLETE_CHAMPION_SPELLS: SpellDefinition[] = [
     "Blackguard": 2,
     "Cleric": 2,
     "Druid": 2,
-    "Paladin": 2
-  },
+    "Paladin": 2,
+  "Paladin of Freedom": 2},
   "components": "V, S",
   "castingTime": "1 standard action",
   "range": "Personal",
@@ -627,8 +627,8 @@ export const COMPLETE_CHAMPION_SPELLS: SpellDefinition[] = [
   "levels": {
     "Blackguard": 2,
     "Cleric": 2,
-    "Paladin": 2
-  },
+    "Paladin": 2,
+  "Paladin of Freedom": 2},
   "components": "V, S",
   "castingTime": "1 standard action",
   "range": "Personal",
@@ -739,8 +739,8 @@ export const COMPLETE_CHAMPION_SPELLS: SpellDefinition[] = [
   ],
   "levels": {
     "Cleric": 4,
-    "Paladin": 4
-  },
+    "Paladin": 4,
+  "Paladin of Freedom": 4},
   "components": "V, S, DF",
   "castingTime": "1 full round",
   "range": "Touch",
@@ -802,8 +802,8 @@ export const COMPLETE_CHAMPION_SPELLS: SpellDefinition[] = [
   "descriptors": [],
   "levels": {
     "Cleric": 3,
-    "Paladin": 4
-  },
+    "Paladin": 4,
+  "Paladin of Freedom": 4},
   "components": "V, S",
   "castingTime": "1 stan dard action",
   "range": "Touch",
@@ -843,8 +843,8 @@ export const COMPLETE_CHAMPION_SPELLS: SpellDefinition[] = [
   "descriptors": [],
   "levels": {
     "Cleric": 0,
-    "Paladin": 1
-  },
+    "Paladin": 1,
+  "Paladin of Freedom": 1},
   "components": "V, S",
   "castingTime": "1 standard action",
   "range": "0 ft.",
@@ -884,8 +884,8 @@ export const COMPLETE_CHAMPION_SPELLS: SpellDefinition[] = [
   "school": "Conjuration",
   "descriptors": [],
   "levels": {
-    "Paladin": 2
-  },
+    "Paladin": 2,
+  "Paladin of Freedom": 2},
   "components": "V, S",
   "castingTime": "1 standard action",
   "range": "Personal",
@@ -907,8 +907,8 @@ export const COMPLETE_CHAMPION_SPELLS: SpellDefinition[] = [
   "levels": {
     "Blackguard": 2,
     "Cleric": 2,
-    "Paladin": 2
-  },
+    "Paladin": 2,
+  "Paladin of Freedom": 2},
   "components": "V, S, DF",
   "castingTime": "1 standard action",
   "range": "Personal",
@@ -929,8 +929,8 @@ export const COMPLETE_CHAMPION_SPELLS: SpellDefinition[] = [
   "descriptors": [],
   "levels": {
     "Blackguard": 3,
-    "Paladin": 3
-  },
+    "Paladin": 3,
+  "Paladin of Freedom": 3},
   "components": "V, S",
   "castingTime": "1 standard action",
   "range": "Touch",

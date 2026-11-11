@@ -45,7 +45,7 @@ export const DRAGON_346_SPELLS: SpellDefinition[] = [
   C({
     id: "sun-fathers-face",
     name: "Sun Father's Face",
-    levels: { Cleric: 1, Druid: 1, Paladin: 1, Ranger: 1 },
+    levels: { Cleric: 1, Druid: 1, Paladin: 1, Ranger: 1 , "Paladin of Freedom": 1},
     castingTime: "1 swift action",
     duration: "1 minute or until discharged",
     summary:

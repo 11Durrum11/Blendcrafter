@@ -36,7 +36,7 @@ export const DRAGON_315_SPELLS: SpellDefinition[] = [
     school: "Enchantment",
     subschool: "Compulsion",
     descriptors: ["Fear", "Good", "Mind-Affecting"],
-    levels: { "Cleric": 3, "Paladin": 3 },
+    levels: { "Cleric": 3, "Paladin": 3 , "Paladin of Freedom": 3},
     components: "V, S, DF",
     castingTime: "1 standard action",
     range: "Close (25 ft. + 5 ft./2 levels)",

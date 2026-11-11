@@ -29,7 +29,7 @@ export const FIVE_NATIONS_SPELLS: SpellDefinition[] = [
     levels: {
       "Cleric": 3,
       "Paladin": 3,
-    },
+    "Paladin of Freedom": 3},
     components: "V, S, DF",
     castingTime: "1 swift action",
     range: "Personal",
@@ -49,7 +49,7 @@ export const FIVE_NATIONS_SPELLS: SpellDefinition[] = [
     descriptors: [],
     levels: {
       "Paladin": 1,
-    },
+    "Paladin of Freedom": 1},
     components: "V, S",
     castingTime: "1 swift action",
     range: "Touch",

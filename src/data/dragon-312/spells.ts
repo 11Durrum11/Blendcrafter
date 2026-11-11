@@ -80,7 +80,7 @@ export const DRAGON_312_SPELLS: SpellDefinition[] = [
     ruleset: "core",
     school: "Evocation",
     descriptors: ["Evil"],
-    levels: { "Anti-Paladin": 4 },
+    levels: { "Anti-Paladin": 4 , "Paladin of Tyranny": 4, "Paladin of Slaughter": 4},
     components: "V, S",
     castingTime: "1 standard action",
     range: "Touch",

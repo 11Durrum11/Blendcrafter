@@ -16,8 +16,8 @@ export const FIENDISH_CODEX_II_SPELLS: SpellDefinition[] = [
   ],
   "levels": {
     "Cleric": 2,
-    "Paladin": 2
-  },
+    "Paladin": 2,
+  "Paladin of Freedom": 2},
   "components": "V, S",
   "castingTime": "1 standard action",
   "range": "Close (25 ft. + 5 ft./2 levels)",

@@ -162,8 +162,8 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     ],
     "levels": {
       "Cleric": 3,
-      "Paladin": 2
-    },
+      "Paladin": 2,
+    "Paladin of Freedom": 2},
     "components": "V, S",
     "castingTime": "1 standard action",
     "range": "Touch",
@@ -377,8 +377,8 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
-      "Paladin": 1
-    },
+      "Paladin": 1,
+    "Paladin of Freedom": 1},
     "components": "V, DF",
     "castingTime": "1 standard action",
     "range": "Personal",
@@ -1492,8 +1492,8 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     ],
     "levels": {
       "Blackguard": 3,
-      "Paladin": 2
-    },
+      "Paladin": 2,
+    "Paladin of Freedom": 2},
     "components": "V, S, DF",
     "castingTime": "1 standard action",
     "range": "Close (25 ft. + 5 ft./2 levels)",
@@ -1578,8 +1578,8 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Paladin": 2,
-      "Cleric": 2
-    },
+      "Cleric": 2,
+    "Paladin of Freedom": 2},
     "components": "V, S, DF",
     "castingTime": "1 swift action",
     "range": "Not printed in source",
@@ -1742,8 +1742,8 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
-      "Paladin": 1
-    },
+      "Paladin": 1,
+    "Paladin of Freedom": 1},
     "components": "V, S, DF",
     "castingTime": "1 immediate action",
     "range": "Personal",
@@ -2051,8 +2051,8 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Blackguard": 1,
-      "Paladin": 1
-    },
+      "Paladin": 1,
+    "Paladin of Freedom": 1},
     "components": "V, DF",
     "castingTime": "1 swift action",
     "range": "Personal",
@@ -2071,8 +2071,8 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
-      "Paladin": 2
-    },
+      "Paladin": 2,
+    "Paladin of Freedom": 2},
     "components": "V, S, DF",
     "castingTime": "1 swift action",
     "range": "Personal",
@@ -2893,8 +2893,8 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     "school": "Divination",
     "descriptors": [],
     "levels": {
-      "Paladin": 4
-    },
+      "Paladin": 4,
+    "Paladin of Freedom": 4},
     "components": "S, DF",
     "castingTime": "1 standard action",
     "range": "100 ft.",
@@ -3222,8 +3222,8 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
       "Blackguard": 1,
       "Druid": 1,
       "Paladin": 1,
-      "Ranger": 1
-    },
+      "Ranger": 1,
+    "Paladin of Freedom": 1},
     "components": "V, S",
     "castingTime": "1 standard action",
     "range": "Touch",
@@ -3440,8 +3440,8 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Cleric": 4,
-      "Paladin": 3
-    },
+      "Paladin": 3,
+    "Paladin of Freedom": 3},
     "components": "V, S, DF",
     "castingTime": "1 standard action",
     "range": "Touch",
@@ -3981,8 +3981,8 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
       "Blackguard": 4,
       "Cleric": 3,
       "Mysticism": 3,
-      "Paladin": 4
-    },
+      "Paladin": 4,
+    "Paladin of Freedom": 4},
     "components": "V, S, DF",
     "castingTime": "1 standard action",
     "range": "Personal",
@@ -4023,8 +4023,8 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Cleric": 1,
-      "Paladin": 1
-    },
+      "Paladin": 1,
+    "Paladin of Freedom": 1},
     "components": "V, S, DF",
     "castingTime": "1 standard action",
     "range": "Touch",
@@ -4457,8 +4457,8 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
       "Sonic"
     ],
     "levels": {
-      "Paladin": 1
-    },
+      "Paladin": 1,
+    "Paladin of Freedom": 1},
     "components": "V",
     "castingTime": "1 immediate action",
     "range": "30 ft.",
@@ -4573,8 +4573,8 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     "levels": {
       "Blackguard": 3,
       "Cleric": 3,
-      "Paladin": 3
-    },
+      "Paladin": 3,
+    "Paladin of Freedom": 3},
     "components": "V, DF",
     "castingTime": "1 standard action",
     "range": "Touch",
@@ -4783,8 +4783,8 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Blackguard": 4,
-      "Paladin": 4
-    },
+      "Paladin": 4,
+    "Paladin of Freedom": 4},
     "components": "V, S, DF",
     "castingTime": "1 standard action",
     "range": "Touch",
@@ -5019,8 +5019,8 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     "school": "Conjuration",
     "descriptors": [],
     "levels": {
-      "Paladin": 3
-    },
+      "Paladin": 3,
+    "Paladin of Freedom": 3},
     "components": "V, DF",
     "castingTime": "1 standard action",
     "range": "Close (25 ft. + 5 ft./level)",
@@ -5172,8 +5172,8 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     "levels": {
       "Competition": 2,
       "Blackguard": 2,
-      "Paladin": 2
-    },
+      "Paladin": 2,
+    "Paladin of Freedom": 2},
     "components": "V, S",
     "castingTime": "1 swift action",
     "range": "Personal",

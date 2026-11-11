@@ -232,8 +232,8 @@ export const SPELL_COMPENDIUM_SPELLS_B: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Cleric": 2,
-      "Paladin": 2
-    },
+      "Paladin": 2,
+    "Paladin of Freedom": 2},
     "components": "V, S, DF",
     "castingTime": "1 standard action",
     "range": "Personal",
@@ -275,8 +275,8 @@ export const SPELL_COMPENDIUM_SPELLS_B: SpellDefinition[] = [
     ],
     "levels": {
       "Cleric": 2,
-      "Paladin": 2
-    },
+      "Paladin": 2,
+    "Paladin of Freedom": 2},
     "components": "V, S, DF",
     "castingTime": "1 standard action",
     "range": "Medium (100 ft. + 10 ft./level)",
@@ -297,8 +297,8 @@ export const SPELL_COMPENDIUM_SPELLS_B: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Blackguard": 1,
-      "Paladin": 1
-    },
+      "Paladin": 1,
+    "Paladin of Freedom": 1},
     "components": "V, S",
     "castingTime": "1 standard action",
     "range": "Personal",
@@ -383,8 +383,8 @@ export const SPELL_COMPENDIUM_SPELLS_B: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Paladin": 4,
-      "Sorcerer/Wizard": 5
-    },
+      "Sorcerer/Wizard": 5,
+    "Paladin of Freedom": 4},
     "components": "V, S",
     "castingTime": "1 standard action",
     "range": "Touch",
@@ -1029,8 +1029,8 @@ export const SPELL_COMPENDIUM_SPELLS_B: SpellDefinition[] = [
     ],
     "levels": {
       "Cleric": 3,
-      "Paladin": 2
-    },
+      "Paladin": 2,
+    "Paladin of Freedom": 2},
     "components": "V, S, DF",
     "castingTime": "1 standard action",
     "range": "Touch",
@@ -1053,8 +1053,8 @@ export const SPELL_COMPENDIUM_SPELLS_B: SpellDefinition[] = [
     ],
     "levels": {
       "Cleric": 2,
-      "Paladin": 1
-    },
+      "Paladin": 1,
+    "Paladin of Freedom": 1},
     "components": "V, S, DF",
     "castingTime": "1 standard action",
     "range": "Touch",
@@ -1641,8 +1641,8 @@ export const SPELL_COMPENDIUM_SPELLS_B: SpellDefinition[] = [
     "levels": {
       "Blackguard": 1,
       "Cleric": 1,
-      "Paladin": 1
-    },
+      "Paladin": 1,
+    "Paladin of Freedom": 1},
     "components": "V, S",
     "castingTime": "1 standard action",
     "range": "Touch",
@@ -1772,8 +1772,8 @@ export const SPELL_COMPENDIUM_SPELLS_B: SpellDefinition[] = [
     "school": "Necromancy",
     "descriptors": [],
     "levels": {
-      "Paladin": 4
-    },
+      "Paladin": 4,
+    "Paladin of Freedom": 4},
     "components": "V, S",
     "castingTime": "1 standard action",
     "range": "Medium (100 ft. + 10 ft./level)",
@@ -1835,8 +1835,8 @@ export const SPELL_COMPENDIUM_SPELLS_B: SpellDefinition[] = [
       "Assassin": 2,
       "Cleric": 3,
       "Paladin": 2,
-      "Ranger": 2
-    },
+      "Ranger": 2,
+    "Paladin of Freedom": 2},
     "components": "V, S, M",
     "castingTime": "1 standard action",
     "range": "Touch",
@@ -1949,8 +1949,8 @@ export const SPELL_COMPENDIUM_SPELLS_B: SpellDefinition[] = [
     "levels": {
       "Assassin": 3,
       "Paladin": 3,
-      "Ranger": 3
-    },
+      "Ranger": 3,
+    "Paladin of Freedom": 3},
     "components": "V",
     "castingTime": "1 standard action",
     "range": "Personal",
@@ -1969,8 +1969,8 @@ export const SPELL_COMPENDIUM_SPELLS_B: SpellDefinition[] = [
     "school": "Divination",
     "descriptors": [],
     "levels": {
-      "Paladin": 1
-    },
+      "Paladin": 1,
+    "Paladin of Freedom": 1},
     "components": "V, S, DF",
     "castingTime": "1 standard action",
     "range": "10 miles + 1 mile/level",
@@ -2259,8 +2259,8 @@ export const SPELL_COMPENDIUM_SPELLS_B: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Cleric": 3,
-      "Paladin": 2
-    },
+      "Paladin": 2,
+    "Paladin of Freedom": 2},
     "components": "V, S, M",
     "castingTime": "1 standard action",
     "range": "Touch",
@@ -3142,8 +3142,8 @@ export const SPELL_COMPENDIUM_SPELLS_B: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Blackguard": 1,
-      "Paladin": 1
-    },
+      "Paladin": 1,
+    "Paladin of Freedom": 1},
     "components": "V, DF",
     "castingTime": "1 standard action",
     "range": "Touch",
@@ -3209,8 +3209,8 @@ export const SPELL_COMPENDIUM_SPELLS_B: SpellDefinition[] = [
     ],
     "levels": {
       "Cleric": 1,
-      "Paladin": 1
-    },
+      "Paladin": 1,
+    "Paladin of Freedom": 1},
     "components": "V, DF",
     "castingTime": "1 swift action",
     "range": "Personal",
@@ -3407,8 +3407,8 @@ export const SPELL_COMPENDIUM_SPELLS_B: SpellDefinition[] = [
     "levels": {
       "Blackguard": 2,
       "Cleric": 2,
-      "Paladin": 2
-    },
+      "Paladin": 2,
+    "Paladin of Freedom": 2},
     "components": "V, S, DF",
     "castingTime": "1 minute",
     "range": "Touch",
@@ -3430,8 +3430,8 @@ export const SPELL_COMPENDIUM_SPELLS_B: SpellDefinition[] = [
     ],
     "levels": {
       "Cleric": 4,
-      "Paladin": 3
-    },
+      "Paladin": 3,
+    "Paladin of Freedom": 3},
     "components": "V, S, DF",
     "castingTime": "1 minute",
     "range": "10 ft.",
@@ -3978,8 +3978,8 @@ export const SPELL_COMPENDIUM_SPELLS_B: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
-      "Paladin": 2
-    },
+      "Paladin": 2,
+    "Paladin of Freedom": 2},
     "components": "V, S",
     "castingTime": "1 standard action",
     "range": "Touch",
@@ -3998,8 +3998,8 @@ export const SPELL_COMPENDIUM_SPELLS_B: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
-      "Paladin": 1
-    },
+      "Paladin": 1,
+    "Paladin of Freedom": 1},
     "components": "V The holy mount spell bolsters a paladin's special mount with many useful resistances",
     "castingTime": "1 swift action",
     "range": "Close (25 ft. + 5 ft./2 levels)",
@@ -5312,8 +5312,8 @@ export const SPELL_COMPENDIUM_SPELLS_B: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Blackguard": 1,
-      "Paladin": 1
-    },
+      "Paladin": 1,
+    "Paladin of Freedom": 1},
     "components": "V, DF",
     "castingTime": "1 standard action",
     "range": "60 ft.",

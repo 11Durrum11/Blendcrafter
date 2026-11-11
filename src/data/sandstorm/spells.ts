@@ -397,8 +397,8 @@ export const SANDSTORM_SPELLS: SpellDefinition[] = [
     "Cleric": 2,
     "Druid": 2,
     "Paladin": 2,
-    "Ranger": 2
-  },
+    "Ranger": 2,
+  "Paladin of Freedom": 2},
   "components": "V, S, M",
   "castingTime": "1 standard action",
   "range": "Touch",
@@ -495,8 +495,8 @@ export const SANDSTORM_SPELLS: SpellDefinition[] = [
     "Cleric": 2,
     "Druid": 2,
     "Paladin": 2,
-    "Ranger": 2
-  },
+    "Ranger": 2,
+  "Paladin of Freedom": 2},
   "components": "V, S",
   "castingTime": "1 standard action",
   "range": "Touch",

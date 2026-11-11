@@ -112,8 +112,8 @@ export const BOOK_OF_EXALTED_DEEDS_SPELLS: SpellDefinition[] = [
   "levels": {
     "Apostle of Peace": 4,
     "Exalted Arcanist": 4,
-    "Paladin": 4
-  },
+    "Paladin": 4,
+  "Paladin of Freedom": 4},
   "components": "V, S, DF",
   "castingTime": "1 standard action",
   "range": "Personal",
@@ -203,8 +203,8 @@ export const BOOK_OF_EXALTED_DEEDS_SPELLS: SpellDefinition[] = [
     "Cleric": 3,
     "Paladin": 3,
     "Celestial": 3,
-    "Slayer of Domiel": 3
-  },
+    "Slayer of Domiel": 3,
+  "Paladin of Freedom": 3},
   "components": "V, S",
   "castingTime": "1 standard action",
   "range": "Personal",
@@ -278,8 +278,8 @@ export const BOOK_OF_EXALTED_DEEDS_SPELLS: SpellDefinition[] = [
     "Apostle of Peace": 4,
     "Champion of Gwynharwyf": 4,
     "Cleric": 4,
-    "Paladin": 4
-  },
+    "Paladin": 4,
+  "Paladin of Freedom": 4},
   "components": "V, S",
   "castingTime": "1 standard action",
   "range": "Medium (100 ft. + 10 ft./level)",
@@ -348,8 +348,8 @@ export const BOOK_OF_EXALTED_DEEDS_SPELLS: SpellDefinition[] = [
     "Good"
   ],
   "levels": {
-    "Paladin": 2
-  },
+    "Paladin": 2,
+  "Paladin of Freedom": 2},
   "components": "V",
   "castingTime": "1 round",
   "range": "10 ft.",
@@ -957,8 +957,8 @@ export const BOOK_OF_EXALTED_DEEDS_SPELLS: SpellDefinition[] = [
   "levels": {
     "Cleric": 2,
     "Druid": 2,
-    "Paladin": 2
-  },
+    "Paladin": 2,
+  "Paladin of Freedom": 2},
   "components": "V, S, F",
   "castingTime": "1 round",
   "range": "0 ft.",
@@ -1092,8 +1092,8 @@ export const BOOK_OF_EXALTED_DEEDS_SPELLS: SpellDefinition[] = [
   ],
   "levels": {
     "Champion of Gwynharwyf": 4,
-    "Paladin": 4
-  },
+    "Paladin": 4,
+  "Paladin of Freedom": 4},
   "components": "V, S, F, DF",
   "castingTime": "1 standard action",
   "range": "Close (25 ft. + 5 ft./2 levels)",
@@ -1303,8 +1303,8 @@ export const BOOK_OF_EXALTED_DEEDS_SPELLS: SpellDefinition[] = [
     "Cleric": 1,
     "Paladin": 1,
     "Sorcerer/Wizard": 1,
-    "Vassal of Bahamut": 1
-  },
+    "Vassal of Bahamut": 1,
+  "Paladin of Freedom": 1},
   "components": "S, Abstinence",
   "castingTime": "1 standard action",
   "range": "Close (25 ft. + 5 ft./2 levels)",
@@ -1434,8 +1434,8 @@ export const BOOK_OF_EXALTED_DEEDS_SPELLS: SpellDefinition[] = [
   "school": "Divination",
   "descriptors": [],
   "levels": {
-    "Paladin": 3
-  },
+    "Paladin": 3,
+  "Paladin of Freedom": 3},
   "components": "V, S, DF",
   "castingTime": "1 standard action",
   "range": "Close (25 ft. + 5 ft./2 levels)",
@@ -1971,8 +1971,8 @@ export const BOOK_OF_EXALTED_DEEDS_SPELLS: SpellDefinition[] = [
   "descriptors": [],
   "levels": {
     "Paladin": 1,
-    "Ranger": 2
-  },
+    "Ranger": 2,
+  "Paladin of Freedom": 1},
   "components": "V, S",
   "castingTime": "1 standard action",
   "range": "Touch",
@@ -1991,8 +1991,8 @@ export const BOOK_OF_EXALTED_DEEDS_SPELLS: SpellDefinition[] = [
   "school": "Conjuration",
   "descriptors": [],
   "levels": {
-    "Paladin": 3
-  },
+    "Paladin": 3,
+  "Paladin of Freedom": 3},
   "components": "V, S, DF",
   "castingTime": "1 standard action",
   "range": "Personal",
@@ -2191,8 +2191,8 @@ export const BOOK_OF_EXALTED_DEEDS_SPELLS: SpellDefinition[] = [
     "Cleric": 4,
     "Exalted Arcanist": 4,
     "Paladin": 4,
-    "Slayer of Domiel": 4
-  },
+    "Slayer of Domiel": 4,
+  "Paladin of Freedom": 4},
   "components": "V, DF",
   "castingTime": "1 standard action",
   "range": "Close (25 ft. + 5 ft./2 levels)",
