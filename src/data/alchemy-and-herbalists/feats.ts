@@ -79,7 +79,7 @@ export const ALCHEMY_HERBALISTS_FEATS: FeatDefinition[] = [
     name: "Craft Toxins",
     category: "item-creation",
     prerequisites: ["Alchemy 8 ranks or Profession (Herbalist) 6 ranks", "Great Fortitude"],
-    benefitSummary: "You can create poisons and other toxins, gaining a +3 bonus on the relevant skill when creating one. Creation takes a number of hours equal to the creation DC. A toxin's base price is its caster level plus its creation DC, multiplied by 120 gp. Creating one costs XP equal to 1/50 (2%) of its base price and raw materials costing 30% of its base price. Special: with Knowledge (Nature) or Wilderness Lore 5 ranks, you can also process venoms taken from animals into usable toxins.",
+    benefitSummary: "You can create poisons and other toxins, gaining a +3 bonus on the relevant skill when creating one. Creation takes a number of hours equal to the creation DC. A toxin's base price is its caster level plus its creation DC, multiplied by 120 gp. Creating one costs XP equal to 1/50 (2%) of its base price and raw materials costing 30% of its base price. Special: with Knowledge (Nature) or Survival 5 ranks, you can also process venoms taken from animals into usable toxins.",
     modifiers: [],
     source: `${AH}, p. 45`,
     sourceUrl: "",

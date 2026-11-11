@@ -56,7 +56,7 @@ export const ALCHEMY_HERBALISTS_MAGIC_ITEMS: MagicItemDefinition[] = [
     name: "Lash of Saumar",
     category: "wondrous",
     cost: "400 gp",
-    summary: "Catalog entry [Alchana/Wondrous: Magical]. Caster Level 8; no creation DC printed. A liquid-metal whip that deals lethal (rather than subdual) damage and damages creatures with less than a +3 armor bonus or +6 natural armor bonus; only its wielder can untangle it, and when idle it pours into a belt holster.",
+    summary: "Catalog entry [Alchana/Wondrous: Magical]. Caster Level 8; no creation DC printed. A liquid-metal whip that deals lethal (rather than nonlethal) damage and damages creatures with less than a +3 armor bonus or +6 natural armor bonus; only its wielder can untangle it, and when idle it pours into a belt holster.",
     source: `${AH}, p. 76`,
     sourceUrl: "",
     ruleset: "core",

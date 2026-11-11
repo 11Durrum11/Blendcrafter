@@ -61,7 +61,7 @@ export const FAMILIARS_RACES: RaceDefinition[] = [
         key: "harvester-ant-stat-block",
         name: "Familiar Stat Block (as printed)",
         description:
-          "Printed as 'ANT, HARVESTER', a Fine Magical Beast. Abilities: Str 1, Dex 13, Con 10, Wis 10, Cha 2 (Intelligence by path of infusion). Initiative +1 (Dex). Speed 5 ft., climb 5 ft. Armour Class 19 (+8 size, +1 Dex). Attacks: bite +3 melee; Damage: bite 1. Face/Reach: ½ ft. by ½ ft./0 ft. Saves: Fort +2, Ref +1, Will +2. Skills: Climb +5*, Listen +4, Spot +4, or master's skills (*harvester ants use their Dexterity modifier for Climb checks). " +
+          "Printed as 'ANT, HARVESTER', a Fine Magical Beast. Abilities: Str 1, Dex 13, Con 10, Wis 10, Cha 2 (Intelligence by path of infusion). Initiative +1 (Dex). Speed 5 ft., climb 5 ft. Armour Class 19 (+8 size, +1 Dex). Attacks: bite +3 melee; Damage: bite 1. Space/Reach: ½ ft. by ½ ft./0 ft. Saves: Fort +2, Ref +1, Will +2. Skills: Climb +5*, Listen +4, Spot +4, or master's skills (*harvester ants use their Dexterity modifier for Climb checks). " +
           PATH_NOTE,
         category: "trait",
         source: `${FAM}, p. 59`,
@@ -85,7 +85,7 @@ export const FAMILIARS_RACES: RaceDefinition[] = [
         key: "honey-bee-stat-block",
         name: "Familiar Stat Block (as printed)",
         description:
-          "Printed as 'BEE, HONEY', a Fine Magical Beast. Abilities: Str 1, Dex 13, Con 10, Wis 10, Cha 2 (Intelligence by path of infusion). Initiative +1 (Dex). Speed 10 ft., fly 40 ft. (good). Armour Class 19 (+8 size, +1 Dex). Attacks: sting +3 melee; Damage: sting 1. Face/Reach: ½ ft. by ½ ft./0 ft. Saves: Fort +2, Ref +1, Will +2. Skills: Intuit Direction +2 (a 3.0 skill), Listen +4, Spot +4, or master's skills. " +
+          "Printed as 'BEE, HONEY', a Fine Magical Beast. Abilities: Str 1, Dex 13, Con 10, Wis 10, Cha 2 (Intelligence by path of infusion). Initiative +1 (Dex). Speed 10 ft., fly 40 ft. (good). Armour Class 19 (+8 size, +1 Dex). Attacks: sting +3 melee; Damage: sting 1. Space/Reach: ½ ft. by ½ ft./0 ft. Saves: Fort +2, Ref +1, Will +2. Skills: Survival +2, Listen +4, Spot +4, or master's skills. " +
           PATH_NOTE,
         category: "trait",
         source: `${FAM}, p. 59`,
@@ -109,7 +109,7 @@ export const FAMILIARS_RACES: RaceDefinition[] = [
         key: "scarab-beetle-stat-block",
         name: "Familiar Stat Block (as printed)",
         description:
-          "Printed as 'BEETLE, SCARAB', a Fine Magical Beast. Abilities: Str 2, Dex 11, Con 10, Wis 10, Cha 2 (Intelligence by path of infusion). Initiative +0. Speed 5 ft., climb 5 ft., fly 10 ft. (average). Armour Class 18 (+8 size). Attacks: none printed (—); Damage: none printed (—). Face/Reach: ½ ft. by ½ ft./0 ft. Saves: Fort +2, Ref +0, Will +2. Skills: Listen +4, Spot +4, or master's skills. " +
+          "Printed as 'BEETLE, SCARAB', a Fine Magical Beast. Abilities: Str 2, Dex 11, Con 10, Wis 10, Cha 2 (Intelligence by path of infusion). Initiative +0. Speed 5 ft., climb 5 ft., fly 10 ft. (average). Armour Class 18 (+8 size). Attacks: none printed (—); Damage: none printed (—). Space/Reach: ½ ft. by ½ ft./0 ft. Saves: Fort +2, Ref +0, Will +2. Skills: Listen +4, Spot +4, or master's skills. " +
           PATH_NOTE,
         category: "trait",
         source: `${FAM}, p. 59`,
@@ -133,7 +133,7 @@ export const FAMILIARS_RACES: RaceDefinition[] = [
         key: "kiwi-stat-block",
         name: "Familiar Stat Block (as printed)",
         description:
-          "A Tiny Magical Beast. Abilities: Str 1, Dex 15, Con 10, Wis 12, Cha 5 (Intelligence by path of infusion). Initiative +2 (Dex). Speed 20 ft. Armour Class 14 (+2 size, +2 Dex). Attacks: bite −3 melee; Damage: bite 1d3−5. Face/Reach: 2½ ft. by 2½ ft./0 ft. Saves: Fort +2, Ref +4, Will +1. Skills: Survival +5, Listen +5, Spot +5, or master's skills; kiwis gain a +8 racial bonus to Survival checks when tracking by scent. " +
+          "A Tiny Magical Beast. Abilities: Str 1, Dex 15, Con 10, Wis 12, Cha 5 (Intelligence by path of infusion). Initiative +2 (Dex). Speed 20 ft. Armour Class 14 (+2 size, +2 Dex). Attacks: bite −3 melee; Damage: bite 1d3−5. Space/Reach: 2½ ft. by 2½ ft./0 ft. Saves: Fort +2, Ref +4, Will +1. Skills: Survival +5, Listen +5, Spot +5, or master's skills; kiwis gain a +8 racial bonus to Survival checks when tracking by scent. " +
           PATH_NOTE,
         category: "trait",
         source: `${FAM}, p. 59`,
@@ -165,7 +165,7 @@ export const FAMILIARS_RACES: RaceDefinition[] = [
         key: "mongoose-stat-block",
         name: "Familiar Stat Block (as printed)",
         description:
-          "A Tiny Magical Beast. Abilities: Str 3, Dex 12, Con 15, Wis 10, Cha 5 (Intelligence by path of infusion). Initiative +2 (Dex). Speed 20 ft. Armour Class 14 (+2 size, +2 Dex). Attacks: bite −2 melee; Damage: bite 1d3−4. Face/Reach: 2½ ft. by 2½ ft./0 ft. Saves: Fort +4, Ref +2, Will +1. Skills: Survival +5, Listen +5, Spot +5, or master's skills; mongooses gain a +8 racial bonus to Survival checks when tracking by scent. " +
+          "A Tiny Magical Beast. Abilities: Str 3, Dex 12, Con 15, Wis 10, Cha 5 (Intelligence by path of infusion). Initiative +2 (Dex). Speed 20 ft. Armour Class 14 (+2 size, +2 Dex). Attacks: bite −2 melee; Damage: bite 1d3−4. Space/Reach: 2½ ft. by 2½ ft./0 ft. Saves: Fort +4, Ref +2, Will +1. Skills: Survival +5, Listen +5, Spot +5, or master's skills; mongooses gain a +8 racial bonus to Survival checks when tracking by scent. " +
           PATH_NOTE,
         category: "trait",
         source: `${FAM}, pp. 59–60`,
@@ -197,7 +197,7 @@ export const FAMILIARS_RACES: RaceDefinition[] = [
         key: "spider-monkey-stat-block",
         name: "Familiar Stat Block (as printed)",
         description:
-          "Printed as 'MONKEY, SPIDER', a Tiny Magical Beast. Abilities: Str 3, Dex 18, Con 10, Wis 12, Cha 5 (Intelligence by path of infusion). Initiative +4 (Dex). Speed 30 ft., climb 30 ft. Armour Class 16 (+2 size, +4 Dex). Attacks: bite +6 melee; Damage: bite 1d3−4. Face/Reach: 2½ ft. by 2½ ft./0 ft. Saves: Fort +2, Ref +6, Will +1. Skills: Balance +12, Climb +15, Hide +15, Listen +4, Spot +4, or master's skills; monkeys use their Dexterity modifier for Climb checks and receive a +8 racial bonus to Balance checks. Feats: Weapon Finesse (bite). " +
+          "Printed as 'MONKEY, SPIDER', a Tiny Magical Beast. Abilities: Str 3, Dex 18, Con 10, Wis 12, Cha 5 (Intelligence by path of infusion). Initiative +4 (Dex). Speed 30 ft., climb 30 ft. Armour Class 16 (+2 size, +4 Dex). Attacks: bite +6 melee; Damage: bite 1d3−4. Space/Reach: 2½ ft. by 2½ ft./0 ft. Saves: Fort +2, Ref +6, Will +1. Skills: Balance +12, Climb +15, Hide +15, Listen +4, Spot +4, or master's skills; monkeys use their Dexterity modifier for Climb checks and receive a +8 racial bonus to Balance checks. Feats: Weapon Finesse (bite). " +
           PATH_NOTE,
         category: "trait",
         source: `${FAM}, p. 60`,
@@ -221,7 +221,7 @@ export const FAMILIARS_RACES: RaceDefinition[] = [
         key: "otter-familiar-stat-block",
         name: "Familiar Stat Block (as printed)",
         description:
-          "A Tiny Magical Beast. Abilities: Str 3, Dex 15, Con 10, Wis 12, Cha 5 (Intelligence by path of infusion). Initiative +2 (Dex). Speed 20 ft., swim 40 ft. Armour Class 14 (+2 size, +2 Dex). Attacks: bite −2 melee; Damage: bite 1d3−4. Face/Reach: 2½ ft. by 2½ ft./0 ft. Saves: Fort +2, Ref +4, Will +1. Skills: Survival +5, Listen +5, Spot +5, or master's skills; otters gain a +8 racial bonus to Survival checks when tracking by scent, and retain this ability underwater. (Record id is otter-familiar because the bare id \"otter\" is already used in the catalog by a Goods and Gear purchasable animal.) " +
+          "A Tiny Magical Beast. Abilities: Str 3, Dex 15, Con 10, Wis 12, Cha 5 (Intelligence by path of infusion). Initiative +2 (Dex). Speed 20 ft., swim 40 ft. Armour Class 14 (+2 size, +2 Dex). Attacks: bite −2 melee; Damage: bite 1d3−4. Space/Reach: 2½ ft. by 2½ ft./0 ft. Saves: Fort +2, Ref +4, Will +1. Skills: Survival +5, Listen +5, Spot +5, or master's skills; otters gain a +8 racial bonus to Survival checks when tracking by scent, and retain this ability underwater. (Record id is otter-familiar because the bare id \"otter\" is already used in the catalog by a Goods and Gear purchasable animal.) " +
           PATH_NOTE,
         category: "trait",
         source: `${FAM}, p. 60`,
@@ -253,7 +253,7 @@ export const FAMILIARS_RACES: RaceDefinition[] = [
         key: "penguin-stat-block",
         name: "Familiar Stat Block (as printed)",
         description:
-          "A Tiny Magical Beast. Abilities: Str 2, Dex 15, Con 10, Wis 12, Cha 5 (Intelligence by path of infusion). Initiative +2 (Dex). Speed 20 ft., swim 30 ft. Armour Class 14 (+2 size, +2 Dex). Attacks: bite −2 melee; Damage: bite 1d3−4. Face/Reach: 2½ ft. by 2½ ft./0 ft. Saves: Fort +2, Ref +4, Will +1. Skills: Hide +6, Listen +5, Spot +5, or master's skills; penguins receive a +8 racial bonus to Hide checks while underwater due to their countershaded coloration. " +
+          "A Tiny Magical Beast. Abilities: Str 2, Dex 15, Con 10, Wis 12, Cha 5 (Intelligence by path of infusion). Initiative +2 (Dex). Speed 20 ft., swim 30 ft. Armour Class 14 (+2 size, +2 Dex). Attacks: bite −2 melee; Damage: bite 1d3−4. Space/Reach: 2½ ft. by 2½ ft./0 ft. Saves: Fort +2, Ref +4, Will +1. Skills: Hide +6, Listen +5, Spot +5, or master's skills; penguins receive a +8 racial bonus to Hide checks while underwater due to their countershaded coloration. " +
           PATH_NOTE,
         category: "trait",
         source: `${FAM}, p. 60`,
@@ -286,7 +286,7 @@ export const FAMILIARS_RACES: RaceDefinition[] = [
         key: "praying-mantis-stat-block",
         name: "Familiar Stat Block (as printed)",
         description:
-          "A Diminutive Magical Beast (the book's bonding catalogue also lists a 'Praying Mantis, Giant', but this chapter prints only the Diminutive creature's stat block). Abilities: Str 1, Dex 15, Con 10, Wis 10, Cha 2 (Intelligence by path of infusion). Initiative +2 (Dex). Speed 10 ft., fly 40 ft. (average). Armour Class 17 (+4 size, +2 Dex, +1 natural). Attacks: claw +6 melee; Damage: claw 1. Face/Reach: 1 ft. by 1 ft./0 ft. Saves: Fort +2, Ref +2, Will +2. Skills: Hide +10*, Listen +4, Spot +4, or master's skills; praying mantises gain a +8 racial bonus to Hide checks made in areas with foliage. Feats: Weapon Finesse (claw). " +
+          "A Diminutive Magical Beast (the book's bonding catalogue also lists a 'Praying Mantis, Giant', but this chapter prints only the Diminutive creature's stat block). Abilities: Str 1, Dex 15, Con 10, Wis 10, Cha 2 (Intelligence by path of infusion). Initiative +2 (Dex). Speed 10 ft., fly 40 ft. (average). Armour Class 17 (+4 size, +2 Dex, +1 natural). Attacks: claw +6 melee; Damage: claw 1. Space/Reach: 1 ft. by 1 ft./0 ft. Saves: Fort +2, Ref +2, Will +2. Skills: Hide +10*, Listen +4, Spot +4, or master's skills; praying mantises gain a +8 racial bonus to Hide checks made in areas with foliage. Feats: Weapon Finesse (claw). " +
           PATH_NOTE,
         category: "trait",
         source: `${FAM}, p. 61`,
@@ -310,7 +310,7 @@ export const FAMILIARS_RACES: RaceDefinition[] = [
         key: "raccoon-stat-block",
         name: "Familiar Stat Block (as printed)",
         description:
-          "Printed size discrepancy: this entry's type line reads 'Fine Magical Beast', but every number in the entry is Tiny — Armour Class 16 (+2 size, +4 Dex) and Face/Reach 2½ ft. — and it is recorded as Tiny on the strength of its own numbers. Abilities: Str 3, Dex 18, Con 10, Wis 12, Cha 5 (Intelligence by path of infusion). Initiative +4 (Dex). Speed 30 ft., climb 30 ft. Attacks: bite +0 melee; Damage: bite 1d3−4. Saves: Fort +2, Ref +6, Will +1. Skills: Balance +12, Climb +15, Hide +15, Listen +4, Spot +4, or master's skills; raccoons use their Dexterity modifier for Climb checks and receive a +8 racial bonus to Balance checks. " +
+          "Printed size discrepancy: this entry's type line reads 'Fine Magical Beast', but every number in the entry is Tiny — Armour Class 16 (+2 size, +4 Dex) and Space/Reach 2½ ft. — and it is recorded as Tiny on the strength of its own numbers. Abilities: Str 3, Dex 18, Con 10, Wis 12, Cha 5 (Intelligence by path of infusion). Initiative +4 (Dex). Speed 30 ft., climb 30 ft. Attacks: bite +0 melee; Damage: bite 1d3−4. Saves: Fort +2, Ref +6, Will +1. Skills: Balance +12, Climb +15, Hide +15, Listen +4, Spot +4, or master's skills; raccoons use their Dexterity modifier for Climb checks and receive a +8 racial bonus to Balance checks. " +
           PATH_NOTE,
         category: "trait",
         source: `${FAM}, p. 61`,
@@ -342,7 +342,7 @@ export const FAMILIARS_RACES: RaceDefinition[] = [
         key: "yellow-jacket-wasp-stat-block",
         name: "Familiar Stat Block (as printed)",
         description:
-          "Printed as 'WASP, YELLOW JACKET', a Fine Magical Beast. Abilities: Str 1, Dex 13, Con 10, Wis 10, Cha 2 (Intelligence by path of infusion). Initiative +1 (Dex). Speed 10 ft., fly 40 ft. (good). Armour Class 19 (+8 size, +1 Dex). Attacks: sting +3 melee; Damage: sting 1. Face/Reach: ½ ft. by ½ ft./0 ft. Saves: Fort +2, Ref +1, Will +2. Skills: Listen +4, Spot +4, or master's skills. " +
+          "Printed as 'WASP, YELLOW JACKET', a Fine Magical Beast. Abilities: Str 1, Dex 13, Con 10, Wis 10, Cha 2 (Intelligence by path of infusion). Initiative +1 (Dex). Speed 10 ft., fly 40 ft. (good). Armour Class 19 (+8 size, +1 Dex). Attacks: sting +3 melee; Damage: sting 1. Space/Reach: ½ ft. by ½ ft./0 ft. Saves: Fort +2, Ref +1, Will +2. Skills: Listen +4, Spot +4, or master's skills. " +
           PATH_NOTE,
         category: "trait",
         source: `${FAM}, p. 61`,

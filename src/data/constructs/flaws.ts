@@ -83,9 +83,9 @@ export const CONSTRUCTS_FLAWS: FlawTraitDefinition[] = [
     name: "No Legs",
     kind: "flaw",
     summary:
-      "Construct deficiency (Construct): the construct was designed with no legs and cannot move; changing its facing is a move-equivalent action. Construction Points: −6. CR Value: −1. Applies to Body Rating: Yes.",
+      "Construct deficiency (Construct): the construct was designed with no legs and cannot move; changing its facing is a move action. Construction Points: −6. CR Value: −1. Applies to Body Rating: Yes.",
     description:
-      "The spellcaster designed the construct with no legs. Disadvantage: the construct cannot move (except as detailed in its Special line), and changing its facing is a move-equivalent action. Special: the construct cannot take the following feats: Extra Leg, Extra Pair of Legs, Overbearing Trample or Stomp. If it takes Extra Miscellaneous Limb (torso) twice and Extra Miscellaneous Limb (tail), it can slither like a snake, subtracting 20 feet from its normal walk speed, to a minimum of 10 feet. Construction Points: −6. CR Value: −1. Applies to Body Rating: Yes.",
+      "The spellcaster designed the construct with no legs. Disadvantage: the construct cannot move (except as detailed in its Special line), and changing its facing is a move action. Special: the construct cannot take the following feats: Extra Leg, Extra Pair of Legs, Overbearing Trample or Stomp. If it takes Extra Miscellaneous Limb (torso) twice and Extra Miscellaneous Limb (tail), it can slither like a snake, subtracting 20 feet from its normal walk speed, to a minimum of 10 feet. Construction Points: −6. CR Value: −1. Applies to Body Rating: Yes.",
     prerequisite: CONSTRUCT_ONLY,
     source: `${CONSTRUCTS}, p. 50`,
     sourceUrl: CONSTRUCTS_PDF,

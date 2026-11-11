@@ -36,7 +36,7 @@ const HOFD = "Heroes of High Favor: Dwarves";
 const HOFD_PATH = "/A POC DM related/Desktop/Sourcebooks/Heroes Of High Favor. Dwarves.pdf";
 
 const RUNE_SPECIAL =
-  "Rune rules (book, pp. 8-9): the rune is inscribed on a masterwork item as an additional masterwork component (market value 300, Craft DC 20), crafted with the Craft skill appropriate to the item; at creation the craftsman chooses whether the rune is visible or hidden (detect magic will not reveal it; true seeing or more powerful magic will, and a trained dwarf can spot a rune he knows with a Spot or Search check, DC 15). Activate once per day as a move-equivalent action that may be combined with a move and does not provoke attacks of opportunity; the effect lasts 1 round per point of Charisma bonus (minimum 1 round) and, unless otherwise specified, benefits only the dwarf who activates it and cannot be transferred. A dwarf capable of divine channeling may expend one of his daily turning attempts to activate a rune a second or subsequent time. Without the corresponding Rune feat, a character cannot identify, activate, or craft the rune.";
+  "Rune rules (book, pp. 8-9): the rune is inscribed on a masterwork item as an additional masterwork component (market value 300, Craft DC 20), crafted with the Craft skill appropriate to the item; at creation the craftsman chooses whether the rune is visible or hidden (detect magic will not reveal it; true seeing or more powerful magic will, and a trained dwarf can spot a rune he knows with a Spot or Search check, DC 15). Activate once per day as a move action that may be combined with a move and does not provoke attacks of opportunity; the effect lasts 1 round per point of Charisma bonus (minimum 1 round) and, unless otherwise specified, benefits only the dwarf who activates it and cannot be transferred. A dwarf capable of divine channeling may expend one of his daily turning attempts to activate a rune a second or subsequent time. Without the corresponding Rune feat, a character cannot identify, activate, or craft the rune.";
 
 export const HOFD_FEATS: FeatDefinition[] = [
   {
@@ -233,7 +233,7 @@ export const HOFD_FEATS: FeatDefinition[] = [
     id: "single-weapon-style",
     name: "Single Weapon Style",
     category: "combat",
-    prerequisites: ["Expertise", "Lightning Reflexes", "Weapon Finesse (chosen weapon)", "Weapon Focus (chosen weapon)", "Balance 4 ranks", "Concentration 4 ranks"],
+    prerequisites: ["Combat Combat Expertise", "Lightning Reflexes", "Weapon Finesse (chosen weapon)", "Weapon Focus (chosen weapon)", "Balance 4 ranks", "Concentration 4 ranks"],
     benefitSummary: "Fighting style (book, p. 7): when wielding your chosen weapon in one hand, you receive a +1 dodge bonus to AC against all melee opponents. Your off-hand may not hold a weapon or anything larger than a Tiny object. Like all dodge bonuses, a condition that makes you lose your Dex bonus to AC also makes you lose the AC bonus from this fighting style.",
     modifiers: [],
     special: "Fighting styles are not feats: the basic style benefit is gained automatically as soon as the prerequisites are met, without spending a feat. A character with four or more class levels of fighter who already qualifies for the basic style may spend a feat to acquire the additional benefits of a Style Specialization (all Style Specializations are included in the list of bonus fighter feats). Specialization: your bonus to AC when using this style rises to +2.",
@@ -269,7 +269,7 @@ export const HOFD_FEATS: FeatDefinition[] = [
     id: "two-weapon-style",
     name: "Two-Weapon Style",
     category: "combat",
-    prerequisites: ["Ambidexterity", "Two-Weapon Fighting", "Improved Two-Weapon Fighting", "Weapon Focus (primary weapon, which must be Medium)", "Weapon Finesse (off-hand weapon, which must be Light)"],
+    prerequisites: [ "Two-Weapon Fighting", "Improved Two-Weapon Fighting", "Weapon Focus (primary weapon, which must be Medium)", "Weapon Finesse (off-hand weapon, which must be Light)"],
     benefitSummary: "Fighting style (book, p. 8): you receive an additional +1 bonus to hit with your primary weapon, thus reducing your penalties for fighting with two weapons to -1/-2.",
     modifiers: [],
     special: "Fighting styles are not feats: the basic style benefit is gained automatically as soon as the prerequisites are met, without spending a feat. A character with four or more class levels of fighter who already qualifies for the basic style may spend a feat to acquire the additional benefits of a Style Specialization (all Style Specializations are included in the list of bonus fighter feats). Specialization: in addition to the above benefit, you receive an additional +1 bonus to hit with your primary weapon, reducing your penalties for fighting with two weapons to -0/-2.",

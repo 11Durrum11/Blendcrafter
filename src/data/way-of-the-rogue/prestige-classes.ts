@@ -94,13 +94,13 @@ export const WAY_OF_THE_ROGUE_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
     progression: rows(HALF, POOR, DC_REF, GOOD),
     classSkills: [
       "Bluff", "Diplomacy", "Disguise", "Forgery", "Gather Information",
-      "Innuendo", "Intimidate", "Listen", "Mimic Voice", "Perform",
-      "Profession", "Read Lips", "Search", "Sense Motive", "Spot",
+       "Intimidate", "Listen", "Mimic Voice", "Perform",
+      "Profession",  "Search", "Sense Motive", "Spot",
       "Urban Lore",
     ],
     prerequisites: [
       "Alignment: Any non-lawful",
-      "Skills: Gather Information 10 ranks, Bluff 6 ranks, Diplomacy 8 ranks, Innuendo 4 ranks, Perform 4 ranks, Profession (escort) 5 ranks",
+      "Skills: Gather Information 10 ranks, Bluff 6 ranks, Diplomacy 8 ranks, Bluff 4 ranks, Perform 4 ranks, Profession (escort) 5 ranks",
       "Feats: Alertness, Skill Focus (Gather Information)",
       "Special: The character must have an established career or sideline in companionship-for-pay and the Profession skill associated with it",
       "Special Restriction: Members of the order must never reveal that the order exists, and must not become emotionally involved with a current 'partner'; members who violate these tenets are eliminated",
@@ -110,9 +110,9 @@ export const WAY_OF_THE_ROGUE_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
       fd("Resist Charm", "At 2nd level, the companion adds her positive Charisma modifier to all Will saves against Enchantment (Charm) spells and effects."),
       fd("Charmtouch", "At 10th level, the companion can charm by touch: after 10 minutes of close physical contact with a target, the target is charmed, with the companion's extraordinary performance as the vehicle. Uses per day equal the companion's Charisma bonus; a target may resist with a Will save (DC 10 + the companion's Charisma bonus)."),
       fd("Bonus Class Ability", "At 1st, 5th, and 10th level the companion may select one of the following bonus class abilities; she may also select one in place of a feat whenever she would normally be entitled to a feat. The options are Talkingtouch, Truthtouch, Paintouch, Magekiss, Siren's Song, and Caress of the Lost Hour, each detailed in its own entry."),
-      fd("Talkingtouch (Bonus Class Ability Option)", "Prerequisite: Innuendo +4. The companion can communicate through touch alone, using orchestrated muscle motions and body language to form words against a person she is touching, as long as contact is maintained. A Spot check (DC 27) is required to notice the contact as unusual."),
+      fd("Talkingtouch (Bonus Class Ability Option)", "Prerequisite: Bluff +4. The companion can communicate through touch alone, using orchestrated muscle motions and body language to form words against a person she is touching, as long as contact is maintained. A Spot check (DC 27) is required to notice the contact as unusual."),
       fd("Truthtouch (Bonus Class Ability Option)", "Prerequisite: Sense Motive +4. By touch, the companion can tell whether the person touched is lying; flesh-to-flesh contact is required. The base check DC is 10 + the target's Wisdom bonus for familiar races, modified (cumulative as applicable): casual contact +2, close contact +0, intimate/prolonged contact -2 to -4, unfamiliar humanoid +2, non-humanoid +4, undead +4, outsider +6."),
-      fd("Paintouch (Bonus Class Ability Option)", "Prerequisite: Dex 15+. The companion's unarmed strikes deal an additional +1d6 subdual damage. This works only against humanoid creatures."),
+      fd("Paintouch (Bonus Class Ability Option)", "Prerequisite: Dex 15+. The companion's unarmed strikes deal an additional +1d6 nonlethal damage. This works only against humanoid creatures."),
       fd("Magekiss (Bonus Class Ability Option)", "Printed in brackets as a [Metamagic Feat], but presented only as one of this class's selectable bonus abilities. Through five or more rounds of maintained flesh-to-flesh contact with an unresisting target, the companion can cast a spell requiring a Will save directly into the target; no verbal or somatic components are needed once contact is complete. The save DC increases by the caster's Charisma bonus, and by a further +2 if the target is willing."),
       fd("Siren's Song (Bonus Class Ability Option)", "The companion adds her discreet companion class levels to her bard levels for the purposes of the Perform skill. (The entry text refers to this option as 'this feat.')"),
       fd("Caress of the Lost Hour (Bonus Class Ability Option)", "Prerequisites: Dex 15+, Cha 15+, and the charmtouch ability. The companion can erase a victim's memory of up to one continuous hour spent in her company; the target resists with a Will save (DC 20 + the companion's Charisma bonus). This is an extraordinary ability."),
@@ -132,10 +132,10 @@ export const WAY_OF_THE_ROGUE_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
     classSkills: [
       "Appraise", "Bluff", "Craft", "Diplomacy", "Disable Device",
       "Disguise", "Escape Artist", "Forgery", "Gather Information", "Hide",
-      "Innuendo", "Intimidate", "Intuit Direction",
+       "Intimidate", "Survival",
       "Knowledge (home city)", "Knowledge (other guilds)",
       "Knowledge (local powerbases)", "Listen", "Move Silently",
-      "Open Lock", "Perform", "Pick Pocket", "Profession", "Read Lips",
+      "Open Lock", "Perform", "Sleight of Hand", "Profession", 
       "Search", "Sense Motive", "Spot", "Swim", "Urban Lore", "Use Rope",
     ],
     prerequisites: [
@@ -146,7 +146,7 @@ export const WAY_OF_THE_ROGUE_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
       "Special: Sneak attack or backstab ability",
     ],
     features: [
-      fg("Weapon and Armor Proficiency", "Guildmasters are proficient with the crossbow (hand, light), dagger, dart, light mace, sap, and short sword. Medium-size guildmasters are also proficient with the club, heavy mace, morningstar, quarterstaff, and rapier. They are proficient with light armor but not shields. Armor check penalties for armor heavier than leather apply to Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Pick Pocket, and Tumble."),
+      fg("Weapon and Armor Proficiency", "Guildmasters are proficient with the crossbow (hand, light), dagger, dart, light mace, sap, and short sword. Medium guildmasters are also proficient with the club, heavy mace, morningstar, quarterstaff, and rapier. They are proficient with light armor but not shields. Armor check penalties for armor heavier than leather apply to Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Sleight of Hand, and Tumble."),
       fg("Guild Hall", "From 1st level, the guildmaster's guild hall serves as the base for his organization (see the class text for the role of the hall in play)."),
       fg("Favor", "At 1st, 5th, and 10th level, the guildmaster gains a favor — a significant service owed him that he can call in. Each favor can be used once; favors accumulate if unspent, but no more than one favor may be called in per week."),
       fg("Reputation", "The guildmaster's Reputation modifier rises with level: +1 at 2nd, +2 at 4th, +3 at 6th, +4 at 8th, +5 at 10th. Reputation adds to his Leadership score (see DMG p. 45)."),
@@ -171,7 +171,7 @@ export const WAY_OF_THE_ROGUE_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
     classSkills: [
       "Balance", "Bluff", "Climb", "Diplomacy", "Disable Device",
       "Disguise", "Escape Artist", "Gather Information", "Hide",
-      "Innuendo", "Intuit Direction", "Jump", "Move Silently", "Open Lock",
+       "Survival", "Jump", "Move Silently", "Open Lock",
       "Profession", "Search", "Sense Motive", "Swim", "Tumble",
       "Urban Lore", "Use Rope",
     ],
@@ -182,9 +182,9 @@ export const WAY_OF_THE_ROGUE_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
       "Special Restrictions: If the roofrunner is away from his home city for more than a week, he loses his special abilities for a number of days equal to half the time away; six such absences in a year bar him from gaining new levels until a year has passed",
     ],
     features: [
-      fr("Weapon and Armor Proficiency", "Roofrunners are proficient with light armor and bucklers, and with the crossbow (hand, light), dagger, dart, light mace, sap, and short sword. Medium-size roofrunners are also proficient with the club, heavy mace, morningstar, quarterstaff, and rapier."),
+      fr("Weapon and Armor Proficiency", "Roofrunners are proficient with light armor and bucklers, and with the crossbow (hand, light), dagger, dart, light mace, sap, and short sword. Medium roofrunners are also proficient with the club, heavy mace, morningstar, quarterstaff, and rapier."),
       fr("Roofrunning (Ex)", "From 1st level, the roofrunner can travel at full speed across rooftops and similar urban heights; gaps of more than 10 feet require a Jump check."),
-      fr("Neverlost (Ex)", "From 1st level, in his home city the roofrunner can determine his exact location with an Intuit Direction check (DC 10), provided he can hear or smell the outside."),
+      fr("Neverlost (Ex)", "From 1st level, in his home city the roofrunner can determine his exact location with an Survival check (DC 10), provided he can hear or smell the outside."),
       fr("Find the Way (Ex)", "Once per day at 2nd level (twice per day at 6th, three times per day at 10th), the roofrunner can find a door, passage, or tunnel within 20 feet by making a Knowledge (home city) check (DC 25), adding his roofrunner levels to his ranks for the check."),
       fr("Home Turf (Ex)", "In his home city, the roofrunner gains a circumstance bonus to AC: +1 at 2nd level, +2 at 4th, +3 at 6th, +4 at 8th, +5 at 10th. The bonus applies only while he is no more than lightly encumbered."),
       fr("Sense the City's Soul (Ex)", "At 3rd level, once per week the roofrunner can make an Urban Lore check (DC 25), adding his class levels, to learn the significant events happening in his city; success grants a +2 synergy bonus to follow-up Gather Information checks on those events. He can also predict the next day's weather with 100% accuracy unless a supernatural power is involved, with a -10% chance of accuracy per additional day predicted."),
@@ -206,9 +206,9 @@ export const WAY_OF_THE_ROGUE_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
     classSkills: [
       "Balance", "Bluff", "Climb", "Craft", "Decipher Script",
       "Diplomacy", "Disable Device", "Disguise", "Escape Artist",
-      "Forgery", "Gather Information", "Hide", "Innuendo", "Intimidate",
-      "Intuit Direction", "Jump", "Listen", "Move Silently", "Open Lock",
-      "Pick Pocket", "Profession", "Read Lips", "Search", "Sense Motive",
+      "Forgery", "Gather Information", "Hide",  "Intimidate",
+      "Survival", "Jump", "Listen", "Move Silently", "Open Lock",
+      "Sleight of Hand", "Profession",  "Search", "Sense Motive",
       "Spot", "Swim", "Tumble", "Use Magic Device", "Use Rope",
     ],
     prerequisites: [
@@ -219,7 +219,7 @@ export const WAY_OF_THE_ROGUE_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
     ],
     features: [
       ft("Hit Die (Not Printed)", "The book prints no Hit Die line for the trapmaster. The d6 in this record is supplied by analogy with the chapter's other rogue prestige classes; treat it as unverified."),
-      ft("Weapon and Armor Proficiency", "Trapmasters are proficient with all weapons normally allowed to the rogue class: the crossbow (hand, light), dagger (any type), dart, light mace, sap, shortbow (normal and composite), and short sword. Medium-size trapmasters are also proficient with the club, heavy crossbow, heavy mace, morningstar, quarterstaff, and rapier. They are proficient with light armor but not with shields. Armor check penalties for armor heavier than leather apply to Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Pick Pocket, and Tumble."),
+      ft("Weapon and Armor Proficiency", "Trapmasters are proficient with all weapons normally allowed to the rogue class: the crossbow (hand, light), dagger (any type), dart, light mace, sap, shortbow (normal and composite), and short sword. Medium trapmasters are also proficient with the club, heavy crossbow, heavy mace, morningstar, quarterstaff, and rapier. They are proficient with light armor but not with shields. Armor check penalties for armor heavier than leather apply to Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Sleight of Hand, and Tumble."),
       ft("Sneak Attack", "+1d6 at 1st level, increasing by +1d6 every three levels thereafter (+2d6 at 4th, +3d6 at 7th, +4d6 at 10th). Ranged sneak attacks work only within 30 feet, and the extra damage is not multiplied on a critical hit."),
       ft("Trapsmithing", "From 1st level, the trapmaster can improvise traps from materials on hand, on his person, or scrounged from the surroundings. Building one requires a Craft (trapmaking) check against DC 10 + the trap's CR and takes 10 minutes x the trap's CR; retries are allowed. The maximum CR of an improvised trap equals the trapmaster's class level."),
       ft("Trap Sense", "From 3rd level, when the trapmaster approaches within 10 feet of a trap, the DM makes his Spot check against the trap's Search DC; on a success he becomes aware of the trap exactly as if he had searched for and found it."),

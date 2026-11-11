@@ -123,7 +123,7 @@ export const RACES_OF_FAERUN_TEMPLATES: TemplateDefinition[] = [
         key: "shade-shadow-stride",
         name: "Shadow Stride",
         description:
-          "As often as once every 2 rounds, a shade of 8th level or higher can vanish from his current location and reappear in any shadowy area within 300 feet, as a move-equivalent action (spell-like ability).",
+          "As often as once every 2 rounds, a shade of 8th level or higher can vanish from his current location and reappear in any shadowy area within 300 feet, as a move action (spell-like ability).",
         category: "special-quality",
         source: `${ROF} — Shade (p. 149)`,
         sourceUrl: ROF_PATH,

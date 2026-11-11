@@ -32,7 +32,7 @@ const CONSTRUCTS = "Constructs: It Is Alive";
 const CONSTRUCTS_PDF =
   "/A POC PC related/2.Alchemy & steampunk flavored material/Constructs. It Is Alive.pdf";
 const CONSTRUCT_QUALITIES =
-  "Construct qualities (as printed): immune to mind-influencing effects, poison, disease, and similar effects; not subject to critical hits, subdual damage, ability damage, energy drain or death from massive damage. Saves change to the saves of a cleric of the same level as the creature has Hit Dice. The construct has no skills and no feats of its own, but construct feats can be purchased with CPs during its creation. Like all simulacra, it cannot disobey its master.";
+  "Construct qualities (as printed): immune to mind-influencing effects, poison, disease, and similar effects; not subject to critical hits, nonlethal damage, ability damage, energy drain or death from massive damage. Saves change to the saves of a cleric of the same level as the creature has Hit Dice. The construct has no skills and no feats of its own, but construct feats can be purchased with CPs during its creation. Like all simulacra, it cannot disobey its master.";
 
 export const CONSTRUCTS_TEMPLATES: TemplateDefinition[] = [
   {
@@ -97,7 +97,7 @@ export const CONSTRUCTS_TEMPLATES: TemplateDefinition[] = [
     ruleset: "core",
     timing: "acquired",
     summary:
-      "Simulacrum template: a poor, crude copy of the base creature that loses all of the creature's characteristics in favour of increased toughness and durability. The base creature's type becomes construct and its Hit Dice change to d10; its speed becomes 20 feet, its natural armour is reduced by −1, it can only make one of its available attacks each round, and it loses all special attacks and special qualities — gaining instead darkvision 60 ft, damage reduction 10/+3 (3.0 notation, as printed) and a construct's special qualities. The craftsman gains a +2 synergy bonus to his Craft check if he has at least 5 ranks in Knowledge (nature). Construction: caster level 8th; special ability slots 0; skill check modifier +1; ritual time 2 weeks; spells required alter self, mending and stoneskin; template CP Medium 4, Large 8, Huge 16, Gargantuan 32, Colossal 64; Body Rating per HD: vermin 2, plant 1, animal 2, humanoid 1, monstrous humanoid 2, aberration 2. The book prints no level adjustment for this template, so 0 is recorded.",
+      "Simulacrum template: a poor, crude copy of the base creature that loses all of the creature's characteristics in favour of increased toughness and durability. The base creature's type becomes construct and its Hit Dice change to d10; its speed becomes 20 feet, its natural armour is reduced by −1, it can only make one of its available attacks each round, and it loses all special attacks and special qualities — gaining instead darkvision 60 ft, damage reduction 10/magic (converted from the printed 3.0 notation, 10/+3) and a construct's special qualities. The craftsman gains a +2 synergy bonus to his Craft check if he has at least 5 ranks in Knowledge (nature). Construction: caster level 8th; special ability slots 0; skill check modifier +1; ritual time 2 weeks; spells required alter self, mending and stoneskin; template CP Medium 4, Large 8, Huge 16, Gargantuan 32, Colossal 64; Body Rating per HD: vermin 2, plant 1, animal 2, humanoid 1, monstrous humanoid 2, aberration 2. The book prints no level adjustment for this template, so 0 is recorded.",
     source: `${CONSTRUCTS}, pp. 38-39`,
     sourceUrl: CONSTRUCTS_PDF,
     crModifier: 1,
@@ -133,7 +133,7 @@ export const CONSTRUCTS_TEMPLATES: TemplateDefinition[] = [
         key: "mockery-toughness",
         name: "Crude Durability",
         description:
-          "Natural armour is reduced by −1. A mockery loses all the special attacks and all the special qualities of the base creature, and cannot purchase any new special attack with CPs during its creation; it can only make one of its available attacks each round. It gains darkvision with a range of 60 feet and damage reduction 10/+3 thanks to its rubbery skin and total lack of a normal anatomy (3.0 notation, as printed).",
+          "Natural armour is reduced by −1. A mockery loses all the special attacks and all the special qualities of the base creature, and cannot purchase any new special attack with CPs during its creation; it can only make one of its available attacks each round. It gains darkvision with a range of 60 feet and damage reduction 10/magic thanks to its rubbery skin and total lack of a normal anatomy (converted from the printed 3.0 notation, 10/+3).",
         category: "special-quality",
         source: `${CONSTRUCTS}, p. 39`,
         sourceUrl: CONSTRUCTS_PDF,

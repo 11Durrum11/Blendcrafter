@@ -15,10 +15,11 @@ import type {
 // 2026-11-04). The full 20-level table is carried because the
 // book prints all twenty levels. Summaries are short
 // mechanical paraphrases in our own words; no book prose is
-// reproduced. 3.0-era terminology is kept as printed (the book
-// itself prints the class's "Hit Die: 1d6" in its game
-// statistics; the Thug's Forgery skill is keyed to Wisdom as
-// printed).
+// reproduced. 3.0-era terminology was converted to 3.5
+// standard in the 2026-11-10 conversion pass under Shaun's
+// standing order (the book itself prints the class's
+// "Hit Die: 1d6" in its game statistics; the Thug's Forgery
+// skill is keyed to Wisdom as printed).
 
 const WOTR_PATH =
   "/A POC DM related/Desktop/Sourcebooks/d20_dungeons_and_dragons_Way Of The Rogue.pdf";
@@ -72,13 +73,13 @@ export const WAY_OF_THE_ROGUE_CLASSES: ClassDefinition[] = [
     classSkills: [
       "Appraise", "Balance", "Bluff", "Climb", "Craft", "Disable Device",
       "Disguise", "Escape Artist", "Forgery", "Gather Information",
-      "Hide", "Innuendo", "Intimidate", "Intuit Direction", "Jump",
+      "Hide",  "Intimidate", "Survival", "Jump",
       "Listen", "Move Silently", "Open Lock", "Profession", "Search",
       "Sense Motive", "Spot", "Swim", "Tumble", "Use Rope", "Urban Lore",
     ],
     features: [
       f("NPC Class Basics", "The thug is an NPC class — 'thugs are to rogues what warriors are to fighters.' Skill points are 4 + Int modifier per level (x4 at 1st level). In the book's skill list, Forgery is printed as a Wisdom-keyed skill for this class — a printing quirk kept here as printed."),
-      f("Weapon and Armor Proficiency", "Thugs are proficient with the crossbow (hand, light), dagger, dart, light mace, sap, shortbow, and short sword. Medium-size thugs are also proficient with the club, heavy crossbow, heavy mace, morningstar, quarterstaff, and rapier. They are proficient with light armor but not with shields. Armor check penalties for armor heavier than leather apply to Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Pick Pocket, and Tumble."),
+      f("Weapon and Armor Proficiency", "Thugs are proficient with the crossbow (hand, light), dagger, dart, light mace, sap, shortbow, and short sword. Medium thugs are also proficient with the club, heavy crossbow, heavy mace, morningstar, quarterstaff, and rapier. They are proficient with light armor but not with shields. Armor check penalties for armor heavier than leather apply to Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Sleight of Hand, and Tumble."),
       f("Backstab", "At 1st level, a thug deals +1d4 points of backstab damage, rising to +2d4 at 5th level, +3d4 at 10th, +4d4 at 15th, and +5d4 at 20th. Backstab damage applies only against a foe who is denied his Dexterity bonus to AC — it does not apply against flanked foes, and it cannot be used at range. All the other limits of the rogue's sneak attack apply."),
       f("Combat Feat", "At 10th level and again at 20th level, the thug gains a bonus combat feat chosen from the fighter bonus feat list, except that Weapon Specialization is not available to thugs."),
       f("Special Ability", "At 15th level, the thug chooses one special ability from the rogue's list: crippling strike, defensive roll, or opportunist."),

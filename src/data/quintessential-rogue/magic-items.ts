@@ -44,7 +44,7 @@ export const QUINTESSENTIAL_ROGUE_MAGIC_ITEMS: MagicItemDefinition[] = [
     name: "Ring Weapon",
     category: "Weapon special ability",
     cost: "+3 bonus",
-    summary: "Weapon special ability: the weapon can transform into a plain, golden ring, allowing it to be smuggled past guards or into a secure facility; while in ring form it does not emit a magical aura, making it proof against detection spells such as detect magic. Shifting a weapon to ring form or back requires a move-equivalent action, allowing the wielder to shift it from ring to weapon form and attack in the same round. Caster Level: 15th; Prerequisites: Craft Magic Arms and Armour, Forge Ring, nondetection, polymorph any object; Market Price: +3 bonus.",
+    summary: "Weapon special ability: the weapon can transform into a plain, golden ring, allowing it to be smuggled past guards or into a secure facility; while in ring form it does not emit a magical aura, making it proof against detection spells such as detect magic. Shifting a weapon to ring form or back requires a move action, allowing the wielder to shift it from ring to weapon form and attack in the same round. Caster Level: 15th; Prerequisites: Craft Magic Arms and Armour, Forge Ring, nondetection, polymorph any object; Market Price: +3 bonus.",
     source: `${QR}, p. 58`,
     sourceUrl: QR_PATH,
     ruleset: "core",

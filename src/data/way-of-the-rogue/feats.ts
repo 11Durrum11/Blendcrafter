@@ -65,7 +65,7 @@ export const WAY_OF_THE_ROGUE_FEATS: FeatDefinition[] = [
     category: "general",
     prerequisites: [],
     benefitSummary:
-      "You get a +2 bonus on all Innuendo and Sense Motive checks.",
+      "You get a +2 bonus on all Bluff and Sense Motive checks.",
     modifiers: [],
     source: FEATS,
     sourceUrl: WOTR_PATH,
@@ -101,7 +101,7 @@ export const WAY_OF_THE_ROGUE_FEATS: FeatDefinition[] = [
     category: "general",
     prerequisites: ["Knockout Attack feat", "Sneak attack ability"],
     benefitSummary:
-      "You may deal subdual sneak attack damage with any melee weapon. Unlike with Knockout Attack, you do not take the standard -4 penalty on the attack roll for striking to subdue.",
+      "You may deal nonlethal sneak attack damage with any melee weapon. Unlike with Knockout Attack, you do not take the standard -4 penalty on the attack roll for striking to subdue.",
     modifiers: [],
     source: FEATS,
     sourceUrl: WOTR_PATH,
@@ -161,7 +161,7 @@ export const WAY_OF_THE_ROGUE_FEATS: FeatDefinition[] = [
     category: "general",
     prerequisites: ["Sneak attack ability"],
     benefitSummary:
-      "You may use any melee weapon to deal subdual damage with a sneak attack, but you take the normal -4 penalty on the attack roll when striking to subdue. Normally a rogue cannot deal subdual damage with a sneak attack at all, even with the -4 penalty.",
+      "You may use any melee weapon to deal nonlethal damage with a sneak attack, but you take the normal -4 penalty on the attack roll when striking to subdue. Normally a rogue cannot deal nonlethal damage with a sneak attack at all, even with the -4 penalty.",
     modifiers: [],
     source: FEATS,
     sourceUrl: WOTR_PATH,
@@ -221,7 +221,7 @@ export const WAY_OF_THE_ROGUE_FEATS: FeatDefinition[] = [
     category: "general",
     prerequisites: [],
     benefitSummary:
-      "You can follow a subject through a city the way the Track feat follows a trail in the wild, using Urban Lore checks. On a successful check you may follow the subject at a distance of up to 60 feet; a new check is required each hour to keep the quarry in sight. The base DC depends on population density: abandoned area 5, lightly populated area 10, normal population density 15, crowded 20, very crowded 25. General conditions modify the DC — very clean +5, average +0, cluttered -5. Other modifiers: each hour of shadowing +2; subject of a different race than most of the inhabitants -2 to -5; poor visibility (apply only the largest) — overcast or moonless night +6, moonlight +3, fog or precipitation +3 (good illumination such as streetlamps reduces these penalties); a shadowed individual who hides his trail (and moves at half speed) +5; size of the creature tracked (for a mixed-size group, only the largest category counts) — Fine +8, Diminutive +4, Tiny +2, Small +1, Medium-size +0, Gargantuan -4, Colossal -8. If you have 5 or more ranks in Gather Information, you gain a +2 synergy bonus on these Urban Lore checks. If you fail an Urban Lore check by more than 10 while shadowing a subject, he knows he is being followed and acts appropriately; after a failed check you can retry after 10 minutes. (The values for 'every three subjects in the group being shadowed' and for Large and Huge tracked creatures are not legible in Shaun's scanned copy and are not supplied here.)",
+      "You can follow a subject through a city the way the Track feat follows a trail in the wild, using Urban Lore checks. On a successful check you may follow the subject at a distance of up to 60 feet; a new check is required each hour to keep the quarry in sight. The base DC depends on population density: abandoned area 5, lightly populated area 10, normal population density 15, crowded 20, very crowded 25. General conditions modify the DC — very clean +5, average +0, cluttered -5. Other modifiers: each hour of shadowing +2; subject of a different race than most of the inhabitants -2 to -5; poor visibility (apply only the largest) — overcast or moonless night +6, moonlight +3, fog or precipitation +3 (good illumination such as streetlamps reduces these penalties); a shadowed individual who hides his trail (and moves at half speed) +5; size of the creature tracked (for a mixed-size group, only the largest category counts) — Fine +8, Diminutive +4, Tiny +2, Small +1, Medium +0, Gargantuan -4, Colossal -8. If you have 5 or more ranks in Gather Information, you gain a +2 synergy bonus on these Urban Lore checks. If you fail an Urban Lore check by more than 10 while shadowing a subject, he knows he is being followed and acts appropriately; after a failed check you can retry after 10 minutes. (The values for 'every three subjects in the group being shadowed' and for Large and Huge tracked creatures are not legible in Shaun's scanned copy and are not supplied here.)",
     modifiers: [],
     source: "Way of the Rogue — New Feats (pp. 37-38)",
     sourceUrl: WOTR_PATH,

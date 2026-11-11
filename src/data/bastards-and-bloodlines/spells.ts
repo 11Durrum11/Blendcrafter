@@ -83,7 +83,7 @@ export const BASTARDS_SPELLS: SpellDefinition[] = [
     duration: "1 minute/level or until discharged",
     savingThrow: "Not printed in source",
     spellResistance: "Not printed in source",
-    summary: "A lesser form of stoneskin, granting some resistance to blows, cuts, stabs, and slashes: you gain damage reduction 5/+1 (you ignore the first 5 points of damage each time you take damage, though a weapon with a +1 enhancement bonus or any magical attack bypasses the reduction); once the spell has prevented a total of 5 points of damage per caster level (maximum 50 points), it is discharged. Earthskin overlaps (and does not stack with) stoneskin: if you are warded by both, the stoneskin spell absorbs damage but the earthskin spell does not.",
+    summary: "A lesser form of stoneskin, granting some resistance to blows, cuts, stabs, and slashes: you gain damage reduction 5/magic (you ignore the first 5 points of damage each time you take damage, though a weapon with a +1 enhancement bonus or any magical attack bypasses the reduction); once the spell has prevented a total of 5 points of damage per caster level (maximum 50 points), it is discharged. Earthskin overlaps (and does not stack with) stoneskin: if you are warded by both, the stoneskin spell absorbs damage but the earthskin spell does not.",
     note: "Blood spell: printed as Abjuration {Dwarven Blood} — castable only by those of dwarven blood (see the section introduction, p. 102). The printed entry has no Saving Throw or Spell Resistance line. The id is prefixed because \"earthskin\" is already an armor record in the catalog (Races of Faerun equipment).",
     source: `${BB}, p. 103`,
     sourceUrl: BB_PATH,

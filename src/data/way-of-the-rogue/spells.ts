@@ -54,7 +54,7 @@ export const WAY_OF_THE_ROGUE_SPELLS: SpellDefinition[] = [
     savingThrow: "None",
     spellResistance: "No",
     summary:
-      "You immediately know the exact moment when it is optimal to use the Pick Pocket skill on a single victim, selected when the spell is cast (the victim must be in range at casting but can then move farther away without affecting the spell). At any time while the spell remains in effect, one Pick Pocket check against that victim receives a +20 insight bonus; only one attempt can be made per casting. The spell has only somatic components, so its use is not obvious to most bystanders.",
+      "You immediately know the exact moment when it is optimal to use the Sleight of Hand skill on a single victim, selected when the spell is cast (the victim must be in range at casting but can then move farther away without affecting the spell). At any time while the spell remains in effect, one Sleight of Hand check against that victim receives a +20 insight bonus; only one attempt can be made per casting. The spell has only somatic components, so its use is not obvious to most bystanders.",
     source: `${DIV} (p. 53)`,
     sourceUrl: WOTR_PATH,
   },

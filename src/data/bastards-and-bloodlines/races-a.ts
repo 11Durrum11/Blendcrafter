@@ -1,8 +1,8 @@
 /**
  * Bastards and Bloodlines: A Guidebook to Half-Breeds (Green Ronin Publishing, ©2003).
  * Races of Renown series, d20 System — a 3.0-era book (pre-3.5). Mechanics are
- * transcribed as printed, including 3.0-isms (e.g. Intuit Direction, "Medium-size"),
- * rather than modernized.
+ * converted to 3.5 standard in the 2026-11-10 conversion pass under Shaun's
+ * standing order (e.g. Intuit Direction → Survival, "Medium-size" → Medium).
  *
  * Chapter Two races, first half (printed pp. 15–32): Aellar through Half-Ogre.
  * Transcribed from Shaun's own scanned copy (read visually; the scan is image-only), 2026-11-04.
@@ -316,7 +316,7 @@ export const BASTARDS_RACES_A: RaceDefinition[] = [
       {
         key: "decataur-quadruped-size",
         name: "Large Size, Medium Torso",
-        description: "Large size gives a -1 size penalty on attack rolls and Armor Class; however, because the torso is only slightly larger than an elf's, the decataur counts as a Medium-size creature when determining what weapons it may use, and has no extra reach.",
+        description: "Large size gives a -1 size penalty on attack rolls and Armor Class; however, because the torso is only slightly larger than an elf's, the decataur counts as a Medium creature when determining what weapons it may use, and has no extra reach.",
         category: "trait",
         source: "Bastards and Bloodlines, p. 22",
         sourceUrl: BB_PATH,
@@ -592,8 +592,8 @@ export const BASTARDS_RACES_A: RaceDefinition[] = [
       },
       {
         key: "half-hobgoblin-intuit-direction",
-        name: "Intuit Direction",
-        description: "Intuit Direction is always a class skill, regardless of class, with a +4 racial bonus on Intuit Direction checks. (Intuit Direction is a 3.0-only skill, folded into Survival in 3.5.)",
+        name: "Survival",
+        description: "Survival is always a class skill, regardless of class, with a +4 racial bonus on Survival checks. (Survival is a 3.0-only skill, folded into Survival in 3.5.)",
         category: "trait",
         source: "Bastards and Bloodlines, p. 28",
         sourceUrl: BB_PATH,

@@ -23,7 +23,7 @@ export const SORCERY_AND_STEAM_SPELLS: SpellDefinition[] = [
   "duration": "1 round/level",
   "savingThrow": "None",
   "spellResistance": "No",
-  "summary": "You are infused with aspects of the fearsome iron golem: for the duration you gain damage reduction 50/+3 and heal 1 hit point for every point of electricity damage that would be dealt to you, as the text describes.",
+  "summary": "You are infused with aspects of the fearsome iron golem: for the duration you gain damage reduction 50/magic and heal 1 hit point for every point of electricity damage that would be dealt to you, as the text describes.",
   "source": "Sorcery & Steam, p. 113",
   "sourceUrl": "/A POC DM related/Desktop/Sorcery & Steam.pdf"
 },
@@ -152,11 +152,11 @@ export const SORCERY_AND_STEAM_SPELLS: SpellDefinition[] = [
   "components": "V, S, M",
   "castingTime": "1 full round",
   "range": "Close (25 ft. + 5 ft./2 levels)",
-  "targetOrArea": "One carriage (for 4 Medium-size humanoids)",
+  "targetOrArea": "One carriage (for 4 Medium humanoids)",
   "duration": "2 hours/level",
   "savingThrow": "None",
   "spellResistance": "No",
-  "summary": "You summon a small cart and light horse to serve as transportation for up to four Medium-size or Small humanoid creatures.",
+  "summary": "You summon a small cart and light horse to serve as transportation for up to four Medium or Small humanoid creatures.",
   "source": "Sorcery & Steam, p. 114",
   "sourceUrl": "/A POC DM related/Desktop/Sorcery & Steam.pdf",
   "subschool": "Summoning"
@@ -694,7 +694,7 @@ export const SORCERY_AND_STEAM_SPELLS: SpellDefinition[] = [
   "duration": "2 minutes/level (D)",
   "savingThrow": "None",
   "spellResistance": "No",
-  "summary": "The subject and all her possessions become insubstantial, misty, and translucent, transformed into steam with damage reduction 20/+2.",
+  "summary": "The subject and all her possessions become insubstantial, misty, and translucent, transformed into steam with damage reduction 20/magic.",
   "source": "Sorcery & Steam, p. 120",
   "sourceUrl": "/A POC DM related/Desktop/Sorcery & Steam.pdf"
 },

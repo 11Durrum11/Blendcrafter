@@ -98,12 +98,12 @@ export const MONSTERNOMICON_MN1_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
     progression: rows(TQ, GOOD, POOR, GOOD),
     classSkills: [
       "Concentration", "Craft", "Craft (alchemy)", "Craft (bone grinding)",
-      "Creature Lore", "Decipher Script", "Handle Animal", "Intuit Direction (3.0)",
+      "Creature Lore", "Decipher Script", "Handle Animal", 
       "Knowledge (any)", "Listen", "Move Silently", "Profession", "Search",
       "Speak Language", "Spellcraft", "Spot", "Survival",
     ],
     prerequisites: [
-      "Skills: Knowledge (arcana) 6 ranks, Creature Lore 5 ranks, Craft (dissection) 4 ranks, Wilderness Lore (Survival in 3.5) 4 ranks, Alchemy (Craft (alchemy) in 3.5) 4 ranks",
+      "Skills: Knowledge (arcana) 6 ranks, Creature Lore 5 ranks, Craft (dissection) 4 ranks, Survival 4 ranks, Craft (alchemy) 4 ranks",
       "Feat: At least one metamagic feat",
       "Spells: The ability to cast arcane spells of 3rd level or greater",
       "Special: Must find a bone grinder and convince him to teach you his secrets. Good luck.",
@@ -130,14 +130,14 @@ export const MONSTERNOMICON_MN1_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
     progression: rows(FULL, GOOD, POOR, POOR),
     classSkills: [
       "Climb", "Craft", "Creature Lore", "Handle Animal", "Hide",
-      "Intuit Direction (3.0)", "Jump", "Knowledge (nature)", "Listen",
+       "Jump", "Knowledge (nature)", "Listen",
       "Move Silently", "Profession", "Ride", "Search", "Spot", "Swim",
       "Use Rope", "Survival",
     ],
     prerequisites: [
       "Base Attack Bonus: +4",
-      "Skills: Creature Lore 5 ranks, Wilderness Lore (Survival in 3.5) 6 ranks",
-      "Feats: Skill Focus (Wilderness Lore or Creature Lore), Track",
+      "Skills: Creature Lore 5 ranks, Survival 6 ranks",
+      "Feats: Skill Focus (Survival or Creature Lore), Track",
     ],
     features: [
       f("Favored Monster (Ex)", "At 1st level, a monster hunter may select a favored monster type (for example, aberrations or magical beasts). Humanoids may not be selected as a type, but an individual humanoid species may. Dragons and outsiders may not be selected in an Iron Kingdoms campaign. This is a creature type that the monster hunter is more familiar with, having gained a greater insight into its habits, mannerisms, and combat techniques. He gains a +1 bonus to Bluff, Listen, Sense Motive, Spot, and Wilderness Lore (Survival) checks versus a creature of that type. This bonus also applies to damage rolls, though ranged attacks only gain the bonus when within 30 feet. This ability stacks with a ranger's favored enemy or other similar abilities. At 5th and 10th levels, the monster hunter may select a new favored monster type, and his previous bonuses rise by an additional +1.", 1, `${MHU} (pp. 231–232)`),

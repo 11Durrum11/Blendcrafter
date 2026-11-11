@@ -78,7 +78,7 @@ export const CONSTRUCTS_EQUIPMENT: EquipmentItem[] = [
     cost: "150 gp",
     weight: "12 lbs.",
     notes:
-      "Martial ranged weapon; damage — (ammunition), critical 19-20/x2, range increment 80 ft., piercing. Basically a missile launcher that depends on tightly wound springs to provide power instead of a tension bow; never found in a carried version, always mounted on a construct's arm or shoulders. It can fire normal crossbow and ballista bolts (for Huge and larger sizes) as well as javelins, stones and exotic thrown weapons like the heavy chakram. Reloading the crossbow is a move equivalent action for the construct that provokes an attack of opportunity. Name and size as printed in the book's table, whose footnote reads '* all scores are intended for a Medium-size wielder'.",
+      "Martial ranged weapon; damage — (ammunition), critical 19-20/x2, range increment 80 ft., piercing. Basically a missile launcher that depends on tightly wound springs to provide power instead of a tension bow; never found in a carried version, always mounted on a construct's arm or shoulders. It can fire normal crossbow and ballista bolts (for Huge and larger sizes) as well as javelins, stones and exotic thrown weapons like the heavy chakram. Reloading the crossbow is a move action for the construct that provokes an attack of opportunity. Name and size as printed in the book's table, whose footnote reads '* all scores are intended for a Medium-size wielder'.",
     source: `${CONSTRUCTS}, pp. 51-52`,
     sourceUrl: CONSTRUCTS_PDF,
     ruleset: "core",

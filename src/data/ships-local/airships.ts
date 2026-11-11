@@ -85,7 +85,7 @@ export const AIRSHIP_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
       [0, 0, 1, 1, 1, 2, 2, 2, 3, 3],
     ),
     classSkills: [
-      "Alchemy", "Balance", "Craft", "Disable Device", "Disguise", "Hide",
+      "Craft (alchemy)", "Balance", "Craft", "Disable Device", "Disguise", "Hide",
       "Jump", "Move Silently", "Open Lock", "Profession", "Search", "Spot",
       "Use Magic Device", "Use Rope",
     ],
@@ -145,7 +145,7 @@ export const AIRSHIP_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
       ),
       sf(
         "Take Down (Ex)",
-        "This attack must be made during a surprise round. It is resolved as a standard melee attack that, if successful, immediately inflicts enough subdual damage to the target to render him unconscious. This attack only works against targets that are normally affected by sneak attacks. Due to the intense concentration needed to execute this attack, the saboteur is left exposed during the round immediately following its use and is denied his Dexterity bonus while he attempts to regain his bearings.",
+        "This attack must be made during a surprise round. It is resolved as a standard melee attack that, if successful, immediately inflicts enough nonlethal damage to the target to render him unconscious. This attack only works against targets that are normally affected by sneak attacks. Due to the intense concentration needed to execute this attack, the saboteur is left exposed during the round immediately following its use and is denied his Dexterity bonus while he attempts to regain his bearings.",
         9,
       ),
       sf(

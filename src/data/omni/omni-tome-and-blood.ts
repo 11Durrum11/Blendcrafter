@@ -176,7 +176,7 @@ export const TNB_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "gear",
     "cost": "120 gp",
     "weight": "200 lb.",
-    "notes": "A carrier cage sized for a Medium-size familiar.",
+    "notes": "A carrier cage sized for a Medium familiar.",
     "source": "Tome and Blood — Chapter 4: Tools of the Trade, Table 4-1, pp. 71–72",
     "sourceUrl": "",
     "ruleset": "core"

@@ -9,7 +9,11 @@
  * format — proficiency, the weapon's own size category, and a single
  * damage value for the weapon as sized — rather than the 3.5
  * small/medium damage pairs; the records keep the printed values and
- * say so in the notes. Book page = PDF page − 1 in Shaun's scan.
+ * say so in the notes. (3.0 nomenclature in the records was converted
+ * to 3.5 standard in the 2026-11-10 conversion pass under Shaun's
+ * standing order; the stat-block format itself is unchanged — a
+ * restat is Shaun's call, conversion report class C.)
+ * Book page = PDF page − 1 in Shaun's scan.
  *
  * Duplicates against Liber Mechanika (which reprinted much of this
  * gear chapter in 2005) were skipped, not duplicated: Ammunition
@@ -121,7 +125,7 @@ export const LOCK_AND_LOAD_EQUIPMENT: EquipmentItem[] = [
     cost: "6 gp",
     weight: "—",
     notes:
-      "Damage 1d3, critical 19–20/×2, range increment 10 ft, Piercing. Proficiency: simple (dagger). Size: Tiny (3.0-era format: a single damage value for the weapon as sized). Commonly called a pocket knife: the blade folds neatly into a groove in the handle so it can be carried safely in a pocket; folding or unfolding the blade is a move-equivalent action. Printed quirk kept: the book's stat line prints a blank where the weight belongs.",
+      "Damage 1d3, critical 19–20/×2, range increment 10 ft, Piercing. Proficiency: simple (dagger). Size: Tiny (3.0-era format: a single damage value for the weapon as sized). Commonly called a pocket knife: the blade folds neatly into a groove in the handle so it can be carried safely in a pocket; folding or unfolding the blade is a move action. Printed quirk kept: the book's stat line prints a blank where the weight belongs.",
     source: `${LL} p. 52`,
     sourceUrl: LL_PATH,
     ruleset: "iron_kingdoms",

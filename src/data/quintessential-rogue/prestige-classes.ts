@@ -5,12 +5,14 @@ import type { ClassLevelProgressionRow, FeatureDefinition, PrestigeClassDefiniti
 // "The Prestige Rogue" chapter, printed pp. 21-33,
 // transcribed in full — progression tables included — from
 // Shaun's own scanned copy (read visually, 2026-11-04).
-// This is a d20 3.0-era book: prerequisites, skill names
-// and terminology are transcribed AS PRINTED (3.0 skills
-// such as Pick Pocket, Innuendo, Intuit Direction,
-// Wilderness Lore, Read Lips and Alchemy stay as printed;
-// British spellings such as Armour are kept), and nothing
-// is modernised to 3.5. Printing quirks are recorded as
+// This is a d20 3.0-era book: its 3.0 skill names and
+// terminology were converted to 3.5 standard in the
+// 2026-11-10 conversion pass under Shaun's standing order
+// (Pick Pocket → Sleight of Hand, Innuendo → Bluff,
+// Intuit Direction and Wilderness Lore → Survival, Read
+// Lips folded into Spot, Alchemy → Craft (alchemy));
+// British spellings such as Armour are kept as printed.
+// Printing quirks are recorded as
 // printed, not silently resolved: the Deep Tracker's 5th
 // level feature is "Dark Sense" in its table but headed
 // "Darksense" in its text; the Commando's class-skill list
@@ -89,10 +91,10 @@ export const QUINTESSENTIAL_ROGUE_PRESTIGE_CLASSES: PrestigeClassDefinition[] = 
     classSkills: [
       "Appraise", "Balance", "Bluff", "Craft", "Decipher Script", "Diplomacy",
       "Disable Device", "Disguise", "Escape Artist", "Forgery", "Gather Information",
-      "Hide", "Innuendo", "Intimidate", "Jump",
+      "Hide",  "Intimidate", "Jump",
       "Knowledge (local history, nobility, royalty, or court protocol)", "Listen",
-      "Move Silently", "Open Lock", "Perform", "Pick Pocket", "Profession",
-      "Read Lips", "Ride", "Search", "Sense Motive", "Spot", "Tumble",
+      "Move Silently", "Open Lock", "Perform", "Sleight of Hand", "Profession",
+       "Ride", "Search", "Sense Motive", "Spot", "Tumble",
     ],
     prerequisites: [
       "Feats: Skill Focus (Diplomacy or Sense Motive)",
@@ -124,8 +126,8 @@ export const QUINTESSENTIAL_ROGUE_PRESTIGE_CLASSES: PrestigeClassDefinition[] = 
     goodSaves: ["fort", "ref"],
     progression: rows(FULL5, GOOD5, GOOD5, POOR5),
     classSkills: [
-      "Balance", "Climb", "Hide", "Intuit Direction", "Listen", "Move Silently",
-      "Spot", "Wilderness Lore",
+      "Balance", "Climb", "Hide", "Survival", "Listen", "Move Silently",
+      "Spot", 
     ],
     prerequisites: [
       "Base attack bonus +4",
@@ -136,7 +138,7 @@ export const QUINTESSENTIAL_ROGUE_PRESTIGE_CLASSES: PrestigeClassDefinition[] = 
     ],
     features: [
       fc("Commando Proficiencies", "A military rogue who hits enemies hard and fast before slipping away undetected, often operating behind enemy lines and living off the land. The commando gains proficiency with simple and martial weapons, shields and light and medium armour.", undefined),
-      fc("Live Off the Land", "When using his Wilderness Lore skill to keep himself safe and fed in the wild, the commando gains a +2 competence bonus to his check. He does not gain this bonus when using his skill for any other reason, including finding food and shelter for others.", 1),
+      fc("Live Off the Land", "When using his Survival skill to keep himself safe and fed in the wild, the commando gains a +2 competence bonus to his check. He does not gain this bonus when using his skill for any other reason, including finding food and shelter for others.", 1),
       fc("Silent Strike", "When attacking from hiding with a ranged weapon, the commando's opponents must make a Spot check to determine his location. For each attack the commando makes after his first, his opponents gain a +2 competence bonus to their Spot checks; this bonus accumulates for a particular foe until he discovers the commando's position.", 1),
       fc("Sneak Attack", "Functions exactly like the rogue class ability. The commando gains an additional 1d6 of sneak attack damage at levels two and four (+1d6 at 2nd, +2d6 total at 4th); this bonus damage stacks with that gained from other classes, such as rogue.", 2),
       fc("Prepare Ambush", "If the commando has an hour to prepare an ambush site, he may gain a +5 competence bonus when taking 20 with his Hide check. In addition, he may apply the result of this hide check to a number of allies totalling up to two times his level in the commando class.", 3),
@@ -157,9 +159,9 @@ export const QUINTESSENTIAL_ROGUE_PRESTIGE_CLASSES: PrestigeClassDefinition[] = 
     classSkills: [
       "Appraise", "Balance", "Bluff", "Climb", "Craft", "Decipher Script",
       "Diplomacy", "Disable Device", "Disguise", "Escape Artist", "Forgery",
-      "Gather Information", "Hide", "Innuendo", "Intimidate", "Intuit Direction",
+      "Gather Information", "Hide",  "Intimidate", "Survival",
       "Jump", "Knowledge (religion)", "Listen", "Move Silently", "Open Lock",
-      "Perform", "Pick Pocket", "Profession", "Read Lips", "Search",
+      "Perform", "Sleight of Hand", "Profession",  "Search",
       "Sense Motive", "Spot", "Swim", "Tumble", "Use Magic Device", "Use Rope",
     ],
     prerequisites: [
@@ -176,7 +178,7 @@ export const QUINTESSENTIAL_ROGUE_PRESTIGE_CLASSES: PrestigeClassDefinition[] = 
       ff("Smite Undead", "Allows a crusading footpad to sneak attack undead creatures: +1d6 damage at 2nd level, rising by +1d6 at 4th, 6th, 8th and 10th level (+5d6 at 10th). The bonus damage from this ability does not stack with sneak attack abilities granted by other classes (for example, a 5th-level rogue/4th-level crusading footpad could sneak attack non-undead for +3d6 damage or sneak attack undead for +2d6 damage).", 2),
       ff("Detect Evil", "The crusading footpad can, at will, use detect evil as a spell-like ability, duplicating the effects of the detect evil spell.", 3),
       ff("Detect Undead", "The crusading footpad can, at will, use detect undead as a spell-like ability, duplicating the effects of the detect undead spell.", 3),
-      ff("Mask Alignment", "At will, the footpad can choose to mask his alignment: for the purposes of spell effects he does not have an alignment, gains no benefits or drawbacks based on his alignment that a spell or other effect may grant him, and spells, triggers or anything else whose function is determined by its target's alignment simply do not function on a footpad using this ability (for example, he would not trigger a trap designed to fire in response to a good-aligned creature touching an altar). He may turn this ability on or off as a move-equivalent action; he may activate it up to three times per day, but may leave it functioning for as long as he wishes.", 5),
+      ff("Mask Alignment", "At will, the footpad can choose to mask his alignment: for the purposes of spell effects he does not have an alignment, gains no benefits or drawbacks based on his alignment that a spell or other effect may grant him, and spells, triggers or anything else whose function is determined by its target's alignment simply do not function on a footpad using this ability (for example, he would not trigger a trap designed to fire in response to a good-aligned creature touching an altar). He may turn this ability on or off as a move action; he may activate it up to three times per day, but may leave it functioning for as long as he wishes.", 5),
       ff("Divine Shield", "The crusading footpad gains a +4 divine bonus to saves and AC against traps.", 7),
       ff("Sense Guards and Wards", "The crusading footpad gains a +2 divine bonus to all Search and Disable Device checks.", 9),
     ].map((x) => x as FeatureDefinition),
@@ -194,17 +196,17 @@ export const QUINTESSENTIAL_ROGUE_PRESTIGE_CLASSES: PrestigeClassDefinition[] = 
     progression: rows(TQ5, POOR5, GOOD5, POOR5),
     classSkills: [
       "Climb", "Craft", "Decipher Script", "Diplomacy", "Disable Device",
-      "Escape Artist", "Hide", "Intuit Direction", "Jump", "Knowledge (underearth)",
+      "Escape Artist", "Hide", "Survival", "Jump", "Knowledge (underearth)",
       "Listen", "Move Silently", "Profession", "Search", "Sense Motive", "Spot",
-      "Swim", "Wilderness Lore",
+      "Swim", 
     ],
     prerequisites: [
       "Feats: Alertness, Endurance, Track",
       "Skills: Speak Language (any two subterranean races)",
-      "Skills: Wilderness Lore 6 ranks",
+      "Skills: Survival 6 ranks",
     ],
     features: [
-      fd("Deep Tracker Proficiencies", "A scout, treasure hunter and guide to the underearth, common in dwarf and gnome communities, whose trove of monster lore and knowledge of underearth customs lets him talk his way past guardians and humanoid tribes. The deep tracker gains proficiency with light armour and all simple weapons. Note that armour check penalties for armour heavier than leather apply to the skills Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Pick Pocket and Tumble.", undefined),
+      fd("Deep Tracker Proficiencies", "A scout, treasure hunter and guide to the underearth, common in dwarf and gnome communities, whose trove of monster lore and knowledge of underearth customs lets him talk his way past guardians and humanoid tribes. The deep tracker gains proficiency with light armour and all simple weapons. Note that armour check penalties for armour heavier than leather apply to the skills Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Sleight of Hand and Tumble.", undefined),
       fd("Monster Knowledge", "When encountering a creature for the first time, the deep tracker can attempt an Intelligence check (DC equal to 20 minus his level in this class) to determine if he has picked up any information about the creature; on a success he may learn one of the traits listed for his current level and all lower levels — Level 1: Alignment, Typical Number Appearing. Level 2: Challenge Rating, Favoured Class (if any). Level 3: One Special Attack, One Special Quality. Level 4: Armour Class, Hit Dice. Level 5: Any Two Traits Listed Above (at fifth level he learns any two traits).", 1),
       fd("Underearth Explorer", "The deep tracker gains a +2 competence bonus to Intuit Direction and Wilderness Lore checks made underground.", 1),
       fd("Pathfinder", "At second level, the deep tracker gains the ability to use his Intuit Direction to determine the shortest path to the surface world. On a successful Intuit Direction check (DC 25) the deep tracker gains a rough estimate of the distance and direction to the closest passage to the surface world.", 2),
@@ -236,7 +238,7 @@ export const QUINTESSENTIAL_ROGUE_PRESTIGE_CLASSES: PrestigeClassDefinition[] = 
       "Alignment: any non-good",
     ],
     features: [
-      fe("Executioner Proficiencies", "An elite shock troop of a thieves' guild or criminal cartel who deals in murder and scorns stealth and poison, relying on overwhelming force — the heavy, leaden sledgehammer to the assassin's poisoned stiletto. The executioner gains proficiency with light and medium armour, shields, and all simple and martial weapons. Note that armour check penalties for armour heavier than leather apply to the skills Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Pick Pocket and Tumble.", undefined),
+      fe("Executioner Proficiencies", "An elite shock troop of a thieves' guild or criminal cartel who deals in murder and scorns stealth and poison, relying on overwhelming force — the heavy, leaden sledgehammer to the assassin's poisoned stiletto. The executioner gains proficiency with light and medium armour, shields, and all simple and martial weapons. Note that armour check penalties for armour heavier than leather apply to the skills Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Sleight of Hand and Tumble.", undefined),
       fe("Executioner's Strike", "When using the full-attack action, the executioner may opt to make a Spot check before each strike he is entitled to as part of that action; the DC of this check equals his opponent's Armour Class. On a success, the executioner deals an extra 1d6 points of damage on a hit at first level, 2d6 at third level, and 3d6 at fifth level; if he fails this check, he gains no bonus damage and takes a -4 circumstance penalty to his attack. After using this ability he receives a -2 AC penalty until his next action. On a critical hit, do not multiply the bonus damage granted by this ability. The executioner may use this ability with missile weapons, but his target must be no more than 30 ft. away. In addition, an executioner gains the ability to sneak attack using the total bonus damage granted by this ability; when sneak attacking (and only when using sneak attack, never when using executioner's strike), the executioner stacks bonus damage granted from other classes with this damage.", 1),
       fe("Cold Blooded Killer", "Starting the round after dropping an opponent with a successful use of his Executioner's Strike ability, the executioner gains a +4 circumstance bonus to Intimidate checks. This bonus persists for five rounds.", 2),
       fe("Executioner's Song", "Once per round, the executioner may make a coup de grace attack as a free action that does not draw an attack of opportunity.", 4),
@@ -254,7 +256,7 @@ export const QUINTESSENTIAL_ROGUE_PRESTIGE_CLASSES: PrestigeClassDefinition[] = 
     goodSaves: ["ref"],
     progression: rows(FULL10, POOR10, GOOD10, POOR10),
     classSkills: [
-      "Alchemy", "Climb", "Craft", "Disable Device", "Disguise",
+      "Craft (alchemy)", "Climb", "Craft", "Disable Device", "Disguise",
       "Gather Information", "Hide", "Intimidate", "Jump", "Listen",
       "Move Silently", "Search", "Sense Motive", "Spot", "Swim", "Tumble",
       "Use Rope",
@@ -270,7 +272,7 @@ export const QUINTESSENTIAL_ROGUE_PRESTIGE_CLASSES: PrestigeClassDefinition[] = 
       "Special: you must have lost a loved one to a criminal act",
     ],
     features: [
-      fs("Shadowy Avenger Proficiencies", "A vigilante driven by a personal code of justice, usually grounded in a violent event, who stalks criminals in the parts of town the guard do not dare tread and excels at alchemy, producing gadgets and items to catch his enemies by surprise. The shadowy avenger is proficient in all simple and martial weapons and all light armour. Note that armour check penalties for armour heavier than leather apply to the skills Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Pick Pocket and Tumble.", undefined),
+      fs("Shadowy Avenger Proficiencies", "A vigilante driven by a personal code of justice, usually grounded in a violent event, who stalks criminals in the parts of town the guard do not dare tread and excels at alchemy, producing gadgets and items to catch his enemies by surprise. The shadowy avenger is proficient in all simple and martial weapons and all light armour. Note that armour check penalties for armour heavier than leather apply to the skills Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Sleight of Hand and Tumble.", undefined),
       fs("Eye for Detail", "The shadowy avenger gains a +2 competence bonus to all Sense Motive checks.", 1),
       fs("Urban Ranger", "When in a city, the shadowy avenger gains a +2 competence bonus to all Climb, Hide, and Move Silently checks.", 1),
       fs("Scrounger", "When working in an urban setting, the shadowy avenger can use his Alchemy and Craft skill to produce alchemical items at half the normal price for raw materials.", 2),
@@ -294,9 +296,9 @@ export const QUINTESSENTIAL_ROGUE_PRESTIGE_CLASSES: PrestigeClassDefinition[] = 
     goodSaves: ["ref"],
     progression: rows(TQ5, POOR5, GOOD5, POOR5),
     classSkills: [
-      "Alchemy", "Appraise", "Balance", "Climb", "Craft", "Decipher Script",
+      "Craft (alchemy)", "Appraise", "Balance", "Climb", "Craft", "Decipher Script",
       "Disable Device", "Escape Artist", "Gather Information", "Hide",
-      "Intuit Direction", "Jump", "Knowledge", "Move Silently", "Open Lock",
+      "Survival", "Jump", "Knowledge", "Move Silently", "Open Lock",
       "Profession", "Ride", "Search", "Spellcraft", "Spot", "Swim", "Tumble",
       "Use Magic Device", "Use Rope",
     ],
@@ -307,7 +309,7 @@ export const QUINTESSENTIAL_ROGUE_PRESTIGE_CLASSES: PrestigeClassDefinition[] = 
       "Skills: Tumble 10 ranks",
     ],
     features: [
-      ft("Tomb Raider Proficiencies", "A scholar-adventurer who spurns the library to seek lost artefacts and first-hand knowledge of lost civilisations in the field, combining esoteric knowledge with a rogue's flexibility. The tomb raider gains proficiency with light armour and all simple weapons. Note that armour check penalties for armour heavier than leather apply to the skills Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Pick Pocket and Tumble.", undefined),
+      ft("Tomb Raider Proficiencies", "A scholar-adventurer who spurns the library to seek lost artefacts and first-hand knowledge of lost civilisations in the field, combining esoteric knowledge with a rogue's flexibility. The tomb raider gains proficiency with light armour and all simple weapons. Note that armour check penalties for armour heavier than leather apply to the skills Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Sleight of Hand and Tumble.", undefined),
       ft("Recognise Trap Design", "The tomb raider can use the Search skill to find traps as per the rogue class. In addition, he gains a +2 competence bonus on Search checks when looking for traps and on Disable Device checks made to disarm them.", 1),
       ft("Superior Knowledge", "At first, third and fifth level, the tomb raider may choose two particular sub-categories of the Knowledge skill that he does not yet have ranks in; he may now use those skills as if he was trained in them, even though he does not have ranks in the skills, and he gains his Intelligence modifier to these checks (normally, Knowledge skills cannot be used untrained). If the tomb raider later buys ranks in his chosen Knowledge skills, he gains two free ranks in the skill in addition to the skill points spent on it.", 1),
       ft("Mystic Knowledge", "The tomb raider gains a +2 competence bonus to all Use Magic Device skill checks.", 2),

@@ -55,7 +55,7 @@ const MED10 = [0, 0, 1, 1, 2, 2, 3, 3, 4, 4];
 const WILL10 = [2, 3, 3, 4, 4, 5, 5, 6, 6, 7];
 
 const PROFICIENCY =
-  "Alchemists gain no proficiency in any armor or weapons. Note that armor check penalties for armor heavier than leather apply to the skills Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Pick Pocket, and Tumble.";
+  "Alchemists gain no proficiency in any armor or weapons. Note that armor check penalties for armor heavier than leather apply to the skills Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Sleight of Hand, and Tumble.";
 const SPELLS_FULL =
   "An alchemist continues to study magic at the same time he studies alchemy and gains a level in spellcasting knowledge with each level as an alchemist (+1 level to an existing spellcasting class at every level). He does not, however, gain any other benefits a character of that class would have gained (hit points, save bonuses, metamagic or item creation feats, and so on). If a character had more than one spellcasting class before she became an alchemist, she must decide which class adds her levels of alchemist for purposes of determining spells per day.";
 const BONUS_FEAT_NOTE = "Bonus Item Creation feat (see Bonus Feats).";
@@ -79,7 +79,7 @@ export const ALCHEMY_HERBALISTS_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
     goodSaves: ["will"],
     progression: rows(BAB10, MED10, MED10, WILL10),
     classSkills: [
-      "Alchemy", "Appraise", "Concentration", "Craft", "Knowledge (geography, nature)",
+      "Craft (alchemy)", "Appraise", "Concentration", "Craft", "Knowledge (geography, nature)",
       "Profession", "Spellcraft",
     ],
     prerequisites: [
@@ -115,7 +115,7 @@ export const ALCHEMY_HERBALISTS_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
     goodSaves: ["will"],
     progression: rows(BAB10, MED10, MED10, WILL10),
     classSkills: [
-      "Alchemy", "Animal Empathy", "Concentration", "Craft", "Handle Animal", "Heal",
+      "Craft (alchemy)",  "Concentration", "Craft", "Handle Animal", "Heal",
       "Knowledge (geography, nature)", "Profession", "Sense Motive", "Spellcraft",
     ],
     prerequisites: [
@@ -152,7 +152,7 @@ export const ALCHEMY_HERBALISTS_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
     goodSaves: ["will"],
     progression: rows(BAB10, MED10, MED10, WILL10),
     classSkills: [
-      "Alchemy", "Animal Empathy", "Appraise", "Concentration", "Craft", "Handle Animal",
+      "Craft (alchemy)",  "Appraise", "Concentration", "Craft", "Handle Animal",
       "Knowledge (geography, nature)", "Profession", "Sense Motive", "Spellcraft",
     ],
     prerequisites: [
@@ -192,9 +192,9 @@ export const ALCHEMY_HERBALISTS_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
     goodSaves: ["will"],
     progression: rows(BAB10, MED10, MED10, WILL10),
     classSkills: [
-      "Alchemy", "Appraise", "Concentration", "Craft", "Diplomacy", "Handle Animals", "Heal",
+      "Craft (alchemy)", "Appraise", "Concentration", "Craft", "Diplomacy", "Handle Animal", "Heal",
       "Knowledge (geography, nature)", "Profession", "Spellcraft", "Swim", "Use Magic Device",
-      "Wilderness Lore",
+      "Survival",
     ],
     prerequisites: [
       "Skills: Profession (Herbalist) 8 ranks",
@@ -204,7 +204,7 @@ export const ALCHEMY_HERBALISTS_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
       "Saves: +2 to Fortitude Save",
     ],
     features: [
-      fh("Weapon and Armor Proficiency", "Herbalists gain no proficiency in any armor. Note that armor check penalties for armor heavier than leather apply to the skills Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Pick Pocket, and Tumble. They do gain proficiency with one weapon — the sickle."),
+      fh("Weapon and Armor Proficiency", "Herbalists gain no proficiency in any armor. Note that armor check penalties for armor heavier than leather apply to the skills Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Sleight of Hand, and Tumble. They do gain proficiency with one weapon — the sickle."),
       fh("Spells per Day", "An herbalist continues to study magic at the same time he studies herbalism, as all Tarastan herbalists are spellcasters to some degree; however, he only gains an additional level of spellcasting mastery every even level gained as an herbalist. This essentially means he adds half the levels gained as an herbalist (rounding down) to the level of some other spellcasting class the character has, and then determines spells per day and caster level accordingly (+1 level to current spellcasting class at 2nd, 4th, 6th, 8th, and 10th level). He does not gain any other benefits a character of that class would have gained (hit points, save bonuses, metamagic or item creation feats, and so on)."),
       fh("Bonus Feats", "At first level and at every odd level thereafter, Tarastan herbalists gain a bonus Item Creation feat tied to their herbal specialties (the feats named in the progression table). Tarasta's school is quite explicit in teaching the feats in a specific order. An herbalist must still meet all prerequisites for a feat to use it. These feats are in addition to the feat that a character of any class gets every three levels, and the herbalist is not limited to the list given in the table when choosing those feats."),
       fh("Craft Toxins", BONUS_FEAT_NOTE, 1),
@@ -228,9 +228,9 @@ export const ALCHEMY_HERBALISTS_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
     goodSaves: ["will"],
     progression: rows([0, 1, 1, 2, 2], [0, 0, 1, 1, 1], [0, 0, 1, 1, 1], [2, 3, 3, 4, 4]),
     classSkills: [
-      "Alchemy", "Animal Empathy", "Concentration", "Craft", "Diplomacy", "Handle Animals",
+      "Craft (alchemy)", "Handle Animal", "Concentration", "Craft", "Diplomacy", "Handle Animal",
       "Heal", "Knowledge (geography, nature)", "Profession", "Sense Motive", "Spellcraft",
-      "Use Magic Device", "Wilderness Lore",
+      "Use Magic Device", "Survival",
     ],
     prerequisites: [
       "Abilities: Wisdom 12 (minimum for casting limited spell repertoire)",
@@ -240,7 +240,7 @@ export const ALCHEMY_HERBALISTS_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
       "Saves: +3 to Fortitude Save",
     ],
     features: [
-      fa("Weapon and Armor Proficiency", "Herbalists gain no proficiency in any armor or weapons. Note that armor check penalties for armor heavier than leather apply to the skills Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Pick Pocket, and Tumble."),
+      fa("Weapon and Armor Proficiency", "Herbalists gain no proficiency in any armor or weapons. Note that armor check penalties for armor heavier than leather apply to the skills Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Sleight of Hand, and Tumble."),
       fa("Spells", "An apothecary does not necessarily know magic before beginning this prestige class. She does gain some small knowledge of natural magics and learns some limited magics normally available to druids, but she uses them more in the manner of a sorcerer, not learning by memorization so much as learning and using by gut instinct and a close connection to the healing powers of nature. The spells noted on Table 5 are marked with two numbers divided by a slash: the first number is how many spells the apothecary knows from her potential spell list, and the second number is how many times per day she can actually cast any spells of that level. Spells known/per day by class level — 1st: 0-level 0, 1st 0, 2nd 0; 2nd: 2/1, 0, 0; 3rd: 3/1, 1/1, 0; 4th: 4/2, 2/1, 1/1; 5th: 5/3, 3/2, 2/1. Spell list — 0-level: create water, cure minor wounds, detect poison, purify food and drink, virtue; 1st-level: calm animals, cure light wounds, goodberry; 2nd-level: delay poison, lesser restoration. If a character had a spellcasting class before she became a Tarastan apothecary, she foregoes advancement in that class while she studies and walks the path of the apothecary."),
       fa("Bonus Feats", "At first level and at every level thereafter, Tarastan apothecaries gain a bonus feat tied to their talents (the feats named in the progression table; Tarasta's school is quite explicit in teaching the feats in a specific order), but an apothecary must still meet all feat prerequisites to use it. These feats are in addition to the feat that a character of any class gets every three levels, and the apothecary is not limited to the list given in the table when choosing those feats."),
       fa("Skill Focus (Profession: Apothecary)", BONUS_FEAT_NOTE, 1),

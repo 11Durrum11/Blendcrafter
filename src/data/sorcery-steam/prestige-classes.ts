@@ -170,7 +170,7 @@ export const SORCERY_STEAM_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
         key: "detective-reference-material",
         name: "Reference Material",
         description:
-          "1st: reference material (a +2 circumstance bonus with one chosen Knowledge skill you possess, from your access to superb research resources; a further skill at 4th, 7th, and 10th level). 2nd: eye for clues (+4 competence bonus on Search checks). 3rd: second thought (reroll one Knowledge, Search, or Spot check per day before the outcome is determined; 2/day at 6th, 3/day at 9th). 5th: experienced detective. 8th: understanding the criminal mind. 10th: master detective. The book's class-skill list also names Read Lips, a 3.0 exclusive skill with no 3.5 equivalent, which is omitted here.",
+          "1st: reference material (a +2 circumstance bonus with one chosen Knowledge skill you possess, from your access to superb research resources; a further skill at 4th, 7th, and 10th level). 2nd: eye for clues (+4 competence bonus on Search checks). 3rd: second thought (reroll one Knowledge, Search, or Spot check per day before the outcome is determined; 2/day at 6th, 3/day at 9th). 5th: experienced detective. 8th: understanding the criminal mind. 10th: master detective. The book's class-skill list also names Spot, a 3.0 exclusive skill with no 3.5 equivalent, which is omitted here.",
         category: "trait",
         source: `${CH2} — The Detective (pp. 59–61)`,
         sourceUrl: SS_PATH,
@@ -191,7 +191,7 @@ export const SORCERY_STEAM_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
     classSkills: ["Handle Animal", "Climb", "Craft", "Hide", "Intimidate", "Survival", "Jump", "Knowledge (nature)", "Listen", "Move Silently", "Munitions", "Profession", "Ride", "Spot", "Swim", "Use Rope"],
     prerequisites: [
       "Base Attack Bonus: +5",
-      "Skills: Hide 8 ranks, Knowledge (nature) 8 ranks, Move Silently 8 ranks, Wilderness Lore 8 ranks",
+      "Skills: Hide 8 ranks, Knowledge (nature) 8 ranks, Move Silently 8 ranks, Survival 8 ranks",
       "Feats: Track, Point Blank Shot",
     ],
     features: [
@@ -317,7 +317,7 @@ export const SORCERY_STEAM_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
         key: "physician-prestige-medicinal-knowledge",
         name: "Medicinal Knowledge",
         description:
-          "1st: survey the damage (a Heal check, DC 20, as a move-equivalent action, to determine the condition of creatures near death). 2nd: healing hand and medicinal knowledge I (again at 6th and 10th level). 3rd: temporary reprieve (1d6+1/level; the per-level amount rises at 5th, 7th, and 9th level). 4th: model of health and restore health (heal temporary ability damage). 6th: hand of life. 8th: reaper's bane. 10th: master physician.",
+          "1st: survey the damage (a Heal check, DC 20, as a move action, to determine the condition of creatures near death). 2nd: healing hand and medicinal knowledge I (again at 6th and 10th level). 3rd: temporary reprieve (1d6+1/level; the per-level amount rises at 5th, 7th, and 9th level). 4th: model of health and restore health (heal temporary ability damage). 6th: hand of life. 8th: reaper's bane. 10th: master physician.",
         category: "trait",
         source: `${CH2} — The Physician (pp. 76–77)`,
         sourceUrl: SS_PATH,
@@ -425,7 +425,7 @@ export const SORCERY_STEAM_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
     classSkills: ["Appraise", "Balance", "Bluff", "Climb", "Craft", "Decipher Script", "Diplomacy", "Disable Device", "Disguise", "Escape Artist", "Forgery", "Gather Information", "Hide", "Survival", "Jump", "Listen", "Move Silently", "Munitions", "Open Lock", "Perform", "Sleight of Hand", "Search", "Sense Motive", "Spot", "Swim", "Tumble", "Use Rope"],
     prerequisites: [
       "Base Attack Bonus: +4",
-      "Skills: Balance 5 ranks, Climb 8 ranks, Hide 5 ranks, Intuit Direction 5 ranks, Jump 8 ranks, Move Silently 5 ranks, Pick Pocket 5 ranks, Tumble 8 ranks",
+      "Skills: Balance 5 ranks, Climb 8 ranks, Hide 5 ranks, Survival 5 ranks, Jump 8 ranks, Move Silently 5 ranks, Sleight of Hand 5 ranks, Tumble 8 ranks",
       "Feat: Run",
     ],
     features: [
@@ -433,7 +433,7 @@ export const SORCERY_STEAM_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
         key: "street-runner-sneak-attack",
         name: "Sneak Attack",
         description:
-          "1st: sneak attack +1d6 (+2d6 at 3rd, +3d6 at 5th, +4d6 at 7th, +5d6 at 9th). 2nd: gossip hound (access to a citywide information network). 4th: quick lift. 5th: quick change. 8th: fast talker. 10th: street lord. The book's class-skill list also names Read Lips, a 3.0 exclusive skill with no 3.5 equivalent, which is omitted here.",
+          "1st: sneak attack +1d6 (+2d6 at 3rd, +3d6 at 5th, +4d6 at 7th, +5d6 at 9th). 2nd: gossip hound (access to a citywide information network). 4th: quick lift. 5th: quick change. 8th: fast talker. 10th: street lord. The book's class-skill list also names Spot, a 3.0 exclusive skill with no 3.5 equivalent, which is omitted here.",
         category: "trait",
         source: `${CH2} — The Street Runner (pp. 89–91)`,
         sourceUrl: SS_PATH,

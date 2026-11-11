@@ -3,9 +3,10 @@ import type { FeatDefinition } from "@/engine/types";
 // Construct feats from Encyclopaedia Arcane – Constructs: It Is
 // Alive (Mongoose Publishing, ©2002, MGP 1004), the
 // "Building a Better Construct" chapter. This is a 3.0-era d20
-// book: entries are transcribed as printed, including 3.0 feat
-// names in the Core Feat list — nothing has been silently
-// modernised. Source: Shaun's own copy, read page by page from
+// book: entries were converted to 3.5 standard in the
+// 2026-11-10 conversion pass under Shaun's standing order,
+// including 3.0 feat names in the Core Feat list.
+// Source: Shaun's own copy, read page by page from
 // his scan (printed page = PDF page − 2).
 //
 // These are feats FOR constructs, bought with Construction
@@ -60,7 +61,7 @@ export const CONSTRUCTS_FEATS: FeatDefinition[] = [
     sourceUrl: CONSTRUCTS_PDF,
     ruleset: "core",
     special:
-      "Concealed weapons must be one size category smaller than the construct (for example, a Medium-size automaton can conceal a weapon the size of a short sword).",
+      "Concealed weapons must be one size category smaller than the construct (for example, a Medium automaton can conceal a weapon the size of a short sword).",
   },
   {
     id: "core-feat",
@@ -68,12 +69,12 @@ export const CONSTRUCTS_FEATS: FeatDefinition[] = [
     category: "general",
     prerequisites: ["The normal prerequisites of the chosen feat"],
     benefitSummary:
-      "Construct feat: the construct gains one feat from Core Rulebook I or Core Rulebook III, chosen from the book's printed list — Ambidexterity, Cleave, Far Shot, Flyby Attack, Great Cleave, Improved Bull Rush, Improved Initiative, Improved Trip, Improved Two-Weapon Fighting, Lightning Reflexes, Multiattack, Multidexterity, Multiweapon Fighting, Point Blank Shot, Power Attack, Precise Shot, Quick Draw, Rapid Shot, Run, Two-Weapon Fighting (3.0 feat names, as printed). Construction Points: 1. CR Value: 1/2. Applies to Body Rating: No.",
+      "Construct feat: the construct gains one feat from Core Rulebook I or Core Rulebook III, chosen from the book's printed list — Cleave, Far Shot, Flyby Attack, Great Cleave, Improved Bull Rush, Improved Initiative, Improved Trip, Improved Two-Weapon Fighting, Lightning Reflexes, Multiattack, Multiweapon Fighting, Point Blank Shot, Power Attack, Precise Shot, Quick Draw, Rapid Shot, Run, Two-Weapon Fighting (3.0 feat names, as printed). Construction Points: 1. CR Value: 1/2. Applies to Body Rating: No.",
     source: `${CONSTRUCTS}, p. 44`,
     sourceUrl: CONSTRUCTS_PDF,
     ruleset: "core",
     special:
-      "In addition to normal prerequisites, some core feats require a construct feat to become available. The construct is considered to possess Ambidexterity for the purposes of the Improved Two-Weapon Fighting feat.",
+      "In addition to normal prerequisites, some core feats require a construct feat to become available. The construct is considered to possess Two-Weapon Fighting for the purposes of the Improved Two-Weapon Fighting feat.",
   },
   {
     id: "defensive-manoeuvres",
@@ -245,7 +246,7 @@ export const CONSTRUCTS_FEATS: FeatDefinition[] = [
     category: "general",
     prerequisites: [],
     benefitSummary:
-      "Construct feat (Construct): the construct gains a bite, gore, sting or other natural attack. Damage depends on the type of attack and the construct's size, from the book's Natural Weaponry Damage table (for example, Medium-size: fangs/tusks etc. 1d3, claws/stings/limb spines 1d4, horns/antlers/head ridges 1d6). Natural weaponry from secondary limbs suffers a −5 penalty to attack rolls, which can be reduced to −2 with the Multiattack feat. Construction Points: 3. CR Value: 1. Applies to Body Rating: Yes.",
+      "Construct feat (Construct): the construct gains a bite, gore, sting or other natural attack. Damage depends on the type of attack and the construct's size, from the book's Natural Weaponry Damage table (for example, Medium: fangs/tusks etc. 1d3, claws/stings/limb spines 1d4, horns/antlers/head ridges 1d6). Natural weaponry from secondary limbs suffers a −5 penalty to attack rolls, which can be reduced to −2 with the Multiattack feat. Construction Points: 3. CR Value: 1. Applies to Body Rating: Yes.",
     source: `${CONSTRUCTS}, p. 47`,
     sourceUrl: CONSTRUCTS_PDF,
     ruleset: "core",

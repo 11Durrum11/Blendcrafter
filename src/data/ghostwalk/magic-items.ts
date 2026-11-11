@@ -88,7 +88,7 @@ export const GHOSTWALK_MAGIC_ITEMS: MagicItemDefinition[] = [
     "name": "Merciful (weapon ability, Ghostwalk)",
     "category": "weapon-special-ability",
     "cost": "+1 bonus",
-    "summary": "The weapon deals an extra 1d6 points of damage, and all damage it deals is subdual damage; the ability can be suppressed and resumed on command. Bows, crossbows, and slings bestow the effect on their ammunition. (Same effect as the Magic Item Compendium printing; Ghostwalk is the earlier source.)",
+    "summary": "The weapon deals an extra 1d6 points of damage, and all damage it deals is nonlethal damage; the ability can be suppressed and resumed on command. Bows, crossbows, and slings bestow the effect on their ammunition. (Same effect as the Magic Item Compendium printing; Ghostwalk is the earlier source.)",
     "source": "Ghostwalk, Chapter 1: All About Ghosts (Magic Items), p. 63",
     "sourceUrl": "/A POC PC related/5.Splat/Ghostwalk.pdf",
     "ruleset": "core"

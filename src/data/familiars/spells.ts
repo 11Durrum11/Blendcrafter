@@ -425,7 +425,7 @@ export const FAMILIARS_SPELLS: SpellDefinition[] = [
     savingThrow: "Not printed in source",
     spellResistance: "Not printed in source",
     summary:
-      "Gives one of your familiar's natural weapons (a slam attack, fist, bite, or other natural weapon) a +1 enhancement bonus to attack and damage rolls. The spell does not change an unarmed strike's damage from subdual damage to normal damage.",
+      "Gives one of your familiar's natural weapons (a slam attack, fist, bite, or other natural weapon) a +1 enhancement bonus to attack and damage rolls. The spell does not change an unarmed strike's damage from nonlethal damage to normal damage.",
     source: `${FAM}, p. 56`,
     sourceUrl: FAM_URL,
   },

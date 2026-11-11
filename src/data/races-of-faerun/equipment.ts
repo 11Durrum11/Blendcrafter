@@ -141,7 +141,7 @@ export const RACES_OF_FAERUN_EQUIPMENT: EquipmentItem[] = [
     "category": "weapon",
     "cost": "5 gp",
     "weight": "2 lbs.",
-    "notes": "Two heavy spheres of wood, stone, or metal connected by cords (1d4 damage, x2). When thrown, make a ranged touch attack; on a hit, the opponent must succeed on a Dexterity or Strength check opposed by your Strength check or be tripped. They can trip only Medium-size or smaller opponents, and your opponent cannot trip you on your failed attempt. Range increment 10 feet.",
+    "notes": "Two heavy spheres of wood, stone, or metal connected by cords (1d4 damage, x2). When thrown, make a ranged touch attack; on a hit, the opponent must succeed on a Dexterity or Strength check opposed by your Strength check or be tripped. They can trip only Medium or smaller opponents, and your opponent cannot trip you on your failed attempt. Range increment 10 feet.",
     "source": "Races of Faerun, p. 157",
     "sourceUrl": "/A POC PC related/5.Splat/Races of series/Races of Faerun.pdf",
     "ruleset": "faerun"
@@ -152,7 +152,7 @@ export const RACES_OF_FAERUN_EQUIPMENT: EquipmentItem[] = [
     "category": "weapon",
     "cost": "10 gp",
     "weight": "5 lbs.",
-    "notes": "A thin rope knotted with a slipknot forming a large loop. Thrown at a Medium-size or smaller target with a ranged touch attack; on a hit you immediately start a grapple against the target with a -4 penalty (all normal grapple modifiers apply), and you may use an attack to attempt to trip the target. You cannot damage or pin the opponent with it, and you are not considered to be grappling. Range increment 10 feet.",
+    "notes": "A thin rope knotted with a slipknot forming a large loop. Thrown at a Medium or smaller target with a ranged touch attack; on a hit you immediately start a grapple against the target with a -4 penalty (all normal grapple modifiers apply), and you may use an attack to attempt to trip the target. You cannot damage or pin the opponent with it, and you are not considered to be grappling. Range increment 10 feet.",
     "source": "Races of Faerun, p. 157",
     "sourceUrl": "/A POC PC related/5.Splat/Races of series/Races of Faerun.pdf",
     "ruleset": "faerun"

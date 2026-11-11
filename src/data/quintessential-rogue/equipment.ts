@@ -37,7 +37,7 @@ export const QUINTESSENTIAL_ROGUE_EQUIPMENT: EquipmentItem[] = [
     cost: "1 gp",
     weight: "4 lb.",
     notes:
-      "Simple melee weapon (Medium size): 1d6(S) damage, critical x2, bludgeoning. A stout oaken cudgel wrapped in thick woollen covering; deals subdual rather than standard damage — an ideal weapon for taking someone alive.",
+      "Simple melee weapon (Medium size): 1d6(S) damage, critical x2, bludgeoning. A stout oaken cudgel wrapped in thick woollen covering; deals nonlethal rather than standard damage — an ideal weapon for taking someone alive.",
     source: `${QR}, pp. 53-54`,
     sourceUrl: QR_PATH,
     ruleset: "core",
@@ -73,7 +73,7 @@ export const QUINTESSENTIAL_ROGUE_EQUIPMENT: EquipmentItem[] = [
     cost: "5 sp",
     weight: "1 lb.",
     notes:
-      "Simple melee weapon (Tiny size): 1d3 damage, critical x2, piercing. A spiked leather strap worn across the knuckles. Fighting with knuckledusters counts as an unarmed attack, though they deal normal rather than subdual damage. (Id prefixed qr-: the catalog's omni Ultimate Equipment Guide file already owns \"knuckleduster\".)",
+      "Simple melee weapon (Tiny size): 1d3 damage, critical x2, piercing. A spiked leather strap worn across the knuckles. Fighting with knuckledusters counts as an unarmed attack, though they deal normal rather than nonlethal damage. (Id prefixed qr-: the catalog's omni Ultimate Equipment Guide file already owns \"knuckleduster\".)",
     source: `${QR}, pp. 53-54`,
     sourceUrl: QR_PATH,
     ruleset: "core",
@@ -157,7 +157,7 @@ export const QUINTESSENTIAL_ROGUE_EQUIPMENT: EquipmentItem[] = [
     cost: "1 gp",
     weight: "8 lb.",
     notes:
-      "Exotic ranged weapon (Medium size): the table prints no damage, critical, range increment or type. A loop of rope cast at an opponent up to 10 ft. away; if the attacker hits with a ranged touch attack, the defender is caught in the rope: he suffers -2 to all attack rolls and a -4 penalty to Dexterity, and cannot cast any spells with a somatic component. The lariat has 5 hit points and can be burst with a Strength check taken as a full-round action (DC 25). The penalties last as long as the attacker uses a move-equivalent action each round to maintain the grip; if he lets the line go loose, the defender may automatically shake loose with a move-equivalent action. The user can pull a trapped target prone by beating the defender in an opposed Strength check. Effective only against Small or Medium-size targets; on a miss, a move-equivalent action pulls the lariat back for reuse. (Id prefixed qr-: the catalog already owns \"lariat\" in the omni Ultimate Equipment Guide and omni Goods and Gear files.)",
+      "Exotic ranged weapon (Medium size): the table prints no damage, critical, range increment or type. A loop of rope cast at an opponent up to 10 ft. away; if the attacker hits with a ranged touch attack, the defender is caught in the rope: he suffers -2 to all attack rolls and a -4 penalty to Dexterity, and cannot cast any spells with a somatic component. The lariat has 5 hit points and can be burst with a Strength check taken as a full-round action (DC 25). The penalties last as long as the attacker uses a move action each round to maintain the grip; if he lets the line go loose, the defender may automatically shake loose with a move action. The user can pull a trapped target prone by beating the defender in an opposed Strength check. Effective only against Small or Medium targets; on a miss, a move action pulls the lariat back for reuse. (Id prefixed qr-: the catalog already owns \"lariat\" in the omni Ultimate Equipment Guide and omni Goods and Gear files.)",
     source: `${QR}, pp. 53-55`,
     sourceUrl: QR_PATH,
     ruleset: "core",
