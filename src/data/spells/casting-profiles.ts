@@ -1,5 +1,11 @@
 // Batch 12 — casting profiles for every spellcasting BASE class present in
-// the data set. Tables are levels 1-10 only (the app's class-row
+// the data set. Casting-profile wiring pass (2026-11-11, Shaun's order):
+// the wizard profile gained its "Wizard" list alias (wizard-only spells
+// were unreachable), and profiles were added for the two own-list
+// prestige casters (assassin, blackguard — the Spells step and the
+// engine now read prestige levels as well as base levels) and for the
+// urban druid variant (Dragon #317; druid spells-per-day table per the
+// issue's own printed table, Charisma-based, its own spell list). Tables are levels 1-10 only (the app's class-row
 // convention), transcribed from each class's own book table (PHB via
 // d20srd.org for core classes; the splat book for splat classes).
 // spellsPerDay rows are indexed by class level - 1; cells are indexed by
@@ -16,6 +22,7 @@ export const CASTING_PROFILES: CastingProfile[] = [
   {
     classId: "wizard",
     listName: "Sorcerer/Wizard",
+    listAliases: ["Wizard"],
     kind: "prepared-arcane",
     keyAbility: "int",
     spellsPerDay: [
@@ -737,6 +744,116 @@ export const CASTING_PROFILES: CastingProfile[] = [
     note: "Infusions, not spells: an artificer's infusions are neither arcane nor divine and can only be imbued into items or constructs. He knows the entire artificer infusion list (Eberron Campaign Setting pp. 103–105) and prepares nothing; the per-day figures are infusions per day from Table 2–1.",
     source: "Eberron Campaign Setting, Table 2–1: The Artificer (infusions per day, p. 30)",
     sourceUrl: `${DBX}2.Alchemy & steampunk flavored material/2.Eberron Campaign Setting.pdf`,
+  },
+  {
+    // Prestige caster (wiring pass, 2026-11-11): the assassin casts
+    // his own arcane spells from 1st level, spontaneously as a bard
+    // does, Intelligence-based, 1st- through 4th-level spells from
+    // the assassin spell list. Tables are the printed 10-row
+    // prestige tables. The spells-known entries the printed table
+    // marks with its footnote (2 at a newly opened spell level,
+    // "provided the assassin has sufficient Intelligence to have a
+    // bonus spell of this level") are encoded as printed (2), the
+    // gun-mage asterisk precedent.
+    classId: "assassin",
+    listName: "Assassin",
+    kind: "spontaneous",
+    keyAbility: "int",
+    spellsPerDay: [
+      [null, 0, null, null, null, null, null, null, null, null],
+      [null, 1, null, null, null, null, null, null, null, null],
+      [null, 2, 0, null, null, null, null, null, null, null],
+      [null, 3, 1, null, null, null, null, null, null, null],
+      [null, 3, 2, 0, null, null, null, null, null, null],
+      [null, 3, 3, 1, null, null, null, null, null, null],
+      [null, 3, 3, 2, 0, null, null, null, null, null],
+      [null, 3, 3, 3, 1, null, null, null, null, null],
+      [null, 3, 3, 3, 2, null, null, null, null, null],
+      [null, 3, 3, 3, 3, null, null, null, null, null],
+    ],
+    spellsKnown: [
+      [null, 2, null, null, null, null, null, null, null, null],
+      [null, 3, null, null, null, null, null, null, null, null],
+      [null, 3, 2, null, null, null, null, null, null, null],
+      [null, 4, 3, null, null, null, null, null, null, null],
+      [null, 4, 3, 2, null, null, null, null, null, null],
+      [null, 4, 4, 3, null, null, null, null, null, null],
+      [null, 4, 4, 3, 2, null, null, null, null, null],
+      [null, 4, 4, 4, 3, null, null, null, null, null],
+      [null, 4, 4, 4, 3, null, null, null, null, null],
+      [null, 4, 4, 4, 4, null, null, null, null, null],
+    ],
+    note: "Prestige class: spells per day and spells known run over the assassin's 10 levels; casting begins at 1st level (1st- through 4th-level spells). At 6th, 8th and 10th level he may swap one known spell for another of the same level (not modeled).",
+    source: "Dungeon Master's Guide, Table: The Assassin and Table: Assassin Spells Known (SRD)",
+    sourceUrl: "https://www.d20srd.org/srd/prestigeClasses/assassin.htm",
+  },
+  {
+    // Prestige caster (wiring pass, 2026-11-11): the blackguard
+    // prepares a small number of divine spells from his own list
+    // just as a cleric does, Wisdom-based, 1st- through 4th-level
+    // spells; no spells-known table (he prepares from the whole
+    // list). Table is the printed 10-row prestige table.
+    classId: "blackguard",
+    listName: "Blackguard",
+    kind: "prepared-divine",
+    keyAbility: "wis",
+    spellsPerDay: [
+      [null, 0, null, null, null, null, null, null, null, null],
+      [null, 1, null, null, null, null, null, null, null, null],
+      [null, 1, 0, null, null, null, null, null, null, null],
+      [null, 1, 1, null, null, null, null, null, null, null],
+      [null, 1, 1, 0, null, null, null, null, null, null],
+      [null, 1, 1, 1, null, null, null, null, null, null],
+      [null, 2, 1, 1, 0, null, null, null, null, null],
+      [null, 2, 1, 1, 1, null, null, null, null, null],
+      [null, 2, 2, 1, 1, null, null, null, null, null],
+      [null, 2, 2, 2, 1, null, null, null, null, null],
+    ],
+    note: "Prestige class: spells per day run over the blackguard's 10 levels; casting begins at 1st level (1st- through 4th-level spells). He cannot spontaneously cast cure or inflict spells (not distinguished by the engine).",
+    source: "Dungeon Master's Guide, Table: The Blackguard (SRD)",
+    sourceUrl: "https://www.d20srd.org/srd/prestigeClasses/blackguard.htm",
+  },
+  {
+    // Variant caster (wiring pass, 2026-11-11): the urban druid
+    // (Dragon Magazine #317) prepares and casts divine spells as a
+    // cleric does but has no domains; Charisma determines how
+    // powerful a spell she can cast, her bonus spells, and her
+    // save DCs. Her spells per day are the standard druid table,
+    // printed in full in the article (verified in the #317 staging
+    // pack's reference). Her own spell list is keyed "Urban Druid";
+    // per the pack SCREENING, that printed list names several
+    // spells that are dead in APOC (extra-dimensional, summoning
+    // and teleportation effects) — the records stand as catalogued,
+    // as they do on every other list.
+    classId: "urban-druid",
+    listName: "Urban Druid",
+    kind: "prepared-divine",
+    keyAbility: "cha",
+    spellsPerDay: [
+      [3, 1, null, null, null, null, null, null, null, null],
+      [4, 2, null, null, null, null, null, null, null, null],
+      [4, 2, 1, null, null, null, null, null, null, null],
+      [5, 3, 2, null, null, null, null, null, null, null],
+      [5, 3, 2, 1, null, null, null, null, null, null],
+      [5, 3, 3, 2, null, null, null, null, null, null],
+      [6, 4, 3, 2, 1, null, null, null, null, null],
+      [6, 4, 3, 3, 2, null, null, null, null, null],
+      [6, 4, 4, 3, 2, 1, null, null, null, null],
+      [6, 4, 4, 3, 3, 2, null, null, null, null],
+          [6, 5, 4, 4, 3, 2, 1, null, null, null],
+      [6, 5, 4, 4, 3, 3, 2, null, null, null],
+      [6, 5, 5, 4, 4, 3, 2, 1, null, null],
+      [6, 5, 5, 4, 4, 3, 3, 2, null, null],
+      [6, 5, 5, 5, 4, 4, 3, 2, 1, null],
+      [6, 5, 5, 5, 4, 4, 3, 3, 2, null],
+      [6, 5, 5, 5, 5, 4, 4, 3, 2, 1],
+      [6, 5, 5, 5, 5, 4, 4, 3, 3, 2],
+      [6, 5, 5, 5, 5, 5, 4, 4, 3, 3],
+      [6, 5, 5, 5, 5, 5, 4, 4, 4, 4],
+    ],
+    note: "Charisma-based prepared divine caster on the Urban Druid spell list (Dragon Magazine #317, pp. 30-37); spells per day are the standard druid table as printed in the article. She can channel stored spell energy to cast repair spells spontaneously (not modeled).",
+    source: "Dragon Magazine #317, Urban Druid (spells per day = standard druid table, printed p. 32)",
+    sourceUrl: "https://archive.org/details/DragonMagazine260_201801/Dragon%20Magazine%20%23317",
   },
 ];
 

@@ -63,10 +63,13 @@ export function StepSpells({ build, resolved, onToggleSpell }: StepSpellsProps) 
 
   const casterClasses = useMemo(
     () =>
-      build.classLevels
+      // Base classes plus own-casting prestige classes (assassin,
+      // blackguard — wiring pass, 2026-11-11): any taken class
+      // with a casting profile gets a picking card.
+      [...build.classLevels, ...build.prestigeClassLevels]
         .filter((c) => c.levels > 0 && CASTING_PROFILES_BY_ID[c.classId])
         .map((c) => ({ choice: c, profile: CASTING_PROFILES_BY_ID[c.classId] })),
-    [build.classLevels]
+    [build.classLevels, build.prestigeClassLevels]
   );
 
   // The whole spell library segregated by casting type (cleric, wizard,

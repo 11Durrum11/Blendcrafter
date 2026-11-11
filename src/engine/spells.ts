@@ -1,4 +1,4 @@
-import { ALL_CLASSES, ALL_SPELLS, CASTING_PROFILES_BY_ID, SPELLS_BY_ID } from "@/data";
+import { ALL_CLASSES, ALL_PRESTIGE_CLASSES, ALL_SPELLS, CASTING_PROFILES_BY_ID, SPELLS_BY_ID } from "@/data";
 import type {
   AbilityKey,
   CastingProfile,
@@ -20,7 +20,10 @@ import type {
  * Modeling limits (documented, never faked):
  *   - Prestige-class "+1 level of existing spellcasting class"
  *     advancement is NOT modeled: PrC records carry no casting data,
- *     so casting facts derive from base-class levels only.
+ *     so casting facts derive from class levels only. Prestige
+ *     classes with their OWN casting (assassin, blackguard) carry
+ *     profiles and are read from prestige levels as well (wiring
+ *     pass, 2026-11-11).
  *   - A wizard's / wu jen's selections are the spellbook: the rules
  *     place no cap on spells known, so only list membership and level
  *     access are enforced for them.
@@ -29,7 +32,9 @@ import type {
  *     spells per day + ability bonus spells.
  */
 
-const CLASS_NAME_BY_ID = new Map(ALL_CLASSES.map((c) => [c.id, c.name]));
+const CLASS_NAME_BY_ID = new Map(
+  [...ALL_CLASSES, ...ALL_PRESTIGE_CLASSES].map((c) => [c.id, c.name])
+);
 
 /** Spontaneous classes whose casting is divine (all other spontaneous
  *  profiled classes are arcane). From each class's own book. */
@@ -152,13 +157,14 @@ export interface ClassCastingFacts {
   maxLevel: number;
 }
 
-/** Casting facts for every profiled base class in the build. */
+/** Casting facts for every profiled class in the build — base
+ *  classes and own-casting prestige classes alike. */
 export function castingFacts(
   build: CharacterBuild,
   abilityScores?: Partial<Record<AbilityKey, number | null>>
 ): ClassCastingFacts[] {
   const facts: ClassCastingFacts[] = [];
-  for (const choice of build.classLevels) {
+  for (const choice of [...build.classLevels, ...build.prestigeClassLevels]) {
     if (choice.levels <= 0) continue;
     const profile = CASTING_PROFILES_BY_ID[choice.classId];
     if (!profile) continue;
@@ -210,7 +216,7 @@ export function validateSelectedSpells(
   const issues: ValidationIssue[] = [];
   const selections = build.selectedSpells ?? {};
   const takenLevels = new Map<string, number>();
-  for (const choice of build.classLevels) {
+  for (const choice of [...build.classLevels, ...build.prestigeClassLevels]) {
     if (choice.levels > 0) takenLevels.set(choice.classId, choice.levels);
   }
 
