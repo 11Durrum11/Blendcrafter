@@ -3,11 +3,11 @@ import type { FeatDefinition } from "@/engine/types";
 // STAGING DRAFT — Dragon Magazine #316 pack (library-staging/packs/dragon-magazine/issue-316)
 // The issue's nine staged feats:
 //   * "Expanded Psionics Preview" (Bruce R. Cordell, pp. 78–81):
-//     seven of the article's eight psionic feats are staged —
+//     all eight of the article's psionic feats are staged —
 //     Greater Ghost Attack, Instinctive Consummator, Instinctive
 //     Dispatcher, Phrenic Blast, Phrenic Leech, Psionic Feedback,
-//     and Psymbiot. The eighth, Ghost Attack, is NOT staged (see
-//     the adjudication note below).
+//     and Psymbiot, plus Ghost Attack itself, staged 2026-11-11 at
+//     Shaun's order (see the adjudication note below).
 //   * "Countdown to Eberron" (pp. 86–91), Sample Eberron Feats
 //     sidebar: Dragon Rage and Flensing Strike. The sidebar's other
 //     two feats (Action Boost, Haunting Melody) are NOT staged —
@@ -22,10 +22,10 @@ import type { FeatDefinition } from "@/engine/types";
 // Attack. The catalog already holds the published XPH record
 // (id "ghost-attack", src/data/expanded-psionics/feats.ts) — whose
 // final text differs from this preview (the book changed the feat to
-// a double miss-chance roll). Because the magazine presents the
-// feat as the book's own text, not as magazine-original material,
-// no ghost-attack-316 is staged; the preview text is quoted in
-// reference.md for the record.
+// a double miss-chance roll). The preview was originally held out of
+// the pack on that basis; at Shaun's order (2026-11-11) the preview
+// version IS staged as "ghost-attack-316" under the different-source
+// precedent, and both records stand.
 //
 // XPH/COMPLETE PSIONIC OVERLAP (see MANIFEST.md): Instinctive
 // Consummator, Phrenic Leech, and Psymbiot were later republished
@@ -54,6 +54,17 @@ const DM316_PATH = "https://archive.org/download/DragonMagazine260_201801/Dragon
 
 export const DRAGON_316_FEATS: FeatDefinition[] = [
   // ---- Expanded Psionics Preview (pp. 78–81) ----
+  {
+    id: "ghost-attack-316",
+    name: "Ghost Attack",
+    category: "general",
+    ruleset: "core",
+    prerequisites: ["Base attack bonus +3"],
+    benefitSummary: "While psionically focused, when you make a successful critical hit with a melee or ranged attack, the attack is treated as if made with a ghost touch weapon for the purpose of affecting incorporeal creatures (no miss chance). (Dragon #316 preview printing, staged at Shaun's order 2026-11-11; the published Expanded Psionics Handbook feat of the same name in the catalog is a different record — the book changed the feat to a double miss-chance roll on any attack — see MANIFEST.md.)",
+    special: "Psionic feat.",
+    source: DM316,
+    sourceUrl: DM316_PATH,
+  },
   {
     id: "greater-ghost-attack",
     name: "Greater Ghost Attack",

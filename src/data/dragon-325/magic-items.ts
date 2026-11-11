@@ -1,14 +1,19 @@
-// Dragon Magazine #325 (November 2004) — magic item draft: 17 items.
+// Dragon Magazine #325 (November 2004) — magic item draft: 21 items.
 // Blocks: "The Magic Shop: Artifacts of the Pharaohs" (14 items, pp. 74-76) and
 // "Silicon Sorcery: Dungeon Siege" (3 synergistic spellbooks, pp. 30-31), the latter staged
 // as minor artifacts in the catalog's relics convention: category "artifact", cost "—",
 // summary beginning "Artifact (wondrous item): " and carrying aura, CL, and weight.
 // Summaries carry aura/CL/creation lines and weight in the house style of recent packs.
+// A third block was added 2026-11-11 at Shaun's order: the four "Class Acts: Monk Magic
+// Items" (p. 98), originally HELD as oriental-themed material, integrated under the
+// Southie-reflavor precedent from #319 — street names and flavor, mechanics exactly as
+// printed, each summary naming the printed original.
 
 import type { MagicItemDefinition } from "@/engine/types";
 
 const SRC_SHOP = "Dragon Magazine #325 — The Magic Shop: Artifacts of the Pharaohs (Kevin Hamilton), pp. 74-76";
 const SRC_BOOKS = "Dragon Magazine #325 — Silicon Sorcery: Dungeon Siege (Clifford Horowitz), pp. 30-31";
+const SRC_CLASSACTS = "Dragon Magazine #325 — Class Acts: Monk Magic Items (Keith Strohm), p. 98 — Southie reflavor, mechanics as printed";
 const SRC_URL = "https://archive.org/details/DragonMagazine260_201801";
 
 type ItemSeed = Partial<MagicItemDefinition> & Pick<MagicItemDefinition, "id" | "name" | "summary">;
@@ -153,5 +158,40 @@ export const DRAGON_325_MAGIC_ITEMS: MagicItemDefinition[] = [
     source: SRC_BOOKS,
     summary:
       "Artifact (wondrous item): a unique minor artifact and one of the synergistic spellbooks (see the pack reference for the shared rules). It contains every sorcerer/wizard abjuration spell and all divination (scrying) spells from the same list. Preparing spells from it surrounds the wizard with a shimmering, translucent force disk that grants a shield bonus and immunity to magic missiles; the first wizard to prepare from it in each 24-hour period gains, by total spell levels prepared (0-level spells do not count): 5\u201313 a +4 shield bonus and immunity to magic missiles; 14\u201324 +5; 25\u201338 +6; 39\u201359 +7; 60\u201381 +8; 82\u2013112 +9 and evasion (as a 2nd-level rogue); 113+ +10 and displacement (3/day). Higher totals include all lower-tier benefits, which diminish as the prepared spells are cast. Strong abjuration; CL 19th; Weight 4 lb.",
+  }),
+  // ---- Class Acts: Monk Magic Items (p. 98) — Southie reflavors, added 2026-11-11 at Shaun's order ----
+  M({
+    id: "hornetsting",
+    name: "Hornetsting",
+    category: "weapon",
+    cost: "72,300 gp",
+    source: SRC_CLASSACTS,
+    summary:
+      "A masterwork pronged dock spike, balanced and weighted in the sai's pattern, functioning as a +1 dancing returning sai, 1 lb. Loosed, it dances through the air and can also make ranged attacks as though thrown by its wielder against any opponent within 50 feet (normal ranged attack penalties apply); after attacking a distant opponent it returns to its wielder as per its returning special ability and continues dancing while the dancing duration remains. Strong transmutation; CL 15th; Craft Magic Arms and Armor, shield or shield of faith, telekinesis. (Southie reflavor of the printed Sai of the Hornet — mechanics as printed.)",
+  }),
+  M({
+    id: "bands-of-the-iron-mastiff",
+    name: "Bands of the Iron Mastiff",
+    cost: "15,000 gp",
+    source: SRC_CLASSACTS,
+    summary:
+      "Leather armbands adorned with six silver medallions stamped with mastiffs, 2 lb. While worn, they bestow a +2 bonus on initiative rolls and free use of the Deflect Arrows feat (both bands must be worn and one hand must be free). A wearer who already has Deflect Arrows may use it twice each round. Faint abjuration; CL 3rd; Craft Wondrous Item, entropic shield. (Southie reflavor of the printed Bands of the Iron Monkey — mechanics as printed.)",
+  }),
+  M({
+    id: "steeplejacks-sash",
+    name: "Steeplejack's Sash",
+    cost: "48,000 gp",
+    source: SRC_CLASSACTS,
+    summary:
+      "A long work sash of heavy silk, 1 lb. Any lawful wearer gains a +4 armor bonus to AC. In addition, a lawful neutral wearer with the unarmed strike ability or the Improved Unarmed Strike feat causes foes to suffer a 20% miss chance when making attacks against her; this miss chance is lost while the wearer is denied her Dexterity bonus to AC (leaving only the +4 armor bonus). Faint abjuration; CL 3rd; Craft Wondrous Item, mage armor, owl's wisdom. (Southie reflavor of the printed Obi of the White Lotus Master — mechanics as printed.)",
+  }),
+  M({
+    id: "staff-of-the-crushing-gust",
+    name: "Staff of the Crushing Gust",
+    category: "weapon",
+    cost: "18,000 gp",
+    source: SRC_CLASSACTS,
+    summary:
+      "A +2 quarterstaff (a bamboo shaft wrapped in mithral chains), 4 lb., that grants its wielder the Improved Trip feat even if the wielder doesn't meet the prerequisites. Moderate evocation; CL 6th; Craft Magic Arms and Armor, gust of wind. (Southie reflavor of the printed Staff of the Crushing Breeze — mechanics as printed.)",
   }),
 ];
