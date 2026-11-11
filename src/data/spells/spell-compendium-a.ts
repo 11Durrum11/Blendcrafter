@@ -76,6 +76,7 @@ export const SPELL_COMPENDIUM_SPELLS_A: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
+      "Vigilante": 1,
       "Bard": 1,
       "Ranger": 1,
       "Sorcerer/Wizard": 1
@@ -322,6 +323,7 @@ export const SPELL_COMPENDIUM_SPELLS_A: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
+      "Vigilante": 3,
       "Bard": 3
     },
     "components": "V, S, M",
@@ -1953,6 +1955,7 @@ export const SPELL_COMPENDIUM_SPELLS_A: SpellDefinition[] = [
       "Pattern"
     ],
     "levels": {
+      "Vigilante": 2,
       "Bard": 2,
       "Sorcerer/Wizard": 2
     },
@@ -3872,6 +3875,7 @@ export const SPELL_COMPENDIUM_SPELLS_A: SpellDefinition[] = [
     "school": "Necromancy",
     "descriptors": [],
     "levels": {
+      "Blighter": 5,
       "Druid": 4
     },
     "components": "V, S",
@@ -4688,6 +4692,7 @@ export const SPELL_COMPENDIUM_SPELLS_A: SpellDefinition[] = [
     "school": "Necromancy",
     "descriptors": [],
     "levels": {
+      "Blighter": 1,
       "Druid": 2
     },
     "components": "V, S, DF",

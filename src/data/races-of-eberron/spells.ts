@@ -337,6 +337,8 @@ export const RACES_OF_EBERRON_SPELLS: SpellDefinition[] = [
   "school": "Transmutation",
   "descriptors": [],
   "levels": {
+    "Mortitheurge": 5,
+    "Dread Necromancer": 5,
     "Artificer": 5
   },
   "components": "V, S",
@@ -358,6 +360,8 @@ export const RACES_OF_EBERRON_SPELLS: SpellDefinition[] = [
   "school": "Transmutation",
   "descriptors": [],
   "levels": {
+    "Mortitheurge": 6,
+    "Dread Necromancer": 6,
     "Artificer": 6
   },
   "components": "V, S",

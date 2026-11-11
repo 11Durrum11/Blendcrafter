@@ -1534,7 +1534,7 @@ export const PLAYERS_HANDBOOK_II_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Divination",
     "descriptors": [],
-    "levels": { "Bard": 2, "Cleric": 2, "Sorcerer/Wizard": 2 },
+    "levels": { "Vigilante": 1, "Bard": 2, "Cleric": 2, "Sorcerer/Wizard": 2 },
     "components": "V",
     "castingTime": "1 immediate action",
     "range": "Close (25 ft. + 5 ft./2 levels)",

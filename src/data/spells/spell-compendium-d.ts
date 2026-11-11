@@ -894,6 +894,7 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
       "Sonic"
     ],
     "levels": {
+      "Vigilante": 2,
       "Bard": 2,
       "Sorcerer/Wizard": 2
     },
@@ -1070,6 +1071,7 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
     "school": "Divination",
     "descriptors": [],
     "levels": {
+      "Vigilante": 3,
       "Bard": 3
     },
     "components": "V, S",
@@ -2414,6 +2416,7 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
       "Evil"
     ],
     "levels": {
+      "Dread Necromancer": 1,
       "Blackguard": 1,
       "Cleric": 1,
       "Sorcerer/Wizard": 1
@@ -2439,6 +2442,7 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
       "Evil"
     ],
     "levels": {
+      "Dread Necromancer": 2,
       "Blackguard": 2,
       "Cleric": 2,
       "Sorcerer/Wizard": 2
@@ -2465,6 +2469,7 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
       "Evil"
     ],
     "levels": {
+      "Dread Necromancer": 3,
       "Blackguard": 3,
       "Cleric": 3,
       "Sorcerer/Wizard": 3
@@ -2491,6 +2496,7 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
       "Evil"
     ],
     "levels": {
+      "Dread Necromancer": 4,
       "Blackguard": 4,
       "Cleric": 4,
       "Sorcerer/Wizard": 4
@@ -2517,6 +2523,7 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
       "Evil"
     ],
     "levels": {
+      "Dread Necromancer": 5,
       "Cleric": 5,
       "Sorcerer/Wizard": 5
     },
@@ -2852,6 +2859,7 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
+      "Vigilante": 2,
       "Bard": 2
     },
     "components": "V, S, M",
@@ -3839,6 +3847,7 @@ export const SPELL_COMPENDIUM_SPELLS_D: SpellDefinition[] = [
       "Evil"
     ],
     "levels": {
+      "Dread Necromancer": 7,
       "Cleric": 9,
       "Sorcerer/Wizard": 9
     },

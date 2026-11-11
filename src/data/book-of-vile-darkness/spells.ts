@@ -242,6 +242,7 @@ export const BOOK_OF_VILE_DARKNESS_SPELLS: SpellDefinition[] = [
   "school": "Transmutation",
   "descriptors": [],
   "levels": {
+    "Dread Necromancer": 1,
     "Sorcerer/Wizard": 1
   },
   "components": "V, S, M",
@@ -1594,6 +1595,7 @@ export const BOOK_OF_VILE_DARKNESS_SPELLS: SpellDefinition[] = [
     "Evil"
   ],
   "levels": {
+    "Dread Necromancer": 9,
     "Cleric": 7
   },
   "components": "V, S, M, F",

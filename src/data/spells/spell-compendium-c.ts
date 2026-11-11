@@ -75,6 +75,7 @@ export const SPELL_COMPENDIUM_SPELLS_C: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
+      "Blighter": 4,
       "Druid": 4
     },
     "components": "V, S",
@@ -441,6 +442,7 @@ export const SPELL_COMPENDIUM_SPELLS_C: SpellDefinition[] = [
     "school": "Divination",
     "descriptors": [],
     "levels": {
+      "Vigilante": 4,
       "Bard": 3
     },
     "components": "V, S, F",
@@ -1145,6 +1147,7 @@ export const SPELL_COMPENDIUM_SPELLS_C: SpellDefinition[] = [
     "school": "Divination",
     "descriptors": [],
     "levels": {
+      "Vigilante": 1,
       "Bard": 1,
       "Sorcerer/Wizard": 1
     },
@@ -1299,6 +1302,7 @@ export const SPELL_COMPENDIUM_SPELLS_C: SpellDefinition[] = [
     "school": "Evocation",
     "descriptors": [],
     "levels": {
+      "Blighter": 7,
       "Druid": 6
     },
     "components": "V, S, DF",
@@ -2787,6 +2791,7 @@ export const SPELL_COMPENDIUM_SPELLS_C: SpellDefinition[] = [
       "Evil"
     ],
     "levels": {
+      "Dread Necromancer": 9,
       "Cleric": 9,
       "Sorcerer/Wizard": 9
     },

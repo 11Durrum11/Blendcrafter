@@ -40,6 +40,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Acid"
     ],
     "levels": {
+      "Dread Necromancer": 6,
+      "Blighter": 6,
       "Sorcerer/Wizard": 6,
       "Water": 7,
       "Gun Mage": 6,
@@ -114,6 +116,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
+      "Temple Raider of Olidammara": 4,
       "Cleric": 4,
       "Druid": 4,
     },
@@ -136,6 +139,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Abjuration",
     "descriptors": [],
     "levels": {
+      "Vigilante": 1,
       "Bard": 1,
       "Ranger": 1,
       "Sorcerer/Wizard": 1,
@@ -182,6 +186,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
+      "Vigilante": 2,
       "Bard": 2,
       "Sorcerer/Wizard": 2,
       "Gun Mage": 2,
@@ -205,6 +210,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Divination",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 6,
       "Bard": 6,
       "Sorcerer/Wizard": 6
     },
@@ -305,6 +311,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Evil"
     ],
     "levels": {
+      "Death Delver": 3,
+      "Dread Necromancer": 4,
+      "Blighter": 4,
       "Cleric": 3,
       "Sorcerer/Wizard": 4,
       "Gun Mage": 4,
@@ -352,6 +361,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
+      "Vigilante": 1,
+      "Consecrated Harrier": 1,
       "Bard": 1,
       "Sorcerer/Wizard": 1,
     },
@@ -374,6 +385,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Abjuration",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 6,
+      "Blighter": 5,
       "Cleric": 6,
       "Druid": 6,
       "Animal": 6
@@ -466,6 +479,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Universal",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 0,
       "Sorcerer/Wizard": 0,
       "Gun Mage": 0,
     },
@@ -488,6 +502,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Divination",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 3,
       "Sorcerer/Wizard": 3,
       "Beguiler": 3,
     "Trapsmith": 1, "Ebonmar Infiltrator": 3},
@@ -510,6 +525,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Divination",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 7,
       "Sorcerer/Wizard": 7,
       "Beguiler": 7
     },
@@ -555,6 +571,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Divination",
     "descriptors": [],
     "levels": {
+      "Temple Raider of Olidammara": 2,
       "Cleric": 2,
     },
     "components": "V, S, M, F",
@@ -623,6 +640,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
+      "Dread Necromancer": 1,
+      "Blighter": 1,
       "Cleric": 1,
     "Anarch": 1, "Anti-Paladin": 1, "Despot": 1, "Corrupter": 1, "Paladin of Tyranny": 1, "Paladin of Slaughter": 1},
     "components": "V, S, DF",
@@ -689,6 +708,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 2,
+      "Corrupt Avenger": 2,
+      "Death Delver": 2,
       "Cleric": 2,
       "Druid": 2,
       "Ranger": 2,
@@ -717,6 +739,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 6,
       "Cleric": 6,
       "Druid": 6,
       "Sorcerer/Wizard": 6
@@ -740,6 +763,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Necromancy",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 4,
+      "Corrupt Avenger": 3,
+      "Dread Necromancer": 4,
       "Cleric": 3,
       "Sorcerer/Wizard": 4,
       "Gun Mage": 4,
@@ -788,6 +814,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Conjuration",
     "descriptors": [],
     "levels": {
+      "Corrupt Avenger": 4,
+      "Dread Necromancer": 4,
       "Sorcerer/Wizard": 4,
       "Warmage": 4
     },
@@ -864,6 +892,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
+      "Death Delver": 1,
       "Cleric": 1,
       "Paladin": 1,
       "Adept": 1,
@@ -909,6 +938,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Necromancy",
     "descriptors": [],
     "levels": {
+      "Paingiver": 4,
+      "Mortitheurge": 4,
+      "Dread Necromancer": 5,
+      "Blighter": 4,
       "Druid": 4,
       "Sorcerer/Wizard": 5
     },
@@ -931,6 +964,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Necromancy",
     "descriptors": [],
     "levels": {
+      "Paingiver": 2,
+      "Mortitheurge": 2,
+      "Dread Necromancer": 2,
+      "Vigilante": 2,
       "Bard": 2,
       "Cleric": 3,
       "Sorcerer/Wizard": 2,
@@ -955,6 +992,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Illusion",
     "descriptors": [],
     "levels": {
+      "Vigilante": 2,
       "Bard": 2,
       "Sorcerer/Wizard": 2,
       "Gun Mage": 2,
@@ -980,6 +1018,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Abjuration",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 5,
+      "Death Delver": 4,
+      "Vigilante": 4,
       "Bard": 4,
       "Cleric": 5,
       "Paladin": 4,
@@ -1008,6 +1049,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 2,
+      "Corrupt Avenger": 2,
+      "Death Delver": 2,
       "Cleric": 2,
       "Druid": 2,
       "Paladin": 2,
@@ -1035,6 +1079,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 6,
       "Cleric": 6,
       "Sorcerer/Wizard": 6
     },
@@ -1059,6 +1104,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Fire"
     ],
     "levels": {
+      "Blighter": 1,
       "Sorcerer/Wizard": 1,
       "Gun Mage": 1,
       "Duskblade": 1,
@@ -1111,6 +1157,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
+      "Consecrated Harrier": 1,
       "Bard": 2,
       "Cleric": 2,
       "Healer": 2,
@@ -1135,6 +1182,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 2,
+      "Vigilante": 2,
+      "Temple Raider of Olidammara": 2,
       "Bard": 2,
       "Druid": 2,
       "Ranger": 2,
@@ -1163,6 +1213,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 6,
       "Bard": 6,
       "Druid": 6,
       "Sorcerer/Wizard": 6
@@ -1189,6 +1240,12 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
+      "Paingiver": 1,
+      "Mortitheurge": 1,
+      "Corrupt Avenger": 1,
+      "Death Delver": 1,
+      "Dread Necromancer": 1,
+      "Vigilante": 1,
       "Bard": 1,
       "Cleric": 1,
       "Sorcerer/Wizard": 1,
@@ -1314,6 +1371,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
+      "Paingiver": 4,
+      "Mortitheurge": 4,
       "Bard": 3,
       "Sorcerer/Wizard": 4,
       "Gun Mage": 4,
@@ -1341,6 +1400,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
+      "Mortitheurge": 8,
       "Sorcerer/Wizard": 8
     },
     "components": "V",
@@ -1365,6 +1425,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
+      "Mortitheurge": 1,
+      "Consecrated Harrier": 2,
       "Bard": 1,
       "Sorcerer/Wizard": 1,
       "Gun Mage": 1,
@@ -1392,6 +1454,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Cold"
     ],
     "levels": {
+      "Blighter": 2,
       "Druid": 2,
       "Artificer": 2
     },
@@ -1414,6 +1477,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Necromancy",
     "descriptors": [],
     "levels": {
+      "Paingiver": 1,
+      "Mortitheurge": 1,
+      "Dread Necromancer": 1,
+      "Blighter": 2,
       "Sorcerer/Wizard": 1,
       "Gun Mage": 1,
       "Duskblade": 1,
@@ -1440,6 +1507,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Death"
     ],
     "levels": {
+      "Mortitheurge": 6,
+      "Dread Necromancer": 6,
+      "Blighter": 6,
       "Sorcerer/Wizard": 6,
       "Death": 6,
       "Gun Mage": 6,
@@ -1464,6 +1534,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Divination",
     "descriptors": [],
     "levels": {
+      "Vigilante": 3,
+      "Consecrated Harrier": 3,
       "Bard": 3,
       "Sorcerer/Wizard": 3,
       "Beguiler": 3,
@@ -1536,6 +1608,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Poison"
     ],
     "levels": {
+      "Mortitheurge": 5,
+      "Dread Necromancer": 5,
       "Sorcerer/Wizard": 5,
       "Gun Mage": 5,
       "Warmage": 5,
@@ -1590,6 +1664,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
+      "Consecrated Harrier": 1,
       "Cleric": 1,
       "Paladin": 1,
       "Adept": 1,
@@ -1636,6 +1711,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Necromancy",
     "descriptors": [],
     "levels": {
+      "Death Delver": 2,
+      "Dread Necromancer": 2,
       "Sorcerer/Wizard": 2,
       "Gun Mage": 2
     },
@@ -1702,6 +1779,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Divination",
     "descriptors": [],
     "levels": {
+      "Vigilante": 1,
       "Bard": 1,
       "Cleric": 1,
       "Sorcerer/Wizard": 1,
@@ -1755,6 +1833,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
+      "Paingiver": 4,
+      "Mortitheurge": 4,
+      "Temple Raider of Olidammara": 4,
       "Bard": 3,
       "Sorcerer/Wizard": 4,
       "Gun Mage": 4,
@@ -1852,6 +1933,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Evil"
     ],
     "levels": {
+      "Paingiver": 2,
+      "Mortitheurge": 2,
+      "Dread Necromancer": 4,
+      "Blighter": 3,
       "Cleric": 3,
       "Druid": 3,
       "Sorcerer/Wizard": 4,
@@ -1949,6 +2034,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Necromancy",
     "descriptors": [],
     "levels": {
+      "Dread Necromancer": 7,
+      "Blighter": 7,
       "Sorcerer/Wizard": 7,
       "Death": 7
     },
@@ -1996,6 +2083,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
+      "Blighter": 7,
       "Cleric": 7,
       "Druid": 7,
       "Sorcerer/Wizard": 7,
@@ -2067,6 +2155,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Evil"
     ],
     "levels": {
+      "Dread Necromancer": 8,
       "Cleric": 8,
       "Sorcerer/Wizard": 8,
       "Death": 8
@@ -2092,6 +2181,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Evil"
     ],
     "levels": {
+      "Dread Necromancer": 6,
+      "Blighter": 5,
       "Cleric": 6,
       "Sorcerer/Wizard": 6,
       "Death": 6,
@@ -2168,6 +2259,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
+      "Paingiver": 4,
+      "Mortitheurge": 4,
+      "Corrupt Avenger": 4,
+      "Dread Necromancer": 3,
       "Bard": 3,
       "Sorcerer/Wizard": 4,
       "Gun Mage": 3,
@@ -2430,6 +2525,12 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Darkness"
     ],
     "levels": {
+      "Paingiver": 2,
+      "Mortitheurge": 2,
+      "Corrupt Avenger": 2,
+      "Dread Necromancer": 2,
+      "Temple Raider of Olidammara": 2,
+      "Blighter": 2,
       "Bard": 2,
       "Cleric": 2,
       "Sorcerer/Wizard": 2,
@@ -2455,6 +2556,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 2,
       "Bard": 2,
       "Ranger": 3,
       "Sorcerer/Wizard": 2,
@@ -2482,6 +2584,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Light"
     ],
     "levels": {
+      "Consecrated Harrier": 2,
       "Bard": 3,
       "Cleric": 3,
       "Druid": 3,
@@ -2511,6 +2614,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
+      "Mortitheurge": 0,
       "Bard": 0,
       "Sorcerer/Wizard": 0,
       "Gun Mage": 0,
@@ -2538,6 +2642,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
+      "Paingiver": 1,
+      "Mortitheurge": 2,
       "Bard": 2,
       "Sorcerer/Wizard": 2,
       "Gun Mage": 2,
@@ -2566,6 +2672,11 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Evil"
     ],
     "levels": {
+      "Paingiver": 2,
+      "Mortitheurge": 2,
+      "Corrupt Avenger": 2,
+      "Dread Necromancer": 2,
+      "Blighter": 2,
       "Cleric": 2
     },
     "components": "V, S",
@@ -2587,6 +2698,13 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Necromancy",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 5,
+      "Corrupt Avenger": 4,
+      "Death Delver": 4,
+      "Dread Necromancer": 3,
+      "Consecrated Harrier": 3,
+      "Temple Raider of Olidammara": 4,
+      "Blighter": 4,
       "Cleric": 4,
       "Druid": 5,
       "Paladin": 4,
@@ -2613,6 +2731,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
+      "Paingiver": 3,
+      "Mortitheurge": 3,
+      "Death Delver": 3,
       "Bard": 3,
       "Sorcerer/Wizard": 3,
       "Gun Mage": 3,
@@ -2640,6 +2761,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Darkness"
     ],
     "levels": {
+      "Corrupt Avenger": 3,
+      "Blighter": 3,
       "Cleric": 3,
       "Adept": 3,
     "Anarch": 3, "Anti-Paladin": 3, "Paladin of Tyranny": 3, "Paladin of Slaughter": 3, "Ebonmar Infiltrator": 3},
@@ -2662,6 +2785,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Conjuration",
     "descriptors": [],
     "levels": {
+      "Death Delver": 2,
+      "Temple Raider of Olidammara": 2,
       "Bard": 2,
       "Cleric": 2,
       "Druid": 2,
@@ -2741,6 +2866,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Evil"
     ],
     "levels": {
+      "Blighter": 3,
       "Cleric": 2,
     "Anti-Paladin": 2, "Corrupter": 2},
     "components": "V, S, M, DF",
@@ -2764,6 +2890,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Death"
     ],
     "levels": {
+      "Mortitheurge": 8,
+      "Dread Necromancer": 7,
       "Cleric": 7,
       "Death": 7,
       "Destruction": 7
@@ -2787,6 +2915,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Divination",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 1,
       "Druid": 1,
       "Ranger": 1
     },
@@ -2876,6 +3005,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Divination",
     "descriptors": [],
     "levels": {
+      "Temple Raider of Olidammara": 1,
       "Cleric": 1,
       "Adept": 1,
     "Ebonmar Infiltrator": 1},
@@ -2898,6 +3028,11 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Divination",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 0,
+      "Corrupt Avenger": 1,
+      "Dread Necromancer": 1,
+      "Vigilante": 1,
+      "Blighter": 0,
       "Bard": 0,
       "Cleric": 0,
       "Druid": 0,
@@ -2926,6 +3061,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Divination",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 0,
+      "Corrupt Avenger": 1,
+      "Death Delver": 1,
+      "Blighter": 0,
       "Cleric": 0,
       "Druid": 0,
       "Paladin": 1,
@@ -2952,6 +3091,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Divination",
     "descriptors": [],
     "levels": {
+      "Vigilante": 4,
       "Bard": 4,
       "Cleric": 5,
       "Druid": 4,
@@ -2976,6 +3116,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Divination",
     "descriptors": [],
     "levels": {
+      "Vigilante": 1,
+      "Temple Raider of Olidammara": 1,
       "Bard": 1,
       "Sorcerer/Wizard": 1,
       "Beguiler": 1,
@@ -3023,6 +3165,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
+      "Mortitheurge": 2,
+      "Vigilante": 2,
+      "Consecrated Harrier": 2,
       "Bard": 2,
       "Sorcerer/Wizard": 2,
       "Gun Mage": 2,
@@ -3047,6 +3192,11 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Divination",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 1,
+      "Corrupt Avenger": 1,
+      "Death Delver": 1,
+      "Dread Necromancer": 1,
+      "Blighter": 1,
       "Cleric": 1,
       "Paladin": 1,
       "Sorcerer/Wizard": 1,
@@ -3139,6 +3289,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
+      "Blighter": 3,
       "Druid": 3,
       "Ranger": 3,
     "Incarnate (Paladin)": 3},
@@ -3161,6 +3312,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Divination",
     "descriptors": [],
     "levels": {
+      "Corrupt Avenger": 3,
+      "Consecrated Harrier": 3,
       "Cleric": 4,
       "Paladin": 3,
     "Enforcer": 3, "Despot": 3, "Paladin of Tyranny": 3},
@@ -3208,6 +3361,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Illusion",
     "descriptors": [],
     "levels": {
+      "Vigilante": 1,
+      "Consecrated Harrier": 1,
+      "Temple Raider of Olidammara": 1,
       "Bard": 1,
       "Sorcerer/Wizard": 1,
       "Gun Mage": 1,
@@ -3233,6 +3389,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 7,
       "Sorcerer/Wizard": 6,
       "Destruction": 7,
       "Gun Mage": 6,
@@ -3258,6 +3415,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Abjuration",
     "descriptors": [],
     "levels": {
+      "Consecrated Harrier": 4,
       "Cleric": 4,
       "Sorcerer/Wizard": 5,
     "Sentinel": 4, "Incarnate (Paladin)": 4},
@@ -3348,6 +3506,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Abjuration",
     "descriptors": [],
     "levels": {
+      "Holy Liberator": 4,
       "Cleric": 5,
       "Chaos": 5,
     "Avenger": 4, "Incarnate (Paladin)": 4, "Anarch": 4, "Anti-Paladin": 4, "Paladin of Slaughter": 4, "Paladin of Freedom": 4},
@@ -3370,6 +3529,11 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Abjuration",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 3,
+      "Corrupt Avenger": 3,
+      "Dread Necromancer": 4,
+      "Vigilante": 3,
+      "Blighter": 3,
       "Bard": 3,
       "Cleric": 3,
       "Druid": 3,
@@ -3398,6 +3562,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Abjuration",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 6,
+      "Dread Necromancer": 5,
+      "Blighter": 6,
       "Bard": 5,
       "Cleric": 6,
       "Druid": 6,
@@ -3424,6 +3591,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Illusion",
     "descriptors": [],
     "levels": {
+      "Vigilante": 3,
       "Bard": 3,
       "Sorcerer/Wizard": 3,
       "Gun Mage": 3,
@@ -3449,6 +3617,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Necromancy",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 0,
       "Sorcerer/Wizard": 0,
       "Duskblade": 0,
       "Warmage": 0,
@@ -3585,6 +3754,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
+      "Mortitheurge": 9,
       "Sorcerer/Wizard": 9,
       "Beguiler": 9,
     },
@@ -3610,6 +3780,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
+      "Mortitheurge": 5,
+      "Consecrated Harrier": 4,
       "Bard": 4,
       "Sorcerer/Wizard": 5,
       "Gun Mage": 5,
@@ -3638,6 +3810,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
+      "Corrupt Avenger": 1,
+      "Dread Necromancer": 1,
+      "Consecrated Harrier": 1,
+      "Blighter": 1,
       "Cleric": 1,
     "Anarch": 1, "Anti-Paladin": 1, "Corrupter": 1, "Paladin of Tyranny": 1},
     "components": "V, S, DF",
@@ -3684,6 +3860,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
+      "Vigilante": 2,
       "Bard": 2,
       "Cleric": 2,
       "Paladin": 2,
@@ -3735,6 +3912,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Earth"
     ],
     "levels": {
+      "Blighter": 7,
       "Cleric": 8,
       "Druid": 8,
       "Earth": 8,
@@ -3786,6 +3964,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Abjuration",
     "descriptors": [],
     "levels": {
+      "Paingiver": 1,
+      "Mortitheurge": 1,
+      "Corrupt Avenger": 1,
+      "Blighter": 1,
       "Cleric": 1,
       "Druid": 1,
       "Paladin": 1,
@@ -3813,6 +3995,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Necromancy",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 9,
+      "Dread Necromancer": 9,
       "Cleric": 9,
       "Sorcerer/Wizard": 9
     },
@@ -3835,6 +4019,11 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Necromancy",
     "descriptors": [],
     "levels": {
+      "Paingiver": 4,
+      "Mortitheurge": 4,
+      "Corrupt Avenger": 4,
+      "Death Delver": 4,
+      "Dread Necromancer": 4,
       "Sorcerer/Wizard": 4,
       "Gun Mage": 4,
       "Duskblade": 4
@@ -3951,6 +4140,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
+      "Vigilante": 1,
       "Bard": 1,
       "Sorcerer/Wizard": 1
     },
@@ -3973,6 +4163,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
+      "Paingiver": 1,
+      "Mortitheurge": 1,
+      "Vigilante": 1,
       "Bard": 1,
       "Sorcerer/Wizard": 1,
       "Gun Mage": 1,
@@ -4023,6 +4216,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Evil"
     ],
     "levels": {
+      "Mortitheurge": 6,
+      "Dread Necromancer": 6,
       "Bard": 6,
       "Sorcerer/Wizard": 6,
       "Gun Mage": 6
@@ -4091,6 +4286,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Necromancy",
     "descriptors": [],
     "levels": {
+      "Paingiver": 2,
+      "Mortitheurge": 2,
+      "Corrupt Avenger": 2,
+      "Dread Necromancer": 2,
       "Sorcerer/Wizard": 2,
       "Gun Mage": 2
     },
@@ -4137,6 +4336,12 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
+      "Paingiver": 4,
+      "Mortitheurge": 4,
+      "Corrupt Avenger": 3,
+      "Death Delver": 4,
+      "Dread Necromancer": 4,
+      "Vigilante": 3,
       "Bard": 3,
       "Sorcerer/Wizard": 4,
       "Gun Mage": 4,
@@ -4160,6 +4365,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
+      "Vigilante": 1,
       "Bard": 1,
       "Sorcerer/Wizard": 1,
       "Gun Mage": 1,
@@ -4185,6 +4391,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
+      "Mortitheurge": 5,
       "Sorcerer/Wizard": 5,
       "Gun Mage": 5,
       "Beguiler": 5,
@@ -4256,6 +4463,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Death"
     ],
     "levels": {
+      "Mortitheurge": 7,
+      "Dread Necromancer": 7,
+      "Blighter": 6,
       "Cleric": 7,
       "Druid": 9,
       "Sorcerer/Wizard": 7,
@@ -4283,6 +4493,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Fire"
     ],
     "levels": {
+      "Blighter": 6,
       "Druid": 6,
       "Sun": 6,
       "Warmage": 6,
@@ -4337,6 +4548,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Fire"
     ],
     "levels": {
+      "Blighter": 7,
       "Cleric": 7,
       "Druid": 8,
       "Fire": 8,
@@ -4363,6 +4575,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Fire"
     ],
     "levels": {
+      "Blighter": 2,
       "Druid": 2,
       "Sorcerer/Wizard": 4,
       "Gun Mage": 4,
@@ -4461,6 +4674,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Fire"
     ],
     "levels": {
+      "Blighter": 4,
       "Cleric": 5,
       "Druid": 4,
       "Sun": 5,
@@ -4488,6 +4702,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Fire"
     ],
     "levels": {
+      "Blighter": 2,
       "Druid": 2,
       "Sorcerer/Wizard": 2,
       "Gun Mage": 2,
@@ -4514,6 +4729,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Light"
     ],
     "levels": {
+      "Blighter": 0,
       "Bard": 0,
       "Druid": 0,
       "Sorcerer/Wizard": 0,
@@ -4538,6 +4754,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 6,
       "Sorcerer/Wizard": 6,
       "Gun Mage": 6,
     },
@@ -4603,6 +4820,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Conjuration",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 2,
       "Druid": 2,
       "Sorcerer/Wizard": 2,
       "Gun Mage": 2,
@@ -4651,6 +4869,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Divination",
     "descriptors": [],
     "levels": {
+      "Blighter": 9,
       "Druid": 9,
       "Sorcerer/Wizard": 9,
       "Knowledge": 9,
@@ -4677,6 +4896,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
+      "Vigilante": 2,
       "Bard": 2,
       "Sorcerer/Wizard": 2,
       "Artificer": 2,
@@ -4743,6 +4963,11 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Abjuration",
     "descriptors": [],
     "levels": {
+      "Corrupt Avenger": 4,
+      "Death Delver": 4,
+      "Vigilante": 4,
+      "Holy Liberator": 4,
+      "Temple Raider of Olidammara": 4,
       "Bard": 4,
       "Cleric": 4,
       "Druid": 4,
@@ -4795,6 +5020,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
+      "Vigilante": 3,
       "Bard": 3,
       "Sorcerer/Wizard": 3,
     "Trapsmith": 1},
@@ -4847,6 +5073,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
+      "Mortitheurge": 6,
+      "Dread Necromancer": 6,
       "Bard": 6,
       "Cleric": 6,
       "Sorcerer/Wizard": 6,
@@ -4872,6 +5100,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Necromancy",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 3,
+      "Dread Necromancer": 2,
       "Cleric": 2,
       "Sorcerer/Wizard": 3,
       "Healer": 2
@@ -4895,6 +5125,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Illusion",
     "descriptors": [],
     "levels": {
+      "Vigilante": 1,
+      "Blighter": 0,
       "Bard": 0,
       "Sorcerer/Wizard": 0,
       "Gun Mage": 0,
@@ -4921,6 +5153,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Necromancy",
     "descriptors": [],
     "levels": {
+      "Paingiver": 2,
+      "Mortitheurge": 2,
+      "Dread Necromancer": 2,
       "Sorcerer/Wizard": 2,
       "Duskblade": 2
     },
@@ -4943,6 +5178,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
+      "Dread Necromancer": 4,
       "Cleric": 4,
       "Druid": 4
     },
@@ -4965,6 +5201,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
+      "Vigilante": 3,
       "Bard": 3,
       "Beguiler": 3,
     "Corrupter": 3},
@@ -5171,6 +5408,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Conjuration",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 1,
       "Bard": 1,
       "Sorcerer/Wizard": 1,
       "Gun Mage": 1
@@ -5290,6 +5528,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Illusion",
     "descriptors": [],
     "levels": {
+      "Vigilante": 4,
       "Bard": 4,
       "Sorcerer/Wizard": 4,
     },
@@ -5313,6 +5552,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Necromancy",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 3,
+      "Death Delver": 3,
+      "Dread Necromancer": 3,
       "Sorcerer/Wizard": 3
     },
     "components": "V, S, M",
@@ -5334,6 +5576,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Necromancy",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 6,
+      "Dread Necromancer": 6,
+      "Blighter": 5,
       "Cleric": 6,
       "Destruction": 6
     },
@@ -5356,6 +5601,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
+      "Paingiver": 3,
+      "Mortitheurge": 3,
+      "Corrupt Avenger": 3,
+      "Vigilante": 3,
       "Bard": 3,
       "Sorcerer/Wizard": 3,
       "Gun Mage": 3,
@@ -5454,6 +5703,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Fire"
     ],
     "levels": {
+      "Blighter": 2,
       "Druid": 2,
       "Artificer": 2
     },
@@ -5523,6 +5773,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
+      "Mortitheurge": 3,
+      "Holy Liberator": 2,
       "Bard": 2,
       "Sorcerer/Wizard": 3,
       "Gun Mage": 3
@@ -5549,6 +5801,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
+      "Mortitheurge": 6,
       "Bard": 5,
       "Sorcerer/Wizard": 6,
       "Gun Mage": 6
@@ -5595,6 +5848,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Abjuration",
     "descriptors": [],
     "levels": {
+      "Death Delver": 1,
+      "Dread Necromancer": 1,
       "Cleric": 1
     },
     "components": "V, S, DF",
@@ -5668,6 +5923,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
+      "Mortitheurge": 5,
       "Bard": 4,
       "Sorcerer/Wizard": 5,
       "Law": 6,
@@ -5697,6 +5953,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
+      "Mortitheurge": 9,
       "Sorcerer/Wizard": 9,
       "Beguiler": 9
     },
@@ -5722,6 +5979,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
+      "Paingiver": 3,
+      "Mortitheurge": 3,
+      "Consecrated Harrier": 2,
       "Bard": 2,
       "Cleric": 2,
       "Sorcerer/Wizard": 3,
@@ -5750,6 +6010,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
+      "Mortitheurge": 7,
       "Sorcerer/Wizard": 7,
       "Beguiler": 7
     },
@@ -5893,6 +6154,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Necromancy",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 8,
+      "Dread Necromancer": 8,
+      "Blighter": 8,
       "Sorcerer/Wizard": 8,
       "Water": 8,
       "Warmage": 8,
@@ -5918,6 +6182,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
+      "Vigilante": 2,
       "Bard": 2,
       "Sorcerer/Wizard": 2,
       "Gun Mage": 2,
@@ -5945,6 +6210,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
+      "Mortitheurge": 1,
       "Bard": 1,
       "Sorcerer/Wizard": 1,
       "Gun Mage": 1,
@@ -5997,6 +6263,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Divination",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 2,
+      "Vigilante": 1,
       "Bard": 1,
       "Sorcerer/Wizard": 1,
       "Artificer": 1
@@ -6022,6 +6290,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
+      "Vigilante": 3,
       "Bard": 3,
       "Sorcerer/Wizard": 3,
     "Ebonmar Infiltrator": 2},
@@ -6089,6 +6358,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Evocation",
     "descriptors": [],
     "levels": {
+      "Blighter": 9,
       "Cleric": 9,
       "Destruction": 9,
       "Warmage": 9,
@@ -6135,6 +6405,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Fire"
     ],
     "levels": {
+      "Blighter": 9,
       "Sorcerer/Wizard": 8,
       "Fire": 8,
       "Warmage": 8,
@@ -6159,6 +6430,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Necromancy",
     "descriptors": [],
     "levels": {
+      "Paingiver": 4,
+      "Mortitheurge": 4,
+      "Dread Necromancer": 4,
+      "Blighter": 4,
       "Cleric": 4,
     "Paladin of Tyranny": 4, "Paladin of Slaughter": 4},
     "components": "V, S",
@@ -6180,6 +6455,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Necromancy",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 8,
+      "Dread Necromancer": 8,
       "Cleric": 8
     },
     "components": "V, S",
@@ -6201,6 +6478,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Necromancy",
     "descriptors": [],
     "levels": {
+      "Paingiver": 1,
+      "Mortitheurge": 1,
+      "Dread Necromancer": 1,
+      "Blighter": 1,
       "Cleric": 1,
     "Anti-Paladin": 1, "Corrupter": 1, "Paladin of Tyranny": 1, "Paladin of Slaughter": 1},
     "components": "V, S",
@@ -6222,6 +6503,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Necromancy",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 0,
+      "Blighter": 0,
       "Cleric": 0
     },
     "components": "V, S",
@@ -6243,6 +6526,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Necromancy",
     "descriptors": [],
     "levels": {
+      "Paingiver": 2,
+      "Mortitheurge": 2,
+      "Dread Necromancer": 2,
+      "Blighter": 2,
       "Cleric": 2,
     "Anti-Paladin": 3, "Corrupter": 3, "Paladin of Tyranny": 2, "Paladin of Slaughter": 2},
     "components": "V, S",
@@ -6264,6 +6551,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Necromancy",
     "descriptors": [],
     "levels": {
+      "Paingiver": 3,
+      "Mortitheurge": 3,
+      "Dread Necromancer": 3,
+      "Blighter": 3,
       "Cleric": 3,
     "Anti-Paladin": 4, "Corrupter": 4, "Paladin of Tyranny": 3, "Paladin of Slaughter": 3},
     "components": "V, S",
@@ -6287,6 +6578,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
+      "Mortitheurge": 7,
       "Sorcerer/Wizard": 7,
       "Madness": 7
     },
@@ -6310,6 +6602,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Conjuration",
     "descriptors": [],
     "levels": {
+      "Dread Necromancer": 5,
       "Cleric": 5,
       "Druid": 4
     },
@@ -6356,6 +6649,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Illusion",
     "descriptors": [],
     "levels": {
+      "Vigilante": 2,
+      "Temple Raider of Olidammara": 2,
       "Bard": 2,
       "Sorcerer/Wizard": 2,
       "Gun Mage": 2,
@@ -6403,6 +6698,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Illusion",
     "descriptors": [],
     "levels": {
+      "Vigilante": 3,
       "Bard": 3,
       "Sorcerer/Wizard": 3,
       "Gun Mage": 3,
@@ -6428,6 +6724,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Illusion",
     "descriptors": [],
     "levels": {
+      "Vigilante": 4,
       "Bard": 4,
       "Sorcerer/Wizard": 4,
       "Gun Mage": 4,
@@ -6543,6 +6840,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 1,
       "Druid": 1,
       "Ranger": 1,
       "Sorcerer/Wizard": 1,
@@ -6568,6 +6866,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 3,
       "Sorcerer/Wizard": 3,
       "Duskblade": 3,
     },
@@ -6613,6 +6912,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Divination",
     "descriptors": [],
     "levels": {
+      "Vigilante": 1,
       "Bard": 0,
       "Druid": 0,
       "Gun Mage": 0,
@@ -6636,6 +6936,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Divination",
     "descriptors": [],
     "levels": {
+      "Vigilante": 4,
+      "Consecrated Harrier": 4,
       "Bard": 4,
       "Sorcerer/Wizard": 6,
       "Knowledge": 7,
@@ -6780,6 +7082,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Divination",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 4,
+      "Vigilante": 4,
       "Bard": 4,
       "Sorcerer/Wizard": 4,
       "Gun Mage": 4,
@@ -6804,6 +7108,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Divination",
     "descriptors": [],
     "levels": {
+      "Vigilante": 2,
+      "Temple Raider of Olidammara": 3,
       "Bard": 2,
       "Cleric": 3,
       "Sorcerer/Wizard": 2,
@@ -6828,6 +7134,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
+      "Paingiver": 1,
+      "Mortitheurge": 1,
       "Druid": 1,
       "Ranger": 1,
     "Incarnate (Paladin)": 1},
@@ -6898,6 +7206,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
+      "Vigilante": 1,
       "Bard": 0,
       "Sorcerer/Wizard": 0,
       "Gun Mage": 0,
@@ -7031,6 +7340,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Illusion",
     "descriptors": [],
     "levels": {
+      "Vigilante": 1,
       "Bard": 1,
       "Sorcerer/Wizard": 1,
       "Gun Mage": 1
@@ -7130,6 +7440,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Abjuration",
     "descriptors": [],
     "levels": {
+      "Holy Liberator": 3,
+      "Temple Raider of Olidammara": 3,
       "Cleric": 3,
       "Paladin": 3,
       "Sorcerer/Wizard": 3,
@@ -7198,6 +7510,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Necromancy",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 5,
+      "Dread Necromancer": 5,
       "Sorcerer/Wizard": 5,
       "Gun Mage": 5
     },
@@ -7245,6 +7559,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Illusion",
     "descriptors": [],
     "levels": {
+      "Vigilante": 1,
       "Bard": 1,
       "Sorcerer/Wizard": 2
     },
@@ -7315,6 +7630,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
+      "Corrupt Avenger": 1,
       "Cleric": 1,
       "Paladin": 1,
       "Sorcerer/Wizard": 1,
@@ -7341,6 +7657,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
+      "Corrupt Avenger": 3,
       "Cleric": 4,
       "Paladin": 3,
       "Sorcerer/Wizard": 3,
@@ -7391,6 +7708,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Illusion",
     "descriptors": [],
     "levels": {
+      "Vigilante": 3,
       "Bard": 3,
       "Sorcerer/Wizard": 3,
       "Beguiler": 3,
@@ -7436,6 +7754,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Necromancy",
     "descriptors": [],
     "levels": {
+      "Consecrated Harrier": 4,
       "Cleric": 5,
       "Paladin": 4,
     "Enforcer": 4, "Paladin of Freedom": 4},
@@ -7482,6 +7801,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 0,
+      "Vigilante": 1,
       "Bard": 0,
       "Cleric": 0,
       "Druid": 0,
@@ -7511,6 +7832,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Language-Dependent"
     ],
     "levels": {
+      "Vigilante": 1,
       "Bard": 0,
       "Sorcerer/Wizard": 0,
       "Gun Mage": 0,
@@ -7559,6 +7881,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Abjuration",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 8,
+      "Blighter": 8,
       "Sorcerer/Wizard": 8,
       "Protection": 8,
       "Beguiler": 8,
@@ -7584,6 +7908,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
+      "Mortitheurge": 5,
       "Bard": 5,
       "Sorcerer/Wizard": 5,
       "Gun Mage": 5,
@@ -7633,6 +7958,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Illusion",
     "descriptors": [],
     "levels": {
+      "Vigilante": 2,
       "Bard": 2,
       "Sorcerer/Wizard": 2,
       "Beguiler": 2,
@@ -7702,6 +8028,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Illusion",
     "descriptors": [],
     "levels": {
+      "Vigilante": 2,
       "Bard": 2,
       "Sorcerer/Wizard": 2,
       "Gun Mage": 2,
@@ -7728,6 +8055,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Illusion",
     "descriptors": [],
     "levels": {
+      "Vigilante": 2,
       "Bard": 2,
       "Sorcerer/Wizard": 2,
       "Gun Mage": 2,
@@ -7917,6 +8245,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Conjuration",
     "descriptors": [],
     "levels": {
+      "Paingiver": 4,
+      "Mortitheurge": 4,
+      "Death Delver": 4,
+      "Temple Raider of Olidammara": 4,
       "Bard": 3,
       "Cleric": 3,
       "Druid": 3,
@@ -7948,6 +8280,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Evil"
     ],
     "levels": {
+      "Dread Necromancer": 5,
       "Bard": 5,
       "Sorcerer/Wizard": 5,
     },
@@ -7971,6 +8304,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Abjuration",
     "descriptors": [],
     "levels": {
+      "Temple Raider of Olidammara": 3,
       "Bard": 3,
       "Ranger": 3,
       "Sorcerer/Wizard": 3,
@@ -7996,6 +8330,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Abjuration",
     "descriptors": [],
     "levels": {
+      "Vigilante": 1,
+      "Temple Raider of Olidammara": 3,
       "Cleric": 3,
       "Sorcerer/Wizard": 2,
       "Bard": 1,
@@ -8020,6 +8356,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Conjuration",
     "descriptors": [],
     "levels": {
+      "Temple Raider of Olidammara": 1,
       "Cleric": 1,
       "Druid": 1,
       "Sorcerer/Wizard": 1,
@@ -8048,6 +8385,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
+      "Vigilante": 1,
       "Bard": 0,
       "Sorcerer/Wizard": 0,
       "Gun Mage": 0,
@@ -8209,6 +8547,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Universal",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 5,
       "Sorcerer/Wizard": 5,
       "Gun Mage": 5,
     },
@@ -8280,6 +8619,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
+      "Corrupt Avenger": 4,
+      "Dread Necromancer": 4,
       "Sorcerer/Wizard": 4,
       "Duskblade": 4,
       "Warmage": 4
@@ -8416,6 +8757,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Conjuration",
     "descriptors": [],
     "levels": {
+      "Dread Necromancer": 6,
       "Sorcerer/Wizard": 6
     },
     "components": "V, S",
@@ -8460,6 +8802,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Conjuration",
     "descriptors": [],
     "levels": {
+      "Dread Necromancer": 5,
       "Sorcerer/Wizard": 5
     },
     "components": "V, S",
@@ -8505,6 +8848,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Necromancy",
     "descriptors": [],
     "levels": {
+      "Paingiver": 3,
+      "Mortitheurge": 3,
+      "Dread Necromancer": 4,
+      "Blighter": 3,
       "Cleric": 3,
       "Druid": 3,
       "Warmage": 3,
@@ -8600,6 +8947,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
+      "Mortitheurge": 7,
       "Sorcerer/Wizard": 7,
       "Beguiler": 7,
     },
@@ -8626,6 +8974,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
+      "Mortitheurge": 9,
       "Sorcerer/Wizard": 9,
       "War": 9,
       "Death": 9,
@@ -8653,6 +9002,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
+      "Mortitheurge": 8,
       "Sorcerer/Wizard": 8,
       "War": 8,
       "Beguiler": 8,
@@ -8702,6 +9052,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Universal",
     "descriptors": [],
     "levels": {
+      "Vigilante": 1,
       "Bard": 0,
       "Sorcerer/Wizard": 0,
       "Gun Mage": 0,
@@ -8794,6 +9145,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Fire"
     ],
     "levels": {
+      "Blighter": 2,
       "Druid": 1,
     },
     "components": "V, S",
@@ -8885,6 +9237,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Abjuration",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 3,
+      "Corrupt Avenger": 3,
+      "Death Delver": 3,
+      "Blighter": 3,
       "Cleric": 3,
       "Druid": 3,
       "Ranger": 3,
@@ -8961,6 +9317,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Abjuration",
     "descriptors": [],
     "levels": {
+      "Holy Liberator": 1,
+      "Temple Raider of Olidammara": 1,
       "Cleric": 1,
       "Sorcerer/Wizard": 1,
       "Gun Mage": 1,
@@ -9076,6 +9434,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
+      "Vigilante": 2,
       "Bard": 2,
       "Sorcerer/Wizard": 2,
       "Gun Mage": 2,
@@ -9123,6 +9482,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
+      "Paingiver": 3,
+      "Mortitheurge": 3,
       "Bard": 2,
       "Sorcerer/Wizard": 3,
       "Gun Mage": 3,
@@ -9149,6 +9510,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
+      "Vigilante": 4,
       "Bard": 4,
       "Sorcerer/Wizard": 4,
       "Beguiler": 4
@@ -9197,6 +9559,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Necromancy",
     "descriptors": [],
     "levels": {
+      "Paingiver": 1,
+      "Mortitheurge": 1,
+      "Dread Necromancer": 1,
+      "Blighter": 1,
       "Sorcerer/Wizard": 1,
       "Gun Mage": 1,
       "Duskblade": 1,
@@ -9220,6 +9586,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Necromancy",
     "descriptors": [],
     "levels": {
+      "Paingiver": 3,
+      "Mortitheurge": 3,
+      "Dread Necromancer": 3,
       "Sorcerer/Wizard": 3,
       "Gun Mage": 3,
       "Duskblade": 3
@@ -9269,6 +9638,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Divination",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 0,
+      "Corrupt Avenger": 1,
+      "Vigilante": 1,
+      "Blighter": 0,
       "Bard": 0,
       "Cleric": 0,
       "Druid": 0,
@@ -9409,6 +9782,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Conjuration",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 5,
+      "Death Delver": 3,
       "Cleric": 3,
       "Paladin": 3,
       "Healer": 2,
@@ -9433,6 +9808,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Abjuration",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 4,
+      "Corrupt Avenger": 3,
+      "Vigilante": 3,
+      "Temple Raider of Olidammara": 3,
       "Bard": 3,
       "Cleric": 3,
       "Paladin": 3,
@@ -9460,6 +9839,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Conjuration",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 4,
+      "Death Delver": 3,
       "Cleric": 3,
       "Druid": 3,
       "Paladin": 3,
@@ -9487,6 +9868,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Abjuration",
     "descriptors": [],
     "levels": {
+      "Death Delver": 1,
+      "Vigilante": 1,
       "Bard": 1,
       "Cleric": 1,
       "Healer": 1,
@@ -9510,6 +9893,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Conjuration",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 3,
+      "Death Delver": 2,
       "Cleric": 2,
       "Paladin": 2,
       "Healer": 1,
@@ -9534,6 +9919,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Abjuration",
     "descriptors": [],
     "levels": {
+      "Blighter": 7,
       "Druid": 8,
     },
     "components": "V, S",
@@ -9555,6 +9941,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Abjuration",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 4,
+      "Vigilante": 4,
+      "Blighter": 4,
       "Bard": 4,
       "Cleric": 4,
       "Druid": 4,
@@ -9579,6 +9968,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
+      "Blighter": 5,
       "Druid": 6,
       "Plant": 6,
     },
@@ -9601,6 +9991,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Abjuration",
     "descriptors": [],
     "levels": {
+      "Blighter": 7,
       "Bard": 6,
       "Cleric": 6,
       "Sorcerer/Wizard": 6,
@@ -9627,6 +10018,12 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Abjuration",
     "descriptors": [],
     "levels": {
+      "Paingiver": 2,
+      "Mortitheurge": 2,
+      "Corrupt Avenger": 2,
+      "Death Delver": 2,
+      "Temple Raider of Olidammara": 3,
+      "Blighter": 2,
       "Cleric": 2,
       "Druid": 2,
       "Paladin": 2,
@@ -9655,6 +10052,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Abjuration",
     "descriptors": [],
     "levels": {
+      "Corrupt Avenger": 1,
+      "Vigilante": 1,
       "Bard": 0,
       "Cleric": 0,
       "Druid": 0,
@@ -9681,6 +10080,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Conjuration",
     "descriptors": [],
     "levels": {
+      "Death Delver": 4,
+      "Temple Raider of Olidammara": 4,
       "Cleric": 4,
       "Paladin": 4,
       "Healer": 3,
@@ -9729,6 +10130,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Conjuration",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 4,
+      "Death Delver": 1,
+      "Temple Raider of Olidammara": 2,
       "Cleric": 2,
       "Druid": 2,
       "Paladin": 1,
@@ -9821,6 +10225,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
+      "Blighter": 4,
       "Druid": 4,
       "Artificer": 4
     },
@@ -9868,6 +10273,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
+      "Corrupt Avenger": 2,
+      "Dread Necromancer": 2,
+      "Vigilante": 2,
       "Bard": 2,
       "Sorcerer/Wizard": 2,
       "Gun Mage": 2,
@@ -9968,6 +10376,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Divination",
     "descriptors": [],
     "levels": {
+      "Vigilante": 3,
       "Bard": 3,
       "Cleric": 5,
       "Druid": 4,
@@ -10018,6 +10427,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
+      "Vigilante": 3,
       "Bard": 3
     },
     "components": "V, S",
@@ -10060,6 +10470,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
+      "Vigilante": 3,
       "Bard": 3,
       "Sorcerer/Wizard": 3,
     "Ebonmar Infiltrator": 3},
@@ -10105,6 +10516,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Divination",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 2,
+      "Vigilante": 3,
+      "Consecrated Harrier": 3,
+      "Temple Raider of Olidammara": 3,
       "Bard": 2,
       "Sorcerer/Wizard": 2,
       "Gun Mage": 2,
@@ -10226,6 +10641,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Conjuration",
     "descriptors": [],
     "levels": {
+      "Blighter": 8,
       "Druid": 9,
     },
     "components": "V, S, DF",
@@ -10273,6 +10689,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sonic"
     ],
     "levels": {
+      "Corrupt Avenger": 2,
       "Bard": 2,
       "Cleric": 2,
       "Sorcerer/Wizard": 2,
@@ -10513,6 +10930,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Illusion",
     "descriptors": [],
     "levels": {
+      "Vigilante": 2,
       "Bard": 2,
       "Cleric": 2,
       "Gun Mage": 2,
@@ -10538,6 +10956,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Illusion",
     "descriptors": [],
     "levels": {
+      "Vigilante": 1,
       "Bard": 1,
       "Sorcerer/Wizard": 1,
       "Beguiler": 1,
@@ -10564,6 +10983,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Death"
     ],
     "levels": {
+      "Mortitheurge": 5,
+      "Dread Necromancer": 5,
       "Cleric": 5,
       "Death": 5
     },
@@ -10588,6 +11009,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
+      "Mortitheurge": 1,
       "Bard": 1,
       "Sorcerer/Wizard": 1,
       "Gun Mage": 1,
@@ -10641,6 +11063,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
+      "Paingiver": 3,
+      "Mortitheurge": 3,
+      "Corrupt Avenger": 3,
+      "Vigilante": 3,
       "Bard": 3,
       "Sorcerer/Wizard": 3,
       "Gun Mage": 3,
@@ -10738,6 +11164,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sonic"
     ],
     "levels": {
+      "Dread Necromancer": 7,
       "Bard": 5
     },
     "components": "V, S",
@@ -10760,6 +11187,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Necromancy",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 9,
       "Cleric": 9,
       "Sorcerer/Wizard": 9,
     },
@@ -10807,6 +11235,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Divination",
     "descriptors": [],
     "levels": {
+      "Vigilante": 3,
       "Bard": 3,
       "Druid": 1,
       "Ranger": 1,
@@ -10833,6 +11262,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Language-Dependent"
     ],
     "levels": {
+      "Mortitheurge": 4,
+      "Corrupt Avenger": 3,
+      "Death Delver": 3,
+      "Dread Necromancer": 3,
       "Cleric": 3,
     },
     "components": "V, S, DF",
@@ -10854,6 +11287,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Divination",
     "descriptors": [],
     "levels": {
+      "Vigilante": 4,
       "Bard": 3,
       "Druid": 3,
       "Ranger": 2,
@@ -10877,6 +11311,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Necromancy",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 2,
+      "Dread Necromancer": 2,
       "Sorcerer/Wizard": 2
     },
     "components": "V, S",
@@ -10898,6 +11334,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Abjuration",
     "descriptors": [],
     "levels": {
+      "Temple Raider of Olidammara": 4,
       "Cleric": 4,
     },
     "components": "V, S, DF",
@@ -10961,6 +11398,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Abjuration",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 7,
       "Sorcerer/Wizard": 7,
       "Magic": 7,
       "Luck": 7,
@@ -11145,6 +11583,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Poison"
     ],
     "levels": {
+      "Blighter": 3,
       "Sorcerer/Wizard": 3,
       "Gun Mage": 3,
       "Warmage": 3,
@@ -11216,6 +11655,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 6,
       "Sorcerer/Wizard": 6,
       "Gun Mage": 6,
       "Healer": 5,
@@ -11239,6 +11679,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Abjuration",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 4,
       "Druid": 5,
       "Sorcerer/Wizard": 4,
       "Earth": 4,
@@ -11265,6 +11706,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Conjuration",
     "descriptors": [],
     "levels": {
+      "Blighter": 9,
       "Cleric": 9,
       "Druid": 9,
     },
@@ -11291,6 +11733,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
+      "Mortitheurge": 3,
       "Bard": 2,
       "Sorcerer/Wizard": 3,
       "Gun Mage": 3,
@@ -11782,6 +12225,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Conjuration",
     "descriptors": [],
     "levels": {
+      "Corrupt Avenger": 2,
+      "Dread Necromancer": 2,
       "Bard": 2,
       "Druid": 2,
       "Sorcerer/Wizard": 2
@@ -11859,6 +12304,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Death"
     ],
     "levels": {
+      "Mortitheurge": 8,
+      "Dread Necromancer": 8,
       "Cleric": 8,
       "Sorcerer/Wizard": 8,
     },
@@ -11884,6 +12331,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
+      "Mortitheurge": 6,
       "Cleric": 6,
       "Sorcerer/Wizard": 6,
       "Gun Mage": 6,
@@ -11909,6 +12357,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
+      "Mortitheurge": 8,
       "Cleric": 8,
       "Sorcerer/Wizard": 8,
     },
@@ -11934,6 +12383,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Evil"
     ],
     "levels": {
+      "Mortitheurge": 5,
       "Cleric": 5,
       "Sorcerer/Wizard": 5,
       "Gun Mage": 5,
@@ -11959,6 +12409,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
+      "Mortitheurge": 6,
       "Cleric": 6,
       "Sorcerer/Wizard": 6,
       "Gun Mage": 6,
@@ -11985,6 +12436,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
+      "Mortitheurge": 5,
       "Cleric": 5,
       "Sorcerer/Wizard": 5,
       "Gun Mage": 5,
@@ -12010,6 +12462,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
+      "Mortitheurge": 7,
       "Cleric": 7,
       "Sorcerer/Wizard": 7,
     },
@@ -12033,6 +12486,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Necromancy",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 7,
       "Cleric": 7,
       "Sorcerer/Wizard": 7,
     },
@@ -12171,6 +12625,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 8,
       "Sorcerer/Wizard": 8
     },
     "components": "V, S, M",
@@ -12240,6 +12695,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Divination",
     "descriptors": [],
     "levels": {
+      "Vigilante": 2,
       "Bard": 2,
       "Cleric": 4,
       "Sorcerer/Wizard": 3,
@@ -12264,6 +12720,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Necromancy",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 0,
+      "Blighter": 0,
       "Sorcerer/Wizard": 0,
       "Gun Mage": 0,
       "Duskblade": 0,
@@ -12290,6 +12748,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mind-Affecting"
     ],
     "levels": {
+      "Paingiver": 2,
+      "Mortitheurge": 2,
       "Sorcerer/Wizard": 2,
       "Gun Mage": 2,
       "Beguiler": 2,
@@ -12315,6 +12775,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 6,
       "Sorcerer/Wizard": 6,
       "Gun Mage": 6,
       "Warmage": 6
@@ -12361,6 +12822,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Earth"
     ],
     "levels": {
+      "Blighter": 4,
       "Druid": 5,
       "Sorcerer/Wizard": 5
     },
@@ -12385,6 +12847,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Earth"
     ],
     "levels": {
+      "Blighter": 4,
       "Druid": 5,
       "Sorcerer/Wizard": 5,
     },
@@ -12407,6 +12870,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Conjuration",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 8,
       "Sorcerer/Wizard": 8
     },
     "components": "V, S, M, F",
@@ -12526,6 +12990,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Necromancy",
     "descriptors": [],
     "levels": {
+      "Dread Necromancer": 5,
       "Cleric": 6,
       "Sorcerer/Wizard": 6
     },
@@ -12548,6 +13013,10 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Abjuration",
     "descriptors": [],
     "levels": {
+      "Corrupt Avenger": 2,
+      "Dread Necromancer": 1,
+      "Vigilante": 1,
+      "Temple Raider of Olidammara": 2,
       "Bard": 1,
       "Cleric": 2,
       "Paladin": 2,
@@ -12575,6 +13044,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Evil"
     ],
     "levels": {
+      "Dread Necromancer": 5,
+      "Blighter": 4,
       "Cleric": 5,
       "Druid": 5,
     "Corrupter": 4},
@@ -12667,6 +13138,11 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Necromancy",
     "descriptors": [],
     "levels": {
+      "Paingiver": 3,
+      "Mortitheurge": 3,
+      "Corrupt Avenger": 2,
+      "Dread Necromancer": 3,
+      "Blighter": 3,
       "Sorcerer/Wizard": 3,
       "Gun Mage": 3,
       "Duskblade": 3
@@ -12714,6 +13190,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Illusion",
     "descriptors": [],
     "levels": {
+      "Vigilante": 1,
       "Bard": 1,
       "Sorcerer/Wizard": 1,
       "Gun Mage": 1,
@@ -12761,6 +13238,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Divination",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 7,
       "Sorcerer/Wizard": 7,
     },
     "components": "V, S, XP",
@@ -12785,6 +13263,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Sonic"
     ],
     "levels": {
+      "Mortitheurge": 9,
+      "Dread Necromancer": 9,
       "Sorcerer/Wizard": 9,
       "Death": 9,
       "Warmage": 9
@@ -12810,6 +13290,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Fire"
     ],
     "levels": {
+      "Blighter": 4,
       "Druid": 5,
       "Sorcerer/Wizard": 4,
       "Fire": 4,
@@ -12962,6 +13443,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 2,
+      "Blighter": 2,
       "Druid": 2,
     },
     "components": "V, S",
@@ -13030,6 +13513,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Necromancy",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 7,
+      "Dread Necromancer": 6,
+      "Blighter": 8,
       "Sorcerer/Wizard": 7,
       "Warmage": 7
     },
@@ -13052,6 +13538,9 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Necromancy",
     "descriptors": [],
     "levels": {
+      "Mortitheurge": 5,
+      "Dread Necromancer": 5,
+      "Blighter": 5,
       "Sorcerer/Wizard": 5,
       "Gun Mage": 5,
       "Duskblade": 5
@@ -13151,6 +13640,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Air"
     ],
     "levels": {
+      "Vigilante": 2,
       "Bard": 2,
       "Sorcerer/Wizard": 2,
       "Gun Mage": 2,
@@ -13290,6 +13780,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "school": "Illusion",
     "descriptors": [],
     "levels": {
+      "Vigilante": 4,
       "Bard": 4,
       "Gun Mage": 5,
       "Beguiler": 3
@@ -13341,6 +13832,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Evil"
     ],
     "levels": {
+      "Paingiver": 1,
+      "Mortitheurge": 1,
       "Cleric": 1,
       "Healer": 0,
     "Anti-Paladin": 1},

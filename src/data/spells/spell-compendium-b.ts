@@ -122,6 +122,7 @@ export const SPELL_COMPENDIUM_SPELLS_B: SpellDefinition[] = [
       "Sonic"
     ],
     "levels": {
+      "Vigilante": 1,
       "Bard": 1
     },
     "components": "V, S",
@@ -1485,6 +1486,7 @@ export const SPELL_COMPENDIUM_SPELLS_B: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
+      "Vigilante": 1,
       "Bard": 1,
       "Sorcerer/Wizard": 1,
       "Duskblade": 1
@@ -2425,6 +2427,7 @@ export const SPELL_COMPENDIUM_SPELLS_B: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
+      "Vigilante": 2,
       "Bard": 2,
       "Druid": 3,
       "Sorcerer/Wizard": 2,
@@ -5015,6 +5018,7 @@ export const SPELL_COMPENDIUM_SPELLS_B: SpellDefinition[] = [
     "school": "Illusion",
     "descriptors": [],
     "levels": {
+      "Vigilante": 2,
       "Assassin": 2,
       "Bard": 1,
       "Duskblade": 2
@@ -5060,6 +5064,7 @@ export const SPELL_COMPENDIUM_SPELLS_B: SpellDefinition[] = [
     "school": "Transmutation",
     "descriptors": [],
     "levels": {
+      "Vigilante": 2,
       "Assassin": 2,
       "Bard": 2,
       "Cleric": 2
@@ -5209,6 +5214,7 @@ export const SPELL_COMPENDIUM_SPELLS_B: SpellDefinition[] = [
     "school": "Abjuration",
     "descriptors": [],
     "levels": {
+      "Vigilante": 1,
       "Bard": 1
     },
     "components": "S",
