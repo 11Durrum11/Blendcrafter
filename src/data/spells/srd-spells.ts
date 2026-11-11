@@ -92,7 +92,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Conjuration",
     "descriptors": [],
-    "levels": {
+    "levels": {"Luck": 2, "Good": 2, 
       "Cleric": 2,
       "Adept": 2
     },
@@ -115,7 +115,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Transmutation",
     "descriptors": [],
-    "levels": {
+    "levels": {"Air": 4, 
       "Temple Raider of Olidammara": 4,
       "Cleric": 4,
       "Druid": 4,
@@ -310,7 +310,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [
       "Evil"
     ],
-    "levels": {
+    "levels": {"Death": 3, 
       "Death Delver": 3,
       "Dread Necromancer": 4,
       "Blighter": 4,
@@ -685,7 +685,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Transmutation",
     "descriptors": [],
-    "levels": {
+    "levels": {"Plant": 2, 
       "Druid": 2,
       "Ranger": 2,
     "Incarnate (Paladin)": 2},
@@ -840,7 +840,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [
       "Force"
     ],
-    "levels": {
+    "levels": {"Good": 6, 
       "Cleric": 6,
       "War": 6,
       "Warmage": 6,
@@ -1017,7 +1017,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Abjuration",
     "descriptors": [],
-    "levels": {
+    "levels": {"Luck": 5, 
       "Mortitheurge": 5,
       "Death Delver": 4,
       "Vigilante": 4,
@@ -1048,7 +1048,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Transmutation",
     "descriptors": [],
-    "levels": {
+    "levels": {"Strength": 2, 
       "Mortitheurge": 2,
       "Corrupt Avenger": 2,
       "Death Delver": 2,
@@ -1103,7 +1103,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [
       "Fire"
     ],
-    "levels": {
+    "levels": {"Fire": 1, 
       "Blighter": 1,
       "Sorcerer/Wizard": 1,
       "Gun Mage": 1,
@@ -1131,7 +1131,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [
       "Mind-Affecting"
     ],
-    "levels": {
+    "levels": {"Animal": 1, 
       "Druid": 1,
       "Ranger": 1
     },
@@ -1156,7 +1156,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [
       "Mind-Affecting"
     ],
-    "levels": {
+    "levels": {"Law": 2, 
       "Consecrated Harrier": 1,
       "Bard": 2,
       "Cleric": 2,
@@ -1239,7 +1239,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Fear",
       "Mind-Affecting"
     ],
-    "levels": {
+    "levels": {"Death": 1, 
       "Paingiver": 1,
       "Mortitheurge": 1,
       "Corrupt Avenger": 1,
@@ -1533,7 +1533,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Divination",
     "descriptors": [],
-    "levels": {
+    "levels": {"Knowledge": 3, 
       "Vigilante": 3,
       "Consecrated Harrier": 3,
       "Bard": 3,
@@ -1688,7 +1688,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Transmutation",
     "descriptors": [],
-    "levels": {
+    "levels": {"Plant": 4, 
       "Druid": 4,
       "Ranger": 4,
     "Incarnate (Paladin)": 4},
@@ -1756,7 +1756,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Divination",
     "descriptors": [],
-    "levels": {
+    "levels": {"Animal": 5, 
       "Druid": 5,
       "Ranger": 4,
     },
@@ -1832,7 +1832,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [
       "Mind-Affecting"
     ],
-    "levels": {
+    "levels": {"Trickery": 4, 
       "Paingiver": 4,
       "Mortitheurge": 4,
       "Temple Raider of Olidammara": 4,
@@ -1932,7 +1932,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Disease",
       "Evil"
     ],
-    "levels": {
+    "levels": {"Destruction": 3, 
       "Paingiver": 2,
       "Mortitheurge": 2,
       "Dread Necromancer": 4,
@@ -2059,7 +2059,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [
       "Water"
     ],
-    "levels": {
+    "levels": {"Water": 4, 
       "Cleric": 4,
       "Druid": 4,
       "Sorcerer/Wizard": 6,
@@ -2082,7 +2082,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Transmutation",
     "descriptors": [],
-    "levels": {
+    "levels": {"Air": 7, 
       "Blighter": 7,
       "Cleric": 7,
       "Druid": 7,
@@ -2108,7 +2108,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [
       "Air"
     ],
-    "levels": {
+    "levels": {"Air": 5, 
       "Druid": 5,
     },
     "components": "V, S",
@@ -2180,7 +2180,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [
       "Evil"
     ],
-    "levels": {
+    "levels": {"Evil": 6, 
       "Dread Necromancer": 6,
       "Blighter": 5,
       "Cleric": 6,
@@ -2361,7 +2361,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Conjuration",
     "descriptors": [],
-    "levels": {
+    "levels": {"Healing": 1, 
       "Bard": 1,
       "Cleric": 1,
       "Druid": 1,
@@ -2440,7 +2440,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Conjuration",
     "descriptors": [],
-    "levels": {
+    "levels": {"Healing": 2, 
       "Bard": 2,
       "Cleric": 2,
       "Druid": 3,
@@ -2468,7 +2468,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Conjuration",
     "descriptors": [],
-    "levels": {
+    "levels": {"Healing": 3, 
       "Bard": 3,
       "Cleric": 3,
       "Druid": 4,
@@ -2671,7 +2671,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Death",
       "Evil"
     ],
-    "levels": {
+    "levels": {"Death": 2, 
       "Paingiver": 2,
       "Mortitheurge": 2,
       "Corrupt Avenger": 2,
@@ -2697,7 +2697,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Necromancy",
     "descriptors": [],
-    "levels": {
+    "levels": {"Death": 4, 
       "Mortitheurge": 5,
       "Corrupt Avenger": 4,
       "Death Delver": 4,
@@ -2865,7 +2865,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [
       "Evil"
     ],
-    "levels": {
+    "levels": {"Evil": 2, 
       "Blighter": 3,
       "Cleric": 2,
     "Anti-Paladin": 2, "Corrupter": 2},
@@ -3115,7 +3115,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Divination",
     "descriptors": [],
-    "levels": {
+    "levels": {"Knowledge": 1, 
       "Vigilante": 1,
       "Temple Raider of Olidammara": 1,
       "Bard": 1,
@@ -3164,7 +3164,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [
       "Mind-Affecting"
     ],
-    "levels": {
+    "levels": {"Knowledge": 2, 
       "Mortitheurge": 2,
       "Vigilante": 2,
       "Consecrated Harrier": 2,
@@ -3360,7 +3360,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Illusion",
     "descriptors": [],
-    "levels": {
+    "levels": {"Trickery": 1, 
       "Vigilante": 1,
       "Consecrated Harrier": 1,
       "Temple Raider of Olidammara": 1,
@@ -3528,7 +3528,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Abjuration",
     "descriptors": [],
-    "levels": {
+    "levels": {"Magic": 3, 
       "Mortitheurge": 3,
       "Corrupt Avenger": 3,
       "Dread Necromancer": 4,
@@ -3662,7 +3662,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Divination",
     "descriptors": [],
-    "levels": {
+    "levels": {"Knowledge": 4, 
       "Cleric": 4,
     },
     "components": "V, S, M",
@@ -3729,7 +3729,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [
       "Mind-Affecting"
     ],
-    "levels": {
+    "levels": {"Animal": 3, 
       "Druid": 3,
     "Incarnate (Paladin)": 3},
     "components": "V, S",
@@ -3911,11 +3911,11 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [
       "Earth"
     ],
-    "levels": {
+    "levels": {"Destruction": 8, 
       "Blighter": 7,
       "Cleric": 8,
       "Druid": 8,
-      "Earth": 8,
+      "Earth": 7,
       "Warmage": 7,
     },
     "components": "V, S, DF",
@@ -3963,7 +3963,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Abjuration",
     "descriptors": [],
-    "levels": {
+    "levels": {"Sun": 1, 
       "Paingiver": 1,
       "Mortitheurge": 1,
       "Corrupt Avenger": 1,
@@ -4046,7 +4046,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Transmutation",
     "descriptors": [],
-    "levels": {
+    "levels": {"Strength": 1, 
       "Sorcerer/Wizard": 1
     },
     "components": "V, S, M",
@@ -4069,7 +4069,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [
       "Plant"
     ],
-    "levels": {
+    "levels": {"Plant": 1, 
       "Druid": 1,
       "Ranger": 1,
     "Incarnate (Paladin)": 1},
@@ -4118,7 +4118,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Abjuration",
     "descriptors": [],
-    "levels": {
+    "levels": {"Luck": 1, 
       "Cleric": 1,
     "Anarch": 1},
     "components": "V, S",
@@ -4311,7 +4311,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Divination",
     "descriptors": [],
-    "levels": {
+    "levels": {"Trickery": 5, 
       "Sorcerer/Wizard": 5
     },
     "components": "V, S, M",
@@ -4415,7 +4415,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Divination",
     "descriptors": [],
-    "levels": {
+    "levels": {"Travel": 6, 
       "Bard": 6,
       "Cleric": 6,
       "Druid": 6,
@@ -4492,7 +4492,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [
       "Fire"
     ],
-    "levels": {
+    "levels": {"Fire": 6, 
       "Blighter": 6,
       "Druid": 6,
       "Sun": 6,
@@ -4551,7 +4551,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Blighter": 7,
       "Cleric": 7,
       "Druid": 8,
-      "Fire": 8,
+      "Fire": 7,
       "Warmage": 7,
     },
     "components": "V, S",
@@ -4797,7 +4797,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Transmutation",
     "descriptors": [],
-    "levels": {
+    "levels": {"Travel": 3, 
       "Bard": 3,
       "Sorcerer/Wizard": 3
     },
@@ -4819,7 +4819,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Conjuration",
     "descriptors": [],
-    "levels": {
+    "levels": {"Water": 2, 
       "Mortitheurge": 2,
       "Druid": 2,
       "Sorcerer/Wizard": 2,
@@ -5019,7 +5019,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Transmutation",
     "descriptors": [],
-    "levels": {
+    "levels": {"Air": 3, 
       "Vigilante": 3,
       "Bard": 3,
       "Sorcerer/Wizard": 3,
@@ -5702,7 +5702,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [
       "Fire"
     ],
-    "levels": {
+    "levels": {"Sun": 2, 
       "Blighter": 2,
       "Druid": 2,
       "Artificer": 2
@@ -5825,7 +5825,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Abjuration",
     "descriptors": [],
-    "levels": {
+    "levels": { "Blighter": 1,
       "Druid": 1,
       "Ranger": 1
     },
@@ -5847,7 +5847,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Abjuration",
     "descriptors": [],
-    "levels": {
+    "levels": { "Temple Raider of Olidammara": 1, "Paladin": 1,
       "Death Delver": 1,
       "Dread Necromancer": 1,
       "Cleric": 1
@@ -5897,7 +5897,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [
       "Mind-Affecting"
     ],
-    "levels": {
+    "levels": {"Animal": 2, 
       "Druid": 2,
       "Ranger": 2
     },
@@ -6262,7 +6262,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Divination",
     "descriptors": [],
-    "levels": {
+    "levels": {"Magic": 2, 
       "Mortitheurge": 2,
       "Vigilante": 1,
       "Bard": 1,
@@ -6336,7 +6336,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Evocation",
     "descriptors": [],
-    "levels": {
+    "levels": {"Magic": 4, 
       "Cleric": 4
     },
     "components": "V, S, DF",
@@ -6429,7 +6429,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Necromancy",
     "descriptors": [],
-    "levels": {
+    "levels": {"Destruction": 4, 
       "Paingiver": 4,
       "Mortitheurge": 4,
       "Dread Necromancer": 4,
@@ -6477,7 +6477,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Necromancy",
     "descriptors": [],
-    "levels": {
+    "levels": {"Destruction": 1, 
       "Paingiver": 1,
       "Mortitheurge": 1,
       "Dread Necromancer": 1,
@@ -6648,7 +6648,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Illusion",
     "descriptors": [],
-    "levels": {
+    "levels": {"Trickery": 2, 
       "Vigilante": 2,
       "Temple Raider of Olidammara": 2,
       "Bard": 2,
@@ -6772,7 +6772,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Transmutation",
     "descriptors": [],
-    "levels": {
+    "levels": {"Earth": 8, 
       "Sorcerer/Wizard": 8
     },
     "components": "V, S, M",
@@ -7107,7 +7107,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Divination",
     "descriptors": [],
-    "levels": {
+    "levels": {"Travel": 2, 
       "Vigilante": 2,
       "Temple Raider of Olidammara": 3,
       "Bard": 2,
@@ -7133,7 +7133,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Transmutation",
     "descriptors": [],
-    "levels": {
+    "levels": {"Travel": 1, 
       "Paingiver": 1,
       "Mortitheurge": 1,
       "Druid": 1,
@@ -7339,7 +7339,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Illusion",
     "descriptors": [],
-    "levels": {
+    "levels": {"Magic": 1, 
       "Vigilante": 1,
       "Bard": 1,
       "Sorcerer/Wizard": 1,
@@ -7364,7 +7364,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Abjuration",
     "descriptors": [],
-    "levels": {
+    "levels": {"Law": 3, 
       "Cleric": 3,
       "Paladin": 3,
       "Sorcerer/Wizard": 3,
@@ -7390,7 +7390,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [
       "Good"
     ],
-    "levels": {
+    "levels": {"Good": 3, 
       "Cleric": 3,
       "Paladin": 3,
       "Sorcerer/Wizard": 3,
@@ -7416,7 +7416,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [
       "Evil"
     ],
-    "levels": {
+    "levels": {"Evil": 3, 
       "Cleric": 3,
       "Sorcerer/Wizard": 3,
       "Gun Mage": 3,
@@ -7439,7 +7439,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Abjuration",
     "descriptors": [],
-    "levels": {
+    "levels": {"Chaos": 3, 
       "Holy Liberator": 3,
       "Temple Raider of Olidammara": 3,
       "Cleric": 3,
@@ -7582,7 +7582,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Transmutation",
     "descriptors": [],
-    "levels": {
+    "levels": {"Earth": 1, 
       "Cleric": 1,
       "Druid": 1,
       "Artificer": 1,
@@ -7629,7 +7629,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Transmutation",
     "descriptors": [],
-    "levels": {
+    "levels": {"War": 1, 
       "Corrupt Avenger": 1,
       "Cleric": 1,
       "Paladin": 1,
@@ -8080,7 +8080,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Illusion",
     "descriptors": [],
-    "levels": {
+    "levels": {"Luck": 6, 
       "Bard": 5,
       "Sorcerer/Wizard": 6,
       "Trickery": 6,
@@ -8303,7 +8303,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Abjuration",
     "descriptors": [],
-    "levels": {
+    "levels": {"Trickery": 3, 
       "Temple Raider of Olidammara": 3,
       "Bard": 3,
       "Ranger": 3,
@@ -8355,7 +8355,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Conjuration",
     "descriptors": [],
-    "levels": {
+    "levels": {"Water": 1, "Air": 1, 
       "Temple Raider of Olidammara": 1,
       "Cleric": 1,
       "Druid": 1,
@@ -8946,7 +8946,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [
       "Mind-Affecting"
     ],
-    "levels": {
+    "levels": {"War": 7, 
       "Mortitheurge": 7,
       "Sorcerer/Wizard": 7,
       "Beguiler": 7,
@@ -9075,7 +9075,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Abjuration",
     "descriptors": [],
-    "levels": {
+    "levels": {"Protection": 9, 
       "Sorcerer/Wizard": 9,
       "Sun": 9,
       "Warmage": 9
@@ -9144,7 +9144,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [
       "Fire"
     ],
-    "levels": {
+    "levels": {"Fire": 2, 
       "Blighter": 2,
       "Druid": 1,
     },
@@ -9211,7 +9211,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Abjuration",
     "descriptors": [],
-    "levels": {
+    "levels": {"Law": 1, 
       "Cleric": 1,
       "Paladin": 1,
       "Sorcerer/Wizard": 1,
@@ -9236,7 +9236,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Abjuration",
     "descriptors": [],
-    "levels": {
+    "levels": {"Protection": 3, "Luck": 3, 
       "Mortitheurge": 3,
       "Corrupt Avenger": 3,
       "Death Delver": 3,
@@ -9266,7 +9266,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Abjuration",
     "descriptors": [],
-    "levels": {
+    "levels": {"Good": 1, 
       "Cleric": 1,
       "Paladin": 1,
       "Sorcerer/Wizard": 1,
@@ -9292,7 +9292,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Abjuration",
     "descriptors": [],
-    "levels": {
+    "levels": {"Evil": 1, 
       "Cleric": 1,
       "Sorcerer/Wizard": 1,
       "Gun Mage": 1,
@@ -9316,7 +9316,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Abjuration",
     "descriptors": [],
-    "levels": {
+    "levels": {"Chaos": 1, 
       "Holy Liberator": 1,
       "Temple Raider of Olidammara": 1,
       "Cleric": 1,
@@ -9990,7 +9990,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Abjuration",
     "descriptors": [],
-    "levels": {
+    "levels": {"Protection": 7, 
       "Blighter": 7,
       "Bard": 6,
       "Cleric": 6,
@@ -10017,7 +10017,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Abjuration",
     "descriptors": [],
-    "levels": {
+    "levels": {"Fire": 3, 
       "Paingiver": 2,
       "Mortitheurge": 2,
       "Corrupt Avenger": 2,
@@ -10247,7 +10247,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Abjuration",
     "descriptors": [],
-    "levels": {
+    "levels": {"Protection": 1, 
       "Cleric": 1,
       "Healer": 1,
     "Corrupter": 1},
@@ -10353,7 +10353,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [],
     "levels": {
       "Sorcerer/Wizard": 8,
-      "Trickery": 8,
+      "Trickery": 7,
       "Beguiler": 8,
     },
     "components": "V, S",
@@ -10448,7 +10448,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Evocation",
     "descriptors": [],
-    "levels": {
+    "levels": {"Sun": 3, 
       "Cleric": 3,
     },
     "components": "V, S",
@@ -10640,7 +10640,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Conjuration",
     "descriptors": [],
-    "levels": {
+    "levels": {"Plant": 9, 
       "Blighter": 8,
       "Druid": 9,
     },
@@ -10688,7 +10688,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [
       "Sonic"
     ],
-    "levels": {
+    "levels": {"Destruction": 2, "Chaos": 2, 
       "Corrupt Avenger": 2,
       "Bard": 2,
       "Cleric": 2,
@@ -10785,7 +10785,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Abjuration",
     "descriptors": [],
-    "levels": {
+    "levels": {"Protection": 2, 
       "Cleric": 2,
       "Paladin": 2,
     "Sentinel": 2, "Avenger": 2, "Enforcer": 2, "Incarnate (Paladin)": 2, "Paladin of Freedom": 2},
@@ -11333,7 +11333,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Abjuration",
     "descriptors": [],
-    "levels": {
+    "levels": {"Strength": 4, "Protection": 4, 
       "Temple Raider of Olidammara": 4,
       "Cleric": 4,
     },
@@ -11376,7 +11376,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Abjuration",
     "descriptors": [],
-    "levels": {
+    "levels": {"Protection": 5, "Magic": 5, 
       "Cleric": 5,
     },
     "components": "V, S, DF",
@@ -11516,7 +11516,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [
       "Force"
     ],
-    "levels": {
+    "levels": {"War": 2, 
       "Cleric": 2,
     "Sentinel": 2},
     "components": "V, S, DF",
@@ -11609,7 +11609,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "descriptors": [
       "Earth"
     ],
-    "levels": {
+    "levels": {"Earth": 3, 
       "Cleric": 3,
       "Druid": 3,
       "Sorcerer/Wizard": 4,
@@ -11682,8 +11682,8 @@ export const SRD_SPELLS: SpellDefinition[] = [
       "Mortitheurge": 4,
       "Druid": 5,
       "Sorcerer/Wizard": 4,
-      "Earth": 4,
-      "Strength": 4,
+      "Earth": 6,
+      "Strength": 6,
       "Gun Mage": 4,
       "Adept": 4,
     "Trapsmith": 2},
@@ -11904,7 +11904,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Conjuration",
     "descriptors": [],
-    "levels": {
+    "levels": {"Law": 9, "Good": 9, "Evil": 9, "Chaos": 9, 
       "Cleric": 9,
       "Sorcerer/Wizard": 9,
     },
@@ -12091,7 +12091,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Conjuration",
     "descriptors": [],
-    "levels": {
+    "levels": {"Animal": 4, 
       "Druid": 4,
       "Ranger": 4
     },
@@ -12202,7 +12202,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Conjuration",
     "descriptors": [],
-    "levels": {
+    "levels": {"Animal": 8, 
       "Druid": 8,
     },
     "components": "V, S, DF",
@@ -13420,7 +13420,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Conjuration",
     "descriptors": [],
-    "levels": {
+    "levels": {"Plant": 5, 
       "Druid": 5
     },
     "components": "V, S",
@@ -13465,7 +13465,7 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "ruleset": "core",
     "school": "Transmutation",
     "descriptors": [],
-    "levels": {
+    "levels": {"Water": 3, 
       "Cleric": 3,
       "Druid": 3,
       "Ranger": 3,
@@ -13924,5 +13924,129 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "description": "This spell functions like mass cure light wounds, except that it cures 3d8 points of damage +1 point per caster level (maximum +35).",
     "source": "System Reference Document (SRD) spells",
     "sourceUrl": "https://www.d20srd.org/srd/spells/cureSeriousWoundsMass.htm"
+  },
+  {
+    "id": "curse-water",
+    "name": "Curse Water",
+    "ruleset": "core",
+    "school": "Necromancy",
+    "descriptors": [
+      "Evil"
+    ],
+    "levels": {
+      "Cleric": 1,
+      "Blighter": 1,
+      "Anti-Paladin": 1,
+      "Despot": 1,
+      "Corrupter": 1,
+      "Paladin of Tyranny": 1,
+      "Paladin of Slaughter": 1
+    },
+    "components": "V, S, M",
+    "castingTime": "1 minute",
+    "range": "Touch",
+    "targetOrArea": "Flask of water touched",
+    "duration": "Instantaneous",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "summary": "This necromancy imbues a flask (1 pint) of water with negative energy, turning it into unholy water. Material component: 5 pounds of powdered silver (worth 25 gp).",
+    "description": "This spell imbues a flask (1 pint) of water with negative energy, turning it into unholy water. Unholy water damages good outsiders the way holy water damages undead and evil outsiders.\n\nMaterial Component: 5 pounds of powdered silver (worth 25 gp).",
+    "source": "System Reference Document (SRD) spells",
+    "sourceUrl": "https://www.d20srd.org/srd/spells/curseWater.htm"
+  },
+  {
+    "id": "command-greater",
+    "name": "Command, Greater",
+    "ruleset": "core",
+    "school": "Enchantment",
+    "descriptors": [
+      "Language-Dependent",
+      "Mind-Affecting"
+    ],
+    "levels": {
+      "Cleric": 5,
+      "Despot": 4,
+      "Corrupter": 4
+    },
+    "components": "V",
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetOrArea": "One creature/level, no two of which can be more than 30 ft. apart",
+    "duration": "1 round/level",
+    "savingThrow": "Will negates",
+    "spellResistance": "Yes",
+    "summary": "As command, but up to one creature per level obeys the same single-word order for 1 round/level, with a new Will save each round after the first to break free.",
+    "description": "This spell functions like command, except that up to one creature per level may be affected, and the activities continue beyond 1 round. At the start of each commanded creature's action after the first, it gets another Will save to attempt to break free from the spell. Each creature must receive the same command.",
+    "source": "System Reference Document (SRD) spells",
+    "sourceUrl": "https://www.d20srd.org/srd/spells/commandGreater.htm",
+    "subschool": "Compulsion"
+  },
+  {
+    "id": "inflict-serious-wounds-mass",
+    "name": "Inflict Serious Wounds, Mass",
+    "ruleset": "core",
+    "school": "Necromancy",
+    "descriptors": [],
+    "levels": {
+      "Cleric": 7,
+      "Dread Necromancer": 7,
+      "Mortitheurge": 7
+    },
+    "components": "V, S",
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetOrArea": "One creature/level, no two more than 30 ft. apart",
+    "duration": "Instantaneous",
+    "savingThrow": "Will half",
+    "spellResistance": "Yes",
+    "summary": "As inflict serious wounds (3d8 +1/level, max +35) on one creature per level; heals undead instead.",
+    "description": "This spell functions like mass inflict light wounds, except that it deals 3d8 points of damage +1 point per caster level (maximum +35). Since undead are powered by negative energy, this spell cures such creatures of a like amount of damage, rather than harming them.",
+    "source": "System Reference Document (SRD) spells",
+    "sourceUrl": "https://www.d20srd.org/srd/spells/inflictSeriousWoundsMass.htm"
+  },
+  {
+    "id": "inflict-light-wounds-mass",
+    "name": "Inflict Light Wounds, Mass",
+    "ruleset": "core",
+    "school": "Necromancy",
+    "descriptors": [],
+    "levels": {
+      "Cleric": 5,
+      "Dread Necromancer": 5,
+      "Destruction": 5
+    },
+    "components": "V, S",
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetOrArea": "One creature/level, no two more than 30 ft. apart",
+    "duration": "Instantaneous",
+    "savingThrow": "Will half",
+    "spellResistance": "Yes",
+    "summary": "Negative energy spreads from you in all directions: 1d8 damage +1/level (max +25) to one creature per level; heals undead instead.",
+    "description": "Negative energy spreads outward in all directions from the point of origin, dealing 1d8 points of damage +1 point per caster level (maximum +25) to nearby living enemies. Since undead are powered by negative energy, this spell cures such creatures of a like amount of damage, rather than harming them.",
+    "source": "System Reference Document (SRD) spells",
+    "sourceUrl": "https://www.d20srd.org/srd/spells/inflictLightWoundsMass.htm"
+  },
+  {
+    "id": "inflict-moderate-wounds-mass",
+    "name": "Inflict Moderate Wounds, Mass",
+    "ruleset": "core",
+    "school": "Necromancy",
+    "descriptors": [],
+    "levels": {
+      "Cleric": 6,
+      "Dread Necromancer": 6
+    },
+    "components": "V, S",
+    "castingTime": "1 standard action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "targetOrArea": "One creature/level, no two more than 30 ft. apart",
+    "duration": "Instantaneous",
+    "savingThrow": "Will half",
+    "spellResistance": "Yes",
+    "summary": "As inflict light wounds, mass (2d8 +1/level, max +30) on one creature per level; heals undead instead.",
+    "description": "This spell functions like mass inflict light wounds, except that it deals 2d8 points of damage +1 point per caster level (maximum +30). Since undead are powered by negative energy, this spell cures such creatures of a like amount of damage, rather than harming them.",
+    "source": "System Reference Document (SRD) spells",
+    "sourceUrl": "https://www.d20srd.org/srd/spells/inflictModerateWoundsMass.htm"
   },
 ];

@@ -2839,7 +2839,41 @@ export const CASTING_PROFILES: CastingProfile[] = [
     note: "From 7th level a paingiver casts a small number of arcane spells drawn from the paingiver spell list (Monsternomicon, vol. 2, p. 227), prepared ahead of time and keyed to Intelligence. Print oddity: daze monster appears on his list at both 1st and 2nd level; it is keyed at 1st.",
     source: "Monsternomicon, vol. 2 \u2014 Paingiver (Advancement Table, p. 224)",
     sourceUrl: "Dropbox (durrum1): /A POC PC related/4.Core books/monster manuals/IK-Monsternomicon, vol. 2.pdf",
+  },  {
+    classId: "sublime-chord",
+    listName: "Sorcerer/Wizard",
+    listAliases: ["Bard"],
+    kind: "spontaneous",
+    keyAbility: "cha",
+    spellsPerDay: [[null, null, null, null, 2, 1], [null, null, null, null, 2, 2], [null, null, null, null, 3, 2, 1], [null, null, null, null, 3, 3, 2], [null, null, null, null, 3, 3, 2, 1], [null, null, null, null, 4, 3, 3, 2], [null, null, null, null, 4, 4, 3, 2, 1], [null, null, null, null, 4, 4, 3, 3, 2], [null, null, null, null, 4, 4, 4, 3, 2, 1], [null, null, null, null, 5, 4, 4, 3, 3, 2]],
+    spellsKnown: [[null, null, null, null, 3, 1], [null, null, null, null, 4, 2], [null, null, null, null, 4, 2, 1], [null, null, null, null, 4, 3, 2], [null, null, null, null, 4, 3, 2, 1], [null, null, null, null, 4, 4, 3, 2], [null, null, null, null, 4, 4, 3, 2, 1], [null, null, null, null, 4, 4, 4, 3, 2], [null, null, null, null, 4, 4, 4, 3, 2, 1], [null, null, null, null, 4, 4, 4, 4, 3, 2]],
+    note: "Casts arcane spells of 4th level or higher, chosen from the sorcerer/wizard spell list or the bard spell list \u2014 if a spell appears on both lists at different levels, she uses the bard version (both lists are offered here; where they differ, prepare at the bard level). She casts just as a sorcerer does, including replacing a known spell at every even-numbered class level beginning at 4th, and her sublime chord levels add to one other arcane class for caster level (Complete Arcane p. 61).",
+    source: "Complete Arcane \u2014 Sublime Chord (Tables 2\u201317, 2\u201318)",
+    sourceUrl: "Dropbox (durrum1): /A POC PC related/5.Splat/Complete sereies/D&D 3.5 - Complete Arcane.pdf",
   },
+  {
+    classId: "evangelist-311",
+    listName: "Cleric",
+    kind: "spontaneous",
+    keyAbility: "wis",
+    spellsPerDay: [[5, 3], [6, 4], [6, 5], [6, 6, 3], [6, 6, 4], [6, 6, 5, 3], [6, 6, 6, 4], [6, 6, 6, 5, 3], [6, 6, 6, 6, 4], [6, 6, 6, 6, 5, 3], [6, 6, 6, 6, 6, 4], [6, 6, 6, 6, 6, 5, 3], [6, 6, 6, 6, 6, 6, 4], [6, 6, 6, 6, 6, 6, 5, 3], [6, 6, 6, 6, 6, 6, 6, 4], [6, 6, 6, 6, 6, 6, 6, 5, 3], [6, 6, 6, 6, 6, 6, 6, 6, 4], [6, 6, 6, 6, 6, 6, 6, 6, 5, 3], [6, 6, 6, 6, 6, 6, 6, 6, 6, 4], [6, 6, 6, 6, 6, 6, 6, 6, 6, 6]],
+    spellsKnown: [[4, 2], [5, 2], [5, 3], [6, 3, 1], [6, 4, 2], [7, 4, 2, 1], [7, 5, 3, 2], [8, 5, 3, 2, 1], [8, 5, 4, 3, 2], [9, 5, 4, 3, 2, 1], [9, 5, 5, 4, 3, 2], [9, 5, 5, 4, 3, 2, 1], [9, 5, 5, 4, 4, 3, 2], [9, 5, 5, 4, 4, 3, 2, 1], [9, 5, 5, 4, 4, 4, 3, 2], [9, 5, 5, 4, 4, 4, 3, 2, 1], [9, 5, 5, 4, 4, 4, 3, 3, 2], [9, 5, 5, 4, 4, 4, 3, 3, 2, 1], [9, 5, 5, 4, 4, 4, 3, 3, 3, 2], [9, 5, 5, 4, 4, 4, 3, 3, 3, 2]],
+    note: "Casts divine spells from the cleric spell list spontaneously, as a sorcerer casts arcane spells, with Wisdom as his spellcasting ability (Dragon #311). The known figures are the printed table's base numbers: on top of them he adds ALL the spells of his chosen domains to his spells known \u2014 two domains at 1st level and one more at 5th, 10th, 15th, and 20th (the printed known table marks this as '+2', growing to '+6', domain spells at each spell level) \u2014 and he gains no domain spell slots. He cannot learn a new divine spell in place of a domain spell known. Domain additions are not modeled here: his domains are his own choice, so no alias list is offered.",
+    source: "Dragon Magazine #311 \u2014 Evangelist (Table: The Evangelist; Table: Evangelist Spells Known)",
+    sourceUrl: "https://srd.dndtools.org/srd/classes/baseCore/cleric.html",
+  },
+  {
+    classId: "divine-crusader",
+    listName: "Divine Crusader",
+    listAliases: ["Air", "Animal", "Balance", "Cavern", "Celestial", "Chaos", "Cold", "Community", "Competition", "Conflict", "Consumption", "Corruption", "Courage", "Craft", "Creation", "Darkness", "Death", "Deathbound", "Destruction", "Diabolic", "Domination", "Dragon", "Dream", "Drow", "Earth", "Entropy", "Evil", "Fey", "Fire", "Force", "Glory", "Good", "Guardian", "Healing", "Hunger", "Joy", "Knowledge", "Law", "Liberation", "Life", "Luck", "Madness", "Magic", "Mind", "Moon", "Mysticism", "Ocean", "Ooze", "Pact", "Pain", "Pestilence", "Plant", "Pleasure", "Portal", "Protection", "Purification", "Repose", "Sand", "Spider", "Strength", "Sun", "Thirst", "Time", "Trade", "Trickery", "Truth", "War", "Water", "Wrath"],
+    kind: "prepared-divine",
+    keyAbility: "cha",
+    spellsPerDay: [[null, 0], [null, 1, 0], [null, 2, 1, 0], [null, 2, 2, 1, 0], [null, 3, 2, 2, 1, 0], [null, 3, 3, 2, 2, 1, 0], [null, 3, 3, 3, 2, 2, 1, 0], [null, 3, 3, 3, 3, 2, 2, 1, 0], [null, 3, 3, 3, 3, 3, 2, 2, 1, 0], [null, 3, 3, 3, 3, 3, 3, 2, 2, 1]],
+    note: "Prepares and casts divine spells as a cleric does, except that she may only prepare and cast spells from her ONE chosen domain \u2014 effectively, her class spell list is only nine spells, one per spell level (Complete Divine p. 34). Her spells are Charisma-based (bonus spells and save DCs), and she cannot spontaneously cast cure or inflict spells. The builder offers every domain's list (the choice of domain is not modeled); prepare only the nine spells of the domain she chose.",
+    source: "Complete Divine \u2014 Divine Crusader (Table 2\u20137)",
+    sourceUrl: "Dropbox (durrum1): /A POC PC related/5.Splat/Complete sereies/D&D 3.5 - Complete Divine.pdf",
+  },
+
 ];
 
 export const CASTING_PROFILES_BY_ID: Record<string, CastingProfile> = Object.fromEntries(
