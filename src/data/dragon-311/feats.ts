@@ -61,7 +61,7 @@ export const DRAGON_311_FEATS: FeatDefinition[] = [
     name: "Draconic Bloodline",
     category: "general",
     prerequisites: BLOODLINE_BASE_PREREQS,
-    benefitSummary: "[Bloodline feat.] Your ancestry gives you a bonus spell known at each spell level, added to the class spell list of one spontaneous arcane spellcasting class (chosen when you take the feat): 1st — comprehend languages; 2nd — darkvision; 3rd — protection from elements (as printed; the 3.5 spell is protection from energy); 4th — fear; 5th — mind fog; 6th — true seeing; 7th — vision; 8th — mind blank; 9th — dominate monster. You must choose a category of spells (often a descriptor tied to your dragon ancestor, decided with the DM) that you cannot learn or cast; such spells do not appear on your spell list for any class.",
+    benefitSummary: "[Bloodline feat.] Your ancestry gives you a bonus spell known at each spell level, added to the class spell list of one spontaneous arcane spellcasting class (chosen when you take the feat): 1st — comprehend languages; 2nd — darkvision; 3rd — protection from energy (magazine prints the 3.0 spell name, protection from elements; the 3.5 successor spell is protection from energy); 4th — fear; 5th — mind fog; 6th — true seeing; 7th — vision; 8th — mind blank; 9th — dominate monster. You must choose a category of spells (often a descriptor tied to your dragon ancestor, decided with the DM) that you cannot learn or cast; such spells do not appear on your spell list for any class.",
     modifiers: [],
     source: DM311,
     sourceUrl: DM311_PATH,
