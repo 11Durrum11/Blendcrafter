@@ -13783,7 +13783,7 @@ export const GENERATED_WANDS: MagicItemDefinition[] = [
   "name": "Wand of Cart (CL 3rd)",
   "category": "wand",
   "cost": "4,500 gp",
-  "summary": "Holds the Cart spell (Conjuration) with 50 charges, cast at caster level 3. You summon a small cart and light horse to serve as transportation for up to four Medium-size or Small humanoid creatures.",
+  "summary": "Holds the Cart spell (Conjuration) with 50 charges, cast at caster level 3. You summon a small cart and light horse to serve as transportation for up to four Medium or Small humanoid creatures.",
   "source": "Dungeon Master's Guide — Wands (standard wand price table)",
   "sourceUrl": "https://www.d20srd.org/srd/magicItems/wands.htm",
   "ruleset": "core"
@@ -13993,7 +13993,7 @@ export const GENERATED_WANDS: MagicItemDefinition[] = [
   "name": "Wand of Steam Form (CL 7th)",
   "category": "wand",
   "cost": "21,000 gp",
-  "summary": "Holds the Steam Form spell (Transmutation) with 50 charges, cast at caster level 7. The subject and all her possessions become insubstantial, misty, and translucent, transformed into steam with damage reduction 20/+2.",
+  "summary": "Holds the Steam Form spell (Transmutation) with 50 charges, cast at caster level 7. The subject and all her possessions become insubstantial, misty, and translucent, transformed into steam with damage reduction 20/magic.",
   "source": "Dungeon Master's Guide — Wands (standard wand price table)",
   "sourceUrl": "https://www.d20srd.org/srd/magicItems/wands.htm",
   "ruleset": "core"
@@ -36256,7 +36256,7 @@ export const GENERATED_SCROLLS: MagicItemDefinition[] = [
   "name": "Scroll of Aspects of the Iron Knight",
   "category": "scroll",
   "cost": "1,650 gp",
-  "summary": "A scroll of Aspects of the Iron Knight (Transmutation), scribed at caster level 11. You are infused with aspects of the fearsome iron golem: for the duration you gain damage reduction 50/+3 and heal 1 hit point for every point of electricity damage that would be dealt to you, as the text describes.",
+  "summary": "A scroll of Aspects of the Iron Knight (Transmutation), scribed at caster level 11. You are infused with aspects of the fearsome iron golem: for the duration you gain damage reduction 50/magic and heal 1 hit point for every point of electricity damage that would be dealt to you, as the text describes.",
   "source": "Dungeon Master's Guide — Scrolls (standard scroll price table)",
   "sourceUrl": "https://www.d20srd.org/srd/magicItems/scrolls.htm",
   "ruleset": "core"
@@ -36316,7 +36316,7 @@ export const GENERATED_SCROLLS: MagicItemDefinition[] = [
   "name": "Scroll of Cart",
   "category": "scroll",
   "cost": "150 gp",
-  "summary": "A scroll of Cart (Conjuration), scribed at caster level 3. You summon a small cart and light horse to serve as transportation for up to four Medium-size or Small humanoid creatures.",
+  "summary": "A scroll of Cart (Conjuration), scribed at caster level 3. You summon a small cart and light horse to serve as transportation for up to four Medium or Small humanoid creatures.",
   "source": "Dungeon Master's Guide — Scrolls (standard scroll price table)",
   "sourceUrl": "https://www.d20srd.org/srd/magicItems/scrolls.htm",
   "ruleset": "core"
@@ -36566,7 +36566,7 @@ export const GENERATED_SCROLLS: MagicItemDefinition[] = [
   "name": "Scroll of Steam Form",
   "category": "scroll",
   "cost": "700 gp",
-  "summary": "A scroll of Steam Form (Transmutation), scribed at caster level 7. The subject and all her possessions become insubstantial, misty, and translucent, transformed into steam with damage reduction 20/+2.",
+  "summary": "A scroll of Steam Form (Transmutation), scribed at caster level 7. The subject and all her possessions become insubstantial, misty, and translucent, transformed into steam with damage reduction 20/magic.",
   "source": "Dungeon Master's Guide — Scrolls (standard scroll price table)",
   "sourceUrl": "https://www.d20srd.org/srd/magicItems/scrolls.htm",
   "ruleset": "core"

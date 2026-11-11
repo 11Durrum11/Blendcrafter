@@ -20942,7 +20942,7 @@ export const GG_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "alchemical gear",
     "cost": "100 gp",
     "weight": "—",
-    "notes": "Rare ointment rubbed into the palms: +2 circumstance bonus to Climb and Pick Pocket checks and +2 to resist disarm, but -2 to Disable Device, Escape Artist and Rope Use; lasts up to an hour; Craft (alchemy) DC 20 to make",
+    "notes": "Rare ointment rubbed into the palms: +2 circumstance bonus to Climb and Sleight of Hand checks and +2 to resist disarm, but -2 to Disable Device, Escape Artist and Rope Use; lasts up to an hour; Craft (alchemy) DC 20 to make",
     "source": "Goods and Gear: The Ultimate Adventurer's Guide, Chapter 9: Concoctions, p. 194",
     "sourceUrl": "",
     "ruleset": "core"
