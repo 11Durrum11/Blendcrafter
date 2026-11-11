@@ -1107,7 +1107,7 @@ export default function Builder() {
                 <Piece pieceId="new-character" basis="auto">
                   <Button
                     variant="outline"
-                    className="h-12 px-6 text-base"
+                    className="h-11 px-6 text-base"
                     onClick={() => {
                       cb.reset();
                       setCharacterStarted(true);
@@ -1142,7 +1142,7 @@ export default function Builder() {
                       aria-label="Character name"
                       value={viewBuild.name}
                       onChange={(e) => viewCb.setName(e.target.value)}
-                      className="h-9 w-44 border-0 bg-transparent px-0 font-display shadow-none focus-visible:ring-0 sm:w-56"
+                      className="h-8 w-44 border-0 bg-transparent px-0 font-display shadow-none focus-visible:ring-0 sm:w-56"
                       placeholder="Unnamed Character"
                     />
                   </div>
