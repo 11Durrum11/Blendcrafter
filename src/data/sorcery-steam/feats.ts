@@ -373,7 +373,6 @@ export const SORCERY_STEAM_FEATS: FeatDefinition[] = [
     source: `${CH3} — Feats: Two Guns Blazing (p. 106)`,
     sourceUrl: SS_PATH,
     ruleset: "sorcery_steam",
-    special: "3.5 conversion: as printed, the Ambidexterity feat reduces the attack penalty for the second weapon by 4 — Ambidexterity does not exist in 3.5; that reduction is folded into the Two-Weapon Fighting feat, which carries it in 3.5 play.",
   },
   {
     id: "warrior-mechanist",
@@ -561,7 +560,7 @@ export const SORCERY_STEAM_FEATS: FeatDefinition[] = [
     source: `${CH3} — Heritage Feats: Street Urchin (p. 108)`,
     sourceUrl: SS_PATH,
     ruleset: "sorcery_steam",
-    special: "Heritage feats must be selected at 1st level; this one opens the street feat chain. Bluff is a 3.0 skill that folds into Bluff in 3.5.",
+    special: "Heritage feats must be selected at 1st level; this one opens the street feat chain.",
   },
   {
     id: "street-scamp",
@@ -573,7 +572,7 @@ export const SORCERY_STEAM_FEATS: FeatDefinition[] = [
     source: `${CH3} — Heritage Feats: Street Scamp (p. 109)`,
     sourceUrl: SS_PATH,
     ruleset: "sorcery_steam",
-    special: "Sleight of Hand is the 3.0 name for the skill folded into Sleight of Hand in 3.5.",
+    special: "",
   },
   {
     id: "street-rat",
@@ -586,5 +585,4 @@ export const SORCERY_STEAM_FEATS: FeatDefinition[] = [
     source: `${CH3} — Heritage Feats: Street Rat (p. 109)`,
     sourceUrl: SS_PATH,
     ruleset: "sorcery_steam",
-  },
-];
+  }];

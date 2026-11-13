@@ -22,7 +22,7 @@ import type { EquipmentItem, MagicItemDefinition } from "@/engine/types";
 // House style: short mechanical summaries; the file's text is
 // not reproduced.
 
-const HELM = "Helm Types and Function (fan compilation, Shaun's files)";
+const HELM = "Helm Types and Function (fan compilation)";
 const HELM_PATH =
   "/A POC PC related/3.All to do with ships/1. Helm types and function.txt";
 

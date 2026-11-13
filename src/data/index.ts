@@ -1219,7 +1219,7 @@ export const ALL_FEATS: FeatDefinition[] = dedupeById([...CORE_FEATS, ...EBERRON
 // see src/data/relocated-magic-items.ts for the full account.
 const RELOCATED_MAGIC_ID_SET = new Set(RELOCATED_MAGIC_ITEM_IDS);
 
-// Second purity sweep (Shaun, 2026-11-04): the magic/non-magic
+// Second purity sweep: the magic/non-magic
 // split lives between the two barrels — see
 // src/data/relocated-magic-items-2.ts and
 // src/data/barrel-overrides.ts. Equipment loses every relocated

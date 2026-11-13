@@ -1,6 +1,6 @@
 /**
  * Sorcery & Steam alchemical equipment pack: the alchemical items
- * listing of Shaun's compiled alchemical document
+ * listing of the compiled alchemical document
  * (workspace/user/files/Alchemical_stuff.docx, uploaded
  * 2026-10-27) — a Pathfinder alchemical-items listing (the d20PFRPG
  * "herbs, oils & other substances" compilation) whose tables give
@@ -29,7 +29,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "5 sp",
     "weight": "—",
     "notes": "Alchemical item (Alchemical Reagents). Can be used as an alchemical power component.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Alchemical Reagents table; document source tag: AM",
+    "source": "Alchemical_stuff.docx — Alchemical Reagents table; document source tag: AM",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -40,7 +40,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "1 gp",
     "weight": "—",
     "notes": "Alchemical item (Alchemical Reagents). Can be used as an alchemical power component.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Alchemical Reagents table; document source tag: AM",
+    "source": "Alchemical_stuff.docx — Alchemical Reagents table; document source tag: AM",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -51,7 +51,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "5 gp",
     "weight": "—",
     "notes": "Alchemical item (Alchemical Reagents). Can be used as an alchemical power component.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Alchemical Reagents table; document source tag: AM",
+    "source": "Alchemical_stuff.docx — Alchemical Reagents table; document source tag: AM",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -62,7 +62,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "1 gp",
     "weight": "—",
     "notes": "Alchemical item (Alchemical Reagents). Can be used as an alchemical power component.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Alchemical Reagents table; document source tag: AM",
+    "source": "Alchemical_stuff.docx — Alchemical Reagents table; document source tag: AM",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -73,7 +73,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "5 sp",
     "weight": "—",
     "notes": "Alchemical item (Alchemical Reagents). Can be used as an alchemical power component.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Alchemical Reagents table; document source tag: AM",
+    "source": "Alchemical_stuff.docx — Alchemical Reagents table; document source tag: AM",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -84,7 +84,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "4 gp",
     "weight": "—",
     "notes": "Alchemical item (Alchemical Reagents). Can be used as an alchemical power component.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Alchemical Reagents table; document source tag: AM",
+    "source": "Alchemical_stuff.docx — Alchemical Reagents table; document source tag: AM",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -95,7 +95,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "2 sp",
     "weight": "—",
     "notes": "Alchemical item (Alchemical Reagents). Can be used as an alchemical power component.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Alchemical Reagents table; document source tag: AM",
+    "source": "Alchemical_stuff.docx — Alchemical Reagents table; document source tag: AM",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -106,7 +106,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "1 gp",
     "weight": "—",
     "notes": "Alchemical item (Alchemical Reagents). Can be used as an alchemical power component.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Alchemical Reagents table; document source tag: AM",
+    "source": "Alchemical_stuff.docx — Alchemical Reagents table; document source tag: AM",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -117,7 +117,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "3 gp",
     "weight": "—",
     "notes": "Alchemical item (Alchemical Reagents). Can be used as an alchemical power component.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Alchemical Reagents table; document source tag: AM",
+    "source": "Alchemical_stuff.docx — Alchemical Reagents table; document source tag: AM",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -128,7 +128,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "10 gp",
     "weight": "—",
     "notes": "Alchemical item (Alchemical Reagents). Can be used as an alchemical power component.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Alchemical Reagents table; document source tag: AM",
+    "source": "Alchemical_stuff.docx — Alchemical Reagents table; document source tag: AM",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -139,7 +139,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "5 sp",
     "weight": "—",
     "notes": "Alchemical item (Alchemical Reagents). Can be used as an alchemical power component.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Alchemical Reagents table; document source tag: AM",
+    "source": "Alchemical_stuff.docx — Alchemical Reagents table; document source tag: AM",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -150,7 +150,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "3 gp",
     "weight": "—",
     "notes": "Alchemical item (Alchemical Reagents). Can be used as an alchemical power component.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Alchemical Reagents table; document source tag: AM",
+    "source": "Alchemical_stuff.docx — Alchemical Reagents table; document source tag: AM",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -161,7 +161,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "1 gp",
     "weight": "—",
     "notes": "Alchemical item (Alchemical Reagents). Can be used as an alchemical power component.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Alchemical Reagents table; document source tag: AM",
+    "source": "Alchemical_stuff.docx — Alchemical Reagents table; document source tag: AM",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -172,7 +172,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "5 sp",
     "weight": "—",
     "notes": "Alchemical item (Alchemical Reagents). Can be used as an alchemical power component.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Alchemical Reagents table; document source tag: AM",
+    "source": "Alchemical_stuff.docx — Alchemical Reagents table; document source tag: AM",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -183,7 +183,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "5 sp",
     "weight": "—",
     "notes": "Alchemical item (Alchemical Reagents). Can be used as an alchemical power component.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Alchemical Reagents table; document source tag: AM",
+    "source": "Alchemical_stuff.docx — Alchemical Reagents table; document source tag: AM",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -194,7 +194,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "25 gp",
     "weight": "1 lb.",
     "notes": "Alchemical item (Oils and Flammables).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Oils and Flammables table; document source tag: ARG",
+    "source": "Alchemical_stuff.docx — Oils and Flammables table; document source tag: ARG",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -205,7 +205,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "50 gp",
     "weight": "1 lb.",
     "notes": "Alchemical item (Oils and Flammables).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Oils and Flammables table; document source tag: DHB",
+    "source": "Alchemical_stuff.docx — Oils and Flammables table; document source tag: DHB",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -216,7 +216,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "1 sp",
     "weight": "1 lb.",
     "notes": "Alchemical item (Oils and Flammables).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Oils and Flammables table; document source tag: CRB",
+    "source": "Alchemical_stuff.docx — Oils and Flammables table; document source tag: CRB",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -227,7 +227,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "5 gp",
     "weight": "—",
     "notes": "Alchemical item (Oils and Flammables). Craft (alchemy) DC 15.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Oils and Flammables table; document source tag: AA",
+    "source": "Alchemical_stuff.docx — Oils and Flammables table; document source tag: AA",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -238,7 +238,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "1 gp",
     "weight": "—",
     "notes": "Alchemical item (Oils and Flammables).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Oils and Flammables table; document source tag: ARG",
+    "source": "Alchemical_stuff.docx — Oils and Flammables table; document source tag: ARG",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -249,7 +249,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "200 gp",
     "weight": "40 lbs.",
     "notes": "Alchemical item (Tools, Devices and Kits).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Tools, Devices and Kits table; document source tag: CRB",
+    "source": "Alchemical_stuff.docx — Tools, Devices and Kits table; document source tag: CRB",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -260,7 +260,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "75 gp",
     "weight": "20 lbs.",
     "notes": "Alchemical item (Tools, Devices and Kits).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Tools, Devices and Kits table; document source tag: CRB",
+    "source": "Alchemical_stuff.docx — Tools, Devices and Kits table; document source tag: CRB",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -271,7 +271,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "300 gp",
     "weight": "40 lbs.",
     "notes": "Alchemical item (Tools, Devices and Kits).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Tools, Devices and Kits table; document source tag: ARG",
+    "source": "Alchemical_stuff.docx — Tools, Devices and Kits table; document source tag: ARG",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -282,7 +282,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "10 gp",
     "weight": "1/2 lb.",
     "notes": "Alchemical item (Tools, Devices and Kits).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Tools, Devices and Kits table; document source tag: ARG",
+    "source": "Alchemical_stuff.docx — Tools, Devices and Kits table; document source tag: ARG",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -293,7 +293,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "10 gp",
     "weight": "1 lb.",
     "notes": "Alchemical item (Tools, Devices and Kits). Craft (alchemy) DC 15.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Tools, Devices and Kits table; document source tag: UE",
+    "source": "Alchemical_stuff.docx — Tools, Devices and Kits table; document source tag: UE",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -304,7 +304,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "1 gp",
     "weight": "1 lb.",
     "notes": "Alchemical item (Tools, Devices and Kits). Craft (alchemy) DC 20.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Tools, Devices and Kits table; document source tag: UE",
+    "source": "Alchemical_stuff.docx — Tools, Devices and Kits table; document source tag: UE",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -315,7 +315,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "1 gp",
     "weight": "—",
     "notes": "Alchemical item (Tools, Devices and Kits). Craft (alchemy) DC 10.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Tools, Devices and Kits table; document source tag: UE",
+    "source": "Alchemical_stuff.docx — Tools, Devices and Kits table; document source tag: UE",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -326,7 +326,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "50 gp",
     "weight": "1 lb.",
     "notes": "Alchemical item (Tools, Devices and Kits).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Tools, Devices and Kits table; document source tag: ARG",
+    "source": "Alchemical_stuff.docx — Tools, Devices and Kits table; document source tag: ARG",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -337,7 +337,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "2 gp",
     "weight": "1 lb.",
     "notes": "Alchemical item (Tools, Devices and Kits). Craft (alchemy) DC 25.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Tools, Devices and Kits table; document source tag: CRB",
+    "source": "Alchemical_stuff.docx — Tools, Devices and Kits table; document source tag: CRB",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -348,7 +348,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "25 gp",
     "weight": "1 lb.",
     "notes": "Alchemical item (Tools, Devices and Kits). Craft (alchemy) DC 15.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Tools, Devices and Kits table; document source tag: UE",
+    "source": "Alchemical_stuff.docx — Tools, Devices and Kits table; document source tag: UE",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -359,7 +359,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "50 gp",
     "weight": "—",
     "notes": "Alchemical item (Misc. Substances).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: PSFG",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: PSFG",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -370,7 +370,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "5 gp",
     "weight": "2 lbs.",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC 15.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: UE",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: UE",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -381,7 +381,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "100 gp",
     "weight": "—",
     "notes": "Alchemical item (Misc. Substances).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: ARG",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: ARG",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -392,7 +392,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "50 gp",
     "weight": "—",
     "notes": "Alchemical item (Misc. Substances).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: ARG",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: ARG",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -403,7 +403,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "20 gp",
     "weight": "1/2 lb.",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC 20.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: UE",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: UE",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -414,7 +414,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "25 gp",
     "weight": "—",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC 25.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: UE",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: UE",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -425,7 +425,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "50 gp",
     "weight": "—",
     "notes": "Alchemical item (Misc. Substances).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: ARG",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: ARG",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -436,7 +436,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "20 gp",
     "weight": "1/2 lb.",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC 20.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: AA",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: AA",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -447,7 +447,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "1 gp",
     "weight": "—/20",
     "notes": "Alchemical item (Misc. Substances).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: APG",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: APG",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -458,7 +458,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "15 gp",
     "weight": "1 lb.",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC 20.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: DDR",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: DDR",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -469,7 +469,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "30 gp",
     "weight": "—",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC 20.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: DDR",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: DDR",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -480,7 +480,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "100 gp",
     "weight": "1 lb.",
     "notes": "Alchemical item (Misc. Substances).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: ARG",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: ARG",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -491,7 +491,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "30 gp",
     "weight": "—",
     "notes": "Alchemical item (Misc. Substances).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: ARG",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: ARG",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -502,7 +502,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "40 gp",
     "weight": "—",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC 15. Can be used as an alchemical power component.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: AA",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: AA",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -513,7 +513,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "5,000 gp",
     "weight": "45 lb.",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC 30.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: KoG",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: KoG",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -524,7 +524,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "40 gp",
     "weight": "1 lb.",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC 25.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: ARG",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: ARG",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -535,7 +535,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "25 gp",
     "weight": "1/2 lb.",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC 25.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: KoG",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: KoG",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -546,7 +546,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "20 gp",
     "weight": "10 lbs.",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC 20.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: UE",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: UE",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -557,7 +557,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "15 gp",
     "weight": "1 lb.",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC 15.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: UE",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: UE",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -568,7 +568,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "30 gp",
     "weight": "—",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC 25.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: UE",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: UE",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -579,7 +579,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "30 gp",
     "weight": "—",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC 25.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: AnA",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: AnA",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -590,7 +590,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "15 gp",
     "weight": "1 lb.",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC 15.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: UE",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: UE",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -601,7 +601,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "80 gp",
     "weight": "1/2 lb.",
     "notes": "Alchemical item (Misc. Substances).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: ARG",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: ARG",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -612,7 +612,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "20 gp",
     "weight": "1 lb.",
     "notes": "Alchemical item (Misc. Substances).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: ARG",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: ARG",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -623,7 +623,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "50 gp",
     "weight": "10 lbs.",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC 25.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: UE",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: UE",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -634,7 +634,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "1 gp",
     "weight": "—",
     "notes": "Alchemical item (Misc. Substances).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: ARG",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: ARG",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -645,7 +645,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "50 gp",
     "weight": "5 lbs.",
     "notes": "Alchemical item (Misc. Substances).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: ARG",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: ARG",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -656,7 +656,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "25 gp",
     "weight": "1 lb.",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC 20.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: UE",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: UE",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -667,7 +667,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "75 gp",
     "weight": "1/2 lb.",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC 30.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: KoG",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: KoG",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -678,7 +678,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "50 gp",
     "weight": "—",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC 25.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: AnA",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: AnA",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -689,7 +689,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "150 gp",
     "weight": "1 lb.",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC 25.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: UE",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: UE",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -700,7 +700,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "150 gp",
     "weight": "1 lb.",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC 25.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: UE",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: UE",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -711,7 +711,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "45 gp",
     "weight": "1/2 lb.",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC not given in the document (blank).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: DHB",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: DHB",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -722,7 +722,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "5 gp",
     "weight": "1 lb.",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC 15. Can be used as an alchemical power component.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: AA",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: AA",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -733,7 +733,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "10 gp",
     "weight": "1 lb.",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC 20*.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: ARG",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: ARG",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -744,7 +744,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "110 gp",
     "weight": "—",
     "notes": "Alchemical item (Misc. Substances).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: ARG",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: ARG",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -755,7 +755,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "50 gp",
     "weight": "1 lb.",
     "notes": "Alchemical item (Misc. Substances).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: ARG",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: ARG",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -766,7 +766,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "10 gp",
     "weight": "1 lb.",
     "notes": "Alchemical item (Misc. Substances).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: ARG",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: ARG",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -777,7 +777,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "80 gp",
     "weight": "—",
     "notes": "Alchemical item (Misc. Substances).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: ARG",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: ARG",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -788,7 +788,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "5 gp",
     "weight": "—",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC 15.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: UE",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: UE",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -799,7 +799,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "2 gp",
     "weight": "—",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC 15.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: UE",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: UE",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -810,7 +810,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "10 gp",
     "weight": "—",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC 20.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: UE",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: UE",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -821,7 +821,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "25 gp",
     "weight": "—",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC 20.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: UE",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: UE",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -832,7 +832,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "75 gp",
     "weight": "—",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC 25.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: UE",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: UE",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -843,7 +843,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "40 gp",
     "weight": "2 lb.",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC 25. Can be used as an alchemical power component.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: AA",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: AA",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -854,7 +854,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "15 gp",
     "weight": "1 lb.",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC 20.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: AnA",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: AnA",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -865,7 +865,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "30 gp",
     "weight": "1 lb.",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC 15.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: UE",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: UE",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -876,7 +876,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "50 gp",
     "weight": "1 lb.",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC 25.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: DDR",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: DDR",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -887,7 +887,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "80 gp",
     "weight": "1/2 lb.",
     "notes": "Alchemical item (Misc. Substances).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: DHB",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: DHB",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -898,7 +898,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "50 gp",
     "weight": "—",
     "notes": "Alchemical item (Misc. Substances).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: PCS:RG",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: PCS:RG",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -909,7 +909,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "75 gp",
     "weight": "1 lb.",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC not given in the document (marked '?').",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: DHB",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: DHB",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -920,7 +920,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "25 gp",
     "weight": "1/2 lb.",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC 25.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: UE",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: UE",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -931,7 +931,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "10 gp",
     "weight": "2 lbs.",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC 15.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: KoG",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: KoG",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -942,7 +942,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "35 gp",
     "weight": "2 lbs.",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC not given in the document (marked '?').",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: DHB",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: DHB",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -953,7 +953,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "5 sp",
     "weight": "5 lbs.",
     "notes": "Alchemical item (Misc. Substances).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: UE",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: UE",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -964,7 +964,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "50 gp",
     "weight": "—",
     "notes": "Alchemical item (Misc. Substances).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: ARG",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: ARG",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -975,7 +975,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "50 gp",
     "weight": "—",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC 20. Can be used as an alchemical power component.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: AA",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: AA",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -986,7 +986,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "10 gp",
     "weight": "1 lb.",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC 20.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: UE",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: UE",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -997,7 +997,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "60 gp",
     "weight": "2 lbs.",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC not given in the document (blank).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: DHB",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: DHB",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1008,7 +1008,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "60 gp",
     "weight": "2 lbs.",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC 25. Can be used as an alchemical power component.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: AA",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: AA",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1019,7 +1019,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "1 cp",
     "weight": "1/2 lb.",
     "notes": "Alchemical item (Misc. Substances).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: AA",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: AA",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1030,7 +1030,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "60 gp",
     "weight": "—",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC 30.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: UE",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: UE",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1041,7 +1041,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "60 gp",
     "weight": "2 lbs.",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC 25.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: AA",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: AA",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1052,7 +1052,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "5 gp",
     "weight": "—",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC 20.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: AA",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: AA",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1063,7 +1063,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "150 gp",
     "weight": "1 lb.",
     "notes": "Alchemical item (Misc. Substances).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: ARG",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: ARG",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1074,7 +1074,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "20 gp",
     "weight": "2 lbs.",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC 20.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: UE",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: UE",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1085,7 +1085,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "25 gp",
     "weight": "1 lb.",
     "notes": "Alchemical item (Misc. Substances).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: ARG",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: ARG",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1096,7 +1096,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "+750 gp",
     "weight": "—",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC: see text (document).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: none (—)",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: none (—)",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1107,7 +1107,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "300 gp",
     "weight": "—",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC 30.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: UE",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: UE",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1118,7 +1118,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "30 gp",
     "weight": "1/2 lb.",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC 15.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: AA",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: AA",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1129,7 +1129,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "75 gp",
     "weight": "1 lb.",
     "notes": "Alchemical item (Misc. Substances).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: ARG",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: ARG",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1140,7 +1140,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "50 gp",
     "weight": "1/2 lb.",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC 25.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: ARG",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: ARG",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1151,7 +1151,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "80 gp",
     "weight": "—",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC 25.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: UE",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: UE",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1162,7 +1162,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "100 gp",
     "weight": "1 lb.",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC 25.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: APG",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: APG",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1173,7 +1173,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "50 gp",
     "weight": "1 lb.",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC 20.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: APG",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: APG",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1184,7 +1184,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "200 gp",
     "weight": "1/2 lb.",
     "notes": "Alchemical item (Misc. Substances).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: PSFG",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: PSFG",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1195,7 +1195,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "5 gp",
     "weight": "1 lb.",
     "notes": "Alchemical item (Misc. Substances). Craft (alchemy) DC 20.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances table; document source tag: APG",
+    "source": "Alchemical_stuff.docx — Misc. Substances table; document source tag: APG",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1206,7 +1206,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "50 gp",
     "weight": "—",
     "notes": "Alchemical item (Balms, Medicines and Tonics). Craft (alchemy) DC 25. Can be used as an alchemical power component.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Balms, Medicines and Tonics table; document source tag: AA, APG",
+    "source": "Alchemical_stuff.docx — Balms, Medicines and Tonics table; document source tag: AA, APG",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1217,7 +1217,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "50 gp",
     "weight": "—",
     "notes": "Alchemical item (Balms, Medicines and Tonics). Craft (alchemy) DC 25. Can be used as an alchemical power component.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Balms, Medicines and Tonics table; document source tag: CRB",
+    "source": "Alchemical_stuff.docx — Balms, Medicines and Tonics table; document source tag: CRB",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1228,7 +1228,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "25 gp",
     "weight": "—",
     "notes": "Alchemical item (Balms, Medicines and Tonics). Craft (alchemy) DC 25.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Balms, Medicines and Tonics table; document source tag: UE",
+    "source": "Alchemical_stuff.docx — Balms, Medicines and Tonics table; document source tag: UE",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1239,7 +1239,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "25 gp",
     "weight": "—",
     "notes": "Alchemical item (Balms, Medicines and Tonics). Craft (alchemy) DC 25.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Balms, Medicines and Tonics table; document source tag: AA",
+    "source": "Alchemical_stuff.docx — Balms, Medicines and Tonics table; document source tag: AA",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1250,7 +1250,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "15 gp",
     "weight": "—",
     "notes": "Alchemical item (Balms, Medicines and Tonics).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Balms, Medicines and Tonics table; document source tag: AA",
+    "source": "Alchemical_stuff.docx — Balms, Medicines and Tonics table; document source tag: AA",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1261,7 +1261,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "50 gp",
     "weight": "—",
     "notes": "Alchemical item (Balms, Medicines and Tonics). Craft (alchemy) DC: see text (document).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Balms, Medicines and Tonics table; document source tag: none (—)",
+    "source": "Alchemical_stuff.docx — Balms, Medicines and Tonics table; document source tag: none (—)",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1272,7 +1272,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "25 gp",
     "weight": "—",
     "notes": "Alchemical item (Balms, Medicines and Tonics).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Balms, Medicines and Tonics table; document source tag: ARG",
+    "source": "Alchemical_stuff.docx — Balms, Medicines and Tonics table; document source tag: ARG",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1283,7 +1283,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "25 gp",
     "weight": "—",
     "notes": "Alchemical item (Balms, Medicines and Tonics). Craft (alchemy) DC 20.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Balms, Medicines and Tonics table; document source tag: APG",
+    "source": "Alchemical_stuff.docx — Balms, Medicines and Tonics table; document source tag: APG",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1294,7 +1294,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "25 gp",
     "weight": "1/2 lb.",
     "notes": "Alchemical item (Balms, Medicines and Tonics). Craft (alchemy) DC 15.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Balms, Medicines and Tonics table; document source tag: APG",
+    "source": "Alchemical_stuff.docx — Balms, Medicines and Tonics table; document source tag: APG",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1305,7 +1305,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "50 gp",
     "weight": "—",
     "notes": "Alchemical item (Balms, Medicines and Tonics).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Balms, Medicines and Tonics table; document source tag: ARG",
+    "source": "Alchemical_stuff.docx — Balms, Medicines and Tonics table; document source tag: ARG",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1316,7 +1316,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "150 gp",
     "weight": "1 lb.",
     "notes": "Alchemical item (Balms, Medicines and Tonics).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Balms, Medicines and Tonics table; document source tag: ARG",
+    "source": "Alchemical_stuff.docx — Balms, Medicines and Tonics table; document source tag: ARG",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1327,7 +1327,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "45 gp",
     "weight": "—",
     "notes": "Alchemical item (Balms, Medicines and Tonics). Craft (alchemy) DC 25.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Balms, Medicines and Tonics table; document source tag: UE",
+    "source": "Alchemical_stuff.docx — Balms, Medicines and Tonics table; document source tag: UE",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1338,7 +1338,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "50 gp",
     "weight": "1 lb.",
     "notes": "Alchemical item (Balms, Medicines and Tonics). Craft (alchemy) DC 30.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Balms, Medicines and Tonics table; document source tag: UE",
+    "source": "Alchemical_stuff.docx — Balms, Medicines and Tonics table; document source tag: UE",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1349,7 +1349,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "100 gp",
     "weight": "—",
     "notes": "Alchemical item (Balms, Medicines and Tonics). Craft (alchemy) DC 25.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Balms, Medicines and Tonics table; document source tag: SoS",
+    "source": "Alchemical_stuff.docx — Balms, Medicines and Tonics table; document source tag: SoS",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1360,7 +1360,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "50 gp",
     "weight": "—",
     "notes": "Alchemical item (Balms, Medicines and Tonics).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Balms, Medicines and Tonics table; document source tag: PCS",
+    "source": "Alchemical_stuff.docx — Balms, Medicines and Tonics table; document source tag: PCS",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1371,7 +1371,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "30 gp",
     "weight": "—",
     "notes": "Alchemical item (Balms, Medicines and Tonics). Craft (alchemy) DC 20.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Balms, Medicines and Tonics table; document source tag: UE",
+    "source": "Alchemical_stuff.docx — Balms, Medicines and Tonics table; document source tag: UE",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1382,7 +1382,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "100 gp",
     "weight": "—",
     "notes": "Alchemical item (Balms, Medicines and Tonics).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Balms, Medicines and Tonics table; document source tag: AA",
+    "source": "Alchemical_stuff.docx — Balms, Medicines and Tonics table; document source tag: AA",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1393,7 +1393,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "30 gp",
     "weight": "1/2 lb.",
     "notes": "Alchemical item (Hunting Aids). Craft (alchemy) DC 20.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Hunting Aids table; document source tag: AA",
+    "source": "Alchemical_stuff.docx — Hunting Aids table; document source tag: AA",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1404,7 +1404,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "75 gp",
     "weight": "1/2 lbs.",
     "notes": "Alchemical item (Hunting Aids). Craft (alchemy) DC 25.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Hunting Aids table; document source tag: SoS",
+    "source": "Alchemical_stuff.docx — Hunting Aids table; document source tag: SoS",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1415,7 +1415,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "2 gp",
     "weight": "—",
     "notes": "Alchemical item (Hunting Aids).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Hunting Aids table; document source tag: RotRLPG",
+    "source": "Alchemical_stuff.docx — Hunting Aids table; document source tag: RotRLPG",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1426,7 +1426,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "40 gp",
     "weight": "1/2 lb.",
     "notes": "Alchemical item (Hunting Aids). Craft (alchemy) DC 20.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Hunting Aids table; document source tag: AA",
+    "source": "Alchemical_stuff.docx — Hunting Aids table; document source tag: AA",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1437,7 +1437,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "75 gp",
     "weight": "—",
     "notes": "Alchemical item (Herbs and Plants).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Herbs and Plants table; document source tag: AA",
+    "source": "Alchemical_stuff.docx — Herbs and Plants table; document source tag: AA",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1448,7 +1448,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "2 gp",
     "weight": "—",
     "notes": "Alchemical item (Herbs and Plants).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Herbs and Plants table; document source tag: AA",
+    "source": "Alchemical_stuff.docx — Herbs and Plants table; document source tag: AA",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1459,7 +1459,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "100 gp",
     "weight": "—",
     "notes": "Alchemical item (Herbs and Plants).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Herbs and Plants table; document source tag: ARG",
+    "source": "Alchemical_stuff.docx — Herbs and Plants table; document source tag: ARG",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1470,7 +1470,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "20 gp",
     "weight": "2 lbs.",
     "notes": "Alchemical item (Herbs and Plants).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Herbs and Plants table; document source tag: AA",
+    "source": "Alchemical_stuff.docx — Herbs and Plants table; document source tag: AA",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1481,7 +1481,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "1 sp",
     "weight": "1 lb.",
     "notes": "Alchemical item (Herbs and Plants).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Herbs and Plants table; document source tag: AA",
+    "source": "Alchemical_stuff.docx — Herbs and Plants table; document source tag: AA",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1492,7 +1492,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "—",
     "weight": "—",
     "notes": "Alchemical item (Herbs and Plants). No price or weight is listed in the document (both given as —).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Herbs and Plants table; document source tag: AA",
+    "source": "Alchemical_stuff.docx — Herbs and Plants table; document source tag: AA",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1503,7 +1503,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "—",
     "weight": "—",
     "notes": "Alchemical item (Herbs and Plants). No price or weight is listed in the document (both given as —).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Herbs and Plants table; document source tag: AA",
+    "source": "Alchemical_stuff.docx — Herbs and Plants table; document source tag: AA",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1514,7 +1514,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "—",
     "weight": "—",
     "notes": "Alchemical item (Herbs and Plants). No price or weight is listed in the document (both given as —).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Herbs and Plants table; document source tag: CRB",
+    "source": "Alchemical_stuff.docx — Herbs and Plants table; document source tag: CRB",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1525,7 +1525,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "50 gp",
     "weight": "1/2 lb.",
     "notes": "Alchemical item (Herbs and Plants).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Herbs and Plants table; document source tag: ARG",
+    "source": "Alchemical_stuff.docx — Herbs and Plants table; document source tag: ARG",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1536,7 +1536,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "20 gp",
     "weight": "—",
     "notes": "Alchemical item (Herbs and Plants).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Herbs and Plants table; document source tag: AA",
+    "source": "Alchemical_stuff.docx — Herbs and Plants table; document source tag: AA",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1547,7 +1547,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "1 gp",
     "weight": "—",
     "notes": "Alchemical item (Herbs and Plants).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Herbs and Plants table; document source tag: AA",
+    "source": "Alchemical_stuff.docx — Herbs and Plants table; document source tag: AA",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1558,7 +1558,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "30 gp",
     "weight": "—",
     "notes": "Alchemical item (Herbs and Plants). Craft (alchemy) DC 20.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Herbs and Plants table; document source tag: UE",
+    "source": "Alchemical_stuff.docx — Herbs and Plants table; document source tag: UE",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1569,7 +1569,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "1 sp",
     "weight": "—",
     "notes": "Alchemical item (Herbs and Plants).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Herbs and Plants table; document source tag: AA",
+    "source": "Alchemical_stuff.docx — Herbs and Plants table; document source tag: AA",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1580,7 +1580,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "1 gp",
     "weight": "2 lbs.",
     "notes": "Alchemical item (Herbs and Plants).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Herbs and Plants table; document source tag: AA",
+    "source": "Alchemical_stuff.docx — Herbs and Plants table; document source tag: AA",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1591,7 +1591,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "5 sp",
     "weight": "—",
     "notes": "Alchemical item (Herbs and Plants).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Herbs and Plants table; document source tag: AA",
+    "source": "Alchemical_stuff.docx — Herbs and Plants table; document source tag: AA",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1602,7 +1602,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "25 gp",
     "weight": "—",
     "notes": "Alchemical item (Special Equipment). Craft (alchemy) DC 20.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Special Equipment table; document source tag: AA",
+    "source": "Alchemical_stuff.docx — Special Equipment table; document source tag: AA",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1613,7 +1613,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "60 gp",
     "weight": "—",
     "notes": "Alchemical item (Special Equipment).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Special Equipment table; document source tag: DHB",
+    "source": "Alchemical_stuff.docx — Special Equipment table; document source tag: DHB",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1624,7 +1624,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "40 gp",
     "weight": "—",
     "notes": "Alchemical item (Special Equipment).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Special Equipment table; document source tag: DHB",
+    "source": "Alchemical_stuff.docx — Special Equipment table; document source tag: DHB",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1635,7 +1635,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "20 gp",
     "weight": "1/2 lb.",
     "notes": "Alchemical item (Special Equipment). Craft (alchemy) DC 20. Can be used as an alchemical power component.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Special Equipment table; document source tag: CRB",
+    "source": "Alchemical_stuff.docx — Special Equipment table; document source tag: CRB",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1646,7 +1646,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "50 gp",
     "weight": "4 lbs.",
     "notes": "Alchemical item (Special Equipment). Can be used as an alchemical power component.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Special Equipment table; document source tag: CRB",
+    "source": "Alchemical_stuff.docx — Special Equipment table; document source tag: CRB",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1657,7 +1657,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "15 gp",
     "weight": "2 lbs.",
     "notes": "Alchemical item (Special Equipment).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Special Equipment table; document source tag: PoIS",
+    "source": "Alchemical_stuff.docx — Special Equipment table; document source tag: PoIS",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1668,7 +1668,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "30 gp",
     "weight": "1 lb.",
     "notes": "Alchemical item (Special Equipment). Can be used as an alchemical power component.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Special Equipment table; document source tag: CRB",
+    "source": "Alchemical_stuff.docx — Special Equipment table; document source tag: CRB",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1679,7 +1679,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "1 gp",
     "weight": "—",
     "notes": "Alchemical item (Special Equipment). Craft (alchemy) DC 20.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Special Equipment table; document source tag: CRB",
+    "source": "Alchemical_stuff.docx — Special Equipment table; document source tag: CRB",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1690,7 +1690,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "110 gp",
     "weight": "1 lb.",
     "notes": "Alchemical item (Special Equipment).",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Special Equipment table; document source tag: CRB",
+    "source": "Alchemical_stuff.docx — Special Equipment table; document source tag: CRB",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1701,7 +1701,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "2 gp",
     "weight": "—",
     "notes": "Alchemical reagent. Can be used as an alchemical power component (5 doses, 10 gp): spells of the creation subschool are cast at +1 caster level for all effects. From the document's descriptions section; the item has no row in the document's tables.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Alchemical Reagents descriptions; document source tag: none listed",
+    "source": "Alchemical_stuff.docx — Alchemical Reagents descriptions; document source tag: none listed",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1712,7 +1712,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "15 gp",
     "weight": "1 lb.",
     "notes": "Alchemical item (Oils and Flammables). Thrown as a splash weapon (range increment 10 ft.): a creature with the scent ability in the impact square must make a DC 14 Fortitude save or be nauseated for 1d4+1 rounds; scent creatures in adjacent squares must make a DC 12 Fortitude save or be sickened for 1 round; creatures without scent are unaffected. From the document's descriptions section; the item has no row in the document's tables.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Oils and Flammables descriptions; document source tag: none listed",
+    "source": "Alchemical_stuff.docx — Oils and Flammables descriptions; document source tag: none listed",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   },
@@ -1723,7 +1723,7 @@ export const SORCERY_STEAM_ALCHEMICAL_EQUIPMENT: EquipmentItem[] = [
     "cost": "20 gp",
     "weight": "1/2 lb.",
     "notes": "Alchemical item (Misc. Substances). Blessed thurible holding up to 10 sticks of incense, burning 1 stick per hour; if a smokestack is added to the incense, creatures with the evil subtype within the smoke are dazzled while they remain in it. From the document's descriptions section; the item has no row in the document's tables.",
-    "source": "Alchemical_stuff.docx, Shaun Bradley's compiled alchemical document — Misc. Substances descriptions; document source tag: none listed",
+    "source": "Alchemical_stuff.docx — Misc. Substances descriptions; document source tag: none listed",
     "sourceUrl": "workspace/user/files/Alchemical_stuff.docx",
     "ruleset": "sorcery_steam"
   }

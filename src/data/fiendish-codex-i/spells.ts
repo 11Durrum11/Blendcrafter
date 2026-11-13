@@ -120,7 +120,6 @@ export const FIENDISH_CODEX_I_SPELLS: SpellDefinition[] = [
   "summary": "You call to Dagon for his unique insight and become aware of some fragment of forbidden lore previously lost to you, as the text describes.",
   "source": "Fiendish Codex I: Hordes of the Abyss, p. 92",
   "sourceUrl": "/A POC PC related/4.Core books/monster manuals/Fiendish Codex I - Hordes of the Abyss.pdf",
-  "note": "The Fiendish Codex I printing of this spell differs from the Book of Vile Darkness version (see that record): it has no material component and a casting time of 1 swift action instead of 1 action. Both versions are included; this is the later (2006) printing."
 },
 {
   "id": "embrace-the-dark-chaos",

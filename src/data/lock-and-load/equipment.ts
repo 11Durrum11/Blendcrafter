@@ -41,7 +41,7 @@ export const LOCK_AND_LOAD_EQUIPMENT: EquipmentItem[] = [
     cost: "—",
     weight: "3 lb.",
     notes:
-      "Damage 1d4 (Small) / 1d6 (Medium), critical ×2, Bludgeoning. Proficiency: martial. (3.5 conversion: printed as a Small-size weapon with the single damage value 1d4.) Any length of chain up to 4 feet effectively swung as a weapon (a length of thick knotted rope or a thick belt with a heavy buckle has the same statistics); improvised, hence no price. Can be used to make trip attacks (if you are tripped during the attempt, you may drop the weapon to avoid being tripped), and grants a +2 bonus on attempts to disarm and to resist being disarmed if the disarm attempt fails.",
+      "Damage 1d4 (Small) / 1d6 (Medium), critical ×2, Bludgeoning. Proficiency: martial. Any length of chain up to 4 feet effectively swung as a weapon (a length of thick knotted rope or a thick belt with a heavy buckle has the same statistics); improvised, hence no price. Can be used to make trip attacks (if you are tripped during the attempt, you may drop the weapon to avoid being tripped), and grants a +2 bonus on attempts to disarm and to resist being disarmed if the disarm attempt fails.",
     source: `${LL} p. 52`,
     sourceUrl: LL_PATH,
     ruleset: "iron_kingdoms",
@@ -53,7 +53,7 @@ export const LOCK_AND_LOAD_EQUIPMENT: EquipmentItem[] = [
     cost: "7 gp each",
     weight: "3 lb.",
     notes:
-      "Damage 1d4 (Small) / 1d6 (Medium), critical 19–20/×3, Piercing. Proficiency: martial. (3.5 conversion: printed as a Medium-size weapon with the single damage value 1d6.) Bow ammunition with a bifurcated head. All cleft bladed weapons are considered masterwork and have their critical ranges improved by 1, already reflected in the printed statistics.",
+      "Damage 1d4 (Small) / 1d6 (Medium), critical 19–20/×3, Piercing. Proficiency: martial. Bow ammunition with a bifurcated head. All cleft bladed weapons are considered masterwork and have their critical ranges improved by 1, already reflected in the printed statistics.",
     source: `${LL} p. 52`,
     sourceUrl: LL_PATH,
     ruleset: "iron_kingdoms",
@@ -65,7 +65,7 @@ export const LOCK_AND_LOAD_EQUIPMENT: EquipmentItem[] = [
     cost: "350 gp",
     weight: "14 lb.",
     notes:
-      "Damage 1d8 (Small) / 1d10 (Medium), critical 18–20/×2, Slashing and piercing (due to the bifurcated blade). Proficiency: martial. (3.5 conversion: printed as a Large-size weapon with the single damage value 2d6.) All cleft bladed weapons are considered masterwork and have their critical ranges improved by 1, already reflected in the printed statistics.",
+      "Damage 1d8 (Small) / 1d10 (Medium), critical 18–20/×2, Slashing and piercing (due to the bifurcated blade). Proficiency: martial. All cleft bladed weapons are considered masterwork and have their critical ranges improved by 1, already reflected in the printed statistics.",
     source: `${LL} p. 52`,
     sourceUrl: LL_PATH,
     ruleset: "iron_kingdoms",
@@ -77,7 +77,7 @@ export const LOCK_AND_LOAD_EQUIPMENT: EquipmentItem[] = [
     cost: "302 gp",
     weight: "8 lb.",
     notes:
-      "Damage 1d4 (Small) / 1d6 (Medium), critical 19–20/×3, range increment 20 ft, Piercing. Proficiency: martial. (3.5 conversion: printed as a Large-size weapon with the single damage value 1d8.) Double weapon. All cleft bladed weapons are considered masterwork and have their critical ranges improved by 1, already reflected in the printed statistics.",
+      "Damage 1d4 (Small) / 1d6 (Medium), critical 19–20/×3, range increment 20 ft, Piercing. Proficiency: martial. Double weapon. All cleft bladed weapons are considered masterwork and have their critical ranges improved by 1, already reflected in the printed statistics.",
     source: `${LL} p. 52`,
     sourceUrl: LL_PATH,
     ruleset: "iron_kingdoms",
@@ -113,7 +113,7 @@ export const LOCK_AND_LOAD_EQUIPMENT: EquipmentItem[] = [
     cost: "10 gp",
     weight: "2 lb.",
     notes:
-      "Damage 1d6 (Small) / 1d8 (Medium), critical 18–20/×2, range increment 10 ft, Piercing. Proficiency: simple (dagger). (3.5 conversion: printed as a Tiny-size weapon with the single damage value 1d4.) A thrusting dagger commonplace in Cryx whose blade has four sharp flanges forming an X-shaped cross section, inflicting viler wounds than other daggers of equal size.",
+      "Damage 1d6 (Small) / 1d8 (Medium), critical 18–20/×2, range increment 10 ft, Piercing. Proficiency: simple (dagger). A thrusting dagger commonplace in Cryx whose blade has four sharp flanges forming an X-shaped cross section, inflicting viler wounds than other daggers of equal size.",
     source: `${LL} p. 52`,
     sourceUrl: LL_PATH,
     ruleset: "iron_kingdoms",
@@ -125,7 +125,7 @@ export const LOCK_AND_LOAD_EQUIPMENT: EquipmentItem[] = [
     cost: "6 gp",
     weight: "—",
     notes:
-      "Damage 1d4 (Small) / 1d6 (Medium), critical 19–20/×2, range increment 10 ft, Piercing. Proficiency: simple (dagger). (3.5 conversion: printed as a Tiny-size weapon with the single damage value 1d3.) Commonly called a pocket knife: the blade folds neatly into a groove in the handle so it can be carried safely in a pocket; folding or unfolding the blade is a move action. Printed quirk kept: the book's stat line prints a blank where the weight belongs.",
+      "Damage 1d4 (Small) / 1d6 (Medium), critical 19–20/×2, range increment 10 ft, Piercing. Proficiency: simple (dagger). Commonly called a pocket knife: the blade folds neatly into a groove in the handle so it can be carried safely in a pocket; folding or unfolding the blade is a move action. Printed quirk kept: the book's stat line prints a blank where the weight belongs.",
     source: `${LL} p. 52`,
     sourceUrl: LL_PATH,
     ruleset: "iron_kingdoms",
@@ -137,7 +137,7 @@ export const LOCK_AND_LOAD_EQUIPMENT: EquipmentItem[] = [
     cost: "2 gp",
     weight: "1 lb.",
     notes:
-      "Damage 1d6 (Small) / 1d8 (Medium), critical ×3, Piercing. Proficiency: simple. (3.5 conversion: printed as a Tiny-size weapon with the single damage value 1d4.) A common shipboard tool — a large metal hook on a small wooden crossbar clenched in the fist, the hook protruding between the fingers — equally useful as an impromptu weapon.",
+      "Damage 1d6 (Small) / 1d8 (Medium), critical ×3, Piercing. Proficiency: simple. A common shipboard tool — a large metal hook on a small wooden crossbar clenched in the fist, the hook protruding between the fingers — equally useful as an impromptu weapon.",
     source: `${LL} p. 52`,
     sourceUrl: LL_PATH,
     ruleset: "iron_kingdoms",
@@ -149,7 +149,7 @@ export const LOCK_AND_LOAD_EQUIPMENT: EquipmentItem[] = [
     cost: "7 gp",
     weight: "7 lb.",
     notes:
-      "Damage 1d4 (Small) / 1d6 (Medium), critical ×3, range increment 10 ft, Piercing. Proficiency: simple. (3.5 conversion: printed as a Large-size weapon with the single damage value 1d8.) A sturdy shortspear with a large hook mounted at the base of the spearhead; as a tool it can hook objects or people from the water or push off from other boats, and as a weapon it is used as a normal shortspear but also grants a +2 bonus to trip and disarm attacks.",
+      "Damage 1d4 (Small) / 1d6 (Medium), critical ×3, range increment 10 ft, Piercing. Proficiency: simple. A sturdy shortspear with a large hook mounted at the base of the spearhead; as a tool it can hook objects or people from the water or push off from other boats, and as a weapon it is used as a normal shortspear but also grants a +2 bonus to trip and disarm attacks.",
     source: `${LL} p. 52`,
     sourceUrl: LL_PATH,
     ruleset: "iron_kingdoms",
@@ -162,7 +162,7 @@ export const LOCK_AND_LOAD_EQUIPMENT: EquipmentItem[] = [
     cost: "15 gp",
     weight: "6 lb.",
     notes:
-      "Damage 1d6 (Small) / 1d8 (Medium), critical ×3, Slashing and piercing. Proficiency: exotic. (3.5 conversion: printed as a Small-size weapon with the single damage value 1d6.) Developed from the common halberd with a reduced head on a very short one-handed hilt, somewhat like a handaxe: the back hook can be used for trip attacks (if you are tripped during the attempt, you may drop the weapon to avoid being tripped), and a top-mounted spike serves for thrusting attacks. A Monk of the Order of Keeping using a Katrena's hook can use their unarmed base attack and more favorable number of attacks; they are rarely used by anyone else.",
+      "Damage 1d6 (Small) / 1d8 (Medium), critical ×3, Slashing and piercing. Proficiency: exotic. Developed from the common halberd with a reduced head on a very short one-handed hilt, somewhat like a handaxe: the back hook can be used for trip attacks (if you are tripped during the attempt, you may drop the weapon to avoid being tripped), and a top-mounted spike serves for thrusting attacks. A Monk of the Order of Keeping using a Katrena's hook can use their unarmed base attack and more favorable number of attacks; they are rarely used by anyone else.",
     source: `${LL} p. 53`,
     sourceUrl: LL_PATH,
     ruleset: "iron_kingdoms",
@@ -174,7 +174,7 @@ export const LOCK_AND_LOAD_EQUIPMENT: EquipmentItem[] = [
     cost: "225 gp",
     weight: "4 lb.",
     notes:
-      "Damage 1d4 + Str (Small) / 1d6 + Str (Medium), critical ×3, range increment 70 ft, Piercing. Proficiency: simple (as printed). (3.5 conversion: printed as a Medium weapon with the single damage value 1d6 + Str.) Developed by the horseman tribes of the Khadoran plains from the horns and tendons of the Raevhan buffalo; functions as a mighty composite shortbow, and the hand guard on the bow grip may be used as a spiked gauntlet.",
+      "Damage 1d4 + Str (Small) / 1d6 + Str (Medium), critical ×3, range increment 70 ft, Piercing. Proficiency: simple (as printed). Developed by the horseman tribes of the Khadoran plains from the horns and tendons of the Raevhan buffalo; functions as a mighty composite shortbow, and the hand guard on the bow grip may be used as a spiked gauntlet.",
     source: `${LL} p. 53`,
     sourceUrl: LL_PATH,
     ruleset: "iron_kingdoms",
@@ -186,7 +186,7 @@ export const LOCK_AND_LOAD_EQUIPMENT: EquipmentItem[] = [
     cost: "Only available to cultists of Cyriss",
     weight: "8 lb.",
     notes:
-      "Damage 1d6 (Small) / 1d8 (Medium), critical 19–20/×2, Bludgeoning. Proficiency: exotic. (3.5 conversion: printed as a Medium-size weapon with the single damage value 1d8.) The favored weapon of cultists of Cyriss: a short metal handle affixed with a clockwork-powered head that rotates with great speed, spinning its three short flail heads; the spin allows a bonus attack in a round, in which case both attacks are made at a −3 attack penalty. The weapons are created in Cyriss foundries and supplied to acolytes unfinished — completing one is part of the final test of worth: the acolyte must first discern why it is inoperative (Craft (clockworks) check, DC 10) and then make the appropriate repairs (Craft (clockworks) check, DC 15).",
+      "Damage 1d6 (Small) / 1d8 (Medium), critical 19–20/×2, Bludgeoning. Proficiency: exotic. The favored weapon of cultists of Cyriss: a short metal handle affixed with a clockwork-powered head that rotates with great speed, spinning its three short flail heads; the spin allows a bonus attack in a round, in which case both attacks are made at a −3 attack penalty. The weapons are created in Cyriss foundries and supplied to acolytes unfinished — completing one is part of the final test of worth: the acolyte must first discern why it is inoperative (Craft (clockworks) check, DC 10) and then make the appropriate repairs (Craft (clockworks) check, DC 15).",
     source: `${LL} p. 53`,
     sourceUrl: LL_PATH,
     ruleset: "iron_kingdoms",
@@ -198,7 +198,7 @@ export const LOCK_AND_LOAD_EQUIPMENT: EquipmentItem[] = [
     cost: "Varies",
     weight: "1/10 lb.",
     notes:
-      "Damage 1d2 (Small) / 1d3 (Medium), critical ×2, range increment 10 ft, Bludgeoning or slashing. Proficiency: exotic. (3.5 conversion: printed as a Tiny weapon with the single damage value 1.) Small aerodynamic projectiles — smooth pebbles, sling bullets, and the like, sometimes with the edges sharpened — thrown accurately by Monks of the Fist. Up to three stings may be thrown per attack, provided they are thrown at the same target; you do not add your Strength modifier to sting attacks.",
+      "Damage 1d2 (Small) / 1d3 (Medium), critical ×2, range increment 10 ft, Bludgeoning or slashing. Proficiency: exotic. Small aerodynamic projectiles — smooth pebbles, sling bullets, and the like, sometimes with the edges sharpened — thrown accurately by Monks of the Fist. Up to three stings may be thrown per attack, provided they are thrown at the same target; you do not add your Strength modifier to sting attacks.",
     source: `${LL} p. 53`,
     sourceUrl: LL_PATH,
     ruleset: "iron_kingdoms",
@@ -210,7 +210,7 @@ export const LOCK_AND_LOAD_EQUIPMENT: EquipmentItem[] = [
     cost: "1,000+ gp",
     weight: "8 lb.",
     notes:
-      "Damage 1d8 (Small) / 1d10 (Medium), critical 19–20/×2, Slashing. Proficiency: exotic. (3.5 conversion: printed as a Large-size weapon with the single damage value 2d6.) The favored weapon of the Nyss: an elegant masterwork greatsword (usual +1 bonus to attack rolls) with a slender 5-foot blade etched with Aeric runes; the Nyss train with it from youth, and its unusual balance enables it to be used with the Weapon Finesse feat. The printed price is what a non-Nyss would pay to acquire one of these rare weapons — the Nyss almost never sell them and will not willingly part with their own for any price.",
+      "Damage 1d8 (Small) / 1d10 (Medium), critical 19–20/×2, Slashing. Proficiency: exotic. The favored weapon of the Nyss: an elegant masterwork greatsword (usual +1 bonus to attack rolls) with a slender 5-foot blade etched with Aeric runes; the Nyss train with it from youth, and its unusual balance enables it to be used with the Weapon Finesse feat. The printed price is what a non-Nyss would pay to acquire one of these rare weapons — the Nyss almost never sell them and will not willingly part with their own for any price.",
     source: `${LL} p. 53`,
     sourceUrl: LL_PATH,
     ruleset: "iron_kingdoms",
@@ -223,7 +223,7 @@ export const LOCK_AND_LOAD_EQUIPMENT: EquipmentItem[] = [
     cost: "35 gp",
     weight: "35 lb.",
     notes:
-      "Damage 1d8 (Small) / 1d10 (Medium), critical ×3, Slashing or piercing. Proficiency: martial. (3.5 conversion: printed as a Huge-size weapon with the single damage value 2d8.) A vast polearm built to take full advantage of an ogrun's massive strength and size — a 3-foot-long, 1-foot-wide cleaver blade on a 12-foot pole, the back of the blade studded with three punching spikes — so large and heavy that an ogrun must wield it with both hands. It has reach, and can be used to strike adjacent opponents or those up to 10 feet away.",
+      "Damage 1d8 (Small) / 1d10 (Medium), critical ×3, Slashing or piercing. Proficiency: martial. A vast polearm built to take full advantage of an ogrun's massive strength and size — a 3-foot-long, 1-foot-wide cleaver blade on a 12-foot pole, the back of the blade studded with three punching spikes — so large and heavy that an ogrun must wield it with both hands. It has reach, and can be used to strike adjacent opponents or those up to 10 feet away.",
     source: `${LL} p. 54`,
     sourceUrl: LL_PATH,
     ruleset: "iron_kingdoms",
@@ -235,7 +235,7 @@ export const LOCK_AND_LOAD_EQUIPMENT: EquipmentItem[] = [
     cost: "600 gp",
     weight: "5 lb.",
     notes:
-      "Damage 3d6 (Small) / 4d6 (Medium), critical 19–20/×3, range increment 80 ft, Piercing. Proficiency: exotic (small arms). (3.5 conversion: printed as a Tiny-size weapon with the single damage value 2d6.) A large, powerful breech-loading pistol, 1 full foot in length with a broad, heavy barrel, commonly issued to military officers. Reload: 1 standard action and a successful Craft (small arms) check (DC 8); on a failed check the reloading must begin anew, and if the check fails by 5 or more the ammunition is ruined.",
+      "Damage 3d6 (Small) / 4d6 (Medium), critical 19–20/×3, range increment 80 ft, Piercing. Proficiency: exotic (small arms). A large, powerful breech-loading pistol, 1 full foot in length with a broad, heavy barrel, commonly issued to military officers. Reload: 1 standard action and a successful Craft (small arms) check (DC 8); on a failed check the reloading must begin anew, and if the check fails by 5 or more the ammunition is ruined.",
     source: `${LL} p. 54`,
     sourceUrl: LL_PATH,
     ruleset: "iron_kingdoms",
@@ -247,7 +247,7 @@ export const LOCK_AND_LOAD_EQUIPMENT: EquipmentItem[] = [
     cost: "400 gp",
     weight: "4 lb.",
     notes:
-      "Damage 2d6 (Small) / 3d6 (Medium), critical 19–20/×3, range increment 40 ft, Piercing. Proficiency: exotic (small arms). (3.5 conversion: printed as a Tiny-size weapon with the single damage value 2d4.) At only 9 inches in length, a handy breech-loading pistol, relatively easy to conceal and cheaper than most other firearms. Reload: 1 standard action and a successful Craft (small arms) check (DC 6); on a failed check the reloading must begin anew, and if the check fails by 5 or more the ammunition is ruined.",
+      "Damage 2d6 (Small) / 3d6 (Medium), critical 19–20/×3, range increment 40 ft, Piercing. Proficiency: exotic (small arms). At only 9 inches in length, a handy breech-loading pistol, relatively easy to conceal and cheaper than most other firearms. Reload: 1 standard action and a successful Craft (small arms) check (DC 6); on a failed check the reloading must begin anew, and if the check fails by 5 or more the ammunition is ruined.",
     source: `${LL} p. 54`,
     sourceUrl: LL_PATH,
     ruleset: "iron_kingdoms",
@@ -259,7 +259,7 @@ export const LOCK_AND_LOAD_EQUIPMENT: EquipmentItem[] = [
     cost: "1,000 gp",
     weight: "10 lb.",
     notes:
-      "Damage 1d10 (Small) / 2d6 (Medium), critical 19–20/×3, range increment 160 ft, Piercing. Proficiency: exotic (small arms). (3.5 conversion: printed as a Medium-size weapon with the single damage value 2d6.) A breech-loading rifle, generally 4 feet from stock to barrel, using a smaller projectile than the military rifle: less impact power and range, but considerably lighter and less cumbersome, and faster to reload. Reload: 1 standard action and a successful Craft (small arms) check (DC 10); on a failed check the reloading must begin anew, and if the check fails by 5 or more the ammunition is ruined.",
+      "Damage 1d10 (Small) / 2d6 (Medium), critical 19–20/×3, range increment 160 ft, Piercing. Proficiency: exotic (small arms). A breech-loading rifle, generally 4 feet from stock to barrel, using a smaller projectile than the military rifle: less impact power and range, but considerably lighter and less cumbersome, and faster to reload. Reload: 1 standard action and a successful Craft (small arms) check (DC 10); on a failed check the reloading must begin anew, and if the check fails by 5 or more the ammunition is ruined.",
     source: `${LL} p. 55`,
     sourceUrl: LL_PATH,
     ruleset: "iron_kingdoms",
@@ -271,7 +271,7 @@ export const LOCK_AND_LOAD_EQUIPMENT: EquipmentItem[] = [
     cost: "1,200 gp",
     weight: "15 lb.",
     notes:
-      "Damage 2d6 (Small) / 2d8 (Medium), critical 19–20/×3, range increment 200 ft, Piercing. Proficiency: exotic (small arms). (3.5 conversion: printed as a Medium-size weapon with the single damage value 2d8.) A breech-loading rifle typically around 4 feet in length; somewhat rare, as there are few rifle regiments in the Iron Kingdoms, but increasing in use particularly in Khador and Cygnar. Slow to operate, but powerful with substantial range. Reload: 2 standard actions and a successful Craft (small arms) check (DC 12); on a failed check the reloading must begin anew, and if the check fails by 5 or more the ammunition is ruined.",
+      "Damage 2d6 (Small) / 2d8 (Medium), critical 19–20/×3, range increment 200 ft, Piercing. Proficiency: exotic (small arms). A breech-loading rifle typically around 4 feet in length; somewhat rare, as there are few rifle regiments in the Iron Kingdoms, but increasing in use particularly in Khador and Cygnar. Slow to operate, but powerful with substantial range. Reload: 2 standard actions and a successful Craft (small arms) check (DC 12); on a failed check the reloading must begin anew, and if the check fails by 5 or more the ammunition is ruined.",
     source: `${LL} p. 55`,
     sourceUrl: LL_PATH,
     ruleset: "iron_kingdoms",

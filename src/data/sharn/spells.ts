@@ -55,27 +55,4 @@ export const SHARN_SPELLS: SpellDefinition[] = [
   "summary": "Designed to bring down a single opponent without causing lasting harm: you fire a ray of force at a single target with a ranged touch attack, dealing 1d4 points of nonlethal damage per level (maximum 10d4). If the target fails its Fortitude save, it is dazed for one round (a successful saving throw does not reduce the damage). Force hammer has no effect on nonliving creatures or objects, and creatures immune to nonlethal damage cannot be dazed by the spell.",
   "source": `${SHARN}, p. 168`,
   "sourceUrl": SHARN_PATH
-},
-{
-  "id": "shockwave",
-  "name": "Shockwave",
-  "ruleset": "eberron",
-  "school": "Evocation",
-  "descriptors": [
-    "Force"
-  ],
-  "levels": {
-    "Sorcerer/Wizard": 3
-  },
-  "components": "V, S, M",
-  "castingTime": "1 standard action",
-  "range": "Close (25 ft. + 5 ft./2 levels)",
-  "targetOrArea": "20-ft.-radius burst",
-  "duration": "Instantaneous",
-  "savingThrow": "Fortitude partial",
-  "spellResistance": "Yes",
-  "summary": "Creates a burst of concussive force that disorients victims without causing any permanent damage, dealing 1d4 points of nonlethal damage per caster level (maximum 10d4) to every creature within the area and dazing them for 1 round. A successful Fortitude save reduces the damage by half and negates the dazed effect. Shockwave has no effect on nonliving creatures or objects, and creatures immune to nonlethal damage cannot be dazed by the spell. Material component: a small crystal sphere.",
-  "source": `${SHARN}, pp. 168-169`,
-  "sourceUrl": SHARN_PATH
-}
-];
+}];

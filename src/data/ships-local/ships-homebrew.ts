@@ -13,13 +13,13 @@ import type { EquipmentItem, RandomTableDefinition } from "@/engine/types";
 // House style: short mechanical summaries; his text is not
 // reproduced wholesale. His spellings inside quotes are his own.
 
-const SRC = "Homebrew Ships (Shaun's files)";
+const SRC = "Homebrew Ships";
 const PATH =
   "/A POC PC related/3.All to do with ships/ (Fubu.txt, helebalu.txt, isseum.txt, lady's grace.txt, loperwood.txt) and /A POC DM related/Enemy Battleship.txt";
 
 const CREW = `Crack crew (identical in all six files): Medium Humanoid (varies); HD 5d6+15; hp 45; Init +3; Spd 30 ft; AC 15 (+3 Dex, leather half jurkin); Melee masterwork dagger +8 (1d4/19-20/x2); AL varies; SV Fort +6, Ref +12, Will +5; Str 11, Dex 16, Con 12, Int 10, Wis 10, Cha 10. Skills and Feats: Balance +13, Climb +12, Gamble +9, Intimidate +9, Jump +9, Knowledge (Arcane Space) +16, Operate Rigging +21, Profession (Heavy Weaponeer) +9, Speak Language +5, Use Rope +14; Skill Focus (Operate Rigging), Ship Weapon Loader (varies), Ship Weapon Proficiency (varies), Ship Weapon Focus (varies), Ship Weapon Specialization (varies), Improved Ship Weapon Critical (varies). A crack crew grants +2 initiative and +4 morale checks.`;
 
-const FIT = `Armament (all six ships): replace all ballista with 2 Heavy cannons at each station; all ship weapons are mounted on Free Turrets and fed by the ship's Ammunition Distribution System (see both records in this pack). Landing: Land no, Water no. Maneuver Class D. Armor Rating 22 (+2 Dex of pilot). Spelljamming speed: 100 million miles/h (straight line space flight only) — as written in Shaun's files.`;
+const FIT = `Armament (all six ships): replace all ballista with 2 Heavy cannons at each station; all ship weapons are mounted on Free Turrets and fed by the ship's Ammunition Distribution System (see both records in this pack). Landing: Land no, Water no. Maneuver Class D. Armor Rating 22 (+2 Dex of pilot). Spelljamming speed: 100 million miles/h (straight line space flight only) — as written in the files.`;
 
 function ship(
   id: string,
@@ -86,7 +86,7 @@ export const HOMEBREW_SHIP_SYSTEMS: EquipmentItem[] = [
     category: "ship weapon",
     cost: "+5,000 gp (added to the weapon's cost)",
     weight: "—",
-    notes: `A framework a ship weapon is set in, allowing it to pivot through a wide range of positions (including straight up), with counterbalances for the weapon's weight making even large weapons easy to move. A weapon mounted in a free turret is treated as being on a ship two sizes smaller when determining attack penalties due to ship size, and gains the benefits of a normal turret without the drawbacks of extra men or time to reposition — it can be positioned to any available firing arc as a free action. Downsides: price, and fragility — the counterweight system is delicate, and if the weapon takes half or more of its hit points in damage it is nonfunctional. A free turret must be built into the weapon; it cannot be added later. Standard fit on all six of Shaun's homebrew ships.`,
+    notes: `A framework a ship weapon is set in, allowing it to pivot through a wide range of positions (including straight up), with counterbalances for the weapon's weight making even large weapons easy to move. A weapon mounted in a free turret is treated as being on a ship two sizes smaller when determining attack penalties due to ship size, and gains the benefits of a normal turret without the drawbacks of extra men or time to reposition — it can be positioned to any available firing arc as a free action. Downsides: price, and fragility — the counterweight system is delicate, and if the weapon takes half or more of its hit points in damage it is nonfunctional. A free turret must be built into the weapon; it cannot be added later. Standard fit on all six homebrew ships.`,
     source: SRC,
     sourceUrl: PATH,
     ruleset: "homebrew",
@@ -97,7 +97,7 @@ export const HOMEBREW_SHIP_SYSTEMS: EquipmentItem[] = [
     category: "ship system",
     cost: "—",
     weight: "—",
-    notes: `A configuration of guide rails (likened in the file to a bowling-alley ball return) running from a reinforced munitions bunker in the heart of the ship to each weapon station, allowing the armaments to be breech-loaded in half the normal time. Only 2 rounds can be sent to a weapon station per round from the bunker (2-man team), and a round takes 2 rounds to reach the station. Reload time by loading crew: 4 crew — 1 move action (fire on the 3rd round); 2 crew — 1 full round (fire on the 4th round). No price is printed in the files. Standard fit on all six of Shaun's homebrew ships.`,
+    notes: `A configuration of guide rails (likened in the file to a bowling-alley ball return) running from a reinforced munitions bunker in the heart of the ship to each weapon station, allowing the armaments to be breech-loaded in half the normal time. Only 2 rounds can be sent to a weapon station per round from the bunker (2-man team), and a round takes 2 rounds to reach the station. Reload time by loading crew: 4 crew — 1 move action (fire on the 3rd round); 2 crew — 1 full round (fire on the 4th round). No price is printed in the files. Standard fit on all six homebrew ships.`,
     source: SRC,
     sourceUrl: PATH,
     ruleset: "homebrew",
@@ -108,7 +108,7 @@ export const HOMEBREW_SHIP_SYSTEMS: EquipmentItem[] = [
     category: "ship weapon",
     cost: "4,000 gp",
     weight: "4,000 lb.",
-    notes: `Range increment 500 ft. Ammunition (ship's complement of 5 of each per cannon aboard): Cannonball 20 gp, 8d6, line, save DC 18, 24 lb.; Shell 25 gp, 6d6, 40 ft. blast, save DC 20, 24 lb.; Case shot 25 gp, 7d6, 50 ft., save DC 22, 24 lb.; Canister shot 30 gp, 7d6, 60 ft., save DC 20, 24 lb.; Grape shot 30 gp, 7d6, 80 ft., save DC 22, 24 lb. ARTILLERY FIRE (from the same files): artillery is direct or indirect fire (by cannon type) against a single 5-foot square chosen by the gunner. The gunner and Number 2 work as a team: the gunner makes a Profession (gunner) check (DC 20); Number 2 makes a Profession (gunner) check (DC 10) using aid another — on a success the gunner gains a +2 circumstance bonus. If the gunner's check succeeds, consult the Deviation Diagram (6 ft. to 10 ft. for direct fire, 10 ft. to 16 ft. for indirect fire) to find the actual target square, then resolve the area of effect and damage as normal. If the check fails, treat the shot as a grenade-like weapon: roll 1d6 and add +5 feet for every range increment of distance fired to find the distance, then use the appropriate Deviation Diagram for the actual square. (The Deviation Diagrams themselves are not in Shaun's files.) Black powder weapons use the Black Powder Misfires table in this pack.`,
+    notes: `Range increment 500 ft. Ammunition (ship's complement of 5 of each per cannon aboard): Cannonball 20 gp, 8d6, line, save DC 18, 24 lb.; Shell 25 gp, 6d6, 40 ft. blast, save DC 20, 24 lb.; Case shot 25 gp, 7d6, 50 ft., save DC 22, 24 lb.; Canister shot 30 gp, 7d6, 60 ft., save DC 20, 24 lb.; Grape shot 30 gp, 7d6, 80 ft., save DC 22, 24 lb. ARTILLERY FIRE (from the same files): artillery is direct or indirect fire (by cannon type) against a single 5-foot square chosen by the gunner. The gunner and Number 2 work as a team: the gunner makes a Profession (gunner) check (DC 20); Number 2 makes a Profession (gunner) check (DC 10) using aid another — on a success the gunner gains a +2 circumstance bonus. If the gunner's check succeeds, consult the Deviation Diagram (6 ft. to 10 ft. for direct fire, 10 ft. to 16 ft. for indirect fire) to find the actual target square, then resolve the area of effect and damage as normal. If the check fails, treat the shot as a grenade-like weapon: roll 1d6 and add +5 feet for every range increment of distance fired to find the distance, then use the appropriate Deviation Diagram for the actual square. (The Deviation Diagrams themselves are not in the files.) Black powder weapons use the Black Powder Misfires table in this pack.`,
     source: SRC,
     sourceUrl: PATH,
     ruleset: "homebrew",

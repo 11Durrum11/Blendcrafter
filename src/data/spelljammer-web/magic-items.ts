@@ -36,7 +36,7 @@ export const SPELLJAMMER_WEB_MAGIC_ITEMS: MagicItemDefinition[] = [
     name: "Artifurnace",
     category: "wondrous-slotless",
     cost: "—",
-    summary: "The rarest and most dangerous furnace variant: instead of consuming magic items, an artifurnace saps the theoretically inexhaustible power of a major artifact. It has the power of a major helm (in 3e conversion terms, a ship of up to 100+1d10 tons) with no fuel limit — and it is built around an artifact no sane owner would risk. Never sold; no price is printed in any source read.",
+    summary: "The rarest and most dangerous furnace variant: instead of consuming magic items, an artifurnace saps the theoretically inexhaustible power of a major artifact. It has the power of a major helm (a ship of up to 100+1d10 tons) with no fuel limit — and it is built around an artifact no sane owner would risk. Never sold; no price is printed in any source read.",
     source: SRC,
     sourceUrl: HELMS_WIKI,
     ruleset: "core",

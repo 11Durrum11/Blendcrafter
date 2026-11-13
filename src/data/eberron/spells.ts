@@ -273,7 +273,7 @@ export const EBERRON_CAMPAIGN_SETTING_SPELLS: SpellDefinition[] = [
   "summary": "This spell functions like status, except that it can affect more creatures and reveals additional information, as the text describes.",
   "source": "Eberron Campaign Setting, p. 116",
   "sourceUrl": "/A POC PC related/2.Alchemy & steampunk flavored material/2.Eberron Campaign Setting.pdf",
-  "note": "Heroes of Battle prints a different spell under this name (see the status-greater-hob record): that version is a cleric/healer spell rather than this Community domain spell. Both are included."
+  "note": "Community domain spell."
 },
 {
   "id": "zone-of-natural-purity",

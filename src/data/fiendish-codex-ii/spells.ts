@@ -50,7 +50,6 @@ export const FIENDISH_CODEX_II_SPELLS: SpellDefinition[] = [
   "summary": "You gain a +4 profane bonus to Charisma, and for the duration your type changes to outsider, making you immune to spells and effects that specifically target humanoids.",
   "source": "Fiendish Codex II: Tyrants of the Nine Hells, p. 101",
   "sourceUrl": "/A POC PC related/4.Core books/monster manuals/Fiendish Codex II, Tyrant of the Nine Hells.pdf",
-  "note": "The Fiendish Codex II printing of this spell differs from the Book of Vile Darkness version (see that record): it grants a +4 profane bonus to Charisma instead of a 1d4+1 enhancement bonus, and its casting time is 1 swift action. Both versions are included; this is the later (2006) printing."
 },
 {
   "id": "hellfire-fc2",
@@ -73,7 +72,6 @@ export const FIENDISH_CODEX_II_SPELLS: SpellDefinition[] = [
   "summary": "You create a small explosion of brimstone and fire dealing 1d8 points of damage per two caster levels (maximum 5d8) to creatures in the affected area. The damage is not fire damage and is not reduced by resistance to fire-based attacks.",
   "source": "Fiendish Codex II: Tyrants of the Nine Hells, p. 101",
   "sourceUrl": "/A POC PC related/4.Core books/monster manuals/Fiendish Codex II, Tyrant of the Nine Hells.pdf",
-  "note": "The Fiendish Codex II printing of this spell differs from the Book of Vile Darkness version (see that record): a 10-ft.-radius spread instead of 5 ft., damage of 1d8 per two caster levels (maximum 5d8) instead of 3d6, and Spell Resistance: No instead of Yes. Both versions are included; this is the later (2006) printing."
 },
 {
   "id": "hellfire-storm-fc2",
@@ -96,7 +94,7 @@ export const FIENDISH_CODEX_II_SPELLS: SpellDefinition[] = [
   "summary": "This spell functions like hellfire, except it deals 1d8 points of damage per caster level (maximum 10d8) to creatures in the affected area.",
   "source": "Fiendish Codex II: Tyrants of the Nine Hells, p. 101",
   "sourceUrl": "/A POC PC related/4.Core books/monster manuals/Fiendish Codex II, Tyrant of the Nine Hells.pdf",
-  "note": "The Fiendish Codex II printing differs from the Book of Vile Darkness version (see that record): it functions as this book's hellfire and deals 1d8 points of damage per caster level (maximum 10d8) instead of 5d6. Both versions are included; this is the later (2006) printing. Abbreviated entry in Fiendish Codex II: Tyrants of the Nine Hells: functions as Hellfire except as noted in its description; the unprinted stat-block fields are inherited from that spell."
+  "note": "Abbreviated entry in Fiendish Codex II: Tyrants of the Nine Hells: functions as Hellfire except as noted in its description; the unprinted stat-block fields are inherited from that spell."
 },
 {
   "id": "investiture-of-the-amnizu",

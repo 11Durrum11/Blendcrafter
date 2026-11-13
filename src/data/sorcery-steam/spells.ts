@@ -762,28 +762,6 @@ export const SORCERY_AND_STEAM_SPELLS: SpellDefinition[] = [
   "subschool": "Summoning"
 },
 {
-  "id": "summon-golem",
-  "name": "Summon Golem",
-  "ruleset": "sorcery_steam",
-  "school": "Conjuration",
-  "descriptors": [],
-  "levels": {
-    "Sorcerer/Wizard": 6,
-    "Technology": 7
-  },
-  "components": "V, S, M/DF",
-  "castingTime": "1 full round",
-  "range": "Close (25 ft. + 5 ft./ 2 levels)",
-  "targetOrArea": "One summoned golem of a particular type",
-  "duration": "1 round/level (D)",
-  "savingThrow": "None (see text)",
-  "spellResistance": "No",
-  "summary": "This spell summons a golem to aid you in combat; it appears where you designate and acts immediately on your next turn.",
-  "source": "Sorcery & Steam, p. 121",
-  "sourceUrl": "/A POC DM related/Desktop/Sorcery & Steam.pdf",
-  "subschool": "Summoning"
-},
-{
   "id": "tale-of-bravery",
   "name": "Tale of Bravery",
   "ruleset": "sorcery_steam",
@@ -887,5 +865,4 @@ export const SORCERY_AND_STEAM_SPELLS: SpellDefinition[] = [
   "summary": "A sheath of energy crackles around your hand, creating a pair of spectral claws: with a successful unarmed melee attack you inflict 1d6 points of damage per level, as the text describes.",
   "source": "Sorcery & Steam, p. 123",
   "sourceUrl": "/A POC DM related/Desktop/Sorcery & Steam.pdf"
-},
-];
+}];

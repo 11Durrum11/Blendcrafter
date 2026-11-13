@@ -19,7 +19,7 @@
  */
 import type { RandomTableDefinition } from "@/engine/types";
 
-const HOMEBREW_DOC = "Shaun Bradley — Homebrew Wild-Magic Surge Table (D&D 3.5)";
+const HOMEBREW_DOC = "Homebrew Wild-Magic Surge Table (D&D 3.5)";
 const HOMEBREW_DOC_URL =
   "https://docs.google.com/document/d/1VY2BIGWKlOy-Ua-quZE05yP2rsiO_pYr/edit";
 

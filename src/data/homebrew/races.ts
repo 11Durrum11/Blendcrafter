@@ -30,7 +30,7 @@
  */
 import type { RaceDefinition } from "@/engine/types";
 
-const DOC4 = "Shaun Bradley — Misc Other House Rules (house-rules doc #4)";
+const DOC4 = "Misc Other House Rules (house-rules doc #4)";
 const DOC4_URL = "workspace/user/files/4._MISC_OTHER_HOUSE_RULES_6_xpih.docx";
 const TRAITS_SOURCE = `${DOC4} — Warforged Racial Traits`;
 

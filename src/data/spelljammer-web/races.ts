@@ -1,5 +1,5 @@
 // Spelljammer — the six Monstrous Compendium races whose sheets are MISSING
-// from Shaun's copy of Spelljammer: Adventures in Space, researched from the
+// from the source copy of Spelljammer: Adventures in Space, researched from the
 // printed AD&D 2e sheets on the web and converted to D&D 3.5 on the exact
 // pattern of src/data/spelljammer/races.ts (Dracon, Giff):
 //   speed = 2e MV × 2.5 ft, rounded to the nearest 5 ft where the product is
@@ -46,9 +46,9 @@ const trait = (
 });
 
 const MC7 = (race: string, tail: string) =>
-  `Spelljammer: Monstrous Compendium Appendix I (MC7), "${race}" entry (converted to 3.5; sheet missing from Shaun's copy — ${tail})`;
+  `Spelljammer: Monstrous Compendium Appendix I (MC7), "${race}" entry (converted to 3.5; sheet missing from the source copy — ${tail})`;
 const MC9 = (race: string, tail: string) =>
-  `Spelljammer: Monstrous Compendium Appendix II (MC9), "${race}" entry (converted to 3.5; sheet missing from Shaun's copy — ${tail})`;
+  `Spelljammer: Monstrous Compendium Appendix II (MC9), "${race}" entry (converted to 3.5; sheet missing from the source copy — ${tail})`;
 
 export const SPELLJAMMER_WEB_RACES: RaceDefinition[] = [
   // ---------------------------------------------------------------- Grommam
@@ -313,72 +313,6 @@ export const SPELLJAMMER_WEB_RACES: RaceDefinition[] = [
     ],
   },
 
-  // --------------------------------------------------------------------- Scro
-  {
-    id: "scro",
-    name: "Scro",
-    ruleset: "core",
-    source: MC9(
-      "Scro",
-      "stats from completecompendium.com's MC9 transcription; PC adjustments from The Complete Spacefarer's Handbook",
-    ),
-    sourceUrl: SJ_PATH,
-    size: "Medium",
-    // The sheet prints movement 9 (12): the parenthetical is the unarmored /
-    // hurried rate (the same (armored) convention as its AC 4 (8) line), so
-    // base speed uses 12 × 2.5 = 30 ft. Conversion judgment — flagged.
-    baseSpeed: 30,
-    type: "Humanoid",
-    subtypes: ["Orc"],
-    // The Complete Spacefarer's Handbook prints +1 Strength, −2 Charisma
-    // (2e scale); Strength doubled to the 3.5 even scale. The +2
-    // Constitution is a conversion judgment from the MC text: most adult
-    // scro have Strength of at least 16 and Constitution of at least 15.
-    // Dragon #339's official 3.5 scro (+4 Str, +2 Dex, +2 Con, LA +2, no
-    // racial hit dice) is the alternative — see the build report.
-    abilityModifiers: { str: 2, con: 2, cha: -2 },
-    // The Spacefarer's Handbook caps scro at fighter 15 (cleric, wizard,
-    // and rogue only 5); Dragon #339's 3.5 conversion names monk instead.
-    favoredClass: "Fighter",
-    levelAdjustment: 1,
-    racialHitDice: 3,
-    hitDie: "d8",
-    // From the sheet's AC 4 (8) line: 8 is the unarmored value, and 20 − 8 −
-    // 10 = +2 natural armor by the pack formula. Conversion judgment —
-    // flagged in the report.
-    naturalArmor: 2,
-    traits: [
-      trait(
-        "scro-spell-resistance",
-        "Spell Resistance",
-        "The sheet prints magic resistance 10% for ordinary scro. Converted on the Giff pattern in this pack: spell resistance equal to 5 + character level.",
-        "special-quality",
-        "MC9, Scro",
-      ),
-      trait(
-        "scro-darkvision",
-        "Darkvision",
-        "Scro have infravision to 60 ft — darkvision 60 ft converted. Unlike their orc ancestors, direct sunlight does not affect them in any way. They keep the Elven language alive fanatically, the better to understand their chosen enemies.",
-        "special-quality",
-        "MC9, Scro; CGR1, Scro",
-      ),
-      trait(
-        "scro-unarmed-combat",
-        "Unarmed Combat",
-        "Nearly all scro (95%) specialize in unarmed combat: two punches per round at +1 to hit, each inflicting 1d3 damage plus Strength bonus, and they fight in spiked studded-leather armor whose spikes add 1d4 damage on a successful smash. A scro also bites for 1d3 damage — and if its torekh, the necklace of an enemy's teeth worn as a badge of rank, is stolen, the scro flies into a berserk rage to recover it and kills the thief without mercy.",
-        "special-attack",
-        "MC9, Scro",
-      ),
-      trait(
-        "scro-orc-blood",
-        "Orc Blood",
-        "Scro are a militaristic, lawful orc-descended people from the sphere of Dukagsh, bred and drilled into disciplined soldiers: for all effects related to race, a scro is considered an orc. (WotC's later official 3.5 conversion in Dragon #339 also gives them +1 on attack rolls against elves, the ancient enemy.)",
-        "trait",
-        "MC9, Scro",
-      ),
-    ],
-  },
-
   // ------------------------------------------------------------------ Xixchil
   {
     id: "xixchil",
@@ -437,5 +371,4 @@ export const SPELLJAMMER_WEB_RACES: RaceDefinition[] = [
         "MC9, Xixchil",
       ),
     ],
-  },
-];
+  }];

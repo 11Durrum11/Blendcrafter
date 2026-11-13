@@ -132,7 +132,7 @@ export const RACES_OF_FAERUN_TEMPLATES: TemplateDefinition[] = [
         key: "shade-shadow-travel",
         name: "Shadow Travel",
         description:
-          "If the shade is 12th level or higher, he can use greater teleport (printed as teleport without error) to reach a shadowy locale on the same world, or plane shift to access the Plane of Shadow, once per day (spell-like ability).",
+          "If the shade is 12th level or higher, he can use greater teleport to reach a shadowy locale on the same world, or plane shift to access the Plane of Shadow, once per day (spell-like ability).",
         category: "special-quality",
         source: `${ROF} — Shade (p. 149)`,
         sourceUrl: ROF_PATH,

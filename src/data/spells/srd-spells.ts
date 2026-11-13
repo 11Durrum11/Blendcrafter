@@ -14048,5 +14048,4 @@ export const SRD_SPELLS: SpellDefinition[] = [
     "description": "This spell functions like mass inflict light wounds, except that it deals 2d8 points of damage +1 point per caster level (maximum +30). Since undead are powered by negative energy, this spell cures such creatures of a like amount of damage, rather than harming them.",
     "source": "System Reference Document (SRD) spells",
     "sourceUrl": "https://www.d20srd.org/srd/spells/inflictModerateWoundsMass.htm"
-  },
-];
+  }];

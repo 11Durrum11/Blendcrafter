@@ -70,7 +70,7 @@ export const RELICS_TEMPLATES: TemplateDefinition[] = [
     crModifier: 2,
     levelAdjustment: 0,
     prerequisites: [
-      { allowedBaseTypes: ["Aberration", "Dragon", "Fey", "Giant", "Humanoid", "Magical Beast", "Monstrous Humanoid", "Outsider"], note: "Can be applied to any aberration, beast, dragon, fey, giant, humanoid, magical beast, monstrous humanoid, outsider, or shapechanger with an Intelligence score of 3 or greater (as printed; the 3.0 types beast and shapechanger have no equivalent in the app's type list and are carried in this note only)." },
+      { allowedBaseTypes: ["Aberration", "Dragon", "Fey", "Giant", "Humanoid", "Magical Beast", "Monstrous Humanoid", "Outsider"], note: "Can be applied to any aberration, beast, dragon, fey, giant, humanoid, magical beast, monstrous humanoid, outsider, or shapechanger with an Intelligence score of 3 or greater." },
     ],
     abilityModifiers: { str: 4, con: 4, int: 4, wis: 4 },
     patches: [

@@ -36,7 +36,7 @@
  */
 import type { Ruleset } from "@/engine/types";
 
-const DOC4 = "Shaun Bradley — Misc Other House Rules (house-rules doc #4)";
+const DOC4 = "Misc Other House Rules (house-rules doc #4)";
 const DOC4_URL = "workspace/user/files/4._MISC_OTHER_HOUSE_RULES_6_xpih.docx";
 
 export interface HouseRuleEntry {
@@ -87,7 +87,7 @@ export const HOUSE_RULE_ENTRIES: HouseRuleEntry[] = [
     "Money",
     "house-money-conversions",
     "Money: Conversions and Coin Weight",
-    "Book standard conversions: 10 cp = 1 sp, 10 sp = 1 gp, and 1 pp = 10 gp. All coins weigh 50 to a pound. Shaun's document works in four forms of money — coin, gems, scripts, and cheqs — detailed in the entries below."
+    "Book standard conversions: 10 cp = 1 sp, 10 sp = 1 gp, and 1 pp = 10 gp. All coins weigh 50 to a pound. The document works in four forms of money — coin, gems, scripts, and cheqs — detailed in the entries below."
   ),
   rule(
     "Money",
@@ -129,7 +129,7 @@ export const HOUSE_RULE_ENTRIES: HouseRuleEntry[] = [
     "Releveled Spells",
     "house-releveled-spells",
     "Releveled Spells: Darkness Line",
-    "These spells have releveled to represent a truer power: Darkness — level 0; Deeper Darkness — level 2; No Light — level 3. Reference only: this entry records Shaun's house levels; no spell record in the builder is changed by it."
+    "These spells have releveled to represent a truer power: Darkness — level 0; Deeper Darkness — level 2; No Light — level 3. Reference only: this entry records the house levels; no spell record in the builder is changed by it."
   ),
   rule(
     "Demon Portation Shunting Rule",
@@ -141,7 +141,7 @@ export const HOUSE_RULE_ENTRIES: HouseRuleEntry[] = [
     "Summoning Spells Allowed",
     "house-summoning-academic-only",
     "Summoning: Academically Trained Classes Only",
-    "The spells that are allowed have been reworked (reworded) to fit within the terrestrial environment (non-extra-dimensional) for the academically trained classes only — meaning only mage types have the ability to cast them. All other caster types cannot cast these spells. The allowed spells themselves are the SUMMONING_SPELL_LIST exported alongside this index; Shaun's document states: \"This list contains every summoning spell in the game.\""
+    "The spells that are allowed have been reworked (reworded) to fit within the terrestrial environment (non-extra-dimensional) for the academically trained classes only — meaning only mage types have the ability to cast them. All other caster types cannot cast these spells. The allowed spells themselves are the SUMMONING_SPELL_LIST exported alongside this index; The document states: \"This list contains every summoning spell in the game.\""
   ),
   rule(
     "Summoning Spells Allowed",
@@ -1169,7 +1169,7 @@ export const SUMMONING_SPELL_LIST: SummoningSpellEntry[] = [
     book: "Player's Handbook II",
     bookType: "Supplement (3.5)",
     inBuilder: true,
-    spellId: "summon-golem",
+    spellId: "summon-golem-phb2",
     ruleset: "homebrew",
     source: DOC4,
     sourceUrl: DOC4_URL,

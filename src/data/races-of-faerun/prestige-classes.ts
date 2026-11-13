@@ -88,46 +88,6 @@ export const RACES_OF_FAERUN_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
     ],
   },
   {
-    id: "bladesinger-rof",
-    name: "Bladesinger",
-    ruleset: "faerun",
-    source: `${APX} — Bladesinger (pp. 179–180; Table A-7, p. 180)`,
-    sourceUrl: ROF_PATH,
-    hitDie: "d8",
-    skillPointsPerLevel: 2,
-    babProgression: "full",
-    goodSaves: ["ref", "will"],
-    progression: rows(FULL, P, G, G),
-    classSkills: ["Balance", "Concentration", "Craft", "Jump", "Knowledge (arcana)", "Perform", "Spellcraft", "Tumble"],
-    prerequisites: [
-      "Race: Elf or half-elf",
-      "Base Attack Bonus: +5",
-      "Skills: Concentration 4 ranks, Perform 3 ranks (dance, sing, any other), Tumble 3 ranks",
-      "Feats: Combat Casting, Dodge, Combat Expertise, Still Spell, Weapon Focus (longsword) or Weapon Focus (rapier)",
-      "Spellcasting: Ability to cast 1st-level arcane spells",
-    ],
-    features: [
-      {
-        key: "bladesinger-bladesong",
-        name: "Bladesong (Ex) and Song Abilities",
-        description:
-          "While wielding a longsword or rapier in one hand (and nothing in the other): Bladesong — a dodge bonus to AC equal to your Intelligence bonus. Lesser Spellsong (3rd): take 10 on Concentration checks to cast defensively. Song of Celerity (6th, Su): on a full attack, cast one bladesinger spell (or arcane spell with a casting time of 1 action or less) each round as a free action. Greater Spellsong (7th): ignore arcane spell failure in light armor. Song of Fury (10th): on a full attack, make one extra attack at your highest base attack bonus; all attacks that round take a −2 penalty (including attacks of opportunity for 1 round). Wearing medium or heavy armor suspends all song abilities. Bonus feats at 2nd, 5th, and 8th level from: any metamagic feat, Combat Reflexes, Improved Critical (longsword), Improved Disarm, Mobility, Quick Draw, Spring Attack, Whirlwind Attack.",
-        category: "trait",
-        source: `${APX} — Bladesinger (pp. 179–180)`,
-        sourceUrl: ROF_PATH,
-      },
-      {
-        key: "bladesinger-spellcasting",
-        name: "Spells per Day (own list)",
-        description:
-          "This is the 3.0-era original of the class; the revised 3.5 bladesinger from Complete Warrior is a separate record (\"bladesinger\") in this dataset, and this printing is kept alongside it as \"bladesinger-rof\". The bladesinger casts from her own spell list, preparing spells from a spellbook as a wizard does (Intelligence-based; caster level equals bladesinger level; two free spells added to the spellbook at each of levels 1–9). Spells per day by class level (1st/2nd/3rd/4th): 1st 1/—/—/—; 2nd 2/0/—/—; 3rd 2/1/—/—; 4th 3/2/0/—; 5th 3/2/1/—; 6th 3/3/2/0; 7th 4/3/2/1; 8th 4/3/3/2; 9th 4/4/3/2; 10th 4/4/3/3. Spell list — 1st: expeditious retreat, mage armor, magic weapon, shield, true strike. 2nd: blur, bull's strength, cat's grace, mirror image, protection from arrows. 3rd: displacement, greater magic weapon, haste, keen edge. 4th: dimension door, fire shield, improved invisibility, stoneskin.",
-        category: "trait",
-        source: `${APX} — Bladesinger (p. 180)`,
-        sourceUrl: ROF_PATH,
-      },
-    ],
-  },
-  {
     id: "breachgnome",
     name: "Breachgnome",
     ruleset: "faerun",
@@ -160,7 +120,7 @@ export const RACES_OF_FAERUN_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
         key: "breachgnome-uncanny-dodge",
         name: "Uncanny Dodge (Ex) and Bonus Feats",
         description:
-          "2nd: uncanny dodge (retain Dexterity bonus to AC when flat-footed or struck by an invisible attacker). 5th: improved uncanny dodge (cannot be flanked except by a rogue at least four levels higher; stacks with uncanny dodge from other classes). Bonus feats at 2nd and 4th level from: Blind-Fight, Combat Expertise, Improved Critical*, Improved Disarm, Improved Trip, Improved Two-Weapon Fighting, Two-Weapon Fighting, Weapon Finesse*, Weapon Focus*, Whirlwind Attack (*may be taken more than once, for a different weapon each time). (The printed list also names Ambidexterity and Expertise: Ambidexterity does not exist in 3.5 — its effect is part of Two-Weapon Fighting, also on this list — and Expertise is Combat Expertise under its 3.0 name.)",
+          "2nd: uncanny dodge (retain Dexterity bonus to AC when flat-footed or struck by an invisible attacker). 5th: improved uncanny dodge (cannot be flanked except by a rogue at least four levels higher; stacks with uncanny dodge from other classes). Bonus feats at 2nd and 4th level from: Blind-Fight, Combat Expertise, Improved Critical*, Improved Disarm, Improved Trip, Improved Two-Weapon Fighting, Two-Weapon Fighting, Weapon Finesse*, Weapon Focus*, Whirlwind Attack (*may be taken more than once, for a different weapon each time).",
         category: "trait",
         source: `${APX} — Breachgnome (p. 182)`,
         sourceUrl: ROF_PATH,
@@ -399,5 +359,4 @@ export const RACES_OF_FAERUN_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
         sourceUrl: ROF_PATH,
       },
     ],
-  },
-];
+  }];

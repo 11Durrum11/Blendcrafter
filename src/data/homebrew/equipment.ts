@@ -33,7 +33,7 @@ export const HOMEBREW_EQUIPMENT: EquipmentItem[] = [
     "cost": "50 gp",
     "weight": "0.1 lb.",
     "notes": `${ALCHEMICAL_RULE} Heals 1d8+1 hit points over 1 round — the full amount lands at the end of that round.`,
-    "source": "Homebrew — APOC alchemical potion rule (Shaun, 2026-11-04)",
+    "source": "Homebrew — APOC alchemical potion rule",
     "sourceUrl": "",
     "ruleset": "homebrew"
   },
@@ -44,7 +44,7 @@ export const HOMEBREW_EQUIPMENT: EquipmentItem[] = [
     "cost": "300 gp",
     "weight": "0.1 lb.",
     "notes": `${ALCHEMICAL_RULE} Heals 2d8+2 hit points over 2 rounds — 1d8+1 per round.`,
-    "source": "Homebrew — APOC alchemical potion rule (Shaun, 2026-11-04)",
+    "source": "Homebrew — APOC alchemical potion rule",
     "sourceUrl": "",
     "ruleset": "homebrew"
   },
@@ -55,7 +55,7 @@ export const HOMEBREW_EQUIPMENT: EquipmentItem[] = [
     "cost": "750 gp",
     "weight": "0.1 lb.",
     "notes": `${ALCHEMICAL_RULE} Heals 3d8+3 hit points over 3 rounds — 1d8+1 per round.`,
-    "source": "Homebrew — APOC alchemical potion rule (Shaun, 2026-11-04)",
+    "source": "Homebrew — APOC alchemical potion rule",
     "sourceUrl": "",
     "ruleset": "homebrew"
   },
@@ -66,7 +66,7 @@ export const HOMEBREW_EQUIPMENT: EquipmentItem[] = [
     "cost": "1,400 gp",
     "weight": "0.1 lb.",
     "notes": `${ALCHEMICAL_RULE} Heals 4d8+4 hit points over 4 rounds — 1d8+1 per round (a quarter of the total each round). No magic-item version of this potion exists; magic-item potions cap at 3rd-level spells.`,
-    "source": "Homebrew — APOC alchemical potion rule (Shaun, 2026-11-04)",
+    "source": "Homebrew — APOC alchemical potion rule",
     "sourceUrl": "",
     "ruleset": "homebrew"
   }

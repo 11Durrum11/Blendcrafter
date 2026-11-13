@@ -14,16 +14,6 @@ export const GHOSTWALK_MAGIC_ITEMS: MagicItemDefinition[] = [
     "ruleset": "core"
   },
   {
-    "id": "death-ward-armor-gw",
-    "name": "Death Ward (armor ability, Ghostwalk)",
-    "category": "armor-special-ability",
-    "cost": "+2 bonus",
-    "summary": "Once per day, armor with this ability makes the wearer immune to death effects, as a death ward spell cast by a 7th-level caster. Ghostwalk's version differs from Magic Item Compendium's (+1 bonus, continuous): recorded as its own printing.",
-    "source": "Ghostwalk, Chapter 1: All About Ghosts (Magic Items), p. 62",
-    "sourceUrl": "/A POC PC related/5.Splat/Ghostwalk.pdf",
-    "ruleset": "core"
-  },
-  {
     "id": "energy-drain-armor",
     "name": "Energy Drain (armor ability)",
     "category": "armor-special-ability",
@@ -190,16 +180,6 @@ export const GHOSTWALK_MAGIC_ITEMS: MagicItemDefinition[] = [
     "cost": "20,000 gp",
     "summary": "Light green wood staff inlaid with resin: create ectoplasm (1 charge), hail of ectoplasm (1 charge), ectoplasmic decay (2 charges), ectoplasmic web (2 charges).",
     "source": "Ghostwalk, Chapter 1: All About Ghosts (Magic Items), p. 67",
-    "sourceUrl": "/A POC PC related/5.Splat/Ghostwalk.pdf",
-    "ruleset": "core"
-  },
-  {
-    "id": "staff-of-skulls-gw",
-    "name": "Staff of Skulls",
-    "category": "staff",
-    "cost": "39,200 gp",
-    "summary": "Ebony staff topped with an ivory skull (illegal in Manifest): animate dead (1 charge), cure light wounds (1 charge), inflict light wounds (1 charge), circle of doom (2 charges). Cross-note: Complete Arcane prints a same-priced staff of the same name whose fourth spell is mass inflict light wounds instead of circle of doom; that printing is recorded as staff-of-skulls.",
-    "source": "Ghostwalk, Chapter 1: All About Ghosts (Magic Items), p. 68",
     "sourceUrl": "/A POC PC related/5.Splat/Ghostwalk.pdf",
     "ruleset": "core"
   },
@@ -492,5 +472,4 @@ export const GHOSTWALK_MAGIC_ITEMS: MagicItemDefinition[] = [
     "source": "Ghostwalk, Chapter 1: All About Ghosts (Magic Items), p. 71",
     "sourceUrl": "/A POC PC related/5.Splat/Ghostwalk.pdf",
     "ruleset": "core"
-  },
-];
+  }];

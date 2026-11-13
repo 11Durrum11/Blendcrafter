@@ -51,7 +51,7 @@ export const GHOSTWALK_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
     classSkills: ["Climb", "Concentration", "Craft", "Diplomacy", "Heal", "Handle Animal", "Hide", "Jump", "Knowledge (nature)", "Listen", "Move Silently", "Spot", "Survival", "Swim"],
     prerequisites: [
       "Race: Elf or half-elf (a creature of another race who does a great service for the Arboreal Guardians or the spirit trees may be allowed to join)",
-      "Skills: Survival 8 ranks (printed as Intuit Direction 5 ranks and Wilderness Lore 8 ranks)",
+      "Skills: Survival 8 ranks",
       "Feats: Great Fortitude, Green Bond, Point Blank Shot",
     ],
     features: [
@@ -144,7 +144,7 @@ export const GHOSTWALK_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
     classSkills: ["Bluff", "Climb", "Craft", "Diplomacy", "Disguise", "Forgery", "Gather Information", "Hide", "Knowledge (ghost lore)", "Listen", "Profession", "Sense Motive", "Spot"],
     prerequisites: [
       "Base Attack Bonus: +4",
-      "Skills: Gather Information 4 ranks, Knowledge (ghost lore) 5 ranks, Spot 5 ranks (the book also requires Innuendo 4 ranks, a 3.0 skill folded into Bluff in 3.5)",
+      "Skills: Gather Information 4 ranks, Knowledge (ghost lore) 5 ranks, Spot 5 ranks",
       "Feats: Alertness, plus either Incorporeal Target Fighting or Incorporeal Spell Targeting (the book prints the nonexistent feat “Ghost Fighting”; the official 3.5 update corrects it to Incorporeal Target Fighting)",
       "Special: Must have been knocked unconscious by or failed a saving throw against an attack from a ghost; a character who is a ghost cannot take the ghost slayer prestige class",
     ],

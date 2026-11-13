@@ -1,5 +1,5 @@
 // GENERATED FILE — do not edit by hand.
-// The blank Interactive D&D 3.5 Character Sheet PDF (Shaun's copy, from his
+// The blank Interactive D&D 3.5 Character Sheet PDF (the source copy, from his
 // Dropbox root, 2024) as base64. Regenerate from the PDF if the sheet changes.
 // The github push tool moves UTF-8 text only, so the binary ships encoded;
 // src/lib/interactive-sheet.ts decodes it at fill time.

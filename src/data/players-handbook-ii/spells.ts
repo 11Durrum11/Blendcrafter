@@ -28,11 +28,12 @@
  *   "masters-touch-phb2" (the house precedent for same-name
  *   records) so the chapter is complete without shadowing the
  *   Spell Compendium record.
- * - Summon Golem — a record exists from Sorcery & Steam,
- *   p. 121. The PHB II spell (p. 126) summons a flesh, clay,
- *   stone, or iron golem from a lump of like material for
+ * - Summon Golem — the PHB II spell (p. 126) summons a flesh,
+ *   clay, stone, or iron golem from a lump of like material for
  *   1 minute/level; it is built here under the suffixed id
- *   "summon-golem-phb2", the same way as Master's Touch.
+ *   "summon-golem-phb2". (A Sorcery & Steam record of the spell
+ *   stood in the catalog until Shaun's 2026-11-12 no-old-versions
+ *   order took it out.)
  *
  * NOT IN THE CHAPTER LISTS: Bigby's Helpful Hand (p. 102) has a
  * full description in Chapter 4 but does not appear in the
@@ -762,7 +763,7 @@ export const PLAYERS_HANDBOOK_II_SPELLS: SpellDefinition[] = [
     "savingThrow": "None",
     "spellResistance": "No",
     "summary": "You animate a melee weapon in your possession so it fights as you direct: once each round as a free action you can direct the blade to attack an adjacent foe (a reach weapon can attack a foe 10 feet away). Its attack bonus equals your caster level + your key ability modifier + any enhancement bonus of the weapon, and it deals the weapon's normal damage plus your key ability modifier and any enhancement or inherent damage bonus. It attacks once per round, cannot make attacks of opportunity, and cannot be disarmed. Despite the name, it works on any melee weapon.",
-    "note": "The chapter spell lists (pp. 96–101) print this spell as \"Dance of Blades\"; the description heading (p. 109) reads \"Dancing Blade\", which governs. Filed under a suffixed id because Complete Arcane prints a different Wu Jen spell of the same name (id dancing-blade).",
+    "note": "The chapter spell lists (pp. 96–101) print this spell as \"Dance of Blades\"; the description heading (p. 109) reads \"Dancing Blade\", which governs.",
     "source": `${PHB2}, p. 109`,
     "sourceUrl": PHB2_PATH
   },

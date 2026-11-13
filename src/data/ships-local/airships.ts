@@ -5,7 +5,7 @@ import type {
 } from "@/engine/types";
 
 // Airships (Bastion Press, ©2002) — the ONE genuinely new
-// record from Shaun's copy. His file ("A POC PC related/
+// record from the source copy. His file ("A POC PC related/
 // 2.Alchemy & steampunk flavored material/d20 Bastion Press
 // Airships.pdf") is the free 36-page "e-Ships" PREVIEW of the
 // 96-page book, not the full book.

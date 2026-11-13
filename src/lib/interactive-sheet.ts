@@ -1,5 +1,5 @@
 /**
- * Interactive character sheet (Shaun, 2026-11-04): the Character Sheet step
+ * Interactive character sheet: the Character Sheet step
  * can hand the player the classic interactive 3.5 sheet PDF — the blank
  * form Shaun supplied — filled in from the resolved build.
  *

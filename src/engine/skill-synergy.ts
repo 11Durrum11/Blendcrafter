@@ -1,7 +1,7 @@
 /**
  * Superior Synergy — Shaun's house rule from "Superior Skill Synergys.pdf"
  * (Superior Skill Synergy, Steven Trustrum, Misfit Studios, © 2005; the
- * mechanics are Open Game Content). Shaun's copy lives in his Dropbox:
+ * mechanics are Open Game Content). The source copy lives in his Dropbox:
  * /A POC PC related/1.house rules for a poc/1.Main stuff/Superior Skill Synergys.pdf
  *
  * Standard synergy stops at 5 ranks (+2). This book adds benchmarks at 10,

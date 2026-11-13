@@ -20,7 +20,7 @@
  */
 import type { TemplateDefinition } from "@/engine/types";
 
-const HOMEBREW_DOC = "Shaun Bradley — Homebrew Wild-Magic Surge Table (D&D 3.5)";
+const HOMEBREW_DOC = "Homebrew Wild-Magic Surge Table (D&D 3.5)";
 const HOMEBREW_DOC_URL =
   "https://docs.google.com/document/d/1VY2BIGWKlOy-Ua-quZE05yP2rsiO_pYr/edit";
 
@@ -49,7 +49,7 @@ const HOMEBREW_DOC_URL =
  *   at least 3" is a floor, not a delta, so it is carried as a
  *   trait feature rather than an ability modifier.
  */
-const DOC4 = "Shaun Bradley — Misc Other House Rules (house-rules doc #4)";
+const DOC4 = "Misc Other House Rules (house-rules doc #4)";
 const DOC4_URL = "workspace/user/files/4._MISC_OTHER_HOUSE_RULES_6_xpih.docx";
 
 export const HOMEBREW_TEMPLATES: TemplateDefinition[] = [
@@ -153,14 +153,14 @@ export const HOMEBREW_TEMPLATES: TemplateDefinition[] = [
     ruleset: "homebrew",
     timing: "acquired",
     summary:
-      "Shaun's house 'twisted' template, from his Misc Other House Rules document — not the D&D Wiki Twisted Creature (a separate record in the homebrew-dandwiki pack). The creature gains Smite Good and a Disruptive Attack dealing vile damage, darkvision 60 ft, damage reduction 5/cold iron, immunity to electricity and poison, resistance 10 to acid, cold, and fire, +2 natural armor, and two claw attacks; +4 Strength, +4 Constitution, −2 Charisma, Intelligence at least 3, and its alignment changes to evil. The document gives no CR adjustment and no level adjustment (both recorded as 0).",
+      "The house 'twisted' template, from the Misc Other House Rules document — not the D&D Wiki Twisted Creature (a separate record in the homebrew-dandwiki pack). The creature gains Smite Good and a Disruptive Attack dealing vile damage, darkvision 60 ft, damage reduction 5/cold iron, immunity to electricity and poison, resistance 10 to acid, cold, and fire, +2 natural armor, and two claw attacks; +4 Strength, +4 Constitution, −2 Charisma, Intelligence at least 3, and its alignment changes to evil. The document gives no CR adjustment and no level adjustment (both recorded as 0).",
     source: DOC4,
     sourceUrl: DOC4_URL,
     crModifier: 0,
     levelAdjustment: 0,
     prerequisites: [
       {
-        note: "Shaun's document places no restriction on the base creature: animals or vermin with this template become magical beasts, but otherwise the creature type is unchanged. Do not recalculate the creature's Hit Dice, base attack bonus, saves, or skill points if its type changes.",
+        note: "The document places no restriction on the base creature: animals or vermin with this template become magical beasts, but otherwise the creature type is unchanged. Do not recalculate the creature's Hit Dice, base attack bonus, saves, or skill points if its type changes.",
       },
     ],
     abilityModifiers: { str: 4, con: 4, cha: -2 },

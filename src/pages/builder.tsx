@@ -35,7 +35,7 @@ import { CAMPAIGN_DEFAULT_PREFS, CAMPAIGN_DEFAULTS_VERSION, CAMPAIGN_DEFAULTS_VE
 import { useToast } from "@/hooks/use-toast";
 
 const STEPS = [
-  // Top-level sections (Shaun, 2026-11-04): "number one is
+  // Top-level sections: "number one is
   // player reference, make number two character creation. Inside
   // that put the ability and races, classes, skills, blah blah
   // blah." So Player Reference stands alone as section 1, and
@@ -274,7 +274,7 @@ export default function Builder() {
   // 2026-11-04, voice call): its line opens a panel with jump
   // links into its page.
 
-  // Ambience (Shaun, 2026-11-04): the per-area backdrop scenes are
+  // Ambience: the per-area backdrop scenes are
   // animated and carry matching ambient sound, with ONE toggle for
   // both ("make those scenes animated and give me an option as to
   // animate them or not" / "with the appropriate ambient sounds").
@@ -950,7 +950,7 @@ export default function Builder() {
         )}
       </header>
 
-      {/* Bottom padding (Shaun, 2026-11-04): just enough clear space
+      {/* Bottom padding: just enough clear space
           at the foot of every page that the area's background scene
           shows unimpeded when he scrolls to the end. */}
       {/* Tight-page exception (Shaun, 2026-11-07): on Player
@@ -985,7 +985,7 @@ export default function Builder() {
                 so move + lock is their treatment. */}
             <Zone zoneId="sections" testId="section-grid" className="grid basis-full auto-rows-fr grid-cols-4 gap-1">
             {/* Section 1 — Player Reference, standing alone
-                (Shaun, 2026-11-04). */}
+                */}
             {visibleSteps
               .filter((s) => s.id === "reference")
               .map((s) => (
@@ -996,7 +996,7 @@ export default function Builder() {
                 </Piece>
               ))}
             {/* Section 2 — Magic Item Creation, a top-level line
-                right next to Character Creation (Shaun, 2026-11-04),
+                right next to Character Creation,
                 carrying the whole creation mechanics on its page.
                 NO jump panel (standing pattern, Shaun 2026-11-05):
                 the button lands straight on the page, like
@@ -1020,7 +1020,7 @@ export default function Builder() {
             </button>
             </Piece>
             {/* Section 3 — Character Creation, sitting right next
-                to Player Reference (Shaun, 2026-11-04). It is a
+                to Player Reference. It is a
                 CLICKABLE folder: steps 1–13 stay minimized inside
                 it until its button is clicked open ("Minimize one
                 through 12 into character creation" / "Make
@@ -1161,7 +1161,7 @@ export default function Builder() {
                       <TabsTrigger
                         value={s.id}
                         data-testid={`tab-step-${s.id}`}
-                        // Psionics gray-out (Shaun, 2026-11-04): the
+                        // Psionics gray-out: the
                         // Psionics step's button renders grayed when
                         // the build has no psionic class — the
                         // APOC-style "not applicable" treatment. The

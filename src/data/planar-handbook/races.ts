@@ -3,7 +3,7 @@
  * the Planar Handbook (Wizards of the Coast, D&D 3.5) —
  * aasimar, bariaur, buomman, the four mephling kinds (air,
  * earth, fire, water), neraph, shadowswyft, spiker, tiefling,
- * and wildren. Extracted 2026-11-05 from Shaun's copy at the
+ * and wildren. Extracted 2026-11-05 from the source copy at the
  * path in PH_PATH below.
  *
  * Planar Handbook is a generic D&D 3.5 supplement, not a

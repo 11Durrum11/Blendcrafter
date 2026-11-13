@@ -12,7 +12,7 @@ import type { SpellDefinition } from "@/engine/types";
 // lines print abbreviated class names (Clr, Sor/Wiz, Brd,
 // Drd, Pal, Rgr — expanded to the catalog's list names
 // Cleric, Sorcerer/Wizard, Bard, Druid, Paladin, Ranger),
-// and 3.0 spell references are kept as printed. Every
+// and 3.0 spell references are carried in their 3.5 forms. Every
 // spell was deduped by id and by name against the whole
 // existing catalog: no spell in the chapter duplicates a
 // cataloged spell, and the one id collision (Razor Wings,
@@ -241,7 +241,7 @@ export const SPELLS_AND_MAGIC_SPELLS: SpellDefinition[] = [
     id: "bolster-familiar-spells-magic",
     name: "Bolster Familiar",
     ruleset: "core",
-    school: "Necromantic",
+    school: "Necromancy",
     descriptors: [],
     levels: { "Sorcerer/Wizard": 4 },
     components: "V, S, M",
@@ -253,7 +253,6 @@ export const SPELLS_AND_MAGIC_SPELLS: SpellDefinition[] = [
     spellResistance: "Yes",
     summary: "Your familiar's hit points rise to equal yours at full health (if that would not be a decrease), it gains enough Strength points to negate any negative modifier it may possess, and all its natural attacks receive a +1 competence bonus to hit and damage per every 3 full caster levels, maximum +5.",
     description: "Bolster familiar strengthens the life force of a familiar, allowing them to surpass their normal strength and endurance. Upon casting, the familiar's hit points increase to equal the caster's at full health (unless this would be a decrease, in which case this effect does not occur). It also gains enough strength points to negate any negative modifier it may possess, and all its natural attacks receive a +1 competence bonus to hit and damage per every 3 full caster levels; maximum of +5. The material component is a potion of endurance or a charge from any item that can cast it.",
-    note: "School line printed \"Necromantic\" as printed.",
     source: `${SAM}, p. 66`,
     sourceUrl: SAM_PATH,
   },
@@ -438,7 +437,7 @@ export const SPELLS_AND_MAGIC_SPELLS: SpellDefinition[] = [
     name: "Complete Invisibility",
     ruleset: "core",
     school: "Illusion",
-    subschool: "Glamour",
+    subschool: "Glamer",
     descriptors: [],
     levels: { "Sorcerer/Wizard": 7 },
     components: "Not printed in source (abbreviated entry; as improved invisibility)",
@@ -450,7 +449,7 @@ export const SPELLS_AND_MAGIC_SPELLS: SpellDefinition[] = [
     spellResistance: "Not printed in source (abbreviated entry; as improved invisibility)",
     summary: "As improved invisibility, except the subject gains a +30 to Move Silently checks and cannot be detected with detect magic, see invisibility, true seeing spells or other magical means, nor by Blindsight, Scent, Tremorsense, or other similar abilities.",
     description: "As improved invisibility, except that the subject gains a +30 to Move Silently checks and cannot be detected with the detect magic, see invisibility, true seeing spells or other magical means. In addition, the subject cannot be detected with Blindsight, Scent, Tremorsense or other similar abilities.",
-    note: "Abbreviated entry: the book prints only the school, Level, and Duration lines for this spell. Subschool printed \"Glamour\" (3.0 spelling) as printed.",
+    note: "Abbreviated entry: the book prints only the school, Level, and Duration lines for this spell. Subschool: Glamer.",
     source: `${SAM}, p. 67`,
     sourceUrl: SAM_PATH,
   },
@@ -540,15 +539,15 @@ export const SPELLS_AND_MAGIC_SPELLS: SpellDefinition[] = [
     school: "Transmutation",
     descriptors: ["Teleportation"],
     levels: { "Sorcerer/Wizard": 3 },
-    components: "Not printed in source (abbreviated entry; as teleport without error)",
-    castingTime: "Not printed in source (abbreviated entry; as teleport without error)",
+    components: "Not printed in source (abbreviated entry; as greater teleport)",
+    castingTime: "Not printed in source (abbreviated entry; as greater teleport)",
     range: "Touch",
     targetOrArea: "Object touched",
-    duration: "Not printed in source (abbreviated entry; as teleport without error)",
-    savingThrow: "Not printed in source (abbreviated entry; as teleport without error)",
-    spellResistance: "Not printed in source (abbreviated entry; as teleport without error)",
-    summary: "As teleport without error, except the spell may only be used on a small object (unattended or in the caster's grasp, no more than 1 foot in any dimension and no more than 1/8 of a cubic foot in volume), teleported to anywhere within 10 ft. of the caster; teleporting it into a space occupied by another object makes the spell fail instantly before the transport takes place.",
-    description: "As teleport without error, except that this spell may only be used on a small object. The object must either be unattended or in the caster's grasp. The object may not be more than 1 foot in any dimension, and it cannot have a volume greater than 1/8 of a cubic foot (216 cubic inches). The object can be teleported to anywhere within 10 ft. of the caster. This might include teleportation to the other side of a door or to the interior of a chest. If the object is teleported into a space occupied by another object, this spell fails instantly before the transport takes place.",
+    duration: "Not printed in source (abbreviated entry; as greater teleport)",
+    savingThrow: "Not printed in source (abbreviated entry; as greater teleport)",
+    spellResistance: "Not printed in source (abbreviated entry; as greater teleport)",
+    summary: "As greater teleport, except the spell may only be used on a small object (unattended or in the caster's grasp, no more than 1 foot in any dimension and no more than 1/8 of a cubic foot in volume), teleported to anywhere within 10 ft. of the caster; teleporting it into a space occupied by another object makes the spell fail instantly before the transport takes place.",
+    description: "As greater teleport, except that this spell may only be used on a small object. The object must either be unattended or in the caster's grasp. The object may not be more than 1 foot in any dimension, and it cannot have a volume greater than 1/8 of a cubic foot (216 cubic inches). The object can be teleported to anywhere within 10 ft. of the caster. This might include teleportation to the other side of a door or to the interior of a chest. If the object is teleported into a space occupied by another object, this spell fails instantly before the transport takes place.",
     note: "Abbreviated entry: the book prints only the school, Level, Range, and Target lines for this spell.",
     source: `${SAM}, p. 68`,
     sourceUrl: SAM_PATH,
@@ -677,18 +676,18 @@ export const SPELLS_AND_MAGIC_SPELLS: SpellDefinition[] = [
 // Chapter 11: Spells, SECOND RANGE, printed pp. 70-77,
 // transcribed from Shaun's own scanned copy (read
 // visually; the scan is image-only), 2026-11-04. This
-// is a 3.0-era book: 3.0 notations are kept as printed
-// ("1 action" / "1 Action" casting times, subdual
-// damage, partial actions, Wilderness Lore, 3.0 spell
-// references such as wizard's light, fly, fire shield,
-// dimension door, cause serious wounds, and contagion).
+// is a 3.0-era book: its 3.0 notations are carried in
+// their 3.5 forms (casting times as standard actions,
+// nonlethal damage, Survival for Wilderness Lore, and
+// current spell names).
 // Level lines print abbreviated class names (Clr,
 // Sor/Wiz, Brd, Drd, Pal, Rgr, and once Wiz alone for
 // Ingaeln's Oracle) — expanded here to the catalog's
 // list names (Cleric, Sorcerer/Wizard, Bard, Druid,
 // Paladin, Ranger; Wiz alone is filed as
 // Sorcerer/Wizard). Several entries print the old
-// "Alteration" school name; it is kept as printed.
+// "Alteration" school name; they are filed under
+// Transmutation.
 // Several entries are abbreviated "as X" entries that
 // print only some stat lines; the unprinted fields say
 // so rather than inventing values, following the
@@ -696,7 +695,7 @@ export const SPELLS_AND_MAGIC_SPELLS: SpellDefinition[] = [
 // school as a "Type: Divination" line; Hidden Message
 // prints its school (Transmutation) on its heading
 // line; Forest Invisibility prints its subschool as
-// "(Glamour)," as printed. Fast Elemental prints
+// "(Glamour)"; it is filed as Glamer. Fast Elemental prints
 // "[Summoning]" and Infinite Step "[Teleportation]"
 // after the school; both are filed as subschools.
 // Summaries are short mechanical paraphrases in our
@@ -829,7 +828,7 @@ export const SPELLS_AND_MAGIC_SPELLS: SpellDefinition[] = [
     id: "enlightenment",
     name: "Enlightenment",
     ruleset: "core",
-    school: "Alteration",
+    school: "Transmutation",
     descriptors: [],
     levels: { "Sorcerer/Wizard": 8 },
     components: "V, S, M, XP",
@@ -841,7 +840,6 @@ export const SPELLS_AND_MAGIC_SPELLS: SpellDefinition[] = [
     spellResistance: "Yes",
     summary: "Your familiar becomes a fully sentient member of its gender and your race, gaining levels in your spellcasting class equal to half your casting level of this spell.",
     description: "Casting enlightenment transforms the target familiar into a fully sentient member of its gender and the caster's race. The bond between the caster and the familiar remains as strong as before, but there are some changes. The familiar no longer retains previous racial bonuses, skills, feats, or special qualities, if any. Instead, the familiar gains the racial traits and adjustments of the new race. More importantly, the familiar gains levels in the same spellcasting class that granted the caster the ability to have it as a familiar. The number of levels gained is equal to half the casting level of enlightenment, rounded down. The familiar gains feats, skill points, and hit points (though it does not have to use its own hit point total if half the caster's hit points is a greater value) as per a character of its new level. If the transformed familiar chooses to obtain a familiar of its own, the caster has no direct bond to this secondary creature. The newly enlightened familiar is still bound to the caster, but this bond no longer advances as the caster increases in level. Also, if the caster or the familiar are killed, the other is no longer detrimentally affected (although there is certainly a great emotional loss). A caster can only have one enlightened familiar at a time. Material Components: Gems, rare incenses, essential oils, and ritual tools valued at 1,000 gold pieces times half the caster's spellcasting level. The XP cost is 2,500 experience points, paid immediately upon casting this spell.",
-    note: "School printed as \"Alteration\" (the pre-3.0 school name), kept as printed.",
     source: `${SAM}, p. 70`,
     sourceUrl: SAM_PATH,
   },
@@ -907,7 +905,7 @@ export const SPELLS_AND_MAGIC_SPELLS: SpellDefinition[] = [
     id: "familiaform",
     name: "Familiaform",
     ruleset: "core",
-    school: "Alteration",
+    school: "Transmutation",
     descriptors: [],
     levels: { "Sorcerer/Wizard": 5, Druid: 4 },
     components: "V, S, F",
@@ -919,7 +917,6 @@ export const SPELLS_AND_MAGIC_SPELLS: SpellDefinition[] = [
     spellResistance: "Yes",
     summary: "Your familiar gains wild shape: three transformations within 24 hours, into animal forms whose size range depends on your caster level, each healing it your caster level in hit points.",
     description: "A rare and precious spell, familiaform grants a powerful ability to the familiar, the power of wild shape. Once cast, familiaform grants three transformations as per the druidical ability, all of which must be taken within 24 hours or they are lost. Transforming back into the familiar's base form counts as one of these, but each form can be kept indefinitely until the duration ends. When the spell ends, the familiar reverts to base form. Each transformation heals the familiar an amount equal to the caster level in hit points. The size of creature the familiar can turn into depends of the caster level of its bonded master. If the caster is 9th to 12th level, the familiar can become any size between Tiny and Large. At 13th through 16th, the familiar can become Dire. At 17th +, the animal can change to become anything between Diminutive and Huge. Familiaform is gained through a partnership between the caster and a druid. As such, the focus for this spell is a small consecrated token worn somewhere on the animal's person. If this token is lost or destroyed, it must be replaced by the same druid. If the druid is dead or unavailable, the caster must research another version of familiaform (at full cost for doing so) for use with a different druid.",
-    note: "School printed as \"Alteration\" (the pre-3.0 school name), kept as printed.",
     source: `${SAM}, p. 71`,
     sourceUrl: SAM_PATH,
   },
@@ -927,7 +924,7 @@ export const SPELLS_AND_MAGIC_SPELLS: SpellDefinition[] = [
     id: "familiar-faces",
     name: "Familiar Faces",
     ruleset: "core",
-    school: "Alteration",
+    school: "Transmutation",
     descriptors: [],
     levels: { "Sorcerer/Wizard": 7 },
     components: "V",
@@ -939,7 +936,6 @@ export const SPELLS_AND_MAGIC_SPELLS: SpellDefinition[] = [
     spellResistance: "Yes",
     summary: "You and your familiar swap forms and teleport into each other's places, equipment swapping with you, and both of you are protected by nondetection for the duration.",
     description: "For this spell to work, the target familiar must be in physical contact with the caster. Once cast, the familiar can break contact without ending the spell. The caster immediately changes form into that of her familiar. The familiar immediately transforms into the caster's likeness. At the same time, both teleport to each other's location. Only living matter teleports in this manner, so the familiar is now wearing all of the caster's equipment and vice versa. Lastly, both caster and familiar are protected by a nondetection spell that lasts as long as the familiar faces does. This strange spell lends itself to a number of effective uses, ranging from espionage to a moment's breathing room for a quick escape.",
-    note: "School printed as \"Alteration\" (the pre-3.0 school name), kept as printed.",
     source: `${SAM}, p. 71`,
     sourceUrl: SAM_PATH,
   },
@@ -947,7 +943,7 @@ export const SPELLS_AND_MAGIC_SPELLS: SpellDefinition[] = [
     id: "familiars-call",
     name: "Familiar's Call",
     ruleset: "core",
-    school: "Alteration",
+    school: "Transmutation",
     descriptors: [],
     levels: { "Sorcerer/Wizard": 5 },
     components: "V, S",
@@ -959,7 +955,7 @@ export const SPELLS_AND_MAGIC_SPELLS: SpellDefinition[] = [
     spellResistance: "Yes",
     summary: "An invisible sensor placed on your familiar lets you teleport instantly to the nearest safe place adjacent to it, with the reliability of a 'casually studied' location unless it is in line of sight.",
     description: "This spell places an invisible magical sensor on a familiar, allowing the caster to teleport instantly to the nearest safe place adjacent to it. If there is not adjacent place safe for the caster to teleport to, it fails. In either case, the sensor disappears afterwards. Teleportation of this kind is not entirely safe, having the same success rate as a \"casually studied\" teleport location. If the familiar is within line of sight, however, there is no chance of teleportation error. The caster cannot take any other living beings with him or her on this teleport, but up to 10 pounds of non-living material per caster level can be carried. Any more causes the spell to fail and the sensor to be wasted.",
-    note: "School printed as \"Alteration\" (the pre-3.0 school name), kept as printed. The entry's text begins on p. 71 and finishes on p. 72.",
+    note: "The entry's text begins on p. 71 and finishes on p. 72.",
     source: `${SAM}, pp. 71-72`,
     sourceUrl: SAM_PATH,
   },
@@ -1106,7 +1102,7 @@ export const SPELLS_AND_MAGIC_SPELLS: SpellDefinition[] = [
     name: "Forest Invisibility",
     ruleset: "core",
     school: "Illusion",
-    subschool: "Glamour",
+    subschool: "Glamer",
     descriptors: [],
     levels: { Druid: 2, Ranger: 2 },
     components: "V, S, DF",
@@ -1118,7 +1114,6 @@ export const SPELLS_AND_MAGIC_SPELLS: SpellDefinition[] = [
     spellResistance: "No",
     summary: "Like invisibility, but only in a forested or natural surrounding that offers cover; carried equipment also vanishes, dropped items reappear, and attacking ends it.",
     description: "This spell is similar to the 2nd level wizard spell invisibility. It allows a druid or ranger to become invisible in a forested or natural surrounding that offers cover. The creature vanishes from all normal sight, including Darkvision. Equipment carried becomes invisible, and anything dropped or lost immediately becomes visible. The spell in no way produces silence, and the invisible subject does still leave tracks. The subject becomes visible if an attack is made.",
-    note: "Subschool printed as \"(Glamour),\" kept as printed.",
     source: `${SAM}, p. 73`,
     sourceUrl: SAM_PATH,
   },
@@ -1164,7 +1159,7 @@ export const SPELLS_AND_MAGIC_SPELLS: SpellDefinition[] = [
     id: "gestalt",
     name: "Gestalt",
     ruleset: "core",
-    school: "Alteration",
+    school: "Transmutation",
     descriptors: [],
     levels: { "Sorcerer/Wizard": 7 },
     components: "V, S",
@@ -1176,7 +1171,7 @@ export const SPELLS_AND_MAGIC_SPELLS: SpellDefinition[] = [
     spellResistance: "Yes",
     summary: "You and your familiar meld into one form: you gain its natural armor, size, attacks, special qualities, movement and evasion plus ability and attack bonuses and temporary hit points, but cannot cast spells or use magic items while melded.",
     description: "Casting gestalt can be disorienting for a caster and her familiar, but the benefits are beyond question. The effect of this spell is to meld the two beings into one powerful form. Immediately upon casting the spell, the caster and the familiar must make Will saves against this spell's base DC. If both master and familiar fail their saves, the spell fails and they are stunned for 1d4 rounds. If one fails, the spell succeeds but the caster is stunned for 1 round. If both make the save, the spell succeeds without penalty. Once melded with her familiar, the caster gains the following bonuses: 2d4 enhancement to Strength; 2d4 enhancement to Dexterity; 5d6 temporary hit points; Natural Armor bonus equal to the familiar's, if any; maximum of +6. If none or +1, the caster gets a +2 Natural Armor bonus; Size increases one step, to a maximum of Huge; Natural attacks as per the familiar, with damage increased to reflect new size category; Competence bonus to attack rolls equal to the familiar's base attack bonus, maximum of +5; All special qualities and racial bonuses of the familiar; All spell effects current on familiar, though these do not stack with the caster's own; Evasion, which stacks to become Improved Evasion if the caster already possesses Evasion; The familiar's special movement rates, if any. During this spell's duration, the caster cannot cast any spells or activate magical items. Quickened spells can be cast, but the amount of concentration involved increases the casting time to one action. When the duration of gestalt ends, the caster and familiar separate immediately and spend their next round stunned.",
-    note: "School printed as \"Alteration\" (the pre-3.0 school name), kept as printed. The entry's text begins on p. 73 and finishes on p. 74.",
+    note: "The entry's text begins on p. 73 and finishes on p. 74.",
     source: `${SAM}, pp. 73-74`,
     sourceUrl: SAM_PATH,
   },
@@ -1450,7 +1445,7 @@ export const SPELLS_AND_MAGIC_SPELLS: SpellDefinition[] = [
     savingThrow: "Fortitude partial, Will Partial (see text)",
     spellResistance: "Not printed in source",
     summary: "In a deep trance you learn hidden information about a person, item, or locale as a riddle or tale; at the trance's end DC 25 Fortitude and Will saves decide blindness, 10 years of aging, or permanent loss of spellcasting, and the spell costs 1,000 XP.",
-    description: "This spell reveals hidden or secret information to the caster concerning the location and condition of a person, item or locale. The answer is never exact and is in the form of a riddle, allegory, or a tale, telling how the object, person or locale came to be where it is, and why it is in its current condition. Knowledge of the location desired is too vague to make even the riskiest teleport; teleport without error also fails. The information is sufficient, however, to start a quest or expedition. To cast this spell, the caster must have minimal distractions and disturbances. A calm woodland setting, a quiet temple, or the seclusion of his private study would be examples of suitable settings. The actual casting of the spell takes one hour, and the caster falls into a deep trance when the spell is completed. If the caster leaves the trance at the end of the duration, he or she awakens fully aware of the present surroundings and circumstance. The knowledge requested is given to the character, but there may be a price to pay. At the end of the full duration, the caster must make Will and Fortitude Saves against a DC of 25. If the Fortitude Save fails, the caster is stricken blind. If the Will save is failed, the caster is magically aged 10 years. If both fail, the caster permanently loses all spellcasting abilities. If either save fails, the caster may never again cast this spell by any means. It would take a significant disturbance to rouse the caster from this trance, and doing so is very harmful. Attacks nearby or against the character, very loud noises, or being shaken wakes the caster. Minor noises such as chirping birds or the creaking of a wooden floor, however, would not disturb the caster enough to be dangerous. If the caster is interrupted, the information desired is not granted, and the caster must roll Fortitude and Will saves as if the duration had elapsed. Blindness, aging and spellcasting loss caused by this spell are permanent and not reversible by any means less than divine intervention. XP Cost: 1,000 XP",
+    description: "This spell reveals hidden or secret information to the caster concerning the location and condition of a person, item or locale. The answer is never exact and is in the form of a riddle, allegory, or a tale, telling how the object, person or locale came to be where it is, and why it is in its current condition. Knowledge of the location desired is too vague to make even the riskiest teleport; greater teleport also fails. The information is sufficient, however, to start a quest or expedition. To cast this spell, the caster must have minimal distractions and disturbances. A calm woodland setting, a quiet temple, or the seclusion of his private study would be examples of suitable settings. The actual casting of the spell takes one hour, and the caster falls into a deep trance when the spell is completed. If the caster leaves the trance at the end of the duration, he or she awakens fully aware of the present surroundings and circumstance. The knowledge requested is given to the character, but there may be a price to pay. At the end of the full duration, the caster must make Will and Fortitude Saves against a DC of 25. If the Fortitude Save fails, the caster is stricken blind. If the Will save is failed, the caster is magically aged 10 years. If both fail, the caster permanently loses all spellcasting abilities. If either save fails, the caster may never again cast this spell by any means. It would take a significant disturbance to rouse the caster from this trance, and doing so is very harmful. Attacks nearby or against the character, very loud noises, or being shaken wakes the caster. Minor noises such as chirping birds or the creaking of a wooden floor, however, would not disturb the caster enough to be dangerous. If the caster is interrupted, the information desired is not granted, and the caster must roll Fortitude and Will saves as if the duration had elapsed. Blindness, aging and spellcasting loss caused by this spell are permanent and not reversible by any means less than divine intervention. XP Cost: 1,000 XP",
     note: "The level line prints \"Wiz 9\" alone; filed under Sorcerer/Wizard, the catalog list that covers wizard-only printings in this book. The entry prints no Range or Spell Resistance line.",
     source: `${SAM}, p. 76`,
     sourceUrl: SAM_PATH,
@@ -2112,7 +2107,7 @@ export const SPELLS_AND_MAGIC_SPELLS: SpellDefinition[] = [
     spellResistance: "Yes",
     summary: "A burst of force bull rushes every creature and unattended object under 25 pounds in a huge radius, using your effective Strength of 15 + 1 per caster level on a single opposed roll; creatures slammed into solid objects take 1d4 nonlethal damage per two caster levels (maximum 10d4).",
     description: "This spell creates a burst of force that appears as a shimmering, expanding wave, like a ripple in a pond. The caster performs a bull rush against each creature and unattended object weighing less than 25 pounds within the area. The caster is considered to have a Strength score of 15 plus one per caster level, and one roll is made for all opponents. If the bull rush is successful, the caster is considered to follow the creature (the caster does not actually move), although creatures cannot be pushed beyond the range of the spell. If a creature beats the caster in the opposed roll, the caster does not move. Creatures suffer 1d4 nonlethal damage per two caster levels (maximum 10d4) if they collide with a solid, immovable object.",
-    note: "The printed header labels the burst line 'Area.' Nonlethal damage is the 3.0 term, as printed.",
+    note: "The printed header labels the burst line 'Area.'",
     source: `${SAM}, p. 81`,
     sourceUrl: SAM_PATH,
   },
@@ -2139,7 +2134,7 @@ export const SPELLS_AND_MAGIC_SPELLS: SpellDefinition[] = [
     id: "shared-strike",
     name: "Shared Strike",
     ruleset: "core",
-    school: "Alteration",
+    school: "Transmutation",
     descriptors: [],
     levels: { "Sorcerer/Wizard": 1 },
     components: "V, S, M",
@@ -2151,7 +2146,6 @@ export const SPELLS_AND_MAGIC_SPELLS: SpellDefinition[] = [
     spellResistance: "Yes",
     summary: "While in physical contact with your familiar at casting, you gain one of its attack modes (with a slight physical change), using the familiar's base damage scaled up for your size and your own Strength modifier, with no proficiency penalty — but no attack bonuses or special damage types like poison.",
     description: "For this spell to work, the caster must be in physical contact with her familiar at the time of casting. Shared strike grants the caster one of the familiar's attack modes, complete with a slight physical change in appearance to account for the new ability. This spell does not grant any attack bonuses or special damage types like poison, but the caster may use the attack mode with no proficiency penalty and do damage equal to the familiar's base damage, scaled up for size. Thus, a cat's 1d2 claw attack is shared with a human caster as a 1d4 (the damage increase for going from tiny to medium) claw attack. The caster always uses her own strength modifier with the shared attack, even if the modifier is worse than the familiar's. Material component: A representative piece of the attack to be shared (a cast-off claw, a tooth or fang). This piece does not have to come from the familiar, but it must come from a creature of the same type.",
-    note: "The school prints under its 3.0 name, 'Alteration,' as printed.",
     source: `${SAM}, p. 82`,
     sourceUrl: SAM_PATH,
   },
@@ -2369,8 +2363,7 @@ export const SPELLS_AND_MAGIC_SPELLS: SpellDefinition[] = [
     savingThrow: "None",
     spellResistance: "No",
     summary: "Within 5 minutes of teleportation magic being used, you follow its trail by Scry check — DC 15 the general region, DC 20 the specific area, DC 25 the exact area (even across planes) — and on a 25+ result you can teleport after the quarry treating the destination as 'seen casually.'",
-    description: "A teleport trace allows creatures to track down the location of a creature that has used teleportation-based magic (dimension door, plane shift, teleport, teleport without error, word of recall, and other similar spells) by following the trail of magic to its source. The distance teleported is not a factor in determining a creature's location, and teleport trace even reveals creatures that have left the plane. Time is a factor, though, and teleport trace is only effective for 5 minutes after teleportation magic has been used. The amount of information gained as a result of this spell is dependent upon a Scry Check. DC 15: The general geographic region that was teleported to ('Upon the plains below the Argent Mountains.' or 'Upon the plane of elemental fire.'). DC 20: The specific area teleported to ('Within the city of Freeport.' or 'Deep within the Citadel of Brass upon the plane of elemental fire.'). DC 25: The exact area ('In the library of 212 Baker Street, top floor, within the city of Freeport.' or 'Within the throne room of the Citadel of Brass upon the plane of elemental fire.'). The spell does not reveal anything about the location itself or the condition of those that teleported. The library could be full of demons or the creatures could have been instantly incinerated by their entrance into the elemental plane of fire. Traditional scrying magic must be used to divine additional information. Teleport trace does give some casters the ability to try and follow creatures that have teleported away, but only through use of the teleport spell and only if the Scry check resulted in 25 or greater. If after successfully locating the teleported creatures (DC 25+), the caster can then cast a teleport spell as if the area had been 'seen casually.' This isn't the safest way to travel, but it wouldn't be the first time that adventurers have charged blindly ahead into danger. Focus: A crystal ball or similar scrying device. Druids can use a pool of natural water, clerics a basin of holy water, etc.",
-    note: "3.0 spell names in the text (teleport without error, word of recall) are as printed.",
+    description: "A teleport trace allows creatures to track down the location of a creature that has used teleportation-based magic (dimension door, plane shift, teleport, greater teleport, word of recall, and other similar spells) by following the trail of magic to its source. The distance teleported is not a factor in determining a creature's location, and teleport trace even reveals creatures that have left the plane. Time is a factor, though, and teleport trace is only effective for 5 minutes after teleportation magic has been used. The amount of information gained as a result of this spell is dependent upon a Scry Check. DC 15: The general geographic region that was teleported to ('Upon the plains below the Argent Mountains.' or 'Upon the plane of elemental fire.'). DC 20: The specific area teleported to ('Within the city of Freeport.' or 'Deep within the Citadel of Brass upon the plane of elemental fire.'). DC 25: The exact area ('In the library of 212 Baker Street, top floor, within the city of Freeport.' or 'Within the throne room of the Citadel of Brass upon the plane of elemental fire.'). The spell does not reveal anything about the location itself or the condition of those that teleported. The library could be full of demons or the creatures could have been instantly incinerated by their entrance into the elemental plane of fire. Traditional scrying magic must be used to divine additional information. Teleport trace does give some casters the ability to try and follow creatures that have teleported away, but only through use of the teleport spell and only if the Scry check resulted in 25 or greater. If after successfully locating the teleported creatures (DC 25+), the caster can then cast a teleport spell as if the area had been 'seen casually.' This isn't the safest way to travel, but it wouldn't be the first time that adventurers have charged blindly ahead into danger. Focus: A crystal ball or similar scrying device. Druids can use a pool of natural water, clerics a basin of holy water, etc.",
     source: `${SAM}, pp. 83-84`,
     sourceUrl: SAM_PATH,
   },

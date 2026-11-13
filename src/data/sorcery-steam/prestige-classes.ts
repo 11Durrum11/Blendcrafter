@@ -85,7 +85,7 @@ export const SORCERY_STEAM_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
         key: "arcane-performer-song-power",
         name: "Song Power",
         description:
-          "1st: Musical Prodigy as a bonus feat, and song power I (permanently master one listed 1st-level bard spell as a song power, channeled through your instrument with a Perform check, 1/day). 2nd: masterful performance. 3rd: tool of the trade. 4th: song power II. 6th: song power III. 8th: song power IV. 9th: musical genius. 10th: song master and song power V. The book's class-skill list also names Scry, a 3.0 exclusive skill with no 3.5 equivalent, which is omitted here.",
+          "1st: Musical Prodigy as a bonus feat, and song power I (permanently master one listed 1st-level bard spell as a song power, channeled through your instrument with a Perform check, 1/day). 2nd: masterful performance. 3rd: tool of the trade. 4th: song power II. 6th: song power III. 8th: song power IV. 9th: musical genius. 10th: song master and song power V.",
         category: "trait",
         source: `${CH2} — The Arcane Performer (pp. 51–53)`,
         sourceUrl: SS_PATH,
@@ -170,7 +170,7 @@ export const SORCERY_STEAM_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
         key: "detective-reference-material",
         name: "Reference Material",
         description:
-          "1st: reference material (a +2 circumstance bonus with one chosen Knowledge skill you possess, from your access to superb research resources; a further skill at 4th, 7th, and 10th level). 2nd: eye for clues (+4 competence bonus on Search checks). 3rd: second thought (reroll one Knowledge, Search, or Spot check per day before the outcome is determined; 2/day at 6th, 3/day at 9th). 5th: experienced detective. 8th: understanding the criminal mind. 10th: master detective. The book's class-skill list also names Spot, a 3.0 exclusive skill with no 3.5 equivalent, which is omitted here.",
+          "1st: reference material (a +2 circumstance bonus with one chosen Knowledge skill you possess, from your access to superb research resources; a further skill at 4th, 7th, and 10th level). 2nd: eye for clues (+4 competence bonus on Search checks). 3rd: second thought (reroll one Knowledge, Search, or Spot check per day before the outcome is determined; 2/day at 6th, 3/day at 9th). 5th: experienced detective. 8th: understanding the criminal mind. 10th: master detective.",
         category: "trait",
         source: `${CH2} — The Detective (pp. 59–61)`,
         sourceUrl: SS_PATH,
@@ -404,7 +404,7 @@ export const SORCERY_STEAM_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
         key: "steamcraft-mage-spell-infusion",
         name: "Spell Infusion",
         description:
-          "1st: advanced craftsman (competence bonus on Craft checks for steamcraft work; the book's examples include steam-powered carriages, rifles, and engines infused with spells). 2nd: bonus feat (again at 6th and 10th level). 3rd: spell infusion I (infuse spells into steamcraft items; spell infusion II at 6th, III at 9th). 5th: expert craftsman (the Craft competence bonus rises to +6 and your steamcraft items gain +1d6 hit points). 8th: machine mind (mentally activate or deactivate any mechanical device of your creation within 20 feet). 10th: master craftsman. The book's class-skill list also names Scry, a 3.0 exclusive skill with no 3.5 equivalent, which is omitted here.",
+          "1st: advanced craftsman (competence bonus on Craft checks for steamcraft work; the book's examples include steam-powered carriages, rifles, and engines infused with spells). 2nd: bonus feat (again at 6th and 10th level). 3rd: spell infusion I (infuse spells into steamcraft items; spell infusion II at 6th, III at 9th). 5th: expert craftsman (the Craft competence bonus rises to +6 and your steamcraft items gain +1d6 hit points). 8th: machine mind (mentally activate or deactivate any mechanical device of your creation within 20 feet). 10th: master craftsman.",
         category: "trait",
         source: `${CH2} — The Steamcraft Mage (pp. 85–87)`,
         sourceUrl: SS_PATH,
@@ -433,7 +433,7 @@ export const SORCERY_STEAM_PRESTIGE_CLASSES: PrestigeClassDefinition[] = [
         key: "street-runner-sneak-attack",
         name: "Sneak Attack",
         description:
-          "1st: sneak attack +1d6 (+2d6 at 3rd, +3d6 at 5th, +4d6 at 7th, +5d6 at 9th). 2nd: gossip hound (access to a citywide information network). 4th: quick lift. 5th: quick change. 8th: fast talker. 10th: street lord. The book's class-skill list also names Spot, a 3.0 exclusive skill with no 3.5 equivalent, which is omitted here.",
+          "1st: sneak attack +1d6 (+2d6 at 3rd, +3d6 at 5th, +4d6 at 7th, +5d6 at 9th). 2nd: gossip hound (access to a citywide information network). 4th: quick lift. 5th: quick change. 8th: fast talker. 10th: street lord.",
         category: "trait",
         source: `${CH2} — The Street Runner (pp. 89–91)`,
         sourceUrl: SS_PATH,

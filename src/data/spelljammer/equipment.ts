@@ -1,7 +1,7 @@
 import type { EquipmentItem } from "@/engine/types";
 
 // Spelljammer ships and gear, converted from AD&D 2e to 3.5
-// (Shaun, 2026-11-04). Ships carry category "spelljamming
+// Ships carry category "spelljamming
 // ship" so they group together in Equipment and on the
 // Spelljamming page. Source: Shaun's own copy of Spelljammer:
 // Adventures in Space (Lorebook of the Void ship chapters),

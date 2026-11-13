@@ -496,7 +496,7 @@ export const HEROES_OF_BATTLE_SPELLS: SpellDefinition[] = [
   "summary": "This spell is identical to status, except as noted in the spell's text.",
   "source": "Heroes of Battle, p. 129",
   "sourceUrl": "/a poc dm related/desktop/Sourcebooks/[D&D 3.5] Heroes of Battle.pdf",
-  "note": "Heroes of Battle prints a different spell under this name than the Eberron Campaign Setting (see the status-greater record): that version is a Community domain spell, while this one is a cleric/healer spell with a 1-minute casting time and a range of Medium. Both are included."
+  "note": "Cleric/healer spell with a 1-minute casting time and a range of Medium."
 },
 {
   "id": "trip-vine",

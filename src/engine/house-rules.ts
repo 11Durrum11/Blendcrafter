@@ -23,7 +23,7 @@ export const HOUSE_RULE_DEFS: HouseRuleDef[] = [
     id: "crossClassSkillDoubleCost",
     label: "Cross-class skills cost 2 points per rank",
     description:
-      "LOCKED OFF by Shaun (2026-10-27) — every skill costs 1 point per rank, class or cross-class. The RAW rule (2 points per cross-class rank) stays off until Shaun asks to turn it on.",
+      "LOCKED OFF (2026-10-27) — every skill costs 1 point per rank, class or cross-class. The RAW rule (2 points per cross-class rank) stays off.",
     category: "Skills",
     // Shaun's standing choice (2026-10-27): OFF and keep off — cross-class
     // ranks cost 1 point in his games.
@@ -44,7 +44,7 @@ export const HOUSE_RULE_DEFS: HouseRuleDef[] = [
     id: "superiorSynergy",
     label: "Superior Synergy (Misfit Studios)",
     description:
-      "Shaun's house rule (added 2026-10-28): skill synergy keeps growing past 5 ranks — benchmarks at 10, 15, and 20 ranks raise synergy bonuses (+2/+3/+4/+5) and grant special benefits, per Superior Skill Synergy (Misfit Studios, 2005), from Shaun's APOC house-rules folder. Off by default; off means no synergy bonuses are applied at all, matching the builder's prior behavior.",
+      "House rule (added 2026-10-28): skill synergy keeps growing past 5 ranks — benchmarks at 10, 15, and 20 ranks raise synergy bonuses (+2/+3/+4/+5) and grant special benefits, per Superior Skill Synergy (Misfit Studios, 2005). Off by default; off means no synergy bonuses are applied at all, matching the builder's prior behavior.",
     category: "Skills",
     defaultValue: false,
     ruleReference:

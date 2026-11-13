@@ -1057,16 +1057,6 @@ export const AEG_MAGIC_ITEMS_OMNI: MagicItemDefinition[] = [
     "ruleset": "core"
   },
   {
-    "id": "blade-of-deception-aeg",
-    "name": "Blade of Deception",
-    "category": "weapon",
-    "cost": "19,820 gp",
-    "summary": "Blade that deceives opponents about its true position and strikes (see book entry)",
-    "source": "Arms and Equipment Guide \u2014 Chapter 5: Magic Items, Specific Weapons, pp. 98\u2013122",
-    "sourceUrl": "",
-    "ruleset": "core"
-  },
-  {
     "id": "blade-of-the-duelist",
     "name": "Blade of the Duelist",
     "category": "weapon",
@@ -1237,16 +1227,6 @@ export const AEG_MAGIC_ITEMS_OMNI: MagicItemDefinition[] = [
     "ruleset": "core"
   },
   {
-    "id": "claws-of-the-leopard-aeg",
-    "name": "Claws of the Leopard",
-    "category": "weapon",
-    "cost": "38,305 gp",
-    "summary": "Claw weapons granting a leopard's speed and pounce (see book entry)",
-    "source": "Arms and Equipment Guide \u2014 Chapter 5: Magic Items, Specific Weapons, pp. 98\u2013122",
-    "sourceUrl": "",
-    "ruleset": "core"
-  },
-  {
     "id": "closing-blade",
     "name": "Closing Blade",
     "category": "weapon",
@@ -1282,16 +1262,6 @@ export const AEG_MAGIC_ITEMS_OMNI: MagicItemDefinition[] = [
     "category": "weapon",
     "cost": "18,310 gp",
     "summary": "Cutlass that never slips from its wielder's grip (see book entry)",
-    "source": "Arms and Equipment Guide \u2014 Chapter 5: Magic Items, Specific Weapons, pp. 98\u2013122",
-    "sourceUrl": "",
-    "ruleset": "core"
-  },
-  {
-    "id": "dagger-of-defense-aeg",
-    "name": "Dagger of Defense",
-    "category": "weapon",
-    "cost": "58,302 gp",
-    "summary": "Dagger that defends its wielder, parrying attacks (see book entry)",
     "source": "Arms and Equipment Guide \u2014 Chapter 5: Magic Items, Specific Weapons, pp. 98\u2013122",
     "sourceUrl": "",
     "ruleset": "core"
@@ -1602,16 +1572,6 @@ export const AEG_MAGIC_ITEMS_OMNI: MagicItemDefinition[] = [
     "category": "weapon",
     "cost": "50,700 gp",
     "summary": "Bow that guards its wielder (see book entry)",
-    "source": "Arms and Equipment Guide \u2014 Chapter 5: Magic Items, Specific Weapons, pp. 98\u2013122",
-    "sourceUrl": "",
-    "ruleset": "core"
-  },
-  {
-    "id": "guerrilla-spear-aeg",
-    "name": "Guerrilla Spear",
-    "category": "weapon",
-    "cost": "32,302 gp",
-    "summary": "Spear made for ambush and hit-and-run fighting (see book entry)",
     "source": "Arms and Equipment Guide \u2014 Chapter 5: Magic Items, Specific Weapons, pp. 98\u2013122",
     "sourceUrl": "",
     "ruleset": "core"
@@ -2047,16 +2007,6 @@ export const AEG_MAGIC_ITEMS_OMNI: MagicItemDefinition[] = [
     "ruleset": "core"
   },
   {
-    "id": "sap-of-stunning",
-    "name": "Sap of Stunning",
-    "category": "weapon",
-    "cost": "32,301 gp",
-    "summary": "Sap that stuns those it strikes (see book entry)",
-    "source": "Arms and Equipment Guide \u2014 Chapter 5: Magic Items, Specific Weapons, pp. 98\u2013122",
-    "sourceUrl": "",
-    "ruleset": "core"
-  },
-  {
     "id": "sapling-club",
     "name": "Sapling Club",
     "category": "weapon",
@@ -2187,31 +2137,11 @@ export const AEG_MAGIC_ITEMS_OMNI: MagicItemDefinition[] = [
     "ruleset": "core"
   },
   {
-    "id": "songblade-aeg",
-    "name": "Songblade",
-    "category": "weapon",
-    "cost": "6,400 gp",
-    "summary": "Blade tied to bardic song (see book entry)",
-    "source": "Arms and Equipment Guide \u2014 Chapter 5: Magic Items, Specific Weapons, pp. 98\u2013122",
-    "sourceUrl": "",
-    "ruleset": "core"
-  },
-  {
     "id": "sorcerers-hand",
     "name": "Sorcerer's Hand",
     "category": "weapon",
     "cost": "38,708 gp",
     "summary": "Weapon that extends a sorcerer's reach and power (see book entry)",
-    "source": "Arms and Equipment Guide \u2014 Chapter 5: Magic Items, Specific Weapons, pp. 98\u2013122",
-    "sourceUrl": "",
-    "ruleset": "core"
-  },
-  {
-    "id": "spear-of-impaling-aeg",
-    "name": "Spear of Impaling",
-    "category": "weapon",
-    "cost": "32,305 gp",
-    "summary": "Spear that impales its targets (see book entry)",
     "source": "Arms and Equipment Guide \u2014 Chapter 5: Magic Items, Specific Weapons, pp. 98\u2013122",
     "sourceUrl": "",
     "ruleset": "core"
@@ -4383,7 +4313,7 @@ export const AEG_EQUIPMENT_OMNI: EquipmentItem[] = [
     "category": "weapon",
     "cost": "100 gp",
     "weight": "15 lb.",
-    "notes": "Damage 1d10 (Small) / 1d12 (Medium) piercing, crit 19\u201320/\u00d72, range increment 150 ft.; loading is a full-round action. (3.5 conversion: printed in the 3.0 Arms and Equipment Guide, Table 1\u20134, as a single unsized damage value, 1d12; converted to the 3.5 sized pair with the printed value as the Medium figure.)",
+    "notes": "Damage 1d10 (Small) / 1d12 (Medium) piercing, crit 19\u201320/\u00d72, range increment 150 ft.; loading is a full-round action.",
     "source": "Arms and Equipment Guide \u2014 Chapter 1: Weapons and Armor, Table 1\u20134, pp. 6\u20137",
     "sourceUrl": "",
     "ruleset": "core"

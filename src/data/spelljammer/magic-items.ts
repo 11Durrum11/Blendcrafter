@@ -2,7 +2,7 @@ import type { MagicItemDefinition } from "@/engine/types";
 
 // Spelljammer magic items (helms and wonders not already in
 // the catalog from the 3e fan helm list), converted from AD&D
-// 2e to 3.5 (Shaun, 2026-11-04). Source: Shaun's own copy of
+// 2e to 3.5. Source: the copy of
 // Spelljammer: Adventures in Space (Concordance of Arcane
 // Space). The generic major/minor helm configurations are
 // already in the catalog from the fan conversion (136

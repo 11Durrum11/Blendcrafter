@@ -24,7 +24,7 @@ export const SORCERY_STEAM_FIREARM_MAGIC_ITEMS: MagicItemDefinition[] = [
     "category": "weapon-special-ability",
     "cost": "30 gp per cartridge or 1,500 gp for 50 cartridges",
     "summary": "Ammunition special ability (faint abjuration, CL 3rd), applied to alchemical or metal firearm cartridges. Such a cartridge can be loaded and fired underwater or in other airless environments: it is protected as it loads and leaves a bubble of air around the firearm lasting 3 minutes or until fired. Underwater shots still take the −2 attack penalty per 5 ft. of water, plus normal range penalties; an exploding misfire occurs normally.",
-    "source": "Pathfinder Ultimate Combat (document source tag UC) — via fire_arms.docx, Shaun Bradley's compiled firearms document",
+    "source": "Pathfinder Ultimate Combat (document source tag UC) — via fire_arms.docx",
     "sourceUrl": "workspace/user/files/fire_arms.docx",
     "ruleset": "sorcery_steam"
   },
@@ -34,7 +34,7 @@ export const SORCERY_STEAM_FIREARM_MAGIC_ITEMS: MagicItemDefinition[] = [
     "category": "ammunition",
     "cost": "1,722 gp (burrowing bullet) or 3,447 gp (greater burrowing bullet)",
     "summary": "+1 firearm bullet (moderate necromancy, CL 9th; greater version CL 13th). Deals normal damage, then burrows into a living creature's flesh, staggering it for 1d3 rounds (greater: 1d3+2 rounds) or until removed with a Heal check (DC 15; greater DC 20) made as a standard action.",
-    "source": "Pathfinder Ultimate Combat (document source tag UC) — via fire_arms.docx, Shaun Bradley's compiled firearms document",
+    "source": "Pathfinder Ultimate Combat (document source tag UC) — via fire_arms.docx",
     "sourceUrl": "workspace/user/files/fire_arms.docx",
     "ruleset": "sorcery_steam"
   },
@@ -44,7 +44,7 @@ export const SORCERY_STEAM_FIREARM_MAGIC_ITEMS: MagicItemDefinition[] = [
     "category": "ammunition",
     "cost": "100 gp",
     "summary": "+1 firearm bullet (faint evocation, CL 2nd). Deals no damage; instead it outlines the target with a pale glow (a faerie fire effect) and imposes a −2 penalty to the target's AC against ranged attacks for 1d4 rounds.",
-    "source": "Pathfinder Ultimate Combat (document source tag UC) — via fire_arms.docx, Shaun Bradley's compiled firearms document",
+    "source": "Pathfinder Ultimate Combat (document source tag UC) — via fire_arms.docx",
     "sourceUrl": "workspace/user/files/fire_arms.docx",
     "ruleset": "sorcery_steam"
   },
@@ -54,7 +54,7 @@ export const SORCERY_STEAM_FIREARM_MAGIC_ITEMS: MagicItemDefinition[] = [
     "category": "weapon-special-ability",
     "cost": "+1 bonus",
     "summary": "Weapon special ability for one-handed or two-handed firearms (moderate transmutation, CL 8th). The firearm holds its own reservoir of 1 grit point, refreshed daily; the wielder can spend it to reroll an attack from the firearm that would result in a misfire, and must keep the second result.",
-    "source": "Pathfinder Ultimate Combat (document source tag UC) — via fire_arms.docx, Shaun Bradley's compiled firearms document",
+    "source": "Pathfinder Ultimate Combat (document source tag UC) — via fire_arms.docx",
     "sourceUrl": "workspace/user/files/fire_arms.docx",
     "ruleset": "sorcery_steam"
   },
@@ -64,7 +64,7 @@ export const SORCERY_STEAM_FIREARM_MAGIC_ITEMS: MagicItemDefinition[] = [
     "category": "weapon-special-ability",
     "cost": "+3 bonus",
     "summary": "Weapon special ability for one-handed or two-handed firearms (moderate enchantment, CL 12th). As the lucky ability, but the firearm's reservoir holds 3 grit points. A firearm cannot have both lucky and greater lucky.",
-    "source": "Pathfinder Ultimate Combat (document source tag UC) — via fire_arms.docx, Shaun Bradley's compiled firearms document",
+    "source": "Pathfinder Ultimate Combat (document source tag UC) — via fire_arms.docx",
     "sourceUrl": "workspace/user/files/fire_arms.docx",
     "ruleset": "sorcery_steam"
   },
@@ -74,7 +74,7 @@ export const SORCERY_STEAM_FIREARM_MAGIC_ITEMS: MagicItemDefinition[] = [
     "category": "weapon-special-ability",
     "cost": "+1 bonus",
     "summary": "Weapon special ability for firearms (moderate transmutation, CL 8th). Reduces the firearm's misfire value by 1 (minimum 0), applied after any increases (such as from the broken condition).",
-    "source": "Pathfinder Ultimate Combat (document source tag UC) — via fire_arms.docx, Shaun Bradley's compiled firearms document",
+    "source": "Pathfinder Ultimate Combat (document source tag UC) — via fire_arms.docx",
     "sourceUrl": "workspace/user/files/fire_arms.docx",
     "ruleset": "sorcery_steam"
   },
@@ -84,7 +84,7 @@ export const SORCERY_STEAM_FIREARM_MAGIC_ITEMS: MagicItemDefinition[] = [
     "category": "weapon-special-ability",
     "cost": "+3 bonus",
     "summary": "Weapon special ability for one-handed or two-handed firearms (moderate enchantment, CL 12th). As the reliable ability, but reduces the firearm's misfire value by 4 (minimum 0). A firearm cannot have both reliable and greater reliable.",
-    "source": "Pathfinder Ultimate Combat (document source tag UC) — via fire_arms.docx, Shaun Bradley's compiled firearms document",
+    "source": "Pathfinder Ultimate Combat (document source tag UC) — via fire_arms.docx",
     "sourceUrl": "workspace/user/files/fire_arms.docx",
     "ruleset": "sorcery_steam"
   },
@@ -94,7 +94,7 @@ export const SORCERY_STEAM_FIREARM_MAGIC_ITEMS: MagicItemDefinition[] = [
     "category": "wondrous-throat",
     "cost": "1,500 gp (+1), 6,000 gp (+2), 13,500 gp (+3), 24,000 gp (+4), or 37,500 gp (+5)",
     "summary": "Neck-slot amulet (faint abjuration, CL 5th), often shaped from spent bullets. Grants the wearer a luck bonus to AC (by the amulet's version) against firearm attacks that target touch AC.",
-    "source": "Pathfinder Ultimate Combat (document source tag UC) — via fire_arms.docx, Shaun Bradley's compiled firearms document",
+    "source": "Pathfinder Ultimate Combat (document source tag UC) — via fire_arms.docx",
     "sourceUrl": "workspace/user/files/fire_arms.docx",
     "ruleset": "sorcery_steam"
   },
@@ -104,7 +104,7 @@ export const SORCERY_STEAM_FIREARM_MAGIC_ITEMS: MagicItemDefinition[] = [
     "category": "wondrous-slotless",
     "cost": "2,000 gp",
     "summary": "Wondrous item (faint conjuration, CL 3rd), weight 1 lb. Holds 20 doses of black powder; a firearm loaded with powder directly from the horn is wrapped in a pocket of air, so the shot can be fired underwater or in an airless area — the pocket lasts 10 minutes or until the firearm is fired. Underwater shots still take the −2 attack penalty per 5 ft. of water traveled.",
-    "source": "Pathfinder Ultimate Combat (document source tag UC) — via fire_arms.docx, Shaun Bradley's compiled firearms document",
+    "source": "Pathfinder Ultimate Combat (document source tag UC) — via fire_arms.docx",
     "sourceUrl": "workspace/user/files/fire_arms.docx",
     "ruleset": "sorcery_steam"
   },
@@ -114,7 +114,7 @@ export const SORCERY_STEAM_FIREARM_MAGIC_ITEMS: MagicItemDefinition[] = [
     "category": "wondrous-slotless",
     "cost": "4,000 gp",
     "summary": "Wondrous sight (faint divination, CL 3rd), weight 1 lb., attached to a single two-handed firearm (removing it is a full-round action). The wielder can spend a full-round action to make a single shot that resolves against the target's touch AC regardless of the range increment.",
-    "source": "Pathfinder Ultimate Combat (document source tag UC) — via fire_arms.docx, Shaun Bradley's compiled firearms document",
+    "source": "Pathfinder Ultimate Combat (document source tag UC) — via fire_arms.docx",
     "sourceUrl": "workspace/user/files/fire_arms.docx",
     "ruleset": "sorcery_steam"
   },
@@ -124,7 +124,7 @@ export const SORCERY_STEAM_FIREARM_MAGIC_ITEMS: MagicItemDefinition[] = [
     "category": "wondrous-slotless",
     "cost": "10,000 gp",
     "summary": "Wondrous figurine (moderate transmutation, CL 11th), weight 1 lb. Once per day for 1 minute the stone spider animates to groom its activator; commanded as a free action, it perches on a firearm's muzzle and cleans the barrel after a shot, so the firearm's next shot has no chance of misfiring.",
-    "source": "Pathfinder Ultimate Combat (document source tag UC) — via fire_arms.docx, Shaun Bradley's compiled firearms document",
+    "source": "Pathfinder Ultimate Combat (document source tag UC) — via fire_arms.docx",
     "sourceUrl": "workspace/user/files/fire_arms.docx",
     "ruleset": "sorcery_steam"
   },
@@ -134,7 +134,7 @@ export const SORCERY_STEAM_FIREARM_MAGIC_ITEMS: MagicItemDefinition[] = [
     "category": "wondrous-slotless",
     "cost": "250 gp",
     "summary": "Wondrous oil (faint illusion, CL 5th). Applied to a one-handed or two-handed firearm, it renders the firearm silent for 1 hour. Five vials used together can silence a Large firearm siege engine, and ten a Huge one; it has no effect on larger siege engines.",
-    "source": "Pathfinder Ultimate Combat (document source tag UC) — via fire_arms.docx, Shaun Bradley's compiled firearms document",
+    "source": "Pathfinder Ultimate Combat (document source tag UC) — via fire_arms.docx",
     "sourceUrl": "workspace/user/files/fire_arms.docx",
     "ruleset": "sorcery_steam"
   },
@@ -144,7 +144,7 @@ export const SORCERY_STEAM_FIREARM_MAGIC_ITEMS: MagicItemDefinition[] = [
     "category": "wondrous-slotless",
     "cost": "12,000 gp",
     "summary": "Wondrous sight (moderate divination, CL 8th), weight 1 lb., attached to a single two-handed firearm (removing it is a full-round action). The wielder can spend a full-round action to locate an invisible creature within line of sight, or to make a single shot that ignores the invisibility of a creature known to be in the area.",
-    "source": "Pathfinder Ultimate Combat (document source tag UC) — via fire_arms.docx, Shaun Bradley's compiled firearms document",
+    "source": "Pathfinder Ultimate Combat (document source tag UC) — via fire_arms.docx",
     "sourceUrl": "workspace/user/files/fire_arms.docx",
     "ruleset": "sorcery_steam"
   },
@@ -153,8 +153,8 @@ export const SORCERY_STEAM_FIREARM_MAGIC_ITEMS: MagicItemDefinition[] = [
     "name": "Revolver +3",
     "category": "weapon",
     "cost": "18,800 gp",
-    "summary": "A +3 percussion cap revolver (the Sorcery & Steam firearm: 1d10 damage, crit x3, range increment 50 ft., 6 lbs.), its +3 enhancement bonus applying to attack and damage rolls. Priced by the standard magic weapon creation rules: 500 gp base revolver + 300 gp masterwork + 18,000 gp for the +3 enhancement. Made for Saint James under Shaun's ruling (2026-11-05) that a firearm takes magic under the same creation rules as any other weapon.",
-    "source": "Sorcery & Steam, Chapter 4, p. 143 (base weapon); magic weapon pricing per the standard creation rules; Shaun's ruling 2026-11-05",
+    "summary": "A +3 percussion cap revolver (the Sorcery & Steam firearm: 1d10 damage, crit x3, range increment 50 ft., 6 lbs.), its +3 enhancement bonus applying to attack and damage rolls. Priced by the standard magic weapon creation rules: 500 gp base revolver + 300 gp masterwork + 18,000 gp for the +3 enhancement. Made for Saint James. A firearm takes magic under the same creation rules as any other weapon.",
+    "source": "Sorcery & Steam, Chapter 4, p. 143 (base weapon); magic weapon pricing per the standard creation rules",
     "sourceUrl": "/A POC DM related/Desktop/Sorcery & Steam.pdf",
     "ruleset": "sorcery_steam"
   },
@@ -163,8 +163,8 @@ export const SORCERY_STEAM_FIREARM_MAGIC_ITEMS: MagicItemDefinition[] = [
     "name": "Bullets +1 (50)",
     "category": "ammunition",
     "cost": "2,350 gp",
-    "summary": "Fifty +1 bullets for a percussion firearm, priced by the standard magic ammunition creation rules: 50 gp base (1 gp per bullet) + 300 gp masterwork + 2,000 gp for the +1 enhancement, per lot of 50. Ammunition and weapon enhancement bonuses do not stack — the higher applies. Saint James's magical ammunition under Shaun's ruling (2026-11-05); the +1 is the assumed grade, raisable on his word.",
-    "source": "Magic ammunition pricing per the standard creation rules; Shaun's ruling 2026-11-05",
+    "summary": "Fifty +1 bullets for a percussion firearm, priced by the standard magic ammunition creation rules: 50 gp base (1 gp per bullet) + 300 gp masterwork + 2,000 gp for the +1 enhancement, per lot of 50. Ammunition and weapon enhancement bonuses do not stack — the higher applies. Saint James's magical ammunition; the +1 is the assumed grade.",
+    "source": "Magic ammunition pricing per the standard creation rules",
     "sourceUrl": "",
     "ruleset": "sorcery_steam"
   }

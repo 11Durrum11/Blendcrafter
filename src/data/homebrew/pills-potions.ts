@@ -42,7 +42,7 @@
 import type { FeatDefinition, RandomTableDefinition } from "@/engine/types";
 import type { HouseRuleEntry } from "./house-rules-index";
 
-const DOC3 = "Pills, Potions, Oils, Salves & Injections — Shaun Bradley's house document (Doc #3)";
+const DOC3 = "Pills, Potions, Oils, Salves & Injections — house document (Doc #3)";
 const DOC3_URL = "workspace/user/files/3._PILLS__POTIONS__OILS__SALVES___INJECTIONS.docx";
 
 export const PILLS_POTIONS_FEATS: FeatDefinition[] = [
@@ -58,7 +58,7 @@ export const PILLS_POTIONS_FEATS: FeatDefinition[] = [
     sourceUrl: DOC3_URL,
     ruleset: "homebrew",
     special:
-      "Shaun's replacement version of the Brew Potion feat (\"Instead of the original version\") — essentially a fusion of the Brew Potion feat with the Scribe Scroll feat, so a beginning spellcaster can brew potions even at 1st level and have them available for his fellow adventurers.",
+      "The replacement version of the Brew Potion feat (\"Instead of the original version\") — essentially a fusion of the Brew Potion feat with the Scribe Scroll feat, so a beginning spellcaster can brew potions even at 1st level and have them available for his fellow adventurers.",
   },
   {
     id: "improved-brew-potion-or-oil-house",
@@ -189,7 +189,7 @@ export const PILLS_POTIONS_HOUSE_RULES: HouseRuleEntry[] = [
     "Magical vs Alchemical Potions",
     "house-potions-magical-vs-alchemical",
     "Potions: Magical vs Alchemical",
-    "Potions in Shaun's campaign differ between magical and alchemical. Magical potion effects happen instantaneously, whereas alchemical ones happen over the course of time (rounds) — the document's example is healing: magical potion healing effects happen instantaneously, alchemical healing happens over the course of rounds."
+    "Potions differ between magical and alchemical. Magical potion effects happen instantaneously, whereas alchemical ones happen over the course of time (rounds) — the document's example is healing: magical potion healing effects happen instantaneously, alchemical healing happens over the course of rounds."
   ),
   docRule(
     "Mixing Potions",
