@@ -232,7 +232,7 @@ export const BASTARDS_TEMPLATES: TemplateDefinition[] = [
     ruleset: "core",
     timing: "inherited",
     summary:
-      "A humanoid with doppelganger blood: type changes to shapechanger (a type in 3.0), Hit Dice change to d8, gains two slam attacks, alternate form twice per day, empathy, and immunity to sleep. CR is +2 if the base creature's CR is 5 or less, +1 if it is 6 or more; the record carries +2.",
+      "A humanoid with doppelganger blood: type changes to shapechanger, Hit Dice change to d8, gains two slam attacks, alternate form twice per day, empathy, and immunity to sleep. CR is +2 if the base creature's CR is 5 or less, +1 if it is 6 or more; the record carries +2.",
     source: "Bastards and Bloodlines, p. 70",
     sourceUrl: BB_PATH,
     crModifier: 2,
@@ -248,7 +248,7 @@ export const BASTARDS_TEMPLATES: TemplateDefinition[] = [
       {
         op: "set-type",
         value: "Shapechanger",
-        note: "Type changes to shapechanger as printed (in 3.0 shapechanger was a creature type; in 3.5 it is a subtype). Hit Dice change to d8; class levels give hit points normally.",
+        note: "Type changes to shapechanger. Hit Dice change to d8; class levels give hit points normally.",
       },
     ],
     modifiers: [
@@ -445,7 +445,7 @@ export const BASTARDS_TEMPLATES: TemplateDefinition[] = [
     ruleset: "core",
     timing: "inherited",
     summary:
-      "Offspring of a titan: type becomes Outsider, natural armor improves by +8, speed increases by 20 feet, gains Hit Dice-based spell-like abilities, cleric or wizard spellcasting at a level equal to its Hit Dice, and Hit Dice-based damage reduction and spell resistance (3.0 DR notation as printed).",
+      "Offspring of a titan: type becomes Outsider, natural armor improves by +8, speed increases by 20 feet, gains Hit Dice-based spell-like abilities, cleric or wizard spellcasting at a level equal to its Hit Dice, and Hit Dice-based damage reduction and spell resistance.",
     source: "Bastards and Bloodlines, p. 74",
     sourceUrl: BB_PATH,
     crModifier: 5,
@@ -511,7 +511,7 @@ export const BASTARDS_TEMPLATES: TemplateDefinition[] = [
     ruleset: "core",
     timing: "inherited",
     summary:
-      "A living creature tainted by vampirism — not undead, and its type does not change: Hit Dice step up one die size, natural armor improves by +3, gains slam and bite attacks, charm person gaze, damage reduction 10/magic (converted from the printed 3.0 notation, 10/+1), fast healing 1, and one fixed weakness chosen at creation. CR is +3 if the base creature's CR is 3 or less, +2 if it is 4 or more; the record carries +3.",
+      "A living creature tainted by vampirism — not undead, and its type does not change: Hit Dice step up one die size, natural armor improves by +3, gains slam and bite attacks, charm person gaze, damage reduction 10/magic, fast healing 1, and one fixed weakness chosen at creation. CR is +3 if the base creature's CR is 3 or less, +2 if it is 4 or more; the record carries +3.",
     source: "Bastards and Bloodlines, p. 76",
     sourceUrl: BB_PATH,
     crModifier: 3,

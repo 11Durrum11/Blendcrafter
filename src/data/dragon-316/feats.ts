@@ -53,18 +53,6 @@ const DM316 = "Dragon Magazine #316";
 const DM316_PATH = "https://archive.org/download/DragonMagazine260_201801/DragonMagazine316_djvu.txt";
 
 export const DRAGON_316_FEATS: FeatDefinition[] = [
-  // ---- Expanded Psionics Preview (pp. 78–81) ----
-  {
-    id: "ghost-attack-316",
-    name: "Ghost Attack",
-    category: "general",
-    ruleset: "core",
-    prerequisites: ["Base attack bonus +3"],
-    benefitSummary: "While psionically focused, when you make a successful critical hit with a melee or ranged attack, the attack is treated as if made with a ghost touch weapon for the purpose of affecting incorporeal creatures (no miss chance). (Dragon #316 preview printing, staged at Shaun's order 2026-11-11; the published Expanded Psionics Handbook feat of the same name in the catalog is a different record — the book changed the feat to a double miss-chance roll on any attack — see MANIFEST.md.)",
-    special: "Psionic feat.",
-    source: DM316,
-    sourceUrl: DM316_PATH,
-  },
   {
     id: "greater-ghost-attack",
     name: "Greater Ghost Attack",
@@ -72,17 +60,6 @@ export const DRAGON_316_FEATS: FeatDefinition[] = [
     ruleset: "core",
     prerequisites: ["Base attack bonus +3", "Ghost Attack"],
     benefitSummary: "Every successful melee or ranged attack you make is treated as if made with a ghost touch weapon for the purpose of affecting incorporeal creatures — you are not subject to the normal miss chance for an incorporeal target, on any hit rather than only on critical hits. You must expend your psionic focus to use this feat.",
-    special: "Psionic feat.",
-    source: DM316,
-    sourceUrl: DM316_PATH,
-  },
-  {
-    id: "instinctive-consummator-316",
-    name: "Instinctive Consummator",
-    category: "general",
-    ruleset: "core",
-    prerequisites: ["Base attack bonus +3", "Instinctive Dispatcher"],
-    benefitSummary: "Whenever you threaten a living foe with a critical hit on a melee attack, you can choose to confirm the critical hit automatically, without the confirmation roll. You must expend your psionic focus to use this feat. (Dragon #316 printing; the Complete Psionic feat of the same name in the catalog is a different record with different prerequisites — see MANIFEST.md.)",
     special: "Psionic feat.",
     source: DM316,
     sourceUrl: DM316_PATH,
@@ -110,34 +87,12 @@ export const DRAGON_316_FEATS: FeatDefinition[] = [
     sourceUrl: DM316_PATH,
   },
   {
-    id: "phrenic-leech-316",
-    name: "Phrenic Leech",
-    category: "metamagic",
-    ruleset: "core",
-    prerequisites: [],
-    benefitSummary: "When you deal damage with a phrenic leeching power to any creature that possesses power points and is subject to mind-affecting effects, the target also loses 1d6 power points, and you gain 1 power point from the drain (points drained beyond your maximum are lost). Using this feat increases the power point cost of the power by 4 (maximum cost equals your manifester level). You must expend your psionic focus to use this feat. (Dragon #316 printing; the Complete Psionic feat of the same name in the catalog is a different record — see MANIFEST.md.)",
-    special: "Metapsionic feat.",
-    source: DM316,
-    sourceUrl: DM316_PATH,
-  },
-  {
     id: "psionic-feedback",
     name: "Psionic Feedback",
     category: "general",
     ruleset: "core",
     prerequisites: ["Knowledge (psionics) 8 ranks", "Psymbiot"],
     benefitSummary: "Whenever at least one psionic creature within 30 feet of you successfully saves against a psionic power (whether manifested by you or not), you transform the wasted energy of that power into a +4 insight bonus to your Intelligence, Wisdom, or Charisma score (your choice), lasting 1 full round. You gain no benefit from personally succeeding on a saving throw against a psionic power. You must maintain your psionic focus to use this feat.",
-    special: "Psionic feat.",
-    source: DM316,
-    sourceUrl: DM316_PATH,
-  },
-  {
-    id: "psymbiot-316",
-    name: "Psymbiot",
-    category: "general",
-    ruleset: "core",
-    prerequisites: ["Knowledge (psionics) 8 ranks"],
-    benefitSummary: "Whenever at least one psionic creature stands within 30 feet of you with an unobstructed line of sight between you, its unconscious psionic aura empowers you: you gain a +2 enhancement bonus on all ability checks, skill checks, and saving throws. You must maintain your psionic focus to use this feat. (Dragon #316 printing; the Complete Psionic feat of the same name in the catalog is a different record with a 10-foot range — see MANIFEST.md.)",
     special: "Psionic feat.",
     source: DM316,
     sourceUrl: DM316_PATH,
@@ -163,5 +118,4 @@ export const DRAGON_316_FEATS: FeatDefinition[] = [
     special: "An evil monk may select Flensing Strike as a bonus feat at 6th level if she meets all the prerequisites.",
     source: DM316,
     sourceUrl: DM316_PATH,
-  },
-];
+  }];

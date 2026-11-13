@@ -97,7 +97,7 @@ export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved,
   // handlers, and the localStorage-persisted custom order
   // (blendcrafter:feat-section-order) — is removed entirely.
   // Sections render in their built order: General feats first
-  // (Shaun, 2026-11-04), then the class bonus-feat sections,
+  // then the class bonus-feat sections,
   // then the remaining categories in FEAT_CATEGORY_ORDER. Any
   // order a device saved earlier is simply never read again.
   // Section titles still click to expand/collapse.
@@ -311,7 +311,7 @@ export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved,
                     <p className="mt-1 text-xs italic text-muted-foreground">Every feat on this list is listed in an earlier section above.</p>
                   )}
                   {/* Feat names in four columns inside every
-                      category (Shaun, 2026-11-04); narrower screens
+                      category; narrower screens
                       step down to two, then one. */}
                   {active.length > 0 && <div className="mt-2 grid grid-cols-2 gap-x-4 gap-y-1 lg:grid-cols-4">{active.map(renderFeatName)}</div>}
                   {grayedOut.length > 0 && (

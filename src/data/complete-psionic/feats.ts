@@ -224,7 +224,7 @@ export const COMPLETE_PSIONIC_FEATS: FeatDefinition[] = [
   f("pacifist", "Pacifist", "general", [],
     "Your host entity grants you deaden blow or entangling ectoplasm as a psi-like ability once per day.", T34, 60, HOST),
   f("spiritual-force-cp", "Spiritual Force", "general", ["Any other host feat", "mind blade class feature"],
-    "You can add your Charisma bonus to your mind blade damage for 1 round, as described in the feat.", T34, 60, `${HOST} Not the same feat as the Races of Eberron feat of the same name (a kalashtar mind-blade feat) — this host feat is kept under a suffixed id so both printings remain available; see the REBUILD-NOTES.md Batch 6 addendum.`),
+    "You can add your Charisma bonus to your mind blade damage for 1 round, as described in the feat.", T34, 60, `${HOST}`),
   f("telepathic-affinity", "Telepathic Affinity", "general", [],
     "Your host entity grants you mindlink or detect psionics as a psi-like ability once per day.", T34, 60, HOST),
 

@@ -593,7 +593,7 @@ export const BASTARDS_RACES_A: RaceDefinition[] = [
       {
         key: "half-hobgoblin-intuit-direction",
         name: "Survival",
-        description: "Survival is always a class skill, regardless of class, with a +4 racial bonus on Survival checks. (Survival is a 3.0-only skill, folded into Survival in 3.5.)",
+        description: "Survival is always a class skill, regardless of class, with a +4 racial bonus on Survival checks.",
         category: "trait",
         source: "Bastards and Bloodlines, p. 28",
         sourceUrl: BB_PATH,
@@ -722,38 +722,4 @@ export const BASTARDS_RACES_A: RaceDefinition[] = [
         sourceUrl: BB_PATH,
       },
     ],
-  },
-  {
-    id: "bb-half-ogre",
-    name: "Half-Ogre",
-    ruleset: "core",
-    source: "Bastards and Bloodlines, p. 32",
-    sourceUrl: BB_PATH,
-    size: "Medium",
-    baseSpeed: 30,
-    type: "Giant",
-    subtypes: ["Human", "Orc", "Ogre"],
-    abilityModifiers: { str: 6, dex: -2, con: 2, int: -2, cha: -2 },
-    favoredClass: "Fighter",
-    levelAdjustment: 2,
-    naturalArmor: 2,
-    traits: [
-      {
-        key: "bb-half-ogre-darkvision",
-        name: "Darkvision",
-        description: "Darkvision with a range of 60 feet.",
-        category: "special-quality",
-        source: "Bastards and Bloodlines, p. 32",
-        sourceUrl: BB_PATH,
-      },
-      {
-        key: "bb-half-ogre-bloodline",
-        name: "Bloodline",
-        description: "Counts as having the ogre bloodline and either the human or orc bloodline for Chapter Four bloodline feats and effects.",
-        category: "trait",
-        source: "Bastards and Bloodlines, p. 32",
-        sourceUrl: BB_PATH,
-      },
-    ],
-  },
-];
+  }];

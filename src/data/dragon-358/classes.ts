@@ -199,7 +199,7 @@ const MONK_CORE = [
 ];
 
 const PROFICIENCY_NOTE =
-  " Weapon and Armor Proficiency: as the monk (proficient with club, crossbow (light or heavy), dagger, handaxe, javelin, kama, nunchaku, quarterstaff, sai, shuriken, siangham, and sling; not proficient with any armor or shields; AC bonus and fast movement are lost when wearing armor, carrying a shield, or carrying a medium or heavy load). Key abilities: Wisdom, Dexterity, and Strength. ⚠️ STAGED WITH A SCREENING FLAG for Shaun's ruling — see the pack's SCREENING.md §1 (monk-variant precedent is mixed: the #310 monk variants shipped and stay; the Sidewinder Monk of #331 was pulled after staging, v20.119; the Chaos Monk of #335 and the Sacred Path monks of #346 were staged with this same flag).";
+  " Weapon and Armor Proficiency: as the monk (proficient with club, crossbow (light or heavy), dagger, handaxe, javelin, kama, nunchaku, quarterstaff, sai, shuriken, siangham, and sling; not proficient with any armor or shields; AC bonus and fast movement are lost when wearing armor, carrying a shield, or carrying a medium or heavy load). Key abilities: Wisdom, Dexterity, and Strength. ⚠️ STAGED WITH A SCREENING FLAG — see the pack's SCREENING.md §1 (monk-variant precedent is mixed: the #310 monk variants shipped and stay; the Sidewinder Monk of #331 was pulled after staging, v20.119; the Chaos Monk of #335 and the Sacred Path monks of #346 were staged with this same flag).";
 
 const RAW: RawClass[] = [
   {

@@ -247,7 +247,7 @@ export const DRAGON_358_EQUIPMENT: EquipmentItem[] = [
     weight: "1 lb.",
     source: SRC_PSIONIC,
     notes:
-      "Psionic alchemical substance (nonmagical), sold as a flask. A sealed flask of ectoplasmic skin contains a syrupy, silvery liquid. Once you remove the seal, the liquid begins to crystallize and evaporates within 1 minute. At any time before then, you may apply the liquid to your skin as a full-round action. The ectoplasm forms a translucent second skin over your body, providing you with damage reduction 2/magic for up to 1 minute. You cannot wear a psychic skin in conjunction with ectoplasmic skin. Craft DC 25. (3.5 conversion — none required: the printed DR notation is already the 3.5 form.)",
+      "Psionic alchemical substance (nonmagical), sold as a flask. A sealed flask of ectoplasmic skin contains a syrupy, silvery liquid. Once you remove the seal, the liquid begins to crystallize and evaporates within 1 minute. At any time before then, you may apply the liquid to your skin as a full-round action. The ectoplasm forms a translucent second skin over your body, providing you with damage reduction 2/magic for up to 1 minute. You cannot wear a psychic skin in conjunction with ectoplasmic skin. Craft DC 25.",
   }),
   E({
     id: "intuition-vapor",

@@ -129,7 +129,7 @@ const RAW: RawPrestige[] = [
     "features": [
       {
         "name": "Basics",
-        "description": "Hit Die d8. Weapon and armor proficiencies are as printed in the article's class-features text. Spellcasting: at every even-numbered osteomancer level (2nd, 4th, 6th, 8th, and 10th), the character gains new spells per day (and spells known, if applicable) as if he had also gained a level in a spellcasting class he belonged to before adding the prestige class; he gains no other benefit of that class. (The magazine's class skill list also prints Scry, a 3.0 skill folded into Spellcraft in 3.5; it is not carried — see MANIFEST.md.)"
+        "description": "Hit Die d8. Weapon and armor proficiencies are as printed in the article's class-features text. Spellcasting: at every even-numbered osteomancer level (2nd, 4th, 6th, 8th, and 10th), the character gains new spells per day (and spells known, if applicable) as if he had also gained a level in a spellcasting class he belonged to before adding the prestige class; he gains no other benefit of that class."
       },
       {
         "name": "Boneless (Su)",

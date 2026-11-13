@@ -194,6 +194,6 @@ export const DRAGON_342_FEATS: FeatDefinition[] = [
     name: "Guerilla Trapsmith",
     source: SRC_KUJI,
     benefitSummary:
-      "[General.] Benefit: You get a +2 bonus on all Craft (trapmaking) checks, and the DCs to find and remove traps you construct increase by +2. In addition, you can assemble a basic trap (one with a CR of 1/2) in just 5 rounds instead of 1 minute. Printed in the 'Other Ninja Tricks' sidebar of the ninja article 'The Art of Kuji-In' but carrying no ninja, ki, or class prerequisite of any kind; staged as a generic trapmaking feat with a flag in SCREENING.md for Shaun's call.",
+      "[General.] Benefit: You get a +2 bonus on all Craft (trapmaking) checks, and the DCs to find and remove traps you construct increase by +2. In addition, you can assemble a basic trap (one with a CR of 1/2) in just 5 rounds instead of 1 minute. Printed in the 'Other Ninja Tricks' sidebar of the ninja article 'The Art of Kuji-In' but carrying no ninja, ki, or class prerequisite of any kind; staged as a generic trapmaking feat with a flag in SCREENING.md.",
   }),
 ];

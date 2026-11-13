@@ -107,7 +107,7 @@ export const BASTARDS_MAGIC_ITEMS: MagicItemDefinition[] = [
     name: "Bracers of the Hinterlands (Orc)",
     category: "Wondrous item",
     cost: "6,000 gp",
-    summary: "Bracers that appear to be normal protective devices with small rows of spikes running their length, imbuing the wearer with a connection to the savage nature of the wilderness: the wearer gains a +10 circumstance bonus on Intimidate and Survival checks (3.0 skill name as printed). Caster Level: 12th; Prerequisites: Craft Wondrous Item, orc blood, endure elements, fear; Market Price: 6,000 gp.",
+    summary: "Bracers that appear to be normal protective devices with small rows of spikes running their length, imbuing the wearer with a connection to the savage nature of the wilderness: the wearer gains a +10 circumstance bonus on Intimidate and Survival checks. Caster Level: 12th; Prerequisites: Craft Wondrous Item, orc blood, endure elements, fear; Market Price: 6,000 gp.",
     source: `${BB}, p. 107`,
     sourceUrl: BB_PATH,
     ruleset: "core",

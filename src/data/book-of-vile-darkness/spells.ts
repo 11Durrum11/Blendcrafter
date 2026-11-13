@@ -792,31 +792,6 @@ export const BOOK_OF_VILE_DARKNESS_SPELLS: SpellDefinition[] = [
   "sourceUrl": "/A POC PC related/5.Splat/D&D 3.5 - Book of Vile Darkness.pdf"
 },
 {
-  "id": "demoncall",
-  "name": "Demoncall",
-  "ruleset": "core",
-  "school": "Divination",
-  "descriptors": [
-    "Evil"
-  ],
-  "levels": {
-    "Blackguard": 2,
-    "Demonic": 2,
-    "Demonologist": 2
-  },
-  "components": "V, S, M",
-  "castingTime": "1 action",
-  "range": "Personal",
-  "targetOrArea": "Caster",
-  "duration": "Instantaneous",
-  "savingThrow": "Not printed in source",
-  "spellResistance": "Not printed in source",
-  "summary": "Taps the forbidden knowledge of demons for a +10 profane bonus on one immediate Knowledge (arcana), Knowledge (the planes), or Knowledge (religion) check.",
-  "source": "Book of Vile Darkness, p. 91",
-  "sourceUrl": "/A POC PC related/5.Splat/D&D 3.5 - Book of Vile Darkness.pdf",
-  "note": "Fiendish Codex I (2006) reprints this spell with changes (see the demoncall-fc1 record): no material component and a casting time of 1 swift action instead of 1 action. This record is the original Book of Vile Darkness printing."
-},
-{
   "id": "demonflesh",
   "name": "Demonflesh",
   "ruleset": "core",
@@ -861,29 +836,6 @@ export const BOOK_OF_VILE_DARKNESS_SPELLS: SpellDefinition[] = [
   "summary": "Blights and corrupts a vast area of land forever: weak plants die outright, stronger plants and other living creatures must save or die or take damage.",
   "source": "Book of Vile Darkness, p. 92",
   "sourceUrl": "/A POC PC related/5.Splat/D&D 3.5 - Book of Vile Darkness.pdf"
-},
-{
-  "id": "devils-ego",
-  "name": "Devil's Ego",
-  "ruleset": "core",
-  "school": "Transmutation",
-  "descriptors": [
-    "Evil"
-  ],
-  "levels": {
-    "Diabolic": 3
-  },
-  "components": "V, S",
-  "castingTime": "1 action",
-  "range": "Personal",
-  "targetOrArea": "Caster",
-  "duration": "1 minute/level",
-  "savingThrow": "Not printed in source",
-  "spellResistance": "Not printed in source",
-  "summary": "Grants a 1d4+1 enhancement bonus to Charisma, and the caster is treated as an outsider for what spells and effects can affect her.",
-  "source": "Book of Vile Darkness, p. 92",
-  "sourceUrl": "/A POC PC related/5.Splat/D&D 3.5 - Book of Vile Darkness.pdf",
-  "note": "Fiendish Codex II (2006) reprints this spell with changes (see the devils-ego-fc2 record): a +4 profane bonus to Charisma instead of a 1d4+1 enhancement bonus, and a casting time of 1 swift action. This record is the original Book of Vile Darkness printing."
 },
 {
   "id": "devils-eye",
@@ -1450,52 +1402,6 @@ export const BOOK_OF_VILE_DARKNESS_SPELLS: SpellDefinition[] = [
   "summary": "The subject’s still-beating heart appears in the caster’s hand: the subject dies in 1d3 rounds unless saved by powerful healing magic; a successful save means heavy damage instead.",
   "source": "Book of Vile Darkness, p. 97",
   "sourceUrl": "/A POC PC related/5.Splat/D&D 3.5 - Book of Vile Darkness.pdf"
-},
-{
-  "id": "hellfire",
-  "name": "Hellfire",
-  "ruleset": "core",
-  "school": "Evocation",
-  "descriptors": [
-    "Evil"
-  ],
-  "levels": {
-    "Diabolic": 4
-  },
-  "components": "V, S",
-  "castingTime": "1 action",
-  "range": "Close (25 ft. + 5 ft./2 levels)",
-  "targetOrArea": "5-ft.-radius spread",
-  "duration": "Instantaneous",
-  "savingThrow": "None",
-  "spellResistance": "Yes",
-  "summary": "Creates a small explosion of brimstone and diabolic fire dealing 3d6 damage that is not reduced by fire-protection magic.",
-  "source": "Book of Vile Darkness, p. 97",
-  "sourceUrl": "/A POC PC related/5.Splat/D&D 3.5 - Book of Vile Darkness.pdf",
-  "note": "Fiendish Codex II (2006) reprints this spell with changes (see the hellfire-fc2 record): a 10-ft.-radius spread instead of 5 ft., damage of 1d8 per two caster levels (maximum 5d8) instead of 3d6, and Spell Resistance: No instead of Yes. This record is the original Book of Vile Darkness printing."
-},
-{
-  "id": "hellfire-storm",
-  "name": "Hellfire Storm",
-  "ruleset": "core",
-  "school": "Evocation",
-  "descriptors": [
-    "Evil"
-  ],
-  "levels": {
-    "Diabolic": 7
-  },
-  "components": "V, S",
-  "castingTime": "1 action",
-  "range": "Medium (100 ft. + 10 ft./level)",
-  "targetOrArea": "20-ft.-radius spread",
-  "duration": "Instantaneous",
-  "savingThrow": "None",
-  "spellResistance": "Yes",
-  "summary": "As hellfire, except with a larger area and longer range, and it deals 5d6 points of diabolic fire damage.",
-  "source": "Book of Vile Darkness, p. 97",
-  "sourceUrl": "/A POC PC related/5.Splat/D&D 3.5 - Book of Vile Darkness.pdf",
-  "note": "Fiendish Codex II (2006) reprints this spell with changes (see the hellfire-storm-fc2 record): it deals 1d8 points of damage per caster level (maximum 10d8) instead of 5d6. This record is the original Book of Vile Darkness printing. Book of Vile Darkness prints this spell in abbreviated form (\"As hellfire, except...\"); level, range, and area are as printed there, and the remaining stat-block fields follow hellfire as the book directs."
 },
 {
   "id": "hells-power",
@@ -2995,5 +2901,4 @@ export const BOOK_OF_VILE_DARKNESS_SPELLS: SpellDefinition[] = [
   "source": "Book of Vile Darkness, p. 79",
   "sourceUrl": "/A POC PC related/5.Splat/D&D 3.5 - Book of Vile Darkness.pdf",
   "note": "The Book of Vile Darkness prints this spell only in its spell lists (bard list summary: 'Weapon confirms critical hits against good foes') with no full description; the record follows the bless weapon counterpart tradition as stated in the Unearthed Arcana paladin-variant lists, where it appears at 1st level for the Paladin of Tyranny and the Paladin of Slaughter."
-},
-];
+}];

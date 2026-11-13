@@ -73,7 +73,7 @@ export const DRAGON_321_EQUIPMENT: EquipmentItem[] = [
     cost: "250 gp",
     weight: "3 lb.",
     notes:
-      "Exotic weapon; one-handed ranged. Damage 1d8 (Small), 1d10 (Medium); critical ×3; range increment 50 ft. Piercing. Originally in the Dungeon Master's Guide (marked with an asterisk in the printed table); the -321 suffix distinguishes this printing from the Sorcery & Steam pistol already in the catalog (400 gp, 1d8, ×4, 20 ft.). General firearm rules for this article: unless otherwise noted, a gun requires two hands to load and 1 ounce of gunpowder for each shot; reloading is a standard action that provokes attacks of opportunity; the Exotic Weapon Proficiency (firearms) feat applies to all firearms, not just a single type. Ammunition: bullets-321.",
+      "Exotic weapon; one-handed ranged. Damage 1d8 (Small), 1d10 (Medium); critical ×3; range increment 50 ft. Piercing. Originally in the Dungeon Master's Guide (marked with an asterisk in the printed table). General firearm rules for this article: unless otherwise noted, a gun requires two hands to load and 1 ounce of gunpowder for each shot; reloading is a standard action that provokes attacks of opportunity; the Exotic Weapon Proficiency (firearms) feat applies to all firearms, not just a single type. Ammunition: bullets-321.",
   },
   {
     id: "bullets-321",
@@ -242,7 +242,7 @@ export const DRAGON_321_EQUIPMENT: EquipmentItem[] = [
     cost: "500 gp",
     weight: "10 lb.",
     notes:
-      "Exotic weapon; two-handed ranged. Damage 1d10 (Small), 1d12 (Medium); critical ×3; range increment 150 ft. Piercing. Originally in the Dungeon Master's Guide (marked with an asterisk in the printed table); the -321 suffix distinguishes this printing from the Sorcery & Steam musket already in the catalog. Ammunition: bullets-321.",
+      "Exotic weapon; two-handed ranged. Damage 1d10 (Small), 1d12 (Medium); critical ×3; range increment 150 ft. Piercing. Originally in the Dungeon Master's Guide (marked with an asterisk in the printed table). Ammunition: bullets-321.",
   },
   {
     id: "rifle-321",

@@ -467,7 +467,7 @@ export const BASTARDS_RACES_B: RaceDefinition[] = [
       {
         key: "lurker-shadow-blend",
         name: "Shadow Blend (Su)",
-        description: "A lurker who remains in dark, shadowy areas can blend into the dimness, gaining one-half concealment (as printed; the 3.0 concealment term).",
+        description: "A lurker who remains in dark, shadowy areas can blend into the dimness, gaining one-half concealment.",
         category: "special-quality",
         source: "Bastards and Bloodlines, p. 42",
         sourceUrl: BB_PATH,
@@ -555,7 +555,7 @@ export const BASTARDS_RACES_B: RaceDefinition[] = [
       {
         key: "mind-ripper-mind-rip",
         name: "Mind Rip (Su)",
-        description: "Psionic attack against a single opponent within 100 feet (as printed in this 3.0-era book). The target must make a Will save (DC 10 + 1/2 the mind ripper's character level + the mind ripper's Intelligence bonus); on a failure the target takes 1 point of temporary Intelligence and Wisdom damage and is dazed for 1 round. The attack is very taxing: a mind ripper can attempt it a number of times per day equal to her Charisma bonus, each time taking 1d2 points of temporary Constitution damage.",
+        description: "Psionic attack against a single opponent within 100 feet. The target must make a Will save (DC 10 + 1/2 the mind ripper's character level + the mind ripper's Intelligence bonus); on a failure the target takes 1 point of temporary Intelligence and Wisdom damage and is dazed for 1 round. The attack is very taxing: a mind ripper can attempt it a number of times per day equal to her Charisma bonus, each time taking 1d2 points of temporary Constitution damage.",
         category: "special-attack",
         source: "Bastards and Bloodlines, p. 45",
         sourceUrl: BB_PATH,
@@ -629,7 +629,7 @@ export const BASTARDS_RACES_B: RaceDefinition[] = [
       {
         key: "morlock-skill-bonuses",
         name: "Skill Bonuses",
-        description: "+1 racial bonus on Alchemy and Listen checks. (Alchemy is printed as its own skill, the 3.0 form of the skill folded into Craft (alchemy) in 3.5; the Listen bonus is also in skillBonuses.)",
+        description: "+1 racial bonus on Craft (alchemy) and Listen checks. (The Listen bonus is also in skillBonuses.)",
         category: "trait",
         source: "Bastards and Bloodlines, p. 47",
         sourceUrl: BB_PATH,
@@ -701,7 +701,7 @@ export const BASTARDS_RACES_B: RaceDefinition[] = [
       {
         key: "piper-class-skills",
         name: "Always Class Skills and Perform Ranks",
-        description: "Bluff, Gather Information, Handle Animal, and Perform are always class skills for a piper, regardless of her class. In addition, pipers are treated as having an additional 3 ranks of Perform (even if this is above their normal maximum), usable only when dancing or playing some sort of woodwind instrument; normally this simply grants a +3 bonus on skill checks, but piper bards can access bardic music abilities more quickly with these virtual ranks. (Animal Empathy and Innuendo are 3.0-only skills.)",
+        description: "Bluff, Gather Information, Handle Animal, and Perform are always class skills for a piper, regardless of her class. In addition, pipers are treated as having an additional 3 ranks of Perform (even if this is above their normal maximum), usable only when dancing or playing some sort of woodwind instrument; normally this simply grants a +3 bonus on skill checks, but piper bards can access bardic music abilities more quickly with these virtual ranks.",
         category: "trait",
         source: "Bastards and Bloodlines, p. 49",
         sourceUrl: BB_PATH,
@@ -1024,7 +1024,7 @@ export const BASTARDS_RACES_B: RaceDefinition[] = [
       {
         key: "wendigo-wilderness-lore",
         name: "Survival Bonus",
-        description: "+2 racial bonus on Wilderness Lore checks, with an additional +2 bonus on checks made to survive in the wild. (Wilderness Lore is a 3.0-only skill, folded into Survival in 3.5, so this bonus is not in skillBonuses.)",
+        description: "+2 racial bonus on Survival checks, with an additional +2 bonus on checks made to survive in the wild.",
         category: "trait",
         source: "Bastards and Bloodlines, p. 58",
         sourceUrl: BB_PATH,

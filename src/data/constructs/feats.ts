@@ -69,7 +69,7 @@ export const CONSTRUCTS_FEATS: FeatDefinition[] = [
     category: "general",
     prerequisites: ["The normal prerequisites of the chosen feat"],
     benefitSummary:
-      "Construct feat: the construct gains one feat from Core Rulebook I or Core Rulebook III, chosen from the book's printed list — Cleave, Far Shot, Flyby Attack, Great Cleave, Improved Bull Rush, Improved Initiative, Improved Trip, Improved Two-Weapon Fighting, Lightning Reflexes, Multiattack, Multiweapon Fighting, Point Blank Shot, Power Attack, Precise Shot, Quick Draw, Rapid Shot, Run, Two-Weapon Fighting (3.0 feat names, as printed). Construction Points: 1. CR Value: 1/2. Applies to Body Rating: No.",
+      "Construct feat: the construct gains one feat from Core Rulebook I or Core Rulebook III, chosen from the book's printed list — Cleave, Far Shot, Flyby Attack, Great Cleave, Improved Bull Rush, Improved Initiative, Improved Trip, Improved Two-Weapon Fighting, Lightning Reflexes, Multiattack, Multiweapon Fighting, Point Blank Shot, Power Attack, Precise Shot, Quick Draw, Rapid Shot, Run, Two-Weapon Fighting. Construction Points: 1. CR Value: 1/2. Applies to Body Rating: No.",
     source: `${CONSTRUCTS}, p. 44`,
     sourceUrl: CONSTRUCTS_PDF,
     ruleset: "core",

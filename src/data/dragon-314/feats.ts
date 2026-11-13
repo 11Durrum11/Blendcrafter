@@ -121,16 +121,6 @@ export const DRAGON_314_FEATS: FeatDefinition[] = [
     sourceUrl: DM314_PATH,
   },
   {
-    id: "sea-legs-314",
-    name: "Sea Legs",
-    category: "general",
-    ruleset: "core",
-    prerequisites: [],
-    benefitSummary: "As long as you are on a ship floating in the water, you gain a +2 bonus on Balance, Climb, Jump, and Tumble checks.",
-    source: DM314,
-    sourceUrl: DM314_PATH,
-  },
-  {
     id: "water-focus",
     name: "Water Focus",
     category: "general",
@@ -139,5 +129,4 @@ export const DRAGON_314_FEATS: FeatDefinition[] = [
     benefitSummary: "Spells you cast with the water descriptor gain a +1 bonus to their save DCs (this stacks with Spell Focus). You also gain a +1 bonus on all saving throws against spells with the water descriptor.",
     source: DM314,
     sourceUrl: DM314_PATH,
-  },
-];
+  }];

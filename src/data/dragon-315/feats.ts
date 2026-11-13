@@ -150,18 +150,6 @@ export const DRAGON_315_FEATS: FeatDefinition[] = [
     source: DM315,
     sourceUrl: DM315_PATH,
   },
-
-  // ---- Eberron preview (p. 106) ----
-  {
-    id: "action-boost-315",
-    name: "Action Boost",
-    category: "general",
-    ruleset: "core",
-    prerequisites: [],
-    benefitSummary: "[Action feat.] You can spend 2 action points in a round to improve a roll or check: spend 1 point and roll your action point die, then decide whether to spend the second before the DM reveals the result. You can also spend 1 point on a roll or check and 1 point on a special action in the same round, provided you could normally accomplish both. (Pre-publication Dragon #315 version; the Eberron Campaign Setting redesigned this feat — the catalog's Action Boost is that later version.) Action points themselves are written up in reference.md.",
-    source: DM315,
-    sourceUrl: DM315_PATH,
-  },
   {
     id: "lucky-mascot",
     name: "Lucky Mascot",
@@ -233,7 +221,7 @@ export const DRAGON_315_FEATS: FeatDefinition[] = [
     category: "general",
     ruleset: "core",
     prerequisites: ["Regions: Bandit Kingdoms, Bissel, Bone March, Bright Lands, Furyondy, Geoff, Gran March, Iuz, Ket, Nyrond, Oeridian, Onnwal, Paynims, Pomarj, Rovers of the Barrens, Scarlet Brotherhood, Sea Princes, Shield Lands, Sterich, Stonehold, Tenh, Wild Coast, Wolf Nomads, Yeomanry"],
-    benefitSummary: "You gain a +2 bonus on Initiative checks and a +2 bonus on Spot checks. (Dragon #315 printing of the regional feat that also appeared in the Forgotten Realms Campaign Setting; suffixed because the bare id is held by an unrelated weapon special ability.)",
+    benefitSummary: "You gain a +2 bonus on Initiative checks and a +2 bonus on Spot checks. (Dragon #315 printing of the regional feat that also appeared in the Forgotten Realms Campaign Setting.)",
     source: DM315,
     sourceUrl: DM315_PATH,
   },
@@ -655,7 +643,7 @@ export const DRAGON_315_FEATS: FeatDefinition[] = [
     category: "general",
     ruleset: "core",
     prerequisites: ["Bloodline (Azrai derivation)"],
-    benefitSummary: "[Blood feat.] Minor: you gain a +4 bonus on Intimidate checks (no action required). Major: you can cast fear once per day. Great: you exude frightful presence exactly as a mature dragon with Hit Dice equal to your own; you can suspend the effect as a free action for any length of time. (Birthright blood ability; suffixed because the bare id is held by the SRD fear spell.)",
+    benefitSummary: "[Blood feat.] Minor: you gain a +4 bonus on Intimidate checks (no action required). Major: you can cast fear once per day. Great: you exude frightful presence exactly as a mature dragon with Hit Dice equal to your own; you can suspend the effect as a free action for any length of time. (Birthright blood ability.)",
     source: DM315,
     sourceUrl: DM315_PATH,
   },
@@ -668,5 +656,4 @@ export const DRAGON_315_FEATS: FeatDefinition[] = [
     benefitSummary: "[Blood feat.] Add +10 to your bloodline strength score; if this increases your bloodline strength (tainted, minor, major, great), you gain access to the higher tier's blood ability benefits. Normally, a bloodline score increases only through adventuring, killing other scions, or investiture (see reference.md).",
     source: DM315,
     sourceUrl: DM315_PATH,
-  },
-];
+  }];

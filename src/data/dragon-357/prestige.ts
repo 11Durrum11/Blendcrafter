@@ -148,7 +148,7 @@ const RAW: RawClassLike[] = [
       {
         name: "Thrall of Demogorgon Basics",
         description:
-          "The thrall of Demogorgon is the devoted cultist of the Prince of Demons, the two-headed lord of the Abyss; this record is the article's updated version of the Book of Vile Darkness prestige class of the same name. Weapon and Armor Proficiency: a thrall is proficient with all simple and martial weapons, with all types of armor, and with all shields (except tower shields). Three of the class's printed features — summon minor demon (5th), summon major demon (9th), and Demogorgon's will (10th) — are held out of this staged record under APOC screening (summoning does not work in APOC, and Demogorgon's will is a petition to a power outside the sealed crystal sphere); they are carried in full in the pack's reference.md for Shaun's call at integration. Key abilities: Charisma (sets the DCs of the thrall's supernatural and spell-like features) and Strength.",
+          "The thrall of Demogorgon is the devoted cultist of the Prince of Demons, the two-headed lord of the Abyss. Weapon and Armor Proficiency: a thrall is proficient with all simple and martial weapons, with all types of armor, and with all shields (except tower shields). Three of the class's printed features — summon minor demon (5th), summon major demon (9th), and Demogorgon's will (10th) — are held out of this staged record under APOC screening (summoning does not work in APOC, and Demogorgon's will is a petition to a power outside the sealed crystal sphere); they are carried in full in the pack's reference.md. Key abilities: Charisma (sets the DCs of the thrall's supernatural and spell-like features) and Strength.",
         level: 1,
       },
       {

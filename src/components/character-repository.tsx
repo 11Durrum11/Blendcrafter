@@ -46,7 +46,7 @@ export function CharacterRepository({ build, onLoad, part = "all" }: CharacterRe
   const [savedId, setSavedId] = useState<string>();
   const { toast } = useToast();
 
-  /* Group shelf (Shaun, 2026-11-04): every save also publishes to the
+  /* Group shelf: every save also publishes to the
      shared shelf so the whole table can open it. The shelf lives in
      the group's Supabase project; until its one-time table exists,
      shelfStatus is "unavailable" and publishing skips quietly — the
@@ -316,7 +316,7 @@ export function CharacterRepository({ build, onLoad, part = "all" }: CharacterRe
               </div>
             ) : shelfStatus === "unavailable" ? (
               <div className="rounded-md border border-dashed border-card-border p-4 text-sm text-muted-foreground">
-                The group shelf isn't set up yet — it needs a one-time table in the shared campaign database (Shaun has the setup). Until then, saves stay in this browser only, exactly as before.
+                The group shelf isn't set up yet — it needs a one-time table in the shared campaign database. Until then, saves stay in this browser only, exactly as before.
                 <Button size="sm" variant="outline" className="ml-3" onClick={() => void refreshShared()}>
                   Check again
                 </Button>

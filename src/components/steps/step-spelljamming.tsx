@@ -35,7 +35,7 @@ import { ShipsNestContent } from "./step-ships";
  */
 
 // How spelljamming works, distilled from the Concordance of
-// Arcane Space in Shaun's copy of Spelljammer: Adventures in
+// Arcane Space in the source copy of Spelljammer: Adventures in
 // Space (read page by page from his scan, 2026-11-04),
 // converted to 3.5 terms. Short mechanical summaries in our
 // own words — the book's text is not reproduced. Page cites

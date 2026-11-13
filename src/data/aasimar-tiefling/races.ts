@@ -49,63 +49,6 @@ const AT_PATH = "/Desktop/DnD-3.5/Supplements/Races/A Guidebook to Races/Aasimar
 
 export const AASIMAR_TIEFLING_RACES: RaceDefinition[] = [
   {
-    id: "at-aasimar",
-    name: "Aasimar",
-    ruleset: "core",
-    source: `${AT} — Aasimar (p. 12)`,
-    sourceUrl: AT_PATH,
-    size: "Medium",
-    baseSpeed: 30,
-    type: "Outsider",
-    subtypes: ["Native"],
-    abilityModifiers: { wis: 2, cha: 2 },
-    favoredClass: "Paladin",
-    levelAdjustment: 1,
-    skillBonuses: { listen: 2, spot: 2 },
-    traits: [
-      {
-        key: "at-aasimar-type",
-        name: "Outsider (Native)",
-        description: "Aasimars are native outsiders: they can be raised, reincarnated, and resurrected like other mortal creatures, and they have no racial Hit Dice — they advance by class levels and gain feats per class level.",
-        category: "trait",
-        source: `${AT}, p. 12`,
-        sourceUrl: AT_PATH,
-      },
-      {
-        key: "at-aasimar-darkvision",
-        name: "Darkvision",
-        description: "Darkvision out to 60 feet.",
-        category: "special-quality",
-        source: `${AT}, p. 12`,
-        sourceUrl: AT_PATH,
-      },
-      {
-        key: "at-aasimar-daylight",
-        name: "Daylight (Sp)",
-        description: "Once per day, an aasimar can use daylight, with a caster level equal to her class level.",
-        category: "special-quality",
-        source: `${AT}, p. 12`,
-        sourceUrl: AT_PATH,
-      },
-      {
-        key: "at-aasimar-resistances",
-        name: "Energy Resistance",
-        description: "Resistance to acid 5, cold 5, and electricity 5.",
-        category: "special-quality",
-        source: `${AT}, p. 12`,
-        sourceUrl: AT_PATH,
-      },
-      {
-        key: "at-aasimar-languages",
-        name: "Languages",
-        description: "Automatic languages: Common and Celestial. Bonus languages: Draconic, Dwarven, Elven, Gnome, Halfling, and Sylvan.",
-        category: "trait",
-        source: `${AT}, p. 12`,
-        sourceUrl: AT_PATH,
-      },
-    ],
-  },
-  {
     id: "fetch",
     name: "Fetch",
     ruleset: "core",
@@ -957,5 +900,4 @@ export const AASIMAR_TIEFLING_RACES: RaceDefinition[] = [
         sourceUrl: AT_PATH,
       },
     ],
-  },
-];
+  }];

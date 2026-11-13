@@ -96,16 +96,6 @@ export const DRAGON_338_SPELLS: SpellDefinition[] = [
     note: "Saving Throw line as printed (\"Yes (harmless, object),\" with no saving-throw type named). One of the Silver Hexameric Folio spells; the folio itself digests in the pack's reference.md.",
   }),
   C({
-    id: "siphon-338",
-    name: "Siphon",
-    levels: { "Sorcerer/Wizard": 3 },
-    targetOrArea: "Wand or staff touched",
-    duration: "Permanent",
-    summary:
-      "As spell weavers have an innate understanding of the flow of magic, spells such as siphon come naturally to them. You touch a staff or wand that contains at least 5 charges. By expending 5 charges from the wand or staff, you replace one cast spell or used spell slot of a level equal to or less than the highest-level spell held within the wand or staff. If you are a caster that prepares spells, you regain a spell slot or prepared spell of the affected spell level that you have already cast that day. A single casting of siphon can replace multiple spell levels for a single casting if the wand or staff has enough charges. For example, if you drained 15 charges from a staff of frost, you could regain up to 3 expended 5th-level spell slots. If the wand or staff does not have enough charges, the spell has no effect.",
-    note: "Printed #338 version, staged beside the live Complete Scoundrel record of the same name (id \"siphon\") under the standing side-by-side pairs rule — the two printings differ materially: the magazine version casts in 1 standard action with a Permanent duration, while the Complete Scoundrel reprint takes 1 minute with an Instantaneous duration. See MANIFEST.md. One of the Silver Hexameric Folio spells; the folio itself digests in the pack's reference.md.",
-  }),
-  C({
     id: "spell-star",
     name: "Spell Star",
     school: "Abjuration",
@@ -152,5 +142,4 @@ export const DRAGON_338_SPELLS: SpellDefinition[] = [
     summary:
       "A shimmering 10-foot-tall cloud made of gold, red, violet, and blue energy springs into existence, resembling rolling fire and lightning. The cloud appears in front of you and sweeps outward to the extent of the range. Creatures struck by the cloud take 1d6 points of damage per level (maximum 10d6). The damage is one-quarter electricity, one-quarter fire, one-quarter negative energy, and one-quarter positive energy; unlike the negative energy from an inflict wounds spell, this spell does not cure undead (nor does its positive energy component cure living creatures). A creature that fails its save is struck full-force by the cloud and must make a Fortitude save or be dazed for one round; creatures immune to stunning are immune to this aspect of the spell. This spell can be made permanent with a permanency spell (minimum caster level 11th; 1,500 XP), in which case it creates a straight cloud 5-foot-wide, 10-foot-tall, and up to 25-foot + 5 ft./2 levels long that deals 2d6 points of damage +1 point per caster level to any creature that contacts it; a creature that passes through the wall must succeed at a Fortitude save or be dazed for 1 round.",
     note: "Arcane material component: four stones, one for each of the colors of the cloud.",
-  }),
-];
+  })];

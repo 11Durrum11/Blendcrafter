@@ -47,7 +47,7 @@ export function StepSheet({ character }: StepSheetProps) {
 
   const errors = validation.filter((v) => v.severity === "error");
 
-  /* Sheet format choice (Shaun, 2026-11-04): the built-in sheet, or the
+  /* Sheet format choice: the built-in sheet, or the
      interactive PDF he supplied — filled with this build's numbers, its
      own calculation scripts stripped. Remembered per device. */
   const [sheetFormat, setSheetFormat] = useState<"builtin" | "pdf">(() =>

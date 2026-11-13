@@ -243,7 +243,7 @@ const RAW: RawClass[] = [
       {
         name: "Bane of the Clockwork Monk Basics",
         description:
-          "A variant monk built around a single 3rd-level variant class feature, staged as a variant class on the monk chassis (same Hit Die, base attack bonus, saving throws, skill points, class skills, and features as the monk except as noted). At 3rd level the monk gains Bane of the Clockwork in place of two parts of the base class: he never gains slow fall, and he does not gain the monk's 6th-level bonus feat. The article's lost-civilization technomagic framing (the Clockwork Disciple material) is setting color; the article itself notes the material ports to other settings, and only the mechanics stage here. ⚠️ STAGED WITH FLAG — monk-variant precedents are mixed and the ruling is Shaun's; see SCREENING.md §5. Key abilities: Wisdom, Dexterity, and Strength.",
+          "A variant monk built around a single 3rd-level variant class feature, staged as a variant class on the monk chassis (same Hit Die, base attack bonus, saving throws, skill points, class skills, and features as the monk except as noted). At 3rd level the monk gains Bane of the Clockwork in place of two parts of the base class: he never gains slow fall, and he does not gain the monk's 6th-level bonus feat. The article's lost-civilization technomagic framing (the Clockwork Disciple material) is setting color; the article itself notes the material ports to other settings, and only the mechanics stage here. ⚠️ STAGED WITH FLAG — monk-variant precedents are mixed; see SCREENING.md §5. Key abilities: Wisdom, Dexterity, and Strength.",
         level: 1,
       },
       {

@@ -8,7 +8,7 @@ import { describeFeat } from "@/lib/entity-descriptions";
 import { MAGIC_ITEM_CREATION_LINES, POTION_RULE_LINES } from "@/components/steps/step-equipment";
 
 /**
- * Magic Item Creation (Shaun, 2026-11-04): a third top-level
+ * Magic Item Creation: a third top-level
  * section beside Player Reference and Character Creation. The
  * page carries the WHOLE creation mechanics: the general
  * method, the cost per item family, alchemy the non-magical

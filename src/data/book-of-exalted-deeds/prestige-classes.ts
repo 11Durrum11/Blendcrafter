@@ -451,7 +451,7 @@ export const BOOK_OF_EXALTED_DEEDS_PRESTIGE_CLASSES: PrestigeClassDefinition[] =
         name: "Sentinel of Bharrai Features",
         category: "trait",
         description:
-          "A guardian of nature in Bharrai's service: Track and nature-friendly spells at 1st; energy resistance 10 to a chosen energy type at 2nd, and again for another type at 4th, 6th, and 8th; bear shape and quickened call lightning at 3rd; nature's veil at 5th; dire bear shape and ursinal's touch at 7th; cavalry of dire bears 1/week at 9th; and quickened lightning storm 1/day at 10th. Spellcasting advances +1 level of an existing spellcasting class at every level. (The printed skill list carries 3.0 holdovers — \"Alchemy,\" exclusive-skill tags, and \"Read/Write Language\" — mapped here to 3.5 skills: Craft (alchemy), with Read/Write Language folded into Speak Language.)",
+          "A guardian of nature in Bharrai's service: Track and nature-friendly spells at 1st; energy resistance 10 to a chosen energy type at 2nd, and again for another type at 4th, 6th, and 8th; bear shape and quickened call lightning at 3rd; nature's veil at 5th; dire bear shape and ursinal's touch at 7th; cavalry of dire bears 1/week at 9th; and quickened lightning storm 1/day at 10th. Spellcasting advances +1 level of an existing spellcasting class at every level.",
         source: `${CH5} — Sentinel of Bharrai (pp. 69–71)`,
         sourceUrl: BOED_PATH,
       },

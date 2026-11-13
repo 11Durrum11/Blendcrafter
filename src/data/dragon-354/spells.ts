@@ -52,7 +52,7 @@ export const DRAGON_354_SPELLS: SpellDefinition[] = [
     descriptors: ["Good"],
     levels: { Cleric: 3 },
     spellResistance: "Yes",
-    note: "Printed with school and level lines only ('functions like searing light'); the remaining header fields follow searing light. NAME COLLISION: this is a different spell from the bolt of glory in the Book of Exalted Deeds (Clr 6) — staged under the suffixed id; see SCREENING.md. Its damage riders key off the target's planar origin, which is inert as a rider under APOC's severed-planar canon; the spell itself is a straightforward positive-energy ray and stages as printed.",
+    note: "Printed with school and level lines only ('functions like searing light'); the remaining header fields follow searing light. Its damage riders key off the target's planar origin, which is inert as a rider under APOC's severed-planar canon; the spell itself is a straightforward positive-energy ray and stages as printed.",
     summary:
       "This spell functions like searing light, except that instead of a blast of light it delivers raw positive energy that resembles a silver bolt of lightning. Creatures from evil-aligned Outer Planes or from the Negative Energy Plane take damage as if they were undead. Creatures from good-aligned Outer Planes or the Positive Energy Plane take no damage from the spell.",
   }),
@@ -96,8 +96,7 @@ export const DRAGON_354_SPELLS: SpellDefinition[] = [
     savingThrow: "Will negates (harmless)",
     spellResistance: "Yes (harmless)",
     source: SRC_ANCIENT,
-    note: "Focus: a magic item with a market price of at least 4,000 gp. PRINT OMISSION: the Components line lists an XP component, but no XP cost amount is printed anywhere in the spell's text — carried as printed, disclosed for Shaun in SCREENING.md; no amount has been invented. The endless special quality the spell grants is digested in full in the pack's reference.md.",
+    note: "Focus: a magic item with a market price of at least 4,000 gp. PRINT OMISSION: the Components line lists an XP component, but no XP cost amount is printed anywhere in the spell's text — carried as printed, disclosed in SCREENING.md; no amount has been invented. The endless special quality the spell grants is digested in full in the pack's reference.md.",
     summary:
       "With this spell you create a magical connection between a living creature and a small magic item, such as a ring or pendant. The item forever eliminates your recipient's aging — she gains the endless special quality (see the pack's reference.md) — as long as she wears or carries it. The item radiates a strong aura of necromancy and gains the resilience of the recipient; the link makes the object all but impossible to destroy by normal means, requiring deity intervention, contact with an artifact, or similarly unusual circumstances. If she ever loses the object or removes it, she begins to age again at the normal rate for her race and suffers a -1 penalty on saving throws — against death effects, a -2 penalty instead — until she again carries the object. Your recipient always knows the approximate location and direction of the object as long as they are both on the same plane.",
-  }),
-];
+  })];

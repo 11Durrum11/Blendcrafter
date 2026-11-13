@@ -77,7 +77,7 @@ const MAGIC_CATEGORY_ORDER: { key: string; label: string }[] = [
   { key: "artifact", label: "Artifacts" },
 ];
 
-/* Creation mechanics annotation (Shaun, 2026-11-04): ONE compact
+/* Creation mechanics annotation: ONE compact
  * panel beside the Magic Items header — not repeated next to each
  * section. The creation method per family, standard SRD/DMG
  * figures, plus Shaun's house line for brewing potions and oils. */
@@ -91,7 +91,7 @@ export const MAGIC_ITEM_CREATION_LINES: { label: string; text: string }[] = [
   { label: "Arms & armor", text: "enhancement bonus squared × 1,000 gp (armor and shields) or × 2,000 gp (weapons), on top of the masterwork item." },
 ];
 
-/* Potion rules annotation (Shaun, 2026-11-04): the crunch of his
+/* Potion rules annotation: the crunch of his
  * pills/potions document — magical vs alchemical delivery, mixing,
  * throwing — set where the creation panel used to sit, to the right
  * of the Magic Items header. Mechanics only, no flavor text. */
@@ -177,7 +177,7 @@ function sortedByName<T extends { name: string }>(items: T[]): T[] {
 // its own card(s); state and handlers are shared code, and the
 // builder hands every window the same props.
 
-/* Magic item ordering (Shaun, 2026-11-04): "Subcategorize the
+/* Magic item ordering: "Subcategorize the
  * scrolls by level and in alphabetical order" — then "do that
  * for all the magic items." Items that carry a spell level
  * (scrolls, wands, potions/oils of a catalog spell) group by
@@ -254,7 +254,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
   // Weapons split into Melee / Ranged / Firearms behind subcategory
   // buttons (Shaun, 2026-11-03); each button opens its own list.
   const [openWeaponSubs, setOpenWeaponSubs] = useState<Set<string>>(new Set());
-  // Ammunition splits behind two button rows (Shaun, 2026-11-04):
+  // Ammunition splits behind two button rows:
   // Normal / Alchemical and Gun / Other, mirroring the Weapons
   // subcategory buttons; a list shows the ammunition matching both
   // an open facet and an open delivery.
@@ -871,7 +871,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
                       >
                         <Info className="h-3.5 w-3.5" />
                       </button>
-                      {/* Category / rule-set tags removed (Shaun, 2026-11-04) — name + price only, so the name has the room. */}
+                      {/* Category / rule-set tags removed — name + price only, so the name has the room. */}
                     </div>
                   </div>
                   <Button type="button" size="sm" variant="outline" className="px-2" onClick={() => onAdd("magic-item", item.id)} data-testid={`button-add-magic-item-${item.id}`}>
@@ -927,7 +927,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
                       >
                         <Info className="h-3.5 w-3.5" />
                       </button>
-                      {/* Category / kind tags removed (Shaun, 2026-11-04) — same treatment as the shop lists. */}
+                      {/* Category / kind tags removed — same treatment as the shop lists. */}
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
@@ -957,7 +957,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
   ), { skip: [EntityDetailDialog] });
 }
 
-// The three step windows (Shaun, 2026-11-04): step 8 Equipment
+// The three step windows: step 8 Equipment
 // (with the Wealth header), step 9 Magic Items, step 10
 // Inventory — thin wrappers over the shared shell above.
 export function StepEquipment(props: StepEquipmentProps) {

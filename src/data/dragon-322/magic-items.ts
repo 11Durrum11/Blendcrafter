@@ -86,7 +86,7 @@ export const DRAGON_322_MAGIC_ITEMS: MagicItemDefinition[] = [
     sourceUrl: URL322,
     cost: "32,301 gp",
     summary:
-      "A sap of stunning is a +2 ki focus sap that deals 2d6 points of nonlethal damage with a successful hit. Moderate transmutation; CL 9th; Craft Magic Arms and Armor. Weight: 5 lb. (An OMNI fan-index stub under the plain id sap-of-stunning stands in the catalog; per the issue-319 precedent the full magazine extraction stages suffixed.)",
+      "A sap of stunning is a +2 ki focus sap that deals 2d6 points of nonlethal damage with a successful hit. Moderate transmutation; CL 9th; Craft Magic Arms and Armor. Weight: 5 lb.",
   },
   {
     id: "sword-of-murder",

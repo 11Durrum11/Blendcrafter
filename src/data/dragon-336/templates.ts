@@ -35,7 +35,7 @@
 // vanishing is a teleportation effect that strands creatures elsewhere /
 // elsewhen; both stage as printed under the task brief's explicit
 // all-six-templates order, flagged for Shaun. The hauntings' undead
-// effects stage as printed — Shaun's APOC undead house rules (maximized
+// effects stage as printed — the APOC undead house rules (maximized
 // HP, +4 turn resistance, re-roll each round) apply ON TOP at play and
 // are NOT baked into these records.
 // Feature descriptions are faithful mechanical paraphrases in our own

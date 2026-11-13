@@ -64,15 +64,6 @@ export const DRAGON_326_FEATS: FeatDefinition[] = [
       "[Anarchic feat.] When determining the effect produced by a magic item that requires a random roll, you may roll twice and choose the result you prefer. When determining the effect produced by a magic deck of cards that requires a random draw, you may draw two cards at a time and choose the card you prefer (the other card is shuffled back into the deck as if it were not drawn). If you cause a mishap when attempting to read a scroll, you can choose which of two possible mishaps actually occurs. In all three cases, the DM should explain the choices to the player. You may only use the effects of this feat once per day.",
     special: ANARCHIC_SPECIAL,
   }),
-  // ---- Down the Drain: Sewer Feats (no type tag printed) ----
-  F({
-    id: "strong-stomach-326",
-    name: "Strong Stomach",
-    source: SRC_SEWER,
-    prerequisites: [],
-    benefitSummary:
-      "You gain a +4 bonus on all saving throws made against any extraordinary, supernatural, or spell-like nauseating or scent-based attack, such as a ghast's stench ability or stinking cloud. (No prerequisite is printed for this feat, and no feat type tag is printed for either sewer feat.)",
-  }),
   F({
     id: "tunnel-rat",
     name: "Tunnel Rat",
@@ -82,5 +73,4 @@ export const DRAGON_326_FEATS: FeatDefinition[] = [
       "When squeezing (see Player's Handbook, page 148), each space counts as 1 square of movement and you only suffer a −2 penalty on attack rolls.",
     special:
       "Normal: Squeezing causes spaces to count as 2 squares and the squeezing character suffers a −4 penalty on attack rolls.",
-  }),
-];
+  })];

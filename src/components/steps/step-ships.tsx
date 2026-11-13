@@ -84,7 +84,7 @@ import type { DeckPlan } from "@/data/deck-plans";
  */
 
 /** A sub-nest inside a nest — the break-up of The Ships
- * (Shaun, 2026-11-04). Spans the parent's full grid width;
+ * It spans the parent's full grid width;
  * its own cards grid inside it. */
 function SubNest({ id, label, children }: { id: string; pieceId?: string; label: string; children: ReactNode }) {
   // Sub-nests are pieces too (platform rule, 2026-11-08: every

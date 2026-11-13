@@ -4,7 +4,7 @@ import type { MagicItemDefinition } from "@/engine/types";
 // book contains NO magic item chapter, so every record
 // here comes from "Urban Tools," the Cityscape web
 // enhancement by Ari Marmell whose pages are appended
-// to part 2 of Shaun's copy (the pages headed
+// to part 2 of the source copy (the pages headed
 // "Cityscape, Part 3"): 1 shield special ability,
 // 1 weapon special ability, 1 specific weapon, and
 // 2 wondrous items. The Urban Tools article ends with

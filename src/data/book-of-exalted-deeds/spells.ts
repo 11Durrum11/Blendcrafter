@@ -2517,5 +2517,4 @@ export const BOOK_OF_EXALTED_DEEDS_SPELLS: SpellDefinition[] = [
   "source": "Book of Exalted Deeds, p. 112",
   "sourceUrl": "/A POC PC related/5.Splat/Book of Exalted Deeds.pdf",
   "subschool": "Compulsion"
-},
-];
+}];

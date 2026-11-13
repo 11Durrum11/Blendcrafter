@@ -9,7 +9,7 @@ import { buildPrereqContext, evaluatePrestigeClass, type PrestigeGateResult } fr
 import { isApocDisabledPower } from "@/lib/apoc-disabled";
 
 /**
- * Psionics (Shaun, 2026-11-04): its own step inside Character
+ * Psionics: its own step inside Character
  * Creation — between Magic Items and Inventory (step 11 since
  * the Abilities/Race split of 2026-11-05; it was step 10 when
  * Shaun ordered "make the psionics number ten... So inventory
@@ -42,7 +42,7 @@ import { isApocDisabledPower } from "@/lib/apoc-disabled";
  * live in the ordinary Spells step, as Shaun ordered ("Give
  * everything everything its proper place").
  *
- * APOC canon on this page (Shaun, 2026-11-04): psionics–magic
+ * APOC canon on this page: psionics–magic
  * transparency is in force, and psychoportation powers that
  * breach the world's boundaries don't work — those render
  * grayed and cannot be picked (src/lib/apoc-disabled.ts).

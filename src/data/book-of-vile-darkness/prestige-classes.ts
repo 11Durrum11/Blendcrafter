@@ -272,7 +272,7 @@ export const BOOK_OF_VILE_DARKNESS_PRESTIGE_CLASSES: PrestigeClassDefinition[] =
         name: "Disciple of Mephistopheles Features",
         category: "trait",
         description:
-          "A disciple of the Lord of Hellfire, at home among hell hounds, salamanders, and other evil fire creatures; proficient with all simple and martial weapons, all armor, and shields. Hellfire grasp (1st): deal 1d6 points of fire damage as a touch attack at will, added to unarmed attack damage. Fire adept (1st): +1 caster level with spells bearing the fire descriptor. Fire resistance 10 at 2nd level, rising to 20 at 6th. Hellfire blast (3rd): a gout of hellfire at will, 4d6 fire damage as a ranged touch attack with a range of 30 feet. Flare (4th, spell-like, as a 15th-level caster, once per day per class level), summon hamatula (5th; 1d4 hamatulas at 9th), hellfire (6th, three times per day), fire shield (7th, twice per day), and hellfire storm (8th, twice per day) — all as spells cast by a 15th-level caster. Body of flame (10th): transform into flame for up to 10 minutes once per day, gaining fire immunity and damage reduction 30/magic (converted from the printed 3.0 notation, 30/+1); creatures touching or striking him risk catching fire (Reflex DC 15). Table 5–8 prints good Fortitude, Reflex, and Will saves; the table is recorded as written.",
+          "A disciple of the Lord of Hellfire, at home among hell hounds, salamanders, and other evil fire creatures; proficient with all simple and martial weapons, all armor, and shields. Hellfire grasp (1st): deal 1d6 points of fire damage as a touch attack at will, added to unarmed attack damage. Fire adept (1st): +1 caster level with spells bearing the fire descriptor. Fire resistance 10 at 2nd level, rising to 20 at 6th. Hellfire blast (3rd): a gout of hellfire at will, 4d6 fire damage as a ranged touch attack with a range of 30 feet. Flare (4th, spell-like, as a 15th-level caster, once per day per class level), summon hamatula (5th; 1d4 hamatulas at 9th), hellfire (6th, three times per day), fire shield (7th, twice per day), and hellfire storm (8th, twice per day) — all as spells cast by a 15th-level caster. Body of flame (10th): transform into flame for up to 10 minutes once per day, gaining fire immunity and damage reduction 30/magic; creatures touching or striking him risk catching fire (Reflex DC 15). Table 5–8 prints good Fortitude, Reflex, and Will saves; the table is recorded as written.",
         source: `${CH5} — Disciple of Mephistopheles (pp. 62–63; Table 5–8, p. 62)`,
         sourceUrl: BOVD_PATH,
       },
@@ -323,7 +323,7 @@ export const BOOK_OF_VILE_DARKNESS_PRESTIGE_CLASSES: PrestigeClassDefinition[] =
       "Type: Any outsider",
       "Alignment: Any evil",
       "Base Attack Bonus: +5",
-      "Skills: Move Silently 3 ranks, Speak Language (Common), Survival 5 ranks (printed as Wilderness Lore)",
+      "Skills: Move Silently 3 ranks, Speak Language (Common), Survival 5 ranks",
       "Feats: Alertness, Mortalbane, Track",
     ],
     features: [
@@ -332,7 +332,7 @@ export const BOOK_OF_VILE_DARKNESS_PRESTIGE_CLASSES: PrestigeClassDefinition[] =
         name: "Mortal Hunter Features",
         category: "trait",
         description:
-          "A fiend that hunts mortals while wearing their skin. He casts from his own Charisma-based spontaneous spell list (1st–4th level spells per Table 5–10; the list runs to cause fear, hold person, flesh ripper, phantasmal killer, and similar hunter's magic). Mortal hunting grants a +1 bonus on attack and damage rolls against mortals and on Bluff, Listen, Sense Motive, Spot, and Survival checks against them, rising by +1 at 3rd, 6th, and 9th level (stacking with a ranger's favored enemy bonus; the damage bonus applies to ranged weapons only within 30 feet and not against creatures immune to critical hits). Mortal skin (1st) lets him graft mortal flesh to transform, as the polymorph spell (printed as polymorph self), into a humanoid mortal form once per day — any nondragon mortal form at 5th level and any mortal form at 8th, with duration depending on the flesh used. Also: detect mortals at will and Boost Spell-Like Ability as a bonus feat (2nd), smite mortals (4th, once per day: Wisdom modifier to the attack roll and 2 points of damage per class level), spurn mortal magic (5th, Wisdom modifier as an extra bonus on saves against mortals' spells and spell-like abilities), claws of the overfiend (7th, natural attack damage increases one step), mortalbane shout (8th, once per day: mortals within 50 feet are stunned for 1 round, Fortitude DC 10 + Cha bonus + class levels), and slay mortal (10th, once per day by touch, Fortitude DC 10 + class level + Cha modifier or die).",
+          "A fiend that hunts mortals while wearing their skin. He casts from his own Charisma-based spontaneous spell list (1st–4th level spells per Table 5–10; the list runs to cause fear, hold person, flesh ripper, phantasmal killer, and similar hunter's magic). Mortal hunting grants a +1 bonus on attack and damage rolls against mortals and on Bluff, Listen, Sense Motive, Spot, and Survival checks against them, rising by +1 at 3rd, 6th, and 9th level (stacking with a ranger's favored enemy bonus; the damage bonus applies to ranged weapons only within 30 feet and not against creatures immune to critical hits). Mortal skin (1st) lets him graft mortal flesh to transform, as the polymorph spell, into a humanoid mortal form once per day — any nondragon mortal form at 5th level and any mortal form at 8th, with duration depending on the flesh used. Also: detect mortals at will and Boost Spell-Like Ability as a bonus feat (2nd), smite mortals (4th, once per day: Wisdom modifier to the attack roll and 2 points of damage per class level), spurn mortal magic (5th, Wisdom modifier as an extra bonus on saves against mortals' spells and spell-like abilities), claws of the overfiend (7th, natural attack damage increases one step), mortalbane shout (8th, once per day: mortals within 50 feet are stunned for 1 round, Fortitude DC 10 + Cha bonus + class levels), and slay mortal (10th, once per day by touch, Fortitude DC 10 + class level + Cha modifier or die).",
         source: `${CH5} — Mortal Hunter (pp. 64–66; Table 5–10, p. 65)`,
         sourceUrl: BOVD_PATH,
       },
@@ -366,38 +366,6 @@ export const BOOK_OF_VILE_DARKNESS_PRESTIGE_CLASSES: PrestigeClassDefinition[] =
         description:
           "A living monster — never an undead — that feeds on the very essence of life force. Energy drain (1st): his touch bestows one negative level on its target, rising to two negative levels at 7th level. The stolen energy fuels a ladder of soul powers: soul strength (2nd), soul blast (3rd), soul enhancement (4th), soul endurance (5th), soul radiance (6th), soul agility (8th), soul slave (9th), and soul power (10th). Table 5–11 prints good Fortitude, Reflex, and Will saves; the table is recorded as written.",
         source: `${CH5} — Soul Eater (p. 66; Table 5–11, p. 66)`,
-        sourceUrl: BOVD_PATH,
-      },
-    ],
-  },
-  {
-    id: "thrall-of-demogorgon",
-    name: "Thrall of Demogorgon",
-    ruleset: "core",
-    source: `${CH5} — Thrall of Demogorgon (p. 67)`,
-    sourceUrl: BOVD_PATH,
-    hitDie: "d8",
-    skillPointsPerLevel: 4,
-    babProgression: "full",
-    goodSaves: ["fort"],
-    progression: rows(FULL, G, P, P),
-    classSkills: ["Bluff", "Climb", "Concentration", "Hide", "Intimidate", "Jump", "Knowledge (any)", "Move Silently", "Profession", "Search", "Sense Motive", "Spot", "Survival", "Swim", "Use Rope"],
-    prerequisites: [
-      "Alignment: Chaotic evil",
-      "Base Attack Bonus: +4",
-      "Skills: Knowledge (arcana) 2 ranks, Knowledge (religion) 2 ranks, Knowledge (any other) 2 ranks",
-      "Feats: Willing Deformity, Thrall to Demon",
-      "Special: Must be able to cast 1st-level spells or make sneak attacks",
-      "Special: Initiation requires a horrific rite involving the sacrifice of an intelligent being dedicated to Demogorgon, on unhallowed ground at night in the presence of a demon",
-    ],
-    features: [
-      {
-        key: "thrall-of-demogorgon-features",
-        name: "Thrall of Demogorgon Features",
-        category: "trait",
-        description:
-          "A thrall of the Prince of Demons, proficient with all simple and martial weapons, all armor, and shields. At 1st, 4th, 7th, and 10th level he chooses either a bonus feat of his choice or +1 level of existing spellcasting (non-spellcasters must take the feat; he may mix the two choices across levels). Scaly flesh grants a +1 natural armor bonus at 1st level, rising by +1 at 4th, 7th, and 10th (stacking with natural armor from creature type, but not from magic). Also: hypnosis (1st, once per day, as the spell), touch of fear (2nd), reaching touch (3rd), dual actions (4th), summon minor demon (5th), rotting touch (6th), two personas (8th), death touch (8th), summon major demon (9th), and Demogorgon's will (10th).",
-        source: `${CH5} — Thrall of Demogorgon (pp. 67–68; Table 5–12, p. 67)`,
         sourceUrl: BOVD_PATH,
       },
     ],
@@ -459,7 +427,7 @@ export const BOOK_OF_VILE_DARKNESS_PRESTIGE_CLASSES: PrestigeClassDefinition[] =
         name: "Thrall of Juiblex Features",
         category: "trait",
         description:
-          "A thrall of the Faceless Lord who oozes slime and reeks unbearably, proficient with all simple and martial weapons, all armor, and shields. His corruption deepens level by level: sickening slime (1st), corrosive touch (2nd), summon ooze (3rd), contagion and alter self (4th), summon minor demon (5th), corrosive spew (6th), summon pudding (7th), polymorph (8th; printed as polymorph self), summon major demon (9th), and no discernible anatomy (10th). Table 5–14 prints good Fortitude, Reflex, and Will saves; the table is recorded as written.",
+          "A thrall of the Faceless Lord who oozes slime and reeks unbearably, proficient with all simple and martial weapons, all armor, and shields. His corruption deepens level by level: sickening slime (1st), corrosive touch (2nd), summon ooze (3rd), contagion and alter self (4th), summon minor demon (5th), corrosive spew (6th), summon pudding (7th), polymorph (8th), summon major demon (9th), and no discernible anatomy (10th). Table 5–14 prints good Fortitude, Reflex, and Will saves; the table is recorded as written.",
         source: `${CH5} — Thrall of Juiblex (p. 70; Table 5–14, p. 70)`,
         sourceUrl: BOVD_PATH,
       },
@@ -558,5 +526,4 @@ export const BOOK_OF_VILE_DARKNESS_PRESTIGE_CLASSES: PrestigeClassDefinition[] =
         sourceUrl: BOVD_PATH,
       },
     ],
-  },
-];
+  }];

@@ -10,15 +10,14 @@ import type { EquipmentItem } from "@/engine/types";
 // Transcribed from the magazine text on archive.org
 // (DragonMagazine315_djvu.txt).
 //
-// OVERLAP (see MANIFEST.md): the sharktooth gauntlet is the one
-// catalog record that already cites this issue — a fan-index
-// pickings record (id "sharktooth-gauntlet", from the crystalkeep
-// d20 Equipment Index, cited in PROGRAM.md). Per the program rule,
-// the real extraction supersedes the fan-index record where they
-// overlap and this record ships suffixed -315; both records stand.
-// The extraction confirms the fan index's 18–20/x2 critical (the
-// magazine OCR reads "13-20", a misread of 18–20) and adds the Small
-// damage die and the counts-as-armed line the index lacked.
+// OVERLAP (see MANIFEST.md): a fan-index pickings record for the
+// sharktooth gauntlet (from the crystalkeep d20 Equipment Index)
+// once stood in the catalog; under Shaun's 2026-11-12
+// no-old-versions order it came out, and this full extraction is
+// the catalog's record. The extraction confirms the fan index's
+// 18–20/x2 critical (the magazine OCR reads "13-20", a misread of
+// 18–20) and adds the Small damage die and the counts-as-armed
+// line the index lacked.
 //
 // Crimson essence staging call (see MANIFEST.md): it is a priced,
 // purchasable consumable with a full preparation and effect block,

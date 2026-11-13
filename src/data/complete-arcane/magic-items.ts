@@ -74,16 +74,6 @@ export const COMPLETE_ARCANE_MAGIC_ITEMS: MagicItemDefinition[] = [
     "ruleset": "core"
   },
   {
-    "id": "death-ward",
-    "name": "Death Ward",
-    "category": "armor-special-ability",
-    "cost": "+1 bonus",
-    "summary": "Armor special ability: once per day, when the wearer is struck by a death effect (death spells, magical death effects, energy drain, or negative energy effects), she can ignore the effect. (Moderate necromancy; CL 7th.)",
-    "source": "Complete Arcane — Chapter 5: Magic Items, p. 142",
-    "sourceUrl": "/A POC PC related/5.Splat/Complete sereies/D&D 3.5 - Complete Arcane.pdf",
-    "ruleset": "core"
-  },
-  {
     "id": "magic-eating",
     "name": "Magic-Eating",
     "category": "armor-special-ability",
@@ -582,5 +572,4 @@ export const COMPLETE_ARCANE_MAGIC_ITEMS: MagicItemDefinition[] = [
     "source": "Complete Arcane — Chapter 5: Magic Items, p. 148",
     "sourceUrl": "/A POC PC related/5.Splat/Complete sereies/D&D 3.5 - Complete Arcane.pdf",
     "ruleset": "core"
-  },
-];
+  }];

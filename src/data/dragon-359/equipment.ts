@@ -74,19 +74,10 @@ export const DRAGON_359_EQUIPMENT: EquipmentItem[] = [
       "Alchemical item. This special form of acid affects only iron and other metals weaker than adamantine. One flask of this acid deals 3d10 points of acid damage to a metal object or creature made entirely of metal (such as an iron golem) and ignores hardness. Ironbane acid has no effect on adamantine or magically reinforced or enchanted metal. You can throw ironbane acid as a grenadelike weapon, in which case it deals full damage to any nonmagical metal armor, weapon, or shield that your target might be wearing or wielding.",
   }),
   E({
-    id: "stonebreaker-acid-359",
-    name: "Stonebreaker Acid",
-    cost: "20 gp",
-    weight: "1 lb. (VERIFY — the #359 table fragment reads 1/4 lb.; the Arms and Equipment Guide printing reads 1 lb.)",
-    notes:
-      "Alchemical item. This special form of acid affects only stone. One flask of this acid deals 3d10 points of acid damage to a stone object or creature made entirely of stone (such as a stone golem) and ignores hardness. Stonebreaker acid has no effect on magically reinforced or enchanted stone. You can throw stonebreaker acid as a grenadelike weapon, in which case it deals full damage to any nonmagical stone object that your target might be carrying. Stonebreaker acid originally appeared on page 35 of the Arms and Equipment Guide. (Full extraction beside the catalog's Arms and Equipment Guide omni record 'stonebreaker-acid' — the issue-331 pole-arm precedent; the #359 price of 20 gp agrees with that record.)",
-  }),
-  E({
     id: "woodripper-acid",
     name: "Woodripper Acid",
     cost: "200 gp (VERIFY — price/weight lost in the source scan's table)",
     weight: "1 lb. (VERIFY)",
     notes:
       "Alchemical item. This special form of acid affects only wood and plant creatures. One flask of this acid deals 3d10 points of acid damage to a wood object or plant creature and ignores hardness. Woodripper acid has no effect on magically reinforced or enchanted wood. You can throw woodripper acid as a grenadelike weapon, in which case it deals full damage to any nonmagical wooden armor, weapon, or shield that your target might be wearing or wielding.",
-  }),
-];
+  })];

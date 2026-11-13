@@ -308,7 +308,7 @@ export const BASTARDS_FEATS: FeatDefinition[] = [
     name: "Scent",
     category: "general",
     prerequisites: ["Bloodline of a race that has the scent ability"],
-    benefitSummary: "Gain the scent special ability: you can detect opponents within 30 feet by sense of smell (60 feet if the opponent is upwind, 15 feet if downwind), and you can track by sense of smell, making a Wisdom check (typical DC 10, +2 for each hour since the trail was made) instead of Survival but otherwise following the rules for the Track feat (3.0 skill name as printed); you ignore surface conditions and poor visibility when tracking by scent. (Printed as a Bloodline feat.)",
+    benefitSummary: "Gain the scent special ability: you can detect opponents within 30 feet by sense of smell (60 feet if the opponent is upwind, 15 feet if downwind), and you can track by sense of smell, making a Wisdom check (typical DC 10, +2 for each hour since the trail was made) instead of Survival but otherwise following the rules for the Track feat; you ignore surface conditions and poor visibility when tracking by scent. (Printed as a Bloodline feat.)",
     modifiers: [],
     source: `${BB}, p. 93`,
     sourceUrl: BB_PATH,

@@ -109,16 +109,6 @@ export const DRAGON_313_FEATS: FeatDefinition[] = [
     sourceUrl: DM313_PATH,
   },
   {
-    id: "quick-change-313",
-    name: "Quick Change",
-    category: "general",
-    ruleset: "core",
-    prerequisites: ["Dex 13", "Alternate form special quality"],
-    benefitSummary: "[General feat.] You can change form as a move action. (Normal: changing form is a standard action.)",
-    source: DM313,
-    sourceUrl: DM313_PATH,
-  },
-  {
     id: "spirit-of-the-beast",
     name: "Spirit of the Beast",
     category: "general",
@@ -336,5 +326,4 @@ export const DRAGON_313_FEATS: FeatDefinition[] = [
     benefitSummary: "[General feat.] Your constrict damage increases by one step, as if your size had increased by one category, on this scale: 1d2, 1d3, 1d4, 1d6, 1d8, 2d6, 2d8, 4d6, 4d8, 6d8, 8d8.",
     source: DM313,
     sourceUrl: DM313_PATH,
-  },
-];
+  }];

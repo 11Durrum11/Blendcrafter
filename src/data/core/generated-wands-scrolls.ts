@@ -36602,16 +36602,6 @@ export const GENERATED_SCROLLS: MagicItemDefinition[] = [
   "ruleset": "core"
  },
  {
-  "id": "scroll-of-summon-golem",
-  "name": "Scroll of Summon Golem",
-  "category": "scroll",
-  "cost": "1,650 gp",
-  "summary": "A scroll of Summon Golem (Conjuration), scribed at caster level 11. This spell summons a golem to aid you in combat; it appears where you designate and acts immediately on your next turn.",
-  "source": "Dungeon Master's Guide — Scrolls (standard scroll price table)",
-  "sourceUrl": "https://www.d20srd.org/srd/magicItems/scrolls.htm",
-  "ruleset": "core"
- },
- {
   "id": "scroll-of-tale-of-bravery",
   "name": "Scroll of Tale of Bravery",
   "category": "scroll",

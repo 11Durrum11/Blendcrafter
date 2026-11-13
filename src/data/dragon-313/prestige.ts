@@ -144,7 +144,7 @@ const RAW: RawPrestige[] = [
       {
         "name": "Force Touch (Su)",
         "level": 4,
-        "description": "The mind mage can deliver a touch-attack spell through a force power he knows (concussion blast — the Expanded Psionics Handbook power that consolidates the magazine's printed 3.0 power chain of lesser concussion, concussion, greater concussion, mass concussion, and true concussion; the printed list also names detonation, a 3.0 power with no 3.5 equivalent). The power has its normal effect in addition to the spell's. If the power affects multiple targets, the mind mage chooses one within his line of sight and effect to receive the touch spell; force powers that deal no damage cannot deliver spells this way. He must still make a ranged touch attack against the target, and the target gets spell resistance checks against both the spell and the power. The spell still requires its somatic components unless they are offset through Psionic Components."
+        "description": "The mind mage can deliver a touch-attack spell through a force power he knows (concussion blast). The power has its normal effect in addition to the spell's. If the power affects multiple targets, the mind mage chooses one within his line of sight and effect to receive the touch spell; force powers that deal no damage cannot deliver spells this way. He must still make a ranged touch attack against the target, and the target gets spell resistance checks against both the spell and the power. The spell still requires its somatic components unless they are offset through Psionic Components."
       },
       {
         "name": "Twin Wells (Su)",

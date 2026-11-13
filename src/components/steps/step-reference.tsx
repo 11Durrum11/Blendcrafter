@@ -329,7 +329,7 @@ const CATEGORIES: RefCategory[] = [
   {
     key: "magic", label: "Magic Items", subcategoryOrder: MAGIC_SUBCATEGORY_ORDER,
     // Magic helmets split out of Wondrous — Head by name, exactly as
-    // the Magic Items step groups them (Shaun, 2026-11-04).
+    // the Magic Items step groups them.
     rows: ALL_MAGIC_ITEMS.map((i) => ({ key: `magic:${i.id}`, category: "Magic Item", subcategory: i.category === "wondrous-head" && /helm/i.test(i.name) ? "Helmets" : (MAGIC_SUBCATEGORY_LABELS[i.category] ?? capitalize(i.category)), name: i.name, source: i.source, ruleset: i.ruleset, makeDetail: () => describeMagicItem(i) })),
   },
   {
@@ -695,7 +695,7 @@ export function StepReference() {
                     >
                       <span className="min-w-0">
                         {/* No category / subcategory / rule-set tags
-                            on reference rows (Shaun, 2026-11-04): the
+                            on reference rows: the
                             tags ate the room and the item's name went
                             missing off the front. The name gets the
                             whole row and wraps instead of truncating;

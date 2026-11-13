@@ -54,16 +54,6 @@ function C(seed: SpellSeed): SpellDefinition {
 
 export const DRAGON_335_SPELLS: SpellDefinition[] = [
   C({
-    id: "animate-instrument-335",
-    name: "Animate Instrument",
-    school: "Abjuration",
-    levels: { Bard: 2 },
-    targetOrArea: "One instrument touched",
-    note: "Dragon #335 printing: the magazine's header gives this spell's school as Abjuration; the Complete Scoundrel printing (the live catalog record animate-instrument) gives Transmutation. Staged as a -335 variant of the magazine printing, as printed; see SCREENING.md.",
-    summary:
-      "You imbue a musical instrument with the ability to play at your command. The instrument can play a tune on your behalf even while you are busy with other actions: as long as this spell is in effect you can cause the affected instrument to begin playing as a free action, effectively mimicking and continuing your performance (at the same Perform result as yours, if one has been made). Once the animated instrument picks up the performance, you do not have to continue concentrating to maintain its effect — you do not need to concentrate to continue a performance or bardic music effect that relies on the use of a musical instrument, and may cast spells or activate magic items — but you may not make further use of bardic music while an animated instrument continues a bardic music effect. You can animate any nonmagical musical instrument, such as a piano, fiddle, or harp. If the instrument must be carried or held while played, it floats in the air in the square in which you cast the spell; the animated instrument cannot move. The instrument continues to play until the spell expires or a creature succeeds at a touch attack to ruin its tune. An animated instrument's AC is 10 plus any relevant size modifiers (most handheld instruments are Small, giving them a +1 size bonus to AC).",
-  }),
-  C({
     id: "ever-armed",
     name: "Ever Armed",
     school: "Conjuration",
@@ -99,5 +89,4 @@ export const DRAGON_335_SPELLS: SpellDefinition[] = [
     spellResistance: "Yes (harmless, object)",
     summary:
       "You imbue a single weapon with the dancing special ability (described on page 224 of the Dungeon Master's Guide) for the duration of this spell. The affected weapon immediately begins attacking on its own. After 4 rounds, the weapon drops, as normal for the dancing special ability.",
-  }),
-];
+  })];

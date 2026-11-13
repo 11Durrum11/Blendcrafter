@@ -64,7 +64,7 @@ export const DRAGON_348_FEATS: FeatDefinition[] = [
     id: "brawling-commander",
     name: "Brawling Commander (Commander Aura)",
     prerequisites: ["Commander rating 1", "Improved Unarmed Strike"],
-    benefitSummary: FRAME + "The troops under your command are especially effective at unarmed combat. Benefit: Allies within your aura range gain a +1 morale bonus on unarmed attack rolls and a +1 morale bonus on damage rolls when dealing nonlethal damage. (The printed prerequisite reads \"Improved Unarmed Combat\"; carried in the prerequisites field in its 3.5 form, Improved Unarmed Strike — see SCREENING.md conversion notes.)",
+    benefitSummary: FRAME + "The troops under your command are especially effective at unarmed combat. Benefit: Allies within your aura range gain a +1 morale bonus on unarmed attack rolls and a +1 morale bonus on damage rolls when dealing nonlethal damage.",
   }),
   F({
     id: "cavalry-commander",
@@ -94,7 +94,7 @@ export const DRAGON_348_FEATS: FeatDefinition[] = [
     id: "hardy-commander",
     name: "Hardy Commander (Commander Aura)",
     prerequisites: ["Commander rating 3", "Barbarian class or Toughness"],
-    benefitSummary: FRAME + "You inspire your troops to ignore wounds from enemies. Benefit: Allies within your aura range gain damage reduction 1/—. (Printed in the modern DR form, not +N-keyed notation; no conversion needed.)",
+    benefitSummary: FRAME + "You inspire your troops to ignore wounds from enemies. Benefit: Allies within your aura range gain damage reduction 1/—.",
   }),
   F({
     id: "inspiring-commander",

@@ -6,7 +6,7 @@ import type { EquipmentItem } from "@/engine/types";
 // encounters, and campaign running), so every record
 // here comes from "Urban Tools," the Cityscape web
 // enhancement by Ari Marmell whose pages are appended
-// to part 2 of Shaun's copy (the pages headed
+// to part 2 of the source copy (the pages headed
 // "Cityscape, Part 3"): 3 alchemical items with Craft
 // (alchemy) DCs, and 3 hidden weapons with Search DCs.
 // Transcribed from Shaun's own copy. Notes are short

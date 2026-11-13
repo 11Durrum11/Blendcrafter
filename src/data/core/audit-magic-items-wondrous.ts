@@ -177,7 +177,6 @@ export const CORE_AUDIT_WONDROUS: MagicItemDefinition[] = build([
   ["amulet-of-natural-armor-3", "Amulet of Natural Armor +3", "18,000 gp", "Grants a +3 enhancement bonus to the wearer's natural armor.", "wondrous-throat"],
   ["ioun-stone-iridescent-spindle", "Ioun Stone, Iridescent Spindle", "18,000 gp", "An orbiting stone that sustains its owner without air.", "wondrous-slotless"],
   ["bracelet-of-friends", "Bracelet of Friends", "19,000 gp", "A bracelet with four charms; each charm can be keyed to a friend, who can be summoned to the wearer when the charm is used, as printed.", "wondrous-arms"],
-  ["carpet-of-flying-5x5", "Carpet of Flying, 5 Ft. by 5 Ft.", "20,000 gp", "A flying carpet carrying up to 400 lb., flying at 60 feet as printed.", "wondrous-slotless"],
   ["ioun-stone-pale-lavender-ellipsoid", "Ioun Stone, Pale Lavender Ellipsoid", "20,000 gp", "An orbiting stone that absorbs spells of up to 4th level targeted at its owner (up to 20 spell levels), then it turns dull gray.", "wondrous-slotless"],
   ["ioun-stone-pearly-white-spindle", "Ioun Stone, Pearly White Spindle", "20,000 gp", "An orbiting stone that regenerates its owner: lost body parts regrow and damage heals at 1 hit point per hour, as printed.", "wondrous-slotless"],
   ["figurine-of-wondrous-power-ivory-goats", "Figurine of Wondrous Power, Ivory Goats", "21,000 gp", "Three goat figurines with different powers (travel, tricks, and travail), as printed.", "wondrous-slotless"],

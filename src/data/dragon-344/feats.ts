@@ -54,9 +54,7 @@ export const DRAGON_344_FEATS: FeatDefinition[] = [
     prerequisites: ["sneak attack +3d6"],
     benefitSummary:
       "[Ambush.] You can weaken your opponent's ability to withstand magical threats. Benefit: By reducing your sneak attack damage by two damage dice, you can reduce the target's spell resistance by 5 (minimum 1) for 1 minute. Multiple attacks made with this feat do not stack. Each use of this feat begins the 1 minute duration anew.",
-    special:
-      AMBUSH_FRAME +
-      " This is the feat's original Dragon #344 printing. The live catalog's separate Eldritch Erosion record (Complete Scoundrel) is a different version — different prerequisites (sneak attack +4d6), a larger damage-dice cost, and a different duration — and both records stand side by side; see SCREENING.md.",
+    special: AMBUSH_FRAME,
   }),
   F({
     id: "flurry-of-throws",
@@ -74,7 +72,7 @@ export const DRAGON_344_FEATS: FeatDefinition[] = [
       "[Ambush.] When you catch opponents unawares you can unleash a storm of shuriken striking at their most vulnerable points. Benefit: As part of a full-round attack using Rapid Shot, you can throw additional shuriken by reducing your sudden strike damage. You make every attack in the round with a -2 penalty. For each die by which you reduce your sudden strike damage you gain one additional attack, and you deal your remaining damage dice to each target struck by this ability. You can sacrifice up to three bonus damage dice to gain three extra attacks in a round. Each target of a shuriken attack made by this ability must be vulnerable to your sudden strike (that is, it does not currently have a Dexterity bonus to AC), and each shuriken you throw in this way must target a different creature. Other attacks you make as part of your full attack action that are not extra attacks from Rapid Shot or Flurry of Throws do not have to be made with shuriken, and they do not gain bonus sudden strike damage. For example, a 13th-level ninja uses Rapid Shot and Flurry of Throws to make six attacks (two normal attacks plus one Rapid Shot attack plus three Flurry of Throws attacks) with the following base attack bonuses: +6/+1/+6/+6/+6/+6; his three Flurry of Throws attacks deal normal shuriken damage plus 4d6 points of sudden strike damage and must be made against three different foes who lack their Dexterity bonuses to AC.",
     special:
       AMBUSH_FRAME +
-      " Printed with a ninja-class worked example; staged as printed and flagged in SCREENING.md (the feat itself is not oriental material — its engine is the sudden strike ability — but the flag is Shaun's to rule on).",
+      " Printed with a ninja-class worked example; staged as printed and flagged in SCREENING.md (the feat itself is not oriental material — its engine is the sudden strike ability).",
   }),
   F({
     id: "hinder",
@@ -125,5 +123,4 @@ export const DRAGON_344_FEATS: FeatDefinition[] = [
     benefitSummary:
       "[Ambush.] Your attack leaves your opponent gasping for air and watching spots dance before his eyes. Benefit: By reducing your sneak attack damage by two damage dice you can make a special melee attack targeting your foe's vital organs that forces your target to make a Fortitude save (DC 10 + 1/2 your class level + your Int modifier). If your target fails this save, at any time in the next 10 minutes that he attempts to make a Strength-, Dexterity-, or Constitution-based skill check or an ability check using one of these scores he becomes fatigued. If already fatigued he becomes exhausted instead.",
     special: AMBUSH_FRAME,
-  }),
-];
+  })];

@@ -74,7 +74,7 @@ export const DRAGON_354_FEATS: FeatDefinition[] = [
     name: "Self-Sufficient",
     prerequisites: ["Wedded to History", "Survivor background"],
     benefitSummary:
-      "[General.] Prerequisites: Wedded to History, survivor background. Benefit: You may treat the Heal skill as a class skill and can give yourself long-term care. Once each day you may heal 1d4 + your Intelligence modifier points of damage (minimum 1) by stitching up wounds and applying various alchemical unguents. This takes 1 minute of uninterrupted work and requires a healer's kit, using up one use of the kit. (Name note: a different feat named Self-Sufficient already exists in the Player's Handbook; this Dragon #354 feat is unrelated — staged under the suffixed id, see SCREENING.md.)",
+      "[General.] Prerequisites: Wedded to History, survivor background. Benefit: You may treat the Heal skill as a class skill and can give yourself long-term care. Once each day you may heal 1d4 + your Intelligence modifier points of damage (minimum 1) by stitching up wounds and applying various alchemical unguents. This takes 1 minute of uninterrupted work and requires a healer's kit, using up one use of the kit.",
   }),
   F({
     id: "shuffled-interior",

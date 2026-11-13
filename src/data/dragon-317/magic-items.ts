@@ -183,7 +183,7 @@ export const DRAGON_317_MAGIC_ITEMS: MagicItemDefinition[] = [
     ruleset: "core",
     category: "rod",
     cost: "10,000 gp",
-    summary: "A golden rod caked with blood and ashes at one end, usable only once. On the possessor's command, it unleashes a pulse of negative energy upon up to twenty creatures chosen by the wielder in a 75-foot radius; each targeted creature takes 4d8+20 points of damage, and undead are instead healed by the pulse. A successful Will save (DC 22) halves the damage. The rod crumbles into nonmagical sand when used. Strong necromancy; CL 20th; Craft Rod, Enlarge Spell, mass inflict critical wounds. (A different rod of destruction, from Spells & Magic, is already in the catalog; both records stand — see MANIFEST.md.)",
+    summary: "A golden rod caked with blood and ashes at one end, usable only once. On the possessor's command, it unleashes a pulse of negative energy upon up to twenty creatures chosen by the wielder in a 75-foot radius; each targeted creature takes 4d8+20 points of damage, and undead are instead healed by the pulse. A successful Will save (DC 22) halves the damage. The rod crumbles into nonmagical sand when used. Strong necromancy; CL 20th; Craft Rod, Enlarge Spell, mass inflict critical wounds.",
     source: DM317,
     sourceUrl: DM317_PATH,
   },

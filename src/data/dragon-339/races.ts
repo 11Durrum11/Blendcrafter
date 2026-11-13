@@ -66,7 +66,7 @@ export const DRAGON_339_RACES: RaceDefinition[] = [
       t(
         "giff-339-fearless-mercenaries",
         "Fearless Mercenaries",
-        "Giff are immune to fear effects. Known for their fearlessness, many scholars speculate that giff are magically or psionically inert as a side effect of their battle prowess, although giff keep their own counsel on this mystery. (Alone among the traits of this printing, no spell resistance is granted; the live 2e-conversion giff record's spell resistance has no counterpart here.)",
+        "Giff are immune to fear effects. Known for their fearlessness, many scholars speculate that giff are magically or psionically inert as a side effect of their battle prowess, although giff keep their own counsel on this mystery.",
       ),
       t(
         "giff-339-skills",
