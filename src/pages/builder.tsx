@@ -6,7 +6,7 @@ import { Logo } from "@/components/logo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ArmDmButton, DmControls, Piece, PieceFrame, PiecesProvider, Zone, isDmArmed } from "@/components/movable-pieces";
+import { DmControls, Piece, PieceFrame, PiecesProvider, Zone, isDmArmed } from "@/components/movable-pieces";
 import { RulesetToggle } from "@/components/ruleset-toggle";
 import { HouseRulesToggle } from "@/components/house-rules-toggle";
 import { CharacterRepository } from "@/components/character-repository";
@@ -896,13 +896,13 @@ export default function Builder() {
               toggle and Reset layout, side by side in the header.
               Reset puts every piece back in its shipped place,
               sizes and locks cleared — and the header boxes' own
-              saved order resets with it. Both controls render ONLY
-              on DM-armed devices; players see neither. On devices
-              that are NOT armed, the small DM button beside them
-              is the arm switch (Shaun, 2026-11-08): press-and-hold
-              arms this device from inside this browser, because
-              the ?dm=1 link kept landing in the wrong one. */}
-          <ArmDmButton />
+              saved order resets with it. The controls render ONLY
+              on DM-armed devices; players see neither. The small
+              DM arm button that used to sit beside them is GONE
+              (Shaun, 2026-11-13): with lock/drag removed from all
+              four sections, an arm switch in the header served
+              nothing. Arming still works via ?dm=1 for the header
+              boxes' own drag order, which is unchanged. */}
           <DmControls
             onResetExtra={() => {
               setHeaderOrder([...HEADER_BOX_ORDER]);
