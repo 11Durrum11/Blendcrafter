@@ -1099,6 +1099,11 @@ export default function Builder() {
                 <Piece pieceId="summary">
                   <div className="text-sm text-muted-foreground" data-testid="character-summary-line">
                     {viewResolved.race.name} · ECL {viewResolved.ecl.value} · CR {viewResolved.cr.value} · HP {viewResolved.hp.total} · AC {viewResolved.ac.total}
+                    {/* Shaun, 2026-11-13: right next to the AC, a note
+                        that says "Follow the numbers to create your
+                        character" — the strip below is numbered 1-16
+                        for exactly that. */}
+                    <span className="ml-2 italic">Follow the numbers to create your character.</span>
                   </div>
                 </Piece>
                 {/* The New Character button, nested FIRST inside
