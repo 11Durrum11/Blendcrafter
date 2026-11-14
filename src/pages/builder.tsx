@@ -49,29 +49,35 @@ const STEPS = [
   // "combine name and the abilities. Put the name on top in the
   // abilities and call that one and then everything else
   // after"). The name box sits on top inside the Abilities
-  // step, which is Step 1; there is no separate Name step.
-  // Renumbered: Abilities 1, Race 2, and everything else
-  // follows to Character Sheet 14.
-  { id: "abilities", label: "Abilities", num: "1" },
-  { id: "race", label: "Race", num: "2" },
-  { id: "classes", label: "Classes", num: "3" },
-  { id: "skills", label: "Skills", num: "4" },
-  { id: "templates", label: "Templates", num: "5" },
-  { id: "feats", label: "Feats", num: "6" },
-  { id: "spells", label: "Spells", num: "7" },
+  // step; there is no separate Name step.
+  // Strip numbering (Shaun, 2026-11-13): the creation strip is
+  // numbered to follow — 1 New Character, 2 the name field,
+  // then the steps 3-16: Abilities 3, Race 4, Classes 5,
+  // Skills 6, Templates 7, Feats 8, Spells 9, Prestige
+  // Classes 10, Equipment 11, Magic Items 12, Psionics 13,
+  // Inventory 14, Personality 15, Character Sheet 16. The
+  // `num` on each step below is that strip number, shown on
+  // its tab.
+  { id: "abilities", label: "Abilities", num: "3" },
+  { id: "race", label: "Race", num: "4" },
+  { id: "classes", label: "Classes", num: "5" },
+  { id: "skills", label: "Skills", num: "6" },
+  { id: "templates", label: "Templates", num: "7" },
+  { id: "feats", label: "Feats", num: "8" },
+  { id: "spells", label: "Spells", num: "9" },
   // Prestige classes are their own step (Shaun, 2026-11-03), and sit
   // AFTER Spells (Shaun, later the same day: "Move it after Spells
   // and renumber the steps to fit") — the prerequisite gate judges
   // skills, templates, feats and spell picks, so those steps must
   // come first for anything to register as met.
-  { id: "prestige", label: "Prestige Classes", num: "8" },
-  { id: "equipment", label: "Equipment", num: "9" },
+  { id: "prestige", label: "Prestige Classes", num: "10" },
+  { id: "equipment", label: "Equipment", num: "11" },
   // Magic Items and Inventory are their own steps now (Shaun,
   // 2026-11-04: "give equipment magic items and inventory their
   // own windows" — Equipment 8, Magic Items 9, Inventory 10
   // inside Character Creation), which pushes Personality and
   // the Sheet to 11 and 12 inside the group.
-  { id: "magic-items", label: "Magic Items", num: "10" },
+  { id: "magic-items", label: "Magic Items", num: "12" },
   // Psionics is a step of its own inside Character Creation
   // (Shaun, 2026-11-04, voice call: "make the psionics number
   // ten" — "So inventory will become 11, personality become
@@ -80,10 +86,10 @@ const STEPS = [
   // also live in their ordinary steps. The step's tab renders
   // grayed when the build has no psionic class (APOC style);
   // it still opens for reference.
-  { id: "psionics", label: "Psionics", num: "11" },
-  { id: "inventory", label: "Inventory", num: "12" },
-  { id: "personality", label: "Personality", num: "13" },
-  { id: "sheet", label: "Character Sheet", num: "14" },
+  { id: "psionics", label: "Psionics", num: "13" },
+  { id: "inventory", label: "Inventory", num: "14" },
+  { id: "personality", label: "Personality", num: "15" },
+  { id: "sheet", label: "Character Sheet", num: "16" },
   // Section 3 (Shaun, 2026-11-04, later): "New line. Next to
   // Character Creation. — Magic Item Creation." A top-level
   // reference section standing beside Character Creation, the
@@ -1117,7 +1123,7 @@ export default function Builder() {
                     data-testid="button-new-character"
                   >
                     <UserPlus className="mr-2 h-6 w-6" />
-                    <span>New Character</span>
+                    <span>1. New Character</span>
                   </Button>
                 </Piece>
                 {/* The character-name field, moved up beside the
@@ -1136,6 +1142,7 @@ export default function Builder() {
                     className="flex flex-wrap items-center gap-x-3 gap-y-1 rounded-md border border-input bg-background py-1 pl-3 pr-3"
                     data-testid="character-heading-box"
                   >
+                    <span className="font-display text-base text-muted-foreground">2.</span>
                     <Input
                       id="character-name"
                       data-testid="input-character-name"
@@ -1171,7 +1178,7 @@ export default function Builder() {
                           s.id === "psionics" && !buildHasPsionics(viewBuild) ? "text-muted-foreground/60 opacity-60" : ""
                         }
                       >
-                        {s.label}
+                        {s.num}. {s.label}
                       </TabsTrigger>
                     </Piece>
                   ))}

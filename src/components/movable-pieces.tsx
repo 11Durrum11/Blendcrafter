@@ -108,20 +108,25 @@ export interface ZoneState {
 export type LayoutState = Record<string, ZoneState>;
 
 /**
- * Character Creation is STATIC (Shaun, 2026-11-09: "Take the lock
- * slash movability off the buttons in the character creator"):
- * pieces in the creator's zones render as plain content — no
- * grip, no lock, no flip, no resize handles, and no saved order,
- * size or lock is applied — while every other surface (Player
- * Reference, Magic Item Creation, Spelljamming, the header, the
- * section line) keeps the full treatment. The creator's zones:
- * the "creation" strip in the builder (summary, New Character,
- * name box, step tabs), every creation step page ("step:*" —
- * except Player Reference's "step:reference"), the category
- * grids inside the Equipment / Feats / Spells steps, the
- * Psionics nests, and the Psionics / Character Sheet page frames.
+ * ALL FOUR SECTIONS ARE STATIC (Shaun, 2026-11-09 for Character
+ * Creation — "Take the lock slash movability off the buttons in
+ * the character creator" — extended 2026-11-13 to all four:
+ * "Character creation, player reference, magic item creation and
+ * spell jamming — take the lock slash drag off of them"):
+ * pieces in these zones render as plain content — no grip, no
+ * lock, no flip, no resize handles, and no saved order, size or
+ * lock is applied. The zones: the "sections" line (the four
+ * section buttons themselves), the "creation" strip in the
+ * builder (summary, New Character, name box, step tabs), every
+ * step page ("step:*", Player Reference's included now), the
+ * category grids inside the Equipment / Feats / Spells steps,
+ * the Psionics nests, the Player Reference category/group/
+ * subcategory grids, the Magic Item Creation nests and page
+ * frame, the Spelljamming nests, ships sub-zone and page frame,
+ * and the Psionics / Character Sheet page frames.
  */
 const STATIC_ZONES = new Set([
+  "sections",
   "creation",
   "equipment-sections",
   "magic-sections",
@@ -130,13 +135,24 @@ const STATIC_ZONES = new Set([
   "psionics-nests",
   "page:psionics",
   "page:sheet",
+  "page:item-creation",
+  "page:spelljamming",
+  "reference-categories",
+  "reference-groups",
+  "reference-subcategories",
+  "itemcreation-nests",
+  "spelljamming-nests",
+  "spelljamming-ships-sub",
 ]);
 
 export function isStaticZone(zoneId: string | null | undefined): boolean {
   if (!zoneId) return false;
   if (STATIC_ZONES.has(zoneId)) return true;
-  if (zoneId.startsWith("step:") && zoneId !== "step:reference") return true;
+  if (zoneId.startsWith("step:")) return true;
   if (zoneId.startsWith("psionics-")) return true;
+  if (zoneId.startsWith("reference-")) return true;
+  if (zoneId.startsWith("itemcreation-")) return true;
+  if (zoneId.startsWith("spelljamming-")) return true;
   return false;
 }
 

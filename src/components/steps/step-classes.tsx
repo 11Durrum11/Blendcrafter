@@ -170,7 +170,7 @@ export function StepClasses({
             crunched three across: <span className="font-medium">hover a name</span> for the short crunch,{" "}
             <span className="font-medium">tap the ⓘ button</span> (or the name) for the full breakdown — every
             level of the progression table and every class feature. Prestige classes come at
-            step 7, after Skills, Feats and Spells — they're judged against the finished build. Source:{" "}
+            step 10, after Skills, Feats and Spells — they're judged against the finished build. Source:{" "}
             <a href="https://www.d20srd.org/srd/classes/" target="_blank" rel="noreferrer" className="text-primary underline underline-offset-2">
               d20 SRD Classes
             </a>
