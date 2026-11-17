@@ -39,6 +39,12 @@ type SpellSeed = Partial<SpellDefinition> & Pick<SpellDefinition, "id" | "name" 
 function C(seed: SpellSeed): SpellDefinition {
   return {
     school: "Evocation",
+    // descriptors is a required field the Partial seed can omit; the
+    // empty array is the faithful value for a spell that prints no
+    // descriptor brackets (three of the five fear spells print none).
+    // Defaulting it here keeps a seed omission from ever shipping a
+    // record with the field undefined (the v20.138 library crash).
+    descriptors: [],
     levels: {},
     components: "V, S",
     castingTime: "1 standard action",
@@ -76,6 +82,7 @@ export const DRAGON_333_SPELLS: SpellDefinition[] = [
     name: "Phade's Fearsome Aspect",
     school: "Illusion",
     subschool: "Glamer",
+    descriptors: [],
     levels: { Bard: 2, Cleric: 2, "Sorcerer/Wizard": 2 },
     range: "Touch",
     targetOrArea: "Creature touched",
@@ -91,6 +98,7 @@ export const DRAGON_333_SPELLS: SpellDefinition[] = [
     id: "vision-of-fear",
     name: "Vision of Fear",
     school: "Divination",
+    descriptors: [],
     levels: { Bard: 3, Cleric: 3, "Sorcerer/Wizard": 2 },
     castingTime: "1 round",
     range: "60 ft.",
@@ -108,6 +116,7 @@ export const DRAGON_333_SPELLS: SpellDefinition[] = [
     name: "Inescapable Swarm",
     school: "Illusion",
     subschool: "Figment",
+    descriptors: [],
     levels: { Bard: 5, "Sorcerer/Wizard": 4 },
     components: "V, S, M",
     range: "Close (25 ft. + 5 ft./level)",

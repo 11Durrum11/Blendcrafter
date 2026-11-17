@@ -175,6 +175,21 @@ export function StepSpells({ build, resolved, onToggleSpell }: StepSpellsProps) 
               spellcasting class levels.
             </p>
           )}
+          {(() => {
+            // A search that matches nothing used to leave this card
+            // silently empty (Shaun, 2026-11-16: "nothing came up").
+            // Say so, the way the reference search says "0 matches".
+            const q = query.trim().toLowerCase();
+            if (!q) return null;
+            const anyMatch = library.some(({ byLevel, levels }) =>
+              levels.some((lvl) => (byLevel.get(lvl) ?? []).some((s) => s.name.toLowerCase().includes(q)))
+            );
+            return anyMatch ? null : (
+              <p className="text-sm text-muted-foreground" data-testid="library-no-matches">
+                No spells match &ldquo;{query.trim()}&rdquo;.
+              </p>
+            );
+          })()}
           <Zone zoneId="spell-library" className="grid grid-cols-2 items-start gap-3 sm:grid-cols-4">
           {library.map(({ profile, byLevel, levels, total }) => {
             const searching = query.trim().length > 0;
