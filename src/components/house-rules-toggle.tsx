@@ -22,7 +22,7 @@ export function HouseRulesToggle({ houseRules, onToggle }: HouseRulesToggleProps
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button variant="outline" size="sm" className="px-2 sm:px-3" data-testid="button-house-rules-toggle">
+        <Button variant="outline" size="sm" className="px-2 sm:px-3" title="Open the house rules — switch individual rule mechanics on or off for this table." data-testid="button-house-rules-toggle">
           <Settings2 className="h-3.5 w-3.5 sm:mr-1.5" />
           <span className="hidden sm:inline">House Rules</span>
         </Button>
@@ -48,6 +48,7 @@ export function HouseRulesToggle({ houseRules, onToggle }: HouseRulesToggleProps
                     checked={rule.lockedOff ? false : houseRules[rule.id]}
                     disabled={rule.lockedOff}
                     onCheckedChange={(checked) => onToggle(rule.id, checked === true)}
+                    title={rule.lockedOff ? `${rule.label} is locked off and cannot be switched on.` : `Turn ${rule.label} on or off — the description beside it says what changes.`}
                     data-testid={`checkbox-house-rule-${rule.id}`}
                   />
                   <span>

@@ -210,7 +210,7 @@ export function StepAbilities({
         <CardContent className="space-y-1.5 pb-3">
           <div className="space-y-2">
               {!diceGrid ? (
-                <Button type="button" size="sm" onClick={handleRollGrid} data-testid="button-roll-my-way">
+                <Button type="button" size="sm" onClick={handleRollGrid} title="Roll 4d6 and drop the lowest, thirty-six times, filling a 6×6 grid of ability scores." data-testid="button-roll-my-way">
                   <Dices className="mr-1.5 h-3.5 w-3.5" /> Roll the grid
                 </Button>
               ) : (
@@ -245,6 +245,7 @@ export function StepAbilities({
                             size="sm"
                             variant={pickedLineId === l.id ? "default" : "outline"}
                             onClick={() => handlePickLine(l)}
+                            title={`Pick ${l.label} — its six results are the scores you place on the abilities.`}
                             data-testid={`button-line-${l.id}`}
                           >
                             {l.label} · {l.values.reduce((a, b) => a + b, 0)}
@@ -269,6 +270,7 @@ export function StepAbilities({
                               variant={grabbedPoolIndex === i ? "default" : "outline"}
                               disabled={placed}
                               onClick={() => handleChipClick(i)}
+                              title={placed ? `The ${value} is already placed on an ability.` : `Pick up the ${value} — then tap the ability it goes to.`}
                               data-testid={`button-pool-${i}`}
                               className={cn("font-mono", placed && "opacity-40 line-through")}
                             >
@@ -285,6 +287,7 @@ export function StepAbilities({
                               key={key}
                               type="button"
                               onClick={() => handleSlotClick(key)}
+                              title={idx !== null ? `${ABILITY_LABEL[key]} holds the ${pickedLine.values[idx]} — tap to free it back to the pool.` : `Tap to place the picked-up score into ${ABILITY_LABEL[key]}.`}
                               data-testid={`button-slot-${key}`}
                               className={cn(
                                 "rounded-md border px-1 py-1.5 text-center transition-colors",
@@ -307,6 +310,7 @@ export function StepAbilities({
                           size="sm"
                           disabled={!placementsComplete(placements)}
                           onClick={handleApplyPlacements}
+                          title="Set the character's ability scores to the results you placed."
                           data-testid="button-apply-my-way"
                         >
                           Apply these scores
@@ -319,6 +323,7 @@ export function StepAbilities({
                             setPlacements(emptyPlacements());
                             setGrabbedPoolIndex(null);
                           }}
+                          title="Put every placed result back in the pool, keeping the line you picked."
                           data-testid="button-clear-my-way"
                         >
                           Clear placements
@@ -326,7 +331,7 @@ export function StepAbilities({
                       </div>
                     </div>
                   )}
-                  <Button type="button" size="sm" variant="outline" onClick={handleRollGrid} data-testid="button-reroll-my-way">
+                  <Button type="button" size="sm" variant="outline" onClick={handleRollGrid} title="Throw the whole grid away and roll a fresh 6×6 grid." data-testid="button-reroll-my-way">
                     <Dices className="mr-1.5 h-3.5 w-3.5" /> Re-roll whole grid
                   </Button>
                 </>
@@ -344,6 +349,7 @@ export function StepAbilities({
                       onClick={() => setDetail(describeAbility(key))}
                       className="rounded-full p-0.5 text-muted-foreground hover-elevate hover:text-foreground"
                       aria-label={`View description of ${ABILITY_LABEL[key]}`}
+                      title={`Read what ${ABILITY_LABEL[key]} covers and what it drives.`}
                       data-testid={`button-info-ability-${key}`}
                     >
                       <Info className="h-3 w-3" />
@@ -358,6 +364,7 @@ export function StepAbilities({
                   <Input
                     id={`ability-${key}`}
                     data-testid={`input-ability-${key}`}
+                    title={`Type the base ${ABILITY_LABEL[key]} score directly.`}
                     type="number"
                     min={3}
                     max={20}

@@ -288,6 +288,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
             onClick={(e) => { e.preventDefault(); e.stopPropagation(); setDetail(describeEquipment(item)); }}
             data-testid={`button-info-equipment-${item.id}`}
             aria-label={`View description of ${item.name}`}
+            title={`Read the full entry for ${item.name} — weight, cost, and what it does.`}
           >
             <Info className="h-3.5 w-3.5" />
           </button>
@@ -299,7 +300,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
           {typeof item.acBonus === "number" && <Badge variant="secondary" className="text-[10px]">AC +{item.acBonus}</Badge>}
         </div>
       </div>
-      <Button type="button" size="sm" variant="outline" className="px-2" onClick={() => onAdd("equipment", item.id)} data-testid={`button-add-equipment-${item.id}`}>
+      <Button type="button" size="sm" variant="outline" className="px-2" onClick={() => onAdd("equipment", item.id)} title={`Add the ${item.name} to the character's inventory.`} data-testid={`button-add-equipment-${item.id}`}>
         Add
       </Button>
     </div>
@@ -445,6 +446,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
               className="flex w-full flex-wrap items-baseline justify-between gap-2 text-left"
               onClick={() => setWblOpen((o) => !o)}
               aria-expanded={wblOpen}
+              title={wblOpen ? "Close the wealth-by-level chart." : "Open the wealth-by-level chart — how much a character of each level should own, and the 70/30 split."}
               data-testid="wealth-by-level-toggle"
             >
               <p className="flex items-center gap-1.5 font-display text-sm font-semibold">
@@ -481,6 +483,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
                     <tr
                       key={level}
                       data-testid={level === resolved.ecl.value ? "wealth-by-level-current" : undefined}
+                      title={wealthLimitLevel === level ? `Level ${level} is your gp limit — click to clear it.` : `Click to make level ${level}'s wealth your total gp limit.`}
                       onClick={() => onSetWealthLimitLevel(wealthLimitLevel === level ? null : level)}
                       className={
                         "cursor-pointer hover:bg-muted/40 " +
@@ -598,7 +601,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
             <CardDescription className="min-w-0 flex-1 basis-72">
               Add gear to your inventory. Equipped armor and shields with an AC bonus feed directly into the Character
               Sheet's Armor Class total. Source:{" "}
-              <a href="https://www.d20srd.org/srd/equipment/" target="_blank" rel="noreferrer" className="text-primary underline underline-offset-2">
+              <a href="https://www.d20srd.org/srd/equipment/" target="_blank" rel="noreferrer" title="Open the d20 SRD equipment page in a new tab." className="text-primary underline underline-offset-2">
                 d20 SRD Equipment
               </a>
               .
@@ -609,7 +612,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
           <div className="flex flex-wrap items-center gap-2">
             <div className="relative flex-1 min-w-[180px]">
               <Search className="absolute left-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-muted-foreground" />
-              <Input value={equipQuery} onChange={(e) => setEquipQuery(e.target.value)} placeholder="Search equipment…" className="h-8 pl-8" data-testid="input-equipment-search" />
+              <Input value={equipQuery} onChange={(e) => setEquipQuery(e.target.value)} placeholder="Search equipment…" className="h-8 pl-8" title="Type to filter the equipment list by name." data-testid="input-equipment-search" />
             </div>
           </div>
 
@@ -633,6 +636,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
                     className="flex w-full items-center gap-1.5 border-b border-card-border bg-card px-2.5 py-1.5 text-left font-display text-sm font-semibold"
                     onClick={() => toggleSet(setOpenEquipSections, section.key)}
                     aria-expanded={equipOpen}
+                    title={equipOpen ? `Close the ${section.label} section.` : `Open the ${section.label} section — ${section.items.length} items.`}
                     data-testid={`heading-equip-cat-${section.key}`}
                   >
                     {equipOpen ? <ChevronDown className="h-4 w-4 shrink-0" /> : <ChevronRight className="h-4 w-4 shrink-0" />}
@@ -660,6 +664,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
                                 variant={subOpen && !searching ? "default" : "outline"}
                                 onClick={() => toggleSet(setOpenWeaponSubs, sub.key)}
                                 aria-expanded={subOpen}
+                                title={`Open or close the ${sub.label} weapons list — ${count} items.`}
                                 data-testid={`button-weapon-sub-${sub.key}`}
                               >
                                 {sub.label} <span className="ml-1 text-xs opacity-75">({count})</span>
@@ -714,6 +719,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
                                 variant={open && !searching ? "default" : "outline"}
                                 onClick={() => toggleSet(setOpenAmmoFacets, facet.key)}
                                 aria-expanded={open}
+                                title={`Open or close the ${facet.label} ammunition list — ${count} items.`}
                                 data-testid={`button-ammo-facet-${facet.key}`}
                               >
                                 {facet.label} <span className="ml-1 text-xs opacity-75">({count})</span>
@@ -734,6 +740,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
                                 variant={open && !searching ? "default" : "outline"}
                                 onClick={() => toggleSet(setOpenAmmoDeliveries, delivery.key)}
                                 aria-expanded={open}
+                                title={`Open or close the ${delivery.label} ammunition list — ${count} items.`}
                                 data-testid={`button-ammo-delivery-${delivery.key}`}
                               >
                                 {delivery.label} <span className="ml-1 text-xs opacity-75">({count})</span>
@@ -779,7 +786,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
             <CardTitle className="font-display text-xl">Magic Items</CardTitle>
             <CardDescription>
               Source:{" "}
-              <a href="https://www.d20srd.org/srd/magicItems/" target="_blank" rel="noreferrer" className="text-primary underline underline-offset-2">
+              <a href="https://www.d20srd.org/srd/magicItems/" target="_blank" rel="noreferrer" title="Open the d20 SRD magic items page in a new tab." className="text-primary underline underline-offset-2">
                 d20 SRD Magic Items
               </a>
               .
@@ -819,7 +826,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
         <CardContent>
           <div className="relative">
             <Search className="absolute left-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-muted-foreground" />
-            <Input value={itemQuery} onChange={(e) => setItemQuery(e.target.value)} placeholder="Search magic items…" className="h-8 pl-8" data-testid="input-magic-item-search" />
+            <Input value={itemQuery} onChange={(e) => setItemQuery(e.target.value)} placeholder="Search magic items…" className="h-8 pl-8" title="Type to filter the magic item list by name." data-testid="input-magic-item-search" />
           </div>
           <Zone zoneId="magic-sections" className="mt-3 grid grid-cols-2 items-start gap-3 sm:grid-cols-4">
             {visibleMagicItems.length === 0 ? (
@@ -839,6 +846,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
                     className="flex w-full items-center gap-1.5 border-b border-card-border bg-card px-2.5 py-1.5 text-left font-display text-sm font-semibold"
                     onClick={() => toggleSet(setOpenMagicSections, section.key)}
                     aria-expanded={magicOpen}
+                    title={magicOpen ? `Close the ${section.label} section.` : `Open the ${section.label} section — ${section.items.length} items.`}
                     data-testid={`heading-magic-cat-${section.key}`}
                   >
                     {magicOpen ? <ChevronDown className="h-4 w-4 shrink-0" /> : <ChevronRight className="h-4 w-4 shrink-0" />}
@@ -868,13 +876,14 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
                         onClick={(e) => { e.preventDefault(); e.stopPropagation(); setDetail(describeMagicItem(item)); }}
                         data-testid={`button-info-magic-item-${item.id}`}
                         aria-label={`View description of ${item.name}`}
+                        title={`Read the full entry for ${item.name} — what it does and how it works.`}
                       >
                         <Info className="h-3.5 w-3.5" />
                       </button>
                       {/* Category / rule-set tags removed — name + price only, so the name has the room. */}
                     </div>
                   </div>
-                  <Button type="button" size="sm" variant="outline" className="px-2" onClick={() => onAdd("magic-item", item.id)} data-testid={`button-add-magic-item-${item.id}`}>
+                  <Button type="button" size="sm" variant="outline" className="px-2" onClick={() => onAdd("magic-item", item.id)} title={`Add the ${item.name} to the character's inventory.`} data-testid={`button-add-magic-item-${item.id}`}>
                     Add
                   </Button>
                 </div>
@@ -924,6 +933,7 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
                         onClick={(e) => { e.preventDefault(); e.stopPropagation(); showInventoryDetail(ri.entry); }}
                         data-testid={`button-info-inventory-${ri.entry.id}`}
                         aria-label={`View description of ${ri.name}`}
+                        title={`Read the full entry for ${ri.name}.`}
                       >
                         <Info className="h-3.5 w-3.5" />
                       </button>
@@ -936,12 +946,13 @@ function StepEquipmentShell({ inventory, enabledRulesets, resolved, wealthLimitL
                         <Checkbox
                           checked={ri.entry.equipped}
                           onCheckedChange={(checked) => onToggleEquipped(ri.entry.id, checked === true)}
+                          title={`Toggle whether the ${ri.name} is equipped — equipped armor and shields add their AC bonus to the sheet.`}
                           data-testid={`checkbox-equipped-${ri.entry.id}`}
                         />
                         Equipped
                       </label>
                     )}
-                    <Button type="button" size="icon" variant="outline" className="h-6 w-6" onClick={() => onRemove(ri.entry.id)} data-testid={`button-remove-inventory-${ri.entry.id}`} aria-label={`Remove ${ri.name}`}>
+                    <Button type="button" size="icon" variant="outline" className="h-6 w-6" onClick={() => onRemove(ri.entry.id)} title={`Remove the ${ri.name} from the character's inventory.`} data-testid={`button-remove-inventory-${ri.entry.id}`} aria-label={`Remove ${ri.name}`}>
                       <Trash2 className="h-3.5 w-3.5" />
                     </Button>
                   </div>

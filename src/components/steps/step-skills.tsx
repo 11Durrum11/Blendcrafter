@@ -64,7 +64,7 @@ export function StepSkills({ skillRanks, enabledRulesets, disabledSkillIds, reso
             Allocate skill ranks earned from class levels and Intelligence modifier. Class skills cap at level + 3
             ranks. Every skill costs 1 point per rank — the cross-class double-cost rule is LOCKED OFF at Shaun's
             direction. The cross-class rank cap follows the House Rules toggle above. Source:{" "}
-            <a href="https://www.d20srd.org/srd/skills/skillsSummary.htm" target="_blank" rel="noreferrer" className="text-primary underline underline-offset-2">
+            <a href="https://www.d20srd.org/srd/skills/skillsSummary.htm" target="_blank" rel="noreferrer" title="Open the d20 SRD skills summary page in a new tab." className="text-primary underline underline-offset-2">
               d20 SRD Skills
             </a>
             .
@@ -85,6 +85,7 @@ export function StepSkills({ skillRanks, enabledRulesets, disabledSkillIds, reso
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search skills…"
                 className="h-8 pl-8"
+                title="Type to filter the skill list by name."
                 data-testid="input-skill-search"
               />
             </div>
@@ -119,6 +120,7 @@ export function StepSkills({ skillRanks, enabledRulesets, disabledSkillIds, reso
                           onClick={() => setDetail(describeSkill(def))}
                           className="rounded-full p-0.5 text-muted-foreground hover-elevate hover:text-foreground"
                           aria-label={`View description of ${def.name}`}
+                          title={`Read what ${def.name} covers and how it is checked.`}
                           data-testid={`button-info-skill-${def.id}`}
                         >
                           <Info className="h-3.5 w-3.5" />
@@ -155,6 +157,7 @@ export function StepSkills({ skillRanks, enabledRulesets, disabledSkillIds, reso
                         className="h-6 w-6"
                         disabled={ranks <= 0 || isDisabled}
                         onClick={() => onSetRank(skill.id, ranks - 1)}
+                        title={`Remove one rank of ${def.name}.`}
                         data-testid={`button-remove-rank-${skill.id}`}
                         aria-label={`Remove a rank of ${def.name}`}
                       >
@@ -168,6 +171,7 @@ export function StepSkills({ skillRanks, enabledRulesets, disabledSkillIds, reso
                         className="h-6 w-6"
                         disabled={atCap || remaining < skill.rankCost || isDisabled}
                         onClick={() => onSetRank(skill.id, ranks + 1)}
+                        title={`Add one rank of ${def.name}, at its listed cost.`}
                         data-testid={`button-add-rank-${skill.id}`}
                         aria-label={`Add a rank of ${def.name}`}
                       >

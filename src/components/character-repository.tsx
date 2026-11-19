@@ -225,7 +225,7 @@ export function CharacterRepository({ build, onLoad, part = "all" }: CharacterRe
   return (
     <div className="flex items-center gap-1.5 sm:gap-2">
       {part !== "characters" && (
-        <Button variant="outline" size="sm" onClick={handleSave} disabled={busy} className="px-2 sm:px-3" data-testid="button-save-character">
+        <Button variant="outline" size="sm" onClick={handleSave} disabled={busy} className="px-2 sm:px-3" title="Save this character in this browser — and publish it to the group shelf for the whole table." data-testid="button-save-character">
           {busy ? <Loader2 className="h-3.5 w-3.5 animate-spin sm:mr-1.5" /> : <Check className="h-3.5 w-3.5 sm:mr-1.5" />}
           <span className="hidden sm:inline">Save</span>
         </Button>
@@ -234,7 +234,7 @@ export function CharacterRepository({ build, onLoad, part = "all" }: CharacterRe
       {part !== "save" && (
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
-          <Button variant="outline" size="sm" className="px-2 sm:px-3" data-testid="button-character-repository">
+          <Button variant="outline" size="sm" className="px-2 sm:px-3" title="Open the Character Repository — your saved characters and the shared group shelf." data-testid="button-character-repository">
             <BookOpen className="h-3.5 w-3.5 sm:mr-1.5" />
             <span className="hidden sm:inline">Characters</span>
           </Button>
@@ -256,10 +256,11 @@ export function CharacterRepository({ build, onLoad, part = "all" }: CharacterRe
                 placeholder="Search saved characters..."
                 className="pl-8"
                 aria-label="Search saved characters"
+                title="Type to filter your saved characters by name."
                 data-testid="input-search-characters"
               />
             </div>
-            <Button onClick={handleSave} disabled={busy} variant="secondary">
+            <Button onClick={handleSave} disabled={busy} variant="secondary" title="Save the current character as a new entry in the repository.">
               Save New
             </Button>
           </div>
@@ -285,15 +286,15 @@ export function CharacterRepository({ build, onLoad, part = "all" }: CharacterRe
                         </p>
                       </div>
                       <div className="flex shrink-0 gap-1.5">
-                        <Button size="sm" onClick={() => handleLoad(record)} data-testid={`button-load-character-${record.id}`}>
+                        <Button size="sm" onClick={() => handleLoad(record)} title={`Load ${record.name} into the builder, replacing the current build.`} data-testid={`button-load-character-${record.id}`}>
                           <BookOpen className="mr-1.5 h-3.5 w-3.5" /> Load
                         </Button>
                         {savedId === record.id && (
-                          <Button size="sm" variant="outline" onClick={() => handleUpdate(record)} disabled={busy}>
+                          <Button size="sm" variant="outline" onClick={() => handleUpdate(record)} disabled={busy} title={`Overwrite the saved ${record.name} with the current build.`}>
                             <Check className="mr-1.5 h-3.5 w-3.5" /> Update
                           </Button>
                         )}
-                        <Button size="icon" variant="outline" onClick={() => handleDelete(record)} aria-label={`Delete ${record.name}`}>
+                        <Button size="icon" variant="outline" onClick={() => handleDelete(record)} aria-label={`Delete ${record.name}`} title={`Delete the saved ${record.name} from this browser.`}>
                           <Trash2 className="h-3.5 w-3.5" />
                         </Button>
                       </div>
@@ -317,14 +318,14 @@ export function CharacterRepository({ build, onLoad, part = "all" }: CharacterRe
             ) : shelfStatus === "unavailable" ? (
               <div className="rounded-md border border-dashed border-card-border p-4 text-sm text-muted-foreground">
                 The group shelf isn't set up yet — it needs a one-time table in the shared campaign database. Until then, saves stay in this browser only, exactly as before.
-                <Button size="sm" variant="outline" className="ml-3" onClick={() => void refreshShared()}>
+                <Button size="sm" variant="outline" className="ml-3" onClick={() => void refreshShared()} title="Check whether the group shelf is reachable now.">
                   Check again
                 </Button>
               </div>
             ) : shelfStatus === "error" ? (
               <div className="rounded-md border border-dashed border-card-border p-4 text-sm text-muted-foreground">
                 The group shelf couldn't be reached just now. Local saving is unaffected.
-                <Button size="sm" variant="outline" className="ml-3" onClick={() => void refreshShared()}>
+                <Button size="sm" variant="outline" className="ml-3" onClick={() => void refreshShared()} title="Try reaching the group shelf again.">
                   Try again
                 </Button>
               </div>
@@ -345,10 +346,10 @@ export function CharacterRepository({ build, onLoad, part = "all" }: CharacterRe
                         <p className="mt-1 text-xs text-muted-foreground">Updated {formatDate(meta.updated_at)}</p>
                       </div>
                       <div className="flex shrink-0 gap-1.5">
-                        <Button size="sm" onClick={() => void handleLoadShared(meta)} disabled={busy} data-testid={`button-load-shared-${meta.id}`}>
+                        <Button size="sm" onClick={() => void handleLoadShared(meta)} disabled={busy} title={`Load ${meta.name} from the group shelf into the builder.`} data-testid={`button-load-shared-${meta.id}`}>
                           <BookOpen className="mr-1.5 h-3.5 w-3.5" /> Load
                         </Button>
-                        <Button size="icon" variant="outline" onClick={() => void handleRemoveShared(meta)} aria-label={`Remove ${meta.name} from the group shelf`}>
+                        <Button size="icon" variant="outline" onClick={() => void handleRemoveShared(meta)} aria-label={`Remove ${meta.name} from the group shelf`} title={`Remove ${meta.name} from the group shelf for everyone.`}>
                           <Trash2 className="h-3.5 w-3.5" />
                         </Button>
                       </div>

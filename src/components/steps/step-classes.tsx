@@ -74,6 +74,7 @@ export function StepClasses({
                 onClick={() => setDetailClass(cls)}
                 className="min-w-0 text-left font-display text-base font-semibold leading-tight underline-offset-2 hover:underline"
                 aria-label={`View description of ${cls.name}`}
+                title={`Open the full breakdown for ${cls.name} — every level of its progression table and its class features.`}
                 data-testid={`button-info-class-${cls.id}`}
               >
                 {cls.name}
@@ -105,6 +106,7 @@ export function StepClasses({
               className="h-6 w-6"
               disabled={!current || isDisabled}
               onClick={() => onRemove(cls.id)}
+              title={`Remove one level of ${cls.name}.`}
               data-testid={`button-remove-level-${cls.id}`}
               aria-label={`Remove a level of ${cls.name}`}
             >
@@ -117,6 +119,7 @@ export function StepClasses({
               className="h-6 w-6"
               disabled={(current?.levels ?? 0) >= 10 || isDisabled}
               onClick={() => onAdd(cls.id)}
+              title={`Add one level of ${cls.name}.`}
               data-testid={`button-add-level-${cls.id}`}
               aria-label={`Add a level of ${cls.name}`}
             >
@@ -139,6 +142,7 @@ export function StepClasses({
               }}
               className="shrink-0 rounded-full p-0.5 text-muted-foreground hover-elevate hover:text-foreground"
               aria-label={`Full breakdown of ${cls.name}`}
+              title={`Open the full breakdown of ${cls.name} — every level of its table and every class feature.`}
               data-testid={`button-breakdown-class-${cls.id}`}
             >
               <Info className="h-3.5 w-3.5" />
@@ -171,7 +175,7 @@ export function StepClasses({
             <span className="font-medium">tap the ⓘ button</span> (or the name) for the full breakdown — every
             level of the progression table and every class feature. Prestige classes come at
             step 10, after Skills, Feats and Spells — they're judged against the finished build. Source:{" "}
-            <a href="https://www.d20srd.org/srd/classes/" target="_blank" rel="noreferrer" className="text-primary underline underline-offset-2">
+            <a href="https://www.d20srd.org/srd/classes/" target="_blank" rel="noreferrer" title="Open the d20 SRD classes page in a new tab." className="text-primary underline underline-offset-2">
               d20 SRD Classes
             </a>
             .

@@ -163,6 +163,7 @@ export function StepSpells({ build, resolved, onToggleSpell }: StepSpellsProps) 
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search spells…"
                 className="h-8 pl-8"
+                title="Type to filter every spell list below by name."
                 data-testid="input-spell-search"
               />
             </div>
@@ -225,6 +226,7 @@ export function StepSpells({ build, resolved, onToggleSpell }: StepSpellsProps) 
                       return next;
                     })
                   }
+                  title={expanded ? `Close the ${profile.listName} spell list.` : `Open the ${profile.listName} spell list — ${total} spells, grouped by level.`}
                   data-testid={`button-library-type-${profile.classId}`}
                 >
                   {expanded ? <ChevronDown className="h-4 w-4 shrink-0" /> : <ChevronRight className="h-4 w-4 shrink-0" />}
@@ -255,6 +257,7 @@ export function StepSpells({ build, resolved, onToggleSpell }: StepSpellsProps) 
                                   type="button"
                                   className="text-left text-sm leading-tight underline-offset-2 hover:underline"
                                   onClick={() => setDetail(describeSpell(s, profile.listName))}
+                                  title={`Open the full details for the ${s.name} spell.`}
                                   data-testid={`library-spell-${s.id}`}
                                 >
                                   {s.name}
@@ -365,6 +368,7 @@ export function StepSpells({ build, resolved, onToggleSpell }: StepSpellsProps) 
                               "flex items-start gap-2.5 rounded-md border border-card-border bg-card p-3",
                               blocked ? "opacity-50 cursor-not-allowed" : "cursor-pointer hover-elevate"
                             )}
+                            title={blocked ? `${spell.name} can't be added — this level's spell limit is reached.` : isSelected ? `Remove ${spell.name} from the character's spells.` : `Add ${spell.name} to the character's spells.`}
                             data-testid={`spell-card-${spell.id}`}
                           >
                             <Checkbox
@@ -373,6 +377,7 @@ export function StepSpells({ build, resolved, onToggleSpell }: StepSpellsProps) 
                               onCheckedChange={(checked) => onToggleSpell(choice.classId, spell.id, checked === true)}
                               onClick={(e) => e.stopPropagation()}
                               className="mt-0.5"
+                              title={blocked ? `This level's spell limit is reached, so ${spell.name} can't be added.` : isSelected ? `Untick to remove ${spell.name} from the character's spells.` : `Tick to add ${spell.name} to the character's spells.`}
                               data-testid={`checkbox-spell-${spell.id}`}
                             />
                             <div className="min-w-0 flex-1">
@@ -384,6 +389,7 @@ export function StepSpells({ build, resolved, onToggleSpell }: StepSpellsProps) 
                                     e.stopPropagation();
                                     setDetail(describeSpell(spell, profile.listName));
                                   }}
+                                  title={`Open the full entry for ${spell.name}.`}
                                   data-testid={`spell-name-${spell.id}`}
                                 >
                                   {spell.name}
@@ -405,6 +411,7 @@ export function StepSpells({ build, resolved, onToggleSpell }: StepSpellsProps) 
                                 target="_blank"
                                 rel="noreferrer"
                                 onClick={(e) => e.stopPropagation()}
+                                title={`Open the printed source of ${spell.name} in a new tab.`}
                                 className="mt-1 block text-[11px] text-primary underline underline-offset-2"
                               >
                                 {spell.source}

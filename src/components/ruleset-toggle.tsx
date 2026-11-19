@@ -30,7 +30,7 @@ export function RulesetToggle({ enabledRulesets, onToggle }: RulesetToggleProps)
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button variant="outline" size="sm" className="px-2 sm:px-3" data-testid="button-ruleset-toggle">
+        <Button variant="outline" size="sm" className="px-2 sm:px-3" title="Open Rule Sets — choose which content sets appear in every picker across the app." data-testid="button-ruleset-toggle">
           <BookOpen className="h-3.5 w-3.5 sm:mr-1.5" />
           <span className="hidden sm:inline">Rule Sets</span>
         </Button>
@@ -45,7 +45,7 @@ export function RulesetToggle({ enabledRulesets, onToggle }: RulesetToggleProps)
           </div>
           <div className="space-y-2.5">
             <label className="flex items-start gap-2.5 text-sm opacity-70">
-              <Checkbox checked disabled data-testid="checkbox-ruleset-core" />
+              <Checkbox checked disabled title="Core / SRD is always on and cannot be turned off." data-testid="checkbox-ruleset-core" />
               <span>
                 <span className="font-medium">{RULESET_LABELS.core}</span>
                 <span className="block text-xs text-muted-foreground">Always enabled — Open Game Content from the d20 SRD.</span>
@@ -56,6 +56,7 @@ export function RulesetToggle({ enabledRulesets, onToggle }: RulesetToggleProps)
                 <Checkbox
                   checked={enabledRulesets.includes(rs)}
                   onCheckedChange={(checked) => onToggle(rs, checked === true)}
+                  title={`Show or hide all ${RULESET_LABELS[rs]} content in every picker.`}
                   data-testid={`checkbox-ruleset-${rs}`}
                 />
                 <span>

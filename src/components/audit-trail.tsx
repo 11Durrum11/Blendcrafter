@@ -27,6 +27,7 @@ export function AuditTrail({ label, value, audit, className, ...rest }: AuditTra
         onClick={() => setOpen((o) => !o)}
         className="flex w-full flex-col items-start gap-0.5 px-3 py-1 text-left hover-elevate rounded-md"
         aria-expanded={open}
+        title={`Open the breakdown of ${label} — every bonus and modifier that produced this number.`}
       >
         <span className="block w-full text-xs font-medium uppercase tracking-wide text-muted-foreground leading-tight">
           {label}

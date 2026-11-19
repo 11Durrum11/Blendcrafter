@@ -93,7 +93,7 @@ function SubNest({ id, label, children }: { id: string; pieceId?: string; label:
   return (
     <Piece pieceId={id} layout="grid" className="sm:col-span-2">
       <details id={id} className="sj-nest h-full rounded-md border border-border" data-testid={`ships-block-${id}`}>
-      <summary className="flex cursor-pointer list-none items-center gap-2 px-2.5 py-2 font-display text-sm font-semibold [&::-webkit-details-marker]:hidden">
+      <summary title={`Open or close the ${label} section.`} className="flex cursor-pointer list-none items-center gap-2 px-2.5 py-2 font-display text-sm font-semibold [&::-webkit-details-marker]:hidden">
         <ChevronRight className="sj-chevron h-4 w-4 shrink-0 transition-transform" />
         {label}
       </summary>
@@ -123,6 +123,7 @@ function ShipCard({
           type="button"
           onClick={() => setOpen((o) => !o)}
           aria-expanded={open}
+          title={open ? `Hide the deck plans of the ${item.name}.` : `Show the deck plans of the ${item.name} right on this card.`}
           className="flex w-full flex-wrap items-center gap-1.5 text-left font-display text-xs font-semibold uppercase tracking-wide"
         >
           <ChevronRight className={`h-3.5 w-3.5 shrink-0 transition-transform ${open ? "rotate-90" : ""}`} />
@@ -147,6 +148,7 @@ function ShipCard({
                 type="button"
                 onClick={() => onZoom(p)}
                 aria-label={`Expand full-screen: ${p.caption}`}
+                title={`Open this deck plan full-screen.`}
                 className="block w-full cursor-zoom-in"
               >
                 <img src={p.src} alt={p.caption} loading="lazy" className="w-full rounded border border-card-border" />
@@ -355,15 +357,17 @@ export function ShipsNestContent() {
             <button
               type="button"
               onClick={() => setZoomPlan(null)}
+              title="Close the full-screen deck plan and go back to the ships."
               className="flex shrink-0 items-center gap-1 rounded border border-white/40 px-2.5 py-1.5 text-sm font-semibold"
             >
               <X className="h-4 w-4" /> Close
             </button>
           </div>
-          <div className="min-h-0 flex-1 overflow-auto" onClick={() => setZoomPlan(null)}>
+          <div className="min-h-0 flex-1 overflow-auto" title="Click outside the plan to close it." onClick={() => setZoomPlan(null)}>
             <img
               src={zoomPlan.src}
               alt={zoomPlan.caption}
+              title={fullSize ? "Click to fit the whole plan on screen." : "Click to see the plan at full size."}
               onClick={(e) => {
                 e.stopPropagation();
                 setFullSize((z) => !z);

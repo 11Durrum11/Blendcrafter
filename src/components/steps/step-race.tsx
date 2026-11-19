@@ -65,6 +65,7 @@ export function StepRace({
       role="button"
       tabIndex={isDisabled ? -1 : 0}
       data-testid={`race-option-${race.id}`}
+      title={apocOff ? `${race.name} is not available in APOC.` : isDisabled ? `${race.name} is turned off and cannot be picked.` : `Make the character a ${race.name} — its size, speed, and racial traits apply at once.`}
       onClick={() => !isDisabled && onRaceChange(race.id)}
       onKeyDown={(e) => {
         if (!isDisabled && (e.key === "Enter" || e.key === " ")) onRaceChange(race.id);
@@ -94,6 +95,7 @@ export function StepRace({
           }}
           className="ml-auto shrink-0 rounded-full p-0.5 text-muted-foreground hover-elevate hover:text-foreground"
           aria-label={`View description of ${race.name}`}
+          title={`Read the full entry for ${race.name}.`}
           data-testid={`button-info-race-${race.id}`}
         >
           <Info className="h-3.5 w-3.5" />
@@ -176,7 +178,7 @@ export function StepRace({
             The base creature every template and class level applies on top of. Turned-off races are hidden
             from this picker; their off state is kept. Some races come from monster-book entries — playable,
             but they start with racial Hit Dice and level adjustments. Source:{" "}
-            <a href="https://www.d20srd.org/srd/races/" target="_blank" rel="noreferrer" className="text-primary underline underline-offset-2">
+            <a href="https://www.d20srd.org/srd/races/" target="_blank" rel="noreferrer" title="Open the d20 SRD races page in a new tab." className="text-primary underline underline-offset-2">
               d20 SRD Races
             </a>
             .

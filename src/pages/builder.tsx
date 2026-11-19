@@ -117,6 +117,28 @@ const STEPS = [
 
 type StepId = (typeof STEPS)[number]["id"];
 
+// Hover help (Shaun's game-system-wide directive, 2026-11-18): one plain
+// sentence per step tab, saying what that step is for.
+const STEP_HOVER: Record<string, string> = {
+  reference: "Open Player Reference — look up any race, class, feat, spell, item, or rule in the whole catalog.",
+  abilities: "Step 3, Abilities — roll or place the character's six ability scores.",
+  race: "Step 4, Race — choose the character's race and apply its traits.",
+  classes: "Step 5, Classes — add class levels, the character's main progression.",
+  skills: "Step 6, Skills — spend skill points and set the character's skill ranks.",
+  templates: "Step 7, Templates — apply templates that change the character's type, powers, and level adjustment.",
+  feats: "Step 8, Feats — pick the feats the character qualifies for.",
+  spells: "Step 9, Spells — choose the spells the character knows or prepares.",
+  prestige: "Step 10, Prestige Classes — add prestige class levels once their requirements are met.",
+  equipment: "Step 11, Equipment — buy and record ordinary gear, weapons, and armor.",
+  "magic-items": "Step 12, Magic Items — add magic items the character owns.",
+  psionics: "Step 13, Psionics — choose psionic powers for a character with a psionic class.",
+  inventory: "Step 14, Inventory — everything the character carries, with equipped items marked.",
+  personality: "Step 15, Personality — the character's traits, manner, and story details.",
+  sheet: "Step 16, Character Sheet — the finished character, all numbers resolved.",
+  "item-creation": "Open Magic Item Creation — the methods and costs for making magic and alchemical items.",
+  spelljamming: "Open Spelljamming — how ships, helms, and travel through space work.",
+};
+
 /**
  * The ten boxes at the top of the site, in their PERMANENT order —
  * Shaun's own arrangement, baked in at his order (2026-11-03).
@@ -789,14 +811,14 @@ export default function Builder() {
       </span>
     ),
     theme: (
-      <Button variant="outline" size="sm" className="px-1.5 sm:px-3" onClick={toggleTheme} aria-label="Toggle dark/light theme" data-testid="button-theme-toggle">
+      <Button variant="outline" size="sm" className="px-1.5 sm:px-3" onClick={toggleTheme} aria-label="Toggle dark/light theme" title="Switch the whole page between its dark and light look." data-testid="button-theme-toggle">
         <Sun className="h-3.5 w-3.5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
         <Moon className="absolute h-3.5 w-3.5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
       </Button>
     ),
     ambience: (
       <span className="inline-flex items-center gap-1.5">
-        <Button variant="outline" size="sm" className="px-1.5 sm:px-3" onClick={() => setAmbienceOn((v) => !v)} aria-pressed={ambienceOn} aria-label="Toggle background animation and ambient sound" data-testid="button-ambience-toggle">
+        <Button variant="outline" size="sm" className="px-1.5 sm:px-3" onClick={() => setAmbienceOn((v) => !v)} aria-pressed={ambienceOn} aria-label="Toggle background animation and ambient sound" title="Turn the moving background and ambient sound on or off." data-testid="button-ambience-toggle">
           {ambienceOn ? <Volume2 className="h-3.5 w-3.5 sm:mr-1.5" /> : <VolumeX className="h-3.5 w-3.5 sm:mr-1.5" />}
           <span className="hidden sm:inline">Ambience</span>
         </Button>
@@ -809,6 +831,7 @@ export default function Builder() {
             onChange={(e) => setAmbienceVolume(Number(e.target.value) / 100)}
             className="w-10 accent-amber-500 sm:w-20"
             aria-label="Ambience volume"
+            title="Slide to set how loud the ambient sound plays."
             data-testid="ambience-volume-slider"
           />
         ) : null}
@@ -839,6 +862,7 @@ export default function Builder() {
             description: `${build.name || "character"}.blendcrafter.json was downloaded — Import brings it back.`,
           });
         }}
+        title="Download this character as a file — Import brings the same character back."
         data-testid="button-export-character"
       >
         <Download className="h-3.5 w-3.5 sm:mr-1.5" />
@@ -846,19 +870,19 @@ export default function Builder() {
       </Button>
     ),
     "copy-build": (
-      <Button variant="outline" size="sm" className="px-1.5 sm:px-3" onClick={() => void handleCopyBuildLink()} data-testid="button-copy-build-link">
+      <Button variant="outline" size="sm" className="px-1.5 sm:px-3" onClick={() => void handleCopyBuildLink()} title="Copy a link that reopens this exact character build." data-testid="button-copy-build-link">
         <Link2 className="h-3.5 w-3.5 sm:mr-1.5" />
         <span className="hidden sm:inline">Copy build link</span>
       </Button>
     ),
     "copy-settings": (
-      <Button variant="outline" size="sm" className="px-1.5 sm:px-3" onClick={() => void handleCopySettingsLink()} data-testid="button-copy-settings-link">
+      <Button variant="outline" size="sm" className="px-1.5 sm:px-3" onClick={() => void handleCopySettingsLink()} title="Copy a link that carries your ruleset and house-rule settings." data-testid="button-copy-settings-link">
         <SlidersHorizontal className="h-3.5 w-3.5 sm:mr-1.5" />
         <span className="hidden sm:inline">Copy settings link</span>
       </Button>
     ),
     import: (
-      <Button variant="outline" size="sm" className="px-1.5 sm:px-3" onClick={() => importRef.current?.click()} data-testid="button-import-character">
+      <Button variant="outline" size="sm" className="px-1.5 sm:px-3" onClick={() => importRef.current?.click()} title="Load a character from an exported Blendcrafter file." data-testid="button-import-character">
         <Upload className="h-3.5 w-3.5 sm:mr-1.5" />
         <span className="hidden sm:inline">Import</span>
       </Button>
@@ -887,11 +911,23 @@ export default function Builder() {
     <div className={`app-backdrop min-h-dvh overflow-x-clip bg-background text-foreground${ambienceOn ? " bg-animated" : ""}`} data-scene={effectiveStep === "sheet" ? undefined : effectiveStep === "abilities" ? "race" : effectiveStep}>
       <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-2 px-4 py-1.5 sm:px-6">
-          <Link href="/" className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2" title="Blendcrafter — back to the top of the builder.">
             <Logo className="h-8 w-8 text-foreground" />
             <span className="font-display text-xl font-semibold">Blendcrafter</span>
           </Link>
           <VersionBadge />
+          {/* Discoverability marker (Shaun, 2026-11-18 — the same
+              gold "?" as the other game-system pages): its own
+              hover, and press-and-hold on touch, explains the
+              hover-help system so a first-time user can find the
+              help without being told. */}
+          <span
+            title="Hover any control to see what it does. On a phone or tablet, press and hold instead."
+            className="ml-1 flex h-5 w-5 cursor-help select-none items-center justify-center rounded-full border text-xs font-bold"
+            style={{ color: "#d4af37", borderColor: "#d4af37" }}
+          >
+            ?
+          </span>
           {/* The DM's controls (Shaun, 2026-11-07): the Edit Lock
               toggle and Reset layout, side by side in the header.
               Reset puts every piece back in its shipped place,
@@ -956,6 +992,13 @@ export default function Builder() {
         )}
       </header>
 
+      {/* Standing hover-help instruction line (Shaun, 2026-11-18 —
+          the help explains itself on every page of the game system):
+          every control carries its own explanation; this line says so. */}
+      <p className="mx-auto max-w-6xl px-4 pt-2 text-xs text-muted-foreground sm:px-6">
+        Hold any button — or hover on a computer — and it will explain what it does.
+      </p>
+
       {/* Bottom padding: just enough clear space
           at the foot of every page that the area's background scene
           shows unimpeded when he scrolls to the end. */}
@@ -996,7 +1039,7 @@ export default function Builder() {
               .filter((s) => s.id === "reference")
               .map((s) => (
                 <Piece key={s.id} pieceId="reference" layout="grid">
-                  <TabsTrigger value={s.id} data-testid={`tab-step-${s.id}`} className={"h-full w-full py-1.5 text-xs font-semibold sm:text-sm" + (dmArmed ? " pr-11" : "")}>
+                  <TabsTrigger value={s.id} data-testid={`tab-step-${s.id}`} title={STEP_HOVER[s.id]} className={"h-full w-full py-1.5 text-xs font-semibold sm:text-sm" + (dmArmed ? " pr-11" : "")}>
                     <span className="whitespace-normal text-center leading-tight">{s.label}</span>
                   </TabsTrigger>
                 </Piece>
@@ -1011,6 +1054,7 @@ export default function Builder() {
             <button
               type="button"
               onClick={toggleItemCreation}
+              title="Open Magic Item Creation — the methods and costs for making magic and alchemical items."
               data-testid="step-group-item-creation-toggle"
               className={
                 "inline-flex h-full w-full items-center justify-center rounded-sm px-2.5 py-1.5 font-display text-xs font-semibold leading-tight ring-offset-background transition-all sm:text-sm " +
@@ -1038,6 +1082,7 @@ export default function Builder() {
               type="button"
               onClick={toggleCreation}
               aria-expanded={creationOpen}
+              title="Open or close Character Creation — the numbered steps 1–16 that build a character."
               data-testid="step-group-character-creation-toggle"
               className={
                 "inline-flex h-full w-full items-center justify-center rounded-sm px-2.5 py-1.5 font-display text-xs font-semibold leading-tight ring-offset-background transition-all sm:text-sm " +
@@ -1068,6 +1113,7 @@ export default function Builder() {
             <button
               type="button"
               onClick={toggleSpelljamming}
+              title="Open Spelljamming — how ships, helms, and travel through space work."
               data-testid="step-group-spelljamming-toggle"
               className={
                 "inline-flex h-full w-full items-center justify-center rounded-sm px-2.5 py-1.5 font-display text-xs font-semibold leading-tight ring-offset-background transition-all sm:text-sm " +
@@ -1125,6 +1171,7 @@ export default function Builder() {
                       goTo("abilities");
                       toast({ title: "New character", description: "Started a fresh build." });
                     }}
+                    title="Start a brand-new character — clears the current build and zeroes every step."
                     data-testid="button-new-character"
                   >
                     <UserPlus className="mr-2 h-6 w-6" />
@@ -1152,6 +1199,7 @@ export default function Builder() {
                       id="character-name"
                       data-testid="input-character-name"
                       aria-label="Character name"
+                      title="Type the character's name — it heads the sheet and the saved build."
                       value={viewBuild.name}
                       onChange={(e) => viewCb.setName(e.target.value)}
                       className="h-8 w-44 border-0 bg-transparent px-0 font-display shadow-none focus-visible:ring-0 sm:w-56"
@@ -1173,6 +1221,7 @@ export default function Builder() {
                       <TabsTrigger
                         value={s.id}
                         data-testid={`tab-step-${s.id}`}
+                        title={STEP_HOVER[s.id]}
                         // Psionics gray-out: the
                         // Psionics step's button renders grayed when
                         // the build has no psionic class — the
@@ -1365,7 +1414,7 @@ export default function Builder() {
         </div>
 
         <div className={`${effectiveStep === "reference" || effectiveStep === "item-creation" || effectiveStep === "spelljamming" || effectiveStep === "abilities" || effectiveStep === "equipment" || effectiveStep === "magic-items" || effectiveStep === "inventory" || effectiveStep === "psionics" || effectiveStep === "sheet" ? "mt-2" : "mt-8"} flex items-center justify-between`}>
-          <Button variant="outline" size="sm" disabled={!prev} onClick={() => prev && goTo(prev.id)} data-testid="button-prev-step">
+          <Button variant="outline" size="sm" disabled={!prev} onClick={() => prev && goTo(prev.id)} title={prev ? `Go back to ${prev.label}, the step before this one.` : "Go back — there is no step before this one."} data-testid="button-prev-step">
             <ChevronLeft className="mr-1 h-4 w-4" /> {prev ? prev.label : "Back"}
           </Button>
           <span className="text-xs text-muted-foreground">
@@ -1377,7 +1426,7 @@ export default function Builder() {
                   ? "Section 4 of 4 — Spelljamming"
                   : "Section 3 of 4 — Character Creation"}
           </span>
-          <Button size="sm" disabled={!next} onClick={() => next && goTo(next.id)} data-testid="button-next-step">
+          <Button size="sm" disabled={!next} onClick={() => next && goTo(next.id)} title={next ? `Go on to ${next.label}, the next step.` : "Done — this is the last step."} data-testid="button-next-step">
             {next ? next.label : "Done"} <ChevronRight className="ml-1 h-4 w-4" />
           </Button>
         </div>

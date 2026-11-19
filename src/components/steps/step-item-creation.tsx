@@ -40,7 +40,7 @@ function NestBlock({ id, label, children, subZoneId }: { id: string; pieceId?: s
   return (
     <Piece pieceId={id} layout="grid" className="[&:has(details[open])]:col-span-2 lg:[&:has(details[open])]:col-span-1">
       <details id={id} className="sj-nest h-full rounded-md border border-border" data-testid={`item-creation-block-${id}`}>
-      <summary className={"flex cursor-pointer list-none items-center gap-2 px-2.5 py-2 font-display text-sm font-semibold [&::-webkit-details-marker]:hidden" + (dm ? " pr-12" : "")}>
+      <summary title={`Open or close the ${label} section.`} className={"flex cursor-pointer list-none items-center gap-2 px-2.5 py-2 font-display text-sm font-semibold [&::-webkit-details-marker]:hidden" + (dm ? " pr-12" : "")}>
         <ChevronRight className="sj-chevron h-4 w-4 shrink-0 transition-transform" />
         {label}
       </summary>
@@ -61,7 +61,7 @@ function SubNest({ id, label, children }: { id: string; pieceId?: string; label:
   return (
     <Piece pieceId={id} layout="grid" className="col-span-full">
       <details id={id} className="sj-nest h-full rounded-md border border-border/70 bg-muted/20" data-testid={`item-creation-subnest-${id}`}>
-      <summary className="flex cursor-pointer list-none items-center gap-2 px-2 py-1.5 font-display text-xs font-semibold uppercase tracking-wide [&::-webkit-details-marker]:hidden">
+      <summary title={`Open or close the ${label} section.`} className="flex cursor-pointer list-none items-center gap-2 px-2 py-1.5 font-display text-xs font-semibold uppercase tracking-wide [&::-webkit-details-marker]:hidden">
         <ChevronRight className="sj-chevron h-3.5 w-3.5 shrink-0 transition-transform" />
         {label}
       </summary>

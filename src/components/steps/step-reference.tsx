@@ -547,6 +547,7 @@ export function StepReference() {
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Look up anything — a feat, a spell, an item, a race…"
               className="h-10 pl-9 text-base"
+              title="Type to search the whole library — feats, spells, items, races, rules, everything."
               data-testid="input-reference-search"
             />
           </div>
@@ -574,7 +575,7 @@ export function StepReference() {
               results below still open at full size. */}
           <Zone zoneId="reference-categories" className="grid grid-cols-2 gap-0.5">
             <Piece pieceId="cat-all" layout="grid">
-              <Button size="sm" className="min-h-6 w-full whitespace-normal px-1.5 py-0.5 text-xs leading-tight" variant={category === "all" ? "default" : "outline"} onClick={() => pickCategory("all")}>
+              <Button size="sm" className="min-h-6 w-full whitespace-normal px-1.5 py-0.5 text-xs leading-tight" variant={category === "all" ? "default" : "outline"} title="Browse the whole library at once — every category together." onClick={() => pickCategory("all")}>
                 All ({TOTAL_ROWS.toLocaleString()})
               </Button>
             </Piece>
@@ -584,6 +585,7 @@ export function StepReference() {
                   size="sm"
                   variant={category === c.key ? "default" : "outline"}
                   className={c.disabled ? "min-h-6 w-full whitespace-normal px-1.5 py-0.5 text-xs leading-tight text-muted-foreground line-through opacity-60" : "min-h-6 w-full whitespace-normal px-1.5 py-0.5 text-xs leading-tight"}
+                  title={c.disabled ? `${c.label} is not available in APOC.` : `Browse ${c.label} — ${c.rows.length.toLocaleString()} entries.`}
                   onClick={() => pickCategory(c.key)}
                 >
                   {c.label} ({c.rows.length.toLocaleString()})
@@ -601,6 +603,7 @@ export function StepReference() {
                   size="sm"
                   className="w-full text-sm"
                   variant={subcategory === "all" ? "default" : "outline"}
+                  title={`Show all of ${activeCategory.label} — every subcategory together.`}
                   onClick={() => setSubcategory("all")}
                   data-testid="button-reference-subcategory-all"
                 >
@@ -613,6 +616,7 @@ export function StepReference() {
                     size="sm"
                     className={activeCategory.disabled ? "w-full text-sm text-muted-foreground line-through opacity-60" : "w-full text-sm"}
                     variant={subcategory === s.label ? "default" : "outline"}
+                    title={`Show only the ${s.label} entries — ${s.count.toLocaleString()} of them.`}
                     onClick={() => setSubcategory(s.label)}
                     data-testid={`button-reference-subcategory-${s.label.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
                   >
@@ -652,7 +656,7 @@ export function StepReference() {
                 {resultGroups.map((g) => (
                   <Piece key={g.label} pieceId={`group-${g.label.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`} layout="grid" className="[&:has(details[open])]:col-span-2">
                     <details className="sj-nest h-full rounded-md border border-border" data-testid={`reference-results-group-${g.label.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}>
-                    <summary className="flex cursor-pointer list-none items-center gap-2 px-2.5 py-2 font-display text-sm font-semibold [&::-webkit-details-marker]:hidden">
+                    <summary title={`Open or close the ${g.label} results.`} className="flex cursor-pointer list-none items-center gap-2 px-2.5 py-2 font-display text-sm font-semibold [&::-webkit-details-marker]:hidden">
                       <ChevronRight className="sj-chevron h-4 w-4 shrink-0 transition-transform" />
                       {g.label} ({g.rows.length})
                     </summary>
@@ -666,6 +670,7 @@ export function StepReference() {
                                 ? "flex w-full items-center justify-between gap-3 py-1.5 text-left text-muted-foreground line-through opacity-60 hover:bg-muted/50"
                                 : "flex w-full items-center justify-between gap-3 py-1.5 text-left hover:bg-muted/50"
                             }
+                            title={row.disabled ? `${row.name} is not available in APOC.` : `Open the full entry for ${row.name}.`}
                             onClick={() => setDetail(row.makeDetail())}
                           >
                             <span className="min-w-0">
@@ -691,6 +696,7 @@ export function StepReference() {
                           ? "flex w-full items-center justify-between gap-3 py-1.5 text-left text-muted-foreground line-through opacity-60 hover:bg-muted/50"
                           : "flex w-full items-center justify-between gap-3 py-1.5 text-left hover:bg-muted/50"
                       }
+                      title={row.disabled ? `${row.name} is not available in APOC.` : `Open the full entry for ${row.name}.`}
                       onClick={() => setDetail(row.makeDetail())}
                     >
                       <span className="min-w-0">

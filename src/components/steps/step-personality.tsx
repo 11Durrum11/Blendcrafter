@@ -80,10 +80,10 @@ export function StepPersonality({ build, resolved, onChange }: Props) {
       <CardContent className="space-y-5">
         <p className="text-sm text-muted-foreground">This tab builds a persistent personality from the character's actual Blendcrafter mechanics plus weighted life-history inputs. Changing the character's race, class, abilities, feats, or level changes the generated psychology.</p>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <Field label="Age"><Input type="number" min="1" max="1000" value={p.age} onChange={e=>set("age", Number(e.target.value)||1)}/></Field>
-          <Field label="Alignment"><select className="h-10 w-full rounded-md border border-input bg-background px-3 text-sm" value={p.alignment} onChange={e=>set("alignment",e.target.value)}>{alignments.map(x=><option key={x}>{x}</option>)}</select></Field>
-          <Field label="Background"><select className="h-10 w-full rounded-md border border-input bg-background px-3 text-sm" value={p.background} onChange={e=>set("background",e.target.value)}>{backgrounds.map(x=><option key={x}>{x}</option>)}</select></Field>
-          <Field label="Family Status"><select className="h-10 w-full rounded-md border border-input bg-background px-3 text-sm" value={p.familyStatus} onChange={e=>set("familyStatus",e.target.value)}>{families.map(x=><option key={x}>{x}</option>)}</select></Field>
+          <Field label="Age"><Input type="number" min="1" max="1000" value={p.age} title="Type the character's age in years." onChange={e=>set("age", Number(e.target.value)||1)}/></Field>
+          <Field label="Alignment"><select className="h-10 w-full rounded-md border border-input bg-background px-3 text-sm" value={p.alignment} title="Choose the character's alignment — it colors the generated personality." onChange={e=>set("alignment",e.target.value)}>{alignments.map(x=><option key={x}>{x}</option>)}</select></Field>
+          <Field label="Background"><select className="h-10 w-full rounded-md border border-input bg-background px-3 text-sm" value={p.background} title="Choose the character's background — where they come from feeds the generated life history." onChange={e=>set("background",e.target.value)}>{backgrounds.map(x=><option key={x}>{x}</option>)}</select></Field>
+          <Field label="Family Status"><select className="h-10 w-full rounded-md border border-input bg-background px-3 text-sm" value={p.familyStatus} title="Choose the character's family status." onChange={e=>set("familyStatus",e.target.value)}>{families.map(x=><option key={x}>{x}</option>)}</select></Field>
         </div>
         <div className="grid gap-5 md:grid-cols-2">
           <Range label={`Social Standing: ${p.socialStanding}/10`} value={p.socialStanding} min={1} max={10} onChange={v=>set("socialStanding",v)}/>
@@ -92,15 +92,15 @@ export function StepPersonality({ build, resolved, onChange }: Props) {
           <Range label={`Public Reputation: ${p.publicReputation >= 0 ? "+" : ""}${p.publicReputation}`} value={p.publicReputation} min={-5} max={5} onChange={v=>set("publicReputation",v)}/>
         </div>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          <Field label="Religion"><Input value={p.religion} onChange={e=>set("religion",e.target.value)} placeholder="Deity, philosophy, or none"/></Field>
-          <Field label="Faction / Guild"><Input value={p.factionGuild} onChange={e=>set("factionGuild",e.target.value)} /></Field>
-          <Field label="Occupation"><Input value={p.occupation} onChange={e=>set("occupation",e.target.value)} /></Field>
-          <Field label="Allies"><Textarea value={p.allies} onChange={e=>set("allies",e.target.value)} placeholder="People, organizations, patrons..."/></Field>
-          <Field label="Enemies"><Textarea value={p.enemies} onChange={e=>set("enemies",e.target.value)} placeholder="Rivals, organizations, grudges..."/></Field>
-          <Field label="Trauma"><Textarea value={p.trauma} onChange={e=>set("trauma",e.target.value)} placeholder="Defining loss, betrayal, war, disaster..."/></Field>
-          <Field label="Goals"><Textarea value={p.goals} onChange={e=>set("goals",e.target.value)} /></Field>
-          <Field label="Secrets"><Textarea value={p.secrets} onChange={e=>set("secrets",e.target.value)} /></Field>
-          <Field label="Current Circumstances"><Textarea value={p.circumstances} onChange={e=>set("circumstances",e.target.value)} placeholder="What is happening right now?"/></Field>
+          <Field label="Religion"><Input value={p.religion} title="Type the character's deity, philosophy, or none." onChange={e=>set("religion",e.target.value)} placeholder="Deity, philosophy, or none"/></Field>
+          <Field label="Faction / Guild"><Input value={p.factionGuild} title="Type the faction or guild the character belongs to." onChange={e=>set("factionGuild",e.target.value)} /></Field>
+          <Field label="Occupation"><Input value={p.occupation} title="Type the character's occupation." onChange={e=>set("occupation",e.target.value)} /></Field>
+          <Field label="Allies"><Textarea value={p.allies} title="List the character's allies — people, organizations, patrons." onChange={e=>set("allies",e.target.value)} placeholder="People, organizations, patrons..."/></Field>
+          <Field label="Enemies"><Textarea value={p.enemies} title="List the character's enemies, rivals, and grudges." onChange={e=>set("enemies",e.target.value)} placeholder="Rivals, organizations, grudges..."/></Field>
+          <Field label="Trauma"><Textarea value={p.trauma} title="Describe the defining loss or trauma that shaped the character." onChange={e=>set("trauma",e.target.value)} placeholder="Defining loss, betrayal, war, disaster..."/></Field>
+          <Field label="Goals"><Textarea value={p.goals} title="Describe what the character wants and works toward." onChange={e=>set("goals",e.target.value)} /></Field>
+          <Field label="Secrets"><Textarea value={p.secrets} title="Describe the secrets the character keeps." onChange={e=>set("secrets",e.target.value)} /></Field>
+          <Field label="Current Circumstances"><Textarea value={p.circumstances} title="Describe what is happening in the character's life right now." onChange={e=>set("circumstances",e.target.value)} placeholder="What is happening right now?"/></Field>
         </div>
         {/* The picked boxes live here, under Goals and Secrets
             (Shaun, 2026-11-02), each entry shown fully crunched out.
@@ -121,7 +121,7 @@ export function StepPersonality({ build, resolved, onChange }: Props) {
           <CardTitle className="font-display">Flaws & Traits</CardTitle>
           <div className="flex items-center gap-2">
             {picksDirty && <span className="text-xs font-medium text-amber-500" data-testid="text-unconfirmed-picks">Unconfirmed picks</span>}
-            <Button type="button" size="sm" onClick={confirmPicks} disabled={!picksDirty} data-testid="button-confirm-flawtraits">
+            <Button type="button" size="sm" onClick={confirmPicks} disabled={!picksDirty} title={picksDirty ? "Confirm the staged flaw and trait picks — they land in the boxes above and their crunch applies to the character." : "Your picks are confirmed — tick names below to change them."} data-testid="button-confirm-flawtraits">
               {picksDirty ? "Confirm picks" : "Confirmed"}
             </Button>
           </div>
@@ -136,7 +136,7 @@ export function StepPersonality({ build, resolved, onChange }: Props) {
 
     <Card><CardHeader><CardTitle className="font-display">Numeric Influence Weights</CardTitle></CardHeader><CardContent className="grid gap-6 md:grid-cols-3">{weightGroups.map(([title, keys])=><div key={title} className="space-y-4"><h3 className="text-sm font-semibold">{title}</h3>{keys.map(k=><Range key={k} label={`${labelize(k)}: ${p.weights[k]}/10`} value={p.weights[k]} min={0} max={10} onChange={v=>setWeight(k,v)}/>)}</div>)}</CardContent></Card>
 
-    <div className="flex flex-wrap gap-2"><Button onClick={generate}><Sparkles className="mr-2 h-4 w-4"/>Generate Personality</Button><Button variant="outline" onClick={randomize}><Dices className="mr-2 h-4 w-4"/>Randomize Weights & Social Inputs</Button></div>
+    <div className="flex flex-wrap gap-2"><Button onClick={generate} title="Generate the personality profile from everything above and save it on the character."><Sparkles className="mr-2 h-4 w-4"/>Generate Personality</Button><Button variant="outline" onClick={randomize} title="Randomize every influence weight and the social inputs in one roll."><Dices className="mr-2 h-4 w-4"/>Randomize Weights & Social Inputs</Button></div>
 
     <Card><CardHeader><CardTitle className="font-display">Generated NPC Profile</CardTitle></CardHeader><CardContent>
       {!snapshot ? (
@@ -174,7 +174,7 @@ function PickedBox({title,items,selectedIds,onRemove,onShowDetail,testidPrefix}:
   const [open, setOpen] = useState(false);
   const head = (
     <h4 className="shrink-0 font-display text-base font-semibold">
-      <button type="button" className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-left" onClick={()=>setOpen(v=>!v)} aria-expanded={open} data-testid={`picked-toggle-${testidPrefix}`}>
+      <button type="button" className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-left" onClick={()=>setOpen(v=>!v)} aria-expanded={open} title={open ? `Close your ${title} box.` : `Open your ${title} box — every pick written out in full.`} data-testid={`picked-toggle-${testidPrefix}`}>
         {open ? <ChevronDown className="h-4 w-4 shrink-0 text-muted-foreground"/> : <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground"/>}
         <span>Your {title} <span className="font-normal text-muted-foreground">({picked.length} picked)</span></span>
         <span className="font-sans text-xs font-normal text-muted-foreground">{open ? "(click the title to close)" : "(click the title to open)"}</span>
@@ -196,10 +196,10 @@ function PickedBox({title,items,selectedIds,onRemove,onShowDetail,testidPrefix}:
       {picked.map(item=><div key={item.id} className="rounded-md border border-card-border bg-card p-3" data-testid={`picked-${testidPrefix}-${item.id}`}>
         <div className="flex items-start justify-between gap-2">
           <span className="flex items-center gap-2">
-            <button type="button" className="text-left font-semibold underline-offset-2 hover:underline" onClick={()=>onShowDetail(item)} data-testid={`picked-name-${testidPrefix}-${item.id}`}>{item.name}</button>
+            <button type="button" className="text-left font-semibold underline-offset-2 hover:underline" onClick={()=>onShowDetail(item)} title={`Read the full entry for ${item.name}.`} data-testid={`picked-name-${testidPrefix}-${item.id}`}>{item.name}</button>
             {item.modifiers && item.modifiers.length > 0 && <Badge variant="secondary" className="text-[10px]">Mechanical effect</Badge>}
           </span>
-          <Button type="button" size="sm" variant="outline" className="h-6 shrink-0 text-xs" onClick={()=>onRemove(item.id)} data-testid={`picked-remove-${testidPrefix}-${item.id}`}>Remove</Button>
+          <Button type="button" size="sm" variant="outline" className="h-6 shrink-0 text-xs" onClick={()=>onRemove(item.id)} title={`Remove ${item.name} from the character.`} data-testid={`picked-remove-${testidPrefix}-${item.id}`}>Remove</Button>
         </div>
         {item.prerequisite && <p className="mt-1 text-xs text-muted-foreground"><span className="font-medium text-foreground">Prerequisite:</span> {item.prerequisite}</p>}
         <p className="mt-1 text-sm leading-6">{item.description}</p>
@@ -216,22 +216,22 @@ function FlawTraitPicker({title,items,selectedIds,query,onQuery,onToggle,onShowD
   const sorted = [...visible].sort((a,b)=>(Number(selectedIds.includes(b.id))-Number(selectedIds.includes(a.id)))||a.name.localeCompare(b.name));
   return <div className={open ? "space-y-2 min-h-[100dvh] w-screen ml-[calc(50%-50vw)] px-3 py-2" : "space-y-2"} data-testid={`picker-${testidPrefix}`}>
     <h3 className="text-base font-semibold">
-      <button type="button" className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-left" onClick={()=>setOpen(v=>!v)} aria-expanded={open} data-testid={`picker-toggle-${testidPrefix}`}>
+      <button type="button" className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-left" onClick={()=>setOpen(v=>!v)} aria-expanded={open} title={open ? `Close the ${title} list.` : `Open the ${title} list — tick names to stage picks, then Confirm.`} data-testid={`picker-toggle-${testidPrefix}`}>
         {open ? <ChevronDown className="h-4 w-4 shrink-0 text-muted-foreground"/> : <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground"/>}
         <span>{title} <span className="font-normal text-muted-foreground">({selectedIds.length} selected · {items.length} in the library)</span></span>
         <span className="text-xs font-normal text-muted-foreground">{open ? "(click the title to close)" : "(click the title to open the list)"}</span>
       </button>
     </h3>
     {open && <>
-    <Input value={query} onChange={e=>onQuery(e.target.value)} placeholder={`Search ${title.toLowerCase()}…`} className="h-8" data-testid={`input-${testidPrefix}-search`} />
+    <Input value={query} onChange={e=>onQuery(e.target.value)} placeholder={`Search ${title.toLowerCase()}…`} className="h-8" title={`Type to filter the ${title} list by name.`} data-testid={`input-${testidPrefix}-search`} />
     {/* Names only, four across (Shaun, 2026-11-02): the initial list
         shows just each flaw/trait name to save space; everything
         else — summary, full description, prerequisite, source —
         lives in the click (the name opens the detail dialog). */}
     <div className="grid grid-cols-2 gap-1 rounded-md border border-card-border p-2 md:grid-cols-4">
       {sorted.map(item=><label key={item.id} className="flex cursor-pointer items-start gap-1.5 rounded p-1.5 hover:bg-muted/40" data-testid={`${testidPrefix}-option-${item.id}`}>
-        <input type="checkbox" className="mt-0.5 shrink-0 accent-primary" checked={selectedIds.includes(item.id)} onChange={()=>onToggle(item.id)} />
-        <button type="button" className="text-left text-sm font-medium leading-tight underline-offset-2 hover:underline" onClick={(e)=>{e.preventDefault();e.stopPropagation();onShowDetail(item);}} data-testid={`${testidPrefix}-name-${item.id}`}>{item.name}</button>
+        <input type="checkbox" className="mt-0.5 shrink-0 accent-primary" checked={selectedIds.includes(item.id)} title={selectedIds.includes(item.id) ? `Unstage ${item.name}.` : `Stage ${item.name} as a pick — Confirm lands it on the character.`} onChange={()=>onToggle(item.id)} />
+        <button type="button" className="text-left text-sm font-medium leading-tight underline-offset-2 hover:underline" onClick={(e)=>{e.preventDefault();e.stopPropagation();onShowDetail(item);}} title={`Read the full entry for ${item.name}.`} data-testid={`${testidPrefix}-name-${item.id}`}>{item.name}</button>
       </label>)}
       {sorted.length===0 && <p className="col-span-full p-1 text-sm text-muted-foreground">No matches.</p>}
     </div>
@@ -239,7 +239,7 @@ function FlawTraitPicker({title,items,selectedIds,query,onQuery,onToggle,onShowD
   </div>;
 }
 function Field({label,children}:{label:string;children:ReactNode}){return <div className="space-y-1.5"><Label>{label}</Label>{children}</div>}
-function Range({label,value,min,max,onChange}:{label:string;value:number;min:number;max:number;onChange:(n:number)=>void}){return <div className="space-y-1.5"><div className="flex justify-between text-xs"><span>{label}</span></div><input className="w-full accent-primary" type="range" min={min} max={max} value={value} onChange={e=>onChange(Number(e.target.value))}/></div>}
+function Range({label,value,min,max,onChange}:{label:string;value:number;min:number;max:number;onChange:(n:number)=>void}){return <div className="space-y-1.5"><div className="flex justify-between text-xs"><span>{label}</span></div><input className="w-full accent-primary" type="range" min={min} max={max} value={value} title={`Slide to set ${label.split(":")[0].toLowerCase()} — how hard it pulls on the generated personality.`} onChange={e=>onChange(Number(e.target.value))}/></div>}
 function Section({title,children}:{title:string;children:ReactNode}){return <div><h3 className="mb-1 font-semibold text-primary">{title}</h3><div>{children}</div></div>}
 function List({items}:{items:string[]}){return <ul className="list-disc space-y-1 pl-5">{items.map((x,i)=><li key={i}>{x}</li>)}</ul>}
 function labelize(s:string){return s.replace(/([A-Z])/g," $1").replace(/^./,c=>c.toUpperCase())}

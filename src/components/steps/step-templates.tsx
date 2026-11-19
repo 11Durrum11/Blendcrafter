@@ -106,7 +106,7 @@ export function StepTemplates({ templates, baseType, enabledRulesets, onAdd, onR
           <CardDescription>
             Choose monster templates as an <strong>ordered</strong> list. Per SRD rule, inherited templates (e.g. Half-Dragon, Lycanthrope)
             must be applied before acquired templates (e.g. Vampire, Ghost). Source:{" "}
-            <a href="https://www.d20srd.org/srd/improvingMonsters.htm" target="_blank" rel="noreferrer" className="text-primary underline underline-offset-2">
+            <a href="https://www.d20srd.org/srd/improvingMonsters.htm" target="_blank" rel="noreferrer" title="Open the d20 SRD improving monsters page in a new tab." className="text-primary underline underline-offset-2">
               Improving Monsters
             </a>
             .
@@ -145,7 +145,7 @@ export function StepTemplates({ templates, baseType, enabledRulesets, onAdd, onR
                   {hasError && <AlertTriangle className="h-3.5 w-3.5" />}
                   {def.forms && def.forms.length > 0 && (
                     <Select value={choice.formId ?? def.forms[0].id} onValueChange={(v) => onSetForm(choice.templateId, v)}>
-                      <SelectTrigger className="h-6 w-32 text-xs" data-testid={`select-form-${choice.templateId}`}>
+                      <SelectTrigger className="h-6 w-32 text-xs" title={`Choose which form of ${def.name} applies to the character.`} data-testid={`select-form-${choice.templateId}`}>
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
@@ -162,6 +162,7 @@ export function StepTemplates({ templates, baseType, enabledRulesets, onAdd, onR
                     onClick={() => onReorder(choice.templateId, -1)}
                     disabled={idx === 0}
                     aria-label={`Move ${def.name} earlier`}
+                    title={`Move ${def.name} earlier in the template order — order decides which template's rules win.`}
                     className="rounded p-0.5 hover-elevate disabled:opacity-30"
                     data-testid={`button-move-up-${choice.templateId}`}
                   >
@@ -172,6 +173,7 @@ export function StepTemplates({ templates, baseType, enabledRulesets, onAdd, onR
                     onClick={() => onReorder(choice.templateId, 1)}
                     disabled={idx === perTemplateIssues.length - 1}
                     aria-label={`Move ${def.name} later`}
+                    title={`Move ${def.name} later in the template order — order decides which template's rules win.`}
                     className="rounded p-0.5 hover-elevate disabled:opacity-30"
                     data-testid={`button-move-down-${choice.templateId}`}
                   >
@@ -181,6 +183,7 @@ export function StepTemplates({ templates, baseType, enabledRulesets, onAdd, onR
                     type="button"
                     onClick={() => onRemove(choice.templateId)}
                     aria-label={`Remove ${def.name}`}
+                    title={`Remove the ${def.name} template from the character.`}
                     className="rounded p-0.5 hover-elevate"
                     data-testid={`button-remove-template-${choice.templateId}`}
                   >
@@ -227,6 +230,7 @@ export function StepTemplates({ templates, baseType, enabledRulesets, onAdd, onR
                     onClick={() => toggleExpanded(t.id)}
                     role="button"
                     aria-expanded={expanded}
+                    title={expanded ? `Close the ${t.name} summary.` : `Open the ${t.name} summary — what it changes, its CR and level adjustment.`}
                     data-testid={`button-expand-template-${t.id}`}
                   >
                     <div>
@@ -245,6 +249,7 @@ export function StepTemplates({ templates, baseType, enabledRulesets, onAdd, onR
                           }}
                           className="ml-auto shrink-0 rounded-full p-0.5 text-muted-foreground hover-elevate hover:text-foreground"
                           aria-label={`View description of ${t.name}`}
+                          title={`Read the full entry for the ${t.name} template.`}
                           data-testid={`button-info-template-${t.id}`}
                         >
                           <Info className="h-3.5 w-3.5" />
@@ -261,7 +266,7 @@ export function StepTemplates({ templates, baseType, enabledRulesets, onAdd, onR
                           <span>CR +{t.crModifier}</span>
                           <span>LA +{t.levelAdjustment}</span>
                         </div>
-                        <Button type="button" size="sm" onClick={() => onAdd(t.id)} data-testid={`button-add-template-${t.id}`}>
+                        <Button type="button" size="sm" onClick={() => onAdd(t.id)} title={`Apply the ${t.name} template to the character.`} data-testid={`button-add-template-${t.id}`}>
                           Add
                         </Button>
                       </div>

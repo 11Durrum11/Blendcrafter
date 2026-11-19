@@ -15,7 +15,7 @@ export default function NotFound() {
           <CardDescription>This corner of the dungeon isn't on the map.</CardDescription>
         </CardHeader>
         <CardContent>
-          <Button asChild>
+          <Button asChild title="Return to the character builder.">
             <Link href="/">Back to the Character Builder</Link>
           </Button>
         </CardContent>

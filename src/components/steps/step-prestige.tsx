@@ -153,6 +153,7 @@ export function StepPrestige({
                 onClick={() => setDetailClass(cls)}
                 className="min-w-0 text-left font-display text-base font-semibold leading-tight underline-offset-2 hover:underline"
                 aria-label={`View description of ${cls.name}`}
+                title={`Open the full breakdown for ${cls.name} — every level of its progression table and its class features.`}
                 data-testid={`button-info-prestige-${cls.id}`}
               >
                 {cls.name}
@@ -182,6 +183,7 @@ export function StepPrestige({
               className="h-6 w-6"
               disabled={!current}
               onClick={() => onRemovePrestige(cls.id)}
+              title={`Remove one level of ${cls.name}.`}
               data-testid={`button-remove-prestige-level-${cls.id}`}
               aria-label={`Remove a level of ${cls.name}`}
             >
@@ -194,6 +196,7 @@ export function StepPrestige({
               className="h-6 w-6"
               disabled={(current?.levels ?? 0) >= 10 || isDisabled || blocked}
               onClick={() => onAddPrestige(cls.id)}
+              title={blocked ? `${cls.name} stays locked until its prerequisites are met.` : `Add one level of ${cls.name}.`}
               data-testid={`button-add-prestige-level-${cls.id}`}
               aria-label={`Add a level of ${cls.name}`}
             >
@@ -216,6 +219,7 @@ export function StepPrestige({
               }}
               className="shrink-0 rounded-full p-0.5 text-muted-foreground hover-elevate hover:text-foreground"
               aria-label={`Full breakdown of ${cls.name}`}
+              title={`Open the full breakdown of ${cls.name} — prerequisites, every level of its table, and every class feature.`}
               data-testid={`button-breakdown-prestige-${cls.id}`}
             >
               <Info className="h-3.5 w-3.5" />
@@ -229,6 +233,7 @@ export function StepPrestige({
               className="shrink-0 rounded-full p-0.5 text-muted-foreground hover-elevate hover:text-foreground"
               aria-label={expanded ? `Collapse ${cls.name}` : `Expand ${cls.name}`}
               aria-expanded={expanded}
+              title={expanded ? `Hide the prerequisites of ${cls.name}.` : `Show the prerequisites of ${cls.name} and whether the character meets them.`}
               data-testid={`button-expand-prestige-${cls.id}`}
             >
               <ChevronDown className={cn("h-4 w-4 transition-transform", expanded && "rotate-180")} />
@@ -267,6 +272,7 @@ export function StepPrestige({
                         onCheckedChange={(checked) =>
                           onTogglePrestigeCertification(cls.id, entry.text, checked === true)
                         }
+                        title="Confirm by hand that the character meets this requirement — it cannot be checked automatically."
                         data-testid={`checkbox-certify-${cls.id}-${i}`}
                       />
                       <Label htmlFor={`certify-${cls.id}-${i}`} className="text-xs font-normal text-muted-foreground">
@@ -332,6 +338,7 @@ export function StepPrestige({
             onClick={() => setDetailClass(cls)}
             className="text-left text-sm font-medium leading-tight text-muted-foreground underline-offset-2 hover:underline"
             aria-label={`View description of ${cls.name}`}
+            title={`Open the full breakdown of ${cls.name}.`}
             data-testid={`button-info-prestige-${cls.id}`}
           >
             {cls.name}
@@ -342,6 +349,7 @@ export function StepPrestige({
             className="shrink-0 rounded-full p-0.5 text-muted-foreground hover-elevate hover:text-foreground"
             aria-label={expanded ? `Collapse ${cls.name}` : `Expand ${cls.name}`}
             aria-expanded={expanded}
+            title={expanded ? `Hide what ${cls.name} still requires.` : `Show what ${cls.name} still requires and what can be confirmed by hand.`}
             data-testid={`button-expand-prestige-${cls.id}`}
           >
             <ChevronDown className={cn("h-3.5 w-3.5 transition-transform", expanded && "rotate-180")} />
@@ -374,6 +382,7 @@ export function StepPrestige({
                     onCheckedChange={(checked) =>
                       onTogglePrestigeCertification(cls.id, entry.text, checked === true)
                     }
+                    title="Confirm by hand that the character meets this requirement — it cannot be checked automatically."
                     data-testid={`checkbox-certify-${cls.id}-${i}`}
                   />
                   <Label htmlFor={`certify-${cls.id}-${i}`} className="text-xs font-normal text-muted-foreground">

@@ -95,6 +95,7 @@ export function StepSheet({ character }: StepSheetProps) {
       className="shrink-0 rounded-full p-0.5 text-muted-foreground hover-elevate hover:text-foreground"
       aria-label={openSections.has(id) ? `Collapse ${label}` : `Expand ${label}`}
       aria-expanded={openSections.has(id)}
+      title={openSections.has(id) ? `Close the ${label} section of the sheet.` : `Open the ${label} section of the sheet.`}
       data-testid={`button-expand-sheet-${id}`}
     >
       <ChevronDown className={cn("h-4 w-4 transition-transform", openSections.has(id) && "rotate-180")} />
@@ -212,6 +213,7 @@ export function StepSheet({ character }: StepSheetProps) {
         size="sm"
         variant={sheetFormat === "builtin" ? "default" : "outline"}
         onClick={() => chooseFormat("builtin")}
+        title="Show the character sheet in the page's own built-in layout."
         data-testid="button-sheet-format-builtin"
       >
         Built-in sheet
@@ -221,6 +223,7 @@ export function StepSheet({ character }: StepSheetProps) {
         size="sm"
         variant={sheetFormat === "pdf" ? "default" : "outline"}
         onClick={() => chooseFormat("pdf")}
+        title="Show the classic printable sheet as an interactive PDF, filled in from this build."
         data-testid="button-sheet-format-pdf"
       >
         Interactive sheet (PDF)
@@ -259,6 +262,7 @@ export function StepSheet({ character }: StepSheetProps) {
                 type="button"
                 disabled={openBusy}
                 onClick={handleOpenSheet}
+                title="Fill the interactive sheet from this build and open it in the viewer below."
                 data-testid="button-open-interactive-sheet"
               >
                 {openBusy ? "Filling in your sheet…" : "Open the sheet"}
@@ -280,6 +284,7 @@ export function StepSheet({ character }: StepSheetProps) {
                     setSheetBusy(false);
                   }
                 }}
+                title="Download the filled-in interactive sheet as a PDF file."
                 data-testid="button-download-interactive-sheet"
               >
                 {sheetBusy ? "Filling in your sheet…" : "Download the filled sheet (PDF)"}
@@ -328,6 +333,7 @@ export function StepSheet({ character }: StepSheetProps) {
                   onClick={() => setSheetPage((n) => Math.max(1, n - 1))}
                   disabled={sheetPage <= 1}
                   aria-label="Previous sheet"
+                  title="Turn to the previous sheet page."
                   data-testid="button-sheet-prev"
                   className="opaque-surface absolute left-2 top-1/2 -translate-y-1/2 rounded-full border border-card-border p-1.5 shadow-md transition-opacity disabled:opacity-40"
                 >
@@ -338,6 +344,7 @@ export function StepSheet({ character }: StepSheetProps) {
                   onClick={() => setSheetPage((n) => Math.min(sheetPageCount, n + 1))}
                   disabled={sheetPage >= sheetPageCount}
                   aria-label="Next sheet"
+                  title="Turn to the next sheet page."
                   data-testid="button-sheet-next"
                   className="opaque-surface absolute right-2 top-1/2 -translate-y-1/2 rounded-full border border-card-border p-1.5 shadow-md transition-opacity disabled:opacity-40"
                 >

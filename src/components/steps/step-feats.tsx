@@ -178,6 +178,7 @@ export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved,
           checked={selected}
           disabled={isDisabled}
           onChange={() => onToggleFeat(feat.id, !selected)}
+          title={selected ? `Remove ${feat.name} from the character.` : `Give the character the ${feat.name} feat.`}
           data-testid={`checkbox-feat-${feat.id}`}
         />
         <Tooltip>
@@ -194,6 +195,7 @@ export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved,
                 e.stopPropagation();
                 setDetailFeat(feat);
               }}
+              title={`Open the full details for the ${feat.name} feat.`}
               data-testid={`feat-name-${feat.id}`}
             >
               {feat.name}
@@ -234,7 +236,7 @@ export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved,
               <span className="font-medium">click it</span> for the whole thing. Feats whose prerequisites don't
               look met are <span className="font-medium">grayed out</span> — prerequisites are shown as free text and are{" "}
               <span className="font-medium">not enforced</span>. Source:{" "}
-              <a href="https://www.d20srd.org/srd/feats.htm" target="_blank" rel="noreferrer" className="text-primary underline underline-offset-2">
+              <a href="https://www.d20srd.org/srd/feats.htm" target="_blank" rel="noreferrer" title="Open the d20 SRD feats page in a new tab." className="text-primary underline underline-offset-2">
                 d20 SRD Feats
               </a>
               .
@@ -256,6 +258,7 @@ export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved,
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search feats…"
                 className="h-8 pl-8"
+                title="Type to filter the feat list by name."
                 data-testid="input-feat-search"
               />
             </div>
@@ -298,6 +301,7 @@ export function StepFeats({ featIds, enabledRulesets, disabledFeatIds, resolved,
                     className="flex w-full items-center gap-2 text-left"
                     onClick={() => toggleSection(section.id)}
                     aria-expanded={expanded}
+                    title={expanded ? `Close the ${section.label} section.` : `Open the ${section.label} section — ${section.feats.length} feats.`}
                     data-testid={`feat-section-toggle-${section.id}`}
                   >
                     {expanded ? <ChevronDown className="h-4 w-4 shrink-0" /> : <ChevronRight className="h-4 w-4 shrink-0" />}

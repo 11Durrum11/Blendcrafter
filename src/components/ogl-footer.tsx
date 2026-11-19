@@ -14,7 +14,7 @@ export function OglFooter() {
           </div>
           <Dialog>
             <DialogTrigger asChild>
-              <Button variant="outline" size="sm" data-testid="button-about-ogl">
+              <Button variant="outline" size="sm" title="Open the About page — what Blendcrafter is and its Open Game License attribution." data-testid="button-about-ogl">
                 About &amp; Attribution
               </Button>
             </DialogTrigger>

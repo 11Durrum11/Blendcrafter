@@ -135,7 +135,7 @@ function NestBlock({ id, label, children, subZoneId }: { id: string; pieceId?: s
   return (
     <Piece pieceId={id} layout="grid" className="[&:has(details[open])]:col-span-2 lg:[&:has(details[open])]:col-span-3">
       <details id={id} className="sj-nest h-full rounded-md border border-border" data-testid={`psionics-block-${id}`}>
-      <summary className={"flex cursor-pointer list-none items-center gap-2 px-2 py-1.5 font-display text-[13px] font-semibold [&::-webkit-details-marker]:hidden" + (dm ? " pr-12" : "")}>
+      <summary title={`Open or close the ${label} section.`} className={"flex cursor-pointer list-none items-center gap-2 px-2 py-1.5 font-display text-[13px] font-semibold [&::-webkit-details-marker]:hidden" + (dm ? " pr-12" : "")}>
         <ChevronRight className="sj-chevron h-4 w-4 shrink-0 transition-transform" />
         {label}
       </summary>
@@ -157,7 +157,7 @@ function SubNest({ id, label, children }: { id: string; pieceId?: string; label:
   return (
     <Piece pieceId={id} layout="grid" className="col-span-full">
       <details id={id} className="sj-nest h-full rounded-md border border-border/70 bg-muted/20" data-testid={`psionics-subnest-${id}`}>
-      <summary className="flex cursor-pointer list-none items-center gap-2 px-2 py-1 font-display text-xs font-semibold uppercase tracking-wide [&::-webkit-details-marker]:hidden">
+      <summary title={`Open or close the ${label} section.`} className="flex cursor-pointer list-none items-center gap-2 px-2 py-1 font-display text-xs font-semibold uppercase tracking-wide [&::-webkit-details-marker]:hidden">
         <ChevronRight className="sj-chevron h-3.5 w-3.5 shrink-0 transition-transform" />
         {label}
       </summary>
@@ -272,6 +272,7 @@ export function StepPsionics({
           <button
             type="button"
             className={toggleBtnClass}
+            title={isSelected ? `Remove ${power.name} from the character's powers.` : `Add ${power.name} to the character's powers.`}
             data-testid={`psionics-power-toggle-${power.id}`}
             onClick={() => {
               if (isSelected) {
@@ -360,6 +361,7 @@ export function StepPsionics({
                     className="h-6 w-6"
                     disabled={!current || isDisabled}
                     onClick={() => onRemoveClass(c.id)}
+                    title={`Remove one level of ${c.name}.`}
                     data-testid={`psionics-class-remove-${c.id}`}
                     aria-label={`Remove a level of ${c.name}`}
                   >
@@ -373,6 +375,7 @@ export function StepPsionics({
                     className="h-6 w-6"
                     disabled={(current?.levels ?? 0) >= 10 || isDisabled}
                     onClick={() => onAddClass(c.id)}
+                    title={`Add one level of ${c.name}.`}
                     data-testid={`psionics-class-add-${c.id}`}
                     aria-label={`Add a level of ${c.name}`}
                   >
@@ -412,6 +415,7 @@ export function StepPsionics({
                       className="h-6 w-6"
                       disabled={!current}
                       onClick={() => onRemovePrestige(c.id)}
+                      title={`Remove one level of ${c.name}.`}
                       data-testid={`psionics-prestige-remove-${c.id}`}
                       aria-label={`Remove a level of ${c.name}`}
                     >
@@ -425,6 +429,7 @@ export function StepPsionics({
                       className="h-6 w-6"
                       disabled={(current?.levels ?? 0) >= 10 || isDisabled || blocked}
                       onClick={() => onAddPrestige(c.id)}
+                      title={`Add one level of ${c.name}.`}
                       data-testid={`psionics-prestige-add-${c.id}`}
                       aria-label={`Add a level of ${c.name}`}
                     >
@@ -449,6 +454,7 @@ export function StepPsionics({
                   <button
                     type="button"
                     className={toggleBtnClass}
+                    title={selected ? `Remove the ${f.name} feat from the character.` : `Give the character the ${f.name} feat.`}
                     data-testid={`psionics-feat-toggle-${f.id}`}
                     onClick={() => onToggleFeat(f.id, !selected)}
                   >
@@ -489,6 +495,7 @@ export function StepPsionics({
                 variant="outline"
                 className="mt-1.5 h-6 px-2 text-[11px]"
                 onClick={() => onAddInventory("magic-item", item.id)}
+                title={`Add the ${item.name} to the character's inventory.`}
                 data-testid={`psionics-item-add-${item.id}`}
               >
                 Add
@@ -510,6 +517,7 @@ export function StepPsionics({
                 variant="outline"
                 className="mt-1.5 h-6 px-2 text-[11px]"
                 onClick={() => onAddInventory("equipment", item.id)}
+                title={`Add the ${item.name} to the character's inventory.`}
                 data-testid={`psionics-equipment-add-${item.id}`}
               >
                 Add
