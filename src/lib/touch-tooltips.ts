@@ -1,11 +1,16 @@
 /**
  * Touch hover-help (Shaun's game-system-wide directive, 2026-11-18 —
  * the same standard as the hub pages): every control carries a `title`
- * with one plain sentence. Mouse pointers get the native hover title.
- * Touch has no hover, so on touch/pen pointers a press-and-hold
- * (~550ms) on a titled control shows that same title text in a bubble
- * WITHOUT the control firing; a quick tap works as normal; moving the
- * finger cancels the hold.
+ * with one plain sentence. Touch has no hover, so on touch/pen
+ * pointers a press-and-hold (~550ms) on a titled control shows that
+ * same title text in a bubble WITHOUT the control firing; a quick
+ * tap works as normal; moving the finger cancels the hold.
+ * Mouse hover (2026-11-21, hover-help enlargement): the mouse sees
+ * the same bubble at the same uniform size — hovering a titled
+ * control shows the bubble at once; the title is stashed while the
+ * bubble is up so the native tooltip does not double it, and
+ * restored when the pointer leaves. A hovered control still fires
+ * normally on click.
  *
  * Mechanics (mirroring the hub's tracker build):
  * - capture-phase pointerdown, touch/pen pointers only;
@@ -39,15 +44,15 @@ export function installTouchTooltips() {
       "position:fixed",
       "z-index:9999",
       "pointer-events:none",
-      "max-width:min(280px, calc(100vw - 24px))",
-      "padding:6px 10px",
+      "max-width:min(88vw, 450px)",
+      "padding:.8rem 1rem",
       "border-radius:6px",
       "background:hsl(var(--popover))",
       "color:hsl(var(--popover-foreground))",
       "border:1px solid hsl(var(--border))",
       "box-shadow:0 4px 16px rgba(0,0,0,0.35)",
-      "font-size:12px",
-      "line-height:1.35",
+      "font-size:1.3rem",
+      "line-height:1.4",
       "display:none",
     ].join(";");
     document.body.appendChild(bubble);
@@ -157,6 +162,49 @@ export function installTouchTooltips() {
       if (activePointerId === null) return;
       const target = e.target as Element | null;
       if (target?.closest?.("[title]")) e.preventDefault();
+    },
+    true,
+  );
+
+  /* Mouse hover: same bubble, same words, same size. */
+  let mouseEl: Element | null = null;
+  let mouseText = "";
+  const hideMouseBubble = () => {
+    if (mouseEl) {
+      mouseEl.setAttribute("title", mouseText);
+      mouseEl = null;
+      mouseText = "";
+    }
+    hideBubble();
+  };
+  window.addEventListener(
+    "pointerover",
+    (e) => {
+      if (e.pointerType !== "mouse") return;
+      if (mouseEl && mouseEl.contains(e.target as Node)) return;
+      const target = e.target as Element | null;
+      const titled = target?.closest?.("[title]");
+      if (titled === mouseEl) return;
+      hideMouseBubble();
+      const text = titled?.getAttribute("title")?.trim();
+      if (!titled || !text) return;
+      mouseEl = titled;
+      mouseText = text;
+      titled.removeAttribute("title");
+      showBubble(titled, text);
+    },
+    true,
+  );
+  window.addEventListener(
+    "pointerout",
+    (e) => {
+      if (e.pointerType !== "mouse") return;
+      if (
+        mouseEl &&
+        !(e.relatedTarget instanceof Node && mouseEl.contains(e.relatedTarget))
+      ) {
+        hideMouseBubble();
+      }
     },
     true,
   );
