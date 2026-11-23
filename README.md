@@ -193,3 +193,8 @@ Blendcrafter now includes a browser-local Character Repository backed by Indexed
 - **Update** overwrites the currently loaded repository entry with the current build.
 - Saved characters survive page reloads and browser restarts on the same browser profile.
 - The repository is separate from JSON Export/Import, so JSON files remain available for portable backups and sharing.
+
+
+---
+
+**LOCKDOWN (2026-11-23):** this site sits behind the shared APOC password gate (APOC-GATE v1, first in the head of index.html). Any rebuild of index.html must re-apply the gate or the page ships ungated — injector and snippet live in the workspace at ~/workspace/apoc-gate/ (inject.py + gate-snippet.html).
